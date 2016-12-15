@@ -118,7 +118,7 @@ set guioptions-=T
 
 "set foldmethod=syntax
 
-source /home/sergii/src/vim-fswitch/plugin/fswitch.vim
+"source /home/sergii/src/vim-fswitch/plugin/fswitch.vim
 
 highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
 
