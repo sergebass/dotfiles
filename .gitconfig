@@ -1,0 +1,41 @@
+[core]
+	pager = less -F -X
+
+[pager]
+#    status = false
+
+[user]
+	name = Sergii Perynskyi
+    email = sergebass@gmail.com
+
+[credential]
+    helper = cache
+
+[diff]
+	submodule = log
+    tool = vimdiff
+    guitool = meld
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+    ui = auto
+    pager = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
