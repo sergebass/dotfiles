@@ -1,6 +1,7 @@
 # temporary/backup files
 *.bak
-*.~
+*~
+*_
 \#*\#
 .\#*
 
