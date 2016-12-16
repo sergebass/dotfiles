@@ -43,7 +43,33 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
+
+# ANSI color codes
+RESET="\033[0m"
+BOLD="\033[1m"
+UNDERLINE="\033[4m"
+INVERT="\033[7m"
+
+FG_BLACK="\033[30m"
+FG_RED="\033[31m"
+FG_GREEN="\033[32m"
+FG_YELLOW="\033[33m"
+FG_BLUE="\033[34m"
+FG_MAGENTA="\033[35m"
+FG_CYAN="\033[36m"
+FG_WHITE="\033[37m"
+
+BG_BLACK="\033[40m"
+BG_RED="\033[41m"
+BG_GREEN="\033[42m"
+BG_YELLOW="\033[43m"
+BG_BLUE="\033[44m"
+BG_MAGENTA="\033[45m"
+BG_CYAN="\033[46m"
+BG_WHITE="\033[47m"
+
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -57,7 +83,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    #PS1="$RESET"'$(check-previous-result)'"$RESET$BOLD$FG_CYAN\t $FG_YELLOW\u$FG_WHITE@$FG_RED\h:\l $FG_BLUE\w $INVERT"'$(__git_ps1 "(%s)")'"$RESET $BOLD$FG_GREEN\\\$$RESET "
+    PS1="$RESET$BOLD$FG_CYAN\t $FG_YELLOW\u$FG_WHITE@$FG_RED\h:\l $FG_BLUE\w $BOLD$FG_GREEN\$$RESET "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -66,7 +93,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -115,3 +142,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PATH=~/bin:/usr/lib/ccache:$PATH
