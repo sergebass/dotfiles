@@ -35,6 +35,7 @@
 (setq backup-directory-alist '(("." . "~/emacs-backups")))
 
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 
 (require 'rainbow-delimiters)
 ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
@@ -61,7 +62,7 @@
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
-    (buffer-move buffer-flip wgrep bookmark+ rainbow-delimiters minimap auto-complete flycheck rtags magit powerline-evil window-numbering evil elpy clojure-mode-extra-font-locking clojure-cheatsheet)))
+    (highlight-symbol haskell-mode popup-complete jedi dired+ buffer-move buffer-flip wgrep bookmark+ rainbow-delimiters minimap auto-complete flycheck rtags magit powerline-evil window-numbering evil elpy clojure-mode-extra-font-locking clojure-cheatsheet)))
  '(save-place t nil (saveplace))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
@@ -71,7 +72,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :slant normal :weight normal :height 90 :width normal :foundry "PfEd")))))
+ '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 113 :width normal)))))
 
 ;; make undescore be considered a part of a word (make '*' highlight full identifiers, move faster etc.)
 ;; For python
@@ -102,6 +103,8 @@
 (setq elpy-rpc-python-command "/usr/bin/python3")
 (elpy-use-cpython "/usr/bin/python3")
 
+(setq elpy-rpc-backend "jedi")
+
 ;; Elpy key bindings and functions:
 ;; ---------------------------------
 ;; C-c C-f (elpy-find-file)
@@ -126,6 +129,11 @@
 ;; C-c C-r f (elpy-format-code)
 ;; C-c C-r i (elpy-importmagic-fixup)
 ;; C-c C-r r (elpy-refactor)
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
+(setq py-python-command "/usr/bin/python3")
 
 ;; ensure that we use only rtags checking
 ;; https://github.com/Andersbakken/rtags#optional-1
@@ -163,6 +171,8 @@
   ;; c-mode-common-hook is also called by c++-mode
   (add-hook 'c-mode-common-hook #'setup-flycheck-rtags))
 
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+
 ;; packages to install:
 ;; -------------------
 ;; rainbow-delimiters
@@ -175,3 +185,6 @@
 ;; company-mode
 ;; buffer-move
 ;; fill-column-indicator
+;; dired+
+;; jedi
+;; highlight-symbol
