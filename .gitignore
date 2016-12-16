@@ -5,3 +5,11 @@
 \#*\#
 .\#*
 
+# Intermediate compilation result files
+*.o
+*.a
+
+# compiled Xmonad binaries and error logs
+.xmonad/xmonad-x86_64-linux
+.xmonad/xmonad.errors
+.xmonad/xmonad.hi
