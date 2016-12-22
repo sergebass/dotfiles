@@ -16,6 +16,7 @@ myConfig = desktopConfig
         }
          `additionalKeys`
         [ ((myModMask .|. shiftMask, xK_z), spawn "slock")
+        , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
         , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
         , ((myModMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
         , ((0, 0x1008FF11), spawn "amixer set Master 5%-")
