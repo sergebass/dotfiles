@@ -10,14 +10,13 @@ myModMask = mod4Mask -- Use Super instead of Alt
 
 myConfig = desktopConfig
         { modMask = myModMask
-        -- , keys = myKeys
         , terminal = "xfce4-terminal"
         , borderWidth = 3
         , focusedBorderColor = "#FFB000" -- Orange-ish color
         , normalBorderColor = "#404040"
         }
          `additionalKeys`
-        [ ((myModMask .|. shiftMask, xK_z), spawn "slock")
+        [ ((myModMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
         , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
         , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
         , ((myModMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
@@ -27,7 +26,7 @@ myConfig = desktopConfig
         ]
 
 main = do
-  xmproc <- spawnPipe "hostname -s | /usr/bin/xmobar"
+  xmproc <- spawnPipe "xmobar"
   xmonad $ myConfig
         { manageHook = manageDocks <+> manageHook myConfig
         , layoutHook = avoidStruts  $  layoutHook myConfig
