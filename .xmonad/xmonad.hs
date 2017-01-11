@@ -1,7 +1,9 @@
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.Run(spawnPipe)
 import qualified Data.Map as M
 
 myModMask = mod4Mask -- Use Super instead of Alt
@@ -24,8 +26,9 @@ myConfig = desktopConfig
         , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
         ]
 
-myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
-
-toggleStrutsKey XConfig { XMonad.modMask = mod4Mask } = (mod4Mask, xK_b)
-
-main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
+main = do
+  xmproc <- spawnPipe "hostname -s | /usr/bin/xmobar"
+  xmonad $ myConfig
+        { manageHook = manageDocks <+> manageHook myConfig
+        , layoutHook = avoidStruts  $  layoutHook myConfig
+        }
