@@ -9,17 +9,17 @@ Config {
    , borderColor =  "#646464"
 
    -- general behavior
-   , lowerOnStart =     False    -- send to bottom of window stack on start
+   , lowerOnStart =     False   -- send to bottom of window stack on start
    , hideOnStart =      False   -- start with window unmapped (hidden)
    , allDesktops =      True    -- show on all desktops
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
-   , pickBroadest =     False   -- choose widest display (multi-monitor)
+   , pickBroadest =     True    -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %disku% | %dynnetwork% }{ %weather% | %date% | %kbd% | @%host%"
+   , template = "%StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %swap% | %disku% | %dynnetwork% | Up since %up% }{ %weather% | %date% | %kbd% | %whoami%@%hostname%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -37,7 +37,7 @@ Config {
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
    , commands = 
 
-        [ Run Com "/bin/hostname" [] "host" 0
+        [ Run Com "uptime" ["-s"] "up" 0
 
         , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
                              ] 36000
@@ -50,7 +50,7 @@ Config {
                          , "--high"     , "darkred"
                          ] 10
 
-        , Run MultiCpu [ "--template" , "Cpu: <total0> <total1> <total2> <total3>%"
+        , Run MultiCpu [ "--template" , "CPU: <total0> <total1> <total2> <total3>%"
                        , "--Low"      , "50"  -- units: %
                        , "--High"     , "85"  -- units: %
                        , "--low"      , "darkgreen"
@@ -58,7 +58,7 @@ Config {
                        , "--high"     , "darkred"
                        ] 10
 
-        , Run CoreTemp  [ "--template" , "Temp: <core0> <core1> <core2> <core3>°C"
+        , Run CoreTemp  [ "--template" , "t: <core0> <core1> <core2> <core3>°C"
                         , "--Low"      , "70"  -- units: °C
                         , "--High"     , "80"  -- units: °C
                         , "--low"      , "darkgreen"
@@ -66,7 +66,7 @@ Config {
                         , "--high"     , "darkred"
                         ] 50
                           
-        , Run Memory [ "--template" ,"Mem: <usedratio>%"
+        , Run Memory [ "--template" ,"RAM: <usedratio>%"
                      , "--Low"      , "20"  -- units: %
                      , "--High"     , "90"  -- units: %
                      , "--low"      , "darkgreen"
@@ -74,11 +74,16 @@ Config {
                      , "--high"     , "darkred"
                      ] 10
 
-        , Run DiskU [("/", "<used>/<size>"), ("sda1", "<usedbar>")]
-                    ["-L", "20", "-H", "50", "-m", "1", "-p", "3"]
+        , Run Swap [] 10
+
+        , Run DiskU [ ("/", "/=<free>")
+                    , ("/home", "/home=<free>")
+                    --, ("/var", "/var=<free>")
+                    ]
+                    ["-L", "10", "-H", "50", "-m", "1", "-p", "3"]
                     20
 
-        , Run Battery [ "--template" , "Batt: <acstatus>"
+        , Run Battery [ "--template" , "{+-} <acstatus>"
                       , "--Low"      , "10"        -- units: %
                       , "--High"     , "80"        -- units: %
                       , "--low"      , "darkred"
