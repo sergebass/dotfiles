@@ -39,7 +39,7 @@ Config {
 
         [ Run Com "uptime" ["-s"] "up" 0
 
-        , Run Com "/home/sergii/dotfiles/scripts/alsa-volume.sh" ["Master"] "volume" 5
+        , Run Com "/home/sergii/dotfiles/scripts/pulseaudio-volume.sh" ["Master"] "volume" 5
 
         , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
                              ] 36000
