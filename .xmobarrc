@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %swap% | %disku% | %dynnetwork% | Up since %up% }{ %weather% | %date% | %kbd% | %whoami%@%hostname%"
+   , template = "%StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %swap% | %disku% | %dynnetwork% | Up since %up% }{ %weather% | %date% | audio: %volume% | %kbd% | %whoami%@%hostname%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -38,6 +38,8 @@ Config {
    , commands = 
 
         [ Run Com "uptime" ["-s"] "up" 0
+
+        , Run Com "/home/sergii/dotfiles/scripts/alsa-volume.sh" ["Master"] "volume" 5
 
         , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
                              ] 36000
