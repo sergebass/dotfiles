@@ -1,7 +1,7 @@
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
 import qualified Data.Map as M
 
 myModMask = mod4Mask -- Use Super instead of Alt
@@ -19,9 +19,15 @@ myConfig = desktopConfig
         , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
         , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
         , ((myModMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
-        , ((0, 0x1008FF11), spawn "amixer set Master 5%-")
-        , ((0, 0x1008FF13), spawn "amixer set Master 5%+")
+        , ((myModMask .|. shiftMask, xK_Page_Up), spawn "amixer -D pulse set Master 5%+")
+        , ((myModMask .|. shiftMask, xK_Page_Down), spawn "amixer -D pulse set Master 5%-")
+        , ((0, 0x1008FF11), spawn "amixer -D pulse set Master 5%-")
+        , ((0, 0x1008FF13), spawn "amixer -D pulse set Master 5%+")
         , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
+        ]
+         `additionalKeysP`
+        [ ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%-")
+        , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+")
         ]
 
 myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
