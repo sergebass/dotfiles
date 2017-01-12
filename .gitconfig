@@ -6,7 +6,7 @@
 
 [user]
 	name = Sergii Perynskyi
-    email = sergebass@gmail.com
+    email = sergiip@annidis.com
 
 [credential]
     helper = cache
@@ -15,6 +15,14 @@
 	submodule = log
     tool = vimdiff
     guitool = meld
+
+[merge]
+    #tool = mymeld
+    tool = meld
+    conflictstyle = diff3
+
+#[mergetool "mymeld"]
+#    cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $REMOTE --diff $LOCAL $BASE $REMOTE --output $MERGED
 
 [color]
 	diff = auto
@@ -39,3 +47,6 @@
     added = yellow
     changed = green
     untracked = cyan
+
+[gitweb]
+    blame = true

@@ -1,7 +1,9 @@
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
+import XMonad.Util.Run(spawnPipe)
 import qualified Data.Map as M
 
 myModMask = mod4Mask -- Use Super instead of Alt
@@ -15,7 +17,7 @@ myConfig = desktopConfig
         , normalBorderColor = "#404040"
         }
          `additionalKeys`
-        [ ((myModMask .|. shiftMask, xK_z), spawn "slock")
+        [ ((myModMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
         , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
         , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
         , ((myModMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
@@ -30,8 +32,9 @@ myConfig = desktopConfig
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+")
         ]
 
-myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
-
-toggleStrutsKey XConfig { XMonad.modMask = mod4Mask } = (mod4Mask, xK_b)
-
-main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
+main = do
+  xmproc <- spawnPipe "xmobar"
+  xmonad $ myConfig
+        { manageHook = manageDocks <+> manageHook myConfig
+        , layoutHook = avoidStruts  $  layoutHook myConfig
+        }
