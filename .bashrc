@@ -144,3 +144,6 @@ if ! shopt -oq posix; then
 fi
 
 export PATH=~/bin:/usr/lib/ccache:$PATH
+
+# enable vi-style editing
+set -o vi
