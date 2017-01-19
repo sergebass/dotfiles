@@ -96,3 +96,19 @@ source ~/.bash_aliases
 export LESS="-FRX"
 #export TERM=screen-256color
 export TERM=xterm-256color
+
+export VISUAL=vim
+set -o vi
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
+
+zle-keymap-select () {
+  case $KEYMAP in
+    vicmd) print -rn -- $terminfo[cvvis];; # block cursor
+    viins|main) print -rn -- $terminfo[cnorm];; # less visible cursor
+  esac
+}
+
+zle -N zle-keymap-select
