@@ -11,8 +11,12 @@
 
 (setq inhibit-startup-screen t)
 
-(require 'bookmark)
-(bookmark-bmenu-list)
+;; (require 'bookmark)
+;; (bookmark-bmenu-list)
+;; (switch-to-buffer "*Bookmark List*")
+
+(require 'bookmark+)
+(edit-bookmarks)
 (switch-to-buffer "*Bookmark List*")
 
 ;; (require 'windcycle)
@@ -55,11 +59,10 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "/home/sergii/.emacs.d/bookmarks")
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (deeper-blue)))
- '(font-use-system-font t)
  '(package-selected-packages
    (quote
     (idris-mode rust-mode haskell-emacs highlight-symbol haskell-mode popup-complete jedi dired+ buffer-move buffer-flip wgrep bookmark+ rainbow-delimiters minimap auto-complete flycheck rtags magit powerline-evil window-numbering evil elpy clojure-mode-extra-font-locking clojure-cheatsheet)))
@@ -72,7 +75,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 113 :width normal)))))
+ '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 100 :width normal)))))
 
 ;; make undescore be considered a part of a word (make '*' highlight full identifiers, move faster etc.)
 ;; For python
