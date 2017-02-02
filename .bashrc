@@ -35,6 +35,10 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+if [ \( "$COLORTERM" = "gnome-terminal" -o "$COLORTERM" = "Terminal" -o "$COLORTERM" = "xfce4-terminal" \) -a "$TERM" = "xterm" ] && infocmp xterm-256color >/dev/null 2>&1; then
+    TERM=xterm-256color
+fi
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;

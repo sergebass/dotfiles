@@ -19,8 +19,7 @@ colorscheme koehler
 set background=dark
 highlight Normal ctermfg=grey ctermbg=black
 
-if $COLORTERM == 'gnome-terminal' || $COLORTERM == 'Terminal' || $TERM == 'screen-256color' || $TERM == 'xterm-256color'
-" if &term =~ '256color'
+if $COLORTERM == 'xfce4-terminal' || $COLORTERM == 'gnome-terminal' || $COLORTERM == 'Terminal' || $TERM == 'screen-256color' || $TERM == 'xterm-256color'
   set t_Co=256
 
   " disable Background Color Erase (BCE) so that color schemes

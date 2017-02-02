@@ -1,0 +1,30 @@
+[global_config]
+  focus = mouse
+  title_font = Inconsolata Medium 11
+  title_receive_fg_color = "#faf4ad"
+  title_transmit_bg_color = "#056f4c"
+  title_use_system_font = False
+  window_state = fullscreen
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    cursor_color = "#fff67f"
+    custom_command = TERM=xterm-256color zsh --login
+    font = Inconsolata Medium 11
+    foreground_color = "#ffffff"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_custom_command = True
+    use_system_font = False
+    visible_bell = True

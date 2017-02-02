@@ -1,3 +1,7 @@
+! xterm
+*customization:  -color
+XTerm*termName:  xterm-256color
+
 ! xscreensaver ---------------------------------------------------------------
 
 !font settings

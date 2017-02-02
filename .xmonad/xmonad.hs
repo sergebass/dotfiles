@@ -10,8 +10,9 @@ myModMask = mod4Mask -- Use Super instead of Alt
 
 myConfig = desktopConfig
         { modMask = myModMask
-        -- , keys = myKeys
-        , terminal = "xfce4-terminal"
+        , terminal = "gnome-terminal"
+        -- , terminal = "xfce4-terminal"
+        -- , terminal = "terminator"
         , borderWidth = 3
         , focusedBorderColor = "#FFB000" -- Orange-ish color
         , normalBorderColor = "#404040"
