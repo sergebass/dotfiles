@@ -31,6 +31,8 @@
 (global-linum-mode t)
 (column-number-mode t)
 
+(global-auto-revert-mode)
+
 (global-set-key (kbd "M-l") 'helm-buffers-list)
 
 (require 'free-keys)
