@@ -46,7 +46,7 @@
 (require 'rainbow-delimiters)
 ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-;; (rainbow-delimiters-mode t)
+(rainbow-delimiters-mode t)
 
 (require 'buffer-move)
 (global-set-key (kbd "<M-up>")     'buf-move-up)
