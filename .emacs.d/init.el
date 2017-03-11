@@ -79,13 +79,34 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 100 :width normal)))))
 
-;; make undescore be considered a part of a word (make '*' highlight full identifiers, move faster etc.)
-;; For python
-(add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-;; For ruby
-(add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-;; For Javascript
-(add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+(defun my-common-mode-hook()
+  ;; make undescore be considered a part of a word (make '*' highlight full identifiers, move faster etc.)
+  (modify-syntax-entry ?_ "w")
+  (highlight-phrase "FIXME" "hi-pink")
+)
+
+(add-hook 'c-mode-hook 'my-common-mode-hook)
+(add-hook 'c++-mode-hook 'my-common-mode-hook)
+(add-hook 'python-mode-hook 'my-common-mode-hook)
+(add-hook 'ruby-mode-hook 'my-common-mode-hook)
+(add-hook 'js2-mode-hook 'my-common-mode-hook)
+
+;; (add-hook 'c-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; (add-hook 'c++-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+;; (defun my-global-hook (filename)
+;;   (highlight-phrase FIXME))
+;; 
+;; (add-hook 'after-load-functions 'my-global-hook)
+
+;; (defun my-project-hook (filename)
+;;   (when (string= (file-name-nondirectory filename) "project.clj")
+;;     (do-stuff)))
+;; 
+;; (add-hook 'after-load-functions 'my-project-hook)
 
 ;;(add-hook 'c-mode-hook 'fci-mode)(require 'column-marker)
 ;;(add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))
