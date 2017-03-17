@@ -1,4 +1,7 @@
-#alias g-st='git status -sb'
+alias gsb='git status -sb'
+alias ag='ack-grep'
+alias ag0='ack-grep --type=cpp --type=python'
+alias t='tig --all'
 
 function v()
 {
