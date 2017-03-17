@@ -82,7 +82,9 @@
 (defun my-common-mode-hook()
   ;; make undescore be considered a part of a word (make '*' highlight full identifiers, move faster etc.)
   (modify-syntax-entry ?_ "w")
-  (highlight-phrase "FIXME" "hi-pink")
+  (highlight-regexp "ASAP" 'hi-yellow)
+  (highlight-regexp "\!\!\!" 'hi-yellow)
+  (highlight-regexp "FIXME" 'hi-pink)
 )
 
 (add-hook 'c-mode-hook 'my-common-mode-hook)
