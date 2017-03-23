@@ -84,7 +84,8 @@
   (modify-syntax-entry ?_ "w")
   (highlight-regexp "ASAP" 'hi-yellow)
   (highlight-regexp "\!\!\!" 'hi-yellow)
-  (highlight-regexp "FIXME" 'hi-pink)
+  (highlight-regexp "FIXME" 'hi-yellow)
+  (highlight-regexp "self" 'hi-blue-b)
 )
 
 (add-hook 'c-mode-hook 'my-common-mode-hook)
