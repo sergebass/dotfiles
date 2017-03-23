@@ -77,6 +77,8 @@ if exists("g:did_load_filetypes")
     filetype plugin indent off
 endif
 set runtimepath+=/usr/local/go/misc/vim " replace $GOROOT with the output of: go env GOROOT
+
+execute pathogen#infect()
 filetype plugin indent on
 syntax on
 
