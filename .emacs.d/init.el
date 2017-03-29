@@ -67,7 +67,7 @@
  '(custom-enabled-themes (quote (deeper-blue)))
  '(package-selected-packages
    (quote
-    (idris-mode rust-mode haskell-emacs highlight-symbol haskell-mode popup-complete jedi dired+ buffer-move buffer-flip wgrep bookmark+ rainbow-delimiters minimap auto-complete flycheck rtags magit powerline-evil window-numbering evil elpy clojure-mode-extra-font-locking clojure-cheatsheet)))
+    (rtm idris-mode rust-mode haskell-emacs highlight-symbol haskell-mode popup-complete jedi dired+ buffer-move buffer-flip wgrep bookmark+ rainbow-delimiters minimap auto-complete flycheck rtags magit powerline-evil window-numbering evil elpy clojure-mode-extra-font-locking clojure-cheatsheet)))
  '(save-place t nil (saveplace))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
@@ -114,6 +114,20 @@
 ;;(add-hook 'c-mode-hook 'fci-mode)(require 'column-marker)
 ;;(add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))
 ;;(global-set-key [?\C-c ?m] 'column-marker-1)
+
+(defun my-c-mode-common-hook ()
+ (c-set-offset 'substatement-open 0)
+
+ (setq c++-tab-always-indent t)
+ (setq c-basic-offset 4)
+ (setq c-indent-level 4)
+
+ (setq indent-tabs-mode nil)
+ (setq tab-width 4)
+ ;; (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
+ )
+
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 (require 'fill-column-indicator)
 (setq-default fci-rule-column 80)
@@ -177,10 +191,6 @@
 (when (require 'rtags nil :noerror)
   ;; make sure you have company-mode installed
   (require 'company)
-  (define-key c-mode-base-map (kbd "M-]")
-    (function rtags-find-symbol-at-point))
-  (define-key c-mode-base-map (kbd "M-[")
-    (function rtags-find-references-at-point))
   ;; disable prelude's use of C-c r, as this is the rtags keyboard prefix
   ;; (define-key prelude-mode-map (kbd "C-c r") nil)
   ;; install standard rtags keybindings. Do M-. on the symbol below to
@@ -198,7 +208,16 @@
   ;; use rtags flycheck mode -- clang warnings shown inline
   (require 'flycheck-rtags)
   ;; c-mode-common-hook is also called by c++-mode
-  (add-hook 'c-mode-common-hook #'setup-flycheck-rtags))
+  (add-hook 'c-mode-common-hook #'setup-flycheck-rtags)
+
+  (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
+  (add-hook 'c++-mode-common-hook 'rtags-start-process-unless-running)
+
+  (define-key c-mode-base-map (kbd "M-]")
+    (function rtags-find-symbol-at-point))
+  (define-key c-mode-base-map (kbd "M-[")
+    (function rtags-find-references-at-point))
+)
 
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
