@@ -141,3 +141,6 @@ augroup END
 
 " map Ctrl+R to replace highlighted text (with confirmation)
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
