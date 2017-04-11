@@ -150,4 +150,4 @@ fi
 export PATH=~/bin:~/.cabal/bin:/usr/lib/ccache:$PATH
 
 # enable vi-style editing
-set -o vi
+#set -o vi

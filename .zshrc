@@ -99,25 +99,25 @@ if [ \( "$COLORTERM" = "gnome-terminal" -o "$COLORTERM" = "Terminal" -o "$COLORT
 fi
 
 export VISUAL=vim
-set -o vi
-autoload edit-command-line; zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
-bindkey -M vicmd '?' history-incremental-search-backward
-bindkey -M vicmd '/' history-incremental-search-forward
-bindkey -M vicmd '^R' history-incremental-pattern-search-backward
-bindkey -M vicmd '^S' history-incremental-pattern-search-forward
-
-# use up/down keys for either history search or iteration
-bindkey -M vicmd '^[[A' up-line-or-search
-bindkey -M vicmd '^[[B' down-line-or-search
-
-function zle-line-init zle-keymap-select zle-line-finish {
-    VIMODE="${${KEYMAP/vicmd/(vi) }/(main|viins)/}"
-    zle reset-prompt
-}
- 
-zle -N zle-line-init
-zle -N zle-keymap-select
-zle -N zle-line-finish
+#set -o vi
+#autoload edit-command-line; zle -N edit-command-line
+#bindkey -M vicmd v edit-command-line
+#bindkey -M vicmd '?' history-incremental-search-backward
+#bindkey -M vicmd '/' history-incremental-search-forward
+#bindkey -M vicmd '^R' history-incremental-pattern-search-backward
+#bindkey -M vicmd '^S' history-incremental-pattern-search-forward
+#
+## use up/down keys for either history search or iteration
+#bindkey -M vicmd '^[[A' up-line-or-search
+#bindkey -M vicmd '^[[B' down-line-or-search
+#
+#function zle-line-init zle-keymap-select zle-line-finish {
+#    VIMODE="${${KEYMAP/vicmd/(vi) }/(main|viins)/}"
+#    zle reset-prompt
+#}
+# 
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+#zle -N zle-line-finish
 
 export PS1='%B%{$fg[cyan]%}%* %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.) ${VIMODE}${ret_status}%{$reset_color%}'
