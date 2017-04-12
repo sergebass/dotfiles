@@ -65,6 +65,7 @@
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (deeper-blue)))
+ '(idris-interpreter-path "/home/sergii/.cabal/bin/idris")
  '(package-selected-packages
    (quote
     (rtm idris-mode rust-mode haskell-emacs highlight-symbol haskell-mode popup-complete jedi dired+ buffer-move buffer-flip wgrep bookmark+ rainbow-delimiters minimap auto-complete flycheck rtags magit powerline-evil window-numbering evil elpy clojure-mode-extra-font-locking clojure-cheatsheet)))
