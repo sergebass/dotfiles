@@ -87,6 +87,7 @@
   (highlight-regexp "\!\!\!" 'hi-yellow)
   (highlight-regexp "FIXME" 'hi-yellow)
   (highlight-regexp "self" 'hi-blue-b)
+  (highlight-regexp "return" 'hi-green-b)
 )
 
 (add-hook 'c-mode-hook 'my-common-mode-hook)
