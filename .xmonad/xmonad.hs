@@ -25,6 +25,9 @@ myConfig = desktopConfig
         , ((myModMask .|. shiftMask, xK_Page_Up), spawn "amixer -D pulse set Master 5%+")
         , ((myModMask .|. shiftMask, xK_Page_Down), spawn "amixer -D pulse set Master 5%-")
         , ((myModMask .|. shiftMask, xK_End), spawn "amixer -D pulse set Master toggle")
+        , ((0, 0x1008FF11), spawn "amixer -D pulse set Master 5%-")
+        , ((0, 0x1008FF13), spawn "amixer -D pulse set Master 5%+")
+        , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
         ]
          `additionalKeysP`
         [ ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%-")
