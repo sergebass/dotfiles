@@ -2,7 +2,7 @@ Config {
 
    -- appearance
    --  font =         "xft:DejaVu Sans Mono:size=8:bold:antialias=true"
-     font =         "xft:Monospace:size=8:bold:antialias=true"
+     font =         "xft:Monospace:size=8:normal:antialias=true"
    , bgColor =      "black"
    , fgColor =      "#646464"
    , position =     Bottom
@@ -45,7 +45,7 @@ Config {
         -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
         --                      ] 36000
 
-        , Run DynNetwork [ "--template" , "<dev> W=<tx> R=<rx>kB/s"
+        , Run DynNetwork [ "--template" , "<dev> <rx>:<tx>kB/s"
                          , "--Low"      , "1000"  -- units: B/s
                          , "--High"     , "5000"  -- units: B/s
                          , "--low"      , "darkgreen"
@@ -104,8 +104,8 @@ Config {
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
 
-        , Run Kbd [ ("us", "<fc=#00008B>US</fc>")
-                  , ("ru", "<fc=#8B0000>RU</fc>")
+        , Run Kbd [ ("us", "<fc=#00008B>en</fc>")
+                  , ("ru", "<fc=#8B0000>ru</fc>")
                   ]
 
         -- , Run Volume "default" "Master" [] 10
