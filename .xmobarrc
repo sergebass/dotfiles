@@ -1,7 +1,8 @@
 Config { 
 
    -- appearance
-     font =         "xft:Bitstream Vera Sans Mono:size=8:bold:antialias=true"
+   --  font =         "xft:DejaVu Sans Mono:size=8:bold:antialias=true"
+     font =         "xft:Monospace:size=8:bold:antialias=true"
    , bgColor =      "black"
    , fgColor =      "#646464"
    , position =     Bottom
