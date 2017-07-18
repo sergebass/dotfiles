@@ -1,7 +1,7 @@
 Config { 
 
    -- appearance
-     font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
+     font =         "xft:Bitstream Vera Sans Mono:size=8:bold:antialias=true"
    , bgColor =      "black"
    , fgColor =      "#646464"
    , position =     Bottom
@@ -12,14 +12,14 @@ Config {
    , lowerOnStart =     False   -- send to bottom of window stack on start
    , hideOnStart =      False   -- start with window unmapped (hidden)
    , allDesktops =      True    -- show on all desktops
-   , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+   , overrideRedirect = False   -- set the Override Redirect flag (Xlib)
    , pickBroadest =     True    -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% | %battery% | %multicpu% | %coretemp% | %memory% | %swap% | %disku% | %dynnetwork% | Up since %up% }{ %weather% | %date% | audio: %volume% | %kbd% | %whoami%@%hostname%"
+   , template = "%whoami%@%hostname% | %battery% | %multicpu% %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %up%}{| %kbd% | ♪audio %volume% | %date%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -37,14 +37,14 @@ Config {
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
    , commands = 
 
-        [ Run Com "uptime" ["-s"] "up" 0
+        [ Run Com "uptime" ["-p"] "up" 0
 
         , Run Com "/home/sergii/dotfiles/scripts/pulseaudio-volume.sh" ["Master"] "volume" 5
 
-        , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
-                             ] 36000
+        -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+        --                      ] 36000
 
-        , Run DynNetwork [ "--template" , "<dev>: W=<tx>kB/s R=<rx>kB/s"
+        , Run DynNetwork [ "--template" , "<dev> W=<tx> R=<rx>kB/s"
                          , "--Low"      , "1000"  -- units: B/s
                          , "--High"     , "5000"  -- units: B/s
                          , "--low"      , "darkgreen"
@@ -52,7 +52,7 @@ Config {
                          , "--high"     , "darkred"
                          ] 10
 
-        , Run MultiCpu [ "--template" , "CPU: <total0> <total1> <total2> <total3>%"
+        , Run MultiCpu [ "--template" , "CPU <total0> <total1> <total2> <total3>%"
                        , "--Low"      , "50"  -- units: %
                        , "--High"     , "85"  -- units: %
                        , "--low"      , "darkgreen"
@@ -60,7 +60,7 @@ Config {
                        , "--high"     , "darkred"
                        ] 10
 
-        , Run CoreTemp  [ "--template" , "t: <core0> <core1> <core2> <core3>°C"
+        , Run CoreTemp  [ "--template" , "t <core0> <core1> <core2> <core3>°C"
                         , "--Low"      , "70"  -- units: °C
                         , "--High"     , "80"  -- units: °C
                         , "--low"      , "darkgreen"
@@ -68,7 +68,7 @@ Config {
                         , "--high"     , "darkred"
                         ] 50
                           
-        , Run Memory [ "--template" ,"RAM: <usedratio>%"
+        , Run Memory [ "--template" ,"RAM <usedratio>%"
                      , "--Low"      , "20"  -- units: %
                      , "--High"     , "90"  -- units: %
                      , "--low"      , "darkgreen"
@@ -85,7 +85,7 @@ Config {
                     ["-L", "10", "-H", "50", "-m", "1", "-p", "3"]
                     20
 
-        , Run Battery [ "--template" , "{+-} <acstatus>"
+        , Run Battery [ "--template" , "⚡(+)<acstatus>"
                       , "--Low"      , "10"        -- units: %
                       , "--High"     , "80"        -- units: %
                       , "--low"      , "darkred"
@@ -93,7 +93,7 @@ Config {
                       , "--high"     , "darkgreen"
                       , "--" -- battery specific options
                                 -- discharging status
-                                , "-o"	, "<left>% (<timeleft>)"
+                                , "-o"	, "<left>% <timeleft>"
                                 -- AC "on" status
                                 , "-O"	, "<fc=#dAA520>Charging</fc>"
                                 -- charged status
