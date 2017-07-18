@@ -20,7 +20,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%whoami%@%hostname% | %battery% | %multicpu% %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %up%}{| %kbd% | ♪audio %volume% | %date%"
+   , template = "%whoami%@%hostname% | %battery% | %multicpu% %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %up%}{| %kbd% | ♪ %volume% | %date%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -86,7 +86,7 @@ Config {
                     ["-L", "10", "-H", "50", "-m", "1", "-p", "3"]
                     20
 
-        , Run Battery [ "--template" , "⚡(+)<acstatus>"
+        , Run Battery [ "--template" , "⚡ <acstatus>"
                       , "--Low"      , "10"        -- units: %
                       , "--High"     , "80"        -- units: %
                       , "--low"      , "darkred"
