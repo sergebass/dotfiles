@@ -20,7 +20,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%whoami%@%hostname% | %battery% | %multicpu% %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %up%}{| %kbd% | ♪ %volume% | %date%"
+   , template = "%whoami%@%hostname% | %battery% | %multicpu% %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | ^ %up%}{| %kbd% | ♪ %volume% | %date%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -38,7 +38,7 @@ Config {
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
    , commands = 
 
-        [ Run Com "uptime" ["-p"] "up" 0
+        [ Run Com "uptime" ["-s"] "up" 0
 
         , Run Com "/home/sergii/dotfiles/scripts/pulseaudio-volume.sh" ["Master"] "volume" 5
 
@@ -104,8 +104,8 @@ Config {
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
 
-        , Run Kbd [ ("us", "<fc=#00008B>en</fc>")
-                  , ("ru", "<fc=#8B0000>ru</fc>")
+        , Run Kbd [ ("us", "<fc=#00FFFF>en</fc>")
+                  , ("ru", "<fc=#FFFF00>ru</fc>")
                   ]
 
         -- , Run Volume "default" "Master" [] 10
