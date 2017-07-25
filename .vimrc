@@ -144,3 +144,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+" highlight tabs and trailing spaces
+set listchars=tab:>-,trail:-
+set list
