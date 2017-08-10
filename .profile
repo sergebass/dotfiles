@@ -12,7 +12,7 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+    . "$HOME/.bashrc"
     fi
 fi
 
@@ -33,3 +33,7 @@ if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+if [ -d "$HOME/opt/jdk" ] ; then
+    JAVA_HOME="$HOME/opt/jdk"
+    PATH="$HOME/opt/jdk/bin:$PATH"
+fi

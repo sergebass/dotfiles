@@ -149,5 +149,10 @@ fi
 
 export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$HOME/.cargo/bin:/usr/lib/ccache:$PATH
 
+if [ -d "$HOME/opt/jdk" ] ; then
+    JAVA_HOME="$HOME/opt/jdk"
+    PATH="$HOME/opt/jdk/bin:$PATH"
+fi
+
 # enable vi-style editing
 #set -o vi
