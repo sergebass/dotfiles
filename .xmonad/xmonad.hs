@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
 import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
 import XMonad.Util.Run(spawnPipe)
 import qualified Data.Map as M
@@ -39,4 +40,5 @@ main = do
   xmonad $ myConfig
         { manageHook = manageDocks <+> manageHook myConfig
         , layoutHook = avoidStruts  $  layoutHook myConfig
+        , startupHook = setWMName "LG3D"
         }
