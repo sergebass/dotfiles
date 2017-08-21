@@ -20,9 +20,13 @@ myConfig = desktopConfig
         }
          `additionalKeys`
         [ ((myModMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
-        , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
+        --take a screenshot of entire display
+        , ((myModMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
+        --take a screenshot of focused window
+        , ((myModMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
         , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
         , ((myModMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
+        , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
         , ((myModMask .|. shiftMask, xK_Page_Up), spawn "amixer -D pulse set Master 5%+")
         , ((myModMask .|. shiftMask, xK_Page_Down), spawn "amixer -D pulse set Master 5%-")
         , ((myModMask .|. shiftMask, xK_End), spawn "amixer -D pulse set Master toggle")
