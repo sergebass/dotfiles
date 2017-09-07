@@ -11,7 +11,7 @@ myModMask = mod4Mask -- Use Super instead of Alt
 
 myConfig = desktopConfig
         { modMask = myModMask
-        , terminal = "urxvt +bc +vb -sb -fg white -bg black -fn 'xft:Inconsolata:pixelsize=14' -cr orange -fade 50"
+        , terminal = "urxvt +bc +vb +sb -fg white -bg black -fn 'xft:Inconsolata:medium:pixelsize=14:antialias=true:hinstyle=hintfull' -cr orange -fade 30"
         , borderWidth = 3
         , focusedBorderColor = "#FFB000" -- Orange-ish color
         , normalBorderColor = "#404040"
