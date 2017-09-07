@@ -97,6 +97,10 @@ rmd () {
 #source /etc/functions
 source ~/.bash_aliases
 
+if [ -f ~/dotfiles/scripts/h.sh ]; then
+    source ~/dotfiles/scripts/h.sh
+fi
+
 export LESS="-FRX"
 
 if [ \( "$COLORTERM" = "gnome-terminal" -o "$COLORTERM" = "Terminal" -o "$COLORTERM" = "xfce4-terminal" \) -a "$TERM" = "xterm" ] && infocmp xterm-256color >/dev/null 2>&1; then
