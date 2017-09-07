@@ -1,9 +1,12 @@
-Rxvt.font: xft:Inconsolata:pixelsize=14
+Rxvt.font: xft:Inconsolata:medium:pixelsize=14:antialias=true:hinstyle=hintfull
 Rxvt.foreground: white
 Rxvt.background: black
 Rxvt.cursorColor: orange
 Rxvt.cursorColor2: black
 Rxvt.scrollBar: false
+Rxvt.scrollBar_right: false
+Rxvt.scrollBar_floating: false
+Rxvt.scrollstyle: rxvt
 Rxvt.visualBell: true
 Rxvt.fading: 30
 
@@ -17,6 +20,8 @@ Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
+Xft.autohint:   false
+Xft.lcdfilter:  lcddefault
 
 ! xscreensaver ---------------------------------------------------------------
 
