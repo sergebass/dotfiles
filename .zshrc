@@ -130,3 +130,8 @@ export VISUAL=vim
 #zle -N zle-line-finish
 
 export PS1='%B%{$fg[cyan]%}%* %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.) ${VIMODE}${ret_status}%{$reset_color%}'
+
+# separate command lines with underscore characters
+setopt promptsubst
+export PS1=$'${(r:$COLUMNS::_:)}'$PS1
+#export PS1=$'%U${(r:$COLUMNS:: :)}%u'$PS1
