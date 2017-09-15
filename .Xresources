@@ -1,6 +1,6 @@
 Rxvt.font: xft:Inconsolata:medium:pixelsize=14:antialias=true:hinstyle=hintfull
-Rxvt.foreground: white
-Rxvt.background: black
+Rxvt.foreground: #dbdedc
+Rxvt.background: #1d1f21
 Rxvt.cursorColor: orange
 Rxvt.cursorColor2: black
 Rxvt.scrollBar: false
@@ -10,9 +10,39 @@ Rxvt.scrollstyle: rxvt
 Rxvt.visualBell: true
 Rxvt.fading: 30
 
-! xterm
-*customization:  -color
-XTerm*termName:  xterm-256color
+! color scheme
+
+! black
+*.color0:       #1e1f22
+*.color8:       #575758
+
+! red
+*.color1:       #b83333
+*.color9:       #cc6666
+
+! green
+*.color2:       #6dc042
+*.color10:      #7fba76
+
+! yellow
+*.color3:       #f1873e
+*.color11:      #f1cd86
+
+! blue
+*.color4:       #3754cc
+*.color12:      #81bcef
+
+! magenta
+*.color5:       #8e51a3
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #48d7c5
+*.color14:      #5fa098
+
+! white
+*.color7:       #a0a5aa
+*.color15:      #f0f4f1
 
 ! Xft settings ---------------------------------------------------------------
 Xft.dpi:        96
@@ -22,6 +52,10 @@ Xft.hinting:    true
 Xft.hintstyle:  hintslight
 Xft.autohint:   false
 Xft.lcdfilter:  lcddefault
+
+! xterm
+*customization:  -color
+XTerm*termName:  xterm-256color
 
 ! xscreensaver ---------------------------------------------------------------
 
