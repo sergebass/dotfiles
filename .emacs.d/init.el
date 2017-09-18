@@ -11,9 +11,8 @@
 
 (setq inhibit-startup-screen t)
 
-;; (require 'bookmark)
-;; (bookmark-bmenu-list)
-;; (switch-to-buffer "*Bookmark List*")
+(package-install 'intero)
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 (require 'bookmark+)
 (edit-bookmarks)
