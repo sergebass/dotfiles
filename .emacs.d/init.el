@@ -15,6 +15,9 @@
 (package-install 'intero)
 (add-hook 'haskell-mode-hook 'intero-mode)
 
+(package-install 'typescript-mode)
+(package-install 'angular-mode)
+
 (package-install 'bookmark+)
 (require 'bookmark+)
 (edit-bookmarks)
