@@ -95,9 +95,12 @@
   (highlight-regexp "\!\!\!" 'hi-yellow)
   (highlight-regexp "FIXME" 'hi-yellow)
   (highlight-regexp "self" 'hi-blue-b)
+  (highlight-regexp "this" 'hi-blue-b)
   (highlight-regexp "return" 'hi-green-b)
 )
 
+(add-hook 'java-mode-hook 'my-common-mode-hook)
+(add-hook 'typescript-mode-hook 'my-common-mode-hook)
 (add-hook 'c-mode-hook 'my-common-mode-hook)
 (add-hook 'c++-mode-hook 'my-common-mode-hook)
 (add-hook 'python-mode-hook 'my-common-mode-hook)
