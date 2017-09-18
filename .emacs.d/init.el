@@ -8,12 +8,14 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
 (package-initialize)
+(package-refresh-contents)
 
 (setq inhibit-startup-screen t)
 
 (package-install 'intero)
 (add-hook 'haskell-mode-hook 'intero-mode)
 
+(package-install 'bookmark+)
 (require 'bookmark+)
 (edit-bookmarks)
 (switch-to-buffer "*Bookmark List*")
@@ -21,6 +23,7 @@
 ;; (require 'windcycle)
 ;; (require 'transpose-frame)
 
+(package-install 'evil)
 (require 'evil)
 (evil-mode t)
 (setq evil-want-fine-undo t)
@@ -34,6 +37,7 @@
 
 (global-set-key (kbd "M-l") 'helm-buffers-list)
 
+(package-install 'free-keys)
 (require 'free-keys)
 
 ;;(setq make-backup-files nil)
@@ -42,11 +46,13 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 
+(package-install 'rainbow-delimiters)
 (require 'rainbow-delimiters)
 ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (rainbow-delimiters-mode t)
 
+(package-install 'buffer-move)
 (require 'buffer-move)
 (global-set-key (kbd "<M-up>")     'buf-move-up)
 (global-set-key (kbd "<M-down>")   'buf-move-down)
@@ -130,6 +136,7 @@
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
+(package-install 'fill-column-indicator)
 (require 'fill-column-indicator)
 (setq-default fci-rule-column 80)
 (setq fci-rule-width 1)
