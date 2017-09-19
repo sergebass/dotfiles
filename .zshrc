@@ -133,5 +133,4 @@ export PS1='%B%{$fg[cyan]%}%* %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%
 
 # separate command lines with underscore characters
 setopt promptsubst
-export PS1=$'${(r:$COLUMNS::_:)}'$PS1
-#export PS1=$'%U${(r:$COLUMNS:: :)}%u'$PS1
+export PS1=$'${(r:$COLUMNS::_:)}\n'$PS1
