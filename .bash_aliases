@@ -1,12 +1,14 @@
-alias gsb='git status -sb'
-alias ag='ack-grep'
-alias ag0='ack-grep --type=cpp --type=python'
-alias t='tig --all'
+alias v='vim'
 
-function v()
-{
-    vim $@
-}
+alias e='emacsclient'
+alias et='emacsclient -t'
+alias ec='emacsclient -c'
+
+alias gsb='git status -sb'
+alias ag='ack'
+alias agj='ack-grep --type=java'
+
+alias t='tig --all'
 
 function f()
 {
