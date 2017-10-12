@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$HOME/.cargo/bin:$HOME/opt/nodejs/bin:/usr/local/bin:$PATH
 
 if [ -d "$HOME/opt/jdk" ] ; then
     JAVA_HOME="$HOME/opt/jdk"
