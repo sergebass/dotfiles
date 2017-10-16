@@ -96,6 +96,14 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 100 :width normal)))))
 
+(require 'color-theme)
+(setq color-theme-is-global t)
+(eval-after-load "color-theme" (color-theme-initialize))
+(if window-system
+    () ;; (color-theme-deep-blue)   ;; Emacs in own window
+    (color-theme-tty-dark) ;; Emacs in tty
+)
+
 (defun my-common-mode-hook()
   ;; make undescore be considered a part of a word (make '*' highlight full identifiers, move faster etc.)
   (modify-syntax-entry ?_ "w")
