@@ -33,7 +33,12 @@
 
 (ido-mode t)
 
+(require 'linum)
 (global-linum-mode t)
+;; use customized linum-format: add an additional space after the line number
+(setq linum-format (lambda (line)
+                     (propertize (format (let ((w (length (number-to-string
+                                                            (count-lines (point-min) (point-max)))))) (concat "%" (number-to-string w) "d ")) line) 'face 'linum)))
 (column-number-mode t)
 
 (global-auto-revert-mode)
