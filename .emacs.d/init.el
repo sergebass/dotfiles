@@ -86,6 +86,9 @@
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
+(setq x-select-enable-clipboard t)
+(setq x-select-enable-primary t)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
