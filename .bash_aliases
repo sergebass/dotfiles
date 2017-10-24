@@ -5,8 +5,7 @@ alias et='emacsclient -t'
 alias ec='emacsclient -c'
 
 alias gsb='git status -sb'
-alias ag='ack'
-alias agj='ack-grep --type=java'
+alias agj='ag --type=java'
 
 alias t='tig --all'
 
