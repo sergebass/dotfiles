@@ -37,6 +37,11 @@ map <C-Right> <C-w>l
 map <F11> :bp<CR>
 map <F12> :bn<CR>
 
+map <Leader>0 :hide<CR>
+map <Leader>1 :only<CR>
+map <Leader>2 :split<CR>
+map <Leader>3 :vsplit<CR>
+
 " map Ctrl+R to replace highlighted text (with confirmation)
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
