@@ -37,3 +37,5 @@ if [ -d "$HOME/opt/jdk" ] ; then
     JAVA_HOME="$HOME/opt/jdk"
     PATH="$HOME/opt/jdk/bin:$PATH"
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
