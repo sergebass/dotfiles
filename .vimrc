@@ -29,6 +29,11 @@ set pastetoggle=<F10>
 
 "let mapleader = " "
 
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+
 map <C-Down> <C-w>j
 map <C-Up> <C-w>k
 map <C-Left> <C-w>h
