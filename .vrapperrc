@@ -1,3 +1,6 @@
 set hlsearch
 set incsearch
 set startnormalmode
+set tabstop=4
+set expandtab
+set shiftwidth=4
