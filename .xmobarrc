@@ -1,7 +1,7 @@
 Config {
 
    -- appearance
-     font =         "xft:Monospace:size=7:normal:antialias=true"
+     font =         "xft:Monospace:size=7.5:normal:antialias=true"
    , bgColor =      "black"
    , fgColor =      "#ffffff"
    , position =     Bottom
