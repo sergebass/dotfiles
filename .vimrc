@@ -39,8 +39,11 @@ map <C-Up> <C-w>k
 map <C-Left> <C-w>h
 map <C-Right> <C-w>l
 
-map <F11> :bp<CR>
-map <F12> :bn<CR>
+map <F9> :bp<CR>
+map <F10> :bn<CR>
+
+map <F11> :tabp<CR>
+map <F12> :tabn<CR>
 
 map <Leader>0 :hide<CR>
 map <Leader>1 :only<CR>

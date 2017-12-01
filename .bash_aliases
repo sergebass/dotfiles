@@ -1,4 +1,6 @@
-alias v='vim'
+# by default, open all files in vim tabs
+alias v='vim -p'
+alias vs='vim -p --servername sp-server --remote-tab'
 
 alias e='emacsclient'
 alias et='emacsclient -t'
