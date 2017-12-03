@@ -93,7 +93,7 @@ menubar_visible=1
 free_space=1
 horizontal_split=0
 vertical_equal=1
-left_panel_size=85
+left_panel_size=84
 horizontal_equal=1
 top_panel_size=1
 
@@ -111,10 +111,21 @@ clipboard_paste=
 
 [Colors]
 base_color=
-linux=
+xterm=
 color_terminals=
 
+xterm-256color=
+
+linux=
+
 screen-256color=
+
+rxvt-unicode=
+
+rxvt-unicode-256color=
+
+[HotlistConfig]
+expanded_view_of_groups=0
 
 [Panels]
 show_mini_info=true
@@ -132,12 +143,26 @@ panel_scroll_pages=true
 panel_scroll_center=false
 mouse_move_pages=true
 filetype_mode=true
-permission_mode=true
+permission_mode=false
 torben_fj_mode=false
 quick_search_mode=2
-select_flags=6
+select_flags=4
 
 simple_swap=false
+
+[FindFile]
+file_case_sens=true
+file_shell_pattern=true
+file_find_recurs=true
+file_skip_hidden=false
+file_all_charsets=false
+content_case_sens=true
+content_regexp=false
+content_first_hit=false
+content_whole_words=true
+content_all_charsets=false
+ignore_dirs_enable=true
+ignore_dirs=
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
