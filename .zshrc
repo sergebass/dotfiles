@@ -90,13 +90,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-rmd () {
-    pandoc $1 | lynx -stdin
-}
-
-#source /etc/functions
-source ~/.bash_aliases
-
 if [ -f ~/dotfiles/scripts/h.sh ]; then
     source ~/dotfiles/scripts/h.sh
 fi
@@ -108,29 +101,59 @@ if [ \( "$COLORTERM" = "gnome-terminal" -o "$COLORTERM" = "Terminal" -o "$COLORT
 fi
 
 export VISUAL=vim
-#set -o vi
-#autoload edit-command-line; zle -N edit-command-line
-#bindkey -M vicmd v edit-command-line
-#bindkey -M vicmd '?' history-incremental-search-backward
-#bindkey -M vicmd '/' history-incremental-search-forward
-#bindkey -M vicmd '^R' history-incremental-pattern-search-backward
-#bindkey -M vicmd '^S' history-incremental-pattern-search-forward
-#
+export EDITOR=vim
+
+# Enable vim-style editing in the shell command prompt itself
+bindkey -v
+export KEYTIMEOUT=1  # 0.1 sec delay when pressing <Esc>
+
+PS1_BASE=$'\n''%B%{$fg[cyan]%}%* %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.) ${ret_status}'
+
+function zle-line-init zle-keymap-select {
+    INSERT_PROMPT="%S%{$fg[blue]--INSERT--%}%{$reset_color%} "
+    VI_PROMPT="${${KEYMAP/main/$INSERT_PROMPT}/(main|vicmd)/}"
+    export PS1="$PS1_BASE${VI_PROMPT}%{$fg_bold[white]%}"
+    # separate command lines with underscore characters
+    #export PS1=$'${(r:$COLUMNS::_:)}\n'$PS1
+
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+function zle-line-finish {
+    setopt promptsubst
+
+    export PS1="$PS1_BASE%{$reset_color%}"
+    # separate command lines with underscore characters
+    #export PS1=$'${(r:$COLUMNS::_:)}\n'$PS1
+
+    zle reset-prompt
+
+    zle accept-line
+}
+
+zle -N zle-line-finish
+
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
+
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+
 ## use up/down keys for either history search or iteration
 #bindkey -M vicmd '^[[A' up-line-or-search
 #bindkey -M vicmd '^[[B' down-line-or-search
-#
-#function zle-line-init zle-keymap-select zle-line-finish {
-#    VIMODE="${${KEYMAP/vicmd/(vi) }/(main|viins)/}"
-#    zle reset-prompt
-#}
-# 
-#zle -N zle-line-init
-#zle -N zle-keymap-select
-#zle -N zle-line-finish
 
-export PS1='%B%{$fg[cyan]%}%* %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.) ${VIMODE}${ret_status}%{$reset_color%}'
+rmd () {
+    pandoc $1 | lynx -stdin
+}
 
-# separate command lines with underscore characters
-setopt promptsubst
-export PS1=$'${(r:$COLUMNS::_:)}\n'$PS1
+source ~/.bash_aliases
