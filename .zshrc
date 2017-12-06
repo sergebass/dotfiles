@@ -113,6 +113,8 @@ function zle-line-init zle-keymap-select {
     INSERT_PROMPT="%S%{$fg[blue]--INSERT--%}%{$reset_color%} "
     VI_PROMPT="${${KEYMAP/main/$INSERT_PROMPT}/(main|vicmd)/}"
     export PS1="$PS1_BASE${VI_PROMPT}%{$fg_bold[white]%}"
+
+    #setopt promptsubst
     # separate command lines with underscore characters
     #export PS1=$'${(r:$COLUMNS::_:)}\n'$PS1
 
@@ -123,9 +125,10 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function zle-line-finish {
-    setopt promptsubst
 
-    export PS1="$PS1_BASE%{$reset_color%}"
+    export PS1="$PS1_BASE%{$reset_color%}%{$fg_bold[white]%}"
+
+    #setopt promptsubst
     # separate command lines with underscore characters
     #export PS1=$'${(r:$COLUMNS::_:)}\n'$PS1
 
@@ -135,6 +138,10 @@ function zle-line-finish {
 }
 
 zle -N zle-line-finish
+
+function preexec {
+    echo -n $reset_color
+}
 
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
