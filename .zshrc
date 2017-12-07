@@ -118,7 +118,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function zle-line-finish {
-    export PS1="$PS1_BASE${ret_status}%{$reset_color%} %{$fg_bold[white]%}%S"
+    export PS1="$PS1_BASE${ret_status}%{$reset_color%} %{$fg_bold[white]%}"
     zle reset-prompt
     zle accept-line
 }
