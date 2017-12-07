@@ -12,7 +12,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="sp"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -107,12 +107,12 @@ export EDITOR=vim
 bindkey -v
 export KEYTIMEOUT=1  # 0.1 sec delay when pressing <Esc>
 
-PS1_BASE=$'\n''%B%{$fg[cyan]%}%* %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.) ${ret_status}'
+PS1_BASE=$'\n''%B%{$fg[cyan]%}%* %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.)'
 
 function zle-line-init zle-keymap-select {
-    INSERT_PROMPT="%S%{$fg[green]--INSERT--%}%{$reset_color%} "
+    INSERT_PROMPT="%S"
     VI_PROMPT="${${KEYMAP/main/$INSERT_PROMPT}/(main|vicmd)/}"
-    export PS1="$PS1_BASE${VI_PROMPT}%{$fg_bold[white]%}"
+    export PS1="$PS1_BASE${VI_PROMPT}${ret_status}%{$reset_color%} %{$fg_bold[white]%}"
 
     #setopt promptsubst
     # separate command lines with underscore characters
@@ -126,7 +126,7 @@ zle -N zle-keymap-select
 
 function zle-line-finish {
 
-    export PS1="$PS1_BASE%{$reset_color%}%{$fg_bold[white]%}"
+    export PS1="$PS1_BASE${ret_status}%{$reset_color%} %{$fg_bold[white]%}"
 
     #setopt promptsubst
     # separate command lines with underscore characters
