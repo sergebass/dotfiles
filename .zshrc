@@ -90,12 +90,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-if [ -f ~/dotfiles/scripts/h.sh ]; then
-    source ~/dotfiles/scripts/h.sh
-fi
-
-export LESS="-FRX"
-
 if [ \( "$COLORTERM" = "gnome-terminal" -o "$COLORTERM" = "Terminal" -o "$COLORTERM" = "xfce4-terminal" \) -a "$TERM" = "xterm" ] && infocmp xterm-256color >/dev/null 2>&1; then
     TERM=xterm-256color
 fi
@@ -103,21 +97,20 @@ fi
 export VISUAL=vim
 export EDITOR=vim
 
+export LESS="-FRX"
+
 # Enable vim-style editing in the shell command prompt itself
 bindkey -v
 export KEYTIMEOUT=1  # 0.1 sec delay when pressing <Esc>
 
-PS1_BASE=$'\n''%B%{$fg[cyan]%}%* %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.)'
+setopt promptsubst
+PS1_BASE='%B%{$fg[yellow]$bg[blue]%}%*%s%{$bg[black]%} %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.)'
 
 function zle-line-init zle-keymap-select {
-    INSERT_PROMPT="%S"
-    VI_PROMPT="${${KEYMAP/main/$INSERT_PROMPT}/(main|vicmd)/}"
-    export PS1="$PS1_BASE${VI_PROMPT}${ret_status}%{$reset_color%} %{$fg_bold[white]%}"
-
-    #setopt promptsubst
-    # separate command lines with underscore characters
-    #export PS1=$'${(r:$COLUMNS::_:)}\n'$PS1
-
+    INSERT_PROMPT_ON="${${KEYMAP/(main|viins)/%S}/vicmd/}"
+    INSERT_PROMPT_OFF="${${KEYMAP/(main|viins)/%s}/vicmd/}"
+    INSERT_MARKER="${INSERT_PROMPT_ON}${ret_status}${INSERT_PROMPT_OFF}"
+    export PS1="$PS1_BASE${INSERT_MARKER} %{$fg_bold[white]%}"
     zle reset-prompt
 }
 
@@ -125,15 +118,8 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function zle-line-finish {
-
-    export PS1="$PS1_BASE${ret_status}%{$reset_color%} %{$fg_bold[white]%}"
-
-    #setopt promptsubst
-    # separate command lines with underscore characters
-    #export PS1=$'${(r:$COLUMNS::_:)}\n'$PS1
-
+    export PS1="$PS1_BASE${ret_status}%{$reset_color%} %{$fg_bold[white]%}%S"
     zle reset-prompt
-
     zle accept-line
 }
 
@@ -155,12 +141,10 @@ bindkey '^S' history-incremental-pattern-search-forward
 bindkey '^P' up-history
 bindkey '^N' down-history
 
-## use up/down keys for either history search or iteration
-#bindkey -M vicmd '^[[A' up-line-or-search
-#bindkey -M vicmd '^[[B' down-line-or-search
+if [ -f ~/dotfiles/scripts/h.sh ]; then
+    source ~/dotfiles/scripts/h.sh
+fi
 
-rmd () {
-    pandoc $1 | lynx -stdin
-}
-
-source ~/.bash_aliases
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi

@@ -79,3 +79,7 @@ function clean-all()
     find -name ui_\* -exec rm {} \;
     ccache -C
 }
+
+function rmd () {
+    pandoc $1 | lynx -stdin
+}
