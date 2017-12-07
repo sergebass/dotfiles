@@ -110,7 +110,7 @@ export KEYTIMEOUT=1  # 0.1 sec delay when pressing <Esc>
 PS1_BASE=$'\n''%B%{$fg[cyan]%}%* %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.) ${ret_status}'
 
 function zle-line-init zle-keymap-select {
-    INSERT_PROMPT="%S%{$fg[blue]--INSERT--%}%{$reset_color%} "
+    INSERT_PROMPT="%S%{$fg[green]--INSERT--%}%{$reset_color%} "
     VI_PROMPT="${${KEYMAP/main/$INSERT_PROMPT}/(main|vicmd)/}"
     export PS1="$PS1_BASE${VI_PROMPT}%{$fg_bold[white]%}"
 
