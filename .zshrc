@@ -104,7 +104,11 @@ bindkey -v
 export KEYTIMEOUT=1  # 0.1 sec delay when pressing <Esc>
 
 setopt promptsubst
-PS1_BASE=$'%U${(r:$COLUMNS:: :)}%u%B%{$fg[yellow]$bg[blue]%}%*%s%{$bg[black]%} %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.)'
+PS1_BASE=$'%B%{$fg[yellow]$bg[blue]%}%*%s%{$bg[black]%} %{$fg[green]%}%n%{$fg[magenta]%}@%m %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)%(!.%S%{$fg[red]%}#root#%s.)'
+
+function precmd {
+    print "$reset_color\033[4m${(l:$COLUMNS:: :)}$reset_color"
+}
 
 function zle-line-init zle-keymap-select {
     INSERT_PROMPT_ON="${${KEYMAP/(main|viins)/%S}/vicmd/}"
