@@ -80,6 +80,8 @@ map <F10> :bn<CR>
 map <F11> :tabp<CR>
 map <F12> :tabn<CR>
 
+map <Leader><F12> :tabnew<CR>
+
 map <Leader>0 :hide<CR>
 map <Leader>1 :only<CR>
 map <Leader>2 :split<CR>
