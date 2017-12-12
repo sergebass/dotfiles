@@ -1,6 +1,7 @@
-# by default, open all files in vim tabs
-alias v='vim -p'
-alias vs='vim -p --servername sp-server --remote-tab'
+alias v='vim -O'
+alias vt='vim -p'
+alias vs='vim --servername sp-server --remote-silent'
+alias vst='vim --servername sp-server --remote-tab-silent'
 
 alias e='emacsclient'
 alias et='emacsclient -t'
@@ -42,7 +43,7 @@ function git-find-file()
 {
     for branch in $(git rev-list --all)
     do
-        if (git ls-tree -r --name-only $branch | grep --quiet "$1") 
+        if (git ls-tree -r --name-only $branch | grep --quiet "$1")
         then
             echo $branch
         fi
