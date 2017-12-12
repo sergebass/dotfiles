@@ -1,3 +1,7 @@
+""" ---------------
+""" GENERAL OPTIONS
+""" ---------------
+
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -12,10 +16,9 @@ set hlsearch   " highlight search results
 
 set clipboard=unnamedplus
 
-set ruler
 set autoread
 
-set number
+set number " enable line numbers
 
 set expandtab
 set tabstop=4
@@ -25,7 +28,39 @@ set autoindent
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set pastetoggle=<F10>
+set completeopt=longest,menuone
+
+" highlight tabs and trailing spaces
+set listchars=tab:>.,trail:.
+set list
+
+set colorcolumn=80,100,132
+set cursorline
+
+set tags=./tags;/
+
+set gfn=Inconsolata\ Medium\ 11
+set guioptions-=T
+
+if $COLORTERM == 'xfce4-terminal'
+\ || $COLORTERM == 'gnome-terminal'
+\ || $COLORTERM == 'Terminal'
+\ || $TERM == 'screen-256color'
+\ || $TERM == 'xterm-256color'
+\ || $TERM == 'rxvt-unicode-256color'
+  set t_Co=256
+
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+
+""" -----------------
+""" KEYBOARD MAPPINGS
+""" -----------------
+
+"set pastetoggle=<F10>
 
 "let mapleader = " "
 
@@ -153,94 +188,72 @@ nmap <Leader>ev :Validate<CR>
 " note that this does not work properly in terminals, only in gvim
 imap <C-Space> <C-x><C-u>
 
-set completeopt=longest,menuone
+""" --------------
+""" THEME SETTINGS
+""" --------------
 
-" highlight tabs and trailing spaces
-set listchars=tab:>-,trail:-
-set list
+" let g:colors_name = "sergebass"
 
-" remember edit position and jump to it next time the same file is edited
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+"highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
+hi Normal ctermfg=grey ctermbg=black guifg=cyan guibg=black
+hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
+hi Constant term=underline ctermfg=Magenta guifg=Magenta
+hi Special term=bold ctermfg=DarkMagenta guifg=Red
+hi Identifier term=underline cterm=bold ctermfg=Cyan guifg=#40ffff
+hi Statement term=bold ctermfg=Yellow gui=bold guifg=#aa4444
+hi PreProc term=underline ctermfg=LightBlue guifg=#ff80ff
+hi Type term=underline ctermfg=LightGreen guifg=#60ff60 gui=bold
+hi Function term=bold ctermfg=White guifg=White
+hi Repeat term=underline ctermfg=White guifg=white
+hi Operator ctermfg=Red guifg=Red
+hi Ignore ctermfg=black guifg=bg
+hi Error term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
+hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
 
-" Clear filetype flags before changing runtimepath to force Vim to reload them.
-if exists("g:did_load_filetypes")
-    filetype off
-    filetype plugin indent off
-endif
-set runtimepath+=/usr/local/go/misc/vim " replace $GOROOT with the output of: go env GOROOT
-
-execute pathogen#infect()
-filetype plugin indent on
-syntax on
-
-set tags=./tags;/
-
-au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
-
-" " set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" " alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
-" Plugin 'gmarik/Vundle.vim'
-"
-" Plugin 'fatih/vim-go'
-" Plugin 'vim-jp/vim-go-extra'
-" Bundle 'derekwyatt/vim-scala'
-
-" All of your Plugins must be added before the following line
-" call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-"
-
-set gfn=Inconsolata\ Medium\ 11
-set guioptions-=T
-
-"set foldmethod=syntax
-
-"source /home/sergii/src/vim-fswitch/plugin/fswitch.vim
-
-colorscheme koehler
-
-set background=dark
-highlight Normal ctermfg=grey ctermbg=black
-
-if $COLORTERM == 'xfce4-terminal'
-\ || $COLORTERM == 'gnome-terminal'
-\ || $COLORTERM == 'Terminal'
-\ || $TERM == 'screen-256color'
-\ || $TERM == 'xterm-256color'
-\ || $TERM == 'rxvt-unicode-256color'
-  set t_Co=256
-
-  " disable Background Color Erase (BCE) so that color schemes
-  " render properly when inside 256-color tmux and GNU screen.
-  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
-endif
-
-highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
-
-highlight LineNr ctermfg=darkgrey
+hi link String Constant
+hi link Character Constant
+hi link Number Constant
+hi link Boolean Constant
+hi link Float Number
+hi link Conditional Repeat
+hi link Label Statement
+hi link Keyword Statement
+hi link Exception Statement
+hi link Include PreProc
+hi link Define PreProc
+hi link Macro PreProc
+hi link PreCondit PreProc
+hi link StorageClass Type
+hi link Structure Type
+hi link Typedef Type
+hi link Tag Special
+hi link SpecialChar Special
+hi link Delimiter Special
+hi link SpecialComment Special
+hi link Debug Special
 
 highlight DiffAdd cterm=none ctermfg=fg ctermbg=Green gui=none guifg=fg guibg=Green
 highlight DiffDelete cterm=none ctermfg=fg ctermbg=Red gui=none guifg=fg guibg=Red
 highlight DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
 highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
+
+highlight ColorColumn ctermbg=17 guibg=#000020
+highlight StatusLine ctermfg=15 guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
+highlight StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
+highlight LineNr ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212
+
+augroup BgHighlight
+    autocmd!
+
+    autocmd WinEnter * set colorcolumn=80,100,132
+    autocmd WinEnter * set cursorline
+    autocmd WinEnter * hi LineNr ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212
+
+    autocmd WinLeave * set colorcolumn=0
+    autocmd WinLeave * set nocursorline
+    autocmd WinLeave * hi LineNr ctermfg=274 guifg=#e9e9e9 ctermbg=133 guibg=#212121
+
+augroup END
 
 " highlight current line number
 hi clear CursorLine
@@ -252,206 +265,32 @@ hi CursorLineNR cterm=bold
 augroup CLNRSet
     autocmd! ColorScheme * hi CursorLineNR cterm=bold
 augroup END
-nmap <Leader>e1 :JavaCorrect
 
-" autocompletion like in most IDEs (Ctrl+Space); note that this does not work properly in terminals
-imap <C-Space> <C-x><C-u>
+""" -------------------------------
+""" MISCELLANEOUS STUFF AND PLUGINS
+""" -------------------------------
 
-set completeopt=longest,menuone
-
-" highlight tabs and trailing spaces
-set listchars=tab:>-,trail:-
-set list
+au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 
 " remember edit position and jump to it next time the same file is edited
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Clear filetype flags before changing runtimepath to force Vim to reload them.
-if exists("g:did_load_filetypes")
-    filetype off
-    filetype plugin indent off
+if exists("syntax_on")
+  syntax reset
 endif
-set runtimepath+=/usr/local/go/misc/vim " replace $GOROOT with the output of: go env GOROOT
 
 execute pathogen#infect()
 filetype plugin indent on
 syntax on
-
-set tags=./tags;/
-
-au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
-
-" " set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" " alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
-" Plugin 'gmarik/Vundle.vim'
-"
-" Plugin 'fatih/vim-go'
-" Plugin 'vim-jp/vim-go-extra'
-" Bundle 'derekwyatt/vim-scala'
-
-" All of your Plugins must be added before the following line
-" call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-"
-
-set gfn=Inconsolata\ Medium\ 11
-set guioptions-=T
-
-"set foldmethod=syntax
-
-"source /home/sergii/src/vim-fswitch/plugin/fswitch.vim
-
-colorscheme koehler
-
-set background=dark
-highlight Normal ctermfg=grey ctermbg=black
-
-if $COLORTERM == 'xfce4-terminal' || $COLORTERM == 'gnome-terminal' || $COLORTERM == 'Terminal' || $TERM == 'screen-256color' || $TERM == 'xterm-256color'
-  set t_Co=256
-
-  " disable Background Color Erase (BCE) so that color schemes
-  " render properly when inside 256-color tmux and GNU screen.
-  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
-endif
-
-highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
-
-highlight LineNr ctermfg=darkgrey
-
-highlight DiffAdd cterm=none ctermfg=fg ctermbg=Green gui=none guifg=fg guibg=Green
-highlight DiffDelete cterm=none ctermfg=fg ctermbg=Red gui=none guifg=fg guibg=Red
-highlight DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
-highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
-
-" highlight current line number
-hi clear CursorLine
-augroup CLClear
-    autocmd! ColorScheme * hi clear CursorLine
-augroup END
-
-hi CursorLineNR cterm=bold
-augroup CLNRSet
-    autocmd! ColorScheme * hi CursorLineNR cterm=bold
-augroup END
-nmap <Leader>e1 :JavaCorrect
-
-" autocompletion like in most IDEs (Ctrl+Space); note that this does not work properly in terminals
-imap <C-Space> <C-x><C-u>
-
-set completeopt=longest,menuone
-
-" highlight tabs and trailing spaces
-set listchars=tab:>-,trail:-
-set list
-
-" remember edit position and jump to it next time the same file is edited
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
 if exists("g:did_load_filetypes")
     filetype off
     filetype plugin indent off
 endif
-set runtimepath+=/usr/local/go/misc/vim " replace $GOROOT with the output of: go env GOROOT
-
-execute pathogen#infect()
-filetype plugin indent on
-syntax on
-
-set tags=./tags;/
-
-au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
-
-" " set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" " alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
-" Plugin 'gmarik/Vundle.vim'
-"
-" Plugin 'fatih/vim-go'
-" Plugin 'vim-jp/vim-go-extra'
-" Bundle 'derekwyatt/vim-scala'
-
-" All of your Plugins must be added before the following line
-" call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-"
-
-set gfn=Inconsolata\ Medium\ 11
-set guioptions-=T
-
-"set foldmethod=syntax
-
-"source /home/sergii/src/vim-fswitch/plugin/fswitch.vim
-
-colorscheme koehler
-
-set background=dark
-highlight Normal ctermfg=grey ctermbg=black
-
-if $COLORTERM == 'xfce4-terminal' || $COLORTERM == 'gnome-terminal' || $COLORTERM == 'Terminal' || $TERM == 'screen-256color' || $TERM == 'xterm-256color'
-  set t_Co=256
-
-  " disable Background Color Erase (BCE) so that color schemes
-  " render properly when inside 256-color tmux and GNU screen.
-  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
-endif
-
-highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
-
-highlight LineNr ctermfg=darkgrey
-
-highlight DiffAdd cterm=none ctermfg=fg ctermbg=Green gui=none guifg=fg guibg=Green
-highlight DiffDelete cterm=none ctermfg=fg ctermbg=Red gui=none guifg=fg guibg=Red
-highlight DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
-highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
-
-" highlight current line number
-hi clear CursorLine
-augroup CLClear
-    autocmd! ColorScheme * hi clear CursorLine
-augroup END
-
-hi CursorLineNR cterm=bold
-augroup CLNRSet
-    autocmd! ColorScheme * hi CursorLineNR cterm=bold
-augroup END
 
 filetype off
 set runtimepath+=/usr/share/lilypond/2.18.2/vim/
 filetype on
-syntax on
