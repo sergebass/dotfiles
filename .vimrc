@@ -87,6 +87,9 @@ map <Leader>1 :only<CR>
 map <Leader>2 :split<CR>
 map <Leader>3 :vsplit<CR>
 
+" quickly reselect just pasted text
+nmap gV `[v`]
+
 " map Ctrl+R to replace highlighted text (with confirmation)
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
