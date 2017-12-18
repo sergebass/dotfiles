@@ -254,7 +254,7 @@ highlight TabLineFill term=bold cterm=bold ctermfg=white ctermbg=19
 highlight TabLineSel term=bold cterm=bold ctermfg=yellow ctermbg=22
 
 highlight MyWordHighlight cterm=bold ctermfg=88 ctermbg=226
-match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\)"
+match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\|ASAP\)"
 
 augroup BgHighlight
     autocmd!
