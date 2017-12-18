@@ -1,4 +1,5 @@
 Rxvt.font: xft:Inconsolata:medium:pixelsize=15:antialias=true:hinstyle=hintfull
+Rxvt.leterSpace: -1
 Rxvt.foreground: #dbdedc
 Rxvt.background: #1d1f21
 Rxvt.cursorColor: orange
@@ -8,7 +9,7 @@ Rxvt.scrollBar_right: false
 Rxvt.scrollBar_floating: false
 Rxvt.scrollstyle: rxvt
 Rxvt.visualBell: true
-Rxvt.fading: 30
+Rxvt.fading: 10
 
 ! color scheme
 
