@@ -34,7 +34,7 @@ set completeopt=longest,menuone
 set listchars=tab:>.,trail:.
 set list
 
-set colorcolumn=80,100,132
+set colorcolumn=80,100
 set cursorline
 
 set tags=./tags;/
