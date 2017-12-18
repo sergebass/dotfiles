@@ -1,4 +1,4 @@
-Rxvt.font: xft:Inconsolata:medium:pixelsize=13:antialias=true:hinstyle=hintfull
+Rxvt.font: xft:Inconsolata:medium:pixelsize=15:antialias=true:hinstyle=hintfull
 Rxvt.foreground: #dbdedc
 Rxvt.background: #1d1f21
 Rxvt.cursorColor: orange
