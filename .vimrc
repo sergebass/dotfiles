@@ -259,7 +259,7 @@ match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\|ASAP\)"
 augroup BgHighlight
     autocmd!
 
-    autocmd WinEnter * set colorcolumn=80,100,132
+    autocmd WinEnter * set colorcolumn=80,100
     autocmd WinEnter * set cursorline
     autocmd WinEnter * hi LineNr ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212
 
