@@ -1,15 +1,16 @@
-Rxvt.font: xft:Inconsolata:medium:pixelsize=15:antialias=true:hinstyle=hintfull
-Rxvt.leterSpace: -1
-Rxvt.foreground: #dbdedc
-Rxvt.background: #1d1f21
-Rxvt.cursorColor: orange
-Rxvt.cursorColor2: black
-Rxvt.scrollBar: false
-Rxvt.scrollBar_right: false
-Rxvt.scrollBar_floating: false
-Rxvt.scrollstyle: rxvt
-Rxvt.visualBell: true
-Rxvt.fading: 10
+URxvt.font: xft:Inconsolata:medium:pixelsize=15:antialias=true:hinstyle=hintslight
+URxvt.leterSpace: -1
+URxvt.foreground: #dbdedc
+URxvt.background: #1d1f21
+URxvt.cursorBlink: true
+URxvt.cursorColor: orange
+URxvt.cursorColor2: black
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: rxvt
+URxvt.visualBell: true
+URxvt.fading: 10
 
 ! color scheme
 
