@@ -63,30 +63,29 @@ endif
 " use Space key as an additional leader prefix
 map <Space> <Leader>
 
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-h> <C-w>h
-map <C-l> <C-w>l
+" A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
+map <Leader>w <C-w>
 
 map <C-Down> <C-w>j
 map <C-Up> <C-w>k
 map <C-Left> <C-w>h
 map <C-Right> <C-w>l
 
-map <F9> :bp<CR>
-map <F10> :bn<CR>
+map <C-k> :bp<CR>
+map <C-j> :bn<CR>
 
-map <F11> :tabp<CR>
-map <F12> :tabn<CR>
+map <C-h> :tabp<CR>
+map <C-l> :tabn<CR>
 
-map <Leader><F12> :tabnew<CR>
+noremap <Leader>t :tabnew<CR>
 
-map <Leader>0 :hide<CR>
-map <Leader>1 :only<CR>
-map <Leader>2 :split<CR>
-map <Leader>3 :vsplit<CR>
+" these shortcuts are intended to resemble Emacs ones
+noremap <Leader>0 :hide<CR>
+noremap <Leader>1 :only<CR>
+noremap <Leader>2 :split<CR>
+noremap <Leader>3 :vsplit<CR>
 
-"set pastetoggle=<F10>
+set pastetoggle=<Leader>P
 
 " quickly reselect just pasted text
 nmap gV `[v`]
