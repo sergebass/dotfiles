@@ -60,9 +60,8 @@ endif
 """ KEYBOARD MAPPINGS
 """ -----------------
 
-"set pastetoggle=<F10>
-
-"let mapleader = " "
+" use Space key as an additional leader prefix
+map <Space> <Leader>
 
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -86,6 +85,8 @@ map <Leader>0 :hide<CR>
 map <Leader>1 :only<CR>
 map <Leader>2 :split<CR>
 map <Leader>3 :vsplit<CR>
+
+"set pastetoggle=<F10>
 
 " quickly reselect just pasted text
 nmap gV `[v`]
