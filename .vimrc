@@ -154,19 +154,20 @@ nmap <Leader>eb :ProjectProblems!<CR>
 
 nmap <Leader>ed :JavaDocComment<CR>
 
-nmap <Leader>eh :JavaHierarchy <C-r>=expand("<cword>")<CR>
+nmap <Leader>eh :JavaHierarchy <C-r>=expand("<cword>")<CR><CR>
 
-nmap <Leader>ech :JavaCallHierarchy <C-r>=expand("<cword>")<CR>
-nmap <Leader>ech! :JavaCallHierarchy! <C-r>=expand("<cword>")<CR>
+nmap <Leader>ech :JavaCallHierarchy <C-r>=expand("<cword>")<CR><CR>
+nmap <Leader>ech! :JavaCallHierarchy! <C-r>=expand("<cword>")<CR><CR>
 
-nmap <F3> :JavaSearchContext -a edit <C-r>=expand("<cword>")<CR><CR>
-nmap <Leader><F3> :JavaSearchContext -a edit<CR>
+nmap <F3> :JavaSearchContext -a edit<CR>
+nmap <Leader>\ :JavaSearchContext -a edit<CR>
+nmap <Leader>eff :JavaSearchContext -a edit<CR>
 
-nmap <Leader>eft :JavaSearch <C-r>=expand("<cword>")<CR>
-nmap <Leader>efa :JavaSearch -a edit -s all -t all -x all -p <C-r>=expand("<cword>")<CR>
-nmap <Leader>efd :JavaSearch -a edit -s all -t all -x declarations -p <C-r>=expand("<cword>")<CR>
-nmap <Leader>efi :JavaSearch -a edit -s all -t all -x implementors -p <C-r>=expand("<cword>")<CR>
-nmap <Leader>efr :JavaSearch -a edit -s all -t all -x references -p <C-r>=expand("<cword>")<CR>
+nmap <Leader>eft :JavaSearch -a edit <C-r>=expand("<cword>")<CR><CR>
+nmap <Leader>efa :JavaSearch -a edit -s all -t all -x all -p <C-r>=expand("<cword>")<CR><CR>
+nmap <Leader>efd :JavaSearch -a edit -s all -t all -x declarations -p <C-r>=expand("<cword>")<CR><CR>
+nmap <Leader>efi :JavaSearch -a edit -s all -t all -x implementors -p <C-r>=expand("<cword>")<CR><CR>
+nmap <Leader>efr :JavaSearch -a edit -s all -t all -x references -p <C-r>=expand("<cword>")<CR><CR>
 
 nmap <Leader>en :JavaNew<Space>
 nmap <Leader>enc :JavaConstructor
