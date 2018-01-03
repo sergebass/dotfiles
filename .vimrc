@@ -311,3 +311,9 @@ set runtimepath+=/usr/share/lilypond/2.18.2/vim/
 filetype on
 
 filetype plugin indent on
+
+" automatically pick correct templates based on the specified file name extension
+augroup templates
+  au!
+  autocmd BufNewFile *.* silent! execute '0r ~/templates/vim-template.'.expand("<afile>:e")
+augroup END
