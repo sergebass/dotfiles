@@ -8,6 +8,9 @@ set nocompatible
 
 set mouse=a
 
+" always display status line, even with one file being edited
+set laststatus=2
+
 set history=50 " keep 50 lines of command line history
 set ruler      " show the cursor position all the time
 set showcmd    " display incomplete commands
