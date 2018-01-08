@@ -34,6 +34,9 @@ set completeopt=longest,menuone
 set listchars=tab:>.,trail:.
 set list
 
+" consider dashes as parts of a word (for CSS, lisps, package names etc.)
+set iskeyword+=-
+
 set colorcolumn=80,100
 set cursorline
 
