@@ -17,7 +17,7 @@ set showcmd    " display incomplete commands
 set incsearch  " do incremental searching
 set hlsearch   " highlight search results
 
-set clipboard=unnamedplus
+set clipboard^=unnamedplus
 
 set autoread
 
