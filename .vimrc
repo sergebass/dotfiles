@@ -33,6 +33,10 @@ set backspace=indent,eol,start
 
 set completeopt=longest,menuone
 
+" command mode autocompletion
+set wildmode=list:longest,full
+set wildmenu
+
 " highlight tabs and trailing spaces
 set listchars=tab:>.,trail:.
 set list
