@@ -215,6 +215,9 @@ nmap <Leader>o :TagbarToggle<CR>
 " note that this does not work properly in terminals, only in gvim
 imap <C-Space> <C-x><C-u>
 
+" strip all trailing whitespace
+nnoremap <Leader>ws :%s/\s\+$//e<CR>
+
 """ --------------
 """ THEME SETTINGS
 """ --------------
