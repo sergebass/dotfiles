@@ -44,6 +44,10 @@ set list
 " consider dashes as parts of a word (for CSS, lisps, package names etc.)
 set iskeyword+=-
 
+" fold based on syntax, just the top level
+set foldmethod=syntax
+set foldlevel=1
+
 set colorcolumn=80,100
 set cursorline
 
@@ -225,6 +229,7 @@ hi Operator ctermfg=Red guifg=Red
 hi Ignore ctermfg=black guifg=bg
 hi Error term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
 hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
+hi Folded term=reverse ctermfg=Yellow ctermbg=238 guifg=Yellow guibg=#303030
 
 hi link String Constant
 hi link Character Constant
