@@ -48,6 +48,10 @@ set iskeyword+=-
 set foldmethod=syntax
 set foldlevel=1
 
+" git diff -b mode (ignore whitespace changes)
+set diffopt+=iwhite
+set diffexpr=""
+
 set colorcolumn=80,100
 set cursorline
 
