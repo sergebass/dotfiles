@@ -256,10 +256,10 @@ hi link Delimiter Special
 hi link SpecialComment Special
 hi link Debug Special
 
-highlight DiffAdd cterm=none ctermfg=fg ctermbg=Green gui=none guifg=fg guibg=Green
-highlight DiffDelete cterm=none ctermfg=fg ctermbg=Red gui=none guifg=fg guibg=Red
-highlight DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
-highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
+highlight DiffAdd cterm=none ctermfg=Yellow ctermbg=22 gui=none guifg=Yellow guibg=#004000
+highlight DiffDelete cterm=none ctermfg=Yellow ctermbg=88 gui=none guifg=Yellow guibg=#400000
+highlight DiffChange cterm=none ctermfg=Yellow ctermbg=18 gui=none guifg=Yellow guibg=#000040
+highlight DiffText cterm=inverse ctermfg=Yellow ctermbg=18 gui=inverse guifg=Yellow guibg=#000040
 
 highlight ColorColumn ctermbg=17 guibg=#000020
 highlight LineNr ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212
