@@ -211,6 +211,12 @@ nmap <Leader>ev :Validate<CR>
 " show a window with the file outline (ctags-based, install tagbar plugin first)
 nmap <Leader>o :TagbarToggle<CR>
 
+" facilitate quickfix navigation
+nmap <Leader>{ :cfirst<CR>
+nmap <Leader>[ :cprev<CR>
+nmap <Leader>] :cnext<CR>
+nmap <Leader>} :clast<CR>
+
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
 imap <C-Space> <C-x><C-u>
