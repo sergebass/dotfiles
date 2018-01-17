@@ -179,7 +179,6 @@ nmap <Leader>ech :JavaCallHierarchy <C-r>=expand("<cword>")<CR><CR>
 nmap <Leader>ech! :JavaCallHierarchy! <C-r>=expand("<cword>")<CR><CR>
 
 nmap <F3> :JavaSearchContext -a edit<CR>
-nmap <Leader>\ :JavaSearchContext -a edit<CR>
 nmap <Leader>eff :JavaSearchContext -a edit<CR>
 
 nmap <Leader>eft :JavaSearch -a edit <C-r>=expand("<cword>")<CR><CR>
@@ -218,6 +217,11 @@ nmap <Leader>[ :cprev<CR>
 nmap <Leader>] :cnext<CR>
 nmap <Leader>} :clast<CR>
 nmap <Leader>\| :copen<CR>
+
+" search the word under cursor using ag
+nmap <Leader>\ :Ag -w <C-r>=expand("<cword>")<CR><CR>:copen<CR>:cfirst<CR>
+" quote the selected text in visual mode since that's to be used for multiple words
+vmap <Leader>\ <Esc>:Ag -w "<C-r>*"<CR>:copen<CR>:cfirst<CR>
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
