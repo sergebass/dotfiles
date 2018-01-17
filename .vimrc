@@ -45,9 +45,9 @@ set list
 " consider dashes as parts of a word (for CSS, lisps, package names etc.)
 set iskeyword+=-
 
-" fold based on syntax, just the top level
+" fold based on syntax, do not fold by default
 set foldmethod=syntax
-set foldlevel=1
+set foldlevel=100
 
 " git diff -b mode (ignore whitespace changes)
 set diffopt+=iwhite
