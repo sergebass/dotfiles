@@ -217,6 +217,7 @@ nmap <Leader>{ :cfirst<CR>
 nmap <Leader>[ :cprev<CR>
 nmap <Leader>] :cnext<CR>
 nmap <Leader>} :clast<CR>
+nmap <Leader>\| :copen<CR>
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
