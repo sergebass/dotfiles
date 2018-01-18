@@ -288,6 +288,11 @@ highlight DiffDelete cterm=none ctermfg=Yellow ctermbg=88 gui=none guifg=Yellow 
 highlight DiffChange cterm=none ctermfg=Yellow ctermbg=18 gui=none guifg=Yellow guibg=#000040
 highlight DiffText cterm=inverse ctermfg=Yellow ctermbg=18 gui=inverse guifg=Yellow guibg=#000040
 
+highlight link GitGutterAdd DiffAdd
+highlight link GitGutterDelete DiffDelete
+highlight link GitGutterChange DiffChange
+highlight link GitGutterChangeDelete DiffChange
+
 highlight ColorColumn ctermbg=17 guibg=#000020
 highlight LineNr ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212
 highlight SpecialKey cterm=none ctermfg=yellow ctermbg=52 guifg=yellow guibg=darkred
