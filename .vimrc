@@ -10,7 +10,7 @@ set mouse=a
 
 " always display status line, even with one file being edited
 set laststatus=2
-set statusline=#%n:\ \ %F\ \ %m%r%y\ %{fugitive#statusline()}\ %a%=(%l/%L,\ %c)\ =\ %p%%
+set statusline=%n:\ %F\ %m%r%{fugitive#statusline()}%=\ %y\ (%l/%L,\%c)\ %p%%
 
 set history=50 " keep 50 lines of command line history
 set ruler      " show the cursor position all the time
@@ -284,8 +284,14 @@ highlight ColorColumn ctermbg=17 guibg=#000020
 highlight LineNr ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212
 highlight SpecialKey cterm=none ctermfg=yellow ctermbg=52 guifg=yellow guibg=darkred
 
-highlight StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#4e4e4e
+highlight StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
 highlight StatusLineNC cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b2b2 guibg=#3a3a3a
+
+" change statusline colors depending on the current mode
+if version >= 700
+  au InsertEnter * highlight StatusLine cterm=bold ctermfg=15 ctermbg=22 gui=bold guifg=#ffffff guibg=#005f00
+  au InsertLeave * highlight StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
+endif
 
 highlight TabLine term=bold cterm=bold ctermfg=white ctermbg=19
 highlight TabLineFill term=bold cterm=bold ctermfg=white ctermbg=19
