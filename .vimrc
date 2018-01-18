@@ -61,6 +61,10 @@ set tags=./tags;/
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
 
+let g:EclimLocateFileScope = 'workspace'
+let g:EclimLocateFileDefaultAction = 'vsplit'
+let g:EclimLocateFileNonProjectScope = 'ag'
+
 set gfn=Inconsolata\ Medium\ 11
 set guioptions-=T
 
