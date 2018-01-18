@@ -218,10 +218,12 @@ nmap <Leader>] :cnext<CR>
 nmap <Leader>} :clast<CR>
 nmap <Leader>\| :copen<CR>
 
+nmap <Leader>\ :CtrlPMixed<CR>
+
 " search the word under cursor using ag
-nmap <Leader>\ :Ag -w <C-r>=expand("<cword>")<CR><CR>:copen<CR>:cfirst<CR>
+nmap <Leader><CR> :Ag -w <C-r>=expand("<cword>")<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
-vmap <Leader>\ <Esc>:Ag -w "<C-r>*"<CR>:copen<CR>:cfirst<CR>
+vmap <Leader><CR> <Esc>:Ag -w "<C-r>*"
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
