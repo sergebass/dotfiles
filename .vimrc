@@ -231,6 +231,9 @@ nnoremap <Leader><CR> :Ag -w <C-r>=expand("<cword>")<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap <Leader><CR> <Esc>:Ag -w "<C-r>*"
 
+" make <Leader><CR> in quickfix windows open files in new tabs
+autocmd FileType qf nnoremap <buffer> <Leader><CR> <C-w><CR><C-w>T
+
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
 inoremap <C-Space> <C-x><C-u>
