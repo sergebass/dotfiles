@@ -219,12 +219,15 @@ nnoremap <Leader>ev :Validate<CR>
 nnoremap <Leader>o :TagbarToggle<CR>
 
 " facilitate quickfix navigation
-nnoremap <Leader>{ :cfirst<CR>
 nnoremap <Leader>[ :cprev<CR>
 nnoremap <Leader>] :cnext<CR>
-nnoremap <Leader>} :clast<CR>
-nnoremap <Leader>\| :copen<CR>
 
+" facilitate location list navigation
+nnoremap <Leader>{ :lprev<CR>
+nnoremap <Leader>} :lnext<CR>
+nnoremap <Leader>\| :lopen<CR>
+
+" CtrlP shortcuts
 nnoremap <Leader><Space> :CtrlPMixed<CR>
 
 " our "supersearch" shortcut is file type dependent
