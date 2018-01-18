@@ -267,9 +267,10 @@ hi Function term=bold ctermfg=White guifg=White
 hi Repeat term=underline ctermfg=White guifg=white
 hi Operator ctermfg=Red guifg=Red
 hi Ignore ctermfg=black guifg=bg
-hi Error term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
-hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
-hi Folded term=reverse ctermfg=Yellow ctermbg=238 guifg=Yellow guibg=#303030
+hi Error term=reverse ctermbg=red ctermfg=black guibg=red guifg=black
+hi WarningMsg term=reverse ctermbg=yellow ctermfg=black guibg=yellow guifg=black
+hi Todo term=standout ctermbg=yellow ctermfg=blue guifg=blue guibg=yellow
+hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
 
 hi link String Constant
 hi link Character Constant
