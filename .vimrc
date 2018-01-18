@@ -223,6 +223,9 @@ nmap <Leader>\| :copen<CR>
 
 nmap <Leader><Space> :CtrlPMixed<CR>
 
+" our "supersearch" shortcut is file type dependent
+autocmd FileType java nmap <buffer> <Leader>\ :JavaSearchContext -a edit<CR>
+
 " search the word under cursor using ag
 nmap <Leader><CR> :Ag -w <C-r>=expand("<cword>")<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
