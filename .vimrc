@@ -58,6 +58,9 @@ set cursorline
 
 set tags=./tags;/
 
+" git gutter: pass this option to git diff
+let g:gitgutter_diff_args = '-w'
+
 set gfn=Inconsolata\ Medium\ 11
 set guioptions-=T
 
@@ -231,6 +234,9 @@ imap <C-Space> <C-x><C-u>
 
 " strip all trailing whitespace
 nnoremap <Leader>ws :%s/\s\+$//e<CR>
+
+" toggle git gutter line highlights
+nmap <Leader>gd :GitGutterLineHighlightsToggle<CR>
 
 """ --------------
 """ THEME SETTINGS
