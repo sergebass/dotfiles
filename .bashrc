@@ -160,3 +160,9 @@ fi
 
 # enable vi-style editing
 #set -o vi
+
+# disable terminal control flow (reclaim Ctrl+S and Ctrl+Q combinations)
+stty stop ''
+stty start ''
+stty -ixon
+stty -ixoff

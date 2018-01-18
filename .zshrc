@@ -152,3 +152,9 @@ fi
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
+
+# disable terminal control flow (reclaim Ctrl+S and Ctrl+Q combinations)
+stty stop ''
+stty start ''
+stty -ixon
+stty -ixoff
