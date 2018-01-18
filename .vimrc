@@ -221,7 +221,7 @@ nmap <Leader>] :cnext<CR>
 nmap <Leader>} :clast<CR>
 nmap <Leader>\| :copen<CR>
 
-nmap <Leader>\ :CtrlPMixed<CR>
+nmap <Leader><Space> :CtrlPMixed<CR>
 
 " search the word under cursor using ag
 nmap <Leader><CR> :Ag -w <C-r>=expand("<cword>")<CR>
