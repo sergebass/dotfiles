@@ -149,6 +149,8 @@ vnoremap <Leader>/ <Esc>:Ag -w "<C-r>*"
 
 nnoremap <Leader><CR> :Explore<CR>
 
+nnoremap <Leader><BS> :NERDTreeToggle<CR>
+
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
 inoremap <silent> <C-Space> <C-x><C-u>
