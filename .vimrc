@@ -10,7 +10,7 @@ set mouse=a
 
 " always display status line, even with one file being edited
 set laststatus=2
-set statusline=%F\ %m%r%=%{fugitive#statusline()}\ %y\ (%l/%L,\%c)\ %p%%
+set statusline=%F:%l:%c\ %m%r%=%{fugitive#statusline()}\ %y\ %p%%\ of\ %L
 
 set history=50 " keep 50 lines of command line history
 set ruler      " show the cursor position all the time
