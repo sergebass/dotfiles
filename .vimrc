@@ -88,41 +88,74 @@ endif
 """ KEYBOARD MAPPINGS
 """ -----------------
 
-" use Space key as an additional leader prefix
-map <Space> <Leader>
-
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
-map <Leader>w <C-w>
+noremap <silent> <Leader>w <C-w>
 
-map <C-Down> <C-w>j
-map <C-Up> <C-w>k
-map <C-Left> <C-w>h
-map <C-Right> <C-w>l
+noremap <silent> <C-Down> <C-w>j
+noremap <silent> <C-Up> <C-w>k
+noremap <silent> <C-Left> <C-w>h
+noremap <silent> <C-Right> <C-w>l
 
-map <C-k> :bp<CR>
-map <C-j> :bn<CR>
+noremap <silent> <C-k> :bp<CR>
+noremap <silent> <C-j> :bn<CR>
 
-map <C-h> :tabp<CR>
-map <C-l> :tabn<CR>
+noremap <silent> <C-h> :tabp<CR>
+noremap <silent> <C-l> :tabn<CR>
 
-noremap <Leader>t :tabnew<CR>
+noremap <silent> <Leader>t :tabnew<CR>
 
 " these shortcuts are intended to resemble Emacs ones
-noremap <Leader>0 :hide<CR>
-noremap <Leader>1 :only<CR>
-noremap <Leader>2 :split<CR>
-noremap <Leader>3 :vsplit<CR>
+noremap <silent> <Leader>0 :hide<CR>
+noremap <silent> <Leader>1 :only<CR>
+noremap <silent> <Leader>2 :split<CR>
+noremap <silent> <Leader>3 :vsplit<CR>
+
+" facilitate quickfix navigation
+nnoremap <silent> <Leader>[ :cprev<CR>
+nnoremap <silent> <Leader>] :cnext<CR>
+
+" make <Leader><CR> in quickfix windows open files in new tabs
+autocmd FileType qf nnoremap <silent> <buffer> <Leader><CR> <C-w><CR><C-w>T
+
+" facilitate location list navigation
+nnoremap <silent> <Leader>{ :lprev<CR>
+nnoremap <silent> <Leader>} :lnext<CR>
 
 set pastetoggle=<Leader>P
 
 " quickly reselect just pasted text
-nnoremap gV `[v`]
+nnoremap <silent> gV `[v`]
 
 " map Ctrl+R to replace highlighted text (with confirmation)
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
+
+" show a window with the file outline (ctags-based, install tagbar plugin first)
+nnoremap <silent> <Leader>o :TagbarToggle<CR>
+
+" CtrlP shortcuts
+nnoremap <silent> <Space> :CtrlPMRUFiles<CR>
+"nnoremap <silent> <Leader><Space> :CtrlPMixed<CR>
+
+" easily copy the word under cursor into the command line being edited
+cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
+
+" search the word under cursor using ag
+nnoremap <Leader>/ :Ag -w <C-r>=expand("<cword>")<CR>
+" quote the selected text in visual mode since that's to be used for multiple words
+vnoremap <Leader>/ <Esc>:Ag -w "<C-r>*"
+
+" autocompletion like in most IDEs (Ctrl+Space);
+" note that this does not work properly in terminals, only in gvim
+inoremap <silent> <C-Space> <C-x><C-u>
+
+" strip all trailing whitespace
+nnoremap <Leader>ws :%s/\s\+$//e<CR>
+
+" toggle git gutter line highlights
+nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
 
 " Eclim shortcuts
 
@@ -170,46 +203,17 @@ cnoremap w!! w !sudo tee > /dev/null %
 " C-c C-e a r     eclim-ant-run
 " C-c C-e a v     eclim-ant-validate
 
-nnoremap <Leader>ee :Buffers<CR>
-nnoremap <Leader>el :LocateFile<CR>
+nnoremap <Leader><Space> :LocateFile<CR>
 
+nnoremap <Leader>ee :Buffers<CR>
+
+nnoremap <Leader>! :ProjectProblems!<CR>
+nnoremap <Leader>!! :ProjectProblems<CR>
+
+nnoremap <Leader>eptd :ProjectTodo<CR>
 nnoremap <Leader>epr :ProjectRefreshAll<CR>
 nnoremap <Leader>ept :ProjectTree<CR>
-nnoremap <Leader>epts :ProjectsTree<CR>
-nnoremap <Leader>eptd :ProjectTodo<CR>
-
-nnoremap <Leader>eb :ProjectProblems!<CR>
-
-nnoremap <Leader>ed :JavaDocComment<CR>
-
-nnoremap <Leader>eh :JavaHierarchy <C-r>=expand("<cword>")<CR><CR>
-
-nnoremap <Leader>ech :JavaCallHierarchy <C-r>=expand("<cword>")<CR><CR>
-nnoremap <Leader>ech! :JavaCallHierarchy! <C-r>=expand("<cword>")<CR><CR>
-
-nnoremap <F3> :JavaSearchContext -a edit<CR>
-nnoremap <Leader>eff :JavaSearchContext -a edit<CR>
-
-nnoremap <Leader>eft :JavaSearch -a edit <C-r>=expand("<cword>")<CR><CR>
-nnoremap <Leader>efa :JavaSearch -a edit -s all -t all -x all -p <C-r>=expand("<cword>")<CR><CR>
-nnoremap <Leader>efd :JavaSearch -a edit -s all -t all -x declarations -p <C-r>=expand("<cword>")<CR><CR>
-nnoremap <Leader>efi :JavaSearch -a edit -s all -t all -x implementors -p <C-r>=expand("<cword>")<CR><CR>
-nnoremap <Leader>efr :JavaSearch -a edit -s all -t all -x references -p <C-r>=expand("<cword>")<CR><CR>
-
-nnoremap <Leader>en :JavaNew<Space>
-nnoremap <Leader>enc :JavaConstructor
-nnoremap <Leader>eg :JavaGet
-nnoremap <Leader>er :JavaRename<Space>
-nnoremap <Leader>ez :JavaImpl
-
-nnoremap <Leader>es :JavaDocPreview<CR>
-
-nnoremap <Leader>et :JUnit %
-
-nnoremap <Leader>e1 :JavaCorrect<CR>
-
-"nnoremap <Leader>ei :JavaImport<CR>
-nnoremap <Leader>ei :JavaImportOrganize<CR>
+nnoremap <Leader>epT :ProjectsTree<CR>
 
 nnoremap <Leader>eac :Ant clean<CR>
 nnoremap <Leader>eab :Ant build<CR>
@@ -217,41 +221,38 @@ nnoremap <Leader>eat :Ant test<CR>
 
 nnoremap <Leader>ev :Validate<CR>
 
-" show a window with the file outline (ctags-based, install tagbar plugin first)
-nnoremap <Leader>o :TagbarToggle<CR>
+""" ---------------------------------
+""" MODE-SPECIFIC CONFIGURATION: JAVA
+""" ---------------------------------
 
-" facilitate quickfix navigation
-nnoremap <Leader>[ :cprev<CR>
-nnoremap <Leader>] :cnext<CR>
+autocmd FileType java nnoremap <buffer> <Leader>^ :JavaHierarchy<CR>
 
-" facilitate location list navigation
-nnoremap <Leader>{ :lprev<CR>
-nnoremap <Leader>} :lnext<CR>
-nnoremap <Leader>\| :lopen<CR>
+autocmd FileType java nnoremap <buffer> <Leader>< :JavaCallHierarchy<CR>
+autocmd FileType java nnoremap <buffer> <Leader>> :JavaCallHierarchy!<CR>
 
-" CtrlP shortcuts
-nnoremap <Leader><Space> :CtrlPMixed<CR>
-
-" our "supersearch" shortcut is file type dependent
 autocmd FileType java nnoremap <buffer> <Leader>\ :JavaSearchContext -a edit<CR>
 
-" search the word under cursor using ag
-nnoremap <Leader><CR> :Ag -w <C-r>=expand("<cword>")<CR>
-" quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Leader><CR> <Esc>:Ag -w "<C-r>*"
+autocmd FileType java nnoremap <buffer> <Leader>\| :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
+autocmd FileType java nnoremap <buffer> <Leader>eff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
+autocmd FileType java nnoremap <buffer> <Leader>efd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
+autocmd FileType java nnoremap <buffer> <Leader>efi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
+autocmd FileType java nnoremap <buffer> <Leader>efr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
 
-" make <Leader><CR> in quickfix windows open files in new tabs
-autocmd FileType qf nnoremap <buffer> <Leader><CR> <C-w><CR><C-w>T
+autocmd FileType java nnoremap <buffer> <Leader>? :JavaDocPreview<CR>
 
-" autocompletion like in most IDEs (Ctrl+Space);
-" note that this does not work properly in terminals, only in gvim
-inoremap <C-Space> <C-x><C-u>
+autocmd FileType java nnoremap <buffer> <Leader>ed :JavaDocComment<CR>
 
-" strip all trailing whitespace
-nnoremap <Leader>ws :%s/\s\+$//e<CR>
+autocmd FileType java nnoremap <buffer> <Leader>en :JavaNew<Space>
+autocmd FileType java nnoremap <buffer> <Leader>enc :JavaConstructor
+autocmd FileType java nnoremap <buffer> <Leader>eg :JavaGet
+autocmd FileType java nnoremap <buffer> <Leader>er :JavaRename<Space>
+autocmd FileType java nnoremap <buffer> <Leader>ez :JavaImpl
 
-" toggle git gutter line highlights
-nnoremap <Leader>gd :GitGutterLineHighlightsToggle<CR>
+autocmd FileType java nnoremap <buffer> <Leader>et :JUnit %
+
+autocmd FileType java nnoremap <buffer> <Leader>e1 :JavaCorrect<CR>
+
+autocmd FileType java nnoremap <buffer> <Leader>ei :JavaImportOrganize<CR>
 
 """ --------------
 """ THEME SETTINGS
