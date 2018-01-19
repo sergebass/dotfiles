@@ -62,8 +62,10 @@ set tags=./tags;/
 let g:gitgutter_diff_args = '-w'
 
 let g:EclimLocateFileScope = 'workspace'
-let g:EclimLocateFileDefaultAction = 'vsplit'
+let g:EclimLocateFileDefaultAction = 'edit'
 let g:EclimLocateFileNonProjectScope = 'ag'
+let g:EclimJavaCallHierarchyDefaultAction = 'edit'
+let g:EclimJavaHierarchyDefaultAction = 'edit'
 
 set gfn=Inconsolata\ Medium\ 11
 set guioptions-=T
