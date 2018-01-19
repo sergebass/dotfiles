@@ -42,6 +42,10 @@ set wildmenu
 set listchars=tab:>.,trail:.
 set list
 
+" netrw browser uses tabs to display file lists and this looks really bad
+" with tab highlighting
+autocmd FileType netrw set nolist
+
 " consider dashes as parts of a word (for CSS, lisps, package names etc.)
 set iskeyword+=-
 
@@ -60,6 +64,9 @@ set tags=./tags;/
 
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
+
+" use detailed listing style for netrw
+let g:netrw_liststyle = 1
 
 let g:EclimLocateFileScope = 'workspace'
 let g:EclimLocateFileDefaultAction = 'edit'
