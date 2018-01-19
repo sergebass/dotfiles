@@ -95,6 +95,9 @@ endif
 """ KEYBOARD MAPPINGS
 """ -----------------
 
+let mapleader = "\\"
+let maplocalleader = " "
+
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
 noremap <silent> <Leader>w <C-w>
 
@@ -142,9 +145,8 @@ cnoremap w!! w !sudo tee > /dev/null %
 " show a window with the file outline (ctags-based, install tagbar plugin first)
 nnoremap <silent> <Leader>o :TagbarToggle<CR>
 
-" CtrlP shortcuts
-nnoremap <silent> <Space> :CtrlPMRUFiles<CR>
-"nnoremap <silent> <Leader><Space> :CtrlPMixed<CR>
+" show most recently used file selector
+nnoremap <silent> <Leader>\ :CtrlPMRUFiles<CR>
 
 " easily copy the word under cursor into the command line being edited
 cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
@@ -167,6 +169,10 @@ nnoremap <Leader><Tab> :retab <bar> %s/\s\+$//e<CR>
 
 " toggle git gutter line highlights
 nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
+
+""" -------------------------------------------------------
+""" MODE-SPECIFIC CONFIGURATION: ECLIM supported file types
+""" -------------------------------------------------------
 
 " Eclim shortcuts
 
@@ -214,56 +220,55 @@ nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
 " C-c C-e a r     eclim-ant-run
 " C-c C-e a v     eclim-ant-validate
 
-nnoremap <Leader><Space> :LocateFile<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader><CR> :LocateFile<CR>
 
-nnoremap <Leader>ee :Buffers<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>e :Buffers<CR>
 
-nnoremap <Leader>! :ProjectProblems!<CR>
-nnoremap <Leader>!! :ProjectProblems<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>! :ProjectProblems!<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>!! :ProjectProblems<CR>
 
-nnoremap <Leader>eptd :ProjectTodo<CR>
-nnoremap <Leader>epr :ProjectRefreshAll<CR>
-nnoremap <Leader>ept :ProjectTree<CR>
-nnoremap <Leader>epT :ProjectsTree<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>ptd :ProjectTodo<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>pr :ProjectRefreshAll<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>pt :ProjectTree<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>pT :ProjectsTree<CR>
 
-nnoremap <Leader>eac :Ant clean<CR>
-nnoremap <Leader>eab :Ant build<CR>
-nnoremap <Leader>eat :Ant test<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>ac :Ant clean<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>ab :Ant build<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>at :Ant test<CR>
 
-nnoremap <Leader>ev :Validate<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>v :Validate<CR>
 
 """ ---------------------------------
 """ MODE-SPECIFIC CONFIGURATION: JAVA
 """ ---------------------------------
 
-autocmd FileType java nnoremap <buffer> <Leader>^ :JavaHierarchy<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
 
-autocmd FileType java nnoremap <buffer> <Leader>< :JavaCallHierarchy<CR>
-autocmd FileType java nnoremap <buffer> <Leader>> :JavaCallHierarchy!<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>< :JavaCallHierarchy<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
 
-autocmd FileType java nnoremap <buffer> <Leader>\ :JavaSearchContext -a edit<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader><Space> :JavaSearchContext -a edit<CR>
 
-autocmd FileType java nnoremap <buffer> <Leader>\| :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
-autocmd FileType java nnoremap <buffer> <Leader>eff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
-autocmd FileType java nnoremap <buffer> <Leader>efd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
-autocmd FileType java nnoremap <buffer> <Leader>efi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
-autocmd FileType java nnoremap <buffer> <Leader>efr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
+autocmd FileType java nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
+autocmd FileType java nnoremap <buffer> <LocalLeader>fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
+autocmd FileType java nnoremap <buffer> <LocalLeader>fi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
+autocmd FileType java nnoremap <buffer> <LocalLeader>fr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
 
-autocmd FileType java nnoremap <buffer> <Leader>? :JavaDocPreview<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>? :JavaDocPreview<CR>
 
-autocmd FileType java nnoremap <buffer> <Leader>ed :JavaDocComment<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>d :JavaDocComment<CR>
 
-autocmd FileType java nnoremap <buffer> <Leader>en :JavaNew<Space>
-autocmd FileType java nnoremap <buffer> <Leader>enc :JavaConstructor
-autocmd FileType java nnoremap <buffer> <Leader>eg :JavaGet
-autocmd FileType java nnoremap <buffer> <Leader>er :JavaRename<Space>
-autocmd FileType java nnoremap <buffer> <Leader>ez :JavaImpl
+autocmd FileType java nnoremap <buffer> <LocalLeader>n :JavaNew<Space>
+autocmd FileType java nnoremap <buffer> <LocalLeader>nc :JavaConstructor
+autocmd FileType java nnoremap <buffer> <LocalLeader>g :JavaGet
+autocmd FileType java nnoremap <buffer> <LocalLeader>r :JavaRename<Space>
+autocmd FileType java nnoremap <buffer> <LocalLeader>z :JavaImpl
 
-autocmd FileType java nnoremap <buffer> <Leader>et :JUnit %
+autocmd FileType java nnoremap <buffer> <LocalLeader>t :JUnit %
 
-autocmd FileType java nnoremap <buffer> <Leader>e1 :JavaCorrect<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>1 :JavaCorrect<CR>
 
-autocmd FileType java nnoremap <buffer> <Leader>ei :JavaImportOrganize<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader>i :JavaImportOrganize<CR>
 
 """ --------------
 """ THEME SETTINGS
