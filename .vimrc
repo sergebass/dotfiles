@@ -147,6 +147,8 @@ nnoremap <Leader>/ :Ag -w <C-r>=expand("<cword>")<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap <Leader>/ <Esc>:Ag -w "<C-r>*"
 
+nnoremap <Leader><CR> :Explore<CR>
+
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
 inoremap <silent> <C-Space> <C-x><C-u>
