@@ -143,7 +143,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 cnoremap w!! w !sudo tee > /dev/null %
 
 " show a window with the file outline (ctags-based, install tagbar plugin first)
-nnoremap <silent> <Leader>o :TagbarToggle<CR>
+nnoremap <silent> <Leader><BS> :TagbarToggle<CR>
 
 " show most recently used file selector
 nnoremap <silent> <Leader>\ :CtrlPMRUFiles<CR>
@@ -152,20 +152,18 @@ nnoremap <silent> <Leader>\ :CtrlPMRUFiles<CR>
 cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
 
 " search the word under cursor using ag
-nnoremap <Leader>/ :Ag -w <C-r>=expand("<cword>")<CR>
+nnoremap <Leader><CR> :Ag -w <C-r>=expand("<cword>")<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Leader>/ <Esc>:Ag -w "<C-r>*"
+vnoremap <Leader><CR> <Esc>:Ag -w "<C-r>*"
 
-nnoremap <silent> <Leader><CR> :Explore<CR>
-
-nnoremap <silent> <Leader><BS> :NERDTreeFind<CR>
+nnoremap <silent> <Leader><Tab> :NERDTreeFind<CR>
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
 inoremap <silent> <C-Space> <C-x><C-u>
 
 " replace tabs with spaces and strip all trailing whitespace
-nnoremap <Leader><Tab> :retab <bar> %s/\s\+$//e<CR>
+nnoremap <Leader>ws :retab <bar> %s/\s\+$//e<CR>
 
 " toggle git gutter line highlights
 nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
@@ -220,7 +218,7 @@ nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
 " C-c C-e a r     eclim-ant-run
 " C-c C-e a v     eclim-ant-validate
 
-autocmd FileType java nnoremap <buffer> <LocalLeader><CR> :LocateFile<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader><Space> :LocateFile<CR>
 
 autocmd FileType java nnoremap <buffer> <LocalLeader>e :Buffers<CR>
 
@@ -247,7 +245,7 @@ autocmd FileType java nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
 autocmd FileType java nnoremap <buffer> <LocalLeader>< :JavaCallHierarchy<CR>
 autocmd FileType java nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
 
-autocmd FileType java nnoremap <buffer> <LocalLeader><Space> :JavaSearchContext -a edit<CR>
+autocmd FileType java nnoremap <buffer> <LocalLeader><CR> :JavaSearchContext -a edit<CR>
 
 autocmd FileType java nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
 autocmd FileType java nnoremap <buffer> <LocalLeader>fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
