@@ -155,8 +155,8 @@ nnoremap <Leader><BS> :NERDTreeToggle<CR>
 " note that this does not work properly in terminals, only in gvim
 inoremap <silent> <C-Space> <C-x><C-u>
 
-" strip all trailing whitespace
-nnoremap <Leader>ws :%s/\s\+$//e<CR>
+" replace tabs with spaces and strip all trailing whitespace
+nnoremap <Leader><Tab> :retab <bar> %s/\s\+$//e<CR>
 
 " toggle git gutter line highlights
 nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
