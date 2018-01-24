@@ -371,6 +371,9 @@ augroup BgHighlight
 
 augroup END
 
+" this is our visual selection highlighting
+highlight Visual ctermbg=24 guibg=#005050
+
 """ -------------------------------
 """ MISCELLANEOUS STUFF AND PLUGINS
 """ -------------------------------
