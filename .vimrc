@@ -333,10 +333,6 @@ highlight link GitGutterDelete DiffDelete
 highlight link GitGutterChange DiffChange
 highlight link GitGutterChangeDelete DiffChange
 
-highlight ColorColumn ctermbg=17 guibg=#000020
-highlight LineNr ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212
-highlight SpecialKey cterm=none ctermfg=yellow ctermbg=52 guifg=yellow guibg=darkred
-
 highlight StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
 highlight StatusLineNC cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b2b2 guibg=#3a3a3a
 
@@ -353,28 +349,26 @@ highlight TabLineSel term=bold cterm=bold ctermfg=yellow ctermbg=22
 highlight MyWordHighlight cterm=bold ctermfg=88 ctermbg=226
 match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\|ASAP\)"
 
+" show non-space whitespace using this coloring:
+highlight SpecialKey cterm=none ctermfg=yellow ctermbg=52 gui=none guifg=yellow guibg=darkred
+
+" line length limit highlighting
+highlight ColorColumn ctermbg=234 guibg=#202020
+
+" make current line and its number stand out from the rest
+highlight LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
+highlight CursorLine cterm=none ctermbg=236 gui=none guibg=#303030
+highlight CursorLineNR cterm=bold ctermfg=245 ctermbg=0 gui=bold guifg=#808080 guibg=#000000
+
 augroup BgHighlight
     autocmd!
 
     autocmd WinEnter * set colorcolumn=80,100
     autocmd WinEnter * set cursorline
-    autocmd WinEnter * hi LineNr ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212
 
     autocmd WinLeave * set colorcolumn=0
     autocmd WinLeave * set nocursorline
-    autocmd WinLeave * hi LineNr ctermfg=274 guifg=#e9e9e9 ctermbg=133 guibg=#212121
 
-augroup END
-
-" highlight current line number
-hi clear CursorLine
-augroup CLClear
-    autocmd! ColorScheme * hi clear CursorLine
-augroup END
-
-hi CursorLineNR cterm=bold
-augroup CLNRSet
-    autocmd! ColorScheme * hi CursorLineNR cterm=bold
 augroup END
 
 """ -------------------------------
