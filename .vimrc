@@ -10,13 +10,7 @@ set mouse=a
 
 " always display status line, even with one file being edited
 set laststatus=2
-
-" our eclim plugin is optional
-if exists(':LocateFile')
-    set statusline=%F:%l:%c\ \ %m%r%y%=\ %{eclim#project#util#ProjectStatusLine()}\ %{fugitive#statusline()}\ %p%%/%L
-else
-    set statusline=%F:%l:%c\ \ %m%r%y%=\ %{fugitive#statusline()}\ %p%%/%L
-endif
+set statusline=%F:%l:%c\ \ %m%r%y%=\ %{fugitive#statusline()}\ %p%%/%L
 
 set history=50 " keep 50 lines of command line history
 set ruler      " show the cursor position all the time
@@ -224,26 +218,23 @@ nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
 " C-c C-e a r     eclim-ant-run
 " C-c C-e a v     eclim-ant-validate
 
-" do not introduce mappings if eclim plugin is not installed
-if exists(':LocateFile')
-    nnoremap <LocalLeader><Space> :LocateFile<CR>
+nnoremap <LocalLeader><Space> :LocateFile<CR>
 
-    nnoremap <LocalLeader>e :Buffers<CR>
+nnoremap <LocalLeader>e :Buffers<CR>
 
-    nnoremap <LocalLeader>! :ProjectProblems!<CR>
-    nnoremap <LocalLeader>!! :ProjectProblems<CR>
+nnoremap <LocalLeader>! :ProjectProblems!<CR>
+nnoremap <LocalLeader>!! :ProjectProblems<CR>
 
-    nnoremap <LocalLeader>ptd :ProjectTodo<CR>
-    nnoremap <LocalLeader>pr :ProjectRefreshAll<CR>
-    nnoremap <LocalLeader>pt :ProjectTree<CR>
-    nnoremap <LocalLeader>pT :ProjectsTree<CR>
+nnoremap <LocalLeader>ptd :ProjectTodo<CR>
+nnoremap <LocalLeader>pr :ProjectRefreshAll<CR>
+nnoremap <LocalLeader>pt :ProjectTree<CR>
+nnoremap <LocalLeader>pT :ProjectsTree<CR>
 
-    nnoremap <LocalLeader>ac :Ant clean<CR>
-    nnoremap <LocalLeader>ab :Ant build<CR>
-    nnoremap <LocalLeader>at :Ant test<CR>
+nnoremap <LocalLeader>ac :Ant clean<CR>
+nnoremap <LocalLeader>ab :Ant build<CR>
+nnoremap <LocalLeader>at :Ant test<CR>
 
-    nnoremap <LocalLeader>v :Validate<CR>
-endif
+nnoremap <LocalLeader>v :Validate<CR>
 
 """ ---------------------------------
 """ MODE-SPECIFIC CONFIGURATION: JAVA
