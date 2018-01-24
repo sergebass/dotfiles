@@ -224,23 +224,26 @@ nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
 " C-c C-e a r     eclim-ant-run
 " C-c C-e a v     eclim-ant-validate
 
-autocmd FileType java nnoremap <buffer> <LocalLeader><Space> :LocateFile<CR>
+" do not introduce mappings if eclim plugin is not installed
+if exists(':LocateFile')
+    nnoremap <LocalLeader><Space> :LocateFile<CR>
 
-autocmd FileType java nnoremap <buffer> <LocalLeader>e :Buffers<CR>
+    nnoremap <LocalLeader>e :Buffers<CR>
 
-autocmd FileType java nnoremap <buffer> <LocalLeader>! :ProjectProblems!<CR>
-autocmd FileType java nnoremap <buffer> <LocalLeader>!! :ProjectProblems<CR>
+    nnoremap <LocalLeader>! :ProjectProblems!<CR>
+    nnoremap <LocalLeader>!! :ProjectProblems<CR>
 
-autocmd FileType java nnoremap <buffer> <LocalLeader>ptd :ProjectTodo<CR>
-autocmd FileType java nnoremap <buffer> <LocalLeader>pr :ProjectRefreshAll<CR>
-autocmd FileType java nnoremap <buffer> <LocalLeader>pt :ProjectTree<CR>
-autocmd FileType java nnoremap <buffer> <LocalLeader>pT :ProjectsTree<CR>
+    nnoremap <LocalLeader>ptd :ProjectTodo<CR>
+    nnoremap <LocalLeader>pr :ProjectRefreshAll<CR>
+    nnoremap <LocalLeader>pt :ProjectTree<CR>
+    nnoremap <LocalLeader>pT :ProjectsTree<CR>
 
-autocmd FileType java nnoremap <buffer> <LocalLeader>ac :Ant clean<CR>
-autocmd FileType java nnoremap <buffer> <LocalLeader>ab :Ant build<CR>
-autocmd FileType java nnoremap <buffer> <LocalLeader>at :Ant test<CR>
+    nnoremap <LocalLeader>ac :Ant clean<CR>
+    nnoremap <LocalLeader>ab :Ant build<CR>
+    nnoremap <LocalLeader>at :Ant test<CR>
 
-autocmd FileType java nnoremap <buffer> <LocalLeader>v :Validate<CR>
+    nnoremap <LocalLeader>v :Validate<CR>
+endif
 
 """ ---------------------------------
 """ MODE-SPECIFIC CONFIGURATION: JAVA
