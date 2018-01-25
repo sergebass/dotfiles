@@ -123,13 +123,21 @@ noremap <silent> <Leader>3 :vsplit<CR>
 " facilitate quickfix navigation
 nnoremap <silent> <Leader>[ :cprev<CR>
 nnoremap <silent> <Leader>] :cnext<CR>
+nnoremap <silent> <Leader>{ :cpfile<CR>
+nnoremap <silent> <Leader>} :cnfile<CR>
+nnoremap <silent> <Leader>( :colder<CR>
+nnoremap <silent> <Leader>) :cnewer<CR>
 
 " make <Leader><CR> in quickfix windows open files in new tabs
 autocmd FileType qf nnoremap <silent> <buffer> <Leader><CR> <C-w><CR><C-w>T
 
 " facilitate location list navigation
-nnoremap <silent> <Leader>{ :lprev<CR>
-nnoremap <silent> <Leader>} :lnext<CR>
+nnoremap <silent> <LocalLeader>[ :lprev<CR>
+nnoremap <silent> <LocalLeader>] :lnext<CR>
+nnoremap <silent> <LocalLeader>{ :lpfile<CR>
+nnoremap <silent> <LocalLeader>} :lnfile<CR>
+nnoremap <silent> <LocalLeader>( :lolder<CR>
+nnoremap <silent> <LocalLeader>) :lnewer<CR>
 
 set pastetoggle=<Leader>P
 
