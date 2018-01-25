@@ -46,3 +46,6 @@
 [submodule "vim-bundle/vim-qf"]
 	path = vim-bundle/vim-qf
 	url = https://github.com/romainl/vim-qf.git
+[submodule "vim-bundle/QFGrep"]
+	path = vim-bundle/QFGrep
+	url = https://github.com/sk1418/QFGrep.git
