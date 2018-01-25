@@ -43,3 +43,6 @@
 [submodule "vim-bundle/vim-colorschemes"]
 	path = vim-bundle/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "vim-bundle/vim-qf"]
+	path = vim-bundle/vim-qf
+	url = https://github.com/romainl/vim-qf.git
