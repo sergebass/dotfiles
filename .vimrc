@@ -176,55 +176,9 @@ nnoremap <Leader>ws :retab <bar> %s/\s\+$//e<CR>
 " toggle git gutter line highlights
 nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
 
-""" -------------------------------------------------------
-""" MODE-SPECIFIC CONFIGURATION: ECLIM supported file types
-""" -------------------------------------------------------
-
-" Eclim shortcuts
-
-" Note: these are the default shortcuts for emacs-eclim:
-" `eclim-mode' Minor Mode Bindings Starting With C-c C-e:
-"
-" C-c C-e a       Prefix Command
-" C-c C-e b       eclim-problems
-" C-c C-e d       eclim-java-doc-comment
-" C-c C-e f       Prefix Command
-" C-c C-e g       eclim-java-generate-getter-and-setter
-" C-c C-e h       eclim-java-hierarchy
-" C-c C-e i       eclim-java-import-organize
-" C-c C-e m       Prefix Command
-" C-c C-e n       eclim-java-new
-" C-c C-e o       eclim-problems-open
-" C-c C-e p       Prefix Command
-" C-c C-e r       eclim-java-refactor-rename-symbol-at-point
-" C-c C-e s       eclim-java-method-signature-at-point
-" C-c C-e t       eclim-run-junit
-" C-c C-e u       Prefix Command
-" C-c C-e z       eclim-java-implement
-"
-" C-c C-e u r     eclim-java-run-run
-"
-" C-c C-e m p     eclim-maven-lifecycle-phase-run
-" C-c C-e m r     eclim-maven-run
-"
-" C-c C-e f d     eclim-java-find-declaration
-" C-c C-e f f     eclim-java-find-generic
-" C-c C-e f r     eclim-java-find-references
-" C-c C-e f s     eclim-java-format
-" C-c C-e f t     eclim-java-find-type
-"
-" C-c C-e p a     eclim-debug-attach
-" C-c C-e p c     eclim-project-create
-" C-c C-e p g     eclim-project-goto
-" C-c C-e p i     eclim-project-import
-" C-c C-e p m     eclim-project-mode
-" C-c C-e p p     eclim-project-mode
-" C-c C-e p t     eclim-debug-test
-"
-" C-c C-e a a     eclim-ant-run
-" C-c C-e a c     eclim-ant-clear-cache
-" C-c C-e a r     eclim-ant-run
-" C-c C-e a v     eclim-ant-validate
+""" --------------------------
+""" General settings for eclim
+""" --------------------------
 
 nnoremap <LocalLeader><Space> :LocateFile<CR>
 
@@ -243,38 +197,6 @@ nnoremap <LocalLeader>ab :Ant build<CR>
 nnoremap <LocalLeader>at :Ant test<CR>
 
 nnoremap <LocalLeader>v :Validate<CR>
-
-""" ---------------------------------
-""" MODE-SPECIFIC CONFIGURATION: JAVA
-""" ---------------------------------
-
-autocmd FileType java nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
-
-autocmd FileType java nnoremap <buffer> <LocalLeader>< :JavaCallHierarchy<CR>
-autocmd FileType java nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
-
-autocmd FileType java nnoremap <buffer> <LocalLeader><CR> :JavaSearchContext -a edit<CR>
-
-autocmd FileType java nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
-autocmd FileType java nnoremap <buffer> <LocalLeader>fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
-autocmd FileType java nnoremap <buffer> <LocalLeader>fi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
-autocmd FileType java nnoremap <buffer> <LocalLeader>fr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
-
-autocmd FileType java nnoremap <buffer> <LocalLeader>? :JavaDocPreview<CR>
-
-autocmd FileType java nnoremap <buffer> <LocalLeader>d :JavaDocComment<CR>
-
-autocmd FileType java nnoremap <buffer> <LocalLeader>n :JavaNew<Space>
-autocmd FileType java nnoremap <buffer> <LocalLeader>nc :JavaConstructor
-autocmd FileType java nnoremap <buffer> <LocalLeader>g :JavaGet
-autocmd FileType java nnoremap <buffer> <LocalLeader>r :JavaRename<Space>
-autocmd FileType java nnoremap <buffer> <LocalLeader>z :JavaImpl
-
-autocmd FileType java nnoremap <buffer> <LocalLeader>t :JUnit %
-
-autocmd FileType java nnoremap <buffer> <LocalLeader>1 :JavaCorrect<CR>
-
-autocmd FileType java nnoremap <buffer> <LocalLeader>i :JavaImportOrganize<CR>
 
 """ --------------
 """ THEME SETTINGS
