@@ -6,6 +6,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" double star makes :find look for files recursively
+set path=.,/usr/local/include,/usr/include,,**
+
 set mouse=a
 
 " always display status line, even with one file being edited
