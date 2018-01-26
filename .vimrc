@@ -131,9 +131,6 @@ nnoremap <silent> <Leader>} :cnfile<CR>
 nnoremap <silent> <Leader>( :colder<CR>
 nnoremap <silent> <Leader>) :cnewer<CR>
 
-" make <Leader><CR> in quickfix windows open files in new tabs
-autocmd FileType qf nnoremap <silent> <buffer> <Leader><CR> <C-w><CR><C-w>T
-
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
 nnoremap <silent> <LocalLeader>] :lnext<CR>
