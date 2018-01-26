@@ -123,6 +123,12 @@ noremap <silent> <Leader>1 :only<CR>
 noremap <silent> <Leader>2 :split<CR>
 noremap <silent> <Leader>3 :vsplit<CR>
 
+" Make numeric pad {+-*/} keys resize current window (tested with rxvt-unicode-256color)
+nnoremap <silent> <Esc>Ok <C-w>+
+nnoremap <silent> <Esc>Om <C-w>-
+nnoremap <silent> <Esc>Oo <C-w><
+nnoremap <silent> <Esc>Oj <C-w>>
+
 " facilitate quickfix navigation
 nnoremap <silent> <Leader>[ :cprev<CR>
 nnoremap <silent> <Leader>] :cnext<CR>
