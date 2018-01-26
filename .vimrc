@@ -376,8 +376,6 @@ highlight Visual ctermbg=24 guibg=#005050
 """ MISCELLANEOUS STUFF AND PLUGINS
 """ -------------------------------
 
-au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
-
 " remember edit position and jump to it next time the same file is edited
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -408,6 +406,8 @@ augroup templates
   au!
   autocmd BufNewFile *.* silent! execute '0r ~/templates/vim-template.'.expand("<afile>:e")
 augroup END
+
+au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
