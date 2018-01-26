@@ -2,17 +2,20 @@
 """ MODE-SPECIFIC CONFIGURATION: JAVA
 """ ---------------------------------
 
-nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
-
-nnoremap <buffer> <LocalLeader>< :JavaCallHierarchy<CR>
-nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
-
+nnoremap <buffer> <BS> <C-O>
+nnoremap <buffer> <LocalLeader> <BS> <C-O>
+nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <LocalLeader><CR> :JavaSearchContext -a edit<CR>
 
 nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
 nnoremap <buffer> <LocalLeader>fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
 nnoremap <buffer> <LocalLeader>fi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
 nnoremap <buffer> <LocalLeader>fr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
+
+nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
+
+nnoremap <buffer> <LocalLeader>< :JavaCallHierarchy<CR>
+nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
 
 nnoremap <buffer> <LocalLeader>? :JavaDocPreview<CR>
 
