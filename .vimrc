@@ -282,8 +282,7 @@ autocmd FileType java nnoremap <buffer> <LocalLeader>i :JavaImportOrganize<CR>
 
 " let g:colors_name = "sergebass"
 
-"highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
-hi Normal ctermfg=grey ctermbg=black guifg=cyan guibg=black
+hi Normal term=none cterm=none ctermfg=grey ctermbg=black gui=none guifg=cyan guibg=black
 hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
 hi Constant term=underline ctermfg=Magenta guifg=Magenta
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
@@ -295,9 +294,9 @@ hi Function term=bold ctermfg=White guifg=White
 hi Repeat term=underline ctermfg=White guifg=white
 hi Operator ctermfg=Red guifg=Red
 hi Ignore ctermfg=black guifg=bg
-hi Error term=reverse ctermbg=red ctermfg=black guibg=red guifg=black
-hi WarningMsg term=reverse ctermbg=yellow ctermfg=black guibg=yellow guifg=black
-hi Todo term=standout ctermbg=yellow ctermfg=blue guifg=blue guibg=yellow
+hi Error term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
+hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
+hi Todo term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
 
 hi link String Constant
@@ -345,11 +344,11 @@ highlight TabLine term=bold cterm=bold ctermfg=white ctermbg=19
 highlight TabLineFill term=bold cterm=bold ctermfg=white ctermbg=19
 highlight TabLineSel term=bold cterm=bold ctermfg=yellow ctermbg=22
 
-highlight MyWordHighlight cterm=bold ctermfg=88 ctermbg=226
+highlight MyWordHighlight cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\|ASAP\)"
 
 " show non-space whitespace using this coloring:
-highlight SpecialKey cterm=none ctermfg=yellow ctermbg=52 gui=none guifg=yellow guibg=darkred
+highlight SpecialKey cterm=none ctermfg=201 ctermbg=236 gui=none guifg=#ff00ff guibg=#303030
 
 " line length limit highlighting
 highlight ColorColumn ctermbg=234 guibg=#202020
