@@ -1,54 +1,54 @@
 [submodule "vim-bundle/ctrlp.vim"]
-	path = vim-bundle/ctrlp.vim
+	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "vim-bundle/haskell-vim"]
-	path = vim-bundle/haskell-vim
+	path = .vim/bundle/haskell-vim
 	url = https://github.com/neovimhaskell/haskell-vim.git
 [submodule "vim-bundle/idris-vim"]
-	path = vim-bundle/idris-vim
+	path = .vim/bundle/idris-vim
 	url = https://github.com/idris-hackers/idris-vim.git
 [submodule "vim-bundle/purescript-vim"]
-	path = vim-bundle/purescript-vim
+	path = .vim/bundle/purescript-vim
 	url = https://github.com/purescript-contrib/purescript-vim.git
 [submodule "vim-bundle/ag"]
-	path = vim-bundle/ag
+	path = .vim/bundle/ag
 	url = https://github.com/ervandew/ag.git
 [submodule "vim-bundle/nerdtree"]
-	path = vim-bundle/nerdtree
+	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim-bundle/tagbar"]
-	path = vim-bundle/tagbar
+	path = .vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
 [submodule "vim-bundle/typescript-vim"]
-	path = vim-bundle/typescript-vim
+	path = .vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "vim-bundle/vim-fetch"]
-	path = vim-bundle/vim-fetch
+	path = .vim/bundle/vim-fetch
 	url = https://github.com/kopischke/vim-fetch.git
 [submodule "vim-bundle/vim-fugitive"]
-	path = vim-bundle/vim-fugitive
+	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim-bundle/vim-gitgutter"]
-	path = vim-bundle/vim-gitgutter
+	path = .vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "vim-bundle/vim-ps1"]
-	path = vim-bundle/vim-ps1
+	path = .vim/bundle/vim-ps1
 	url = https://github.com/PProvost/vim-ps1.git
 [submodule "vim-bundle/rainbow_parentheses.vim"]
-	path = vim-bundle/rainbow_parentheses.vim
+	path = .vim/bundle/rainbow_parentheses.vim
 	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "vim-bundle/rust.vim"]
-	path = vim-bundle/rust.vim
+	path = .vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
 [submodule "vim-bundle/vim-colorschemes"]
-	path = vim-bundle/vim-colorschemes
+	path = .vim/bundle/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
 [submodule "vim-bundle/vim-qf"]
-	path = vim-bundle/vim-qf
+	path = .vim/bundle/vim-qf
 	url = https://github.com/romainl/vim-qf.git
 [submodule "vim-bundle/QFGrep"]
-	path = vim-bundle/QFGrep
+	path = .vim/bundle/QFGrep
 	url = https://github.com/sk1418/QFGrep.git
 [submodule "vim-bundle/supertab"]
-	path = vim-bundle/supertab
+	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
