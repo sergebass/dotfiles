@@ -49,3 +49,6 @@
 [submodule "vim-bundle/QFGrep"]
 	path = vim-bundle/QFGrep
 	url = https://github.com/sk1418/QFGrep.git
+[submodule "vim-bundle/supertab"]
+	path = vim-bundle/supertab
+	url = https://github.com/ervandew/supertab
