@@ -173,7 +173,8 @@ nnoremap <silent> <Leader>{ :cpfile<CR>
 nnoremap <silent> <Leader>} :cnfile<CR>
 nnoremap <silent> <Leader>( :colder<CR>
 nnoremap <silent> <Leader>) :cnewer<CR>
-nnoremap <silent> <Leader>\| :cclose<CR>
+nnoremap <silent> <Leader>\ :cclose<CR>
+nnoremap <silent> <Leader>\| :copen<CR>
 
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
@@ -182,7 +183,8 @@ nnoremap <silent> <LocalLeader>{ :lpfile<CR>
 nnoremap <silent> <LocalLeader>} :lnfile<CR>
 nnoremap <silent> <LocalLeader>( :lolder<CR>
 nnoremap <silent> <LocalLeader>) :lnewer<CR>
-nnoremap <silent> <LocalLeader>\| :lclose<CR>
+nnoremap <silent> <LocalLeader>\ :lclose<CR>
+nnoremap <silent> <LocalLeader>\| :lopen<CR>
 
 set pastetoggle=<Leader>P
 
@@ -195,14 +197,12 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
-" show a window with the file outline (ctags-based, install tagbar plugin first)
-nnoremap <silent> <Leader>\ :TagbarToggle<CR>
-
-nnoremap <silent> <Leader><BS> :NERDTreeFind<CR>
-
-nnoremap <silent> <Leader><Tab> :tabnew<CR>
-
+nnoremap <silent> <Leader><BS> :TagbarToggle<CR>
+nnoremap <silent> <Leader><Tab> :NERDTreeFind<CR>
 nnoremap <silent> <Leader><Space> :CtrlPMRUFiles<CR>
+
+nnoremap <silent> + :tabnew<CR>
+nnoremap <silent> - :tabclose<CR>
 
 " easily copy the word under cursor into the command line being edited
 cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
