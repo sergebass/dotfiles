@@ -137,8 +137,6 @@ noremap <silent> <C-j> :bn<CR>
 noremap <silent> <C-h> :tabp<CR>
 noremap <silent> <C-l> :tabn<CR>
 
-noremap <silent> <Leader>t :tabnew<CR>
-
 " these shortcuts are intended to resemble Emacs ones
 noremap <silent> <Leader>0 :hide<CR>
 noremap <silent> <Leader>1 :only<CR>
@@ -158,6 +156,8 @@ nnoremap <silent> <Leader>{ :cpfile<CR>
 nnoremap <silent> <Leader>} :cnfile<CR>
 nnoremap <silent> <Leader>( :colder<CR>
 nnoremap <silent> <Leader>) :cnewer<CR>
+nnoremap <silent> <Leader>\ :cclose <CR>
+nnoremap <silent> <Leader>\| :copen<CR>
 
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
@@ -166,6 +166,8 @@ nnoremap <silent> <LocalLeader>{ :lpfile<CR>
 nnoremap <silent> <LocalLeader>} :lnfile<CR>
 nnoremap <silent> <LocalLeader>( :lolder<CR>
 nnoremap <silent> <LocalLeader>) :lnewer<CR>
+nnoremap <silent> <LocalLeader>\ :lclose<CR>
+nnoremap <silent> <LocalLeader>\| :lopen<CR>
 
 set pastetoggle=<Leader>P
 
@@ -179,11 +181,13 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 cnoremap w!! w !sudo tee > /dev/null %
 
 " show a window with the file outline (ctags-based, install tagbar plugin first)
-nnoremap <silent> <Leader>\ :TagbarToggle<CR>
+nnoremap <silent> <BS> :TagbarToggle<CR>
 
-" show most recently used file/buffer selector
-nnoremap <silent> <BS> :CtrlPMRUFiles<CR>
-nnoremap <silent> <Leader><BS> :CtrlPBuffer<CR>
+nnoremap <silent> <Leader><BS> :NERDTreeFind<CR>
+
+nnoremap <silent> <Leader><Tab> :tabnew<CR>
+
+nnoremap <silent> <Leader><Space> :CtrlPMRUFiles<CR>
 
 " easily copy the word under cursor into the command line being edited
 cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
@@ -193,8 +197,6 @@ nnoremap <Leader><CR> :grep -R -w <C-r>=expand("<cword>")<CR> .<Left><Left>
 
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap <Leader><CR> <Esc>:Ag -w "<C-r>*"
-
-nnoremap <silent> <Leader><Tab> :NERDTreeFind<CR>
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
