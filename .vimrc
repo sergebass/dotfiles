@@ -174,7 +174,7 @@ nnoremap <silent> <Leader>} :cnfile<CR>
 nnoremap <silent> <Leader>( :colder<CR>
 nnoremap <silent> <Leader>) :cnewer<CR>
 nnoremap <silent> <Leader>\ :cclose<CR>
-nnoremap <silent> <Leader>\| :copen<CR>
+nnoremap <Leader>\| :cw<CR>
 
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
@@ -184,7 +184,7 @@ nnoremap <silent> <LocalLeader>} :lnfile<CR>
 nnoremap <silent> <LocalLeader>( :lolder<CR>
 nnoremap <silent> <LocalLeader>) :lnewer<CR>
 nnoremap <silent> <LocalLeader>\ :lclose<CR>
-nnoremap <silent> <LocalLeader>\| :lopen<CR>
+nnoremap <LocalLeader>\| :lw<CR>
 
 set pastetoggle=<Leader>P
 
