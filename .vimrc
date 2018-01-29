@@ -137,11 +137,28 @@ noremap <silent> <C-j> :bn<CR>
 noremap <silent> <C-h> :tabp<CR>
 noremap <silent> <C-l> :tabn<CR>
 
-" these shortcuts are intended to resemble Emacs ones
-noremap <silent> <Leader>0 :hide<CR>
-noremap <silent> <Leader>1 :only<CR>
-noremap <silent> <Leader>2 :split<CR>
-noremap <silent> <Leader>3 :vsplit<CR>
+" use <Leader> with numeric keys to simulate finctional keys,
+" for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
+noremap <silent> <Leader>1 <F1>
+noremap <silent> <Leader>2 <F2>
+noremap <silent> <Leader>3 <F3>
+noremap <silent> <Leader>4 <F4>
+noremap <silent> <Leader>5 <F5>
+noremap <silent> <Leader>6 <F6>
+noremap <silent> <Leader>7 <F7>
+noremap <silent> <Leader>8 <F8>
+noremap <silent> <Leader>9 <F9>
+noremap <silent> <Leader>0 <F10>
+noremap <silent> <Leader>10 <F10>
+noremap <silent> <Leader>11 <F11>
+noremap <silent> <Leader>12 <F12>
+noremap <silent> <Leader>13 <F13>
+noremap <silent> <Leader>14 <F14>
+noremap <silent> <Leader>15 <F15>
+noremap <silent> <Leader>16 <F16>
+noremap <silent> <Leader>17 <F17>
+noremap <silent> <Leader>18 <F18>
+noremap <silent> <Leader>19 <F19>
 
 " Make numeric pad {+-*/} keys resize current window (tested with rxvt-unicode-256color)
 nnoremap <silent> <Esc>Ok <C-w>+
