@@ -124,7 +124,7 @@ let mapleader = "\\"
 let maplocalleader = " "
 
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
-noremap <silent> <Leader>\ <C-w>
+noremap <silent> <BS> <C-w>
 
 noremap <silent> <C-Down> <C-w>j
 noremap <silent> <C-Up> <C-w>k
@@ -179,7 +179,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 cnoremap w!! w !sudo tee > /dev/null %
 
 " show a window with the file outline (ctags-based, install tagbar plugin first)
-nnoremap <silent> <BS> :TagbarToggle<CR>
+nnoremap <silent> <Leader>\ :TagbarToggle<CR>
 
 nnoremap <silent> <Leader><BS> :NERDTreeFind<CR>
 
