@@ -179,16 +179,18 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 cnoremap w!! w !sudo tee > /dev/null %
 
 " show a window with the file outline (ctags-based, install tagbar plugin first)
-nnoremap <silent> <Leader><BS> :TagbarToggle<CR>
+nnoremap <silent> <Leader>\ :TagbarToggle<CR>
 
-" show most recently used file selector
-nnoremap <silent> <Leader>\ :CtrlPMRUFiles<CR>
+" show most recently used file/buffer selector
+nnoremap <silent> <BS> :CtrlPMRUFiles<CR>
+nnoremap <silent> <Leader><BS> :CtrlPBuffer<CR>
 
 " easily copy the word under cursor into the command line being edited
 cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
 
-" search the word under cursor using ag
-nnoremap <Leader><CR> :Ag -w <C-r>=expand("<cword>")<CR>
+" search the word under cursor
+nnoremap <Leader><CR> :grep -R -w <C-r>=expand("<cword>")<CR> .<Left><Left>
+
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap <Leader><CR> <Esc>:Ag -w "<C-r>*"
 
