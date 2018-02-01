@@ -258,7 +258,7 @@ nnoremap <LocalLeader>v :Validate<CR>
 " let g:colors_name = "sergebass"
 hi Search term=reverse cterm=bold ctermfg=19 ctermbg=154 gui=bold guifg=#0000af guibg=#afff00
 
-hi Normal term=none cterm=none ctermfg=grey ctermbg=black gui=none guifg=cyan guibg=black
+hi Normal term=none cterm=none ctermfg=grey ctermbg=black gui=none guifg=grey guibg=black
 hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
 hi Constant term=underline ctermfg=Magenta guifg=Magenta
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
