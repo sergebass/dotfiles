@@ -1,34 +1,42 @@
 [core]
-	pager = less -F -X
+    pager = less -F -X
 
 [pager]
 #    status = false
 
 [user]
-	name = Sergii Perynskyi
+    name = Sergii Perynskyi
     email = sergebass@gmail.com
 
 [credential]
     helper = cache
 
 [diff]
-	submodule = log
+    submodule = log
     tool = vimdiff
     guitool = meld
 
+[difftool]
+    prompt = false
+
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+
 [merge]
-    #tool = mymeld
     tool = meld
     conflictstyle = diff3
 
-#[mergetool "mymeld"]
-#    cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $REMOTE --diff $LOCAL $BASE $REMOTE --output $MERGED
+[mergetool]
+    prompt = false
+
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
     ui = auto
     pager = true
 
