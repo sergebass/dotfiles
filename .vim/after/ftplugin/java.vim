@@ -5,10 +5,7 @@ setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\
 """ MODE-SPECIFIC CONFIGURATION: JAVA
 """ ---------------------------------
 
-nnoremap <buffer> <LocalLeader> <BS> :LocateFile<CR>
-
-nnoremap <buffer> <LocalLeader><CR> :JavaSearchContext -a vsplit<CR>
-nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
+nnoremap <buffer> <LocalLeader><CR> :JavaSearchContext -a edit<CR>
 
 nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
 nnoremap <buffer> <LocalLeader>fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all

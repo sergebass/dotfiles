@@ -235,7 +235,7 @@ nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
 
 nnoremap <LocalLeader><Space> :LocateFile<CR>
 
-nnoremap <LocalLeader>e :Buffers<CR>
+nnoremap <LocalLeader><BS> :Buffers<CR>
 
 nnoremap <LocalLeader>! :ProjectProblems!<CR>
 nnoremap <LocalLeader>!! :ProjectProblems<CR>
