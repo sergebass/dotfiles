@@ -385,6 +385,15 @@ augroup END
 
 au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 
+" color settings for the rainbow parentheses plugin
+let g:rbpt_colorpairs = [
+    \ ['green',  'green'],
+    \ ['red',    'red'],
+    \ ['cyan',   'cyan'],
+    \ ['yellow', 'yellow'],
+    \ ['blue',   'blue'],
+    \ ]
+
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
