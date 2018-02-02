@@ -45,6 +45,9 @@ set wildmenu
 set listchars=tab:>.,trail:.
 set list
 
+" use a Unicode U2502 character for vertical split separator
+set fillchars+=vert:│
+
 " netrw browser uses tabs to display file lists and this looks really bad
 " with tab highlighting
 autocmd FileType netrw set nolist
