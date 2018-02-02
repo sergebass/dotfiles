@@ -278,6 +278,7 @@ hi Search term=reverse cterm=bold ctermfg=19 ctermbg=154 gui=bold guifg=#0000af 
 
 hi Normal term=none cterm=none ctermfg=grey ctermbg=black gui=none guifg=grey guibg=black
 hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
+hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
 hi Constant term=underline ctermfg=Magenta guifg=Magenta
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
@@ -290,6 +291,7 @@ hi Repeat term=underline ctermfg=White guifg=white
 hi Operator ctermfg=Red guifg=Red
 hi Ignore ctermfg=black guifg=bg
 hi Error term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
+hi ErrorMsg term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 hi Todo term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
