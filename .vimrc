@@ -288,7 +288,6 @@ nnoremap <LocalLeader>v :Validate<CR>
 " Folded      line used for closed folds
 " FoldColumn  'foldcolumn'
 " SignColumn  column where |signs| are displayed
-" IncSearch   'incsearch' highlighting; also used for the text replaced with ":s///c"
 " MatchParen  The character under the cursor or just before it, if it
 "         is a paired bracket, and its match. |pi_paren.txt|
 " Pmenu       Popup menu: normal item.
@@ -312,21 +311,25 @@ nnoremap <LocalLeader>v :Validate<CR>
 "         Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
 " WildMenu    current match in 'wildmenu' completion
 
+hi Normal term=none cterm=none ctermfg=grey ctermbg=black gui=none guifg=grey guibg=black
+hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
+hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
+hi Ignore ctermfg=black guifg=bg
+hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=238 gui=bold guifg=#0000ff guibg=#444444
+hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
+
 hi MoreMsg cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
 hi ModeMsg term=reverse cterm=bold ctermfg=226 ctermbg=22 gui=bold guifg=#ffff00 guibg=#005f00
 hi ErrorMsg term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 
-hi Search term=reverse cterm=bold ctermfg=19 ctermbg=154 gui=bold guifg=#0000af guibg=#afff00
+hi Search term=reverse cterm=bold ctermfg=226 ctermbg=93 gui=bold guifg=#0000af guibg=#00ff00
+hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=93 gui=bold guifg=#0000af guibg=#00ff00
 
-hi Normal term=none cterm=none ctermfg=grey ctermbg=black gui=none guifg=grey guibg=black
-hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
-hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
-hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=238 gui=bold guifg=#0000ff guibg=#444444
+hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
 hi Constant term=underline ctermfg=Magenta guifg=Magenta
-hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Identifier term=underline cterm=bold ctermfg=Cyan guifg=#40ffff
 hi Statement term=bold ctermfg=Yellow gui=bold guifg=#aa4444
 hi PreProc term=underline ctermfg=LightBlue guifg=#ff80ff
@@ -334,10 +337,8 @@ hi Type term=underline ctermfg=LightGreen guifg=#60ff60 gui=bold
 hi Function term=bold ctermfg=White guifg=White
 hi Repeat term=underline ctermfg=White guifg=white
 hi Operator ctermfg=Red guifg=Red
-hi Ignore ctermfg=black guifg=bg
 hi Error term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 hi Todo term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
-hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
 
 hi link String Constant
 hi link Character Constant
