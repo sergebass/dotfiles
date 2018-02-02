@@ -324,8 +324,8 @@ hi ErrorMsg term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff0
 hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 
-hi Search term=reverse cterm=bold ctermfg=226 ctermbg=93 gui=bold guifg=#0000af guibg=#00ff00
-hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=93 gui=bold guifg=#0000af guibg=#00ff00
+hi Search term=reverse cterm=bold ctermfg=226 ctermbg=93 gui=bold guifg=#ffff00 guibg=#8700ff
+hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=93 gui=bold guifg=#ffff00 guibg=#8700ff
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
