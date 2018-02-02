@@ -123,20 +123,6 @@ endif
 let mapleader = "\\"
 let maplocalleader = " "
 
-" A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
-noremap <silent> <BS> <C-w>
-
-noremap <silent> <C-Down> <C-w>j
-noremap <silent> <C-Up> <C-w>k
-noremap <silent> <C-Left> <C-w>h
-noremap <silent> <C-Right> <C-w>l
-
-noremap <silent> <C-k> :bp<CR>
-noremap <silent> <C-j> :bn<CR>
-
-noremap <silent> <C-h> :tabp<CR>
-noremap <silent> <C-l> :tabn<CR>
-
 " use <Leader> with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
 noremap <silent> <Leader>1 <F1>
@@ -160,11 +146,45 @@ noremap <silent> <Leader>17 <F17>
 noremap <silent> <Leader>18 <F18>
 noremap <silent> <Leader>19 <F19>
 
+" A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
+noremap <silent> <BS> <C-w>
+
+" buffer navigation
+noremap <silent> <C-k> :bp<CR>
+noremap <silent> <C-PageUp> :bp<CR>
+noremap <silent> <Esc>[5;5~ :bp<CR> " C-PgUp on my terminal
+
+noremap <silent> <C-j> :bn<CR>
+noremap <silent> <C-PageDown> :bn<CR>
+noremap <silent> <Esc>[6;5~ :bn<CR> " C-PgDn on my terminal
+
+" Tab navigation
+nnoremap <silent> + :tabnew<CR>
+noremap <silent> <C-Up> :tabnew<CR>
+noremap <silent> <Esc>[1;5A :tabnew<CR> " C-Up on my terminal
+
+nnoremap <silent> - :tabclose<CR>
+noremap <silent> <C-Down> :tabclose<CR>
+noremap <silent> <Esc>[1;5B :tabclose<CR> " C-Down on my terminal
+
+noremap <silent> <C-h> :tabp<CR>
+noremap <silent> <C-Left> :tabp<CR>
+noremap <silent> <Esc>[1;5D :tabp<CR> " C-Left on my terminal
+
+noremap <silent> <C-l> :tabn<CR>
+noremap <silent> <C-Right> :tabn<CR>
+noremap <silent> <Esc>[1;5C :tabn<CR> " C-Right on my terminal
+
 " Make numeric pad {+-*/} keys resize current window (tested with rxvt-unicode-256color)
-nnoremap <silent> <Esc>Ok <C-w>+
-nnoremap <silent> <Esc>Om <C-w>-
-nnoremap <silent> <Esc>Oo <C-w><
-nnoremap <silent> <Esc>Oj <C-w>>
+noremap <silent> <Esc>Ok <C-w>+
+noremap <silent> <Esc>Om <C-w>-
+noremap <silent> <Esc>Oo <C-w><
+noremap <silent> <Esc>Oj <C-w>>
+
+nnoremap <silent> <Leader>\ :TagbarToggle<CR>
+nnoremap <silent> <Leader><BS> :CtrlPBuffer<CR>
+nnoremap <silent> <Leader><Space> :CtrlPMRUFiles<CR>
+nnoremap <silent> <Leader><Tab> :NERDTreeFind<CR>
 
 " facilitate quickfix navigation
 nnoremap <silent> <Leader>[ :cprev<CR>
@@ -175,9 +195,9 @@ nnoremap <silent> <Leader>( :colder<CR>
 nnoremap <silent> <Leader>) :cnewer<CR>
 nnoremap <silent> <Leader>, :cfirst<CR>
 nnoremap <silent> <Leader>. :clast<CR>
-nnoremap <silent> <Leader><C-\> :cclose<CR>
-nnoremap <silent> <Leader>\| :copen<CR>
-nnoremap <Leader>\ :cw<CR>
+nnoremap <silent> <Leader>- :cclose<CR>
+nnoremap <silent> <Leader>+ :copen<CR>
+nnoremap <Leader>= :cw<CR>
 
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
@@ -188,9 +208,9 @@ nnoremap <silent> <LocalLeader>( :lolder<CR>
 nnoremap <silent> <LocalLeader>) :lnewer<CR>
 nnoremap <silent> <LocalLeader>, :lfirst<CR>
 nnoremap <silent> <LocalLeader>. :llast<CR>
-nnoremap <silent> <LocalLeader><C-\> :lclose<CR>
-nnoremap <silent> <LocalLeader>\| :lopen<CR>
-nnoremap <LocalLeader>\ :lw<CR>
+nnoremap <silent> <LocalLeader>- :lclose<CR>
+nnoremap <silent> <LocalLeader>+ :lopen<CR>
+nnoremap <LocalLeader>= :lw<CR>
 
 set pastetoggle=<Leader>P
 
@@ -202,13 +222,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
-
-nnoremap <silent> <Leader><BS> :TagbarToggle<CR>
-nnoremap <silent> <Leader><Tab> :NERDTreeFind<CR>
-nnoremap <silent> <Leader><Space> :CtrlPMRUFiles<CR>
-
-nnoremap <silent> + :tabnew<CR>
-nnoremap <silent> - :tabclose<CR>
 
 " easily copy the word under cursor into the command line being edited
 cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
