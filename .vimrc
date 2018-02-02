@@ -160,27 +160,28 @@ noremap <silent> <Esc>[6;5~ :bn<CR> " C-PgDn on my terminal
 
 " Tab navigation
 nnoremap <silent> + :tabnew<CR>
-noremap <silent> <C-Up> :tabnew<CR>
-noremap <silent> <Esc>[1;5A :tabnew<CR> " C-Up on my terminal
-
 nnoremap <silent> - :tabclose<CR>
-noremap <silent> <C-Down> :tabclose<CR>
-noremap <silent> <Esc>[1;5B :tabclose<CR> " C-Down on my terminal
-
 noremap <silent> <C-h> :tabp<CR>
-noremap <silent> <C-Left> :tabp<CR>
-noremap <silent> <Esc>[1;5D :tabp<CR> " C-Left on my terminal
-
 noremap <silent> <C-l> :tabn<CR>
-noremap <silent> <C-Right> :tabn<CR>
-noremap <silent> <Esc>[1;5C :tabn<CR> " C-Right on my terminal
 
-" Make numeric pad {+-*/} keys resize current window (tested with rxvt-unicode-256color)
-noremap <silent> <Esc>Ok <C-w>+
-noremap <silent> <Esc>Om <C-w>-
-noremap <silent> <Esc>Oo <C-w><
-noremap <silent> <Esc>Oj <C-w>>
+" Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
+noremap <silent> <Esc>Ok <C-w>+ " Numeric +
+noremap <silent> <C-Up> <C-w>+
+noremap <silent> <Esc>[1;5A <C-w>+ " C-Up on my terminal
 
+noremap <silent> <Esc>Om <C-w>- " Numeric -
+noremap <silent> <C-Down> <C-w>-
+noremap <silent> <Esc>[1;5B <C-w>- " C-Down on my terminal
+
+noremap <silent> <Esc>Oo <C-w>< " Numeric /
+noremap <silent> <C-Left> <C-w><
+noremap <silent> <Esc>[1;5D <C-w>< " C-Left on my terminal
+
+noremap <silent> <Esc>Oj <C-w>> " Numeric *
+noremap <silent> <C-Right> <C-w>>
+noremap <silent> <Esc>[1;5C <C-w>> " C-Right on my terminal
+
+" Miscellaneous useful navigation stuff
 nnoremap <silent> <Leader>\ :TagbarToggle<CR>
 nnoremap <silent> <Leader><BS> :CtrlPBuffer<CR>
 nnoremap <silent> <Leader><Space> :CtrlPMRUFiles<CR>
