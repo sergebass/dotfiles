@@ -165,19 +165,23 @@ noremap <silent> <C-h> :tabp<CR>
 noremap <silent> <C-l> :tabn<CR>
 
 " Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
-noremap <silent> <Esc>Ok <C-w>+ " Numeric +
+noremap <silent> <kPlus> <C-w>+
+noremap <silent> <Esc>Ok <C-w>+ " Numeric + on my terminal
 noremap <silent> <C-Up> <C-w>+
 noremap <silent> <Esc>[1;5A <C-w>+ " C-Up on my terminal
 
+noremap <silent> <kMinus> <C-w>-
 noremap <silent> <Esc>Om <C-w>- " Numeric -
 noremap <silent> <C-Down> <C-w>-
 noremap <silent> <Esc>[1;5B <C-w>- " C-Down on my terminal
 
-noremap <silent> <Esc>Oo <C-w>< " Numeric /
+noremap <silent> <kDivide> <C-w><
+noremap <silent> <Esc>Oo <C-w>< " Numeric / on my terminal
 noremap <silent> <C-Left> <C-w><
 noremap <silent> <Esc>[1;5D <C-w>< " C-Left on my terminal
 
-noremap <silent> <Esc>Oj <C-w>> " Numeric *
+noremap <silent> <kMultiply> <C-w>>
+noremap <silent> <Esc>Oj <C-w>> " Numeric * on my terminal
 noremap <silent> <C-Right> <C-w>>
 noremap <silent> <Esc>[1;5C <C-w>> " C-Right on my terminal
 
