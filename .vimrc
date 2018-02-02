@@ -62,6 +62,7 @@ set diffexpr=""
 
 set colorcolumn=80,100
 set cursorline
+set cursorcolumn
 
 set tags=./tags;/
 
@@ -274,11 +275,55 @@ nnoremap <LocalLeader>v :Validate<CR>
 """ --------------
 
 " let g:colors_name = "sergebass"
+
+" FIXME temporary highlighting placeholders, taken from vim documentation;
+" uncomment and fix.
+"
+" Conceal     placeholder characters substituted for concealed text (see 'conceallevel')
+"
+" Cursor      the character under the cursor
+" CursorIM    like Cursor, but used when in IME mode |CursorIM|
+"
+" Directory   directory names (and other special names in listings)
+" Folded      line used for closed folds
+" FoldColumn  'foldcolumn'
+" SignColumn  column where |signs| are displayed
+" IncSearch   'incsearch' highlighting; also used for the text replaced with ":s///c"
+" MatchParen  The character under the cursor or just before it, if it
+"         is a paired bracket, and its match. |pi_paren.txt|
+" Pmenu       Popup menu: normal item.
+" PmenuSel    Popup menu: selected item.
+" PmenuSbar   Popup menu: scrollbar.
+" PmenuThumb  Popup menu: Thumb of the scrollbar.
+"
+" SpellBad    Word that is not recognized by the spellchecker. |spell|
+"         This will be combined with the highlighting used otherwise.
+" SpellCap    Word that should start with a capital. |spell|
+"         This will be combined with the highlighting used otherwise.
+" SpellLocal  Word that is recognized by the spellchecker as one that is
+"         used in another region. |spell|
+"         This will be combined with the highlighting used otherwise.
+" SpellRare   Word that is recognized by the spellchecker as one that is
+"         hardly ever used. |spell|
+"         This will be combined with the highlighting used otherwise.
+"
+" Title       titles for output from ":set all", ":autocmd" etc.
+" VisualNOS   Visual mode selection when vim is "Not Owning the Selection".
+"         Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
+" WildMenu    current match in 'wildmenu' completion
+
+hi MoreMsg cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
+hi ModeMsg term=reverse cterm=bold ctermfg=226 ctermbg=22 gui=bold guifg=#ffff00 guibg=#005f00
+hi ErrorMsg term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
+hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
+hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
+
 hi Search term=reverse cterm=bold ctermfg=19 ctermbg=154 gui=bold guifg=#0000af guibg=#afff00
 
 hi Normal term=none cterm=none ctermfg=grey ctermbg=black gui=none guifg=grey guibg=black
 hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
+hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=238 gui=bold guifg=#0000ff guibg=#444444
 hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
 hi Constant term=underline ctermfg=Magenta guifg=Magenta
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
@@ -291,8 +336,6 @@ hi Repeat term=underline ctermfg=White guifg=white
 hi Operator ctermfg=Red guifg=Red
 hi Ignore ctermfg=black guifg=bg
 hi Error term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
-hi ErrorMsg term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
-hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 hi Todo term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
 
@@ -353,16 +396,19 @@ highlight ColorColumn ctermbg=234 guibg=#202020
 " make current line and its number stand out from the rest
 highlight LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
 highlight CursorLine cterm=none ctermbg=236 gui=none guibg=#303030
-highlight CursorLineNR cterm=bold ctermfg=245 ctermbg=0 gui=bold guifg=#808080 guibg=#000000
+highlight CursorColumn cterm=none ctermbg=236 gui=none guibg=#303030
+highlight CursorLineNr cterm=bold ctermfg=245 ctermbg=0 gui=bold guifg=#808080 guibg=#000000
 
 augroup BgHighlight
     autocmd!
 
     autocmd WinEnter * set colorcolumn=80,100
     autocmd WinEnter * set cursorline
+    autocmd WinEnter * set cursorcolumn
 
     autocmd WinLeave * set colorcolumn=0
     autocmd WinLeave * set nocursorline
+    autocmd WinLeave * set nocursorcolumn
 
 augroup END
 
