@@ -195,6 +195,9 @@ nnoremap <silent> <Leader><BS> :CtrlPBuffer<CR>
 nnoremap <silent> <Leader><Space> :CtrlPMRUFiles<CR>
 nnoremap <silent> <Leader><Tab> :NERDTreeFind<CR>
 
+" make underscore close both quickfix and location list windows
+noremap <silent> _ :lclose <bar> cclose<CR>
+
 " facilitate quickfix navigation
 nnoremap <silent> <Leader>[ :cprev<CR>
 nnoremap <silent> <Leader>] :cnext<CR>
