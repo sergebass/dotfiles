@@ -241,11 +241,15 @@ cnoremap w!! w !sudo tee > /dev/null %
 " easily copy the word under cursor into the command line being edited
 cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
 
+" use ag (SilverSearcher) instead of grep, for faster searches
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
 " search the word under cursor
-nnoremap <Leader><CR> :grep -R -w <C-r>=expand("<cword>")<CR> .<Left><Left>
+nnoremap <Leader><CR> :grep -w <C-r>=expand("<cword>")<CR>
 
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Leader><CR> <Esc>:Ag -w "<C-r>*"
+vnoremap <Leader><CR> <Esc>:grep -w "<C-r>*"
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
