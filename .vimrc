@@ -224,6 +224,9 @@ nnoremap <silent> <LocalLeader>- :lclose<CR>
 nnoremap <silent> <LocalLeader>+ :lopen<CR>
 nnoremap <LocalLeader>= :lw<CR>
 
+" make left mouse double click perform search of a word under cursor
+nnoremap <2-LeftMouse> *
+
 set pastetoggle=<Leader>P
 
 " quickly reselect just pasted text
