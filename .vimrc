@@ -345,10 +345,10 @@ highlight Visual term=reverse cterm=bold ctermbg=54 gui=bold guibg=#5f0087
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
 hi Constant term=underline ctermfg=Magenta guifg=Magenta
-hi Identifier term=underline cterm=bold ctermfg=Cyan guifg=#40ffff
-hi Statement term=bold ctermfg=Yellow gui=bold guifg=#aa4444
+hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
+hi Statement term=none ctermfg=Yellow gui=none guifg=#aa4444
 hi PreProc term=underline ctermfg=LightBlue guifg=#ff80ff
-hi Type term=underline ctermfg=LightGreen guifg=#60ff60 gui=bold
+hi Type term=underline ctermfg=LightGreen guifg=#60ff60 gui=none
 hi Function term=bold ctermfg=White guifg=White
 hi Repeat term=underline ctermfg=White guifg=white
 hi Operator ctermfg=Red guifg=Red
