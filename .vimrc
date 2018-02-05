@@ -337,8 +337,10 @@ hi ErrorMsg term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff0
 hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 
-hi Search term=reverse cterm=bold ctermfg=226 ctermbg=93 gui=bold guifg=#ffff00 guibg=#8700ff
-hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=93 gui=bold guifg=#ffff00 guibg=#8700ff
+hi Search term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
+hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
+
+highlight Visual term=reverse cterm=bold ctermbg=54 gui=bold guibg=#5f0087
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
@@ -425,9 +427,6 @@ augroup BgHighlight
     autocmd WinLeave * set nocursorcolumn
 
 augroup END
-
-" this is our visual selection highlighting
-highlight Visual ctermbg=24 guibg=#005050
 
 """ -------------------------------
 """ MISCELLANEOUS STUFF AND PLUGINS
