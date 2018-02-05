@@ -395,7 +395,7 @@ highlight MyWordHighlight cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff
 match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\|ASAP\)"
 
 " show non-space whitespace using this coloring:
-highlight SpecialKey cterm=none ctermfg=201 ctermbg=236 gui=none guifg=#ff00ff guibg=#303030
+highlight SpecialKey cterm=none ctermfg=93 ctermbg=236 gui=none guifg=#8700ff guibg=#303030
 
 " line length limit highlighting
 highlight ColorColumn ctermbg=234 guibg=#202020
