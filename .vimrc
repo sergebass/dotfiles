@@ -311,8 +311,6 @@ nnoremap <LocalLeader>v :Validate<CR>
 " Folded      line used for closed folds
 " FoldColumn  'foldcolumn'
 " SignColumn  column where |signs| are displayed
-" MatchParen  The character under the cursor or just before it, if it
-"         is a paired bracket, and its match. |pi_paren.txt|
 " Pmenu       Popup menu: normal item.
 " PmenuSel    Popup menu: selected item.
 " PmenuSbar   Popup menu: scrollbar.
@@ -340,6 +338,7 @@ hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi Ignore ctermfg=black guifg=bg
 hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=238 gui=bold guifg=#0000ff guibg=#444444
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
+hi MatchParen term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
 
 hi MoreMsg cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
 hi ModeMsg term=reverse cterm=bold ctermfg=226 ctermbg=22 gui=bold guifg=#ffff00 guibg=#005f00
