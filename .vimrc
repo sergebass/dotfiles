@@ -304,11 +304,7 @@ nnoremap <LocalLeader>v :Validate<CR>
 "
 " Conceal     placeholder characters substituted for concealed text (see 'conceallevel')
 "
-" Cursor      the character under the cursor
-" CursorIM    like Cursor, but used when in IME mode |CursorIM|
-"
 " Directory   directory names (and other special names in listings)
-" Folded      line used for closed folds
 " FoldColumn  'foldcolumn'
 " SignColumn  column where |signs| are displayed
 " Pmenu       Popup menu: normal item.
@@ -333,6 +329,8 @@ nnoremap <LocalLeader>v :Validate<CR>
 " WildMenu    current match in 'wildmenu' completion
 
 hi Normal term=none cterm=none ctermfg=grey ctermbg=black gui=none guifg=grey guibg=black
+hi Cursor term=reverse cterm=bold ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
+hi CursorIM term=reverse cterm=bold ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
 hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi Ignore ctermfg=black guifg=bg
