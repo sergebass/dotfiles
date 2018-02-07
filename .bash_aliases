@@ -1,9 +1,9 @@
-alias v='vim -O'
-alias gv='gvim -O'
+alias v='vim --servername sp-server -O'
+alias gv='gvim --servername sp-server -O'
 alias nv='nvim -O'
 
-alias vt='vim -p'
-alias gvt='gvim -p'
+alias vt='vim --servername sp-server -p'
+alias gvt='gvim --servername sp-server -p'
 alias nvt='nvim -p'
 
 alias vs='vim --servername sp-server --remote-silent'
