@@ -13,3 +13,7 @@
 .xmonad/xmonad-x86_64-linux
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi
+
+# various user-specific vim files
+*.swp
+Session.vim
