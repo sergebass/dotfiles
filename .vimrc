@@ -255,11 +255,15 @@ cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
-" search the word under cursor
-nnoremap <Leader><CR> :grep -w <C-r>=expand("<cword>")<CR>
+" search the word under cursor in external files
+nnoremap <Leader><CR> :silent grep -w <C-r>=expand("<cword>")<CR>
+
+" search the word under cursor in all open buffers
+nnoremap <Leader>/ :silent noautocmd bufdo grepadd! -w <C-r>=expand("<cword>")<CR> % <bar> copen
 
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Leader><CR> <Esc>:grep -w "<C-r>*"
+vnoremap <Leader><CR> <Esc>:silent grep -w "<C-r>*"
+vnoremap <Leader>/ <Esc>:silent noautocmd bufdo grepadd! -w "<C-r>*" % <bar> copen
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
