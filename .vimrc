@@ -256,10 +256,10 @@ set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " search the word under cursor in external files
-nnoremap <Leader><CR> :silent grep -w <C-r>=expand("<cword>")<CR>
+nnoremap <Leader><CR> :let w=expand("<cword>")<CR><CR>:silent grep -w <C-r>=w<CR><CR>:copen<CR>/\<<C-r>=w<CR>\><CR>
 
 " search the word under cursor in all open buffers
-nnoremap <Leader>/ :silent noautocmd bufdo grepadd! -w <C-r>=expand("<cword>")<CR> % <bar> copen
+nnoremap <Leader>/ :let w=expand("<cword>")<CR><CR>:silent noautocmd bufdo grepadd! -w <C-r>=w<CR> % <bar> copen<CR>/\<<C-r>=w<CR>\><CR>
 
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap <Leader><CR> <Esc>:silent grep -w "<C-r>*"
