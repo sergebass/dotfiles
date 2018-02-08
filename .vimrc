@@ -76,6 +76,11 @@ let g:gitgutter_diff_args = '-w'
 " use detailed listing style for netrw
 let g:netrw_liststyle = 1
 
+let g:ctrlp_extensions = [
+\ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
+\ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
+\ ]
+
 let g:EclimLocateFileScope = 'workspace'
 let g:EclimLocateFileDefaultAction = 'edit'
 let g:EclimLocateFileNonProjectScope = 'ag'
