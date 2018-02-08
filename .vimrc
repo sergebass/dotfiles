@@ -285,7 +285,7 @@ nnoremap <Leader>/ :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent
 vnoremap <Leader>/ "*y<Esc>:ClearQuickfixList<CR>:silent noautocmd bufdo grepadd! -s "<C-r>*" % <bar> :cw<CR>/\<<C-r>*<CR>\><CR>
 
 " free-form search in open buffers (letting user input the search text)
-nnoremap <Leader>? :ClearQuickfixList<CR>:silent noautocmd bufdo grepadd! -s "" <bar> cw<Left><Left><Left><Left><Left><Left>
+nnoremap <Leader>? :ClearQuickfixList<CR>:silent noautocmd bufdo grepadd! -s "" % <bar> cw<Left><Left><Left><Left><Left><Left><Left><Left>
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
