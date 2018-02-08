@@ -8,11 +8,9 @@ alias nvt='nvim -p'
 
 alias vs='vim --servername sp-server --remote-silent'
 alias gvs='gvim --servername sp-server --remote-silent'
-alias nvs='nvim --servername sp-server --remote-silent'
 
 alias vst='vim --servername sp-server --remote-tab-silent'
 alias gvst='gvim --servername sp-server --remote-tab-silent'
-alias nvst='nvim --servername sp-server --remote-tab-silent'
 
 alias e='emacsclient'
 alias et='emacsclient -t'
