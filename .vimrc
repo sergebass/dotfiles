@@ -284,6 +284,9 @@ nnoremap <Leader>/ :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap <Leader>/ "*y<Esc>:ClearQuickfixList<CR>:silent noautocmd bufdo grepadd! -s "<C-r>*" % <bar> :cw<CR>/\<<C-r>*<CR>\><CR>
 
+" free-form search in open buffers (letting user input the search text)
+nnoremap <Leader>? :ClearQuickfixList<CR>:silent noautocmd bufdo grepadd! -s "" <bar> cw<Left><Left><Left><Left><Left><Left>
+
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
 inoremap <silent> <C-Space> <C-x><C-u>
