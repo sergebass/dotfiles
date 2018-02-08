@@ -15,11 +15,12 @@ set mouse=a
 set laststatus=2
 set statusline=%F:%l:%c\ \ %m%r%y%{ObsessionStatus()}%=\ %{fugitive#statusline()}\ %p%%/%L
 
+set scrolloff=1 " keep at least one line visible above/below cursor
 set history=50 " keep 50 lines of command line history
-set ruler      " show the cursor position all the time
-set showcmd    " display incomplete commands
-set incsearch  " do incremental searching
-set hlsearch   " highlight search results
+set ruler " show the cursor position all the time
+set showcmd " display incomplete commands
+set incsearch " do incremental searching
+set hlsearch " highlight search results
 
 set clipboard^=unnamedplus
 
