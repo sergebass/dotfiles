@@ -94,8 +94,8 @@ if [ \( "$COLORTERM" = "gnome-terminal" -o "$COLORTERM" = "Terminal" -o "$COLORT
     TERM=xterm-256color
 fi
 
-export VISUAL=vim
-export EDITOR=vim
+export VISUAL=nvim
+export EDITOR=nvim
 
 export LESS="-FRX"
 
