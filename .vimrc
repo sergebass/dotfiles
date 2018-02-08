@@ -160,6 +160,10 @@ noremap <silent> <C-j> <C-w>j
 noremap <silent> <C-k> <C-w>k
 noremap <silent> <C-l> <C-w>l
 
+" Buffer navigation
+nnoremap <silent> <M-PageUp> :bp<CR>
+nnoremap <silent> <M-PageDown> :bn<CR>
+
 " Tab navigation
 nnoremap <silent> + :tabnew<CR>
 nnoremap <silent> - :tabclose<CR>
