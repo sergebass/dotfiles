@@ -130,6 +130,15 @@ endif
 "   " 6 -> solid vertical bar
 " endif
 
+""" ----------------
+""" CUSTOM FUNCTIONS
+""" ----------------
+function ClearQuickfixList()
+  call setqflist([])
+endfunction
+
+command! ClearQuickfixList call ClearQuickfixList()
+
 """ -----------------
 """ KEYBOARD MAPPINGS
 """ -----------------
@@ -228,6 +237,9 @@ nnoremap <silent> <Leader>- :cclose<CR>
 nnoremap <silent> <Leader>+ :copen<CR>
 nnoremap <Leader>= :cw<CR>
 
+" clear quickfix list (useful for incremental results of grepadd or vimgrepadd)
+nnoremap <Leader>\| :ClearQuickfixList<CR>
+
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
 nnoremap <silent> <LocalLeader>] :lnext<CR>
@@ -266,7 +278,7 @@ set grepformat=%f:%l:%c:%m
 nnoremap <Leader><CR> :let w=expand("<cword>")<CR><CR>:silent grep -w <C-r>=w<CR><CR>:copen<CR>/\<<C-r>=w<CR>\><CR>
 
 " search the word under cursor in all open buffers
-nnoremap <Leader>/ :let w=expand("<cword>")<CR><CR>:silent noautocmd bufdo grepadd! -w <C-r>=w<CR> % <bar> copen<CR>/\<<C-r>=w<CR>\><CR>
+nnoremap <Leader>/ :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent noautocmd bufdo grepadd! -w <C-r>=w<CR> % <bar> copen<CR>/\<<C-r>=w<CR>\><CR>
 
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap <Leader><CR> <Esc>:silent grep -w "<C-r>*"
