@@ -460,6 +460,7 @@ if exists("syntax_on")
 endif
 
 execute pathogen#infect()
+execute pathogen#helptags()
 filetype plugin indent on
 syntax on
 
