@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
+[submodule ".vim/bundle/tabline.vim"]
+	path = .vim/bundle/tabline.vim
+	url = https://github.com/mkitt/tabline.vim.git
