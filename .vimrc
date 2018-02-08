@@ -99,6 +99,15 @@ if $COLORTERM == 'xfce4-terminal'
   set t_ut=
 endif
 
+" make sure tmux correctly passes DECSCUSR cursor shape change sequences
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+else
+  let &t_SI = "\e[5 q"
+  let &t_EI = "\e[2 q"
+endif
+
 " FIXME Uncomment when it's clear how to make this work with urxvt...
 " if &term =~ '^xterm\\|rxvt'
 "   " use an orange cursor in insert mode
