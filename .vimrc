@@ -160,15 +160,6 @@ noremap <silent> <C-j> <C-w>j
 noremap <silent> <C-k> <C-w>k
 noremap <silent> <C-l> <C-w>l
 
-" buffer navigation
-noremap <silent> <C-PageUp> :bp<CR>
-" C-PgUp on my terminal
-noremap <silent> <Esc>[5;5~ :bp<CR>
-
-noremap <silent> <C-PageDown> :bn<CR>
-" C-PgDn on my terminal
-noremap <silent> <Esc>[6;5~ :bn<CR>
-
 " Tab navigation
 nnoremap <silent> + :tabnew<CR>
 nnoremap <silent> - :tabclose<CR>
