@@ -154,13 +154,17 @@ noremap <silent> <Leader>19 <F19>
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
 noremap <silent> <BS> <C-w>
 
+" duplicate mappings for window navigation
+noremap <silent> <C-h> <C-w>h
+noremap <silent> <C-j> <C-w>j
+noremap <silent> <C-k> <C-w>k
+noremap <silent> <C-l> <C-w>l
+
 " buffer navigation
-noremap <silent> <C-k> :bp<CR>
 noremap <silent> <C-PageUp> :bp<CR>
 " C-PgUp on my terminal
 noremap <silent> <Esc>[5;5~ :bp<CR>
 
-noremap <silent> <C-j> :bn<CR>
 noremap <silent> <C-PageDown> :bn<CR>
 " C-PgDn on my terminal
 noremap <silent> <Esc>[6;5~ :bn<CR>
@@ -168,8 +172,6 @@ noremap <silent> <Esc>[6;5~ :bn<CR>
 " Tab navigation
 nnoremap <silent> + :tabnew<CR>
 nnoremap <silent> - :tabclose<CR>
-noremap <silent> <C-h> :tabp<CR>
-noremap <silent> <C-l> :tabn<CR>
 
 " Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <kPlus> <C-w>+
