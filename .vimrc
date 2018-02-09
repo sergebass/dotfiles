@@ -273,6 +273,8 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 cnoremap w!! w !sudo tee > /dev/null %
 
 " easily copy the word under cursor into the command line being edited
+nnoremap <Leader><CR> <Esc>:<C-r>=expand("<cword>")<CR><Home>
+vnoremap <Leader><CR> "*y<Esc>:<C-r>*<Home>
 cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
 
 " use ag (SilverSearcher) instead of grep, for faster searches
@@ -280,17 +282,14 @@ set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " search the word under cursor in external files
-nnoremap <Leader><CR> :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR><CR>:cw<CR>/\<<C-r>=w<CR>\><CR>
+nnoremap <Leader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Leader><CR> "*y<Esc>:grep -s "<C-r>*"<CR>:cw<CR>/\<<C-r>*<CR>\><CR>
+vnoremap <Leader>/ "*y<Esc>:grep -s "<C-r>*"<Left>
 
 " search the word under cursor in all open buffers
-nnoremap <Leader>/ :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent noautocmd bufdo grepadd! -s -w <C-r>=w<CR> % <bar> :cw<CR>/\<<C-r>=w<CR>\><CR>
+nnoremap <Leader>? :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Leader>/ "*y<Esc>:ClearQuickfixList<CR>:silent noautocmd bufdo grepadd! -s "<C-r>*" % <bar> :cw<CR>/\<<C-r>*<CR>\><CR>
-
-" free-form search in open buffers (letting user input the search text)
-nnoremap <Leader>? :ClearQuickfixList<CR>:silent noautocmd bufdo grepadd! -s "" % <bar> cw<Left><Left><Left><Left><Left><Left><Left><Left>
+vnoremap <Leader>? "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
