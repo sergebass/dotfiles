@@ -1,1 +1,1 @@
-GuiFont Inconsolata:h11
+GuiFont Inconsolata:h10
