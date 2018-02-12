@@ -449,7 +449,7 @@ match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\|ASAP\)"
 highlight SpecialKey cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
 
 " line length limit highlighting
-highlight ColorColumn ctermbg=234 guibg=#201010
+highlight ColorColumn ctermbg=234 guibg=#301010
 
 " make current line and its number stand out from the rest
 highlight CursorLine cterm=none ctermbg=236 gui=none guibg=#404030
