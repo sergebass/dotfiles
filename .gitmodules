@@ -70,3 +70,6 @@
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule ".vim/bundle/QFEnter"]
+	path = .vim/bundle/QFEnter
+	url = https://github.com/yssl/QFEnter.git
