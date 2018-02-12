@@ -144,7 +144,7 @@ endfunction
 
 command! ClearQuickfixList call ClearQuickfixList()
 
-command RemoveMultipleBlankLines %s/^\_s\+\n/\r
+command RemoveMultipleBlankLines %s/^\_s\+\n/\r/e
 command RemoveRedundantWhitespace %s/\s\+$//e
 
 """ -----------------
@@ -300,7 +300,7 @@ vnoremap <Leader>? "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r
 inoremap <silent> <C-Space> <C-x><C-u>
 
 " replace tabs with spaces and strip all redundant/trailing whitespace
-nnoremap <Leader>ws :retab <bar> RemoveMultipleBlankLines <bar> RemoveRedundantWhitespace<CR>
+nnoremap <Leader>ws :retab<CR>:RemoveMultipleBlankLines<CR>:RemoveRedundantWhitespace<CR>
 
 " toggle git gutter line highlights
 nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
