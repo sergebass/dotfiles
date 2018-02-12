@@ -144,6 +144,9 @@ endfunction
 
 command! ClearQuickfixList call ClearQuickfixList()
 
+command RemoveMultipleBlankLines %s/^\_s\+\n/\r
+command RemoveRedundantWhitespace %s/\s\+$//e
+
 """ -----------------
 """ KEYBOARD MAPPINGS
 """ -----------------
@@ -296,8 +299,8 @@ vnoremap <Leader>? "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r
 " note that this does not work properly in terminals, only in gvim
 inoremap <silent> <C-Space> <C-x><C-u>
 
-" replace tabs with spaces and strip all trailing whitespace
-nnoremap <Leader>ws :retab <bar> %s/\s\+$//e<CR>
+" replace tabs with spaces and strip all redundant/trailing whitespace
+nnoremap <Leader>ws :retab <bar> RemoveMultipleBlankLines <bar> RemoveRedundantWhitespace<CR>
 
 " toggle git gutter line highlights
 nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
