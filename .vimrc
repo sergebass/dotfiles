@@ -22,6 +22,10 @@ set showcmd " display incomplete commands
 set incsearch " do incremental searching
 set hlsearch " highlight search results
 
+if has("nvim")
+    set inccommand=nosplit " highlight text affected by a substitute command
+endif
+
 set clipboard^=unnamedplus
 
 set autoread
