@@ -495,8 +495,6 @@ endif
 
 execute pathogen#infect()
 execute pathogen#helptags()
-filetype plugin indent on
-syntax on
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
 if exists("g:did_load_filetypes")
@@ -505,10 +503,9 @@ if exists("g:did_load_filetypes")
 endif
 
 filetype off
+" FIXME hardcoded path, fix ASAP!
 set runtimepath+=/usr/share/lilypond/2.18.2/vim/
 filetype on
-
-filetype plugin indent on
 
 " automatically pick correct templates based on the specified file name extension
 augroup templates
@@ -532,3 +529,6 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
+
+filetype plugin indent on
+syntax on
