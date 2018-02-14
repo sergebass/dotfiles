@@ -195,8 +195,8 @@ nnoremap <silent> <M-PageUp> :bp<CR>
 nnoremap <silent> <M-PageDown> :bn<CR>
 
 " Tab navigation
-nnoremap <silent> + :tabnew<CR>
-nnoremap <silent> - :tabclose<CR>
+nnoremap <silent> <M-+> :tabnew<CR>
+nnoremap <silent> <M--> :tabclose<CR>
 
 " Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <kPlus> <C-w>+
@@ -265,6 +265,12 @@ nnoremap <silent> <LocalLeader>. :llast<CR>
 nnoremap <silent> <LocalLeader>- :lclose<CR>
 nnoremap <silent> <LocalLeader>+ :lopen<CR>
 nnoremap <LocalLeader>= :lw<CR>
+
+" This selects the next closest text object.
+map + <Plug>(wildfire-fuel)
+
+" This selects the previous closest text object.
+vmap - <Plug>(wildfire-water)
 
 " make left mouse double click perform search of a word under cursor
 nnoremap <2-LeftMouse> *
