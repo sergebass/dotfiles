@@ -81,6 +81,9 @@ set iskeyword+=-
 " pressing K in normal/visual mode will look up the word/selection using this command
 set keywordprg=:grep\ -ws
 
+autocmd FileType vim setlocal keywordprg=:help
+autocmd FileType sh setlocal keywordprg=:Man
+
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
 
