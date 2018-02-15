@@ -74,6 +74,13 @@ set cursorcolumn
 
 set tags=./tags;/
 
+" use ag (SilverSearcher) instead of grep, for faster searches
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
+" pressing K in normal/visual mode will look up the word/selection using this command
+set keywordprg=:Ag\ --vimgrep\ -ws
+
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
 
@@ -318,10 +325,6 @@ cnoremap w!! w !sudo tee > /dev/null %
 nnoremap <Leader><CR> <Esc>:<C-r>=expand("<cword>")<CR><Home>
 vnoremap <Leader><CR> "*y<Esc>:<C-r>*<Home>
 cnoremap <Leader><CR> <C-r>=expand("<cword>")<CR>
-
-" use ag (SilverSearcher) instead of grep, for faster searches
-set grepprg=ag\ --vimgrep\ $*
-set grepformat=%f:%l:%c:%m
 
 " search the word under cursor in external files
 nnoremap <Leader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
