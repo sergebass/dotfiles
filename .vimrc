@@ -91,6 +91,7 @@ let g:gitgutter_diff_args = '-w'
 " use detailed listing style for netrw
 let g:netrw_liststyle = 1
 
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:100'
 let g:ctrlp_extensions = [
 \ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
 \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
