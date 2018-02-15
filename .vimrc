@@ -97,12 +97,6 @@ let g:ctrlp_extensions = [
 \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
 \ ]
 
-let g:EclimLocateFileScope = 'workspace'
-let g:EclimLocateFileDefaultAction = 'edit'
-let g:EclimLocateFileNonProjectScope = 'ag'
-let g:EclimJavaCallHierarchyDefaultAction = 'edit'
-let g:EclimJavaHierarchyDefaultAction = 'edit'
-
 set gfn=Inconsolata\ Medium\ 11
 set guioptions-=T
 
@@ -371,29 +365,6 @@ inoremap <silent> <C-Space> <C-x><C-u>
 " replace tabs with spaces and strip all redundant/trailing whitespace
 nnoremap <Leader>ws :retab<CR>:RemoveMultipleBlankLines<CR>:RemoveRedundantWhitespace<CR>
 
-""" --------------------------
-""" General settings for eclim
-""" --------------------------
-
-nnoremap <LocalLeader><CR> :LocateFile<CR>
-
-nnoremap <LocalLeader><BS> :Buffers<CR>
-
-nnoremap <LocalLeader><Tab> :ProjectTree<CR>
-nnoremap <LocalLeader><S-Tab> :ProjectsTree<CR>
-
-nnoremap <LocalLeader>! :ProjectProblems!<CR>
-nnoremap <LocalLeader>!! :ProjectProblems<CR>
-
-nnoremap <LocalLeader>ptd :ProjectTodo<CR>
-nnoremap <LocalLeader>pr :ProjectRefreshAll<CR>
-
-nnoremap <LocalLeader>ac :Ant clean<CR>
-nnoremap <LocalLeader>ab :Ant build<CR>
-nnoremap <LocalLeader>at :Ant test<CR>
-
-nnoremap <LocalLeader>v :Validate<CR>
-
 augroup BgHighlight
     autocmd!
 
@@ -458,6 +429,7 @@ au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
 
 source ~/.vim/colors.vim
+source ~/.vim/eclim.vim
 
 filetype plugin indent on
 syntax on
