@@ -253,6 +253,10 @@ vnoremap <silent> <S-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:
 onoremap <silent> H :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
 onoremap <silent> L :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 
+" Make jumping to the next method/function faster (for languages with Java/C++ style curly braces)
+nnoremap <silent> <C-j> ]m
+nnoremap <silent> <C-k> [m
+
 " Miscellaneous useful navigation stuff
 nnoremap <silent> <BS><Tab> :Explore<CR>
 nnoremap <silent> <BS><S-Tab> :Vexplore<CR>
