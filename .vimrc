@@ -354,9 +354,6 @@ inoremap <silent> <C-Space> <C-x><C-u>
 " replace tabs with spaces and strip all redundant/trailing whitespace
 nnoremap <Leader>ws :retab<CR>:RemoveMultipleBlankLines<CR>:RemoveRedundantWhitespace<CR>
 
-" toggle git gutter line highlights
-nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
-
 """ --------------------------
 """ General settings for eclim
 """ --------------------------
