@@ -145,24 +145,6 @@ endif
 "   " 6 -> solid vertical bar
 " endif
 
-""" ----------------
-""" CUSTOM FUNCTIONS
-""" ----------------
-function ClearQuickfixList()
-  call setqflist([])
-endfunction
-
-command! ClearQuickfixList call ClearQuickfixList()
-
-function ClearLocationList()
-  call setloclist(0, [])
-endfunction
-
-command! ClearLocationList call ClearLocationList()
-
-command RemoveMultipleBlankLines %s/^\_s\+\n/\r/e
-command RemoveRedundantWhitespace %s/\s\+$//e
-
 set pastetoggle=<Leader>P
 
 augroup BgHighlight
@@ -228,6 +210,8 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
 
+source ~/.vim/startup/functions.vim
+source ~/.vim/startup/commands.vim
 source ~/.vim/startup/colors.vim
 source ~/.vim/startup/mappings.vim
 source ~/.vim/startup/eclim.vim
