@@ -50,8 +50,8 @@ set wildmenu
 set listchars=tab:>.,trail:.
 set list
 
-" use a Unicode U2502 character for vertical split separator
-set fillchars+=vert:│
+" use a Unicode U2551 character (double vertical bar) for vertical split separator
+set fillchars+=vert:║
 
 " netrw browser uses tabs to display file lists and this looks really bad
 " with tab highlighting
@@ -422,7 +422,7 @@ hi CursorIM term=reverse cterm=bold ctermfg=0 ctermbg=201 gui=bold guifg=black g
 hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi Ignore ctermfg=black guifg=bg
-hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=238 gui=bold guifg=#0000ff guibg=#444444
+hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff guibg=#000000
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
 hi MatchParen term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
 
