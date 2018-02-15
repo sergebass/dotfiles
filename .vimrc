@@ -228,9 +228,9 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
 
-source ~/.vim/colors.vim
-source ~/.vim/mappings.vim
-source ~/.vim/eclim.vim
+source ~/.vim/startup/colors.vim
+source ~/.vim/startup/mappings.vim
+source ~/.vim/startup/eclim.vim
 
 filetype plugin indent on
 syntax on
