@@ -286,7 +286,7 @@ nnoremap <silent> <BS>x :CtrlPMixed<CR>
 nnoremap <silent> <Leader><Tab> :NERDTreeToggle<CR>
 nnoremap <silent> <Leader><S-Tab> :NERDTreeFind<CR>
 
-nnoremap <silent> <Leader><BS> :TagbarToggle<CR>
+nnoremap <silent> <C-\> :TagbarToggle<CR>
 
 " close both quickfix and location list windows
 noremap <silent> _ :lclose<CR>:cclose<CR>
