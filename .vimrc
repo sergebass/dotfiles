@@ -254,6 +254,8 @@ onoremap <silent> H :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<
 onoremap <silent> L :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 
 " Miscellaneous useful navigation stuff
+nnoremap <silent> <BS><Tab> :Explore<CR>
+nnoremap <silent> <BS><S-Tab> :Vexplore<CR>
 
 nnoremap <silent> <BS><BS> :CtrlPMRUFiles<CR>
 nnoremap <silent> <BS>f :CtrlP<CR>
