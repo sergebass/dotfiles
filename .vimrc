@@ -182,7 +182,10 @@ noremap <silent> <Leader>18 <F18>
 noremap <silent> <Leader>19 <F19>
 
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
-noremap <Space> <C-W>
+noremap <Space> <C-w>
+
+" for some reason, pressing <Space> twice doesn't have the same effect as ^W^W
+noremap <Space><Space> <C-w><C-w>
 
 " duplicate mappings for window navigation
 noremap <silent> <C-h> <C-w>h
