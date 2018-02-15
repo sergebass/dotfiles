@@ -83,6 +83,7 @@ set keywordprg=:grep\ -ws
 
 autocmd FileType vim setlocal keywordprg=:help
 autocmd FileType sh setlocal keywordprg=:Man
+autocmd FileType haskell setlocal keywordprg=hoogle
 
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
