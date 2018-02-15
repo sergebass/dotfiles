@@ -3,8 +3,6 @@ setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\
 
 setlocal keywordprg=:JavaDocPreview
 
-"setlocal equalprg=FIXME specify a Java formatting solution (using eclipse/eclim?)
-
 """ ---------------------------------
 """ MODE-SPECIFIC CONFIGURATION: JAVA
 """ ---------------------------------
@@ -37,3 +35,6 @@ nnoremap <buffer> <LocalLeader>t :JUnit %
 nnoremap <buffer> <LocalLeader>1 :JavaCorrect<CR>
 
 nnoremap <buffer> <LocalLeader>i :JavaImportOrganize<CR>
+
+nnoremap <buffer> <LocalLeader>= :%JavaFormat<CR>
+vnoremap <buffer> <LocalLeader>= :JavaFormat
