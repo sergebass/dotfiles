@@ -6,7 +6,6 @@ setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\
 """ ---------------------------------
 
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
-nnoremap <buffer> <LocalLeader><CR> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <C-LeftMouse> :JavaSearchContext -a edit<CR>
 
 nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all

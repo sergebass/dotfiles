@@ -156,7 +156,7 @@ command RemoveRedundantWhitespace %s/\s\+$//e
 """ -----------------
 
 let mapleader = "\\"
-let maplocalleader = " "
+let maplocalleader = "\\\\"
 
 " use <Leader> with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
@@ -182,7 +182,7 @@ noremap <silent> <Leader>18 <F18>
 noremap <silent> <Leader>19 <F19>
 
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
-noremap <silent> <BS> <C-w>
+noremap <Space> <C-W>
 
 " duplicate mappings for window navigation
 noremap <silent> <C-h> <C-w>h
@@ -191,12 +191,20 @@ noremap <silent> <C-k> <C-w>k
 noremap <silent> <C-l> <C-w>l
 
 " Buffer navigation
-nnoremap <silent> <M-PageUp> :bp<CR>
-nnoremap <silent> <M-PageDown> :bn<CR>
+map <silent> <BS>[ :bp<CR>
+map <silent> <BS>] :bn<CR>
+map <silent> <BS>, :bfirst<CR>
+map <silent> <BS>. :blast<CR>
+map <silent> <BS>- :ball<CR>
+map <silent> <BS>\| :vert ball<CR>
 
 " Tab navigation
-nnoremap <silent> <M-+> :tabnew<CR>
-nnoremap <silent> <M--> :tabclose<CR>
+map <silent> <Leader><Insert> :tabnew<CR>
+map <silent> <Leader><Del> :tabclose<CR>
+map <silent> <Leader><Home> :tabfirst<CR>
+map <silent> <Leader><End> :tablast<CR>
+map <silent> <Leader><PageUp> :tabprev<CR>
+map <silent> <Leader><PageDown> :tabnext<CR>
 
 " Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <kPlus> <C-w>+
@@ -242,14 +250,22 @@ onoremap <silent> H :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<
 onoremap <silent> L :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 
 " Miscellaneous useful navigation stuff
-nnoremap <silent> <Leader>\ :TagbarToggle<CR>
-nnoremap <silent> <Leader><BS> :CtrlPBuffer<CR>
-nnoremap <silent> <Leader><Space> :CtrlPMRUFiles<CR>
+
+nnoremap <silent> <BS><BS> :CtrlPMRUFiles<CR>
+nnoremap <silent> <BS>f :CtrlP<CR>
+nnoremap <silent> <BS>b :CtrlPBuffer<CR>
+nnoremap <silent> <BS>t :CtrlPTag<CR>
+nnoremap <silent> <BS>m :CtrlPBookmark<CR>
+nnoremap <silent> <BS>c :CtrlPChange<CR>
+nnoremap <silent> <BS>x :CtrlPMixed<CR>
+
 nnoremap <silent> <Leader><Tab> :NERDTreeToggle<CR>
 nnoremap <silent> <Leader><S-Tab> :NERDTreeFind<CR>
 
-" make underscore close both quickfix and location list windows
-noremap <silent> _ :lclose <bar> cclose<CR>
+nnoremap <silent> <Leader><BS> :TagbarToggle<CR>
+
+" close both quickfix and location list windows
+noremap <silent> _ :lclose<CR>:cclose<CR>
 
 " facilitate quickfix navigation
 nnoremap <silent> <Leader>[ :cprev<CR>
@@ -266,6 +282,7 @@ nnoremap <Leader>= :cw<CR>
 
 " clear quickfix list (useful for incremental results of grepadd or vimgrepadd)
 nnoremap <Leader>\| :ClearQuickfixList<CR>
+nnoremap <S-Del> :ClearQuickfixList<CR>
 
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
@@ -333,17 +350,18 @@ nnoremap <silent> <Leader>gd :GitGutterLineHighlightsToggle<CR>
 """ General settings for eclim
 """ --------------------------
 
-nnoremap <LocalLeader><Space> :LocateFile<CR>
+nnoremap <LocalLeader><CR> :LocateFile<CR>
 
 nnoremap <LocalLeader><BS> :Buffers<CR>
+
+nnoremap <LocalLeader><Tab> :ProjectTree<CR>
+nnoremap <LocalLeader><S-Tab> :ProjectsTree<CR>
 
 nnoremap <LocalLeader>! :ProjectProblems!<CR>
 nnoremap <LocalLeader>!! :ProjectProblems<CR>
 
 nnoremap <LocalLeader>ptd :ProjectTodo<CR>
 nnoremap <LocalLeader>pr :ProjectRefreshAll<CR>
-nnoremap <LocalLeader>pt :ProjectTree<CR>
-nnoremap <LocalLeader>pT :ProjectsTree<CR>
 
 nnoremap <LocalLeader>ac :Ant clean<CR>
 nnoremap <LocalLeader>ab :Ant build<CR>
