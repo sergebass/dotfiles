@@ -187,12 +187,6 @@ noremap <Space> <C-w>
 " for some reason, pressing <Space> twice doesn't have the same effect as ^W^W
 noremap <Space><Space> <C-w><C-w>
 
-" duplicate mappings for window navigation
-noremap <silent> <C-h> <C-w>h
-noremap <silent> <C-j> <C-w>j
-noremap <silent> <C-k> <C-w>k
-noremap <silent> <C-l> <C-w>l
-
 " Buffer navigation
 map <silent> <BS>[ :bp<CR>
 map <silent> <BS>] :bn<CR>
