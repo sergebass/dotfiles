@@ -57,9 +57,6 @@ set fillchars+=vert:║
 " with tab highlighting
 autocmd FileType netrw set nolist
 
-" consider dashes as parts of a word (for CSS, lisps, package names etc.)
-set iskeyword+=-
-
 " fold based on syntax, do not fold by default
 set foldmethod=syntax
 set foldlevel=100
@@ -78,8 +75,11 @@ set tags=./tags;/
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
+" consider dashes as parts of a word (for CSS, lisps, package names etc.)
+set iskeyword+=-
+
 " pressing K in normal/visual mode will look up the word/selection using this command
-set keywordprg=:Ag\ --vimgrep\ -ws
+set keywordprg=:grep\ -ws
 
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
