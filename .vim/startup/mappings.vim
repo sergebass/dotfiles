@@ -199,3 +199,9 @@ inoremap <silent> <C-Space> <C-x><C-u>
 
 " replace tabs with spaces and strip all redundant/trailing whitespace
 nnoremap <Leader>ws :retab<CR>:RemoveMultipleBlankLines<CR>:RemoveRedundantWhitespace<CR>
+
+" quick shortcuts for vim-fugitive
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gs :Gstatus<CR>
