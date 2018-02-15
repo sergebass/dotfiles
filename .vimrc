@@ -253,6 +253,11 @@ vnoremap <silent> <S-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:
 onoremap <silent> H :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
 onoremap <silent> L :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 
+" Use these mappings to avoid reaching for arrow keys
+" (or if terminal does not register Shift+{Left/Right} keys properly)
+map <silent> <C-h> <S-Left>
+map <silent> <C-l> <S-Right>
+
 " Make jumping to the next method/function faster (for languages with Java/C++ style curly braces)
 nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
