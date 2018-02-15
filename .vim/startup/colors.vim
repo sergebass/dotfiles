@@ -128,4 +128,11 @@ highlight CursorColumn cterm=none ctermbg=236 gui=none guibg=#404030
 highlight CursorLineNr cterm=bold ctermfg=245 ctermbg=0 gui=bold guifg=#808080 guibg=#000000
 highlight LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
 
-
+" color settings for the rainbow parentheses plugin
+let g:rbpt_colorpairs = [
+    \ ['green',  'green'],
+    \ ['red',    'red'],
+    \ ['cyan',   'cyan'],
+    \ ['yellow', 'yellow'],
+    \ ['blue',   'blue'],
+    \ ]
