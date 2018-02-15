@@ -103,6 +103,8 @@ nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
 " Miscellaneous useful navigation stuff
+nnoremap <silent> <BS><CR> :browse oldfiles<CR>
+
 nnoremap <silent> <BS><Tab> :Explore<CR>
 nnoremap <silent> <BS><S-Tab> :Vexplore<CR>
 
