@@ -203,5 +203,7 @@ nnoremap <Leader>ws :retab<CR>:RemoveMultipleBlankLines<CR>:RemoveRedundantWhite
 " quick shortcuts for vim-fugitive
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gg :Ggrep<Space>
 nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gm :Gmove<Space>
 nnoremap <Leader>gs :Gstatus<CR>
