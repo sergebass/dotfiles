@@ -1,9 +1,15 @@
 " error format for ant/javac
 setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 
+setlocal keywordprg=:JavaDocPreview
+
+"setlocal equalprg=FIXME specify a Java formatting solution (using eclipse/eclim?)
+
 """ ---------------------------------
 """ MODE-SPECIFIC CONFIGURATION: JAVA
 """ ---------------------------------
+
+nnoremap <buffer> K :JavaDocPreview<CR>
 
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <C-LeftMouse> :JavaSearchContext -a edit<CR>
@@ -17,8 +23,6 @@ nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
 
 nnoremap <buffer> <LocalLeader>< :JavaCallHierarchy<CR>
 nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
-
-nnoremap <buffer> <LocalLeader>? :JavaDocPreview<CR>
 
 nnoremap <buffer> <LocalLeader>d :JavaDocComment<CR>
 
