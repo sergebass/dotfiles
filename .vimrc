@@ -155,6 +155,12 @@ endfunction
 
 command! ClearQuickfixList call ClearQuickfixList()
 
+function ClearLocationList()
+  call setloclist(0, [])
+endfunction
+
+command! ClearLocationList call ClearLocationList()
+
 command RemoveMultipleBlankLines %s/^\_s\+\n/\r/e
 command RemoveRedundantWhitespace %s/\s\+$//e
 
@@ -297,7 +303,6 @@ nnoremap <Leader>= :cw<CR>
 
 " clear quickfix list (useful for incremental results of grepadd or vimgrepadd)
 nnoremap <Leader>\| :ClearQuickfixList<CR>
-nnoremap <S-Del> :ClearQuickfixList<CR>
 
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
@@ -311,6 +316,9 @@ nnoremap <silent> <LocalLeader>. :llast<CR>
 nnoremap <silent> <LocalLeader>- :lclose<CR>
 nnoremap <silent> <LocalLeader>+ :lopen<CR>
 nnoremap <LocalLeader>= :lw<CR>
+
+" clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
+nnoremap <LocalLeader>\| :ClearLocationList<CR>
 
 " This selects the next closest text object.
 map + <Plug>(wildfire-fuel)
