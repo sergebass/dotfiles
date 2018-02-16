@@ -3,8 +3,7 @@
 """ --------------------------
 
 " TODO find relevant utilities to do formatting and quick lookup:
-" TODO need to try this:
-"setlocal equalprg=css-beautify
+"setlocal equalprg=cssbeautify
 "setlocal keywordprg=hoogle
 
 nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/cssref/"<CR>

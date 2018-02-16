@@ -3,7 +3,7 @@
 """ ---------------------------
 
 " TODO find relevant utilities to do formatting and quick lookup:
-"setlocal equalprg=css-beautify
+"setlocal equalprg=html-tidy
 "setlocal keywordprg=hoogle
 
 nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/tags/default.asp"<CR>
