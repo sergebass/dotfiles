@@ -9,3 +9,7 @@ set shiftwidth=4
 set autoindent
 
 setlocal keywordprg=hoogle
+
+" search the word under cursor in Hoogle database (using browser)
+nnoremap <buffer> <LocalLeader>? :!xdg-open "https://www.haskell.org/hoogle/?hoogle=<C-r>=expand("<cword>")<CR>"<Left>
+vnoremap <buffer> <LocalLeader>? "*y<Esc>:!xdg-open "https://www.haskell.org/hoogle/?hoogle=<C-r>*"<Left>
