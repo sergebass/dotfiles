@@ -102,6 +102,12 @@ map <silent> <C-l> <S-Right>
 nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
+" an alternative way to quickly save the file being edited
+" (make sure to turn terminal flow control via Ctrl+S/Q)
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
+
 " Miscellaneous useful navigation stuff
 nnoremap <silent> <BS><CR> :browse oldfiles<CR>
 
