@@ -5,6 +5,18 @@
 " error format for ant/javac
 setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 
+" Java/Eclim debug configuration
+" 
+"     g:EclimJavaDebugLineHighlight (Default: ‘DebugBreak’) Highlight group to use for showing the current line being debugged.
+" 
+"     g:EclimJavaDebugLineSignText (Default: ‘•’) Text to use on sign column for showing the current line being debugged.
+" 
+"     g:EclimJavaDebugStatusWinOrientation (Default: ‘vertical’) Sets the orientation for the splits inside the debug status windows; if they should be tiled vertically or horizontally. Possible values: - horizontal - vertical
+" 
+"     g:EclimJavaDebugStatusWinWidth (Default: 50) Sets the window width for the splits inside the debug status window. This is only applicable when the orientation is horizontal.
+" 
+"     g:EclimJavaDebugStatusWinHeight (Default: 10) Sets the window height for the splits inside the debug status window. This is only applicable when the orientation is vertical.
+ 
 setlocal keywordprg=:JavaDocPreview
 
 nnoremap <buffer> K :JavaDocPreview<CR>
@@ -57,6 +69,9 @@ vnoremap <buffer> <LocalLeader>= :JavaFormat
 " 
 " Note: The server name you choose doesn’t matter as long as you don’t have another vim instance running with that same name.
 
+nnoremap <buffer> <LocalLeader>d? :JavaDebugStatus<CR>
+nnoremap <buffer> <F12> :JavaDebugStatus<CR>
+
 nnoremap <buffer> <LocalLeader>ds :JavaDebugStart localhost 8888
 nnoremap <buffer> <LocalLeader>dq :JavaDebugStop<CR>
 nnoremap <buffer> <C-F2> :JavaDebugStop<CR>
@@ -72,6 +87,7 @@ nnoremap <buffer> <LocalLeader>dbl :JavaDebugBreakpointsList<CR>
 
 " for current project
 nnoremap <buffer> <LocalLeader>dbl! :JavaDebugBreakpointsList!<CR>
+nnoremap <buffer> <F10> :JavaDebugBreakpointsList!<CR>
 
 " all breakpoints in the current file
 nnoremap <buffer> <LocalLeader>dbr :JavaDebugBreakpointRemove<CR>
@@ -84,21 +100,5 @@ nnoremap <buffer> <F6> :JavaDebugStep over<CR>
 nnoremap <buffer> <F7> :JavaDebugStep return<CR>
 nnoremap <buffer> <F8> :JavaDebugThreadResume<CR>
 
-nnoremap <buffer> <LocalLeader>d? :JavaDebugStatus<CR>
-nnoremap <buffer> <F10> :JavaDebugStatus<CR>
-
 nnoremap <buffer> <LocalLeader>dtsa :JavaDebugThreadSuspendAll<CR>
 nnoremap <buffer> <LocalLeader>dtra :JavaDebugThreadResumeAll<CR>
-
-" Configuration
-" 
-"     g:EclimJavaDebugLineHighlight (Default: ‘DebugBreak’) Highlight group to use for showing the current line being debugged.
-" 
-"     g:EclimJavaDebugLineSignText (Default: ‘•’) Text to use on sign column for showing the current line being debugged.
-" 
-"     g:EclimJavaDebugStatusWinOrientation (Default: ‘vertical’) Sets the orientation for the splits inside the debug status windows; if they should be tiled vertically or horizontally. Possible values: - horizontal - vertical
-" 
-"     g:EclimJavaDebugStatusWinWidth (Default: 50) Sets the window width for the splits inside the debug status window. This is only applicable when the orientation is horizontal.
-" 
-"     g:EclimJavaDebugStatusWinHeight (Default: 10) Sets the window height for the splits inside the debug status window. This is only applicable when the orientation is vertical.
-" 
