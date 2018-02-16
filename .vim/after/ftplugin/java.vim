@@ -60,7 +60,7 @@ nnoremap <buffer> <LocalLeader>dq :JavaDebugStop<CR>
 nnoremap <buffer> <C-F2> :JavaDebugStop<CR>
 
 nnoremap <buffer> <LocalLeader>db :JavaDebugBreakpointToggle<CR>
-<buffer> <F9> :JavaDebugBreakpointToggle<CR>
+nnoremap <buffer> <F9> :JavaDebugBreakpointToggle<CR>
 
 " disable and delete breakpoints
 nnoremap <buffer> <LocalLeader>db! :JavaDebugBreakpointToggle!<CR>
