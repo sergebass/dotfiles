@@ -9,6 +9,8 @@ setlocal keywordprg=:JavaDocPreview
 
 nnoremap <buffer> K :JavaDocPreview<CR>
 
+nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
+
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <F3> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <C-LeftMouse> :JavaSearchContext -a edit<CR>
