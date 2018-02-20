@@ -109,9 +109,9 @@ if version >= 700
   au InsertLeave * highlight StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
 endif
 
-highlight TabLine term=bold cterm=bold ctermfg=white ctermbg=19
-highlight TabLineFill term=bold cterm=bold ctermfg=white ctermbg=19
-highlight TabLineSel term=bold cterm=bold ctermfg=yellow ctermbg=22
+highlight TabLine term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
+highlight TabLineFill term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
+highlight TabLineSel term=reverse cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
 
 highlight MyWordHighlight cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\|ASAP\)"
