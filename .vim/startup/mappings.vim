@@ -112,7 +112,7 @@ inoremap <silent> <C-S> <C-O>:update<CR>
 nnoremap <silent> <BS><CR> :browse oldfiles<CR>
 
 nnoremap <silent> <BS><Tab> :Explore<CR>
-nnoremap <silent> <BS><S-Tab> :Vexplore<CR>
+nnoremap <silent> <BS><S-Tab> :Lexplore<CR>
 
 nnoremap <silent> <BS><BS> :CtrlPMRUFiles<CR>
 nnoremap <silent> <BS>f :CtrlP<CR>
@@ -122,8 +122,8 @@ nnoremap <silent> <BS>m :CtrlPBookmark<CR>
 nnoremap <silent> <BS>c :CtrlPChange<CR>
 nnoremap <silent> <BS>x :CtrlPMixed<CR>
 
-nnoremap <silent> <Leader><Tab> :NERDTreeToggle<CR>
-nnoremap <silent> <Leader><S-Tab> :NERDTreeFind<CR>
+nnoremap <silent> <Leader><Tab> :NERDTreeFind<CR>
+nnoremap <silent> <Leader><S-Tab> :NERDTreeToggle<CR>
 
 nnoremap <silent> <C-\> :TagbarToggle<CR>
 
