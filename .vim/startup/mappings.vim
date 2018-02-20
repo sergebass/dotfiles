@@ -108,6 +108,9 @@ noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 
+" restore the session kept in the Session.vim in current directory
+nnoremap <Leader>@ :source Session.vim<CR>
+
 " Miscellaneous useful navigation stuff
 nnoremap <silent> <BS><CR> :browse oldfiles<CR>
 
