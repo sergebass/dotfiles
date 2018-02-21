@@ -181,11 +181,6 @@ if exists("g:did_load_filetypes")
     filetype plugin indent off
 endif
 
-filetype off
-" FIXME hardcoded path, fix ASAP!
-set runtimepath+=/usr/share/lilypond/2.18.2/vim/
-filetype on
-
 " automatically pick correct templates based on the specified file name extension
 augroup templates
   au!
