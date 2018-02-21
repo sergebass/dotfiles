@@ -39,14 +39,28 @@ nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
 
 nnoremap <buffer> <LocalLeader>jd :JavaDocComment<CR>
 
-nnoremap <buffer> <LocalLeader>m :JavaMove<Space>
-nnoremap <buffer> <LocalLeader>r :JavaRename<Space>
-nnoremap <buffer> <LocalLeader>u :RefactorUndo<CR>
+nnoremap <buffer> <LocalLeader>rm :JavaMove<Space>
+nnoremap <buffer> <LocalLeader>rr :JavaRename<Space>
+nnoremap <buffer> <LocalLeader>ru :RefactorUndo<CR>
 
-nnoremap <buffer> <LocalLeader>n :JavaNew<Space>
-nnoremap <buffer> <LocalLeader>nc :JavaConstructor
-nnoremap <buffer> <LocalLeader>g :JavaGet
-nnoremap <buffer> <LocalLeader>z :JavaImpl
+nnoremap <buffer> <LocalLeader>nc :JavaNew class<Space>
+nnoremap <buffer> <LocalLeader>ni :JavaNew interface<Space>
+nnoremap <buffer> <LocalLeader>na :JavaNew abstract<Space>
+nnoremap <buffer> <LocalLeader>ne :JavaNew enum<Space>
+nnoremap <buffer> <LocalLeader>n@ :JavaNew @interface<Space>
+
+" these mappings work both in normal and visual mode
+noremap <buffer> <LocalLeader>mc :JavaConstructor<CR>
+noremap <buffer> <LocalLeader>mc! :JavaConstructor!<CR>
+noremap <buffer> <LocalLeader>mg :JavaGet<CR>
+noremap <buffer> <LocalLeader>mg! :JavaGet!<CR>
+noremap <buffer> <LocalLeader>ms :JavaSet<CR>
+noremap <buffer> <LocalLeader>ms! :JavaSet!<CR>
+noremap <buffer> <LocalLeader>mgs :JavaGetSet<CR>
+noremap <buffer> <LocalLeader>mgs! :JavaGetSet!<CR>
+
+nnoremap <buffer> <LocalLeader>mi :JavaImpl<CR>
+nnoremap <buffer> <LocalLeader>md :JavaDelegate<CR>
 
 nnoremap <buffer> <LocalLeader>t :JUnit %
 
@@ -55,7 +69,7 @@ nnoremap <buffer> <LocalLeader>1 :JavaCorrect<CR>
 nnoremap <buffer> <LocalLeader>i :JavaImportOrganize<CR>
 
 nnoremap <buffer> <LocalLeader>= :%JavaFormat<CR>
-vnoremap <buffer> <LocalLeader>= :JavaFormat
+vnoremap <buffer> <LocalLeader>= :JavaFormat<CR>
 
 " Eclim documentation page: http://eclim.org/vim/java/debug.html
 "
