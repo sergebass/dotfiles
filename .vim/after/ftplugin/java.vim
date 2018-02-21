@@ -39,10 +39,13 @@ nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
 
 nnoremap <buffer> <LocalLeader>jd :JavaDocComment<CR>
 
+nnoremap <buffer> <LocalLeader>m :JavaMove<Space>
+nnoremap <buffer> <LocalLeader>r :JavaRename<Space>
+nnoremap <buffer> <LocalLeader>u :RefactorUndo<CR>
+
 nnoremap <buffer> <LocalLeader>n :JavaNew<Space>
 nnoremap <buffer> <LocalLeader>nc :JavaConstructor
 nnoremap <buffer> <LocalLeader>g :JavaGet
-nnoremap <buffer> <LocalLeader>r :JavaRename<Space>
 nnoremap <buffer> <LocalLeader>z :JavaImpl
 
 nnoremap <buffer> <LocalLeader>t :JUnit %
