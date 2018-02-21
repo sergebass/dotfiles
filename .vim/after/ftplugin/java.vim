@@ -68,8 +68,8 @@ nnoremap <buffer> <LocalLeader>1 :JavaCorrect<CR>
 
 nnoremap <buffer> <LocalLeader>i :JavaImportOrganize<CR>
 
-nnoremap <buffer> <LocalLeader>= :%JavaFormat<CR>
-vnoremap <buffer> <LocalLeader>= :JavaFormat<CR>
+nnoremap <buffer> <LocalLeader>~ :%JavaFormat<CR>
+vnoremap <buffer> <LocalLeader>~ :JavaFormat<CR>
 
 " Eclim documentation page: http://eclim.org/vim/java/debug.html
 "
