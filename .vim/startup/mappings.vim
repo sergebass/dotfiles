@@ -43,12 +43,12 @@ map <silent> <BS>- :ball<CR>
 map <silent> <BS>\| :vert ball<CR>
 
 " Tab navigation
-map <silent> <BS><Insert> :tabnew<CR>
-map <silent> <BS><Del> :tabclose<CR>
-map <silent> <BS><Home> :tabfirst<CR>
-map <silent> <BS><End> :tablast<CR>
-map <silent> <BS><PageUp> :tabprev<CR>
-map <silent> <BS><PageDown> :tabnext<CR>
+map <silent> <Space><Insert> :tabnew<CR>
+map <silent> <Space><Del> :tabclose<CR>
+map <silent> <Space><Home> :tabfirst<CR>
+map <silent> <Space><End> :tablast<CR>
+map <silent> <Space><PageUp> :tabprev<CR>
+map <silent> <Space><PageDown> :tabnext<CR>
 
 " Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <kPlus> <C-w>+
