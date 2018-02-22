@@ -34,14 +34,6 @@ noremap <Space> <C-w>
 " for some reason, pressing <Space> twice doesn't have the same effect as ^W^W
 noremap <Space><Space> <C-w><C-w>
 
-" Buffer navigation
-map <silent> <BS>[ :bp<CR>
-map <silent> <BS>] :bn<CR>
-map <silent> <BS>, :bfirst<CR>
-map <silent> <BS>. :blast<CR>
-map <silent> <BS>- :ball<CR>
-map <silent> <BS>\| :vert ball<CR>
-
 " Tab navigation
 map <silent> <Space><Insert> :tabnew<CR>
 map <silent> <Space><Del> :tabclose<CR>
@@ -49,6 +41,15 @@ map <silent> <Space><Home> :tabfirst<CR>
 map <silent> <Space><End> :tablast<CR>
 map <silent> <Space><PageUp> :tabprev<CR>
 map <silent> <Space><PageDown> :tabnext<CR>
+
+" Buffer management
+map <silent> <BS>[ :bp<CR>
+map <silent> <BS>] :bn<CR>
+map <silent> <BS>, :bfirst<CR>
+map <silent> <BS>. :blast<CR>
+map <silent> <BS>- :ball<CR>
+map <silent> <BS>\| :vert ball<CR>
+map <silent> <BS><Del> :bdelete<CR>
 
 " Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <kPlus> <C-w>+
