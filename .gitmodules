@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/vim-bookmarks"]
 	path = .vim/bundle/vim-bookmarks
 	url = https://github.com/MattesGroeger/vim-bookmarks.git
+[submodule ".vim/bundle/vim-rtags"]
+	path = .vim/bundle/vim-rtags
+	url = https://github.com/lyuts/vim-rtags.git
