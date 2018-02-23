@@ -189,18 +189,21 @@ augroup END
 
 au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-au Syntax * RainbowParenthesesLoadChevrons
-
 filetype plugin indent on
 syntax on
 
 source ~/.vim/startup/functions.vim
 source ~/.vim/startup/commands.vim
 source ~/.vim/startup/mappings.vim
+
+" FIXME make eclim.vim conditional (eclim may not be installed)
 source ~/.vim/startup/eclim.vim
 
 colorscheme sergebass-dark
+
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+
+au VimEnter * RainbowParenthesesToggle
