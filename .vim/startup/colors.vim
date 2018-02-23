@@ -90,10 +90,32 @@ hi link Delimiter Special
 hi link SpecialComment Special
 hi link Debug Special
 
-highlight DiffAdd cterm=none ctermfg=Yellow ctermbg=22 gui=none guifg=Yellow guibg=#004000
-highlight DiffDelete cterm=none ctermfg=Yellow ctermbg=88 gui=none guifg=Yellow guibg=#400000
-highlight DiffChange cterm=none ctermfg=Yellow ctermbg=18 gui=none guifg=Yellow guibg=#000040
+highlight DiffAdd cterm=bold ctermfg=Yellow ctermbg=22 gui=bold guifg=Yellow guibg=#004000
+highlight DiffDelete cterm=bold ctermfg=Yellow ctermbg=88 gui=bold guifg=Yellow guibg=#400000
+highlight DiffChange cterm=bold ctermfg=Yellow ctermbg=18 gui=bold guifg=Yellow guibg=#000040
 highlight DiffText cterm=inverse ctermfg=Yellow ctermbg=18 gui=inverse guifg=Yellow guibg=#000040
+
+" this is needed to make git commit respect our existing diff highlighting
+highlight link diffCommon Normal
+highlight link diffIdentical Normal
+highlight link diffAdded DiffAdd
+highlight link diffChanged DiffChange
+highlight link diffRemoved DiffDelete
+highlight link diffComment Comment
+
+highlight diffFile cterm=bold ctermfg=15 ctermbg=0 gui=bold guifg=#ffffff guibg=#000000
+highlight diffOldFile cterm=bold ctermfg=9 ctermbg=0 gui=bold guifg=#ff0000 guibg=#000000
+highlight diffNewFile cterm=bold ctermfg=10 ctermbg=0 gui=bold guifg=#00ff00 guibg=#000000
+
+" FIXME check all these other highlight settings:
+" diffOnly       xxx links to Constant
+" diffDiffer     xxx links to Constant
+" diffBDiffer    xxx links to Constant
+" diffIsA        xxx links to Constant
+" diffNoEOL      xxx links to Constant
+" diffSubname    xxx links to PreProc
+" diffLine       xxx links to Statement
+" diffIndexLine  xxx links to PreProc
 
 highlight link GitGutterAdd DiffAdd
 highlight link GitGutterDelete DiffDelete
