@@ -40,11 +40,11 @@
     pager = true
 
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+    current = 226 reverse
+    local = 48
+    remote = 204
     upstream = cyan
-    plain = white
+    plain = 15
 
 [color "diff"]
     meta = 226 bold reverse
