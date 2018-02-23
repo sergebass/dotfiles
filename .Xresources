@@ -1,7 +1,7 @@
-URxvt.font: xft:Inconsolata:medium:pixelsize=15:antialias=true:hinstyle=hintslight
+URxvt.font: xft:Inconsolata:bold:pixelsize=14:antialias=true:hintstyle=hintslight
 URxvt.leterSpace: -1
-URxvt.foreground: #dbdedc
-URxvt.background: #1d1f21
+URxvt.foreground: #c0c0c0
+URxvt.background: #000000
 URxvt.cursorBlink: true
 URxvt.cursorColor: orange
 URxvt.cursorColor2: black
@@ -15,36 +15,36 @@ URxvt.fading: 10
 ! color scheme
 
 ! black
-*.color0:       #1e1f22
-*.color8:       #575758
+*.color0:       #000000
+*.color8:       #c0c0c0
 
 ! red
-*.color1:       #b83333
-*.color9:       #cc6666
+*.color1:       #c00000
+*.color9:       #ff0000
 
 ! green
-*.color2:       #6dc042
-*.color10:      #7fba76
+*.color2:       #00c000
+*.color10:      #00ff00
 
 ! yellow
-*.color3:       #f1873e
-*.color11:      #f1cd86
+*.color3:       #af8700
+*.color11:      #ffff00
 
 ! blue
-*.color4:       #3754cc
-*.color12:      #81bcef
+*.color4:       #0000c0
+*.color12:      #0000ff
 
 ! magenta
-*.color5:       #8e51a3
-*.color13:      #b294bb
+*.color5:       #c000c0
+*.color13:      #ff00ff
 
 ! cyan
-*.color6:       #48d7c5
-*.color14:      #5fa098
+*.color6:       #00c0c0
+*.color14:      #00ffff
 
 ! white
-*.color7:       #a0a5aa
-*.color15:      #f0f4f1
+*.color7:       #c0c0c0
+*.color15:      #ffffff
 
 ! Xft settings ---------------------------------------------------------------
 Xft.dpi:        96
