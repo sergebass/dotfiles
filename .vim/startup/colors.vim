@@ -53,11 +53,11 @@ hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#87000
 hi Search term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
 hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
 
-highlight Visual term=reverse cterm=bold ctermbg=54 gui=bold guibg=#5f0087
+hi Visual term=reverse cterm=bold ctermbg=54 gui=bold guibg=#5f0087
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
-hi Comment term=bold ctermfg=DarkCyan guifg=#80a0ff
-hi Constant term=underline ctermfg=Magenta guifg=Magenta
+hi Comment term=bold cterm=italic,bold ctermfg=123 gui=italic,bold guifg=#87ffff
+hi Constant term=underline ctermfg=green guifg=green
 hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
 hi Statement term=none ctermfg=Yellow gui=none guifg=#aa4444
 hi PreProc term=underline ctermfg=LightBlue guifg=#ff80ff
@@ -90,24 +90,24 @@ hi link Delimiter Special
 hi link SpecialComment Special
 hi link Debug Special
 
-highlight DiffAdd cterm=bold ctermfg=Yellow ctermbg=22 gui=bold guifg=Yellow guibg=#004000
-highlight DiffDelete cterm=bold ctermfg=Yellow ctermbg=88 gui=bold guifg=Yellow guibg=#400000
-highlight DiffChange cterm=bold ctermfg=Yellow ctermbg=18 gui=bold guifg=Yellow guibg=#000040
-highlight DiffText cterm=inverse ctermfg=Yellow ctermbg=18 gui=inverse guifg=Yellow guibg=#000040
+hi DiffAdd cterm=bold ctermfg=Yellow ctermbg=22 gui=bold guifg=Yellow guibg=#004000
+hi DiffDelete cterm=bold ctermfg=Yellow ctermbg=88 gui=bold guifg=Yellow guibg=#400000
+hi DiffChange cterm=bold ctermfg=Yellow ctermbg=18 gui=bold guifg=Yellow guibg=#000040
+hi DiffText cterm=inverse ctermfg=Yellow ctermbg=18 gui=inverse guifg=Yellow guibg=#000040
 
 " this is needed to make git commit respect our existing diff highlighting
-highlight link diffCommon Normal
-highlight link diffIdentical Normal
-highlight link diffAdded DiffAdd
-highlight link diffChanged DiffChange
-highlight link diffRemoved DiffDelete
-highlight link diffComment Comment
+hi link diffCommon Normal
+hi link diffIdentical Normal
+hi link diffAdded DiffAdd
+hi link diffChanged DiffChange
+hi link diffRemoved DiffDelete
+hi link diffComment Comment
 
-highlight diffFile cterm=bold ctermfg=15 ctermbg=0 gui=bold guifg=#ffffff guibg=#000000
-highlight diffOldFile cterm=bold ctermfg=9 ctermbg=0 gui=bold guifg=#ff0000 guibg=#000000
-highlight diffNewFile cterm=bold ctermfg=10 ctermbg=0 gui=bold guifg=#00ff00 guibg=#000000
+hi diffFile cterm=bold ctermfg=15 ctermbg=0 gui=bold guifg=#ffffff guibg=#000000
+hi diffOldFile cterm=bold ctermfg=9 ctermbg=0 gui=bold guifg=#ff0000 guibg=#000000
+hi diffNewFile cterm=bold ctermfg=10 ctermbg=0 gui=bold guifg=#00ff00 guibg=#000000
 
-" FIXME check all these other highlight settings:
+" FIXME check all these other hi settings:
 " diffOnly       xxx links to Constant
 " diffDiffer     xxx links to Constant
 " diffBDiffer    xxx links to Constant
@@ -117,38 +117,38 @@ highlight diffNewFile cterm=bold ctermfg=10 ctermbg=0 gui=bold guifg=#00ff00 gui
 " diffLine       xxx links to Statement
 " diffIndexLine  xxx links to PreProc
 
-highlight link GitGutterAdd DiffAdd
-highlight link GitGutterDelete DiffDelete
-highlight link GitGutterChange DiffChange
-highlight link GitGutterChangeDelete DiffChange
+hi link GitGutterAdd DiffAdd
+hi link GitGutterDelete DiffDelete
+hi link GitGutterChange DiffChange
+hi link GitGutterChangeDelete DiffChange
 
-highlight StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
-highlight StatusLineNC cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b2b2 guibg=#3a3a3a
+hi StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
+hi StatusLineNC cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b2b2 guibg=#3a3a3a
 
 " change statusline colors depending on the current mode
 if version >= 700
-  au InsertEnter * highlight StatusLine cterm=bold ctermfg=15 ctermbg=22 gui=bold guifg=#ffffff guibg=#005f00
-  au InsertLeave * highlight StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
+  au InsertEnter * hi StatusLine cterm=bold ctermfg=15 ctermbg=22 gui=bold guifg=#ffffff guibg=#005f00
+  au InsertLeave * hi StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
 endif
 
-highlight TabLine term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
-highlight TabLineFill term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
-highlight TabLineSel term=reverse cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
+hi TabLine term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
+hi TabLineFill term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
+hi TabLineSel term=reverse cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
 
-highlight MyWordHighlight cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
+hi MyWordHighlight cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\|ASAP\)"
 
 " show non-space whitespace using this coloring:
-highlight SpecialKey cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
+hi SpecialKey cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
 
 " line length limit highlighting
-highlight ColorColumn ctermbg=234 guibg=#301010
+hi ColorColumn ctermbg=234 guibg=#301010
 
 " make current line and its number stand out from the rest
-highlight CursorLine cterm=none ctermbg=236 gui=none guibg=#404030
-highlight CursorColumn cterm=none ctermbg=236 gui=none guibg=#404030
-highlight CursorLineNr cterm=bold ctermfg=245 ctermbg=0 gui=bold guifg=#808080 guibg=#000000
-highlight LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
+hi CursorLine cterm=none ctermbg=236 gui=none guibg=#404030
+hi CursorColumn cterm=none ctermbg=236 gui=none guibg=#404030
+hi CursorLineNr cterm=bold ctermfg=245 ctermbg=0 gui=bold guifg=#808080 guibg=#000000
+hi LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
 
 " color settings for the rainbow parentheses plugin
 let g:rbpt_colorpairs = [
