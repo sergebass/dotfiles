@@ -57,7 +57,7 @@ hi Visual term=reverse cterm=bold ctermbg=54 gui=bold guibg=#5f0087
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=bold cterm=italic,bold ctermfg=123 gui=italic,bold guifg=#87ffff
-hi Constant term=underline ctermfg=green guifg=green
+hi Constant term=underline cterm=none ctermfg=227 guifg=#ffff5f
 hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
 hi Statement term=none ctermfg=Yellow gui=none guifg=#aa4444
 hi PreProc term=underline ctermfg=LightBlue guifg=#ff80ff
