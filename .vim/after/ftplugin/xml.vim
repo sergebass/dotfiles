@@ -11,4 +11,4 @@ nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/xml/dom_nodetype.as
 nnoremap <buffer> <LocalLeader>v :Validate<CR>
 
 " TODO add a mapping for xmllint
-nnoremap <buffer> <LocalLeader>= :XmlFormat<CR>
+nnoremap <buffer> <LocalLeader>~ :XmlFormat<CR>
