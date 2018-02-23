@@ -2,7 +2,7 @@
 """ THEME SETTINGS
 """ --------------
 
-" let g:colors_name = "sergebass"
+let g:colors_name = "sergebass-dark"
 
 " FIXME temporary highlighting placeholders, taken from vim documentation;
 " uncomment and fix.

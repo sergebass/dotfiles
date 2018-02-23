@@ -202,4 +202,5 @@ source ~/.vim/startup/functions.vim
 source ~/.vim/startup/commands.vim
 source ~/.vim/startup/mappings.vim
 source ~/.vim/startup/eclim.vim
-source ~/.vim/startup/colors.vim
+
+colorscheme sergebass-dark
