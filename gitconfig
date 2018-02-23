@@ -56,12 +56,12 @@
     commit = 51
 
 [color "status"]
-    header = 15 bold
+    header = 7
     added = 82 bold
     updated = 75 bold
     changed = 129 bold
     untracked = 226 bold
-    branch = white
+    branch = white bold reverse
     nobranch = red bold
     localBranch = 48 bold
     remoteBranch = 204 bold
