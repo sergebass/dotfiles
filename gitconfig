@@ -63,8 +63,8 @@
     untracked = 226 bold
     branch = white
     nobranch = red bold
-    localBranch = 48
-    remoteBranch = 204
+    localBranch = 48 bold
+    remoteBranch = 204 bold
     unmerged = 196 bold reverse
 
 [color "interactive"]
