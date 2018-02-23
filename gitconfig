@@ -53,7 +53,7 @@
     old = 196 strike
     new = 82
     whitespace = blue
-    commit = 51
+    commit = 51 bold
 
 [color "status"]
     header = 7
