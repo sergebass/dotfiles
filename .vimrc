@@ -204,6 +204,7 @@ colorscheme sergebass-dark
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-au Syntax * RainbowParenthesesLoadChevrons
+" commented out because this interferes with XML files
+"au Syntax * RainbowParenthesesLoadChevrons
 
 au VimEnter * RainbowParenthesesToggle
