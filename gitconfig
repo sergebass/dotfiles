@@ -1,0 +1,74 @@
+[core]
+    pager = less -F -X
+
+[pager]
+    status = false
+
+[credential]
+    helper = cache
+
+[diff]
+    submodule = log
+    tool = vimdiff
+    guitool = meld
+
+[difftool]
+    prompt = false
+
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+
+[merge]
+    tool = meld
+    conflictstyle = diff3
+
+[mergetool]
+    prompt = false
+
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[gitweb]
+    blame = true
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    interactive = auto
+    ui = auto
+    pager = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+    upstream = cyan
+    plain = white
+
+[color "diff"]
+    meta = 226 bold reverse
+    frag = 213 bold ul
+    context = 15
+    old = 196 strike
+    new = 82
+    whitespace = blue
+    commit = 51
+
+[color "status"]
+    header = 15 bold
+    added = 82 bold
+    updated = 75 bold
+    changed = 129 bold
+    untracked = 226 bold
+    branch = white
+    nobranch = red bold
+    localBranch = 48
+    remoteBranch = 204
+    unmerged = 196 bold reverse
+
+[color "interactive"]
+    prompt = 123 bold reverse
+    header = 15
+    help = 214
+    error = 196 bold reverse
