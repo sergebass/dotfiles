@@ -119,6 +119,3 @@ nnoremap <buffer> <F8> :JavaDebugThreadResume<CR>
 
 nnoremap <buffer> <LocalLeader>dtsa :JavaDebugThreadSuspendAll<CR>
 nnoremap <buffer> <LocalLeader>dtra :JavaDebugThreadResumeAll<CR>
-
-" this is useful for highlighting of nested generic types
-au Syntax * RainbowParenthesesLoadChevrons

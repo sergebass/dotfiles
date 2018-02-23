@@ -201,10 +201,13 @@ source ~/.vim/startup/eclim.vim
 
 colorscheme sergebass-dark
 
+" FIXME replace rainbow parenthese plugin with the one from
+" https://github.com/luochen1990/rainbow (hopefully this works properly)
+"
+" chevron matching mode conflicts with XHTML highlighting so disable it for now
+"au Syntax * RainbowParenthesesLoadChevrons
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-" commented out because this interferes with XML files
-"au Syntax * RainbowParenthesesLoadChevrons
 
 au VimEnter * RainbowParenthesesToggle
