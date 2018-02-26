@@ -119,3 +119,8 @@ nnoremap <buffer> <F8> :JavaDebugThreadResume<CR>
 
 nnoremap <buffer> <LocalLeader>dtsa :JavaDebugThreadSuspendAll<CR>
 nnoremap <buffer> <LocalLeader>dtra :JavaDebugThreadResumeAll<CR>
+
+" Java-specific highlighting
+
+hi SPUpperCaseJavaWord cterm=none ctermfg=45 gui=none guifg=#00d7ff
+match SPUpperCaseJavaWord "\<[A-Z]\h*\>"
