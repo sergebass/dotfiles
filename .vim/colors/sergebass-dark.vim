@@ -143,9 +143,6 @@ hi TabLine term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee gu
 hi TabLineFill term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
 hi TabLineSel term=reverse cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
 
-hi MyWordHighlight cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
-match MyWordHighlight "\<\(TODO\|FIXME\|XXX\|BUG\|ASAP\)"
-
 " show non-space whitespace using this coloring:
 hi SpecialKey cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
 
