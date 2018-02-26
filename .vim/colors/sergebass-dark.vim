@@ -851,6 +851,9 @@ hi LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
 "vimVar         xxx links to Identifier
 "vimWarn        xxx links to WarningMsg
 
+" for highlighting of any selected words, defined at runtime (see mappings.vim)
+hi SPCustomHighlight term=reverse cterm=reverse gui=reverse
+
 " color settings for the rainbow parentheses plugin
 let g:rbpt_colorpairs = [
     \ ['82', '#5fff00'],

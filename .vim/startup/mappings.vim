@@ -186,13 +186,23 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 cnoremap w!! w !sudo tee > /dev/null %
 
 " easily copy the word under cursor into the command line being edited
-nnoremap <M-CR> <Esc>:<C-r>=expand("<cword>")<CR><Home>
+nnoremap <M-CR> :<C-r>=expand("<cword>")<CR><Home>
 vnoremap <M-CR> "*y<Esc>:<C-r>*<Home>
 cnoremap <M-CR> <C-r>=expand("<cword>")<CR>
 
 " a duplicate to see which way I like the most...
 map <Leader><CR> <M-CR>
 cmap <Leader><CR> <M-CR>
+
+" define a custom highlighting for the word under cursor or a selection
+" in the current buffer
+nnoremap <LocalLeader>* :match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
+vnoremap <LocalLeader>* "*y<Esc>:match SPCustomHighlight "<C-r>*"
+
+" define a custom highlighting for the word under cursor or a selection
+" in all open buffers
+nnoremap <Leader>* :bufdo match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
+vnoremap <Leader>* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
 
 " search the word under cursor in external files
 nnoremap <Leader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
