@@ -96,54 +96,6 @@ let g:ctrlp_extensions = [
 \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
 \ ]
 
-set gfn=Inconsolata\ Medium\ 11
-set guioptions-=T
-
-if $COLORTERM == 'xfce4-terminal'
-\ || $COLORTERM == 'gnome-terminal'
-\ || $COLORTERM == 'Terminal'
-\ || $TERM == 'screen-256color'
-\ || $TERM == 'xterm-256color'
-\ || $TERM == 'rxvt-unicode-256color'
-  set t_Co=256
-
-  " disable Background Color Erase (BCE) so that color schemes
-  " render properly when inside 256-color tmux and GNU screen.
-  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
-endif
-
-" make sure tmux correctly passes DECSCUSR cursor shape change sequences
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
-else
-  let &t_SI = "\e[5 q"
-  let &t_EI = "\e[2 q"
-endif
-
-" FIXME Uncomment when it's clear how to make this work with urxvt...
-" if &term =~ '^xterm\\|rxvt'
-"   " use an orange cursor in insert mode
-"   let &t_SI = "\<Esc>]12;orange\x7"
-"   " use a red cursor otherwise
-"   let &t_EI = "\<Esc>]12;red\x7"
-"   silent !echo -ne "\033]12;red\007"
-"   " reset cursor when vim exits
-"   autocmd VimLeave * silent !echo -ne "\033]112\007"
-"   " use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
-"
-"   " solid underscore
-"   let &t_SI .= "\<Esc>[4 q"
-"   " solid block
-"   let &t_EI .= "\<Esc>[2 q"
-"   " 1 or 0 -> blinking block
-"   " 3 -> blinking underscore
-"   " Recent versions of xterm (282 or above) also support
-"   " 5 -> blinking vertical bar
-"   " 6 -> solid vertical bar
-" endif
-
 set pastetoggle=<Leader>P
 
 augroup BgHighlight
@@ -199,7 +151,65 @@ source ~/.vim/startup/mappings.vim
 " FIXME make eclim.vim conditional (eclim may not be installed)
 source ~/.vim/startup/eclim.vim
 
-colorscheme sergebass-dark
+" -------------------
+" GENERAL UI SETTINGS
+" -------------------
+
+set gfn=Inconsolata\ Medium\ 11
+set guioptions-=T
+
+if $COLORTERM == 'xfce4-terminal'
+\ || $COLORTERM == 'gnome-terminal'
+\ || $COLORTERM == 'Terminal'
+\ || $TERM == 'screen-256color'
+\ || $TERM == 'xterm-256color'
+\ || $TERM == 'rxvt-unicode-256color'
+  set t_Co=256
+
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+
+" make sure tmux correctly passes DECSCUSR cursor shape change sequences
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+else
+  let &t_SI = "\e[5 q"
+  let &t_EI = "\e[2 q"
+endif
+
+" FIXME Uncomment when it's clear how to make this work with urxvt...
+" if &term =~ '^xterm\\|rxvt'
+"   " use an orange cursor in insert mode
+"   let &t_SI = "\<Esc>]12;orange\x7"
+"   " use a red cursor otherwise
+"   let &t_EI = "\<Esc>]12;red\x7"
+"   silent !echo -ne "\033]12;red\007"
+"   " reset cursor when vim exits
+"   autocmd VimLeave * silent !echo -ne "\033]112\007"
+"   " use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
+"
+"   " solid underscore
+"   let &t_SI .= "\<Esc>[4 q"
+"   " solid block
+"   let &t_EI .= "\<Esc>[2 q"
+"   " 1 or 0 -> blinking block
+"   " 3 -> blinking underscore
+"   " Recent versions of xterm (282 or above) also support
+"   " 5 -> blinking vertical bar
+"   " 6 -> solid vertical bar
+" endif
+
+if has('gui_running')
+    set background=light
+    colorscheme solarized
+else
+    set background=dark
+    colorscheme sergebass-dark
+endif
 
 " FIXME replace rainbow parenthese plugin with the one from
 " https://github.com/luochen1990/rainbow (hopefully this works properly)
