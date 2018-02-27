@@ -1,7 +1,7 @@
 URxvt.font: xft:Inconsolata:bold:pixelsize=14:antialias=true:hintstyle=hintslight
-URxvt.leterSpace: -1
+URxvt.letterSpace: -1
 URxvt.foreground: #c0c0c0
-URxvt.background: #000000
+URxvt.background: #002020
 URxvt.cursorBlink: true
 URxvt.cursorColor: orange
 URxvt.cursorColor2: black
