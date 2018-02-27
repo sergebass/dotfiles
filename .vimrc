@@ -203,13 +203,14 @@ endif
 "   " 6 -> solid vertical bar
 " endif
 
+" FIXME this seems to only work with gvim, not nvim-qt
 if has('gui_running')
     set background=light
-    colorscheme solarized
 else
     set background=dark
-    colorscheme sergebass-dark
 endif
+
+colorscheme sergebass
 
 " FIXME replace rainbow parenthese plugin with the one from
 " https://github.com/luochen1990/rainbow (hopefully this works properly)

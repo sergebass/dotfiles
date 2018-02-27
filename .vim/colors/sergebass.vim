@@ -2,9 +2,16 @@
 """ THEME SETTINGS
 """ --------------
 
-let g:colors_name = "sergebass-dark"
+let g:colors_name = "sergebass"
 
-set background=dark
+if &background == "dark"
+    hi Normal term=none cterm=none ctermfg=250 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#001818
+else
+    hi Normal term=none cterm=none ctermfg=0 ctermbg=230 gui=none guifg=#000000 guibg=#ffffd7
+    "colorscheme solarized
+endif
+
+"FIXME set background=dark
 
 if exists("syntax_on")
   syntax reset
@@ -40,8 +47,6 @@ hi clear
 " VisualNOS   Visual mode selection when vim is "Not Owning the Selection".
 "         Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
 " WildMenu    current match in 'wildmenu' completion
-
-hi Normal term=none cterm=none ctermfg=250 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#001818
 
 hi Cursor term=reverse cterm=bold ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
 hi CursorIM term=reverse cterm=bold ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
