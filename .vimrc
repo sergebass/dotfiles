@@ -206,6 +206,7 @@ endif
 " FIXME this seems to only work with gvim, not nvim-qt
 if has('gui_running')
     set background=light
+    set termguicolors
 else
     set background=dark
 endif

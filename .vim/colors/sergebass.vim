@@ -4,20 +4,17 @@
 
 let g:colors_name = "sergebass"
 
-if &background == "dark"
-    hi Normal term=none cterm=none ctermfg=250 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#001818
-else
-    hi Normal term=none cterm=none ctermfg=0 ctermbg=230 gui=none guifg=#000000 guibg=#ffffd7
-    "colorscheme solarized
-endif
-
-"FIXME set background=dark
-
 if exists("syntax_on")
   syntax reset
 endif
 
 hi clear
+
+if &background == "dark"
+    hi Normal term=none cterm=none ctermfg=250 ctermbg=234 gui=none guifg=#c0c0c0 guibg=#002020
+else
+    hi Normal term=none cterm=none ctermfg=235 ctermbg=230 gui=none guifg=#262626 guibg=#ffffd7
+endif
 
 " FIXME temporary highlighting placeholders, taken from vim documentation;
 " uncomment and fix.
@@ -69,15 +66,15 @@ hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff
 hi Visual term=reverse cterm=bold ctermbg=54 gui=bold guibg=#5f0087
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
-hi Comment term=bold cterm=bold ctermfg=128 gui=bold guifg=#af00d7
-hi Constant term=underline cterm=none ctermfg=227 guifg=#ffff5f
+hi Comment term=none cterm=none ctermfg=117 gui=bold guifg=#87d7ff
+hi Constant term=underline cterm=none ctermfg=228 guifg=#ffff87
 hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
 hi Statement term=none ctermfg=Yellow gui=none guifg=#aa4444
 hi PreProc term=underline ctermfg=LightBlue guifg=#ff80ff
 hi Type term=underline ctermfg=LightGreen guifg=#60ff60 gui=none
 hi Function term=bold ctermfg=White guifg=White
 hi Repeat term=underline ctermfg=White guifg=white
-hi Operator ctermfg=Red guifg=Red
+hi Operator ctermfg=41 guifg=#00d75f
 hi Error term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 hi Todo term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 
@@ -533,12 +530,14 @@ hi LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
 "javaC_JavaLang xxx cleared
 "javaCharacter  xxx links to Character
 "javaClassDecl  xxx links to javaStorageClass
+
 "javaComment    xxx links to Comment
 "javaComment2String xxx links to javaString
 "javaCommentCharacter xxx links to javaCharacter
 "javaCommentStar xxx links to javaComment
 "javaCommentString xxx links to javaString
 "javaCommentTitle xxx links to SpecialComment
+
 "javaConditional xxx links to Conditional
 "javaConstant   xxx links to Constant
 "javaDebugBoolean xxx cleared

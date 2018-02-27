@@ -232,3 +232,7 @@ nnoremap <Leader>gg :Ggrep<Space>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gm :Gmove<Space>
 nnoremap <Leader>gs :Gstatus<CR>
+
+" quick ways to switch between light and dark themes
+nnoremap <Leader><F7> :set background=light<CR>:colorscheme sergebass<CR>
+nnoremap <Leader><F8> :set background=dark<CR>:colorscheme sergebass<CR>
