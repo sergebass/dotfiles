@@ -66,7 +66,7 @@ hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff
 hi Visual term=reverse cterm=bold ctermbg=54 gui=bold guibg=#5f0087
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
-hi Comment term=none cterm=none ctermfg=117 gui=bold guifg=#87d7ff
+hi Comment term=none cterm=none ctermfg=117 gui=none guifg=#87d7ff
 hi Constant term=underline cterm=none ctermfg=228 guifg=#ffff87
 hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
 hi Statement term=none ctermfg=Yellow gui=none guifg=#aa4444
