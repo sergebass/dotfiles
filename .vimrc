@@ -146,10 +146,6 @@ syntax on
 
 source ~/.vim/startup/functions.vim
 source ~/.vim/startup/commands.vim
-source ~/.vim/startup/mappings.vim
-
-" FIXME make eclim.vim conditional (eclim may not be installed)
-source ~/.vim/startup/eclim.vim
 
 " -------------------
 " GENERAL UI SETTINGS

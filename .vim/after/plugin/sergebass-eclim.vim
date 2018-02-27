@@ -2,6 +2,8 @@
 """ General settings for eclim
 """ --------------------------
 
+" FIXME make this stuff conditional, the eclim plugin may not be installed
+
 let g:EclimLocateFileScope = 'workspace'
 let g:EclimLocateFileDefaultAction = 'edit'
 let g:EclimLocateFileNonProjectScope = 'ag'
