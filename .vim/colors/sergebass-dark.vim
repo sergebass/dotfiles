@@ -2,7 +2,9 @@
 """ THEME SETTINGS
 """ --------------
 
-let g:colors_name = "sergebass"
+let g:colors_name = "sergebass-dark"
+
+set background=dark
 
 if exists("syntax_on")
   syntax reset
@@ -10,11 +12,7 @@ endif
 
 hi clear
 
-if &background == "dark"
-    hi Normal term=none cterm=none ctermfg=250 ctermbg=234 gui=none guifg=#c0c0c0 guibg=#002020
-else
-    hi Normal term=none cterm=none ctermfg=235 ctermbg=230 gui=none guifg=#262626 guibg=#ffffd7
-endif
+hi Normal term=none cterm=none ctermfg=250 ctermbg=234 gui=none guifg=#c0c0c0 guibg=#002020
 
 " FIXME temporary highlighting placeholders, taken from vim documentation;
 " uncomment and fix.
@@ -866,3 +864,4 @@ let g:rbpt_colorpairs = [
     \ ['226', '#ffff00'],
     \ ['45', '#00d7ff'],
     \ ]
+

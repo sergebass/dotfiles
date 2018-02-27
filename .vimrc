@@ -201,13 +201,12 @@ endif
 
 " FIXME this seems to only work with gvim, not nvim-qt
 if has('gui_running')
-    set background=light
+    colorscheme sergebass-light
     set termguicolors
 else
-    set background=dark
+    colorscheme sergebass-dark
+    "FIXME set termguicolors (conditionally, if terminal supports 24-bit colors)
 endif
-
-colorscheme sergebass
 
 " FIXME replace rainbow parenthese plugin with the one from
 " https://github.com/luochen1990/rainbow (hopefully this works properly)
