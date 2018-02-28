@@ -151,7 +151,7 @@ source ~/.vim/startup/commands.vim
 " GENERAL UI SETTINGS
 " -------------------
 
-set gfn=Inconsolata\ Medium\ 11
+set gfn=Inconsolata\ Medium\ 10
 set guioptions-=T
 
 if $COLORTERM == 'xfce4-terminal'
