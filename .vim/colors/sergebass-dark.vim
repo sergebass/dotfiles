@@ -147,12 +147,12 @@ hi TabLineSel term=reverse cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd
 hi SpecialKey cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
 
 " line length limit highlighting
-hi ColorColumn ctermbg=234 guibg=#301010
+hi ColorColumn ctermbg=0 guibg=#301010
 
 " make current line and its number stand out from the rest
-hi CursorLine cterm=none ctermbg=236 gui=none guibg=#404030
-hi CursorColumn cterm=none ctermbg=236 gui=none guibg=#404030
-hi CursorLineNr cterm=bold ctermfg=245 ctermbg=0 gui=bold guifg=#808080 guibg=#000000
+hi CursorLine cterm=none ctermbg=237 gui=none guibg=#404030
+hi CursorColumn cterm=none ctermbg=237 gui=none guibg=#404030
+hi CursorLineNr cterm=bold ctermfg=246 ctermbg=0 gui=bold guifg=#949494 guibg=#000000
 hi LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
 
 " FIXME this is a full dump of current highlight groups taken with a loaded
