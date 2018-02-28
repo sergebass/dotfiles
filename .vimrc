@@ -218,3 +218,5 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 au VimEnter * RainbowParenthesesToggle
+
+au VimEnter .xmobarrc set syntax=haskell
