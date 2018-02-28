@@ -85,3 +85,6 @@
 [submodule ".vim/bundle/vim-rtags"]
 	path = .vim/bundle/vim-rtags
 	url = https://github.com/lyuts/vim-rtags.git
+[submodule ".vim/bundle/vim-delete-hidden-buffers"]
+	path = .vim/bundle/vim-delete-hidden-buffers
+	url = https://github.com/arithran/vim-delete-hidden-buffers.git
