@@ -58,7 +58,7 @@ hi StatusLineNC term=none cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b
 
 " change statusline colors depending on the current mode
 if version >= 700
-  au InsertEnter * hi StatusLine term=reverse cterm=reverse,bold ctermfg=22 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
+  au InsertEnter * hi StatusLine term=reverse cterm=reverse,bold ctermfg=22 ctermbg=15 gui=bold guifg=#ffffff guibg=#006000
   au InsertLeave * hi StatusLine term=reverse cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
 endif
 
