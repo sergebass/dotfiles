@@ -119,7 +119,7 @@ hi link Typedef Type
 hi link Tag Special
 hi link SpecialChar Special
 hi link Delimiter Special
-hi link SpecialComment Special
+hi link SpecialComment Comment
 hi link Debug Special
 
 hi DiffAdd cterm=bold ctermfg=Yellow ctermbg=22 gui=bold guifg=Yellow guibg=#004000
