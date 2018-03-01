@@ -22,6 +22,11 @@ set showcmd " display incomplete commands
 set incsearch " do incremental searching
 set hlsearch " highlight search results
 
+" even though we define our mappings in other files, we need to make sure
+" that leader and local leader keys are established well before then
+let mapleader = "\\"
+let maplocalleader = "\\\\"
+
 if has("nvim")
     set inccommand=nosplit " highlight text affected by a substitute command
 endif

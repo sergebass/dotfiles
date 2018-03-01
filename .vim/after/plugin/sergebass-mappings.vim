@@ -2,9 +2,6 @@
 """ KEYBOARD MAPPINGS
 """ -----------------
 
-let mapleader = "\\"
-let maplocalleader = "\\\\"
-
 " use <Leader> with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
 noremap <silent> <Leader>1 <F1>
