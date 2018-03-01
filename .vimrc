@@ -159,15 +159,16 @@ source ~/.vim/startup/commands.vim
 set gfn=Inconsolata\ Medium\ 10
 set guioptions-=T
 
-if $COLORTERM == 'xfce4-terminal'
-\ || $COLORTERM == 'gnome-terminal'
-\ || $COLORTERM == 'Terminal'
-\ || $TERM == 'screen-256color'
-\ || $TERM == 'xterm-256color'
-\ || $TERM == 'rxvt-unicode-256color'
+if $TERM == "linux"
+\ || $TERM == "screen-256color"
+\ || $TERM == "xterm-256color"
+\ || $TERM == "rxvt-unicode-256color"
+\ || $COLORTERM == "xfce4-terminal"
+\ || $COLORTERM == "gnome-terminal"
+\ || $COLORTERM == "Terminal"
   set t_Co=256
 
-    if has("nvim") " nvim is compiled with this feature, vim is most likely not
+    if has("nvim") && $TERM != "linux" " nvim is compiled with this feature, vim is most likely not
       " this setting may seem to conflict with the above
       " but since 24-bit colors are automatically mapped to their closest
       " 256-color counterparts, we may get away with this,

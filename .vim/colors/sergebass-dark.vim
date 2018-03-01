@@ -43,8 +43,31 @@ hi Normal term=none cterm=none ctermfg=250 ctermbg=234 gui=none guifg=#c0c0c0 gu
 "         Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
 " WildMenu    current match in 'wildmenu' completion
 
-hi Cursor term=reverse cterm=bold ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
-hi CursorIM term=reverse cterm=bold ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
+hi Cursor term=none cterm=none ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
+hi CursorIM term=none cterm=none ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
+hi CursorLine term=underline cterm=none ctermbg=237 gui=none guibg=#404030
+hi CursorColumn term=none cterm=none ctermbg=237 gui=none guibg=#404030
+hi CursorLineNr term=bold cterm=bold ctermfg=246 ctermbg=0 gui=bold guifg=#949494 guibg=#000000
+hi LineNr term=none cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
+
+" line length limit highlighting
+hi ColorColumn term=none cterm=none ctermbg=0 guibg=#301010
+
+hi StatusLine term=reverse cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
+hi StatusLineNC term=none cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b2b2 guibg=#3a3a3a
+
+" change statusline colors depending on the current mode
+if version >= 700
+  au InsertEnter * hi StatusLine cterm=bold ctermfg=15 ctermbg=22 gui=bold guifg=#ffffff guibg=#005f00
+  au InsertLeave * hi StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
+endif
+
+hi TabLine term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
+hi TabLineFill term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
+hi TabLineSel term=reverse cterm=reverse,bold ctermfg=22 ctermbg=220 gui=bold guifg=#ffd700 guibg=#005f00
+
+" show non-space whitespace using this coloring:
+hi SpecialKey term=reverse cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
 hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi Ignore ctermfg=black guifg=bg
@@ -129,31 +152,6 @@ hi link GitGutterAdd DiffAdd
 hi link GitGutterDelete DiffDelete
 hi link GitGutterChange DiffChange
 hi link GitGutterChangeDelete DiffChange
-
-hi StatusLine term=reverse cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
-hi StatusLineNC term=none cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b2b2 guibg=#3a3a3a
-
-" change statusline colors depending on the current mode
-if version >= 700
-  au InsertEnter * hi StatusLine cterm=bold ctermfg=15 ctermbg=22 gui=bold guifg=#ffffff guibg=#005f00
-  au InsertLeave * hi StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
-endif
-
-hi TabLine term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
-hi TabLineFill term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
-hi TabLineSel term=reverse cterm=reverse,bold ctermfg=22 ctermbg=220 gui=bold guifg=#ffd700 guibg=#005f00
-
-" show non-space whitespace using this coloring:
-hi SpecialKey cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
-
-" line length limit highlighting
-hi ColorColumn ctermbg=0 guibg=#301010
-
-" make current line and its number stand out from the rest
-hi CursorLine cterm=none ctermbg=237 gui=none guibg=#404030
-hi CursorColumn cterm=none ctermbg=237 gui=none guibg=#404030
-hi CursorLineNr cterm=bold ctermfg=246 ctermbg=0 gui=bold guifg=#949494 guibg=#000000
-hi LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
 
 " FIXME this is a full dump of current highlight groups taken with a loaded
 " Java file; refactor and assign proper color values:
