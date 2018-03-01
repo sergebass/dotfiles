@@ -13,7 +13,7 @@ set mouse=a
 
 " always display status line, even with one file being edited
 set laststatus=2
-set statusline=%F:%l:%c\ \ %m%r%y%{ObsessionStatus()}%=\ %{fugitive#statusline()}\ %p%%/%L
+set statusline=%F:%l:%c\ \ %m%r%y%=\ %{fugitive#statusline()}%{ObsessionStatus()}\ %p%%/%L
 
 set scrolloff=1 " keep at least one line visible above/below cursor
 set history=50 " keep 50 lines of command line history
