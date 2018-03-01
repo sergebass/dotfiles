@@ -1,4 +1,4 @@
-URxvt.font: xft:Inconsolata:bold:pixelsize=14:antialias=true:hintstyle=hintslight
+URxvt.font: xft:Inconsolata:medium:pixelsize=14:antialias=true:hintstyle=hintslight
 URxvt.letterSpace: -1
 URxvt.foreground: #c0c0c0
 URxvt.background: #002020

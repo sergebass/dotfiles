@@ -5,7 +5,7 @@ T1=$HOME/.cargo/bin/alacritty_ # FIXME temporarily mangled, will be restored whe
 P1=
 
 T2=/usr/bin/urxvt
-P2=-vb +sb -bc -cr orange -fg '#c0c0c0' -bg '#002020' -fn 'xft:Inconsolata:style=bold:pixelsize=14:antialias=true:hintstyle=hintslight' -letsp -1 -fade 10
+P2=-vb +sb -bc -cr orange -fg '#c0c0c0' -bg '#002020' -fn 'xft:Inconsolata:style=medium:pixelsize=14:antialias=true:hintstyle=hintslight' -letsp -1 -fade 10
 
 T3=/usr/bin/xfce4-terminal
 P3=
