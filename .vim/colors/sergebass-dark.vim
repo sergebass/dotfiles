@@ -58,10 +58,10 @@ hi ErrorMsg term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff0
 hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 
-hi Search term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
-hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
+hi Search term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
+hi IncSearch term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
 
-hi Visual term=reverse cterm=bold ctermbg=54 gui=bold guibg=#5f0087
+hi Visual term=reverse cterm=reverse,bold ctermfg=90 ctermbg=226 gui=bold guibg=#5f0087
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=none cterm=none ctermfg=117 gui=none guifg=#87d7ff
@@ -130,8 +130,8 @@ hi link GitGutterDelete DiffDelete
 hi link GitGutterChange DiffChange
 hi link GitGutterChangeDelete DiffChange
 
-hi StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
-hi StatusLineNC cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b2b2 guibg=#3a3a3a
+hi StatusLine term=reverse cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
+hi StatusLineNC term=none cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b2b2 guibg=#3a3a3a
 
 " change statusline colors depending on the current mode
 if version >= 700
@@ -139,9 +139,9 @@ if version >= 700
   au InsertLeave * hi StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
 endif
 
-hi TabLine term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
-hi TabLineFill term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
-hi TabLineSel term=reverse cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
+hi TabLine term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
+hi TabLineFill term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
+hi TabLineSel term=reverse cterm=reverse,bold ctermfg=22 ctermbg=220 gui=bold guifg=#ffd700 guibg=#005f00
 
 " show non-space whitespace using this coloring:
 hi SpecialKey cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
