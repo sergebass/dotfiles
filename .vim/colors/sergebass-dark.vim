@@ -58,16 +58,25 @@ hi StatusLineNC term=none cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b
 
 " change statusline colors depending on the current mode
 if version >= 700
-  au InsertEnter * hi StatusLine cterm=bold ctermfg=15 ctermbg=22 gui=bold guifg=#ffffff guibg=#005f00
-  au InsertLeave * hi StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
+  au InsertEnter * hi StatusLine term=reverse cterm=reverse,bold ctermfg=22 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
+  au InsertLeave * hi StatusLine term=reverse cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
 endif
 
 hi TabLine term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
 hi TabLineFill term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
 hi TabLineSel term=reverse cterm=reverse,bold ctermfg=22 ctermbg=220 gui=bold guifg=#ffd700 guibg=#005f00
 
-" show non-space whitespace using this coloring:
-hi SpecialKey term=reverse cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
+hi MoreMsg term=reverse cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
+hi ModeMsg term=reverse cterm=reverse,bold ctermfg=22 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005f00
+hi ErrorMsg term=reverse cterm=reverse,bold ctermfg=88 ctermbg=226 gui=bold guifg=#ffff00 guibg=#870000
+hi WarningMsg term=reverse cterm=reverse,bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
+hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
+
+hi Search term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
+hi IncSearch term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
+
+hi Visual term=reverse cterm=reverse,bold ctermfg=90 ctermbg=226 gui=bold guibg=#5f0087
+
 hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi Ignore ctermfg=black guifg=bg
@@ -75,16 +84,8 @@ hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
 hi MatchParen term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
 
-hi MoreMsg cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
-hi ModeMsg term=reverse cterm=bold ctermfg=226 ctermbg=22 gui=bold guifg=#ffff00 guibg=#005f00
-hi ErrorMsg term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
-hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
-hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
-
-hi Search term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
-hi IncSearch term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
-
-hi Visual term=reverse cterm=reverse,bold ctermfg=90 ctermbg=226 gui=bold guibg=#5f0087
+" show non-space whitespace using this coloring:
+hi SpecialKey term=reverse cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=none cterm=none ctermfg=117 gui=none guifg=#87d7ff
