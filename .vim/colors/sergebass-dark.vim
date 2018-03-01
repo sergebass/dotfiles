@@ -89,6 +89,7 @@ hi SpecialKey term=reverse cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=none cterm=none ctermfg=117 gui=none guifg=#87d7ff
+hi SpecialComment term=bold cterm=bold ctermfg=117 gui=bold guifg=#87d7ff
 hi Constant term=underline cterm=none ctermfg=228 guifg=#ffff87
 hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
 hi Statement term=none ctermfg=Yellow gui=none guifg=#aa4444
@@ -119,7 +120,6 @@ hi link Typedef Type
 hi link Tag Special
 hi link SpecialChar Special
 hi link Delimiter Special
-hi link SpecialComment Comment
 hi link Debug Special
 
 hi DiffAdd cterm=bold ctermfg=Yellow ctermbg=22 gui=bold guifg=Yellow guibg=#004000
