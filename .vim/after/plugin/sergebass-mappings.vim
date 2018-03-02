@@ -25,6 +25,44 @@ noremap <silent> <Leader>17 <F17>
 noremap <silent> <Leader>18 <F18>
 noremap <silent> <Leader>19 <F19>
 
+" navigation mappings
+
+" make arrow keys work on screen lines (useful for wrapped long lines);
+" the traditional {hjkl}/g{hjkl} behave as usual (logical lines)
+
+noremap  <silent> <Up>   gk
+noremap  <silent> <Down> gj
+noremap  <silent> <Home> g<Home>
+noremap  <silent> <End>  g<End>
+
+inoremap <silent> <Up>   <C-o>gk
+inoremap <silent> <Down> <C-o>gj
+inoremap <silent> <Home> <C-o>g<Home>
+inoremap <silent> <End>  <C-o>g<End>
+
+" enable CamelCase navigation
+let g:camelchar = "A-Z0-9_.,;:{([<`'\""
+
+nnoremap <silent> <S-Left> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
+nnoremap <silent> <S-Right> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
+inoremap <silent> <S-Left> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
+inoremap <silent> <S-Right> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
+vnoremap <silent> <S-Left> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
+vnoremap <silent> <S-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
+
+" Move CamelCase with H & L but only as text-object
+onoremap <silent> H :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
+onoremap <silent> L :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
+
+" Use these mappings to avoid reaching for arrow keys
+" (or if terminal does not register Shift+{Left/Right} keys properly)
+map <silent> <C-h> <S-Left>
+map <silent> <C-l> <S-Right>
+
+" Make jumping to the next method/function faster (for languages with Java/C++ style curly braces)
+nnoremap <silent> <C-j> ]m
+nnoremap <silent> <C-k> [m
+
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
 noremap <Space> <C-w>
 
@@ -76,29 +114,6 @@ noremap <silent> <Esc>Oj <C-w>>
 noremap <silent> <C-Right> <C-w>>
 " C-Right on my terminal
 noremap <silent> <Esc>[1;5C <C-w>>
-
-" enable CamelCase navigation
-let g:camelchar = "A-Z0-9_.,;:{([<`'\""
-
-nnoremap <silent> <S-Left> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
-nnoremap <silent> <S-Right> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
-inoremap <silent> <S-Left> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
-inoremap <silent> <S-Right> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
-vnoremap <silent> <S-Left> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
-vnoremap <silent> <S-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
-
-" Move CamelCase with H & L but only as text-object
-onoremap <silent> H :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
-onoremap <silent> L :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
-
-" Use these mappings to avoid reaching for arrow keys
-" (or if terminal does not register Shift+{Left/Right} keys properly)
-map <silent> <C-h> <S-Left>
-map <silent> <C-l> <S-Right>
-
-" Make jumping to the next method/function faster (for languages with Java/C++ style curly braces)
-nnoremap <silent> <C-j> ]m
-nnoremap <silent> <C-k> [m
 
 " an alternative way to quickly save the file being edited
 " (make sure to turn terminal flow control via Ctrl+S/Q)
