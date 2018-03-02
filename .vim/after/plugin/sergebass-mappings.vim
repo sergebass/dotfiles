@@ -76,6 +76,11 @@ map <silent> <Space><Home> :tabfirst<CR>
 map <silent> <Space><End> :tablast<CR>
 map <silent> <Space><PageUp> :tabprev<CR>
 map <silent> <Space><PageDown> :tabnext<CR>
+map <Space><BS> :tabmove<Space>
+map <silent> <C-S-Home> :tabmove 0<CR>
+map <silent> <C-S-End> :tabmove<CR>
+map <silent> <C-S-PageUp> :tabmove-<CR>
+map <silent> <C-S-PageDown> :tabmove+<CR>
 
 " Buffer management
 map <silent> <BS>[ :bp<CR>
