@@ -35,10 +35,11 @@ noremap  <silent> <Down> gj
 noremap  <silent> <Home> g<Home>
 noremap  <silent> <End>  g<End>
 
-inoremap <silent> <Up>   <C-o>gk
-inoremap <silent> <Down> <C-o>gj
-inoremap <silent> <Home> <C-o>g<Home>
-inoremap <silent> <End>  <C-o>g<End>
+" use Alt with input mode overridings since non-modified ones interfere with autocompletion
+inoremap <silent> <M-Up>   <C-o>gk
+inoremap <silent> <M-Down> <C-o>gj
+inoremap <silent> <M-Home> <C-o>g<Home>
+inoremap <silent> <M-End>  <C-o>g<End>
 
 " enable CamelCase navigation
 let g:camelchar = "A-Z0-9_.,;:{([<`'\""
