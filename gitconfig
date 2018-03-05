@@ -47,7 +47,7 @@
     plain = 15
 
 [color "diff"]
-    meta = 226 bold reverse
+    meta = 25 226 bold reverse
     frag = 213 bold ul
     context = 15
     old = 196 strike
