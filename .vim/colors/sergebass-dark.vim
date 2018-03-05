@@ -88,11 +88,11 @@ hi MatchParen term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#fff
 hi SpecialKey term=reverse cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
-hi Comment term=none cterm=none ctermfg=117 gui=none guifg=#87d7ff
-hi SpecialComment term=bold cterm=bold ctermfg=117 gui=bold guifg=#87d7ff
+hi Comment term=none cterm=none ctermfg=105 gui=none guifg=#8787ff
+hi SpecialComment term=bold cterm=bold ctermfg=105 gui=bold guifg=#8787ff
 hi Constant term=underline cterm=none ctermfg=228 guifg=#ffff87
 hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
-hi Statement term=none ctermfg=Yellow gui=none guifg=#aa4444
+hi Statement term=none ctermfg=50 gui=none guifg=#00ffd7
 hi PreProc term=underline ctermfg=LightBlue guifg=#ff80ff
 hi Type term=underline ctermfg=LightGreen guifg=#60ff60 gui=none
 hi Function term=bold ctermfg=White guifg=White
