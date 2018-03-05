@@ -168,18 +168,21 @@ if $TERM == "linux"
 \ || $COLORTERM == "Terminal"
   set t_Co=256
 
-    if has("nvim") && $TERM != "linux" " nvim is compiled with this feature, vim is most likely not
-      " this setting may seem to conflict with the above
-      " but since 24-bit colors are automatically mapped to their closest
-      " 256-color counterparts, we may get away with this,
-      " and this will work best in terminals with true 24-bit color support
-      set termguicolors
-    endif
-
   " disable Background Color Erase (BCE) so that color schemes
   " render properly when inside 256-color tmux and GNU screen.
   " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
+endif
+
+" if we're in non-tty tmux session running neovim,
+" we may try using 24-bit GUI color scheme settings directly
+if has("nvim") && $TMUX != "" && $TERM != "linux"
+    " nvim is compiled with this feature, vim is most likely not
+    " this setting may seem to conflict with the above
+    " but since 24-bit colors are automatically mapped to their closest
+    " 256-color counterparts, we may get away with this,
+    " and this will work best in terminals with true 24-bit color support
+    set termguicolors
 endif
 
 " make sure tmux correctly passes DECSCUSR cursor shape change sequences
