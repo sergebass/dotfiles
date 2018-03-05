@@ -216,14 +216,9 @@ endif
 "   " 6 -> solid vertical bar
 " endif
 
-" FIXME this seems to only work with gvim, not nvim-qt
-if has('gui_running')
-    colorscheme sergebass-light
-    set termguicolors
-else
-    colorscheme sergebass-dark
-    "FIXME set termguicolors (conditionally, if terminal supports 24-bit colors)
-endif
+" use a dark theme by default (there's a shortcut to quickly switch it, if needed)
+" (one other option may be to have the "if &termguicolors" check for auto detection)
+colorscheme sergebass-dark
 
 " FIXME replace rainbow parenthese plugin with the one from
 " https://github.com/luochen1990/rainbow (hopefully this works properly)
