@@ -128,8 +128,8 @@ vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 
 " session management accelerators
-nnoremap <Leader># :mksession! Session.vim<CR>
-nnoremap <Leader>@ :source Session.vim<CR>
+nnoremap <Leader># :mksession! Session.vim
+nnoremap <Leader>@ :source Session.vim
 
 " Miscellaneous useful navigation stuff
 nnoremap <silent> <BS><CR> :browse oldfiles<CR>
