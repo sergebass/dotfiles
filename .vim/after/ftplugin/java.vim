@@ -28,10 +28,10 @@ nnoremap <buffer> <F3> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <C-LeftMouse> :JavaSearchContext -a edit<CR>
 
 " Alternative ways to open the searched file, including a way to avoid <CR> timeout
-nnoremap <buffer> <CR>e :JavaSearchContext -a edit<CR>
-nnoremap <buffer> <CR>v :JavaSearchContext -a vsplit<CR>
-nnoremap <buffer> <CR>s :JavaSearchContext -a split<CR>
-nnoremap <buffer> <CR>t :JavaSearchContext -a tabnew<CR>
+nnoremap <buffer> <LocalLeader>fe :JavaSearchContext -a edit<CR>
+nnoremap <buffer> <LocalLeader>fv :JavaSearchContext -a vsplit<CR>
+nnoremap <buffer> <LocalLeader>fs :JavaSearchContext -a split<CR>
+nnoremap <buffer> <LocalLeader>ft :JavaSearchContext -a tabnew<CR>
 
 nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
 nnoremap <buffer> <LocalLeader>fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
