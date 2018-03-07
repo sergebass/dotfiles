@@ -97,3 +97,6 @@
 [submodule ".vim/bundle/vim-grepper"]
 	path = .vim/bundle/vim-grepper
 	url = https://github.com/mhinz/vim-grepper.git
+[submodule ".vim/bundle/vim-test"]
+	path = .vim/bundle/vim-test
+	url = https://github.com/janko-m/vim-test.git
