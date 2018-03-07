@@ -76,8 +76,8 @@ set cursorcolumn
 
 set tags=./tags;/
 
-" use ag (SilverSearcher) instead of grep, for faster searches
-set grepprg=ag\ --vimgrep\ $*
+" use rg (ripgrep) instead of grep, for faster searches
+set grepprg=rg\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " consider dashes as parts of a word (for CSS, lisps, package names etc.)
