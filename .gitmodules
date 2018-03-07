@@ -88,3 +88,6 @@
 [submodule ".vim/bundle/vim-delete-hidden-buffers"]
 	path = .vim/bundle/vim-delete-hidden-buffers
 	url = https://github.com/arithran/vim-delete-hidden-buffers.git
+[submodule ".vim/bundle/fzf"]
+	path = .vim/bundle/fzf
+	url = https://github.com/junegunn/fzf

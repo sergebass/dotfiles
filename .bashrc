@@ -166,3 +166,5 @@ stty stop ''
 stty start ''
 stty -ixon
 stty -ixoff
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

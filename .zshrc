@@ -158,3 +158,5 @@ stty stop ''
 stty start ''
 stty -ixon
 stty -ixoff
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
