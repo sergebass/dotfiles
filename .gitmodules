@@ -94,3 +94,6 @@
 [submodule ".vim/bundle/fzf.vim"]
 	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule ".vim/bundle/vim-grepper"]
+	path = .vim/bundle/vim-grepper
+	url = https://github.com/mhinz/vim-grepper.git
