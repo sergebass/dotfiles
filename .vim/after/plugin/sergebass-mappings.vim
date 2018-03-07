@@ -132,6 +132,8 @@ nnoremap <Leader># :mksession! Session.vim
 nnoremap <Leader>@ :source Session.vim
 
 " Miscellaneous useful navigation stuff
+nnoremap <silent> <Leader><Space> :FZF<CR>
+
 nnoremap <silent> <BS><CR> :browse oldfiles<CR>
 
 nnoremap <silent> <BS><Tab> :Explore<CR>
