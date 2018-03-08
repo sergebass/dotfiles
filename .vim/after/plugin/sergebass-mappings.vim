@@ -71,27 +71,26 @@ noremap <Space> <C-w>
 noremap <Space><Space> <C-w><C-w>
 
 " Tab navigation
-map <silent> <Space><Insert> :tabnew<CR>
-map <silent> <Space><Del> :tabclose<CR>
-map <silent> <Space><Home> :tabfirst<CR>
-map <silent> <Space><End> :tablast<CR>
-map <silent> <Space><PageUp> :tabprev<CR>
-map <silent> <Space><PageDown> :tabnext<CR>
-map <Space><BS> :tabmove<Space>
-map <silent> <C-S-Home> :tabmove 0<CR>
-map <silent> <C-S-End> :tabmove<CR>
-map <silent> <C-S-PageUp> :tabmove-<CR>
-map <silent> <C-S-PageDown> :tabmove+<CR>
+noremap <silent> <Space><Insert> :tabnew<CR>
+noremap <silent> <Space><Del> :tabclose<CR>
+noremap <silent> <Space><Home> :tabfirst<CR>
+noremap <silent> <Space><End> :tablast<CR>
+noremap <silent> <Space><PageUp> :tabprev<CR>
+noremap <silent> <Space><PageDown> :tabnext<CR>
+noremap <Space><BS> :tabmove<Space>
+noremap <silent> <C-S-Home> :tabmove 0<CR>
+noremap <silent> <C-S-End> :tabmove<CR>
+noremap <silent> <C-S-PageUp> :tabmove-<CR>
+noremap <silent> <C-S-PageDown> :tabmove+<CR>
 
 " Buffer management
-map <silent> <BS>[ :bp<CR>
-map <silent> <BS>] :bn<CR>
-map <silent> <BS>, :bfirst<CR>
-map <silent> <BS>. :blast<CR>
-map <silent> <BS>- :ball<CR>
-map <silent> <BS>\| :vert ball<CR>
-map <silent> <BS><Insert> :badd<Space>
-map <silent> <BS><Del> :bdelete<CR>
+noremap <silent> <Leader><PageUp> :bp<CR>
+noremap <silent> <Leader><PageDown> :bn<CR>
+noremap <silent> <Leader><Home> :bfirst<CR>
+noremap <silent> <Leader><End> :blast<CR>
+noremap <silent> <Leader><Del> :bdelete<CR>
+noremap <silent> <Leader>_ :ball<CR>
+noremap <silent> <Leader>\| :vert ball<CR>
 
 " Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <kPlus> <C-w>+
