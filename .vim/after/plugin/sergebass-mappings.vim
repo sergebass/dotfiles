@@ -130,7 +130,7 @@ inoremap <silent> <C-S> <C-O>:update<CR>
 
 " session management accelerators
 nnoremap <Leader># :mksession! Session.vim<Left><Left><Left><Left>
-nnoremap <Leader>@ :source Session.vim<Left><Left><Left><Left>
+nnoremap <Leader>@ :source Session
 
 " Miscellaneous useful navigation stuff
 
