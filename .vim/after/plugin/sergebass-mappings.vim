@@ -90,6 +90,7 @@ map <silent> <BS>, :bfirst<CR>
 map <silent> <BS>. :blast<CR>
 map <silent> <BS>- :ball<CR>
 map <silent> <BS>\| :vert ball<CR>
+map <silent> <BS><Insert> :badd<Space>
 map <silent> <BS><Del> :bdelete<CR>
 
 " Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
@@ -132,14 +133,16 @@ nnoremap <Leader># :mksession! Session.vim
 nnoremap <Leader>@ :source Session.vim
 
 " Miscellaneous useful navigation stuff
-nnoremap <silent> <Leader><BS> :FZF<CR>
 
-nnoremap <silent> <BS><CR> :browse oldfiles<CR>
+" using FZF
+nnoremap <silent> <BS><BS> :BLines<CR>
+nnoremap <silent> <BS><Space> :Lines<CR>
+nnoremap <silent> <BS><CR> :GFiles<CR>
+nnoremap <silent> <BS>g :BCommits<CR>
+nnoremap <silent> <BS>k :Maps<CR>
 
-nnoremap <silent> <BS><Tab> :Explore<CR>
-nnoremap <silent> <BS><S-Tab> :Lexplore<CR>
-
-nnoremap <silent> <BS><BS> :CtrlPMRUFiles<CR>
+" using CtrlP
+nnoremap <silent> <BS>r :CtrlPMRUFiles<CR>
 nnoremap <silent> <BS>f :CtrlP<CR>
 nnoremap <silent> <BS>b :CtrlPBuffer<CR>
 nnoremap <silent> <BS>t :CtrlPTag<CR>
@@ -147,8 +150,14 @@ nnoremap <silent> <BS>m :CtrlPBookmark<CR>
 nnoremap <silent> <BS>c :CtrlPChange<CR>
 nnoremap <silent> <BS>x :CtrlPMixed<CR>
 
-nnoremap <silent> <Leader><Tab> :NERDTreeFind<CR>
-nnoremap <silent> <Leader><S-Tab> :NERDTreeToggle<CR>
+" using NERDTree
+nnoremap <silent> <BS><Tab> :NERDTreeFind<CR>
+nnoremap <silent> <BS><S-Tab> :NERDTreeToggle<CR>
+
+nnoremap <silent> <Leader><Tab> :Explore<CR>
+nnoremap <silent> <Leader><S-Tab> :Lexplore<CR>
+
+nnoremap <silent> <Leader><BS> :browse oldfiles<CR>
 
 nnoremap <silent> <C-\> :TagbarToggle<CR>
 
