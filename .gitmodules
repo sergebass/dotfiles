@@ -103,3 +103,6 @@
 [submodule ".vim/bundle/vim-editorconfig"]
 	path = .vim/bundle/vim-editorconfig
 	url = https://github.com/sgur/vim-editorconfig.git
+[submodule ".vim/bundle/LanguageClient-neovim"]
+	path = .vim/bundle/LanguageClient-neovim
+	url = https://github.com/autozimu/LanguageClient-neovim.git
