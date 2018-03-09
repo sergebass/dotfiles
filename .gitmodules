@@ -100,3 +100,6 @@
 [submodule ".vim/bundle/vim-test"]
 	path = .vim/bundle/vim-test
 	url = https://github.com/janko-m/vim-test.git
+[submodule ".vim/bundle/vim-editorconfig"]
+	path = .vim/bundle/vim-editorconfig
+	url = https://github.com/sgur/vim-editorconfig.git
