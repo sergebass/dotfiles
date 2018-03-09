@@ -9,33 +9,33 @@ set nocompatible
 " double star makes :find look for files recursively
 set path=.,/usr/local/include,/usr/include,,**
 
-set mouse=a
-
-" always display status line, even with one file being edited
-set laststatus=2
-set statusline=%F:%l:%c\ \ %m%r%y%=\ %{fugitive#statusline()}%{ObsessionStatus()}\ %p%%/%L
-
-set scrolloff=1 " keep at least one line visible above/below cursor
-set history=50 " keep 50 lines of command line history
-set ruler " show the cursor position all the time
-set showcmd " display incomplete commands
-set incsearch " do incremental searching
-set hlsearch " highlight search results
-
 " even though we define our mappings in other files, we need to make sure
 " that leader and local leader keys are established well before then
 let mapleader = "\\"
 let maplocalleader = "\\\\"
 
+set number " enable line numbers
+set scrolloff=1 " keep at least one line visible above/below cursor
+set ruler " show the cursor position all the time
+set laststatus=2 " always display status line, even with one file being edited
+set statusline=%F:%l:%c\ \ %m%r%y%=\ %{fugitive#statusline()}%{ObsessionStatus()}\ %p%%/%L
+
+set autoread " automatically reload files changed by external programs
+set undofile " persist undo history between invocations
+
+set showcmd " display incomplete commands
+set history=100 " keep this many lines of command line history
+
+set incsearch " do incremental searching
+set hlsearch " highlight search results
+
 if has("nvim")
     set inccommand=nosplit " highlight text affected by a substitute command
 endif
 
+set mouse=a " enable mouse use in all modes
+
 set clipboard^=unnamedplus
-
-set autoread
-
-set number " enable line numbers
 
 set expandtab
 set tabstop=4
