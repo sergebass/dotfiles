@@ -23,6 +23,12 @@ set statusline=%F:%l:%c\ \ %m%r%y%=\ %{fugitive#statusline()}%{ObsessionStatus()
 set autoread " automatically reload files changed by external programs
 set undofile " persist undo history between invocations
 
+" do not save undo history for temporary files
+augroup vimrc
+    autocmd!
+    autocmd BufWritePre /tmp/* setlocal noundofile
+augroup END
+
 set showcmd " display incomplete commands
 set history=100 " keep this many lines of command line history
 
