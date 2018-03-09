@@ -50,6 +50,11 @@ hi CursorColumn term=none cterm=none ctermbg=237 gui=none guibg=#404030
 hi CursorLineNr term=bold cterm=bold ctermfg=246 ctermbg=0 gui=bold guifg=#949494 guibg=#000000
 hi LineNr term=none cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
 
+if has("nvim")
+    hi TermCursor term=none cterm=none ctermfg=0 ctermbg=119 gui=bold guifg=black guibg=#87ff5f
+    hi TermCursorNC term=none cterm=none ctermfg=0 ctermbg=197 gui=bold guifg=black guibg=#ff005f
+endif
+
 " line length limit highlighting
 hi ColorColumn term=none cterm=none ctermbg=0 guibg=#301010
 
