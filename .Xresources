@@ -16,14 +16,14 @@ URxvt.fading: 10
 
 ! black
 *.color0:       #000000
-*.color8:       #c0c0c0
+*.color8:       #d0d0d0
 
 ! red
-*.color1:       #c00000
+*.color1:       #d00000
 *.color9:       #ff0000
 
 ! green
-*.color2:       #00c000
+*.color2:       #00d000
 *.color10:      #00ff00
 
 ! yellow
@@ -31,19 +31,19 @@ URxvt.fading: 10
 *.color11:      #ffff00
 
 ! blue
-*.color4:       #0000c0
+*.color4:       #0000d0
 *.color12:      #0000ff
 
 ! magenta
-*.color5:       #c000c0
+*.color5:       #d000d0
 *.color13:      #ff00ff
 
 ! cyan
-*.color6:       #00c0c0
+*.color6:       #00d0d0
 *.color14:      #00ffff
 
 ! white
-*.color7:       #c0c0c0
+*.color7:       #d0d0d0
 *.color15:      #ffffff
 
 ! Xft settings ---------------------------------------------------------------
