@@ -1,4 +1,5 @@
-alias v='nvim'
+alias v='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvim'
+alias vr='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvr'
 
 alias vs='vim --servername sp-server --remote-silent'
 alias gvs='gvim --servername sp-server --remote-silent'
