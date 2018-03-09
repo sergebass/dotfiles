@@ -127,7 +127,7 @@ noremap <silent> <C-Right> <C-w>>
 noremap <silent> <Esc>[1;5C <C-w>>
 
 " an alternative way to quickly save the file being edited
-" (make sure to turn terminal flow control via Ctrl+S/Q)
+" (make sure to turn off terminal flow control via Ctrl+S/Q)
 noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
@@ -139,14 +139,14 @@ nnoremap <Leader>@ :source Session
 " Miscellaneous useful navigation stuff
 
 " using FZF
+nnoremap <silent> <Leader><CR> :GFiles<CR>
 nnoremap <silent> <BS><BS> :BLines<CR>
 nnoremap <silent> <BS><Space> :Lines<CR>
-nnoremap <silent> <BS><CR> :GFiles<CR>
 nnoremap <silent> <BS>g :BCommits<CR>
 nnoremap <silent> <BS>k :Maps<CR>
 
 " using CtrlP
-nnoremap <silent> <BS>r :CtrlPMRUFiles<CR>
+nnoremap <silent> <BS><CR> :CtrlPMRUFiles<CR>
 nnoremap <silent> <BS>f :CtrlP<CR>
 nnoremap <silent> <BS>b :CtrlPBuffer<CR>
 nnoremap <silent> <BS>t :CtrlPTag<CR>
@@ -222,10 +222,6 @@ cnoremap w!! w !sudo tee > /dev/null %
 nnoremap <M-CR> :<C-r>=expand("<cword>")<CR><Home>
 vnoremap <M-CR> "*y<Esc>:<C-r>*<Home>
 cnoremap <M-CR> <C-r>=expand("<cword>")<CR>
-
-" a duplicate to see which way I like the most...
-map <Leader><CR> <M-CR>
-cmap <Leader><CR> <M-CR>
 
 " define a custom highlighting for the word under cursor or a selection
 " in the current buffer

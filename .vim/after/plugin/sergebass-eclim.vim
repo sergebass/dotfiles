@@ -12,7 +12,7 @@ let g:EclimJavaHierarchyDefaultAction = 'edit'
 
 nnoremap <LocalLeader><CR> :LocateFile<CR>
 
-nnoremap <LocalLeader><Space> :Buffers<CR>
+nnoremap <LocalLeader><Space> :BuffersToggle<CR>
 
 nnoremap <LocalLeader><Tab> :ProjectTree<CR>
 nnoremap <LocalLeader><S-Tab> :ProjectsTree<CR>
