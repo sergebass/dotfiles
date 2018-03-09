@@ -152,6 +152,11 @@ syntax on
 source ~/.vim/startup/functions.vim
 source ~/.vim/startup/commands.vim
 
+" this is useful for nested terminals, to make them use the existing nvim instance, if available
+if has("nvim") && executable("nvr")
+    let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+endif
+
 " -------------------
 " GENERAL UI SETTINGS
 " -------------------
