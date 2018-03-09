@@ -127,8 +127,8 @@ noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 
-" session management accelerators
-nnoremap <Leader># :mksession! Session.vim<Left><Left><Left><Left>
+" session management accelerators (don't forget to add .vim extension!)
+nnoremap <Leader># :mksession! Session
 nnoremap <Leader>@ :source Session
 
 " Miscellaneous useful navigation stuff
