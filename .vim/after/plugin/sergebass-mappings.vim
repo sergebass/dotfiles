@@ -25,6 +25,11 @@ noremap <silent> <Leader>17 <F17>
 noremap <silent> <Leader>18 <F18>
 noremap <silent> <Leader>19 <F19>
 
+" the stock shortcut to exit terminal mode is cumbersome, let's change it
+if has('nvim')
+    tnoremap <M-BS> <C-\><C-n>
+endif
+
 " navigation mappings
 
 " make arrow keys work on screen lines (useful for wrapped long lines);
