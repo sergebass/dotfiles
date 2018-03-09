@@ -140,6 +140,7 @@ nnoremap <Leader>@ :source Session
 
 " using FZF
 nnoremap <silent> <Leader><CR> :GFiles<CR>
+nnoremap <silent> <BS>\ :terminal<CR>
 nnoremap <silent> <BS><BS> :BLines<CR>
 nnoremap <silent> <BS><Space> :Lines<CR>
 nnoremap <silent> <BS>g :BCommits<CR>
