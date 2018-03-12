@@ -244,4 +244,4 @@ au Syntax * RainbowParenthesesLoadBraces
 
 au VimEnter * RainbowParenthesesToggle
 
-au VimEnter .xmobarrc set syntax=haskell
+au BufReadPost */.xmobarrc set syntax=haskell
