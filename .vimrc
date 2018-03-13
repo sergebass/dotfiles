@@ -53,7 +53,11 @@ set autoindent
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" apply user-defined autocompletion when pressing <Tab> (used by supertab plugin)
+let g:SuperTabDefaultCompletionType = "<C-X><C-U>"
 set completeopt=longest,menuone
+set completefunc=
+set omnifunc=
 
 " command mode autocompletion
 set wildmode=list:longest,full
