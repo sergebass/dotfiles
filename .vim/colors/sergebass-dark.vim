@@ -22,10 +22,6 @@ hi Normal term=none cterm=none ctermfg=250 ctermbg=234 gui=none guifg=#c0c0c0 gu
 " Directory   directory names (and other special names in listings)
 " FoldColumn  'foldcolumn'
 " SignColumn  column where |signs| are displayed
-" Pmenu       Popup menu: normal item.
-" PmenuSel    Popup menu: selected item.
-" PmenuSbar   Popup menu: scrollbar.
-" PmenuThumb  Popup menu: Thumb of the scrollbar.
 "
 " SpellBad    Word that is not recognized by the spellchecker. |spell|
 "         This will be combined with the highlighting used otherwise.
@@ -41,7 +37,6 @@ hi Normal term=none cterm=none ctermfg=250 ctermbg=234 gui=none guifg=#c0c0c0 gu
 " Title       titles for output from ":set all", ":autocmd" etc.
 " VisualNOS   Visual mode selection when vim is "Not Owning the Selection".
 "         Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
-" WildMenu    current match in 'wildmenu' completion
 
 hi Cursor term=none cterm=none ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
 hi CursorIM term=none cterm=none ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
@@ -88,6 +83,14 @@ hi Ignore ctermfg=black guifg=bg
 hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff guibg=#000000
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
 hi MatchParen term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
+
+" popup menus (autocompletion etc.)
+hi Pmenu term=reverse cterm=none ctermfg=228 ctermbg=17 gui=none guifg=#ffff87 guibg=#00005f  " normal item
+hi PmenuSel term=bold cterm=bold ctermfg=226 ctermbg=28 gui=bold guifg=#ffff00 guibg=#008700 " selected item
+hi PmenuSbar term=none cterm=none ctermbg=21 gui=none guibg=#0000ff " scrollbar
+hi PmenuThumb term=reverse cterm=none ctermbg=165 gui=none guibg=#d700ff " scrollbar thumb
+
+hi WildMenu term=bold cterm=bold ctermfg=226 ctermbg=28 gui=bold guifg=#ffff00 guibg=#008700 " selected item
 
 " show non-space whitespace using this coloring:
 hi SpecialKey term=reverse cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
@@ -396,10 +399,6 @@ hi link GitGutterChangeDelete DiffChange
 "NvimUnaryPlus  xxx links to NvimUnaryOperator
 
 "Operator       xxx ctermfg=9 guifg=Red
-"Pmenu          xxx ctermfg=0 ctermbg=13 guibg=Magenta
-"PmenuSbar      xxx ctermbg=248 guibg=Grey
-"PmenuSel       xxx ctermfg=242 ctermbg=0 guibg=DarkGrey
-"PmenuThumb     xxx ctermbg=15 guibg=White
 "PreCondit      xxx links to PreProc
 "PreProc        xxx ctermfg=81 guifg=#ff80ff
 "Question       xxx cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
@@ -452,7 +451,6 @@ hi link GitGutterChangeDelete DiffChange
 "VisualNC       xxx cleared
 "WarningMsg     xxx cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 "Whitespace     xxx links to NonText
-"WildMenu       xxx ctermfg=0 ctermbg=11 guifg=Black guibg=Yellow
 "WildfireMark   xxx links to WarningMsg
 "WildfirePrompt xxx links to String
 "WildfireShade  xxx links to Comment
