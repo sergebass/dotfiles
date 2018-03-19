@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ %whoami%@%hostname% ^ %up% | %weather% | %battery% | %multicpu% %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | ♪ %volume% | %kbd% | %date%"
+   , template = "%StdinReader% }{ │ %whoami%@%hostname% ^ %up% │ %WeatherScript% │ %multicpu% %coretemp% %memory% %swap% %disku% %dynnetwork% │ %battery% │ ♪ %volume% │ %kbd% │ %date%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -40,10 +40,9 @@ Config {
 
         , Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 5
 
-        , Run Com "get-weather.sh" [] "weather" 30
+        , Run Com "get-weather.sh" [] "WeatherScript" 30
 
-        -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
-        --                      ] 36000
+        -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa" ] 36000
 
         , Run DynNetwork [ "--template" , "<dev> <rx>:<tx>kB/s"
                          , "--Low"      , "1000"  -- units: B/s

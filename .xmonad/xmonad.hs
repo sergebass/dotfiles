@@ -52,7 +52,7 @@ main = do
         , startupHook = setWMName "LG3D"
         , logHook = dynamicLogWithPP xmobarPP
             { ppOutput = hPutStrLn xmproc
-            , ppTitle = xmobarColor "cyan" "" . shorten 50
+            , ppTitle = xmobarColor "cyan" "" . shorten 100
             }
         , workspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=" ]
         }
