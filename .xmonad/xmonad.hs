@@ -39,14 +39,20 @@ myConfig = desktopConfig
 
 myLayoutHook = avoidStruts $ layoutHook myConfig
 
+myManageHook = composeAll
+    [ manageDocks
+    , className =? "Xmessage" --> doFloat
+    ]
+
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ myConfig
-        { manageHook = manageDocks <+> manageHook myConfig
-          , layoutHook = myLayoutHook
-          , startupHook = setWMName "LG3D"
-          , logHook = dynamicLogWithPP xmobarPP
-          { ppOutput = hPutStrLn xmproc
-          , ppTitle = xmobarColor "cyan" "" . shorten 50
-          }
+        { manageHook = myManageHook <+> manageHook myConfig
+        , layoutHook = myLayoutHook
+        , startupHook = setWMName "LG3D"
+        , logHook = dynamicLogWithPP xmobarPP
+            { ppOutput = hPutStrLn xmproc
+            , ppTitle = xmobarColor "cyan" "" . shorten 50
+            }
+        , workspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=" ]
         }
