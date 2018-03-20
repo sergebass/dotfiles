@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ │ %whoami%@%hostname% ^ %up% │ %WeatherScript% │ %multicpu% %coretemp% %memory% %swap% %disku% %dynnetwork% │ %battery% │ ♪ %volume% │ %kbd% │ %date%"
+   , template = "%StdinReader% }{ │ %whoami%@%hostname% ^ %up% │ %WeatherScript% │ %multicpu% %coretemp% %memory% %swap% %disku% %dynnetwork% │ ♪ %volume% │ %kbd% │ %date% │ %battery%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
