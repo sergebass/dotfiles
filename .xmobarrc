@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ │ %whoami%@%hostname% ^ %up% │ %WeatherScript% │ %multicpu% %coretemp% %memory% %swap% %disku% %dynnetwork% │ ♪ %volume% │ %kbd% │ %date% │ %battery%"
+   , template = "%StdinReader% }{ │ %whoami%@%hostname% │ %WeatherScript% │ %multicpu% %coretemp% %memory% %swap% %disku% %dynnetwork% │ ♪ %volume% │ %kbd% │ %date% │ %battery%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -36,9 +36,9 @@ Config {
    --   color can be set by enclosing in <fc></fc> tags. For more details
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
    , commands =
-        [ Run Com "uptime" ["-s"] "up" 0
+        -- [ Run Com "uptime" ["-s"] "up" 0
 
-        , Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 5
+        [ Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 5
 
         , Run Com "get-weather.sh" [] "WeatherScript" 30
 
