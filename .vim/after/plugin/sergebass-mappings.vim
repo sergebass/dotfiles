@@ -252,8 +252,17 @@ vnoremap <Leader>? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* <C-r>=&fi
 " note that this does not work properly in terminals, only in gvim
 inoremap <silent> <C-Space> <C-x><C-u>
 
-" replace tabs with spaces and strip all redundant/trailing whitespace
-nnoremap <Leader>ws :retab<CR>:RemoveMultipleBlankLines<CR>:RemoveRedundantWhitespace<CR>
+" whitespace cleanup: replace tabs with spaces, remove redundant lines, strip all redundant/trailing whitespace
+noremap <Leader>wt :retab<CR>
+
+nnoremap <Leader>ws :RemoveAllRedundantWhitespace<CR>
+vnoremap <Leader>ws :<C-w>RemoveSelectedRedundantWhitespace<CR>
+
+nnoremap <Leader>wl :RemoveAllMultipleBlankLines<CR>
+vnoremap <Leader>wl :<C-w>RemoveSelectedMultipleBlankLines<CR>
+
+nnoremap <Leader>ww :retab<CR>:RemoveAllMultipleBlankLines<CR>:RemoveAllRedundantWhitespace<CR>
+vnoremap <Leader>ww :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:<C-w>RemoveSelectedRedundantWhitespace<CR>
 
 " quick shortcuts for vim-fugitive
 nnoremap <Leader>gb :Gblame<CR>
