@@ -86,18 +86,18 @@ Config {
                     20
 
         , Run Battery [ "--template" , "⚡ <acstatus>"
-                      , "--Low"      , "10"        -- units: %
+                      , "--Low"      , "20"        -- units: %
                       , "--High"     , "80"        -- units: %
                       , "--low"      , "red"
                       , "--normal"   , "orange"
                       , "--high"     , "green"
                       , "--" -- battery specific options
-                                -- discharging status
-                                , "-o", "<left>% <timeleft>"
-                                -- AC "on" status
-                                , "-O", "<fc=#dAA520>Charging</fc>"
-                                -- charged status
-                                , "-i", "<fc=#00ff00>Charged</fc>"
+                      -- discharging status
+                      , "-o", "<watts>W <left>% <timeleft>"
+                      -- AC "on" status
+                      , "-O", "<watts>W <left>% <timeleft> <fc=#dAA520>Charging</fc>"
+                      -- charged status
+                      , "-i", "<fc=#00ff00>Charged/AC</fc>"
                       ] 50
 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
