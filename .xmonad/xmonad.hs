@@ -22,6 +22,9 @@ myConfig = desktopConfig
     , ((myModMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
     --take a screenshot of focused window
     , ((myModMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
+    , ((myModMask .|. shiftMask, xK_equal), spawn "gnome-calculator")
+    , ((myModMask .|. shiftMask, xK_KP_Enter), spawn "gnome-calculator")
+    , ((myModMask .|. shiftMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
     , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
     , ((myModMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
     , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
@@ -33,8 +36,11 @@ myConfig = desktopConfig
     , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
     ]
      `additionalKeysP`
-    [ ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%-")
-    , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+")
+    [ ("<XF86AudioLowerVolume>", spawn "amixer -D pulse set Master 5%-")
+    , ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse set Master 5%+")
+    , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
+    , ("<XF86Calculator>", spawn "gnome-calculator")
+    , ("<XF86Search>", spawn "xdg-open https://duckduckgo.com")
     ]
 
 myLayoutHook = avoidStruts $ layoutHook myConfig
