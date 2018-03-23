@@ -52,7 +52,7 @@ Config {
                          , "--high"     , "red"
                          ] 10
 
-        , Run MultiCpu [ "--template" , "CPU <total0> <total1> <total2> <total3>%"
+        , Run MultiCpu [ "--template" , "<fc=#00FFFF>CPU</fc> <total0> <total1> <total2> <total3>%"
                        , "--Low"      , "50"  -- units: %
                        , "--High"     , "85"  -- units: %
                        , "--low"      , "green"
@@ -60,7 +60,7 @@ Config {
                        , "--high"     , "red"
                        ] 10
 
-        , Run CoreTemp  [ "--template" , "t <core0> <core1> <core2> <core3>°C"
+        , Run CoreTemp  [ "--template" , "<fc=#00FFFF>t</fc> <core0> <core1> <core2> <core3>°C"
                         , "--Low"      , "70"  -- units: °C
                         , "--High"     , "80"  -- units: °C
                         , "--low"      , "green"
@@ -68,7 +68,7 @@ Config {
                         , "--high"     , "red"
                         ] 50
 
-        , Run Memory [ "--template" ,"RAM <usedratio>%"
+        , Run Memory [ "--template" ,"<fc=#00FFFF>RAM</fc> <usedratio>%"
                      , "--Low"      , "20"  -- units: %
                      , "--High"     , "90"  -- units: %
                      , "--low"      , "green"
