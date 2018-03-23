@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ │ <fc=#e000FF>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% │ %coretemp% │ %memory% │ %swap% │ %disku% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
+   , template = "%StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% │ %coretemp% │ %memory% │ %swap% │ %disku% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -100,10 +100,10 @@ Config {
                       ] 50
 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date "<fc=#E000FF>%F (%a) %T</fc>" "date" 10
+        , Run Date "<fc=#afffff>%F</fc> (%a) <fc=#ffff00>%T</fc>" "date" 10
 
-        , Run Kbd [ ("us", "<fc=#00FFFF>en</fc>")
-                  , ("ru", "<fc=#FFFF00>ru</fc>")
+        , Run Kbd [ ("us", "<fc=#00ffff>en</fc>")
+                  , ("ru", "<fc=#ffff00>ru</fc>")
                   ]
 
         -- , Run Volume "default" "Master" [] 10
