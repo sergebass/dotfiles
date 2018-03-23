@@ -65,7 +65,7 @@ Config {
                         , "--High"     , "80"  -- units: °C
                         , "--low"      , "green"
                         , "--normal"   , "orange"
-                        , "--high"     , "red"
+                        , "--high"     , "#FFFF00,#FF0000"
                         ] 50
 
         , Run Memory [ "--template" ,"<fc=#00FFFF>RAM</fc> <usedratio>%"
@@ -73,7 +73,7 @@ Config {
                      , "--High"     , "90"  -- units: %
                      , "--low"      , "green"
                      , "--normal"   , "orange"
-                     , "--high"     , "red"
+                     , "--high"     , "#FFFF00,#FF0000"
                      ] 10
 
         , Run Swap [] 10
@@ -87,7 +87,7 @@ Config {
         , Run Battery [ "--template" , "<acstatus>"
                       , "--Low"      , "20"        -- units: %
                       , "--High"     , "80"        -- units: %
-                      , "--low"      , "red"
+                      , "--low"      , "#FFFF00,#FF0000"
                       , "--normal"   , "orange"
                       , "--high"     , "green"
                       , "--" -- battery specific options
