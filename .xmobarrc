@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ │ %whoami%@%hostname% │ %WeatherScript% │ %multicpu% %coretemp% %memory% %swap% %disku% %dynnetwork% │ ♪ %volume% │ %kbd% │ %date% │ %battery%"
+   , template = "%StdinReader% }{ │ <fc=#e000FF>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% │ %coretemp% │ %memory% │ %swap% │ %disku% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -44,7 +44,7 @@ Config {
 
         -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa" ] 36000
 
-        , Run DynNetwork [ "--template" , "<dev> <rx>:<tx>kB/s"
+        , Run DynNetwork [ "--template" , "<fc=#00FFFF><dev></fc> <rx>:<tx>kB/s"
                          , "--Low"      , "1000"  -- units: B/s
                          , "--High"     , "5000"  -- units: B/s
                          , "--low"      , "green"
@@ -78,14 +78,13 @@ Config {
 
         , Run Swap [] 10
 
-        , Run DiskU [ ("/", "/=<free>")
-                    , ("/home", "/home=<free>")
-                    --, ("/var", "/var=<free>")
+        , Run DiskU [ ("/", "<fc=#00FFFF>/</fc> <free> │")
+                    , ("/home", "<fc=#00FFFF>/home</fc> <free>")
                     ]
                     ["-L", "10", "-H", "50", "-m", "1", "-p", "3"]
                     20
 
-        , Run Battery [ "--template" , "⚡ <acstatus>"
+        , Run Battery [ "--template" , "<acstatus>"
                       , "--Low"      , "20"        -- units: %
                       , "--High"     , "80"        -- units: %
                       , "--low"      , "red"
@@ -101,7 +100,7 @@ Config {
                       ] 50
 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        , Run Date "<fc=#E000FF>%F (%a) %T</fc>" "date" 10
 
         , Run Kbd [ ("us", "<fc=#00FFFF>en</fc>")
                   , ("ru", "<fc=#FFFF00>ru</fc>")
