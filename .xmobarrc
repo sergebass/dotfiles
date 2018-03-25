@@ -92,9 +92,9 @@ Config {
                       , "--high"     , "green"
                       , "--" -- battery specific options
                       -- discharging status
-                      , "-o", "<fc=#ff8000>▼</fc> <left>% <timeleft>"
+                      , "-o", "<fc=#ff8000>▼</fc> <left>% <fc=#ff8000><timeleft></fc>"
                       -- AC "on" status
-                      , "-O", "<fc=#00ff00>▲</fc> <left>% <timeleft>"
+                      , "-O", "<fc=#00ff00>▲</fc> <left>% <fc=#00ffff><timeleft></fc>"
                       -- charged status
                       , "-i", "<fc=#00ff00>AC</fc>"
                       ] 50
