@@ -94,13 +94,13 @@ Config {
                       -- discharging status
                       , "-o", "<watts>W <left>% <timeleft>"
                       -- AC "on" status
-                      , "-O", "<watts>W <left>% <timeleft> <fc=#dAA520>Charging</fc>"
+                      , "-O", "<watts>W <left>% <timeleft> <fc=#dAA520>++</fc>"
                       -- charged status
-                      , "-i", "<fc=#00ff00>Charged/AC</fc>"
+                      , "-i", "<fc=#00ff00>AC</fc>"
                       ] 50
 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date "<fc=#afffff>%F</fc> (%a) <fc=#ffff00>%T</fc>" "date" 10
+        , Run Date "<fc=#afffff>%F/%u</fc> <fc=#ffff00>%T</fc>" "date" 10
 
         , Run Kbd [ ("us", "<fc=#00ffff>en</fc>")
                   , ("ru", "<fc=#ffff00>ru</fc>")
