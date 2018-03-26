@@ -7,6 +7,9 @@
 [credential]
     helper = cache
 
+[grep]
+    lineNumber = true
+
 [diff]
     submodule = log
     tool = vimdiff
@@ -32,11 +35,12 @@
     blame = true
 
 [color]
+    ui = auto
     branch = auto
+    grep = auto
     diff = auto
     status = auto
     interactive = auto
-    ui = auto
     pager = true
 
 [color "branch"]
@@ -45,6 +49,17 @@
     remote = 204
     upstream = cyan
     plain = 15
+
+[color "grep"]
+    context = 246
+    filename = green
+    function = magenta
+    linenumber = cyan
+    match = 24 226 bold
+    matchcontext = 24 226 bold
+    matchselected = 24 226 bold
+    selected = 15
+    separator = 245
 
 [color "diff"]
     meta = 226 25 bold
