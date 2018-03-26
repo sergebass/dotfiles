@@ -249,3 +249,4 @@ au Syntax * RainbowParenthesesLoadBraces
 au VimEnter * RainbowParenthesesToggle
 
 au BufReadPost */.xmobarrc set syntax=haskell
+au BufReadPost */gitconfig set syntax=gitconfig
