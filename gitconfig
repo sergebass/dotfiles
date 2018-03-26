@@ -31,7 +31,6 @@
     search-result = 24 226 bold
     diff-stat = 51 default
     diff-header = 226 25 bold
-    diff-tree = 49 default
     diff-index = 245 default
     diff-chunk = magenta default
     status = 49 default
