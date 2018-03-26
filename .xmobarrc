@@ -4,7 +4,7 @@ Config {
      font =         "xft:Monospace:size=7.5:normal:antialias=true"
    , bgColor =      "black"
    , fgColor =      "#ffffff"
-   , position =     Bottom
+   , position =     BottomW R 95
    , border =       BottomB
    , borderColor =  "#646464"
 
@@ -13,7 +13,7 @@ Config {
    , hideOnStart =      False   -- start with window unmapped (hidden)
    , allDesktops =      True    -- show on all desktops
    , overrideRedirect = False   -- set the Override Redirect flag (Xlib)
-   , pickBroadest =     True    -- choose widest display (multi-monitor)
+   , pickBroadest =     False   -- choose first, not widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
 
    -- layout
