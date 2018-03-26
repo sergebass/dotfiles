@@ -19,7 +19,6 @@ hi Normal term=none cterm=none ctermfg=250 ctermbg=234 gui=none guifg=#c0c0c0 gu
 "
 " Conceal     placeholder characters substituted for concealed text (see 'conceallevel')
 "
-" Directory   directory names (and other special names in listings)
 " FoldColumn  'foldcolumn'
 " SignColumn  column where |signs| are displayed
 "
@@ -74,6 +73,8 @@ hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#87000
 
 hi Search term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
 hi IncSearch term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
+
+hi Directory term=none cterm=none ctermfg=123 gui=none guifg=#87ffff
 
 hi Visual term=reverse cterm=reverse,bold ctermfg=90 ctermbg=226 gui=bold guibg=#5f0087
 
@@ -211,7 +212,6 @@ hi link GitGutterChangeDelete DiffChange
 "DiffChange     xxx cterm=bold ctermfg=11 ctermbg=18 gui=bold guifg=Yellow guibg=#000040
 "DiffDelete     xxx cterm=bold ctermfg=11 ctermbg=88 gui=bold guifg=Yellow guibg=#400000
 "DiffText       xxx cterm=reverse ctermfg=11 ctermbg=18 gui=reverse guifg=Yellow guibg=#000040
-"Directory      xxx ctermfg=159 guifg=Cyan
 "EndOfBuffer    xxx ctermfg=240 guifg=#585858
 "Error          xxx cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 "ErrorMsg       xxx cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
