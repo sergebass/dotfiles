@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "<fc=#00ff00>λ</fc> %StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% │ %coretemp% │ %memory% │ %swap% │ %disku% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
+   , template = "%StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% │ %coretemp% │ %memory% │ %swap% │ %disku% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -52,7 +52,10 @@ Config {
                          , "--high"     , "red"
                          ] 10
 
-        , Run MultiCpu [ "--template" , "<fc=#00FFFF>CPU</fc> <total0> <total1> <total2> <total3>%"
+        -- , Run Wireless "wlp9s0" [] 10
+        , Run MultiCpu [ "--template" , "<fc=#00FFFF>CPU</fc> <autototal>"
+                        , "--suffix"   , "On"
+                       , "--ppad"     , "2"
                        , "--Low"      , "50"  -- units: %
                        , "--High"     , "85"  -- units: %
                        , "--low"      , "green"
@@ -61,6 +64,8 @@ Config {
                        ] 10
 
         , Run CoreTemp  [ "--template" , "<fc=#00FFFF>t</fc> <core0> <core1> <core2> <core3>°C"
+                        , "--suffix"   , "On"
+                        , "--ppad"     , "2"
                         , "--Low"      , "70"  -- units: °C
                         , "--High"     , "80"  -- units: °C
                         , "--low"      , "green"
@@ -68,7 +73,8 @@ Config {
                         , "--high"     , "#FFFF00,#FF0000"
                         ] 50
 
-        , Run Memory [ "--template" ,"<fc=#00FFFF>RAM</fc> <usedratio>%"
+        , Run Memory [ "--template" , "<fc=#00FFFF>RAM</fc> <usedratio>"
+                     , "--suffix"   , "On"
                      , "--Low"      , "20"  -- units: %
                      , "--High"     , "90"  -- units: %
                      , "--low"      , "green"
@@ -76,13 +82,23 @@ Config {
                      , "--high"     , "#FFFF00,#FF0000"
                      ] 10
 
-        , Run Swap [] 10
+        , Run Swap [ "--template" , "<fc=#00FFFF>Swap</fc> <usedratio>"
+                   , "--suffix"   , "On"
+                   , "--Low"      , "20"  -- units: %
+                   , "--High"     , "90"  -- units: %
+                   , "--low"      , "green"
+                   , "--normal"   , "orange"
+                   , "--high"     , "#FFFF00,#FF0000"
+                   ] 10
 
         , Run DiskU [ ("/", "<fc=#00FFFF>/</fc> <free> │")
                     , ("/home", "<fc=#00FFFF>/home</fc> <free>")
                     ]
-                    ["-L", "10", "-H", "50", "-m", "1", "-p", "3"]
-                    20
+                    [ "-L", "10",
+                      "-H", "50",
+                      "-m", "1",
+                      "-p", "3"
+                    ] 20
 
         , Run Battery [ "--template" , "<acstatus>"
                       , "--Low"      , "20"        -- units: %
@@ -99,7 +115,7 @@ Config {
                       , "-i", "<fc=#00ff00>AC</fc>"
                       ] 50
 
-        --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+        --   (%F = y-m-d date, %u = day of week as a number (1 = Monday), %T = h:m:s time)
         , Run Date "<fc=#afffff>%F/%u</fc> <fc=#ffff00>%T</fc>" "date" 10
 
         , Run Kbd [ ("us", "<fc=#00ffff>en</fc>")
