@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% │ %coretemp% │ %memory% │ %swap% │ %disku% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
+   , template = "%StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %coretemp% │ %multicpu% │ %memory% │ %swap% │ %disku% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -53,9 +53,11 @@ Config {
                          ] 10
 
         -- , Run Wireless "wlp9s0" [] 10
-        , Run MultiCpu [ "--template" , "<fc=#00FFFF>CPU</fc> <autototal>"
-                        , "--suffix"   , "On"
-                       , "--ppad"     , "2"
+
+        -- , Run MultiCpu [ "--template" , "<fc=#00FFFF>CPU</fc> <total> (<autototal>)"
+        , Run MultiCpu [ "--template" , "<fc=#00FFFF>CPU</fc> <total>"
+                       , "--suffix"   , "On"
+                       , "--ppad"     , "3"
                        , "--Low"      , "50"  -- units: %
                        , "--High"     , "85"  -- units: %
                        , "--low"      , "green"
@@ -91,7 +93,7 @@ Config {
                    , "--high"     , "#FFFF00,#FF0000"
                    ] 10
 
-        , Run DiskU [ ("/", "<fc=#00FFFF>/</fc> <free> │")
+        , Run DiskU [ ("/", "<fc=#00FFFF>/</fc> <free>")
                     , ("/home", "<fc=#00FFFF>/home</fc> <free>")
                     ]
                     [ "-L", "10",
