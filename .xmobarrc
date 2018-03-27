@@ -123,7 +123,7 @@ Config {
         , Run Kbd [ ("us", "<fc=#00ffff>en</fc>")
                   , ("ru", "<fc=#ffff00>ru</fc>")
                   , ("ua", "<fc=#00ff00>ua</fc>")
-                  , ("us(intl)", "<fc=#ff80ff>us*</fc>")
+                  , ("us(intl)", "<fc=#ff80ff>en*</fc>")
                   ]
 
         -- , Run Volume "default" "Master" [] 10
