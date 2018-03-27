@@ -14,6 +14,8 @@ alias ec='emacsclient -c'
 alias gsb='git status -sb'
 alias agj='ag --type=java'
 
+alias gg='git grep'
+
 alias t='tig --all'
 
 function f()
