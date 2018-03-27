@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %coretemp% │ %multicpu% │ %memory% │ %swap% │ %disku% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
+   , template = "%StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% %cpufreq% %coretemp% │ %memory% │ %swap% │ %disku% │ %diskio% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -44,7 +44,8 @@ Config {
 
         -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa" ] 36000
 
-        , Run DynNetwork [ "--template" , "<fc=#00FFFF><dev></fc> <rx>:<tx>kB/s"
+        , Run DynNetwork [ "--template" , "<fc=#00FFFF><dev></fc> <rx>:<tx>"
+                         , "--suffix"   , "On"
                          , "--Low"      , "1000"  -- units: B/s
                          , "--High"     , "5000"  -- units: B/s
                          , "--low"      , "green"
@@ -64,7 +65,12 @@ Config {
                        , "--high"     , "red"
                        ] 10
 
-        , Run CoreTemp  [ "--template" , "<fc=#00FFFF>t</fc> <core0> <core1> <core2> <core3>°C"
+        , Run CpuFreq [ "--template", "<cpu0>"
+                      , "--suffix", "On"
+                      , "--ddigits", "1"
+                      ] 10
+
+        , Run CoreTemp  [ "--template" , "<core0>°C"
                         , "--suffix"   , "On"
                         , "--ppad"     , "2"
                         , "--Low"      , "60"  -- units: °C
@@ -97,11 +103,27 @@ Config {
         , Run DiskU [ ("/", "<fc=#00FFFF>/</fc> <free>")
                     , ("/home", "<fc=#00FFFF>/home</fc> <free>")
                     ]
-                    [ "-L", "10",
-                      "-H", "50",
-                      "-m", "1",
-                      "-p", "3"
+                    [ "--Low", "10"
+                    , "--High", "50"
+                    , "--high", "green"
+                    , "--normal", "orange"
+                    , "--low", "#FFFF00,#FF0000"
+                    -- , "--minwidth", "3"
+                    -- , "--ppad", "3"
                     ] 20
+
+        , Run DiskIO [ ("/", "<fc=#00FFFF>/</fc> <read>:<write>")
+                     , ("/home", "<fc=#00FFFF>/home</fc> <read>:<write>")
+                     ]
+                     [ "--Low", "1024"
+                     , "--High", "65536"
+                     , "--low", "green"
+                     , "--normal", "orange"
+                     , "--high", "#FFFF00,#FF0000"
+                     , "--suffix", "On"
+                     -- , "--minwidth", "3"
+                     -- , "--ppad", "3"
+                     ] 20
 
         , Run Battery [ "--template" , "<acstatus>"
                       , "--Low"      , "40"        -- units: %
