@@ -54,10 +54,9 @@ Config {
 
         -- , Run Wireless "wlp9s0" [] 10
 
-        -- , Run MultiCpu [ "--template" , "<fc=#00FFFF>CPU</fc> <total> (<autototal>)"
         , Run MultiCpu [ "--template" , "<fc=#00FFFF>CPU</fc> <total>"
                        , "--suffix"   , "On"
-                       , "--ppad"     , "3"
+                       , "--ppad"     , "2"
                        , "--Low"      , "50"  -- units: %
                        , "--High"     , "85"  -- units: %
                        , "--low"      , "green"
@@ -68,7 +67,7 @@ Config {
         , Run CoreTemp  [ "--template" , "<fc=#00FFFF>t</fc> <core0> <core1> <core2> <core3>°C"
                         , "--suffix"   , "On"
                         , "--ppad"     , "2"
-                        , "--Low"      , "70"  -- units: °C
+                        , "--Low"      , "60"  -- units: °C
                         , "--High"     , "80"  -- units: °C
                         , "--low"      , "green"
                         , "--normal"   , "orange"
@@ -77,7 +76,8 @@ Config {
 
         , Run Memory [ "--template" , "<fc=#00FFFF>RAM</fc> <usedratio>"
                      , "--suffix"   , "On"
-                     , "--Low"      , "20"  -- units: %
+                     , "--ppad"     , "2"
+                     , "--Low"      , "40"  -- units: %
                      , "--High"     , "90"  -- units: %
                      , "--low"      , "green"
                      , "--normal"   , "orange"
@@ -86,8 +86,9 @@ Config {
 
         , Run Swap [ "--template" , "<fc=#00FFFF>Swap</fc> <usedratio>"
                    , "--suffix"   , "On"
-                   , "--Low"      , "20"  -- units: %
-                   , "--High"     , "90"  -- units: %
+                   , "--ppad"     , "2"
+                   , "--Low"      , "30"  -- units: %
+                   , "--High"     , "80"  -- units: %
                    , "--low"      , "green"
                    , "--normal"   , "orange"
                    , "--high"     , "#FFFF00,#FF0000"
@@ -103,7 +104,7 @@ Config {
                     ] 20
 
         , Run Battery [ "--template" , "<acstatus>"
-                      , "--Low"      , "20"        -- units: %
+                      , "--Low"      , "40"        -- units: %
                       , "--High"     , "80"        -- units: %
                       , "--low"      , "#FFFF00,#FF0000"
                       , "--normal"   , "orange"
@@ -125,8 +126,6 @@ Config {
                   , ("ua", "<fc=#00ff00>ua</fc>")
                   , ("us(intl)", "<fc=#ff80ff>en*</fc>")
                   ]
-
-        -- , Run Volume "default" "Master" [] 10
 
         , Run StdinReader
         ]
