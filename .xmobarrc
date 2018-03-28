@@ -24,7 +24,8 @@ Config {
        \<action=`urxvt`>%StdinReader%</action> }{ │ \
        \<action=`urxvt -e nmtui`><fc=#00af87>%whoami%@%hostname%</fc></action> │ \
        \<action=`weather CYOW | xmessage -nearmouse -file -`>%WeatherScript%</action> │ \
-       \<action=`urxvt -e htop`>%multicpu% %cpufreq% %coretemp%</action> │ \
+       \<action=`urxvt -e htop`>%multicpu% %cpufreq%</action> \
+       \<action=`sensors | xmessage -nearmouse -file -`>%coretemp%</action> │ \
        \<action=`urxvt -e htop`>%memory% %swap%</action> │ \
        \<action=`baobab`>%disku%</action> │ \
        \<action=`urxvt -e htop`>%diskio%</action> │ \
