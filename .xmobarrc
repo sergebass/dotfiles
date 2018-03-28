@@ -19,7 +19,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% %cpufreq% %coretemp% │ %memory% │ %swap% │ %disku% │ %diskio% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
+   , template = "%StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% %cpufreq% %coretemp% │ %memory% %swap% │ %disku% │ %diskio% │ %dynnetwork% │ <fc=#00FFFF>♪</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -55,7 +55,7 @@ Config {
 
         -- , Run Wireless "wlp9s0" [] 10
 
-        , Run MultiCpu [ "--template" , "<fc=#00FFFF>CPU</fc> <total>"
+        , Run MultiCpu [ "--template" , "<fc=#00FFFF>C</fc> <total>"
                        , "--suffix"   , "On"
                        , "--ppad"     , "2"
                        , "--Low"      , "50"  -- units: %
@@ -80,7 +80,7 @@ Config {
                         , "--high"     , "#FFFF00,#FF0000"
                         ] 50
 
-        , Run Memory [ "--template" , "<fc=#00FFFF>RAM</fc> <usedratio>"
+        , Run Memory [ "--template" , "<fc=#00FFFF>M</fc> <usedratio>"
                      , "--suffix"   , "On"
                      , "--ppad"     , "2"
                      , "--Low"      , "40"  -- units: %
@@ -90,7 +90,7 @@ Config {
                      , "--high"     , "#FFFF00,#FF0000"
                      ] 10
 
-        , Run Swap [ "--template" , "<fc=#00FFFF>Swap</fc> <usedratio>"
+        , Run Swap [ "--template" , "<usedratio>"
                    , "--suffix"   , "On"
                    , "--ppad"     , "2"
                    , "--Low"      , "30"  -- units: %
