@@ -54,20 +54,8 @@ Config {
 
         [ Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 5
 
-        , Run Com "get-weather.sh" [] "WeatherScript" 30
-
         -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa" ] 36000
-
-        , Run DynNetwork [ "--template" , "<fc=#00FFFF><dev></fc> <rx>:<tx>"
-                         , "--suffix"   , "On"
-                         , "--Low"      , "1000"  -- units: B/s
-                         , "--High"     , "5000"  -- units: B/s
-                         , "--low"      , "green"
-                         , "--normal"   , "orange"
-                         , "--high"     , "red"
-                         ] 10
-
-        -- , Run Wireless "wlp9s0" [] 10
+        , Run Com "get-weather.sh" [] "WeatherScript" 30
 
         , Run MultiCpu [ "--template" , "<fc=#00FFFF>♥</fc> <total>"
                        , "--suffix"   , "On"
@@ -97,7 +85,7 @@ Config {
         , Run Memory [ "--template" , "<fc=#00FFFF>♻</fc> <usedratio>"
                      , "--suffix"   , "On"
                      , "--ppad"     , "2"
-                     , "--Low"      , "40"  -- units: %
+                     , "--Low"      , "70"  -- units: %
                      , "--High"     , "90"  -- units: %
                      , "--low"      , "green"
                      , "--normal"   , "orange"
@@ -107,7 +95,7 @@ Config {
         , Run Swap [ "--template" , "<usedratio>"
                    , "--suffix"   , "On"
                    , "--ppad"     , "2"
-                   , "--Low"      , "30"  -- units: %
+                   , "--Low"      , "40"  -- units: %
                    , "--High"     , "80"  -- units: %
                    , "--low"      , "green"
                    , "--normal"   , "orange"
@@ -117,8 +105,8 @@ Config {
         , Run DiskU [ ("/", "<fc=#00FFFF>/</fc> <free>")
                     , ("/home", "<fc=#00FFFF>⌂</fc> <free>")
                     ]
-                    [ "--Low", "10"
-                    , "--High", "50"
+                    [ "--Low", "10"  -- units: MB
+                    , "--High", "50"  -- units: MB
                     , "--high", "green"
                     , "--normal", "orange"
                     , "--low", "#FFFF00,#FF0000"
@@ -129,8 +117,8 @@ Config {
         , Run DiskIO [ ("/", "<fc=#00FFFF>/</fc> <read>:<write>")
                      , ("/home", "<fc=#00FFFF>⌂</fc> <read>:<write>")
                      ]
-                     [ "--Low", "1024"
-                     , "--High", "65536"
+                     [ "--Low", "1024"  -- units: b/s
+                     , "--High", "65536"  -- units: b/s
                      , "--low", "green"
                      , "--normal", "orange"
                      , "--high", "#FFFF00,#FF0000"
@@ -138,6 +126,17 @@ Config {
                      -- , "--minwidth", "3"
                      -- , "--ppad", "3"
                      ] 20
+
+        , Run DynNetwork [ "--template" , "<fc=#00FFFF><dev></fc> <rx>:<tx>"
+                         , "--suffix"   , "On"
+                         , "--Low"      , "1000"  -- units: b/s
+                         , "--High"     , "1000000"  -- units: b/s
+                         , "--low"      , "green"
+                         , "--normal"   , "orange"
+                         , "--high"     , "red"
+                         ] 10
+
+        -- , Run Wireless "wlp9s0" [] 10
 
         , Run Battery [ "--template" , "<acstatus>"
                       , "--Low"      , "40"        -- units: %
