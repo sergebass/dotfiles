@@ -19,13 +19,13 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   -- referenced packages: battery-stats, baobab, weather-util
+   -- referenced packages: battery-stats, baobab, weather-util, lm-sensors, hddtemp
    , template = "\
        \<action=`urxvt`>%StdinReader%</action> }{ │ \
        \<action=`urxvt -e nmtui`><fc=#00af87>%whoami%@%hostname%</fc></action> │ \
        \<action=`weather CYOW | xmessage -nearmouse -file -`>%WeatherScript%</action> │ \
        \<action=`urxvt -e htop`>%multicpu% %cpufreq%</action> \
-       \<action=`sensors | xmessage -nearmouse -file -`>%coretemp%</action> │ \
+       \<action=`(sensors && hddtemp /dev/sd? 2>&1) | xmessage -nearmouse -file -`>%coretemp%</action> │ \
        \<action=`urxvt -e htop`>%memory% %swap%</action> │ \
        \<action=`baobab`>%disku%</action> │ \
        \<action=`urxvt -e htop`>%diskio%</action> │ \
