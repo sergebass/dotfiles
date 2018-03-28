@@ -19,7 +19,19 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ │ <fc=#00af87>%whoami%@%hostname%</fc> │ %WeatherScript% │ %multicpu% %cpufreq% %coretemp% │ %memory% %swap% │ %disku% │ %diskio% │ %dynnetwork% │ <fc=#00FFFF>♫</fc> %volume% │ %kbd% │ %date% │ <fc=#00FFFF>⚡</fc> %battery%"
+   , template = "\
+       \<action=`urxvt`>%StdinReader%</action> }{ │ \
+       \<action=`urxvt -e nmtui`><fc=#00af87>%whoami%@%hostname%</fc></action> │ \
+       \<action=`weather CYOW | xmessage -nearmouse -file -`>%WeatherScript%</action> │ \
+       \<action=`urxvt -e htop`>%multicpu% %cpufreq% %coretemp%</action> │ \
+       \<action=`urxvt -e htop`>%memory% %swap%</action> │ \
+       \<action=`baobab`>%disku%</action> │ \
+       \<action=`urxvt -e htop`>%diskio%</action> │ \
+       \<action=`urxvt -e nmtui`>%dynnetwork%</action> │ \
+       \<action=`pavucontrol`><fc=#00FFFF>♫</fc> %volume%</action> │ \
+       \<action=`urxvt -e xev`>%kbd%</action> │ \
+       \<action=`orage`>%date%</action> │ \
+       \<action=`xfce4-power-manager-settings`><fc=#00FFFF>⚡</fc> %battery%</action>"
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
