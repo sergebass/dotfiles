@@ -2,15 +2,13 @@
 """ General settings for eclim
 """ --------------------------
 
-" FIXME make this stuff conditional, the eclim plugin may not be installed
-
 let g:EclimLocateFileScope = 'workspace'
 let g:EclimLocateFileDefaultAction = 'edit'
 let g:EclimLocateFileNonProjectScope = 'ag'
 let g:EclimJavaCallHierarchyDefaultAction = 'edit'
 let g:EclimJavaHierarchyDefaultAction = 'edit'
 
-nnoremap <LocalLeader><CR> :LocateFile<CR>
+nnoremap <LocalLeader><BS> :LocateFile<CR>
 
 nnoremap <LocalLeader><Space> :BuffersToggle<CR>
 

@@ -27,6 +27,8 @@ noremap <silent> <Leader>19 <F19>
 
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
 if has('nvim')
+    " use the same shortcut for convenience
+    nnoremap <M-BS> :terminal<CR>
     tnoremap <M-BS> <C-\><C-n>
 endif
 
@@ -136,18 +138,17 @@ inoremap <silent> <C-S> <C-O>:update<CR>
 nnoremap <Leader># :mksession! Session
 nnoremap <Leader>@ :source Session
 
-" Miscellaneous useful navigation stuff
+" Miscellaneous useful search/navigation stuff
 
 " using FZF
-nnoremap <silent> <Leader><CR> :GFiles<CR>
-nnoremap <silent> <BS>\ :terminal<CR>
-nnoremap <silent> <BS><BS> :BLines<CR>
+nnoremap <silent> <BS><BS> :GFiles<CR>
 nnoremap <silent> <BS><Space> :Lines<CR>
+nnoremap <silent> <BS>/ :BLines<CR>
 nnoremap <silent> <BS>g :BCommits<CR>
 nnoremap <silent> <BS>k :Maps<CR>
 
 " using CtrlP
-nnoremap <silent> <BS><CR> :CtrlPMRUFiles<CR>
+nnoremap <silent> <BS>\ :CtrlPMRUFiles<CR>
 nnoremap <silent> <BS>f :CtrlP<CR>
 nnoremap <silent> <BS>b :CtrlPBuffer<CR>
 nnoremap <silent> <BS>t :CtrlPTag<CR>
@@ -167,7 +168,7 @@ nnoremap <silent> <Leader><BS> :browse oldfiles<CR>
 nnoremap <silent> <C-\> :TagbarToggle<CR>
 nnoremap <silent> <M-\> :MinimapToggle<CR>
 
-" close both quickfix and location list windows
+" quickly close both quickfix and location list windows
 noremap <silent> _ :lclose<CR>:cclose<CR>
 
 " facilitate quickfix navigation
@@ -184,7 +185,7 @@ nnoremap <silent> <Leader>+ :copen<CR>
 nnoremap <Leader>= :cw<CR>
 
 " clear quickfix list (useful for incremental results of grepadd or vimgrepadd)
-nnoremap <Leader>\| :ClearQuickfixList<CR>
+nnoremap <Leader><S-Del> :ClearQuickfixList<CR>
 
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
@@ -200,7 +201,7 @@ nnoremap <silent> <LocalLeader>+ :lopen<CR>
 nnoremap <LocalLeader>= :lw<CR>
 
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
-nnoremap <LocalLeader>\| :ClearLocationList<CR>
+nnoremap <LocalLeader><S-Del> :ClearLocationList<CR>
 
 " This selects the next closest text object.
 map + <Plug>(wildfire-fuel)
