@@ -18,6 +18,10 @@ alias gg='git grep'
 
 alias t='tig --all'
 
+function svn-blame() {
+    svn ann -v "$@" | less
+}
+
 function f()
 {
     find -name \*.c\* -o -name \*.h\* -o -name \*.py -o -name \*.sh -o -name \*.pl -o -name \*.pro | xargs -n 1 grep --color=always -Hn "$@"
