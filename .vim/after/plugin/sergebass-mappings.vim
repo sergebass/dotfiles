@@ -266,6 +266,10 @@ vnoremap <Leader>wl :<C-w>RemoveSelectedMultipleBlankLines<CR>
 nnoremap <Leader>ww :retab<CR>:RemoveAllMultipleBlankLines<CR>:RemoveAllRedundantWhitespace<CR>
 vnoremap <Leader>ww :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:<C-w>RemoveSelectedRedundantWhitespace<CR>
 
+" An easier way to see git change history for a current line or selection
+nnoremap <Leader>gh :!git log -L <C-r>=line(".")<CR>:%<CR>
+vnoremap <Leader>gh :<C-u>!git log -L <C-r>=line("'<")<CR>,<C-r>=line("'>")<CR>:%<CR>
+
 " quick shortcuts for vim-fugitive
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gd :Gdiff<CR>
