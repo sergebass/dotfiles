@@ -23,14 +23,14 @@ Config {
    , template = "\
        \<action=`urxvt`>%StdinReader%</action> }{ │ \
        \<action=`urxvt -e nmtui`><fc=#00af87>%whoami%@%hostname%</fc></action> │ \
-       \<action=`weather CYOW | xmessage -nearmouse -file -`>%WeatherScript%</action> │ \
+       \<action=`weather CYOW | xmessage -nearmouse -file -`>☀ %WeatherScript%</action> │ \
        \<action=`urxvt -e htop`>%multicpu% %cpufreq%</action> \
        \<action=`(sensors && hddtemp /dev/sd? 2>&1) | xmessage -nearmouse -file -`>%coretemp%</action> │ \
-       \<action=`urxvt -e htop`>%memory% %swap%</action> │ \
+       \<action=`urxvt -e htop`>%memory%%swap%</action> │ \
        \<action=`baobab`>%disku%</action> │ \
-       \<action=`urxvt -e htop`>%diskio%</action> │ \
-       \<action=`urxvt -e nmtui`>%dynnetwork%</action> │ \
-       \<action=`pavucontrol`><fc=#00FFFF>♫</fc> %volume%</action> │ \
+       \<action=`urxvt -e htop`>⇄ %diskio%</action> │ \
+       \<action=`urxvt -e nmtui`>⇅ %dynnetwork%</action> │ \
+       \<action=`pavucontrol`><fc=#00FFFF>♪</fc> %volume%</action> │ \
        \<action=`urxvt -e xev`>%kbd%</action> │ \
        \<action=`orage`>%date%</action> │ \
        \<action=`battery-graph`><fc=#00FFFF>⚡</fc> %battery%</action>"
@@ -57,9 +57,9 @@ Config {
         -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa" ] 36000
         , Run Com "get-weather.sh" [] "WeatherScript" 30
 
-        , Run MultiCpu [ "--template" , "<fc=#00FFFF>♥</fc> <total>"
+        , Run MultiCpu [ "--template" , "<fc=#00FFFF>♥</fc><total>"
                        , "--suffix"   , "On"
-                       , "--ppad"     , "2"
+                       , "--ppad"     , "3"
                        , "--Low"      , "50"  -- units: %
                        , "--High"     , "85"  -- units: %
                        , "--low"      , "green"
@@ -79,27 +79,27 @@ Config {
                         , "--High"     , "80"  -- units: °C
                         , "--low"      , "green"
                         , "--normal"   , "orange"
-                        , "--high"     , "#FFFF00,#FF0000"
+                        , "--high"     , "#FFFF80,#c00000"
                         ] 50
 
-        , Run Memory [ "--template" , "<fc=#00FFFF>♻</fc> <usedratio>"
+        , Run Memory [ "--template" , "<fc=#00FFFF>♻</fc><usedratio>"
                      , "--suffix"   , "On"
-                     , "--ppad"     , "2"
+                     , "--ppad"     , "3"
                      , "--Low"      , "70"  -- units: %
                      , "--High"     , "90"  -- units: %
                      , "--low"      , "green"
                      , "--normal"   , "orange"
-                     , "--high"     , "#FFFF00,#FF0000"
+                     , "--high"     , "#FFFF80,#c00000"
                      ] 10
 
         , Run Swap [ "--template" , "<usedratio>"
                    , "--suffix"   , "On"
-                   , "--ppad"     , "2"
+                   , "--ppad"     , "3"
                    , "--Low"      , "40"  -- units: %
                    , "--High"     , "80"  -- units: %
                    , "--low"      , "green"
                    , "--normal"   , "orange"
-                   , "--high"     , "#FFFF00,#FF0000"
+                   , "--high"     , "#FFFF80,#c00000"
                    ] 10
 
         , Run DiskU [ ("/", "<fc=#00FFFF>/</fc> <free>")
@@ -109,25 +109,25 @@ Config {
                     , "--High", "50"  -- units: MB
                     , "--high", "green"
                     , "--normal", "orange"
-                    , "--low", "#FFFF00,#FF0000"
+                    , "--low", "#FFFF80,#c00000"
                     -- , "--minwidth", "3"
                     -- , "--ppad", "3"
                     ] 20
 
-        , Run DiskIO [ ("/", "<fc=#00FFFF>/</fc> <read>:<write>")
-                     , ("/home", "<fc=#00FFFF>⌂</fc> <read>:<write>")
+        , Run DiskIO [ ("/", "<fc=#00FFFF>/</fc> <read>·<write>")
+                     , ("/home", "<fc=#00FFFF>⌂</fc> <read>·<write>")
                      ]
                      [ "--Low", "1024"  -- units: b/s
                      , "--High", "65536"  -- units: b/s
                      , "--low", "green"
                      , "--normal", "orange"
-                     , "--high", "#FFFF00,#FF0000"
+                     , "--high", "red"
                      , "--suffix", "On"
                      -- , "--minwidth", "3"
                      -- , "--ppad", "3"
                      ] 20
 
-        , Run DynNetwork [ "--template" , "<fc=#00FFFF><dev></fc> <rx>:<tx>"
+        , Run DynNetwork [ "--template" , "<fc=#00FFFF><dev></fc> <rx>·<tx>"
                          , "--suffix"   , "On"
                          , "--Low"      , "1000"  -- units: b/s
                          , "--High"     , "1000000"  -- units: b/s
@@ -141,7 +141,7 @@ Config {
         , Run Battery [ "--template" , "<acstatus>"
                       , "--Low"      , "40"        -- units: %
                       , "--High"     , "80"        -- units: %
-                      , "--low"      , "#FFFF00,#FF0000"
+                      , "--low"      , "#FFFF80,#c00000"
                       , "--normal"   , "orange"
                       , "--high"     , "green"
                       , "--" -- battery specific options
