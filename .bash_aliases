@@ -16,6 +16,8 @@ alias agj='ag --type=java'
 
 alias gg='git grep'
 
+alias rg='rg --no-heading -n'
+
 alias t='tig --all'
 
 function svn-blame() {
