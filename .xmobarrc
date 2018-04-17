@@ -52,10 +52,10 @@ Config {
    , commands =
         -- [ Run Com "uptime" ["-s"] "up" 0
 
-        [ Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 5
+        [ Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 10
 
         -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa" ] 36000
-        , Run Com "get-weather.sh" [] "WeatherScript" 30
+        , Run Com "get-weather.sh" [] "WeatherScript" 600
 
         , Run MultiCpu [ "--template" , "<fc=#00FFFF>♥</fc><total>"
                        , "--suffix"   , "On"
@@ -90,7 +90,7 @@ Config {
                      , "--low"      , "green"
                      , "--normal"   , "orange"
                      , "--high"     , "#FFFF80,#c00000"
-                     ] 10
+                     ] 20
 
         , Run Swap [ "--template" , "<usedratio>"
                    , "--suffix"   , "On"
@@ -100,7 +100,7 @@ Config {
                    , "--low"      , "green"
                    , "--normal"   , "orange"
                    , "--high"     , "#FFFF80,#c00000"
-                   ] 10
+                   ] 20
 
         , Run DiskU [ ("/", "<fc=#00FFFF>/</fc> <free>")
                     , ("/home", "<fc=#00FFFF>⌂</fc> <free>")
@@ -112,7 +112,7 @@ Config {
                     , "--low", "#FFFF80,#c00000"
                     -- , "--minwidth", "3"
                     -- , "--ppad", "3"
-                    ] 20
+                    ] 50
 
         , Run DiskIO [ ("/", "<fc=#00FFFF>/</fc> <read>·<write>")
                      , ("/home", "<fc=#00FFFF>⌂</fc> <read>·<write>")
@@ -134,7 +134,7 @@ Config {
                          , "--low"      , "green"
                          , "--normal"   , "orange"
                          , "--high"     , "red"
-                         ] 10
+                         ] 20
 
         -- , Run Wireless "wlp9s0" [] 10
 
