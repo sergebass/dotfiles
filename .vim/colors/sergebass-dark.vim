@@ -53,7 +53,7 @@ endif
 hi ColorColumn term=none cterm=none ctermbg=0 guibg=#301010
 
 hi StatusLine term=reverse cterm=bold,underline ctermfg=15 ctermbg=20 gui=bold,underline guifg=#ffffff guibg=#0000b8
-hi StatusLineNC term=reverse cterm=bold,underline ctermfg=15 ctermbg=18 gui=bold,underline guifg=#b2b2b2 guibg=#00005f
+hi StatusLineNC term=reverse cterm=underline ctermfg=15 ctermbg=17 gui=underline guifg=#b2b2b2 guibg=#00005f
 
 " change statusline colors depending on the current mode
 if version >= 700
