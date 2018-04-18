@@ -52,13 +52,13 @@ endif
 " line length limit highlighting
 hi ColorColumn term=none cterm=none ctermbg=0 guibg=#301010
 
-hi StatusLine term=reverse cterm=bold,underline ctermfg=15 ctermbg=20 gui=bold,underline guifg=#ffffff guibg=#0000b8
-hi StatusLineNC term=reverse cterm=underline ctermfg=15 ctermbg=17 gui=underline guifg=#b2b2b2 guibg=#00005f
+hi StatusLine term=reverse cterm=bold ctermfg=15 ctermbg=20 gui=bold guifg=#ffffff guibg=#0000b8
+hi StatusLineNC term=reverse cterm=none ctermfg=15 ctermbg=17 gui=none guifg=#b2b2b2 guibg=#00005f
 
 " change statusline colors depending on the current mode
 if version >= 700
-  au InsertEnter * hi StatusLine term=reverse cterm=bold,underline ctermfg=15 ctermbg=22 gui=bold,underline guifg=#ffffff guibg=#006000
-  au InsertLeave * hi StatusLine term=reverse cterm=bold,underline ctermfg=15 ctermbg=20 gui=bold,underline guifg=#ffffff guibg=#0000b8
+  au InsertEnter * hi StatusLine term=reverse cterm=bold ctermfg=15 ctermbg=22 gui=bold guifg=#ffffff guibg=#006000
+  au InsertLeave * hi StatusLine term=reverse cterm=bold ctermfg=15 ctermbg=20 gui=bold guifg=#ffffff guibg=#0000b8
 endif
 
 hi TabLine term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
