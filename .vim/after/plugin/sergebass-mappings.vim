@@ -90,6 +90,10 @@ noremap <silent> <C-S-End> :tabmove<CR>
 noremap <silent> <C-S-PageUp> :tabmove-<CR>
 noremap <silent> <C-S-PageDown> :tabmove+<CR>
 
+" rxvt without tmux does not support Ctrl+PgUp/Down tab navigation, so use these alternatives instead
+noremap <silent> <M-PageUp> :tabprev<CR>
+noremap <silent> <M-PageDown> :tabnext<CR>
+
 " Buffer management
 noremap <silent> <Leader><PageUp> :bp<CR>
 noremap <silent> <Leader><PageDown> :bn<CR>
@@ -98,6 +102,10 @@ noremap <silent> <Leader><End> :blast<CR>
 noremap <silent> <Leader><Del> :bdelete<CR>
 noremap <silent> <Leader>_ :ball<CR>
 noremap <silent> <Leader>\| :vert ball<CR>
+
+" Alternative shortcuts for traversing buffers
+noremap <silent> <M-Tab> :bn<CR>
+noremap <silent> <M-S-Tab> :bp<CR>
 
 " Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <kPlus> <C-w>+
