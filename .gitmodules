@@ -109,3 +109,6 @@
 [submodule ".vim/bundle/vim-minimap"]
 	path = .vim/bundle/vim-minimap
 	url = https://github.com/severin-lemaignan/vim-minimap.git
+[submodule ".vim/bundle/elm-vim"]
+	path = .vim/bundle/elm-vim
+	url = https://github.com/ElmCast/elm-vim
