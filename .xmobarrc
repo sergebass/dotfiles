@@ -52,7 +52,7 @@ Config {
    , commands =
         -- [ Run Com "uptime" ["-s"] "up" 0
 
-        [ Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 10
+        [ Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 20
 
         -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa" ] 36000
         , Run Com "get-weather.sh" [] "WeatherScript" 600
@@ -65,12 +65,12 @@ Config {
                        , "--low"      , "green"
                        , "--normal"   , "orange"
                        , "--high"     , "red"
-                       ] 10
+                       ] 20
 
         , Run CpuFreq [ "--template", "<cpu0>"
                       , "--suffix", "On"
                       , "--ddigits", "1"
-                      ] 10
+                      ] 20
 
         , Run CoreTemp  [ "--template" , "<core0>°C"
                         , "--suffix"   , "On"
