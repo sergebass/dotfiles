@@ -154,7 +154,7 @@ Config {
                       ] 50
 
         --   (%F = y-m-d date, %u = day of week as a number (1 = Monday), %T = h:m:s time)
-        , Run Date "<fc=#afffff>%F/%u</fc> <fc=#ffff00>%T</fc>" "date" 10
+        , Run Date "<fc=#afffff>%F/%u</fc> <fc=#ffff00>%H:%M</fc>" "date" 100
 
         , Run Kbd [ ("us", "<fc=#00ffff>en</fc>")
                   , ("ru", "<fc=#ffff00>ru</fc>")
