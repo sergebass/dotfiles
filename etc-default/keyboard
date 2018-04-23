@@ -1,0 +1,10 @@
+# KEYBOARD CONFIGURATION FILE
+
+# Consult the keyboard(5) manual page.
+
+XKBMODEL="pc105"
+XKBLAYOUT="us,ru,ua,us(intl)"
+XKBVARIANT=""
+XKBOPTIONS="grp:shift_caps_toggle,grp_led:scroll,caps:escape"
+
+BACKSPACE="guess"
