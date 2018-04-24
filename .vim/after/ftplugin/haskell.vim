@@ -9,6 +9,7 @@ set shiftwidth=4
 set autoindent
 
 setlocal keywordprg=hoogle
+setlocal makeprg=stack\ build
 
 nnoremap <buffer> <F1> :!xdg-open "https://haskell.org/hoogle/"<CR>
 
