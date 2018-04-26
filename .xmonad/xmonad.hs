@@ -22,7 +22,7 @@ myConfig = desktopConfig
     , ((myModMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
     --take a screenshot of focused window
     , ((myModMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
-    , ((myModMask .|. shiftMask, xK_equal), spawn "gnome-calculator")
+    , ((myModMask .|. shiftMask, xK_equal), spawn "urxvt -e bc -l")
     , ((myModMask .|. shiftMask, xK_KP_Enter), spawn "gnome-calculator")
     , ((myModMask .|. shiftMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
     , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
