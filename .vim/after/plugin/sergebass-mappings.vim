@@ -289,3 +289,7 @@ nnoremap <Leader>gs :Gstatus<CR>
 " quick ways to switch between light and dark themes
 nnoremap <Leader><F7> :colorscheme sergebass-light<CR>
 nnoremap <Leader><F8> :colorscheme sergebass-dark<CR>
+
+nnoremap <silent> <Leader>K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <Leader>gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <Leader><F2> :call LanguageClient#textDocument_rename()<CR>

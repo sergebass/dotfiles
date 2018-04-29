@@ -101,6 +101,14 @@ set keywordprg=:grep\ -ws
 autocmd FileType vim setlocal keywordprg=:help
 autocmd FileType sh setlocal keywordprg=:Man
 
+" LanguageClient global settings
+let g:LanguageClient_serverCommands = {
+    \ 'haskell': ['hie', '--lsp'],
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ }
+
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
 
