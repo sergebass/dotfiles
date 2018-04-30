@@ -17,10 +17,12 @@ let maplocalleader = "\\\\"
 set number " enable line numbers
 set scrolloff=1 " keep at least one line visible above/below cursor
 set ruler " show the cursor position all the time
+
 set laststatus=2 " always display status line, even with one file being edited
 set statusline=%F:%l:%c\ \ %m%r%y%=\ %{fugitive#statusline()}%{ObsessionStatus()}\ %p%%/%L
 
 set autoread " automatically reload files changed by external programs
+au CursorHold,CursorHoldI * checktime " check for updates each time cursor stops moving
 
 set undofile " persist undo history between invocations
 set undodir=~/.vim/undo " location for persistent undo history files
