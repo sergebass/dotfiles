@@ -22,7 +22,8 @@ set laststatus=2 " always display status line, even with one file being edited
 set statusline=%F:%l:%c\ \ %m%r%y%=\ %{fugitive#statusline()}%{ObsessionStatus()}\ %p%%/%L
 
 set autoread " automatically reload files changed by external programs
-au CursorHold,CursorHoldI * checktime " check for updates each time cursor stops moving
+au CursorHold,CursorHoldI * :checktime " check for updates each time cursor stops moving
+au FocusGained,BufEnter * :checktime
 
 set undofile " persist undo history between invocations
 set undodir=~/.vim/undo " location for persistent undo history files
