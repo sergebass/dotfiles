@@ -8,7 +8,7 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
-setlocal keywordprg=stack\ hoogle\ --\ --count=30
+setlocal keywordprg=stack\ hoogle\ --\ --count=100
 setlocal makeprg=stack\ build
 
 nnoremap <buffer> <F1> :!xdg-open "https://haskell.org/hoogle/"<CR>
