@@ -175,8 +175,8 @@ nnoremap <silent> <Leader><S-Tab> :Lexplore<CR>
 
 nnoremap <silent> <Leader><BS> :browse oldfiles<CR>
 
-nnoremap <silent> <C-\> :TagbarToggle<CR>
-nnoremap <silent> <M-\> :MinimapToggle<CR>
+nnoremap <silent> <C-_> :TagbarToggle<CR>
+nnoremap <silent> <M-/> :MinimapToggle<CR>
 
 " quickly close both quickfix and location list windows
 noremap <silent> _ :lclose<CR>:cclose<CR>
