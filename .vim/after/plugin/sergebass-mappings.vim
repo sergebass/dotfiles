@@ -150,10 +150,12 @@ nnoremap <Leader>@ :source Session
 
 " using FZF
 nnoremap <silent> <BS><BS> :GFiles<CR>
-nnoremap <silent> <BS><Space> :Lines<CR>
+nnoremap <silent> <BS><Space> :call fzf#vim#buffers()<CR>
 nnoremap <silent> <BS>/ :BLines<CR>
+nnoremap <silent> <BS>? :Lines<CR>
 nnoremap <silent> <BS>g :BCommits<CR>
 nnoremap <silent> <BS>k :Maps<CR>
+nnoremap <silent> <BS>w :Windows<CR>
 
 " using CtrlP
 nnoremap <silent> <BS>\ :CtrlPMRUFiles<CR>
