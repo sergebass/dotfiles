@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#nvim-qt --no-ext-tabline --server localhost:12345
+nvim-qt --no-ext-tabline
