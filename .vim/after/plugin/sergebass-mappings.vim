@@ -149,8 +149,10 @@ nnoremap <Leader>@ :source Session
 " Miscellaneous useful search/navigation stuff
 
 " using FZF
-nnoremap <silent> <BS><BS> :GFiles<CR>
 nnoremap <silent> <BS><Space> :call fzf#vim#buffers()<CR>
+nnoremap <silent> <BS><BS> :GFiles<CR>
+nnoremap <silent> <BS>\| :GFiles?<CR>
+nnoremap <silent> <BS>\ :call fzf#vim#history()<CR>
 nnoremap <silent> <BS>/ :BLines<CR>
 nnoremap <silent> <BS>? :Lines<CR>
 nnoremap <silent> <BS>g :BCommits<CR>
@@ -158,7 +160,7 @@ nnoremap <silent> <BS>k :Maps<CR>
 nnoremap <silent> <BS>w :Windows<CR>
 
 " using CtrlP
-nnoremap <silent> <BS>\ :CtrlPMRUFiles<CR>
+nnoremap <silent> <BS>r :CtrlPMRUFiles<CR>
 nnoremap <silent> <BS>f :CtrlP<CR>
 nnoremap <silent> <BS>b :CtrlPBuffer<CR>
 nnoremap <silent> <BS>t :CtrlPTag<CR>
