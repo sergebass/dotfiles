@@ -249,6 +249,9 @@ vnoremap <LocalLeader>* "*y<Esc>:match SPCustomHighlight "<C-r>*"
 nnoremap <Leader>* :bufdo match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
 vnoremap <Leader>* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
 
+" search the word under cursor using fzf.vim
+nnoremap <C-\> :Ag<CR>
+
 " search the word under cursor in external files
 nnoremap <Leader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
