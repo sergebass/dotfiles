@@ -150,6 +150,7 @@ nnoremap <Leader>@ :source Session
 
 " using FZF
 nnoremap <silent> <BS><Space> :call fzf#vim#buffers()<CR>
+nnoremap <silent> <BS><M-BS> :Files<CR>
 nnoremap <silent> <BS><BS> :GFiles<CR>
 nnoremap <silent> <BS>\| :GFiles?<CR>
 nnoremap <silent> <BS>\ :call fzf#vim#history()<CR>
