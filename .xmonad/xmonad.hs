@@ -18,6 +18,7 @@ myConfig = desktopConfig
     }
      `additionalKeys`
     [ ((myModMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
+    , ((myModMask, xK_z), spawn "xscreensaver-command -lock")
     --take a screenshot of entire display
     , ((myModMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
     --take a screenshot of focused window
