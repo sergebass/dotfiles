@@ -19,6 +19,7 @@ myConfig = desktopConfig
      `additionalKeys`
     [ ((myModMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
     , ((myModMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
+      , ((myModMask .|. shiftMask .|. controlMask, xK_z), spawn "i3lock -c 000000")
     , ((myModMask .|. controlMask, xK_z), spawn "xscreensaver-command -lock")
     --take a screenshot of entire display
     , ((myModMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
