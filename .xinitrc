@@ -4,6 +4,9 @@
 # also, configure keyboard layout switching via Shift+CapsLock
 setxkbmap -layout "us,ru,ua,us(intl)" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape
 
+# this is needed for lightdm to actually lock screen, otherwise it asks no password to unlock
+light-locker &
+
 # configure system tray for use with xmonad/xmobar
 trayer \
     --SetDockType true \
