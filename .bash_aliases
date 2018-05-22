@@ -16,6 +16,9 @@ alias agj='ag --type=java'
 
 alias gg='git grep'
 
+# stage only non-whitespace changes (https://stackoverflow.com/a/7149602)
+alias gaddnw='git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -'
+
 alias rg='rg --no-heading -n'
 
 alias t='tig --all'
