@@ -24,7 +24,7 @@ alias rg='rg --no-heading -n'
 alias t='tig --all'
 
 # this is an Escape sequence to dynamically change rxvt terminal font size
-alias rxvt-font-size='printf "\033]50;%s%d\007" "xft:Inconsolata:pixelsize="'
+alias rxvt-font-size='printf "\033]50;%s%d\007" "xft:Inconsolata:medium:antialias=true:hintstyle=hintslight:pixelsize="'
 
 function svn-blame() {
     svn ann -v "$@" | less
