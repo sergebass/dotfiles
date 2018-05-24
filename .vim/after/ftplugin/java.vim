@@ -130,3 +130,23 @@ nnoremap <buffer> <LocalLeader>dtra :JavaDebugThreadResumeAll<CR>
 
 hi SPUpperCaseJavaWord term=bold cterm=bold gui=bold
 match SPUpperCaseJavaWord "\<[A-Z]\h*\>"
+
+" Useful abbreviations
+
+iabbrev <buffer> __core import static java.util.Arrays.*;<CR>
+                       \import static java.util.Objects.*;<CR>
+                       \import static java.util.Collections.*;<CR>
+                       \import static java.util.stream.Collectors.*;<CR>
+
+iabbrev <buffer> __junit import static org.junit.Assert.*;<CR>
+                        \import static org.junit.Assume.*;<CR>
+
+iabbrev <buffer> __hamcrest import static org.hamcrest.CoreMatchers.*;<CR>
+
+iabbrev <buffer> __easymock import static org.easymock.EasyMock.*;<CR>
+
+iabbrev <buffer> __apache import static org.apache.commons.collections.CollectionUtils.*;<CR>
+                         \import static org.apache.commons.lang.StringUtils.*;<CR>
+
+iabbrev <buffer> __guava import static com.google.common.base.Preconditions.*;<CR>
+                        \import static com.google.common.collect.Collections2.*;<CR>
