@@ -99,14 +99,16 @@ hi SpecialKey term=reverse cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=none cterm=none ctermfg=105 gui=none guifg=#8787ff
 hi SpecialComment term=bold cterm=bold ctermfg=105 gui=bold guifg=#8787ff
-hi Constant term=underline cterm=none ctermfg=228 guifg=#ffff87
+hi Constant term=underline cterm=none ctermfg=48 guifg=#00ff87
 hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
 hi Statement term=none ctermfg=50 gui=none guifg=#00ffd7
-hi PreProc term=underline ctermfg=LightBlue guifg=#ff80ff
-hi Type term=underline ctermfg=LightGreen guifg=#60ff60 gui=none
-hi Function term=bold ctermfg=White guifg=White
+hi PreProc term=bold cterm=none ctermfg=159 gui=none guifg=#afffff
+hi Type term=none cterm=none ctermfg=255 gui=none guifg=#eeeeee
+hi Function term=bold cterm=bold gui=bold
+hi StorageClass term=none cterm=none ctermfg=39 gui=none guifg=#00afff
+hi Scope term=none cterm=none ctermfg=42 gui=none guifg=#00d787
 hi Repeat term=underline ctermfg=White guifg=white
-hi Operator ctermfg=41 guifg=#00d75f
+hi Operator term=none cterm=none ctermfg=195 gui=none guifg=#d7ffff
 hi Error term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 hi Todo term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 
@@ -115,7 +117,7 @@ hi link Character Constant
 hi link Number Constant
 hi link Boolean Constant
 hi link Float Number
-hi link Conditional Repeat
+hi link Conditional Statement
 hi link Label Statement
 hi link Keyword Statement
 hi link Exception Statement
@@ -123,7 +125,6 @@ hi link Include PreProc
 hi link Define PreProc
 hi link Macro PreProc
 hi link PreCondit PreProc
-hi link StorageClass Type
 hi link Structure Type
 hi link Typedef Type
 hi link Tag Special
@@ -521,78 +522,82 @@ hi link GitGutterChangeDelete DiffChange
 "htmlUnderlineItalic xxx cterm=underline,italic gui=underline,italic
 "htmlUnderlineItalicBold xxx links to htmlBoldUnderlineItalic
 "htmlValue      xxx links to String
-"
-"javaAnnotation xxx links to PreProc
-"javaAssert     xxx links to Statement
-"javaBoolean    xxx links to Boolean
-"javaBraces     xxx links to Function
-"javaBranch     xxx links to Conditional
-"javaC_JavaLang xxx cleared
-"javaCharacter  xxx links to Character
-"javaClassDecl  xxx links to javaStorageClass
 
-"javaComment    xxx links to Comment
-"javaComment2String xxx links to javaString
-"javaCommentCharacter xxx links to javaCharacter
-"javaCommentStar xxx links to javaComment
-"javaCommentString xxx links to javaString
-"javaCommentTitle xxx links to SpecialComment
+hi link javaAnnotation PreProc
+hi link javaAnnotation PreProc
+hi link javaAssert Statement
+hi link javaBoolean Boolean
+hi link javaBraces Function
+hi link javaBranch Conditional
+" hi link javaC_JavaLang xxx cleared
+hi link javaCharacter Character
+hi link javaClassDecl javaScopeDecl
 
-"javaConditional xxx links to Conditional
-"javaConstant   xxx links to Constant
-"javaDebugBoolean xxx cleared
-"javaDebugParen xxx cleared
-"javaDebugSpecial xxx cleared
-"javaDebugType  xxx cleared
-"javaDocComment xxx links to Comment
-"javaDocParam   xxx links to Function
-"javaDocSeeTag  xxx cleared
-"javaDocSeeTagParam xxx links to Function
-"javaDocTags    xxx links to Special
-"javaE_JavaLang xxx cleared
-"javaError      xxx links to Error
-"javaError2     xxx links to javaError
-"javaExceptions xxx links to Exception
-"javaExternal   xxx links to Include
-"javaFold       xxx cleared
-"javaFuncDef    xxx links to Function
-"javaLabel      xxx links to Label
-"javaLabelRegion xxx cleared
-"javaLambdaDef  xxx links to Function
-"javaLangObject xxx cleared
-"javaLineComment xxx links to Comment
-"javaMethodDecl xxx links to javaStorageClass
-"javaNumber     xxx links to Number
-"javaOK         xxx cleared
-"javaOperator   xxx links to Operator
-"javaParen      xxx cleared
-"javaParen1     xxx cleared
-"javaParen2     xxx cleared
-"javaParenError xxx links to javaError
-"javaParenT     xxx cleared
-"javaParenT1    xxx cleared
-"javaParenT2    xxx cleared
-"javaR_JavaLang xxx cleared
-"javaRepeat     xxx links to Repeat
-"javaScopeDecl  xxx links to javaStorageClass
-"javaScript     xxx links to Special
-"javaScriptExpression xxx links to javaScript
-"javaSpaceError xxx links to Error
-"javaSpecial    xxx links to Special
-"javaSpecialChar xxx links to SpecialChar
-"javaSpecialCharError xxx links to Error
-"javaSpecialError xxx links to Error
-"javaStatement  xxx links to Statement
-"javaStorageClass xxx links to StorageClass
-"javaString     xxx links to String
-"javaStringError xxx links to Error
-"javaTodo       xxx links to Todo
-"javaType       xxx links to Type
-"javaTypedef    xxx links to Typedef
-"javaUserLabel  xxx links to Label
-"javaUserLabelRef xxx links to javaUserLabel
-"javaVarArg     xxx links to Function
-"javaX_JavaLang xxx cleared
+hi link javaComment Comment
+hi link javaComment2String javaString
+hi link javaCommentCharacter javaCharacter
+hi link javaCommentStar javaComment
+hi link javaCommentString javaString
+hi link javaCommentTitle SpecialComment
+
+hi link javaConditional Conditional
+hi link javaConstant Constant
+" hi link javaDebugBoolean xxx cleared
+" hi link javaDebugParen xxx cleared
+" hi link javaDebugSpecial xxx cleared
+" hi link javaDebugType xxx cleared
+hi link javaDocComment Comment
+hi link javaDocParam Constant
+hi link javaDocSeeTag PreProc
+hi link javaDocSeeTagParam Constant
+hi link javaDocTags PreProc
+" hi link javaE_JavaLang xxx cleared
+hi link javaError Error
+hi link javaError2 javaError
+hi link javaExceptions Exception
+hi link javaExternal Include
+" hi link javaFold xxx cleared
+hi link javaFuncDef Function
+hi link javaLabel Label
+" hi link javaLabelRegion xxx cleared
+hi link javaLambdaDef Function
+" hi link javaLangObject xxx cleared
+hi link javaLineComment Comment
+hi link javaMethodDecl Function
+hi link javaNumber Number
+" hi link javaOK xxx cleared
+hi link javaOperator Operator
+" hi link javaParen xxx cleared
+" hi link javaParen1 xxx cleared
+" hi link javaParen2 xxx cleared
+hi link javaParenError javaError
+" hi link javaParenT xxx cleared
+" hi link javaParenT1 xxx cleared
+" hi link javaParenT2 xxx cleared
+" hi link javaR_JavaLang xxx cleared
+hi link javaRepeat Repeat
+hi link javaScopeDecl Scope
+
+hi link javaScript Special
+hi link javaScriptExpression javaScript
+
+hi link javaSpaceError Error
+hi link javaSpecial Special
+hi link javaSpecialChar SpecialChar
+hi link javaSpecialCharError Error
+hi link javaSpecialError Error
+hi link javaStatement Statement
+hi link javaStorageClass StorageClass
+hi link javaString String
+hi link javaStringError Error
+hi link javaTodo Todo
+hi link javaType Type
+hi link javaTypedef Typedef
+hi link javaUserLabel Label
+" hi link javaUserLabelRef javaUserLabel
+hi link javaVarArg Function
+" hi link javaX_JavaLang xxx cleared
+
 "lCursor        xxx guifg=bg guibg=fg
 "level1         xxx cleared
 "level10        xxx cleared
