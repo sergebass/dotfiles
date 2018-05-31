@@ -132,6 +132,7 @@ iabbrev <buffer> __core import static java.util.Arrays.*;<CR>
                        \import static java.util.Objects.*;<CR>
                        \import static java.util.Collections.*;<CR>
                        \import static java.util.stream.Collectors.*;<CR>
+                       \import static java.util.function.Function.*;<CR>
 
 iabbrev <buffer> __junit import static org.junit.Assert.*;<CR>
                         \import static org.junit.Assume.*;<CR>
