@@ -68,7 +68,7 @@ noremap <buffer> <LocalLeader>mgs! :JavaGetSet!<CR>
 nnoremap <buffer> <LocalLeader>mi :JavaImpl<CR>
 nnoremap <buffer> <LocalLeader>md :JavaDelegate<CR>
 
-nnoremap <buffer> <LocalLeader>t :JUnit %<CR>
+nnoremap <buffer> <LocalLeader>t :JUnit<CR>
 
 nnoremap <buffer> <LocalLeader>1 :JavaCorrect<CR>
 
