@@ -115,3 +115,6 @@
 [submodule ".vim/bundle/vim-scala"]
 	path = .vim/bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
+[submodule ".vim/bundle/codi.vim"]
+	path = .vim/bundle/codi.vim
+	url = https://github.com/metakirby5/codi.vim
