@@ -39,3 +39,7 @@ if [ -d "$HOME/opt/jdk" ] ; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# a temporary fix for LibreOffice + xmonad
+# (https://code.google.com/archive/p/xmonad/issues/200)
+export SAL_USE_VCLPLUGIN=gen

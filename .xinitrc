@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# a temporary fix for LibreOffice + xmonad
+# (https://code.google.com/archive/p/xmonad/issues/200)
+export SAL_USE_VCLPLUGIN=gen
+
 # map CapsLock to be an Escape button equivalent (for easier vim use)
 # also, configure keyboard layout switching via Shift+CapsLock
 setxkbmap -layout "us,ru,ua,us(intl)" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape
