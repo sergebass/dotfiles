@@ -118,3 +118,6 @@
 [submodule ".vim/bundle/codi.vim"]
 	path = .vim/bundle/codi.vim
 	url = https://github.com/metakirby5/codi.vim
+[submodule ".vim/bundle/vim-localvimrc"]
+	path = .vim/bundle/vim-localvimrc
+	url = https://github.com/embear/vim-localvimrc.git
