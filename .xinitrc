@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Properly configure the second monitor
+#xrandr --output DP1-3 --mode 1920x1080 --rate 60 --right-of eDP1
+
 # a temporary fix for LibreOffice + xmonad
 # (https://code.google.com/archive/p/xmonad/issues/200)
 export SAL_USE_VCLPLUGIN=gen
