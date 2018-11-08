@@ -24,3 +24,5 @@ trayer \
     --widthtype percent \
     --width 5 \
     &  # send to background
+
+feh --bg-max --randomize --recursive ~/backgrounds/ &
