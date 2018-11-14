@@ -1,11 +1,11 @@
-alias v='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvim'
-alias vr='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvr'
+alias v='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvim -R'
+alias vr='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvr -R'
 
-alias vs='vim --servername sp-server --remote-silent'
-alias gvs='gvim --servername sp-server --remote-silent'
+alias vs='vim --servername sp-server --remote-silent -R'
+alias gvs='gvim --servername sp-server --remote-silent -R'
 
-alias vst='vim --servername sp-server --remote-tab-silent'
-alias gvst='gvim --servername sp-server --remote-tab-silent'
+alias vst='vim --servername sp-server --remote-tab-silent -R'
+alias gvst='gvim --servername sp-server --remote-tab-silent -R'
 
 alias e='emacsclient'
 alias et='emacsclient -t'
