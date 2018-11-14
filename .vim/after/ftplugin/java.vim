@@ -23,6 +23,7 @@ nnoremap <buffer> K :JavaDocPreview<CR>
 
 nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
 
+nnoremap <buffer> <C-]> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <Leader><CR> :JavaSearchContext -a vsplit<CR>
 nnoremap <buffer> <Space><CR> :JavaSearchContext -a split<CR>
