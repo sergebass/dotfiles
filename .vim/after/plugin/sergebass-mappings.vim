@@ -253,9 +253,9 @@ vnoremap <Leader>* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
 nnoremap <C-\> :Ag<CR>
 
 " search the word under cursor in external files
-nnoremap <Leader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
+nnoremap <CR> :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Leader>/ "*y<Esc>:grep -s "<C-r>*"<Left>
+vnoremap <CR> "*y<Esc>:grep -s "<C-r>*"<Left>
 
 " search the word under cursor in all open buffers
 nnoremap <Leader><Space> :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>

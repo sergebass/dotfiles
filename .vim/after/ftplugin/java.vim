@@ -23,15 +23,16 @@ nnoremap <buffer> K :JavaDocPreview<CR>
 
 nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
 
-nnoremap <buffer> <C-]> :JavaSearchContext -a edit<CR>
-nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
-nnoremap <buffer> <Leader><CR> :JavaSearchContext -a vsplit<CR>
-nnoremap <buffer> <Space><CR> :JavaSearchContext -a split<CR>
-nnoremap <buffer> <BS><CR> :JavaSearchContext -a tabnew<CR>
-
 " Traditional Eclipse way to follow the selected identifier
 nnoremap <buffer> <F3> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <C-LeftMouse> :JavaSearchContext -a edit<CR>
+
+" use the same shortcut as when using tags
+nnoremap <buffer> <C-]> :JavaSearchContext -a edit<CR>
+
+nnoremap <buffer> <Leader><CR> :JavaSearchContext -a vsplit<CR>
+nnoremap <buffer> <Space><CR> :JavaSearchContext -a split<CR>
+nnoremap <buffer> <BS><CR> :JavaSearchContext -a tabnew<CR>
 
 " Let the user customize search parameters of these commands
 nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
