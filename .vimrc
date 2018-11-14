@@ -56,6 +56,9 @@ set autoindent
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" whitelist all project-specific local vimrc files
+"let g:localvimrc_whitelist='/home/sperynskyi/git/.*'
+
 " apply user-defined autocompletion when pressing <Tab> (used by supertab plugin)
 let g:SuperTabDefaultCompletionType = "<C-X><C-U>"
 set completeopt=longest,menuone
@@ -85,7 +88,7 @@ set foldlevel=100
 set diffopt+=iwhite
 set diffexpr=""
 
-set colorcolumn=80,100
+set colorcolumn=80,100,120
 set cursorline
 set cursorcolumn
 
