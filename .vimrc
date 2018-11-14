@@ -58,7 +58,7 @@ set autoindent
 set backspace=indent,eol,start
 
 " whitelist all project-specific local vimrc files
-"let g:localvimrc_whitelist='/home/sperynskyi/git/.*'
+"let g:localvimrc_whitelist=['/home/sperynskyi/git/.*', '/home/sperynskyi/svn/.*', '/home/sperynskyi/repos/.*']
 
 " apply user-defined autocompletion when pressing <Tab> (used by supertab plugin)
 let g:SuperTabDefaultCompletionType = "<C-X><C-U>"
@@ -89,7 +89,7 @@ set foldlevel=100
 set diffopt+=iwhite
 set diffexpr=""
 
-set colorcolumn=80,100,120
+set colorcolumn=80,120
 set cursorline
 set cursorcolumn
 
