@@ -12,7 +12,7 @@ endif
 
 hi clear
 
-hi Normal term=none cterm=none ctermfg=250 ctermbg=234 gui=none guifg=#c0c0c0 guibg=#002020
+hi Normal term=none cterm=none ctermfg=250 ctermbg=none gui=none guifg=#c0c0c0 guibg=none
 
 " FIXME temporary highlighting placeholders, taken from vim documentation;
 " uncomment and fix.
@@ -78,7 +78,7 @@ hi Directory term=none cterm=none ctermfg=123 gui=none guifg=#87ffff
 
 hi Visual term=reverse cterm=reverse,bold ctermfg=90 ctermbg=226 gui=bold guibg=#5f0087
 
-hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
+hi NonText term=none cterm=none ctermfg=240 ctermbg=none gui=none guifg=#585858 guibg=none
 hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
 hi Ignore ctermfg=black guifg=bg
 hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff guibg=#000000

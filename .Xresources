@@ -13,6 +13,8 @@ URxvt.scrollBar_floating: false
 URxvt.scrollstyle: rxvt
 URxvt.visualBell: true
 URxvt.fading: 10
+URxvt.transparent: true
+URxvt.shading: 15
 
 ! color scheme
 
