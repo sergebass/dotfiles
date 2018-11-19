@@ -133,7 +133,7 @@ set pastetoggle=<Leader>P
 augroup BgHighlight
     autocmd!
 
-    autocmd WinEnter * set colorcolumn=80,100
+    autocmd WinEnter * set colorcolumn=80,120
     autocmd WinEnter * set cursorline
     autocmd WinEnter * set cursorcolumn
 
