@@ -12,7 +12,7 @@ endif
 
 hi clear
 
-hi Normal term=none cterm=none ctermfg=235 ctermbg=230 gui=none guifg=#262626 guibg=#ffffd7
+hi Normal term=NONE cterm=NONE ctermfg=235 ctermbg=230 gui=NONE guifg=#262626 guibg=#ffffd7
 
 " FIXME temporary highlighting placeholders, taken from vim documentation;
 " uncomment and fix.
@@ -45,8 +45,8 @@ hi Normal term=none cterm=none ctermfg=235 ctermbg=230 gui=none guifg=#262626 gu
 
 hi Cursor term=reverse cterm=bold ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
 hi CursorIM term=reverse cterm=bold ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
-hi NonText term=none cterm=none ctermfg=240 gui=none guifg=#585858
-hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
+hi NonText term=NONE cterm=NONE ctermfg=240 gui=NONE guifg=#585858
+hi EndOfBuffer term=NONE cterm=NONE ctermfg=240 gui=NONE guifg=#585858
 hi Ignore ctermfg=black guifg=bg
 hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff guibg=#000000
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
@@ -64,12 +64,12 @@ hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff
 hi Visual term=reverse cterm=bold ctermbg=54 gui=bold guibg=#5f0087
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
-hi Comment term=none cterm=none ctermfg=117 gui=none guifg=#87d7ff
-hi Constant term=underline cterm=none ctermfg=228 guifg=#ffff87
-hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
-hi Statement term=none ctermfg=Yellow gui=none guifg=#aa4444
+hi Comment term=NONE cterm=NONE ctermfg=117 gui=NONE guifg=#87d7ff
+hi Constant term=underline cterm=NONE ctermfg=228 guifg=#ffff87
+hi Identifier term=underline cterm=NONE ctermfg=Cyan guifg=#40ffff
+hi Statement term=NONE ctermfg=Yellow gui=NONE guifg=#aa4444
 hi PreProc term=underline ctermfg=LightBlue guifg=#ff80ff
-hi Type term=underline ctermfg=LightGreen guifg=#60ff60 gui=none
+hi Type term=underline ctermfg=LightGreen guifg=#60ff60 gui=NONE
 hi Function term=bold ctermfg=White guifg=White
 hi Repeat term=underline ctermfg=White guifg=white
 hi Operator ctermfg=41 guifg=#00d75f
@@ -131,7 +131,7 @@ hi link GitGutterChange DiffChange
 hi link GitGutterChangeDelete DiffChange
 
 hi StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
-hi StatusLineNC cterm=none ctermfg=249 ctermbg=237 gui=none guifg=#b2b2b2 guibg=#3a3a3a
+hi StatusLineNC cterm=NONE ctermfg=249 ctermbg=237 gui=NONE guifg=#b2b2b2 guibg=#3a3a3a
 
 " change statusline colors depending on the current mode
 if version >= 700
@@ -139,21 +139,21 @@ if version >= 700
   au InsertLeave * hi StatusLine cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
 endif
 
-hi TabLine term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
-hi TabLineFill term=none cterm=none ctermfg=255 ctermbg=19 gui=none guifg=#eeeeee guibg=#0000af
+hi TabLine term=NONE cterm=NONE ctermfg=255 ctermbg=19 gui=NONE guifg=#eeeeee guibg=#0000af
+hi TabLineFill term=NONE cterm=NONE ctermfg=255 ctermbg=19 gui=NONE guifg=#eeeeee guibg=#0000af
 hi TabLineSel term=reverse cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
 
 " show non-space whitespace using this coloring:
-hi SpecialKey cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
+hi SpecialKey cterm=NONE ctermfg=125 ctermbg=236 gui=NONE guifg=#af005f guibg=#303030
 
 " line length limit highlighting
 hi ColorColumn ctermbg=234 guibg=#301010
 
 " make current line and its number stand out from the rest
-hi CursorLine cterm=none ctermbg=236 gui=none guibg=#404030
-hi CursorColumn cterm=none ctermbg=236 gui=none guibg=#404030
+hi CursorLine cterm=NONE ctermbg=236 gui=NONE guibg=#404030
+hi CursorColumn cterm=NONE ctermbg=236 gui=NONE guibg=#404030
 hi CursorLineNr cterm=bold ctermfg=245 ctermbg=0 gui=bold guifg=#808080 guibg=#000000
-hi LineNr cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
+hi LineNr cterm=NONE ctermfg=240 ctermbg=0 gui=NONE guifg=#606060 guibg=#000000
 
 " FIXME this is a full dump of current highlight groups taken with a loaded
 " Java file; refactor and assign proper color values:

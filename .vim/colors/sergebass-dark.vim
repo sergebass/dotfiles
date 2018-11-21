@@ -12,7 +12,7 @@ endif
 
 hi clear
 
-hi Normal term=none cterm=none ctermfg=250 ctermbg=none gui=none guifg=#c0c0c0 guibg=none
+hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=NONE gui=NONE guifg=#c0c0c0 guibg=NONE
 
 hi User1 term=bold cterm=bold ctermfg=yellow ctermbg=blue gui=bold guifg=#ffff20 guibg=#000040
 
@@ -39,23 +39,23 @@ hi User1 term=bold cterm=bold ctermfg=yellow ctermbg=blue gui=bold guifg=#ffff20
 " VisualNOS   Visual mode selection when vim is "Not Owning the Selection".
 "         Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
 
-hi Cursor term=none cterm=none ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
-hi CursorIM term=none cterm=none ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
-hi CursorLine term=underline cterm=none ctermbg=237 gui=none guibg=#404030
-hi CursorColumn term=none cterm=none ctermbg=237 gui=none guibg=#404030
+hi Cursor term=NONE cterm=NONE ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
+hi CursorIM term=NONE cterm=NONE ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
+hi CursorLine term=underline cterm=NONE ctermbg=237 gui=NONE guibg=#404030
+hi CursorColumn term=NONE cterm=NONE ctermbg=237 gui=NONE guibg=#404030
 hi CursorLineNr term=bold cterm=bold ctermfg=246 ctermbg=0 gui=bold guifg=#949494 guibg=#000000
-hi LineNr term=none cterm=none ctermfg=240 ctermbg=0 gui=none guifg=#606060 guibg=#000000
+hi LineNr term=NONE cterm=NONE ctermfg=240 ctermbg=0 gui=NONE guifg=#606060 guibg=#000000
 
 if has("nvim")
-    hi TermCursor term=none cterm=none ctermfg=0 ctermbg=119 gui=bold guifg=black guibg=#87ff5f
-    hi TermCursorNC term=none cterm=none ctermfg=0 ctermbg=197 gui=bold guifg=black guibg=#ff005f
+    hi TermCursor term=NONE cterm=NONE ctermfg=0 ctermbg=119 gui=bold guifg=black guibg=#87ff5f
+    hi TermCursorNC term=NONE cterm=NONE ctermfg=0 ctermbg=197 gui=bold guifg=black guibg=#ff005f
 endif
 
 " line length limit highlighting
-hi ColorColumn term=none cterm=none ctermbg=0 guibg=#301010
+hi ColorColumn term=NONE cterm=NONE ctermbg=0 guibg=#301010
 
 hi StatusLine term=reverse cterm=bold ctermfg=15 ctermbg=20 gui=bold guifg=#ffffff guibg=#0000b8
-hi StatusLineNC term=reverse cterm=none ctermfg=15 ctermbg=17 gui=none guifg=#b2b2b2 guibg=#00005f
+hi StatusLineNC term=reverse cterm=NONE ctermfg=15 ctermbg=17 gui=NONE guifg=#b2b2b2 guibg=#00005f
 
 " change statusline colors depending on the current mode
 if version >= 700
@@ -63,8 +63,8 @@ if version >= 700
   au InsertLeave * hi StatusLine term=reverse cterm=bold ctermfg=15 ctermbg=20 gui=bold guifg=#ffffff guibg=#0000b8
 endif
 
-hi TabLine term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
-hi TabLineFill term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=none guifg=#eeeeee guibg=#0000af
+hi TabLine term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=NONE guifg=#eeeeee guibg=#0000af
+hi TabLineFill term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=NONE guifg=#eeeeee guibg=#0000af
 hi TabLineSel term=reverse cterm=reverse,bold ctermfg=22 ctermbg=220 gui=bold guifg=#ffd700 guibg=#005f00
 
 hi MoreMsg term=reverse cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
@@ -76,41 +76,41 @@ hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#87000
 hi Search term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
 hi IncSearch term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
 
-hi Directory term=none cterm=none ctermfg=123 gui=none guifg=#87ffff
+hi Directory term=NONE cterm=NONE ctermfg=123 gui=NONE guifg=#87ffff
 
 hi Visual term=reverse cterm=reverse,bold ctermfg=90 ctermbg=226 gui=bold guibg=#5f0087
 
-hi NonText term=none cterm=none ctermfg=240 ctermbg=none gui=none guifg=#585858 guibg=none
-hi EndOfBuffer term=none cterm=none ctermfg=240 gui=none guifg=#585858
+hi NonText term=NONE cterm=NONE ctermfg=240 ctermbg=NONE gui=NONE guifg=#585858 guibg=NONE
+hi EndOfBuffer term=NONE cterm=NONE ctermfg=240 gui=NONE guifg=#585858
 hi Ignore ctermfg=black guifg=bg
 hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff guibg=#000000
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
 hi MatchParen term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
 
 " popup menus (autocompletion etc.)
-hi Pmenu term=reverse cterm=none ctermfg=228 ctermbg=17 gui=none guifg=#ffff87 guibg=#00005f  " normal item
+hi Pmenu term=reverse cterm=NONE ctermfg=228 ctermbg=17 gui=NONE guifg=#ffff87 guibg=#00005f  " normal item
 hi PmenuSel term=bold cterm=bold ctermfg=226 ctermbg=28 gui=bold guifg=#ffff00 guibg=#008700 " selected item
-hi PmenuSbar term=none cterm=none ctermbg=21 gui=none guibg=#0000ff " scrollbar
-hi PmenuThumb term=reverse cterm=none ctermbg=165 gui=none guibg=#d700ff " scrollbar thumb
+hi PmenuSbar term=NONE cterm=NONE ctermbg=21 gui=NONE guibg=#0000ff " scrollbar
+hi PmenuThumb term=reverse cterm=NONE ctermbg=165 gui=NONE guibg=#d700ff " scrollbar thumb
 
 hi WildMenu term=bold cterm=bold ctermfg=226 ctermbg=28 gui=bold guifg=#ffff00 guibg=#008700 " selected item
 
 " show non-space whitespace using this coloring:
-hi SpecialKey term=reverse cterm=none ctermfg=125 ctermbg=236 gui=none guifg=#af005f guibg=#303030
+hi SpecialKey term=reverse cterm=NONE ctermfg=125 ctermbg=236 gui=NONE guifg=#af005f guibg=#303030
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
-hi Comment term=none cterm=none ctermfg=105 gui=none guifg=#8787ff
+hi Comment term=NONE cterm=NONE ctermfg=105 gui=NONE guifg=#8787ff
 hi SpecialComment term=bold cterm=bold ctermfg=105 gui=bold guifg=#8787ff
-hi Constant term=underline cterm=none ctermfg=48 guifg=#00ff87
-hi Identifier term=underline cterm=none ctermfg=Cyan guifg=#40ffff
-hi Statement term=none ctermfg=50 gui=none guifg=#00ffd7
-hi PreProc term=bold cterm=none ctermfg=159 gui=none guifg=#afffff
-hi Type term=none cterm=none ctermfg=255 gui=none guifg=#eeeeee
+hi Constant term=underline cterm=NONE ctermfg=48 guifg=#00ff87
+hi Identifier term=underline cterm=NONE ctermfg=Cyan guifg=#40ffff
+hi Statement term=NONE ctermfg=50 gui=NONE guifg=#00ffd7
+hi PreProc term=bold cterm=NONE ctermfg=159 gui=NONE guifg=#afffff
+hi Type term=NONE cterm=NONE ctermfg=255 gui=NONE guifg=#eeeeee
 hi Function term=bold cterm=bold gui=bold
-hi StorageClass term=none cterm=none ctermfg=39 gui=none guifg=#00afff
-hi Scope term=none cterm=none ctermfg=42 gui=none guifg=#00d787
+hi StorageClass term=NONE cterm=NONE ctermfg=39 gui=NONE guifg=#00afff
+hi Scope term=NONE cterm=NONE ctermfg=42 gui=NONE guifg=#00d787
 hi Repeat term=underline ctermfg=White guifg=white
-hi Operator term=none cterm=none ctermfg=195 gui=none guifg=#d7ffff
+hi Operator term=NONE cterm=NONE ctermfg=195 gui=NONE guifg=#d7ffff
 hi Error term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 hi Todo term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 
