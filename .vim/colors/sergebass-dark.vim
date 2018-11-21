@@ -14,6 +14,8 @@ hi clear
 
 hi Normal term=none cterm=none ctermfg=250 ctermbg=none gui=none guifg=#c0c0c0 guibg=none
 
+hi User1 term=bold cterm=bold ctermfg=yellow ctermbg=blue gui=bold guifg=#ffff20 guibg=#000040
+
 " FIXME temporary highlighting placeholders, taken from vim documentation;
 " uncomment and fix.
 "
