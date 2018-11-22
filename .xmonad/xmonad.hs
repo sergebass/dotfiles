@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.DynamicWorkspaces
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -6,6 +7,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
 import XMonad.Util.Run(spawnPipe, hPutStrLn)
 import qualified Data.Map as M
+import qualified XMonad.StackSet as W
 
 myModMask = mod4Mask -- Use Super instead of Alt
 
@@ -17,7 +19,11 @@ myConfig = desktopConfig
     , normalBorderColor = "#404040"
     }
      `additionalKeys`
-    [ ((myModMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
+    [ ((myModMask .|. shiftMask, xK_s), selectWorkspace def)
+    , ((myModMask .|. shiftMask, xK_r), renameWorkspace def)
+    , ((myModMask .|. shiftMask, xK_m), withWorkspace def (windows . W.shift))
+    , ((myModMask .|. shiftMask, xK_BackSpace), removeWorkspace)
+    , ((myModMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
     , ((myModMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
       , ((myModMask .|. shiftMask .|. controlMask, xK_z), spawn "i3lock -c 000000")
     , ((myModMask .|. controlMask, xK_z), spawn "xscreensaver-command -lock")
