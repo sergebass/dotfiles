@@ -20,7 +20,7 @@ set ruler " show the cursor position all the time
 set rulerformat=%l:%c%V
 
 set laststatus=2 " always display status line, even with one file being edited
-set statusline=%1*%f\ %*%m%r%y%{fugitive#statusline()}%{ObsessionStatus()}\ %=\"%{v:register}\ u%B/%{&fenc}\ %l:%c%V\ %p%%/%L
+set statusline=%1*%f\ %*#%n%m%r%y%{fugitive#statusline()}%{ObsessionStatus()}\ %=\"%{v:register}\ u%B/%{&fenc}/%{&ff}\ %l:%c%V\ %p%%/%L
 
 set autoread " automatically reload files changed by external programs
 au CursorHold,CursorHoldI * :checktime " check for updates each time cursor stops moving
