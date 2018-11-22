@@ -23,12 +23,13 @@ nnoremap <buffer> K :JavaDocPreview<CR>
 
 nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
 
-" Traditional Eclipse way to follow the selected identifier
-nnoremap <buffer> <F3> :JavaSearchContext -a edit<CR>
-nnoremap <buffer> <C-LeftMouse> :JavaSearchContext -a edit<CR>
+" search the term under cursor on the web
+nnoremap <buffer> <LocalLeader>? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> Java API"<Left>
+vnoremap <buffer> <LocalLeader>? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* Java API"<Left>
 
-" use the same shortcut as when using tags
-nnoremap <buffer> <C-]> :JavaSearchContext -a edit<CR>
+" F3 is the traditional Eclipse way to follow the selected identifier
+nnoremap <buffer> <F3> :JavaSearchContext -a edit<CR>
+nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
 
 nnoremap <buffer> <Leader><CR> :JavaSearchContext -a vsplit<CR>
 nnoremap <buffer> <Space><CR> :JavaSearchContext -a split<CR>
