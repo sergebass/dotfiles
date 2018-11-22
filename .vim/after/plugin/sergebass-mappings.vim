@@ -294,6 +294,10 @@ nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gm :Gmove<Space>
 nnoremap <Leader>gs :Gstatus<CR>
 
+" looking up file history in subversion
+nnoremap <Leader>sh :execute 'new <bar> 0r !svn log -v --diff #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
+nnoremap <Leader>sb :execute 'new <bar> 0r !svn ann -v #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
+
 " quick ways to switch between light and dark themes
 nnoremap <Leader><F7> :colorscheme sergebass-light<CR>
 nnoremap <Leader><F8> :colorscheme sergebass-dark<CR>
