@@ -17,4 +17,4 @@ nnoremap <buffer> <LocalLeader>? :!xdg-open "http://www.cplusplus.com/search.do?
 vnoremap <buffer> <LocalLeader>? "*y<Esc>:!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
 
 " toggle between source and header
-nnoremap <buffer> <F4> ::e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+nnoremap <buffer> <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
