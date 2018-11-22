@@ -1,8 +1,19 @@
+set number
+set cursorline
+
 set hlsearch
 set incsearch
-set startnormalmode
+
 set tabstop=4
 set expandtab
 set shiftwidth=4
+
+set textwidth=120
+set scrolloff=1
+
+set startnormalmode
+set contentassistmode
+
+set clipboard=unnamed, unnamedplus
 
 nnoremap <CR> <C-]>
