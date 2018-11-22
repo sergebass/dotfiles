@@ -30,6 +30,7 @@ vnoremap <buffer> <LocalLeader>? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C
 " F3 is the traditional Eclipse way to follow the selected identifier
 nnoremap <buffer> <F3> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
+nnoremap <buffer> <C-LeftMouse>  :JavaSearchContext -a edit<CR>
 
 nnoremap <buffer> <Leader><CR> :JavaSearchContext -a vsplit<CR>
 nnoremap <buffer> <Space><CR> :JavaSearchContext -a split<CR>

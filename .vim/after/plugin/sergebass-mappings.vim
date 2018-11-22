@@ -255,6 +255,7 @@ nnoremap <C-\> :Ag<CR>
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
 nnoremap <CR> g<C-]>
+nnoremap <C-LeftMouse> g<C-]>
 
 " search the word under cursor in external files
 nnoremap <Leader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
