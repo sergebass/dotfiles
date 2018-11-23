@@ -80,7 +80,6 @@ hi Directory term=NONE cterm=NONE ctermfg=123 gui=NONE guifg=#87ffff
 
 hi Visual term=reverse cterm=reverse,bold ctermfg=90 ctermbg=226 gui=bold guibg=#5f0087
 
-hi NonText term=NONE cterm=NONE ctermfg=240 ctermbg=NONE gui=NONE guifg=#585858 guibg=NONE
 hi EndOfBuffer term=NONE cterm=NONE ctermfg=240 gui=NONE guifg=#585858
 hi Ignore ctermfg=black guifg=bg
 hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff guibg=#000000
@@ -96,7 +95,9 @@ hi PmenuThumb term=reverse cterm=NONE ctermbg=165 gui=NONE guibg=#d700ff " scrol
 hi WildMenu term=bold cterm=bold ctermfg=226 ctermbg=28 gui=bold guifg=#ffff00 guibg=#008700 " selected item
 
 " show non-space whitespace using this coloring:
-hi SpecialKey term=reverse cterm=NONE ctermfg=125 ctermbg=236 gui=NONE guifg=#af005f guibg=#303030
+hi NonText term=NONE cterm=NONE ctermfg=237 ctermbg=NONE gui=NONE guifg=#3a3a3a guibg=NONE
+hi Whitespace term=NONE cterm=NONE ctermfg=237 ctermbg=NONE gui=NONE guifg=#3a3a3a guibg=NONE
+hi SpecialKey term=NONE cterm=NONE ctermfg=237 ctermbg=NONE gui=NONE guifg=#3a3a3a guibg=NONE
 
 hi Special term=bold ctermfg=DarkMagenta guifg=Red
 hi Comment term=NONE cterm=NONE ctermfg=105 gui=NONE guifg=#8787ff
@@ -453,7 +454,6 @@ hi link GitGutterChangeDelete DiffChange
 "Visual         xxx cterm=bold ctermbg=54 gui=bold guibg=#5f0087
 "VisualNC       xxx cleared
 "WarningMsg     xxx cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
-"Whitespace     xxx links to NonText
 "WildfireMark   xxx links to WarningMsg
 "WildfirePrompt xxx links to String
 "WildfireShade  xxx links to Comment
