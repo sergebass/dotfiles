@@ -121,3 +121,6 @@
 [submodule ".vim/bundle/vim-localvimrc"]
 	path = .vim/bundle/vim-localvimrc
 	url = https://github.com/embear/vim-localvimrc.git
+[submodule ".vim/bundle/vim-bracketed-paste"]
+	path = .vim/bundle/vim-bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste
