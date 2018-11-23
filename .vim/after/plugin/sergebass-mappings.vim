@@ -256,7 +256,7 @@ nnoremap <CR> g<C-]>
 nnoremap <C-LeftMouse> g<C-]>
 
 " quickly search the word under cursor using fzf.vim
-nnoremap <Leader><BS> :Ag<CR>
+nnoremap <Leader><BS> :Ag<CR>:cfirst<CR>
 
 " speed up the search by auto-comitting the grep commands
 map <Leader><CR> <Leader>/<CR>
