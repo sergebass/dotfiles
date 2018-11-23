@@ -216,6 +216,8 @@ nnoremap <LocalLeader>= :lw<CR>
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
 nnoremap <LocalLeader><S-Del> :ClearLocationList<CR>
 
+nnoremap <BS><Del> :DeleteHiddenBuffers<CR>
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
