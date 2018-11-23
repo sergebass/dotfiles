@@ -32,9 +32,14 @@ nnoremap <buffer> <F3> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <C-LeftMouse>  :JavaSearchContext -a edit<CR>
 
-nnoremap <buffer> <Leader><CR> :JavaSearchContext -a vsplit<CR>
-nnoremap <buffer> <Space><CR> :JavaSearchContext -a split<CR>
-nnoremap <buffer> <BS><CR> :JavaSearchContext -a tabnew<CR>
+" quickly search the word under cursor using eclim (Eclipse's Ctrl+Shift+G analog)
+nnoremap <buffer> <LocalLeader><BS> :JavaSearch -a edit -x all -s all -t all<CR>
+
+" search the word under cursor in external files (Java sources only,
+" ripgrep is assumed to be the underlying search engine)
+nnoremap <buffer> <LocalLeader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w -t java <C-r>=w<CR>
+" quote the selected text in visual mode since that's to be used for multiple words
+vnoremap <buffer> <LocalLeader>/ "*y<Esc>:grep -s -t java "<C-r>*"<Left>
 
 " Let the user customize search parameters of these commands
 nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
@@ -42,10 +47,10 @@ nnoremap <buffer> <LocalLeader>fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a 
 nnoremap <buffer> <LocalLeader>fi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
 nnoremap <buffer> <LocalLeader>fr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
 
-nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
-
 nnoremap <buffer> <LocalLeader>< :JavaCallHierarchy<CR>
 nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
+
+nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
 
 nnoremap <buffer> <LocalLeader>jd :JavaDocComment<CR>
 

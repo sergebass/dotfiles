@@ -179,7 +179,7 @@ nnoremap <silent> <Leader><S-Tab> :Lexplore<CR>
 nnoremap <silent> <S-Tab> :browse oldfiles<CR>
 
 nnoremap <silent> <C-_> :TagbarToggle<CR>
-nnoremap <silent> <M-/> :MinimapToggle<CR>
+nnoremap <silent> <Leader><C-_> :MinimapToggle<CR>
 
 " quickly close both quickfix and location list windows
 noremap <silent> _ :lclose<CR>:cclose<CR>
@@ -216,46 +216,51 @@ nnoremap <LocalLeader>= :lw<CR>
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
 nnoremap <LocalLeader><S-Del> :ClearLocationList<CR>
 
-" This selects the next closest text object.
-map + <Plug>(wildfire-fuel)
-
-" This selects the previous closest text object.
-vmap - <Plug>(wildfire-water)
-
-" make left mouse double click perform search of a word under cursor
-nnoremap <2-LeftMouse> *
-
-" quickly reselect just pasted text
-nnoremap <silent> gV `[v`]
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cnoremap w!! w !sudo tee > /dev/null %
 
 " map Ctrl+R to replace highlighted text (with confirmation)
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cnoremap w!! w !sudo tee > /dev/null %
+" quickly reselect just pasted text
+nnoremap <silent> gV `[v`]
 
-" easily copy the word under cursor into the command line being edited
-nnoremap <M-CR> :<C-r>=expand("<cword>")<CR><Home>
-vnoremap <M-CR> "*y<Esc>:<C-r>*<Home>
-cnoremap <M-CR> <C-r>=expand("<cword>")<CR>
+" This selects the next and the previous closest text object.
+map + <Plug>(wildfire-fuel)
+vmap - <Plug>(wildfire-water)
 
-" define a custom highlighting for the word under cursor or a selection
-" in the current buffer
-nnoremap <LocalLeader>* :match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
-vnoremap <LocalLeader>* "*y<Esc>:match SPCustomHighlight "<C-r>*"
+" make left mouse double click perform search of a word under cursor
+nnoremap <2-LeftMouse> *
 
 " define a custom highlighting for the word under cursor or a selection
 " in all open buffers
 nnoremap <Leader>* :bufdo match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
 vnoremap <Leader>* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
 
-" search the word under cursor using fzf.vim
-nnoremap <C-\> :Ag<CR>
+" define a custom highlighting for the word under cursor or a selection
+" in the current buffer
+nnoremap <LocalLeader>* :match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
+vnoremap <LocalLeader>* "*y<Esc>:match SPCustomHighlight "<C-r>*"
+
+" easily copy the word under cursor into the command line being edited
+nnoremap <C-\> :<C-r>=expand("<cword>")<CR><Home>
+vnoremap <C-\> "*y<Esc>:<C-r>*<Home>
+cnoremap <C-\> <C-r>=expand("<cword>")<CR>
+
+" in case Alt+Enter is recognized correctly, make it an equivalent of Ctrl+Backslash
+map <M-CR> <C-\>
 
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
 nnoremap <CR> g<C-]>
 nnoremap <C-LeftMouse> g<C-]>
+
+" quickly search the word under cursor using fzf.vim
+nnoremap <Leader><BS> :Ag<CR>
+
+" speed up the search by auto-comitting the grep commands
+map <Leader><CR> <Leader>/<CR>
+map <LocalLeader><CR> <LocalLeader>/<CR>
 
 " search the word under cursor in external files
 nnoremap <Leader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
