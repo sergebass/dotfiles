@@ -176,7 +176,7 @@ nnoremap <silent> <BS><S-Tab> :NERDTreeToggle<CR>
 nnoremap <silent> <Leader><Tab> :Explore<CR>
 nnoremap <silent> <Leader><S-Tab> :Lexplore<CR>
 
-nnoremap <silent> <Leader><BS> :browse oldfiles<CR>
+nnoremap <silent> <S-Tab> :browse oldfiles<CR>
 
 nnoremap <silent> <C-_> :TagbarToggle<CR>
 nnoremap <silent> <M-/> :MinimapToggle<CR>
