@@ -20,6 +20,7 @@ setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\
 setlocal keywordprg=:JavaDocPreview
 
 nnoremap <buffer> K :JavaDocPreview<CR>
+nmap <buffer> <F2> K
 
 nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
 
@@ -28,9 +29,9 @@ nnoremap <buffer> <LocalLeader>? :!xdg-open "https://duckduckgo.com?q=<C-r>=expa
 vnoremap <buffer> <LocalLeader>? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* Java API"<Left>
 
 " F3 is the traditional Eclipse way to follow the selected identifier
-nnoremap <buffer> <F3> :JavaSearchContext -a edit<CR>
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
-nnoremap <buffer> <C-LeftMouse>  :JavaSearchContext -a edit<CR>
+nmap <buffer> <C-LeftMouse> <CR>
+nmap <buffer> <F3> <CR>
 
 " quickly search the word under cursor using eclim (Eclipse's Ctrl+Shift+G analog)
 nnoremap <buffer> <LocalLeader><BS> :JavaSearch -a edit -x all -s all -t all<CR>:cfirst<CR>
