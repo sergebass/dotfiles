@@ -1,7 +1,10 @@
 #!/bin/sh
 
-# Properly configure the second monitor
-#xrandr --output DP1-3 --mode 1920x1080 --rate 60 --right-of eDP1
+# Automatically configure the second monitor
+#MONITOR1=eDP1
+#MONITOR2=DP2
+#xrandr --output $MONITOR2 --off
+#xrandr --output $MONITOR2 --auto --right-of $MONITOR1
 
 # a temporary fix for LibreOffice + xmonad
 # (https://code.google.com/archive/p/xmonad/issues/200)
