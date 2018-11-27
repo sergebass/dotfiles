@@ -7,6 +7,7 @@
 "setlocal keywordprg=hoogle
 
 nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/tags/default.asp"<CR>
+nnoremap <buffer> <C-F1> :!xdg-open "https://dev.w3.org/html5/html-author/"<CR>
 
 nnoremap <buffer> <LocalLeader>g :BrowserOpen<CR>
 nnoremap <buffer> <LocalLeader>v :Validate<CR>
