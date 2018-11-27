@@ -23,6 +23,7 @@ nnoremap <buffer> K :JavaDocPreview<CR>
 nmap <buffer> <F2> K
 
 nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
+nnoremap <buffer> <M-F1> :!xdg-open "https://docs.oracle.com/javase/10/docs/api/index.html"<CR>
 
 " search the term under cursor on the web
 nnoremap <buffer> <LocalLeader>? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> Java API"<Left>

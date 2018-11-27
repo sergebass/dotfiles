@@ -7,6 +7,7 @@
 "setlocal keywordprg=hoogle
 
 nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/cssref/"<CR>
+nnoremap <buffer> <M-F1> :!xdg-open "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"<CR>
 
 nnoremap <buffer> <LocalLeader>v :Validate<CR>
 

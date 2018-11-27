@@ -12,7 +12,7 @@ set autoindent
 " setlocal makeprg=stack\ build
 
 nnoremap <buffer> <F1> :!xdg-open "https://www.idris-lang.org/documentation/"<CR>
-nnoremap <buffer> <C-F1> :!xdg-open "http://docs.idris-lang.org/en/latest/"<CR>
+nnoremap <buffer> <M-F1> :!xdg-open "http://docs.idris-lang.org/en/latest/"<CR>
 
 " search the word under cursor in Idris documentation database (using browser)
 nnoremap <buffer> <LocalLeader>? :!xdg-open "http://docs.idris-lang.org/en/latest/search.html?q=<C-r>=expand("<cword>")<CR>"<Left>

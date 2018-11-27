@@ -12,7 +12,7 @@ set autoindent
 " setlocal makeprg=stack\ build
 
 nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/sql/sql_quickref.asp"<CR>
-nnoremap <buffer> <C-F1> :!xdg-open "https://www.postgresql.org/docs/current/sql-commands.html"<CR>
+nnoremap <buffer> <M-F1> :!xdg-open "https://www.postgresql.org/docs/current/sql-commands.html"<CR>
 
 " search the word under cursor in PostgreSQL database (using browser)
 nnoremap <buffer> <LocalLeader>?p :!xdg-open "https://www.postgresql.org/search/?q=<C-r>=expand("<cword>")<CR>"<Left>
