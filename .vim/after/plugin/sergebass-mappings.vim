@@ -319,6 +319,8 @@ nnoremap <Leader><F8> :colorscheme sergebass-dark<CR>
 nnoremap <Leader>R :set readonly<CR>
 nnoremap <Leader>W :set noreadonly<CR>
 
-nnoremap <silent> <Leader>K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <Leader>gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <Leader><F2> :call LanguageClient#textDocument_rename()<CR>
+" shortcuts for language client/server use
+nnoremap <Leader><F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <Leader>K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <Leader>gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader><F2> :call LanguageClient#textDocument_rename()<CR>

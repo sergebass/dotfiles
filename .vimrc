@@ -110,8 +110,9 @@ autocmd FileType sh setlocal keywordprg=:Man
 
 " LanguageClient global settings
 let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'haskell': ['hie', '--lsp'],
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'java': ['tcp://127.0.0.1:55555'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
     \ }
