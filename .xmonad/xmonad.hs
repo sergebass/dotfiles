@@ -57,7 +57,7 @@ myLayoutHook = avoidStruts $ layoutHook myConfig
 myManageHook = composeAll
     [ manageDocks
     , className =? "Xmessage" --> doFloat
-    , className =? "Keybase" --> doShift "9"
+    , className =? "Keybase" --> doShift "_"
     ]
 
 main = do
