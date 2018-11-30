@@ -15,6 +15,7 @@ alias gsb='git status -sb'
 alias agj='ag --type=java'
 
 alias gg='git grep'
+alias gda='git diff HEAD'
 
 # stage only non-whitespace changes (https://stackoverflow.com/a/7149602)
 alias gaddnw='git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -'
