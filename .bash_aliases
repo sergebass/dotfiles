@@ -46,6 +46,17 @@ function c()
     exec $@ 2>&1 | sed -e 's/.*\bFAIL.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bERR.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bWARN.*/\x1b[33;7m&\x1b[0m/i'
 }
 
+function red-errors()
+{
+    (set -o pipefail;
+
+    if [ -n "$ZSH_VERSION" ]; then
+        setopt nomultios
+    fi
+
+    "$@" 2>&1 >&3 | sed $'s,.*,\e[31m&\e[m,' >&2) 3>&1
+}
+
 function qm()
 {
 #    make $@ 2>&1 | sed -e 's/.*\bFAIL.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bERR.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bWARN.*/\x1b[33;7m&\x1b[0m/i'
