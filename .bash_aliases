@@ -27,6 +27,80 @@ alias t='tig --all'
 # this is an Escape sequence to dynamically change rxvt terminal font size
 alias rxvt-font-size='printf "\033]50;%s%d\007" "xft:Inconsolata:medium:antialias=true:hintstyle=hintslight:pixelsize="'
 
+# cd to selected directory, specified on the command line or chosen from the fzf list
+# start directory lookup from the current directory and ignore hidden directories (starting with dot)
+fzcd() {
+  local dir
+  dir=$(find -L . -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf -0 -1 +m -q "$1") &&
+  cd "$dir"
+}
+
+# cd to selected directory, specified on the command line or chosen from the fzf list
+# start directory lookup from the current directory and include hidden directories (starting with dot)
+fzcda() {
+  local dir
+  dir=$(find -L . -path '\*' -prune -o -type d -print 2> /dev/null | fzf -0 -1 +m -q "$1") &&
+  cd "$dir"
+}
+
+# cd to selected directory, specified on the command line or chosen from the fzf list
+# start directory lookup from the user's home directory
+fzcdh() {
+  local dir
+  dir=$(find -L ~ -type d -print 2> /dev/null | fzf -0 -1 +m -q "$1") &&
+  cd "$dir"
+}
+
+# cd to selected directory, specified on the command line or chosen from the fzf list
+# start directory lookup from the root directory
+fzcdr() {
+  local dir
+  dir=$(find -L / -type d -print 2> /dev/null | fzf -0 -1 +m -q "$1") &&
+  cd "$dir"
+}
+
+# cd into the directory of the selected file, specified on the command line or chosen from the fzf list
+fzcdf() {
+   local file
+   local dir
+   file=$(fzf -0 -1 +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
+
+# fze [FUZZY PATTERNS...]
+# fuzzy-find a file or files and edit it/them in vim/neovim
+fze() {
+   local files
+   files=$(find -L . -type f -print 2> /dev/null | fzf -0 -1 --print0 -m -q "$1" | tr '\000' ' ') && $EDITOR -c "args $files | tab all"
+}
+
+# fuzzy grep using ag; open results via default editor at a specific line number and column
+fzag() {
+  local file
+  local line
+  local column
+
+  read -r file line column <<< "$(ag -f --hidden --noheading --nobreak --nogroup --numbers --column $@ | fzf -0 -1 +m | awk -F: '{print $1, $2, $3}')"
+
+  if [[ -n $file ]]
+  then
+      $EDITOR -c "call cursor($line, $column)" $file
+  fi
+}
+
+# fuzzy grep using rg; open results via default editor at a specific line number and column
+fzrg() {
+  local file
+  local line
+  local column
+
+  read -r file line column <<< "$(rg -L --hidden --no-heading -n --column $@ | fzf -0 -1 +m | awk -F: '{print $1, $2, $3}')"
+
+  if [[ -n $file ]]
+  then
+      $EDITOR -c "call cursor($line, $column)" $file
+  fi
+}
+
 function svn-blame() {
     svn ann -v "$@" | less
 }
