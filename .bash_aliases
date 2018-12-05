@@ -73,31 +73,25 @@ fze() {
    files=$(find -L . -type f -print 2> /dev/null | fzf -0 -1 --print0 -m -q "$1" | tr '\000' ' ') && $EDITOR -c "args $files | tab all"
 }
 
-# fuzzy grep using ag; open results via default editor at a specific line number and column
+# fuzzy grep using ag; open results via default editor at a specific line numbers and columns
 fzag() {
-  local file
-  local line
-  local column
+  local files
+  files=$(ag -f --hidden --noheading --nobreak --nogroup --numbers --column  $@ | fzf -0 -1 -m | awk -F: '{print $1, $2, $3}' | tr ' ' ':' | tr '\n' ' ')
 
-  read -r file line column <<< "$(ag -f --hidden --noheading --nobreak --nogroup --numbers --column $@ | fzf -0 -1 +m | awk -F: '{print $1, $2, $3}')"
-
-  if [[ -n $file ]]
+  if [[ -n $files ]]
   then
-      $EDITOR -c "call cursor($line, $column)" $file
+      $EDITOR -c "args $files | tab all"
   fi
 }
 
-# fuzzy grep using rg; open results via default editor at a specific line number and column
+# fuzzy grep using rg; open results via default editor at a specific line numbers and columns
 fzrg() {
-  local file
-  local line
-  local column
+  local files
+  files=$(rg -L --hidden --no-heading -n --column $@ | fzf -0 -1 -m | awk -F: '{print $1, $2, $3}' | tr ' ' ':' | tr '\n' ' ')
 
-  read -r file line column <<< "$(rg -L --hidden --no-heading -n --column $@ | fzf -0 -1 +m | awk -F: '{print $1, $2, $3}')"
-
-  if [[ -n $file ]]
+  if [[ -n $files ]]
   then
-      $EDITOR -c "call cursor($line, $column)" $file
+      $EDITOR -c "args $files | tab all"
   fi
 }
 
