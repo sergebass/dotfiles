@@ -12,17 +12,16 @@ alias et='emacsclient -t'
 alias ec='emacsclient -c'
 
 alias gsb='git status -sb'
-alias agj='ag --type=java'
-
 alias gg='git grep'
 alias gda='git diff HEAD'
 
 # stage only non-whitespace changes (https://stackoverflow.com/a/7149602)
 alias gaddnw='git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -'
 
-alias rg='rg --no-heading -n'
-
 alias t='tig --all'
+
+alias ag='ag -f --hidden --noheading --nobreak --nogroup --numbers --column --vimgrep'
+alias rg='rg -L --hidden --no-heading -n --column'
 
 # this is an Escape sequence to dynamically change rxvt terminal font size
 alias rxvt-font-size='printf "\033]50;%s%d\007" "xft:Inconsolata:medium:antialias=true:hintstyle=hintslight:pixelsize="'
