@@ -19,7 +19,7 @@ alias gda='git diff HEAD'
 # stage only non-whitespace changes (https://stackoverflow.com/a/7149602)
 alias gaddnw='git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -'
 
-alias _sync='watch grep -e Dirty: -e Writeback: /proc/meminfo'
+alias _sync='sync & watch -n 1 grep -e Dirty: -e Writeback: /proc/meminfo'
 
 alias t='tig --all'
 
