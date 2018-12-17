@@ -54,6 +54,8 @@ nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
 
 nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
 
+nnoremap <buffer> <LocalLeader>o :JavaOutline<CR>
+
 nnoremap <buffer> <LocalLeader>jd :JavaDocComment<CR>
 
 nnoremap <buffer> <LocalLeader>rm :JavaMove<Space>
