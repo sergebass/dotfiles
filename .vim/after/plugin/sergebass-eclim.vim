@@ -8,7 +8,7 @@ let g:EclimLocateFileNonProjectScope = 'ag'
 let g:EclimJavaCallHierarchyDefaultAction = 'edit'
 let g:EclimJavaHierarchyDefaultAction = 'edit'
 
-nnoremap <LocalLeader><BS> :LocateFile<CR>
+nnoremap <LocalLeader><M-BS> :LocateFile<CR>
 
 nnoremap <LocalLeader><Space> :BuffersToggle<CR>
 
