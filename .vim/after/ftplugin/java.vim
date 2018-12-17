@@ -44,6 +44,7 @@ nnoremap <buffer> <LocalLeader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w -t 
 vnoremap <buffer> <LocalLeader>/ "*y<Esc>:grep -s -t java "<C-r>*"<Left>
 
 " Let the user customize search parameters of these commands
+nnoremap <buffer> <LocalLeader>f :JavaSearch<Space>
 nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
 nnoremap <buffer> <LocalLeader>fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
 nnoremap <buffer> <LocalLeader>fi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
