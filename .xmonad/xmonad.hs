@@ -13,7 +13,7 @@ myModMask = mod4Mask -- Use Super instead of Alt
 
 myConfig = desktopConfig
     { modMask = myModMask
-    , terminal = "sp-terminal.sh"
+    , terminal = "x-terminal-emulator"
     , borderWidth = 2
     , focusedBorderColor = "#FFB000" -- Orange-ish color
     , normalBorderColor = "#404040"
@@ -23,19 +23,24 @@ myConfig = desktopConfig
     , ((myModMask .|. shiftMask, xK_r), renameWorkspace def)
     , ((myModMask .|. shiftMask, xK_m), withWorkspace def (windows . W.shift))
     , ((myModMask .|. shiftMask, xK_BackSpace), removeWorkspace)
+    -- several ways of session locking
     , ((myModMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
     , ((myModMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
-      , ((myModMask .|. shiftMask .|. controlMask, xK_z), spawn "i3lock -c 000000")
+    , ((myModMask .|. shiftMask .|. controlMask, xK_z), spawn "i3lock -c 000000")
     , ((myModMask .|. controlMask, xK_z), spawn "xscreensaver-command -lock")
-    --take a screenshot of entire display
+    -- take a screenshot of entire display
     , ((myModMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
-    --take a screenshot of focused window
+    -- take a screenshot of focused window
     , ((myModMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
+    -- various calculators
     , ((myModMask .|. shiftMask, xK_equal), spawn "urxvt -e bc -l")
     , ((myModMask .|. shiftMask, xK_KP_Enter), spawn "gnome-calculator")
+    -- web browser
     , ((myModMask .|. shiftMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
+    -- keyboard layout switching
     , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
     , ((myModMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
+    -- audio controls
     , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
     , ((myModMask .|. shiftMask, xK_Page_Up), spawn "amixer -D pulse set Master 5%+")
     , ((myModMask .|. shiftMask, xK_Page_Down), spawn "amixer -D pulse set Master 5%-")
@@ -57,7 +62,7 @@ myLayoutHook = avoidStruts $ layoutHook myConfig
 myManageHook = composeAll
     [ manageDocks
     , className =? "Xmessage" --> doFloat
-    , className =? "Keybase" --> doShift "_"
+    -- , className =? "Keybase" --> doShift "_"
     ]
 
 main = do
@@ -70,5 +75,5 @@ main = do
             { ppOutput = hPutStrLn xmproc
             , ppTitle = xmobarColor "cyan" ""
             }
-        , workspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=" ]
+        -- , workspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=" ]
         }
