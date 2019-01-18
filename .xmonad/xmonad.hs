@@ -61,8 +61,8 @@ myLayoutHook = avoidStruts $ layoutHook myConfig
 
 myManageHook = composeAll
     [ manageDocks
+    , className =? "Java" --> doFloat -- for Eclipse splash screen etc.
     , className =? "Xmessage" --> doFloat
-    -- , className =? "Keybase" --> doShift "_"
     ]
 
 main = do
