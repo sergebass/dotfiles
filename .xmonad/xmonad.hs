@@ -40,6 +40,10 @@ myConfig = desktopConfig
     -- keyboard layout switching
     , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
     , ((myModMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
+    -- backlight brightness
+    , ((myModMask .|. controlMask .|. shiftMask, xK_Page_Up), spawn "xbacklight -inc 10")
+    , ((myModMask .|. controlMask .|. shiftMask, xK_Page_Down), spawn "xbacklight -dec 10")
+    , ((myModMask .|. controlMask .|. shiftMask, xK_End), spawn "xbacklight -set 100")
     -- audio controls
     , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
     , ((myModMask .|. shiftMask, xK_Page_Up), spawn "amixer -D pulse set Master 5%+")
