@@ -151,23 +151,31 @@ nnoremap <Leader>@ :source Session
 " using FZF
 nnoremap <silent> <BS><Space> :call fzf#vim#buffers()<CR>
 nnoremap <silent> <BS><BS> :call fzf#vim#history()<CR>
-nnoremap <silent> <BS><M-BS> :Files<CR>
+nnoremap <silent> <BS>R :Rg<CR>
+nnoremap <silent> <BS>A :Ag<CR>
+nnoremap <silent> <BS>f :Files<CR>
+nnoremap <silent> <BS>F :Filetypes<CR>
 nnoremap <silent> <BS>\ :GFiles<CR>
 nnoremap <silent> <BS>\| :GFiles?<CR>
 nnoremap <silent> <BS>/ :BLines<CR>
 nnoremap <silent> <BS>? :Lines<CR>
+nnoremap <silent> <BS>t :BTags<CR>
+nnoremap <silent> <BS>T :Tags<CR>
 nnoremap <silent> <BS>g :BCommits<CR>
-nnoremap <silent> <BS>k :Maps<CR>
+nnoremap <silent> <BS>G :Commits<CR>
 nnoremap <silent> <BS>w :Windows<CR>
+nnoremap <silent> <BS>m :Marks<CR>
+nnoremap <silent> <BS>k :Maps<CR>
+nnoremap <silent> <BS>c :Commands<CR>
 
 " using CtrlP
-nnoremap <silent> <BS>r :CtrlPMRUFiles<CR>
-nnoremap <silent> <BS>f :CtrlP<CR>
-nnoremap <silent> <BS>b :CtrlPBuffer<CR>
-nnoremap <silent> <BS>t :CtrlPTag<CR>
-nnoremap <silent> <BS>m :CtrlPBookmark<CR>
-nnoremap <silent> <BS>c :CtrlPChange<CR>
-nnoremap <silent> <BS>x :CtrlPMixed<CR>
+nnoremap <silent> <BS><C-R> :CtrlPMRUFiles<CR>
+nnoremap <silent> <BS><C-F> :CtrlP<CR>
+nnoremap <silent> <BS><C-B> :CtrlPBuffer<CR>
+nnoremap <silent> <BS><C-T> :CtrlPTag<CR>
+nnoremap <silent> <BS><C-M> :CtrlPBookmark<CR>
+nnoremap <silent> <BS><C-H> :CtrlPChange<CR>
+nnoremap <silent> <BS><C-X> :CtrlPMixed<CR>
 
 " using NERDTree
 nnoremap <silent> <BS><Tab> :NERDTreeFind<CR>
