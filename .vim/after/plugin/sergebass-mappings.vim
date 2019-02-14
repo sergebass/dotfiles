@@ -71,11 +71,11 @@ map <silent> <C-l> <S-Right>
 nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
-" A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes tabs normally)
-noremap <Space> <C-w>
+" A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
+noremap <Leader>w <C-w>
 
-" for some reason, pressing <Space> twice doesn't have the same effect as ^W^W
-noremap <Space><Space> <C-w><C-w>
+" emulate Spacemacs/SpaceVim
+noremap <Leader><Space> <Esc>:
 
 " Tab navigation
 noremap <silent> <Space><Insert> :tabnew<CR>
@@ -284,25 +284,28 @@ nnoremap <Leader>? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<
 vnoremap <Leader>? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
 
 " search the word under cursor in all open buffers
-nnoremap <Leader><Space> :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>
+" FIXME fix this, does not work in terminal
+nnoremap <Leader><C-Space> :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Leader><Space> "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
+" FIXME fix this, does not work in terminal
+vnoremap <Leader><C-Space> "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
 
 " autocompletion like in most IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
+" FIXME fix this, does not work in terminal
 inoremap <silent> <C-Space> <C-x><C-u>
 
 " whitespace cleanup: replace tabs with spaces, remove redundant lines, strip all redundant/trailing whitespace
-noremap <Leader>wt :retab<CR>
+noremap <Leader>WT :retab<CR>
 
-nnoremap <Leader>ws :RemoveAllRedundantWhitespace<CR>
-vnoremap <Leader>ws :<C-w>RemoveSelectedRedundantWhitespace<CR>
+nnoremap <Leader>WS :RemoveAllRedundantWhitespace<CR>
+vnoremap <Leader>WS :<C-w>RemoveSelectedRedundantWhitespace<CR>
 
-nnoremap <Leader>wl :RemoveAllMultipleBlankLines<CR>
-vnoremap <Leader>wl :<C-w>RemoveSelectedMultipleBlankLines<CR>
+nnoremap <Leader>WL :RemoveAllMultipleBlankLines<CR>
+vnoremap <Leader>WL :<C-w>RemoveSelectedMultipleBlankLines<CR>
 
-nnoremap <Leader>ww :retab<CR>:RemoveAllMultipleBlankLines<CR>:RemoveAllRedundantWhitespace<CR>
-vnoremap <Leader>ww :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:<C-w>RemoveSelectedRedundantWhitespace<CR>
+nnoremap <Leader>WW :retab<CR>:RemoveAllMultipleBlankLines<CR>:RemoveAllRedundantWhitespace<CR>
+vnoremap <Leader>WW :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:<C-w>RemoveSelectedRedundantWhitespace<CR>
 
 " An easier way to see git change history for a current line or selection
 nnoremap <Leader>gh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filetype=git buftype=nofile<CR>gg

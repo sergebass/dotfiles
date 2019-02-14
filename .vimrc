@@ -11,7 +11,7 @@ set path=.,/usr/local/include,/usr/include,,**
 
 " even though we define our mappings in other files, we need to make sure
 " that leader and local leader keys are established well before then
-let mapleader = "\\"
+let mapleader = "\<Space>"
 let maplocalleader = "\\\\"
 
 set number " enable line numbers
