@@ -14,13 +14,15 @@ set scrolloff=1
 set startnormalmode
 set contentassistmode
 
-set clipboard=unnamed, unnamedplus
+set clipboard=unnamedplus
 
 let mapleader='\\'
 
 nnoremap <CR> <C-]>
 
 nnoremap S :w<CR>
+
+nnoremap <Leader>v :vim<CR>
 
 nnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
@@ -34,12 +36,16 @@ nnoremap <Space>qq :qa<CR>
 
 nnoremap <Space>fs :w<CR>
 nnoremap <Space>fS :wa<CR>
-nnoremap <Space>fed :new<CR>:e~/.vrapperrc<CR>
+nnoremap <Space>fed :new<CR>:e ~/.vrapperrc<CR>
 
+nnoremap <Space>bb :files<CR>
 nnoremap <Space>bd :bd<CR>
 nnoremap <Space>bn :bnext<CR>
 nnoremap <Space>bp :bprev<CR>
 nnoremap <Space>bR :e!
 nnoremap <Space>bY gg"+yG
 nnoremap <Space>bP ggvG"+p
+
+eclipseaction SearchDeclarations org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
+nnoremap <Space>ss :SearchDeclarations<CR>
 
