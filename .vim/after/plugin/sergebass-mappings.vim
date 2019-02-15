@@ -40,6 +40,8 @@ nnoremap <Space>qq :qa<CR>
 nnoremap <Space>ff :Files<CR>
 nnoremap <Space>fs :w<CR>
 nnoremap <Space>fS :wa<CR>
+nnoremap <Space>ft :NERDTreeToggle<CR>
+nnoremap <Space>fed :new<CR>:e ~/.vimrc<CR>
 
 nnoremap <Space>bb :call fzf#vim#buffers()<CR>
 nnoremap <Space>bd :bd<CR>
@@ -48,6 +50,8 @@ nnoremap <Space>bp :bprev<CR>
 nnoremap <Space>bR :e!
 nnoremap <Space>bY gg"+yG
 nnoremap <Space>bP ggvG"+p
+
+nnoremap <Space>ss :Rg<CR>
 
 " use <Leader> with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
@@ -186,7 +190,6 @@ noremap <silent> <kMinus> <C-w>-
 
 " using FZF
 nnoremap <silent> <BS><BS> :call fzf#vim#history()<CR>
-nnoremap <silent> <BS>fr :Rg<CR>
 nnoremap <silent> <BS>fa :Ag<CR>
 nnoremap <silent> <BS>fF :Filetypes<CR>
 nnoremap <silent> <BS>f\ :GFiles<CR>

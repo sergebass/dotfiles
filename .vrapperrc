@@ -34,6 +34,7 @@ nnoremap <Space>qq :qa<CR>
 
 nnoremap <Space>fs :w<CR>
 nnoremap <Space>fS :wa<CR>
+nnoremap <Space>fed :new<CR>:e~/.vrapperrc<CR>
 
 nnoremap <Space>bd :bd<CR>
 nnoremap <Space>bn :bnext<CR>
