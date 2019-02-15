@@ -16,4 +16,16 @@ set contentassistmode
 
 set clipboard=unnamed, unnamedplus
 
+let mapleader='\\'
+
 nnoremap <CR> <C-]>
+
+nnoremap <Space><Space> <Esc>:
+
+nnoremap <Space>w <C-W>
+
+nnoremap <Space>y "+y
+nnoremap <Space>p "+p
+nnoremap <Space>P "+P
+
+nnoremap <Space>fs :w<CR>
