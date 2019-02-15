@@ -129,34 +129,18 @@ noremap <silent> <Leader>\| :vert ball<CR>
 noremap <silent> <M-Tab> :bn<CR>
 noremap <silent> <M-S-Tab> :bp<CR>
 
-" Use numeric pad {+-*/} or <Ctrl+arrow> keys to resize current window (tested with rxvt-unicode-256color)
-noremap <silent> <kPlus> <C-w>+
-" Numeric + on my terminal
-noremap <silent> <Esc>Ok <C-w>+
-noremap <silent> <C-Up> <C-w>+
-" C-Up on my terminal
-noremap <silent> <Esc>[1;5A <C-w>+
-
-noremap <silent> <kMinus> <C-w>-
-" Numeric -
-noremap <silent> <Esc>Om <C-w>-
-noremap <silent> <C-Down> <C-w>-
-" C-Down on my terminal
-noremap <silent> <Esc>[1;5B <C-w>-
-
+" resize current window (tested with rxvt-unicode-256color)
+noremap <silent> <M-/> <C-w><
 noremap <silent> <kDivide> <C-w><
-" Numeric / on my terminal
-noremap <silent> <Esc>Oo <C-w><
-noremap <silent> <C-Left> <C-w><
-" C-Left on my terminal
-noremap <silent> <Esc>[1;5D <C-w><
 
+noremap <silent> <M-*> <C-w>>
 noremap <silent> <kMultiply> <C-w>>
-" Numeric * on my terminal
-noremap <silent> <Esc>Oj <C-w>>
-noremap <silent> <C-Right> <C-w>>
-" C-Right on my terminal
-noremap <silent> <Esc>[1;5C <C-w>>
+
+noremap <silent> <M-+> <C-w>+
+noremap <silent> <kPlus> <C-w>+
+
+noremap <silent> <M--> <C-w>-
+noremap <silent> <kMinus> <C-w>-
 
 " an alternative way to quickly save the file being edited
 " (make sure to turn off terminal flow control via Ctrl+S/Q)
