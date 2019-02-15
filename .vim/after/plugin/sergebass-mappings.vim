@@ -7,6 +7,12 @@ let maplocalleader = "\\\\"
 
 " emulate Spacemacs/SpaceVim
 nnoremap <Space><Space> :
+nnoremap <Space>qq :qa<CR>
+nnoremap <Space>fs :w<CR>
+nnoremap <Space>bd :bd<CR>
+
+" A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
+nnoremap <Space>w <C-w>
 
 " use <Leader> with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
@@ -77,17 +83,18 @@ map <silent> <C-l> <S-Right>
 nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
-" A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
-noremap <Space>w <C-w>
+" Window manipulation/navigation
+nnoremap <BS> <C-w>
+nnoremap <BS><BS> <C-w>w
 
 " Tab navigation
-noremap <silent> <Space><Insert> :tabnew<CR>
-noremap <silent> <Space><Del> :tabclose<CR>
-noremap <silent> <Space><Home> :tabfirst<CR>
-noremap <silent> <Space><End> :tablast<CR>
-noremap <silent> <Space><PageUp> :tabprev<CR>
-noremap <silent> <Space><PageDown> :tabnext<CR>
-noremap <Space><BS> :tabmove<Space>
+nnoremap <silent> <BS><Insert> :tabnew<CR>
+nnoremap <silent> <BS><Del> :tabclose<CR>
+nnoremap <silent> <BS><Home> :tabfirst<CR>
+nnoremap <silent> <BS><End> :tablast<CR>
+nnoremap <silent> <BS><PageUp> :tabprev<CR>
+nnoremap <silent> <BS><PageDown> :tabnext<CR>
+nnoremap <BS><Space> :tabmove<Space>
 noremap <silent> <C-S-Home> :tabmove 0<CR>
 noremap <silent> <C-S-End> :tabmove<CR>
 noremap <silent> <C-S-PageUp> :tabmove-<CR>
@@ -152,33 +159,33 @@ nnoremap <Leader>@ :source Session
 " Miscellaneous useful search/navigation stuff
 
 " using FZF
-nnoremap <silent> <BS><Space> :call fzf#vim#buffers()<CR>
-nnoremap <silent> <BS><BS> :call fzf#vim#history()<CR>
-nnoremap <silent> <BS>R :Rg<CR>
-nnoremap <silent> <BS>A :Ag<CR>
-nnoremap <silent> <BS>f :Files<CR>
-nnoremap <silent> <BS>F :Filetypes<CR>
-nnoremap <silent> <BS>\ :GFiles<CR>
-nnoremap <silent> <BS>\| :GFiles?<CR>
-nnoremap <silent> <BS>/ :BLines<CR>
-nnoremap <silent> <BS>? :Lines<CR>
-nnoremap <silent> <BS>t :BTags<CR>
-nnoremap <silent> <BS>T :Tags<CR>
-nnoremap <silent> <BS>g :BCommits<CR>
-nnoremap <silent> <BS>G :Commits<CR>
-nnoremap <silent> <BS>w :Windows<CR>
-nnoremap <silent> <BS>m :Marks<CR>
-nnoremap <silent> <BS>k :Maps<CR>
-nnoremap <silent> <BS>c :Commands<CR>
+nnoremap <silent> <BS>\ :call fzf#vim#history()<CR>
+nnoremap <silent> <BS>fb :call fzf#vim#buffers()<CR>
+nnoremap <silent> <BS>fr :Rg<CR>
+nnoremap <silent> <BS>fa :Ag<CR>
+nnoremap <silent> <BS>ff :Files<CR>
+nnoremap <silent> <BS>fF :Filetypes<CR>
+nnoremap <silent> <BS>f\ :GFiles<CR>
+nnoremap <silent> <BS>f\| :GFiles?<CR>
+nnoremap <silent> <BS>f/ :BLines<CR>
+nnoremap <silent> <BS>f? :Lines<CR>
+nnoremap <silent> <BS>ft :BTags<CR>
+nnoremap <silent> <BS>fT :Tags<CR>
+nnoremap <silent> <BS>fg :BCommits<CR>
+nnoremap <silent> <BS>fG :Commits<CR>
+nnoremap <silent> <BS>fw :Windows<CR>
+nnoremap <silent> <BS>fm :Marks<CR>
+nnoremap <silent> <BS>fk :Maps<CR>
+nnoremap <silent> <BS>fc :Commands<CR>
 
 " using CtrlP
-nnoremap <silent> <BS><C-R> :CtrlPMRUFiles<CR>
-nnoremap <silent> <BS><C-F> :CtrlP<CR>
-nnoremap <silent> <BS><C-B> :CtrlPBuffer<CR>
-nnoremap <silent> <BS><C-T> :CtrlPTag<CR>
-nnoremap <silent> <BS><C-M> :CtrlPBookmark<CR>
-nnoremap <silent> <BS><C-H> :CtrlPChange<CR>
-nnoremap <silent> <BS><C-X> :CtrlPMixed<CR>
+nnoremap <silent> <BS>pr :CtrlPMRUFiles<CR>
+nnoremap <silent> <BS>pf :CtrlP<CR>
+nnoremap <silent> <BS>pb :CtrlPBuffer<CR>
+nnoremap <silent> <BS>pt :CtrlPTag<CR>
+nnoremap <silent> <BS>pm :CtrlPBookmark<CR>
+nnoremap <silent> <BS>pc :CtrlPChange<CR>
+nnoremap <silent> <BS>px :CtrlPMixed<CR>
 
 " using NERDTree
 nnoremap <silent> <BS><Tab> :NERDTreeFind<CR>
@@ -211,7 +218,7 @@ nnoremap <silent> <Leader>+ :copen<CR>
 nnoremap <Leader>= :cw<CR>
 
 " clear quickfix list (useful for incremental results of grepadd or vimgrepadd)
-nnoremap <Leader><S-Del> :ClearQuickfixList<CR>
+nnoremap <Leader><M-Del> :ClearQuickfixList<CR>
 
 " facilitate location list navigation
 nnoremap <silent> <LocalLeader>[ :lprev<CR>
@@ -227,9 +234,9 @@ nnoremap <silent> <LocalLeader>+ :lopen<CR>
 nnoremap <LocalLeader>= :lw<CR>
 
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
-nnoremap <LocalLeader><S-Del> :ClearLocationList<CR>
+nnoremap <LocalLeader><M-Del> :ClearLocationList<CR>
 
-nnoremap <BS><Del> :DeleteHiddenBuffers<CR>
+nnoremap <BS><M-Del> :DeleteHiddenBuffers<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
@@ -287,15 +294,12 @@ nnoremap <Leader>? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<
 vnoremap <Leader>? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
 
 " search the word under cursor in all open buffers
-" FIXME fix this, does not work in terminal
-nnoremap <Leader><C-Space> :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>
+nnoremap <Leader><M-Space> :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>
 " quote the selected text in visual mode since that's to be used for multiple words
-" FIXME fix this, does not work in terminal
-vnoremap <Leader><C-Space> "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
+vnoremap <Leader><M-Space> "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
 
-" autocompletion like in most IDEs (Ctrl+Space);
+" autocompletion like in many IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
-" FIXME fix this, does not work in terminal
 inoremap <silent> <C-Space> <C-x><C-u>
 
 " whitespace cleanup: replace tabs with spaces, remove redundant lines, strip all redundant/trailing whitespace
@@ -315,12 +319,12 @@ nnoremap <Leader>gh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filet
 vnoremap <Leader>gh :<C-u>execute 'new <bar> 0r !git log -L <C-r>=line("'<")<CR>,<C-r>=line("'>")<CR>:#'<CR>:set readonly filetype=git buftype=nofile<CR>gg
 
 " quick shortcuts for vim-fugitive
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gg :Ggrep<Space>
-nnoremap <Leader>gl :Glog<CR>
-nnoremap <Leader>gm :Gmove<Space>
-nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Space>gs :Gstatus<CR>
+nnoremap <Space>gl :Glog<CR>
+nnoremap <Space>gd :Gdiff<CR>
+nnoremap <Space>gb :Gblame<CR>
+nnoremap <Space>gg :Ggrep<Space>
+nnoremap <Space>gM :Gmove<Space>
 
 " looking up file history in subversion
 nnoremap <Leader>sh :execute 'new <bar> 0r !svn log -v --diff #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
