@@ -20,12 +20,25 @@ let mapleader='\\'
 
 nnoremap <CR> <C-]>
 
-nnoremap <Space><Space> <Esc>:
+nnoremap S :w<CR>
 
+nnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+
+nnoremap <Space><Space> <Esc>:
+nnoremap <Space><Tab> <C-^>
 nnoremap <Space>w <C-W>
 
-nnoremap <Space>y "+y
-nnoremap <Space>p "+p
-nnoremap <Space>P "+P
+nnoremap <Space>qq :qa<CR>
 
 nnoremap <Space>fs :w<CR>
+nnoremap <Space>fS :wa<CR>
+
+nnoremap <Space>bd :bd<CR>
+nnoremap <Space>bn :bnext<CR>
+nnoremap <Space>bp :bprev<CR>
+nnoremap <Space>bR :e!
+nnoremap <Space>bY gg"+yG
+nnoremap <Space>bP ggvG"+p
+
