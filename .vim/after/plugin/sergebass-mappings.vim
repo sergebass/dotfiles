@@ -5,11 +5,49 @@
 let mapleader = "\\"
 let maplocalleader = "\\\\"
 
+" since "S" is equivalent to "cc", reuse the former one for a different purpose
+nnoremap S :w<CR>
+
+" since "Q" is equivalent to "gQ" and is rarely used:
+nnoremap Q :qa<CR>
+
+" since "Y" is equivalent to "yy":
+" nnoremap Y "+y
+
+" FIXME make use of "X" as well (which is the same as "dh") (?)
+
+" an alternative way to quickly save the file being edited
+" (make sure to turn off terminal flow control via Ctrl+S/Q)
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
+
+" a faster way to copy/paste using clipboard (instead of the default register)
+nnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+
+" session management accelerators (don't forget to add .vim extension!)
+nnoremap <Leader># :mksession! Session
+nnoremap <Leader>@ :source Session
+
 " emulate Spacemacs/SpaceVim
 nnoremap <Space><Space> :
+nnoremap <Space><Tab> <C-^>
+
 nnoremap <Space>qq :qa<CR>
+
+nnoremap <Space>ff :Files<CR>
 nnoremap <Space>fs :w<CR>
+nnoremap <Space>fS :wa<CR>
+
+nnoremap <Space>bb :call fzf#vim#buffers()<CR>
 nnoremap <Space>bd :bd<CR>
+nnoremap <Space>bn :bnext<CR>
+nnoremap <Space>bp :bprev<CR>
+nnoremap <Space>bR :e!
+nnoremap <Space>bY gg"+yG
+nnoremap <Space>bP ggvG"+p
 
 " use <Leader> with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
@@ -125,6 +163,8 @@ noremap <silent> <Leader><Del> :bdelete<CR>
 noremap <silent> <Leader>_ :ball<CR>
 noremap <silent> <Leader>\| :vert ball<CR>
 
+nnoremap <BS><Del> :DeleteHiddenBuffers<CR>
+
 " Alternative shortcuts for traversing buffers
 noremap <silent> <M-Tab> :bn<CR>
 noremap <silent> <M-S-Tab> :bp<CR>
@@ -142,24 +182,12 @@ noremap <silent> <kPlus> <C-w>+
 noremap <silent> <M--> <C-w>-
 noremap <silent> <kMinus> <C-w>-
 
-" an alternative way to quickly save the file being edited
-" (make sure to turn off terminal flow control via Ctrl+S/Q)
-noremap <silent> <C-S> :update<CR>
-vnoremap <silent> <C-S> <C-C>:update<CR>
-inoremap <silent> <C-S> <C-O>:update<CR>
-
-" session management accelerators (don't forget to add .vim extension!)
-nnoremap <Leader># :mksession! Session
-nnoremap <Leader>@ :source Session
-
 " Miscellaneous useful search/navigation stuff
 
 " using FZF
-nnoremap <silent> <BS>\ :call fzf#vim#history()<CR>
-nnoremap <silent> <BS>fb :call fzf#vim#buffers()<CR>
+nnoremap <silent> <BS><BS> :call fzf#vim#history()<CR>
 nnoremap <silent> <BS>fr :Rg<CR>
 nnoremap <silent> <BS>fa :Ag<CR>
-nnoremap <silent> <BS>ff :Files<CR>
 nnoremap <silent> <BS>fF :Filetypes<CR>
 nnoremap <silent> <BS>f\ :GFiles<CR>
 nnoremap <silent> <BS>f\| :GFiles?<CR>
@@ -232,8 +260,6 @@ nnoremap <LocalLeader>= :lw<CR>
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
 nnoremap <LocalLeader><M-Del> :ClearLocationList<CR>
 
-nnoremap <BS><M-Del> :DeleteHiddenBuffers<CR>
-
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
@@ -299,16 +325,16 @@ vnoremap <Leader><M-Space> "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! 
 inoremap <silent> <C-Space> <C-x><C-u>
 
 " whitespace cleanup: replace tabs with spaces, remove redundant lines, strip all redundant/trailing whitespace
-noremap <Leader>WT :retab<CR>
+noremap <Leader>wt :retab<CR>
 
-nnoremap <Leader>WS :RemoveAllRedundantWhitespace<CR>
-vnoremap <Leader>WS :<C-w>RemoveSelectedRedundantWhitespace<CR>
+nnoremap <Leader>ws :RemoveAllRedundantWhitespace<CR>
+vnoremap <Leader>ws :<C-w>RemoveSelectedRedundantWhitespace<CR>
 
-nnoremap <Leader>WL :RemoveAllMultipleBlankLines<CR>
-vnoremap <Leader>WL :<C-w>RemoveSelectedMultipleBlankLines<CR>
+nnoremap <Leader>wl :RemoveAllMultipleBlankLines<CR>
+vnoremap <Leader>wl :<C-w>RemoveSelectedMultipleBlankLines<CR>
 
-nnoremap <Leader>WW :retab<CR>:RemoveAllMultipleBlankLines<CR>:RemoveAllRedundantWhitespace<CR>
-vnoremap <Leader>WW :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:<C-w>RemoveSelectedRedundantWhitespace<CR>
+nnoremap <Leader>ww :retab<CR>:RemoveAllMultipleBlankLines<CR>:RemoveAllRedundantWhitespace<CR>
+vnoremap <Leader>ww :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:<C-w>RemoveSelectedRedundantWhitespace<CR>
 
 " An easier way to see git change history for a current line or selection
 nnoremap <Leader>gh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filetype=git buftype=nofile<CR>gg
