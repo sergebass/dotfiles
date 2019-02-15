@@ -11,9 +11,6 @@ nnoremap <Space>qq :qa<CR>
 nnoremap <Space>fs :w<CR>
 nnoremap <Space>bd :bd<CR>
 
-" A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
-nnoremap <Space>w <C-w>
-
 " use <Leader> with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
 noremap <silent> <Leader>1 <F1>
@@ -84,25 +81,40 @@ nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
 " Window manipulation/navigation
-nnoremap <BS> <C-w>
-nnoremap <BS><BS> <C-w>w
+
+" A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
+nnoremap <Space>w <C-w>
+
+" a quick way to navigate between tabs
+nnoremap <Space>1 1gt
+nnoremap <Space>2 2gt
+nnoremap <Space>3 3gt
+nnoremap <Space>4 4gt
+nnoremap <Space>5 5gt
+nnoremap <Space>6 6gt
+nnoremap <Space>7 7gt
+nnoremap <Space>8 8gt
+nnoremap <Space>9 9gt
+nnoremap <Space>0 10gt
+
+nnoremap <silent> <Space><Left> <C-w>h
+nnoremap <silent> <Space><Right> <C-w>l
+nnoremap <silent> <Space><Up> <C-w>k
+nnoremap <silent> <Space><Down> <C-w>j
 
 " Tab navigation
-nnoremap <silent> <BS><Insert> :tabnew<CR>
-nnoremap <silent> <BS><Del> :tabclose<CR>
-nnoremap <silent> <BS><Home> :tabfirst<CR>
-nnoremap <silent> <BS><End> :tablast<CR>
-nnoremap <silent> <BS><PageUp> :tabprev<CR>
-nnoremap <silent> <BS><PageDown> :tabnext<CR>
-nnoremap <BS><Space> :tabmove<Space>
-noremap <silent> <C-S-Home> :tabmove 0<CR>
-noremap <silent> <C-S-End> :tabmove<CR>
-noremap <silent> <C-S-PageUp> :tabmove-<CR>
-noremap <silent> <C-S-PageDown> :tabmove+<CR>
+nnoremap <silent> <Space><Insert> :tabnew<CR>
+nnoremap <silent> <Space><Del> :tabclose<CR>
+nnoremap <silent> <Space><Home> :tabfirst<CR>
+nnoremap <silent> <Space><End> :tablast<CR>
+nnoremap <silent> <Space><PageUp> :tabprev<CR>
+nnoremap <silent> <Space><PageDown> :tabnext<CR>
 
 " rxvt without tmux does not support Ctrl+PgUp/Down tab navigation, so use these alternatives instead
 noremap <silent> <M-PageUp> :tabprev<CR>
 noremap <silent> <M-PageDown> :tabnext<CR>
+noremap <silent> <M-Home> :tabmove-<CR>
+noremap <silent> <M-End> :tabmove+<CR>
 
 " Buffer management
 noremap <silent> <Leader><PageUp> :bp<CR>
