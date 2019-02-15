@@ -2,11 +2,11 @@
 """ KEYBOARD MAPPINGS
 """ -----------------
 
-" emulate Spacemacs/SpaceVim
-let mapleader = "\<Space>"
+let mapleader = "\\"
 let maplocalleader = "\\\\"
-map <Space><Space> <Leader><Leader>
-noremap <Leader><Leader> <Esc>:
+
+" emulate Spacemacs/SpaceVim
+nnoremap <Space><Space> :
 
 " use <Leader> with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
@@ -78,7 +78,7 @@ nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
-noremap <Leader>w <C-w>
+noremap <Space>w <C-w>
 
 " Tab navigation
 noremap <silent> <Space><Insert> :tabnew<CR>
