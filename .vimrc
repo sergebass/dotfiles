@@ -114,8 +114,14 @@ let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
     \ 'java': ['tcp://127.0.0.1:55555'],
     \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'typescript.tsx': ['javascript-typescript-stdio'],
+    \ 'typescript_': ['tsserver'],
     \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
 
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
