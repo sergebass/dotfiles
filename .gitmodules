@@ -136,3 +136,6 @@
 [submodule ".vim/bundle/yats.vim"]
 	path = .vim/bundle/yats.vim
 	url = https://github.com/HerringtonDarkholme/yats.vim
+[submodule ".vim/bundle/vim-wordmotion"]
+	path = .vim/bundle/vim-wordmotion
+	url = https://github.com/chaoren/vim-wordmotion
