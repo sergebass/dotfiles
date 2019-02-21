@@ -1,0 +1,17 @@
+{
+    "editor.fontFamily": "'Inconsolata', 'Consolas', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 14,
+    "workbench.colorCustomizations": {
+        "editor.background": "#000000"
+    },
+    "workbench.colorTheme": "Dark Atom Dark Green Cursor",
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+    ],
+    "vim.leader": "\\",
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": true,
+}
