@@ -11,31 +11,91 @@
     "vim.hlsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
-    "vim.leader": "\\",
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": [ "H" ],
-            "after": [ "^" ]
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "after": [
+                "<C-w>"
+            ]
         },
         {
-            "before": [ "L" ],
-            "after": [ "$" ]
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
         },
         {
-            "before": [ "leader", "H" ],
-            "after": [ "H" ]
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
         },
         {
-            "before": [ "leader", "L" ],
-            "after": [ "L" ]
+            "before": [
+                "leader",
+                "H"
+            ],
+            "after": [
+                "H"
+            ]
         },
         {
-            "before": [ "Q" ],
-            "commands": [ ":qa" ]
+            "before": [
+                "leader",
+                "L"
+            ],
+            "after": [
+                "L"
+            ]
         },
         {
-            "before": [ "S" ],
-            "commands": [ ":wa" ]
+            "before": [
+                "<leader>",
+                "f",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        },
+        {
+            "before": [
+                "Z",
+                "Z"
+            ],
+            "commands": [
+                ":wq"
+            ]
+        },
+        {
+            "before": [
+                "Q"
+            ],
+            "commands": [
+                ":qa"
+            ]
+        },
+        {
+            "before": [
+                "S"
+            ],
+            "commands": [
+                ":wa"
+            ]
         },
     ],
+    "vim.insertModeKeyBindings": [],
+    "vim.insertModeKeyBindingsNonRecursive": [],
+    "vim.visualModeKeyBindings": [],
+    "vim.visualModeKeyBindingsNonRecursive": [],
 }
