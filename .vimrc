@@ -11,8 +11,10 @@ set path=.,/usr/local/include,/usr/include,,**
 
 " even though we define our mappings in other files, we need to make sure
 " that leader and local leader keys are established well before then
-let mapleader = "\\"
-let maplocalleader = "\\\\"
+" use Spacemacs-style prefixes, where <Space>o and <Space>m are reserved for
+" user (use them for 3rd party plugins to avoid clashes with our mappings)
+let mapleader = "\<Space>o"
+let maplocalleader = "\<Space>m"
 
 set number " enable line numbers
 set scrolloff=1 " keep at least one line visible above/below cursor
