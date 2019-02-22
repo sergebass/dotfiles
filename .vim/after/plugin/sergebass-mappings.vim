@@ -5,7 +5,7 @@
 " use Spacemacs-style prefixes, where <Space>o and <Space>m are reserved for
 " user (use them for 3rd party plugins to avoid clashes with our mappings)
 let mapleader = "\<Space>o"
-let maplocalleader = "\<Space>m"
+let maplocalleader = "\<Space>mo"
 
 " alternative ways of switching to normal mode
 imap <M-Space> <Esc>

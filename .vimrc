@@ -14,7 +14,7 @@ set path=.,/usr/local/include,/usr/include,,**
 " use Spacemacs-style prefixes, where <Space>o and <Space>m are reserved for
 " user (use them for 3rd party plugins to avoid clashes with our mappings)
 let mapleader = "\<Space>o"
-let maplocalleader = "\<Space>m"
+let maplocalleader = "\<Space>mo"
 
 set number " enable line numbers
 set scrolloff=1 " keep at least one line visible above/below cursor
