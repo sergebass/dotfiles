@@ -1,7 +1,7 @@
 {
     "editor.fontFamily": "'Inconsolata', 'Consolas', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 14,
-    "editor.renderWhitespace": "none",
+    "editor.renderWhitespace": "boundary",
     "editor.renderControlCharacters": true,
     "workbench.colorCustomizations": {
         "editor.background": "#000000"
@@ -60,16 +60,6 @@
         },
         {
             "before": [
-                "<leader>",
-                "f",
-                "s"
-            ],
-            "commands": [
-                "workbench.action.files.save",
-            ]
-        },
-        {
-            "before": [
                 "Z",
                 "Z"
             ],
@@ -93,9 +83,62 @@
                 ":wa"
             ]
         },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "t",
+            ],
+            "commands": [
+                "workbench.view.explorer",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "S"
+            ],
+            "commands": [
+                "workbench.action.files.saveAll",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "r"
+            ],
+            "commands": [
+                "workbench.action.quickOpenRecent",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "b"
+            ],
+            "commands": [
+                "workbench.action.showAllEditors",
+            ]
+        },
     ],
     "vim.insertModeKeyBindings": [],
     "vim.insertModeKeyBindingsNonRecursive": [],
     "vim.visualModeKeyBindings": [],
     "vim.visualModeKeyBindingsNonRecursive": [],
+    "files.trimTrailingWhitespace": true,
+    "editor.insertSpaces": false,
+    "todohighlight.keywordsPattern": "FIXME|ASAP|TODO|BUG|XXX|NOTE",
 }
