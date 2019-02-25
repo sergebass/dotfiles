@@ -42,6 +42,7 @@ nnoremap \@ :source Session
 nnoremap <Space><Space> :
 nnoremap <Space><Tab> <C-^>
 
+nnoremap <Space>? :Maps<CR>
 nnoremap <Space>hk :Maps<CR>
 nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
@@ -221,7 +222,6 @@ noremap <silent> <kMinus> <C-w>-
 " Miscellaneous useful search/navigation stuff
 
 " using FZF
-nnoremap <silent> <BS>fh :call fzf#vim#history()<CR>
 nnoremap <silent> <BS>fa :Ag<CR>
 nnoremap <silent> <BS>fF :Filetypes<CR>
 nnoremap <silent> <BS>f\ :GFiles<CR>
@@ -332,6 +332,7 @@ map <M-CR> <C-\>
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
 nnoremap <Space>o<CR> g<C-]>
+nnoremap <Space>mo<CR> g<C-]>
 nnoremap <C-LeftMouse> g<C-]>
 
 " quickly search the word under cursor using fzf.vim
