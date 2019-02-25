@@ -64,10 +64,19 @@
         {
             "before": [
                 "Z",
+                "Q"
+            ],
+            "commands": [
+                ":q!"
+            ]
+        },
+        {
+            "before": [
+                "Z",
                 "Z"
             ],
             "commands": [
-                ":wq"
+                ":x"
             ]
         },
         {
@@ -94,6 +103,16 @@
             ],
             "commands": [
                 "workbench.view.explorer"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
             ]
         },
         {
