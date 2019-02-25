@@ -1,4 +1,6 @@
 {
+    "files.trimTrailingWhitespace": true,
+    "editor.insertSpaces": true,
     "editor.fontFamily": "'Inconsolata', 'Consolas', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 14,
     "editor.renderWhitespace": "boundary",
@@ -7,6 +9,7 @@
         "editor.background": "#000000"
     },
     "workbench.colorTheme": "Dark Atom Dark Green Cursor",
+    "todohighlight.keywordsPattern": "FIXME|ASAP|TODO|BUG|XXX|NOTE",
     "vim.incsearch": true,
     "vim.hlsearch": true,
     "vim.useSystemClipboard": true,
@@ -87,10 +90,10 @@
             "before": [
                 "<leader>",
                 "p",
-                "t",
+                "t"
             ],
             "commands": [
-                "workbench.view.explorer",
+                "workbench.view.explorer"
             ]
         },
         {
@@ -100,7 +103,7 @@
                 "s"
             ],
             "commands": [
-                "workbench.action.files.save",
+                "workbench.action.files.save"
             ]
         },
         {
@@ -110,7 +113,7 @@
                 "S"
             ],
             "commands": [
-                "workbench.action.files.saveAll",
+                "workbench.action.files.saveAll"
             ]
         },
         {
@@ -120,7 +123,7 @@
                 "r"
             ],
             "commands": [
-                "workbench.action.quickOpenRecent",
+                "workbench.action.quickOpenRecent"
             ]
         },
         {
@@ -130,15 +133,12 @@
                 "b"
             ],
             "commands": [
-                "workbench.action.showAllEditors",
+                "workbench.action.showAllEditors"
             ]
-        },
+        }
     ],
     "vim.insertModeKeyBindings": [],
     "vim.insertModeKeyBindingsNonRecursive": [],
     "vim.visualModeKeyBindings": [],
-    "vim.visualModeKeyBindingsNonRecursive": [],
-    "files.trimTrailingWhitespace": true,
-    "editor.insertSpaces": false,
-    "todohighlight.keywordsPattern": "FIXME|ASAP|TODO|BUG|XXX|NOTE",
+    "vim.visualModeKeyBindingsNonRecursive": []
 }
