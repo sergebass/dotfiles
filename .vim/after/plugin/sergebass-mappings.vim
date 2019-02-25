@@ -47,12 +47,13 @@ nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
 nnoremap <Space>qq :qa<CR>
 
-nnoremap <Space>ph :call fzf#vim#history()<CR>
 nnoremap <Space>pt :NERDTreeFind<CR>
 
 nnoremap <Space>ff :Files<CR>
-nnoremap <Space>fy <C-G>
+nnoremap <Space>fr :call fzf#vim#history()<CR>
+nnoremap <Space>fs :w<CR>
 nnoremap <Space>fS :wa<CR>
+nnoremap <Space>fy <C-G>
 nnoremap <Space>ft :NERDTreeToggle<CR>
 nnoremap <Space>fed :new<CR>:e ~/.vimrc<CR>
 
