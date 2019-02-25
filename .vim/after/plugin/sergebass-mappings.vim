@@ -178,12 +178,12 @@ nnoremap <Space>9 9gt
 nnoremap <Space>0 10gt
 
 " Tab navigation
-nnoremap <silent> <BS><Insert> :tabnew<CR>
-nnoremap <silent> <BS><Del> :tabclose<CR>
-nnoremap <silent> <BS><Home> :tabfirst<CR>
-nnoremap <silent> <BS><End> :tablast<CR>
-nnoremap <silent> <BS><PageUp> :tabprev<CR>
-nnoremap <silent> <BS><PageDown> :tabnext<CR>
+nnoremap <silent> <Space><Insert> :tabnew<CR>
+nnoremap <silent> <Space><Del> :tabclose<CR>
+nnoremap <silent> <Space><Home> :tabfirst<CR>
+nnoremap <silent> <Space><End> :tablast<CR>
+nnoremap <silent> <Space><PageUp> :tabprev<CR>
+nnoremap <silent> <Space><PageDown> :tabnext<CR>
 
 " rxvt without tmux does not support Ctrl+PgUp/Down tab navigation, so use these alternatives instead
 noremap <silent> <M-PageUp> :tabprev<CR>
