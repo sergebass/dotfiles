@@ -66,7 +66,14 @@ nnoremap <Space>bR :e!
 nnoremap <Space>bY gg"+yG
 nnoremap <Space>bP ggvG"+p
 
-nnoremap <Space>ss :Rg<CR>
+nnoremap <Space>ss :BLines<CR>
+nnoremap <Space>sb :Lines<CR>
+nnoremap <Space>/ :Rg<CR>
+nnoremap <Space>sp :Rg<CR>
+nnoremap <Space>sap :Ag<CR>
+nnoremap <Space>* :let w=expand("<cword>")<CR><CR>:Rg <C-r>=w<CR><CR>
+nnoremap <Space>sP :Rg<CR>
+nnoremap <Space>saP :Ag<CR>
 
 " quick shortcuts for vim-fugitive
 nnoremap <Space>gs :Gstatus<CR>
@@ -222,12 +229,9 @@ noremap <silent> <kMinus> <C-w>-
 " Miscellaneous useful search/navigation stuff
 
 " using FZF
-nnoremap <silent> <BS>fa :Ag<CR>
 nnoremap <silent> <BS>fF :Filetypes<CR>
 nnoremap <silent> <BS>f\ :GFiles<CR>
 nnoremap <silent> <BS>f\| :GFiles?<CR>
-nnoremap <silent> <BS>f/ :BLines<CR>
-nnoremap <silent> <BS>f? :Lines<CR>
 nnoremap <silent> <BS>ft :BTags<CR>
 nnoremap <silent> <BS>fT :Tags<CR>
 nnoremap <silent> <BS>fg :BCommits<CR>
