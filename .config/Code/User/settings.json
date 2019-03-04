@@ -4,9 +4,11 @@
     "editor.fontFamily": "'Inconsolata', 'Consolas', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 14,
     "editor.renderWhitespace": "boundary",
+    "editor.rulers": [80, 120],
     "editor.renderControlCharacters": true,
     "workbench.colorCustomizations": {
-        "editor.background": "#000000"
+        "editor.background": "#000000",
+        "editorRuler.foreground": "#002020"
     },
     "workbench.colorTheme": "Dark Atom Dark Green Cursor",
     "todohighlight.keywordsPattern": "FIXME|ASAP|TODO|BUG|XXX|NOTE",
