@@ -157,6 +157,24 @@
             "commands": [
                 "workbench.action.showAllEditors"
             ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "/"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "*"
+            ],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
         }
     ],
     "vim.insertModeKeyBindings": [],
