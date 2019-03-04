@@ -161,5 +161,6 @@
     "vim.insertModeKeyBindings": [],
     "vim.insertModeKeyBindingsNonRecursive": [],
     "vim.visualModeKeyBindings": [],
-    "vim.visualModeKeyBindingsNonRecursive": []
+    "vim.visualModeKeyBindingsNonRecursive": [],
+    "terminal.integrated.cursorBlinking": true
 }
