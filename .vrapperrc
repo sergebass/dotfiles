@@ -20,7 +20,8 @@ let mapleader='\\'
 
 nnoremap <CR> <C-]>
 
-nnoremap S :w<CR>
+nnoremap S :wa<CR>
+nnoremap Q :qa<CR>
 
 nnoremap <Leader>v :vim<CR>
 
@@ -48,4 +49,3 @@ nnoremap <Space>bP ggvG"+p
 
 eclipseaction SearchDeclarations org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
 nnoremap <Space>ss :SearchDeclarations<CR>
-
