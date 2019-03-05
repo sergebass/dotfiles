@@ -48,7 +48,7 @@ nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
 nnoremap <Space>qq :qa<CR>
 
-nnoremap <Space>pf :Files<CR>
+nnoremap <Space>pf :GFiles<CR>
 nnoremap <Space>pt :NERDTreeFind<CR>
 nnoremap <Space>pg :Tags<CR>
 
@@ -232,14 +232,12 @@ noremap <silent> <kMinus> <C-w>-
 
 " using FZF
 nnoremap <silent> <BS>fF :Filetypes<CR>
-nnoremap <silent> <BS>f\ :GFiles<CR>
 nnoremap <silent> <BS>f\| :GFiles?<CR>
 nnoremap <silent> <BS>ft :BTags<CR>
 nnoremap <silent> <BS>fg :BCommits<CR>
 nnoremap <silent> <BS>fG :Commits<CR>
 nnoremap <silent> <BS>fw :Windows<CR>
 nnoremap <silent> <BS>fm :Marks<CR>
-nnoremap <silent> <BS>fk :Maps<CR>
 nnoremap <silent> <BS>fc :Commands<CR>
 
 " using CtrlP
