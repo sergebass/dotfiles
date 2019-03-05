@@ -24,6 +24,15 @@
         {
             "before": [
                 "<leader>",
+                "<leader>"
+            ],
+            "after": [
+                ":"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
                 "w"
             ],
             "after": [
