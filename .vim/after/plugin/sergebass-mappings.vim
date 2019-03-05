@@ -48,7 +48,9 @@ nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
 nnoremap <Space>qq :qa<CR>
 
+nnoremap <Space>pf :Files<CR>
 nnoremap <Space>pt :NERDTreeFind<CR>
+nnoremap <Space>pg :Tags<CR>
 
 nnoremap <Space>ff :Files<CR>
 nnoremap <Space>fr :call fzf#vim#history()<CR>
@@ -233,7 +235,6 @@ nnoremap <silent> <BS>fF :Filetypes<CR>
 nnoremap <silent> <BS>f\ :GFiles<CR>
 nnoremap <silent> <BS>f\| :GFiles?<CR>
 nnoremap <silent> <BS>ft :BTags<CR>
-nnoremap <silent> <BS>fT :Tags<CR>
 nnoremap <silent> <BS>fg :BCommits<CR>
 nnoremap <silent> <BS>fG :Commits<CR>
 nnoremap <silent> <BS>fw :Windows<CR>
