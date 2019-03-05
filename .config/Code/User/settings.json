@@ -110,6 +110,25 @@
         },
         {
             "before": [
+                "g",
+                "O"
+            ],
+            "commands": [
+                "workbench.action.gotoSymbol"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "g"
+            ],
+            "commands": [
+                "workbench.action.showAllSymbols"
+            ]
+        },
+        {
+            "before": [
                 "<leader>",
                 "p",
                 "t"
