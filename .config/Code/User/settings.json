@@ -21,8 +21,25 @@
     "vim.useCtrlKeys": true,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<backspace>"
+            ],
+            "after": [
+                "<C-w>"
+            ]
+        }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-w>",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.splitEditorDown"
+            ]
+        },
         {
             "before": [
                 "<leader>",
