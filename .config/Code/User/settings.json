@@ -54,6 +54,16 @@
         {
             "before": [
                 "<leader>",
+                "q",
+                "q"
+            ],
+            "commands": [
+                "workbench.action.quit"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
                 "w"
             ],
             "after": [
