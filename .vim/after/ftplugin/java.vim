@@ -35,7 +35,7 @@ nmap <buffer> <C-LeftMouse> <CR>
 nmap <buffer> <F3> <CR>
 
 " quickly search the word under cursor using eclim (Eclipse's Ctrl+Shift+G analog)
-nnoremap <buffer> <LocalLeader><BS> :JavaSearch -a edit -x all -s all -t all<CR>:cfirst<CR>
+nnoremap <buffer> <BS> :JavaSearch -a edit -x all -s all -t all<CR>:cfirst<CR>
 
 " search the word under cursor in external files (Java sources only,
 " ripgrep is assumed to be the underlying search engine)

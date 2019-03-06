@@ -7,10 +7,6 @@
 let mapleader = "\<Space>o"
 let maplocalleader = "\<Space>mo"
 
-" alternative ways of switching to normal mode
-imap <M-Space> <Esc>
-cmap <M-Space> <Esc>
-
 " since "S" is equivalent to "cc", reuse it for a different purpose
 nnoremap S :wa<CR>
 
@@ -100,8 +96,8 @@ nnoremap <Space>' :terminal<CR>
 
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
 " use the same shortcut for convenience
-nnoremap <M-BS> :terminal<CR>
-tnoremap <M-BS> <C-\><C-n>
+nnoremap <M-Space> :terminal<CR>
+tnoremap <M-Space> <C-\><C-n>
 
 " use \ with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
@@ -174,11 +170,10 @@ nnoremap <silent> <C-k> [m
 
 " Window manipulation/navigation
 
+nnoremap <S-Tab> <C-w>w
+
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
 nnoremap <Space>w <C-w>
-
-nnoremap <BS> <C-w>
-nnoremap <BS><BS> <C-w>w
 
 nnoremap <silent> <Space><Left> <C-w>h
 nnoremap <silent> <Space><Right> <C-w>l
@@ -220,7 +215,7 @@ noremap <silent> \<Del> :bdelete<CR>
 noremap <silent> \_ :ball<CR>
 noremap <silent> \\| :vert ball<CR>
 
-nnoremap <BS><M-Del> :DeleteHiddenBuffers<CR>
+nnoremap <M-Del> :DeleteHiddenBuffers<CR>
 
 " Alternative shortcuts for traversing buffers
 noremap <silent> <M-Tab> :bn<CR>
@@ -242,32 +237,32 @@ noremap <silent> <kMinus> <C-w>-
 " Miscellaneous useful search/navigation stuff
 
 " using FZF
-nnoremap <silent> <BS>fF :Filetypes<CR>
-nnoremap <silent> <BS>f\| :GFiles?<CR>
-nnoremap <silent> <BS>ft :BTags<CR>
-nnoremap <silent> <BS>fg :BCommits<CR>
-nnoremap <silent> <BS>fG :Commits<CR>
-nnoremap <silent> <BS>fw :Windows<CR>
-nnoremap <silent> <BS>fm :Marks<CR>
-nnoremap <silent> <BS>fc :Commands<CR>
+nnoremap <silent> \fzF :Filetypes<CR>
+nnoremap <silent> \fz\| :GFiles?<CR>
+nnoremap <silent> \fzt :BTags<CR>
+nnoremap <silent> \fzg :BCommits<CR>
+nnoremap <silent> \fzG :Commits<CR>
+nnoremap <silent> \fzw :Windows<CR>
+nnoremap <silent> \fzm :Marks<CR>
+nnoremap <silent> \fzc :Commands<CR>
 
 " using CtrlP
-nnoremap <silent> <BS>pr :CtrlPMRUFiles<CR>
-nnoremap <silent> <BS>pf :CtrlP<CR>
-nnoremap <silent> <BS>pb :CtrlPBuffer<CR>
-nnoremap <silent> <BS>pt :CtrlPTag<CR>
-nnoremap <silent> <BS>pm :CtrlPBookmark<CR>
-nnoremap <silent> <BS>pc :CtrlPChange<CR>
-nnoremap <silent> <BS>px :CtrlPMixed<CR>
+nnoremap <silent> \pr :CtrlPMRUFiles<CR>
+nnoremap <silent> \pf :CtrlP<CR>
+nnoremap <silent> \pb :CtrlPBuffer<CR>
+nnoremap <silent> \pt :CtrlPTag<CR>
+nnoremap <silent> \pm :CtrlPBookmark<CR>
+nnoremap <silent> \pc :CtrlPChange<CR>
+nnoremap <silent> \px :CtrlPMixed<CR>
 
 " using NERDTree
-nnoremap <silent> <BS><Tab> :NERDTreeFind<CR>
-nnoremap <silent> <BS><S-Tab> :NERDTreeToggle<CR>
+nnoremap <silent> \<Tab> :NERDTreeFind<CR>
+nnoremap <silent> \<S-Tab> :NERDTreeToggle<CR>
 
-nnoremap <silent> \<Tab> :Explore<CR>
-nnoremap <silent> \<S-Tab> :Lexplore<CR>
+nnoremap <silent> \\<Tab> :Explore<CR>
+nnoremap <silent> \\<S-Tab> :Lexplore<CR>
 
-nnoremap <silent> <S-Tab> :browse oldfiles<CR>
+nnoremap <silent> \fr :browse oldfiles<CR>
 
 nnoremap <silent> <C-_> :TagbarToggle<CR>
 nnoremap <silent> \<C-_> :MinimapToggle<CR>
@@ -345,16 +340,20 @@ map <M-CR> <C-\>
 
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
+nnoremap <CR> g<C-]>
 nnoremap <Space>o<CR> g<C-]>
 nnoremap <Space>mo<CR> g<C-]>
 nnoremap <C-LeftMouse> g<C-]>
 
 " quickly search the word under cursor using fzf.vim
-nnoremap <CR><BS> :Ag<CR>:cfirst<CR>
+nnoremap <M-BS> :Ag<CR>:cfirst<CR>
+" by default, use plain Backspace for plain file reference search (not context-specific)
+" this can be overriden by file-specific plugins to do smart reference search
+nmap <BS> <M-BS>
 
 " speed up the search by auto-comitting the grep commands
-map \<CR> \/<CR>
-map \\<CR> \\/<CR>
+map \<BS> \/<CR>
+map \\<BS> \\/<CR>
 
 " search the word under cursor in external files
 nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
@@ -366,9 +365,9 @@ nnoremap \? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-
 vnoremap \? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
 
 " search the word under cursor in all open buffers
-nnoremap \<M-Space> :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>
+nnoremap <Space>sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap \<M-Space> "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
+vnoremap <Space>sB "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
 
 " autocompletion like in many IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
