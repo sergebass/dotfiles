@@ -224,6 +224,16 @@
             "commands": [
                 "references-view.find"
             ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "b"
+            ],
+            "commands": [
+                "gitlens.toggleFileBlame"
+            ]
         }
     ],
     "vim.insertModeKeyBindings": [],
