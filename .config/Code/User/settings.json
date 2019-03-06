@@ -128,7 +128,8 @@
         },
         {
             "before": [
-                "<backspace>"
+                "\\",
+                "<enter>"
             ],
             "commands": [
                 "references-view.find"
