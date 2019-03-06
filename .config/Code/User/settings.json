@@ -35,6 +35,25 @@
         {
             "before": [
                 "<leader>",
+                "?"
+            ],
+            "commands": [
+                "workbench.action.openGlobalKeybindings"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "h",
+                "k"
+            ],
+            "commands": [
+                "workbench.action.openGlobalKeybindings"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
                 "w"
             ],
             "after": [
