@@ -1,6 +1,6 @@
 [
     {
-        "key": "shift-tab",
-        "command": "workbench.action.openRecent"
+        "key": "ctrl+n",
+        "command": "workbench.action.showAllSymbols"
     }
 ]
