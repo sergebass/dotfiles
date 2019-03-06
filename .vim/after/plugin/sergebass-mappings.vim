@@ -33,7 +33,8 @@ nnoremap \P "+P
 nnoremap \# :mksession! Session
 nnoremap \@ :source Session
 
-nnoremap <S-Tab> :call fzf#vim#history()<CR>
+nnoremap <C-N> :Tags<CR>
+nnoremap <C-P> :call fzf#vim#history()<CR>
 
 " emulate Spacemacs/SpaceVim
 
