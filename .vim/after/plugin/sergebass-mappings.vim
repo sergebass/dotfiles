@@ -50,6 +50,7 @@ nnoremap <Space>qq :qa<CR>
 nnoremap <Space>qQ :qa!<CR>
 
 nnoremap <Space>pf :GFiles<CR>
+nnoremap <Space>pr :call fzf#vim#history()<CR>
 nnoremap <Space>pt :NERDTreeFind<CR>
 nnoremap <Space>pg :Tags<CR>
 
