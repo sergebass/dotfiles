@@ -80,6 +80,22 @@
         },
         {
             "before": [
+                "<enter>"
+            ],
+            "commands": [
+                "extension.vim_ctrl+]"
+            ]
+        },
+        {
+            "before": [
+                "<backspace>"
+            ],
+            "commands": [
+                "references-view.find"
+            ]
+        },
+        {
+            "before": [
                 "H"
             ],
             "after": [
