@@ -84,6 +84,10 @@ nnoremap <Space>el :cw<CR>
 nnoremap <Space>en :cnext<CR>
 nnoremap <Space>ep :cprev<CR>
 
+" code commenting
+vmap <Space>; gc
+nmap <Space>cl gcc
+
 " quick shortcuts for vim-fugitive
 nnoremap <Space>gs :Gstatus<CR>
 nnoremap <Space>gl :Glog<CR>
