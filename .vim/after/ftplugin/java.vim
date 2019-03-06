@@ -26,8 +26,8 @@ nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<C
 nnoremap <buffer> <M-F1> :!xdg-open "https://docs.oracle.com/javase/10/docs/api/index.html"<CR>
 
 " search the term under cursor on the web
-nnoremap <buffer> <LocalLeader>? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> Java API"<Left>
-vnoremap <buffer> <LocalLeader>? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* Java API"<Left>
+nnoremap <buffer> \\? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> Java API"<Left>
+vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* Java API"<Left>
 
 " F3 is the traditional Eclipse way to follow the selected identifier
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
@@ -39,58 +39,58 @@ nnoremap <buffer> <LocalLeader><BS> :JavaSearch -a edit -x all -s all -t all<CR>
 
 " search the word under cursor in external files (Java sources only,
 " ripgrep is assumed to be the underlying search engine)
-nnoremap <buffer> <LocalLeader>/ :let w=expand("<cword>")<CR><CR>:grep -s -w -t java <C-r>=w<CR>
+nnoremap <buffer> \\/ :let w=expand("<cword>")<CR><CR>:grep -s -w -t java <C-r>=w<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <buffer> <LocalLeader>/ "*y<Esc>:grep -s -t java "<C-r>*"<Left>
+vnoremap <buffer> \\/ "*y<Esc>:grep -s -t java "<C-r>*"<Left>
 
 " Let the user customize search parameters of these commands
-nnoremap <buffer> <LocalLeader>f :JavaSearch<Space>
-nnoremap <buffer> <LocalLeader>ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
-nnoremap <buffer> <LocalLeader>fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
-nnoremap <buffer> <LocalLeader>fi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
-nnoremap <buffer> <LocalLeader>fr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
+nnoremap <buffer> \\f :JavaSearch<Space>
+nnoremap <buffer> \\ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
+nnoremap <buffer> \\fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
+nnoremap <buffer> \\fi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
+nnoremap <buffer> \\fr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
 
-nnoremap <buffer> <LocalLeader>< :JavaCallHierarchy<CR>
-nnoremap <buffer> <LocalLeader>> :JavaCallHierarchy!<CR>
+nnoremap <buffer> \\< :JavaCallHierarchy<CR>
+nnoremap <buffer> \\> :JavaCallHierarchy!<CR>
 
-nnoremap <buffer> <LocalLeader>^ :JavaHierarchy<CR>
+nnoremap <buffer> \\^ :JavaHierarchy<CR>
 
-nnoremap <buffer> <LocalLeader>o :JavaOutline<CR>
+nnoremap <buffer> \\o :JavaOutline<CR>
 
-nnoremap <buffer> <LocalLeader>jd :JavaDocComment<CR>
+nnoremap <buffer> \\jd :JavaDocComment<CR>
 
-nnoremap <buffer> <LocalLeader>rm :JavaMove<Space>
-nnoremap <buffer> <LocalLeader>rr :JavaRename<Space>
-nnoremap <buffer> <LocalLeader>ru :RefactorUndo<CR>
+nnoremap <buffer> \\rm :JavaMove<Space>
+nnoremap <buffer> \\rr :JavaRename<Space>
+nnoremap <buffer> \\ru :RefactorUndo<CR>
 
-nnoremap <buffer> <LocalLeader>nc :JavaNew class<Space>
-nnoremap <buffer> <LocalLeader>ni :JavaNew interface<Space>
-nnoremap <buffer> <LocalLeader>na :JavaNew abstract<Space>
-nnoremap <buffer> <LocalLeader>ne :JavaNew enum<Space>
-nnoremap <buffer> <LocalLeader>n@ :JavaNew @interface<Space>
+nnoremap <buffer> \\nc :JavaNew class<Space>
+nnoremap <buffer> \\ni :JavaNew interface<Space>
+nnoremap <buffer> \\na :JavaNew abstract<Space>
+nnoremap <buffer> \\ne :JavaNew enum<Space>
+nnoremap <buffer> \\n@ :JavaNew @interface<Space>
 
 " these mappings work both in normal and visual mode
-noremap <buffer> <LocalLeader>mc :JavaConstructor<CR>
-noremap <buffer> <LocalLeader>mc! :JavaConstructor!<CR>
-noremap <buffer> <LocalLeader>mg :JavaGet<CR>
-noremap <buffer> <LocalLeader>mg! :JavaGet!<CR>
-noremap <buffer> <LocalLeader>ms :JavaSet<CR>
-noremap <buffer> <LocalLeader>ms! :JavaSet!<CR>
-noremap <buffer> <LocalLeader>mgs :JavaGetSet<CR>
-noremap <buffer> <LocalLeader>mgs! :JavaGetSet!<CR>
+noremap <buffer> \\mc :JavaConstructor<CR>
+noremap <buffer> \\mc! :JavaConstructor!<CR>
+noremap <buffer> \\mg :JavaGet<CR>
+noremap <buffer> \\mg! :JavaGet!<CR>
+noremap <buffer> \\ms :JavaSet<CR>
+noremap <buffer> \\ms! :JavaSet!<CR>
+noremap <buffer> \\mgs :JavaGetSet<CR>
+noremap <buffer> \\mgs! :JavaGetSet!<CR>
 
-nnoremap <buffer> <LocalLeader>mi :JavaImpl<CR>
-nnoremap <buffer> <LocalLeader>md :JavaDelegate<CR>
+nnoremap <buffer> \\mi :JavaImpl<CR>
+nnoremap <buffer> \\md :JavaDelegate<CR>
 
-nnoremap <buffer> <LocalLeader>t :JUnit<CR>
-nnoremap <buffer> <LocalLeader>T :JUnitFindTest<CR>
+nnoremap <buffer> \\t :JUnit<CR>
+nnoremap <buffer> \\T :JUnitFindTest<CR>
 
-nnoremap <buffer> <LocalLeader>1 :JavaCorrect<CR>
+nnoremap <buffer> \\1 :JavaCorrect<CR>
 
-nnoremap <buffer> <LocalLeader>i :JavaImportOrganize<CR>
+nnoremap <buffer> \\i :JavaImportOrganize<CR>
 
-nnoremap <buffer> <LocalLeader>~ :%JavaFormat<CR>
-vnoremap <buffer> <LocalLeader>~ :JavaFormat<CR>
+nnoremap <buffer> \\~ :%JavaFormat<CR>
+vnoremap <buffer> \\~ :JavaFormat<CR>
 
 " Eclim documentation page: http://eclim.org/vim/java/debug.html
 "
@@ -107,39 +107,39 @@ vnoremap <buffer> <LocalLeader>~ :JavaFormat<CR>
 " 
 " Note: The server name you choose doesn’t matter as long as you don’t have another vim instance running with that same name.
 
-nnoremap <buffer> <LocalLeader>d? :JavaDebugStatus<CR>
+nnoremap <buffer> \\d? :JavaDebugStatus<CR>
 nnoremap <buffer> <F12> :JavaDebugStatus<CR>
 
-nnoremap <buffer> <LocalLeader>ds :JavaDebugStart localhost 8888
-nnoremap <buffer> <LocalLeader>dq :JavaDebugStop<CR>
+nnoremap <buffer> \\ds :JavaDebugStart localhost 8888
+nnoremap <buffer> \\dq :JavaDebugStop<CR>
 nnoremap <buffer> <C-F2> :JavaDebugStop<CR>
 
-nnoremap <buffer> <LocalLeader>db :JavaDebugBreakpointToggle<CR>
+nnoremap <buffer> \\db :JavaDebugBreakpointToggle<CR>
 nnoremap <buffer> <F9> :JavaDebugBreakpointToggle<CR>
 
 " disable and delete breakpoints
-nnoremap <buffer> <LocalLeader>db! :JavaDebugBreakpointToggle!<CR>
+nnoremap <buffer> \\db! :JavaDebugBreakpointToggle!<CR>
 
 " for current file
-nnoremap <buffer> <LocalLeader>dbl :JavaDebugBreakpointsList<CR>
+nnoremap <buffer> \\dbl :JavaDebugBreakpointsList<CR>
 
 " for current project
-nnoremap <buffer> <LocalLeader>dbl! :JavaDebugBreakpointsList!<CR>
+nnoremap <buffer> \\dbl! :JavaDebugBreakpointsList!<CR>
 nnoremap <buffer> <F10> :JavaDebugBreakpointsList!<CR>
 
 " all breakpoints in the current file
-nnoremap <buffer> <LocalLeader>dbr :JavaDebugBreakpointRemove<CR>
+nnoremap <buffer> \\dbr :JavaDebugBreakpointRemove<CR>
 
 " all breakpoints for current project
-nnoremap <buffer> <LocalLeader>dbr! :JavaDebugBreakpointRemove!<CR>
+nnoremap <buffer> \\dbr! :JavaDebugBreakpointRemove!<CR>
 
 nnoremap <buffer> <F5> :JavaDebugStep into<CR>
 nnoremap <buffer> <F6> :JavaDebugStep over<CR>
 nnoremap <buffer> <F7> :JavaDebugStep return<CR>
 nnoremap <buffer> <F8> :JavaDebugThreadResume<CR>
 
-nnoremap <buffer> <LocalLeader>dtsa :JavaDebugThreadSuspendAll<CR>
-nnoremap <buffer> <LocalLeader>dtra :JavaDebugThreadResumeAll<CR>
+nnoremap <buffer> \\dtsa :JavaDebugThreadSuspendAll<CR>
+nnoremap <buffer> \\dtra :JavaDebugThreadResumeAll<CR>
 
 " Useful abbreviations
 

@@ -14,5 +14,5 @@ set autoindent
 nnoremap <buffer> <F1> :!xdg-open "http://lilypond.org/doc/v2.18/Documentation/notation/index.html"<CR>
 
 " search the word under cursor in Lilypond manuals (using browser)
-nnoremap <buffer> <LocalLeader>? :!xdg-open "https://duckduckgo.com/?q=site:lilypond.org/doc/ <C-r>=expand("<cword>")<CR>"<Left>
-vnoremap <buffer> <LocalLeader>? "*y<Esc>:!xdg-open "https://duckduckgo.com/?q=site:lilypond.org/doc/ <C-r>*"<Left>
+nnoremap <buffer> \\? :!xdg-open "https://duckduckgo.com/?q=site:lilypond.org/doc/ <C-r>=expand("<cword>")<CR>"<Left>
+vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://duckduckgo.com/?q=site:lilypond.org/doc/ <C-r>*"<Left>
