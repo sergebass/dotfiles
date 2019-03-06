@@ -47,6 +47,7 @@ nnoremap <Space>hk :Maps<CR>
 nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
 nnoremap <Space>qq :qa<CR>
+nnoremap <Space>qQ :qa!<CR>
 
 nnoremap <Space>pf :GFiles<CR>
 nnoremap <Space>pt :NERDTreeFind<CR>
