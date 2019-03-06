@@ -1,0 +1,6 @@
+[
+    {
+        "key": "shift-tab",
+        "command": "workbench.action.openRecent"
+    }
+]
