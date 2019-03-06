@@ -342,19 +342,11 @@ map <M-CR> <C-\>
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
 nnoremap <CR> g<C-]>
-nnoremap <Space>o<CR> g<C-]>
-nnoremap <Space>mo<CR> g<C-]>
-nnoremap <C-LeftMouse> g<C-]>
+nmap <C-LeftMouse> <CR>
 
 " quickly search the word under cursor using fzf.vim
-nnoremap <M-BS> :Ag<CR>:cfirst<CR>
-" by default, use plain Backspace for plain file reference search (not context-specific)
-" this can be overriden by file-specific plugins to do smart reference search
-nmap <BS> <M-BS>
-
-" speed up the search by auto-comitting the grep commands
-map \<BS> \/<CR>
-map \\<BS> \\/<CR>
+nnoremap \<CR> :Ag<CR>:cfirst<CR>
+nmap \\<CR> \<CR>
 
 " search the word under cursor in external files
 nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>

@@ -31,11 +31,10 @@ vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* Java A
 
 " F3 is the traditional Eclipse way to follow the selected identifier
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
-nmap <buffer> <C-LeftMouse> <CR>
 nmap <buffer> <F3> <CR>
 
 " quickly search the word under cursor using eclim (Eclipse's Ctrl+Shift+G analog)
-nnoremap <buffer> <BS> :JavaSearch -a edit -x all -s all -t all<CR>:cfirst<CR>
+nnoremap <buffer> \<CR> :JavaSearch -a edit -x all -s all -t all<CR>:cfirst<CR>
 
 " search the word under cursor in external files (Java sources only,
 " ripgrep is assumed to be the underlying search engine)
