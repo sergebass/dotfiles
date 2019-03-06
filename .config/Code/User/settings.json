@@ -72,6 +72,14 @@
         },
         {
             "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.peekDefinition"
+            ]
+        },
+        {
+            "before": [
                 "H"
             ],
             "after": [
