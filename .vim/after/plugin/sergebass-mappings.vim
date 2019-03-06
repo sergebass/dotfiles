@@ -77,6 +77,11 @@ nnoremap <Space>* :let w=expand("<cword>")<CR><CR>:Rg <C-r>=w<CR><CR>
 nnoremap <Space>sP :Rg<CR>
 nnoremap <Space>saP :Ag<CR>
 
+" error navigation
+nnoremap <Space>el :cw<CR>
+nnoremap <Space>en :cnext<CR>
+nnoremap <Space>ep :cprev<CR>
+
 " quick shortcuts for vim-fugitive
 nnoremap <Space>gs :Gstatus<CR>
 nnoremap <Space>gl :Glog<CR>
