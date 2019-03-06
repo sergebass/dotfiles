@@ -33,6 +33,8 @@ nnoremap \P "+P
 nnoremap \# :mksession! Session
 nnoremap \@ :source Session
 
+nnoremap <S-Tab> :call fzf#vim#history()<CR>
+
 " emulate Spacemacs/SpaceVim
 
 nnoremap <Space><Space> :
@@ -169,8 +171,6 @@ nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
 " Window manipulation/navigation
-
-nnoremap <S-Tab> <C-w>w
 
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
 nnoremap <Space>w <C-w>
