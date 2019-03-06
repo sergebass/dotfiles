@@ -172,6 +172,8 @@ nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
 " Window manipulation/navigation
+nmap <BS> <C-w>
+nnoremap <BS><BS> <C-w>w
 
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
 nnoremap <Space>w <C-w>
