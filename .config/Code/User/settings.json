@@ -14,6 +14,7 @@
         "editorRuler.foreground": "#002020"
     },
     "workbench.colorTheme": "Dark Atom Dark Green Cursor",
+    "workbench.editor.labelFormat": "short",
     "todohighlight.keywordsPattern": "FIXME|ASAP|TODO|BUG|XXX|NOTE",
     "vim.incsearch": true,
     "vim.hlsearch": true,
