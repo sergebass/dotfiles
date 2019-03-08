@@ -155,6 +155,15 @@
         },
         {
             "before": [
+                "\\",
+                "<tab>"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        {
+            "before": [
                 "H"
             ],
             "after": [
