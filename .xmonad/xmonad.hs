@@ -10,6 +10,7 @@ import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
 myModMask = mod4Mask -- Use Super instead of Alt
+altMask = mod1Mask
 
 myConfig = desktopConfig
     { modMask = myModMask
@@ -19,10 +20,10 @@ myConfig = desktopConfig
     , normalBorderColor = "#404040"
     }
      `additionalKeys`
-    [ ((myModMask .|. shiftMask, xK_s), selectWorkspace def)
-    , ((myModMask .|. shiftMask, xK_r), renameWorkspace def)
-    , ((myModMask .|. shiftMask, xK_m), withWorkspace def (windows . W.shift))
-    , ((myModMask .|. shiftMask, xK_BackSpace), removeWorkspace)
+    [ ((myModMask .|. altMask, xK_s), selectWorkspace def)
+    , ((myModMask .|. altMask, xK_r), renameWorkspace def)
+    , ((myModMask .|. altMask, xK_m), withWorkspace def (windows . W.shift))
+    , ((myModMask .|. altMask, xK_BackSpace), removeWorkspace)
     -- several ways of session locking
     , ((myModMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
     , ((myModMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
