@@ -47,7 +47,7 @@ myConfig = desktopConfig
     , ((superMask .|. controlMask, xK_Page_Up), spawn "xbacklight -inc 10")
     , ((superMask .|. controlMask, xK_Page_Down), spawn "xbacklight -dec 10")
     -- audio controls
-    , ((superMask .|. shiftMask, xK_v), spawn "pavucontrol")
+    , ((superMask, xK_v), spawn "pavucontrol")
     , ((superMask, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
     , ((superMask, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((superMask, xK_Home), spawn "pactl set-sink-volume @DEFAULT_SINK@ 50%")
