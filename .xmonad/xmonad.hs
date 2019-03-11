@@ -9,53 +9,53 @@ import XMonad.Util.Run(spawnPipe, hPutStrLn)
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
-myModMask = mod4Mask -- Use Super instead of Alt
+superMask = mod4Mask -- Use Super instead of Alt
 altMask = mod1Mask
 
 myConfig = desktopConfig
-    { modMask = myModMask
+    { modMask = superMask
     , terminal = "x-terminal-emulator"
     , borderWidth = 2
     , focusedBorderColor = "#FFB000" -- Orange-ish color
     , normalBorderColor = "#404040"
     }
      `additionalKeys`
-    [ ((myModMask .|. altMask, xK_s), selectWorkspace def)
-    , ((myModMask .|. altMask, xK_r), renameWorkspace def)
-    , ((myModMask .|. altMask, xK_m), withWorkspace def (windows . W.shift))
-    , ((myModMask .|. altMask, xK_BackSpace), removeWorkspace)
+    [ ((superMask .|. altMask, xK_s), selectWorkspace def)
+    , ((superMask .|. altMask, xK_r), renameWorkspace def)
+    , ((superMask .|. altMask, xK_m), withWorkspace def (windows . W.shift))
+    , ((superMask .|. altMask, xK_BackSpace), removeWorkspace)
     -- several ways of session locking
-    , ((myModMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
-    , ((myModMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
-    , ((myModMask .|. shiftMask .|. controlMask, xK_z), spawn "i3lock -c 000000")
-    , ((myModMask .|. controlMask, xK_z), spawn "xscreensaver-command -lock")
+    , ((superMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
+    , ((superMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
+    , ((superMask .|. shiftMask .|. controlMask, xK_z), spawn "i3lock -c 000000")
+    , ((superMask .|. controlMask, xK_z), spawn "xscreensaver-command -lock")
     -- take a screenshot of entire display
-    , ((myModMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
+    , ((superMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
     -- take a screenshot of focused window
-    , ((myModMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
+    , ((superMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
     -- various calculators
-    , ((myModMask .|. shiftMask, xK_equal), spawn "urxvt -e bc -l")
-    , ((myModMask .|. shiftMask, xK_KP_Enter), spawn "gnome-calculator")
+    , ((superMask .|. shiftMask, xK_equal), spawn "urxvt -e bc -l")
+    , ((superMask .|. shiftMask, xK_KP_Enter), spawn "gnome-calculator")
     -- web browser
-    , ((myModMask .|. shiftMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
+    , ((superMask .|. shiftMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
     -- keyboard layout switching
-    , ((myModMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
-    , ((myModMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
+    , ((superMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
+    , ((superMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
     -- backlight brightness
-    , ((myModMask .|. controlMask, xK_Home), spawn "xbacklight -set 100")
-    , ((myModMask .|. controlMask, xK_End), spawn "xbacklight -set 50")
-    , ((myModMask .|. controlMask, xK_Page_Up), spawn "xbacklight -inc 10")
-    , ((myModMask .|. controlMask, xK_Page_Down), spawn "xbacklight -dec 10")
+    , ((superMask .|. controlMask, xK_Home), spawn "xbacklight -set 100")
+    , ((superMask .|. controlMask, xK_End), spawn "xbacklight -set 50")
+    , ((superMask .|. controlMask, xK_Page_Up), spawn "xbacklight -inc 10")
+    , ((superMask .|. controlMask, xK_Page_Down), spawn "xbacklight -dec 10")
     -- audio controls
-    , ((myModMask .|. shiftMask, xK_v), spawn "pavucontrol")
-    , ((myModMask, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ((myModMask, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ((myModMask, xK_Home), spawn "pactl set-sink-volume @DEFAULT_SINK@ 50%")
-    , ((myModMask, xK_End), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-    , ((myModMask .|. shiftMask, xK_Page_Up), spawn "amixer -D pulse sset Master unmute 5%+")
-    , ((myModMask .|. shiftMask, xK_Page_Down), spawn "amixer -D pulse sset Master unmute 5%-")
-    , ((myModMask .|. shiftMask, xK_Home), spawn "amixer -D pulse sset Master 50%")
-    , ((myModMask .|. shiftMask, xK_End), spawn "amixer -D pulse sset Master toggle")
+    , ((superMask .|. shiftMask, xK_v), spawn "pavucontrol")
+    , ((superMask, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ((superMask, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ((superMask, xK_Home), spawn "pactl set-sink-volume @DEFAULT_SINK@ 50%")
+    , ((superMask, xK_End), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    , ((superMask .|. shiftMask, xK_Page_Up), spawn "amixer -D pulse sset Master unmute 5%+")
+    , ((superMask .|. shiftMask, xK_Page_Down), spawn "amixer -D pulse sset Master unmute 5%-")
+    , ((superMask .|. shiftMask, xK_Home), spawn "amixer -D pulse sset Master 50%")
+    , ((superMask .|. shiftMask, xK_End), spawn "amixer -D pulse sset Master toggle")
     , ((0, 0x1008FF11), spawn "amixer -D pulse set Master 5%-")
     , ((0, 0x1008FF13), spawn "amixer -D pulse set Master 5%+")
     , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
