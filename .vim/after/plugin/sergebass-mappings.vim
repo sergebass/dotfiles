@@ -220,10 +220,6 @@ noremap <silent> \\| :vert ball<CR>
 
 nnoremap <M-Del> :DeleteHiddenBuffers<CR>
 
-" Alternative shortcuts for traversing buffers
-noremap <silent> <M-Tab> :bn<CR>
-noremap <silent> <M-S-Tab> :bp<CR>
-
 " resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <M-/> <C-w><
 noremap <silent> <kDivide> <C-w><
@@ -260,10 +256,9 @@ nnoremap <silent> \px :CtrlPMixed<CR>
 
 " using NERDTree
 nnoremap <silent> \<Tab> :NERDTreeFind<CR>
-nnoremap <silent> \<S-Tab> :NERDTreeToggle<CR>
 
-nnoremap <silent> \\<Tab> :Explore<CR>
-nnoremap <silent> \\<S-Tab> :Lexplore<CR>
+nnoremap <silent> <M-Tab> :Explore<CR>
+nnoremap <silent> \<M-Tab> :Lexplore<CR>
 
 nnoremap <silent> \fr :browse oldfiles<CR>
 
