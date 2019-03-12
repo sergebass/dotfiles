@@ -20,10 +20,10 @@ myConfig = desktopConfig
     , normalBorderColor = "#404040"
     }
      `additionalKeys`
-    [ ((superMask .|. altMask, xK_s), selectWorkspace def)
-    , ((superMask .|. altMask, xK_r), renameWorkspace def)
-    , ((superMask .|. altMask, xK_m), withWorkspace def (windows . W.shift))
-    , ((superMask .|. altMask, xK_BackSpace), removeWorkspace)
+    [ ((superMask, xK_s), selectWorkspace def)
+    , ((superMask .|. shiftMask, xK_n), renameWorkspace def)
+    , ((superMask .|. shiftMask, xK_m), withWorkspace def (windows . W.shift))
+    , ((superMask .|. shiftMask, xK_d), removeWorkspace)
     -- several ways of session locking
     , ((superMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
     , ((superMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
