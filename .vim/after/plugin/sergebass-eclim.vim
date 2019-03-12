@@ -8,21 +8,21 @@ let g:EclimLocateFileNonProjectScope = 'ag'
 let g:EclimJavaCallHierarchyDefaultAction = 'edit'
 let g:EclimJavaHierarchyDefaultAction = 'edit'
 
-nnoremap <LocalLeader>\ :LocateFile<CR>
+nnoremap \\ff :LocateFile<CR>
 
-nnoremap <LocalLeader><Space> :BuffersToggle<CR>
+nnoremap \\bb :BuffersToggle<CR>
 
-nnoremap <LocalLeader><Tab> :ProjectTree<CR>
-nnoremap <LocalLeader><S-Tab> :ProjectsTree<CR>
+nnoremap \\<Tab> :ProjectTree<CR>
+nnoremap \\<M-Tab> :ProjectsTree<CR>
 
-nnoremap <LocalLeader>! :ProjectProblems!<CR>
-nnoremap <LocalLeader>!! :ProjectProblems<CR>
+nnoremap \\! :ProjectProblems!<CR>
+nnoremap \\!! :ProjectProblems<CR>
 
-nnoremap <LocalLeader>ptd :ProjectTodo<CR>
-nnoremap <LocalLeader>pr :ProjectRefreshAll<CR>
+nnoremap \\ptd :ProjectTodo<CR>
+nnoremap \\pr :ProjectRefreshAll<CR>
 
-nnoremap <LocalLeader>ac :Ant clean<CR>
-nnoremap <LocalLeader>ab :Ant build<CR>
-nnoremap <LocalLeader>at :Ant test<CR>
+nnoremap \\ac :Ant clean<CR>
+nnoremap \\ab :Ant build<CR>
+nnoremap \\at :Ant test<CR>
 
-nnoremap <LocalLeader>v :Validate<CR>
+nnoremap \\v :Validate<CR>

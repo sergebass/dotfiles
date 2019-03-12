@@ -43,11 +43,11 @@ nnoremap <buffer> \\/ :let w=expand("<cword>")<CR><CR>:grep -s -w -t java <C-r>=
 vnoremap <buffer> \\/ "*y<Esc>:grep -s -t java "<C-r>*"<Left>
 
 " Let the user customize search parameters of these commands
-nnoremap <buffer> \\f :JavaSearch<Space>
-nnoremap <buffer> \\ff :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
-nnoremap <buffer> \\fd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
-nnoremap <buffer> \\fi :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
-nnoremap <buffer> \\fr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
+nnoremap <buffer> \\s :JavaSearch<Space>
+nnoremap <buffer> \\ss :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x all -s all -t all
+nnoremap <buffer> \\sd :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x declarations -s all -t all
+nnoremap <buffer> \\si :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x implementors -s all -t all
+nnoremap <buffer> \\sr :JavaSearch -p <C-r>=expand("<cword>")<CR> -a edit -x references -s all -t all
 
 nnoremap <buffer> \\< :JavaCallHierarchy<CR>
 nnoremap <buffer> \\> :JavaCallHierarchy!<CR>
