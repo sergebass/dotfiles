@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.CycleWS
 import XMonad.Actions.DynamicWorkspaces
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
@@ -21,6 +22,10 @@ myConfig = desktopConfig
     }
      `additionalKeys`
     [ ((superMask, xK_s), selectWorkspace def)
+    , ((superMask, xK_bracketleft), prevWS)
+    , ((superMask, xK_bracketright), nextWS)
+    , ((superMask .|. shiftMask, xK_bracketleft), shiftToPrev >> prevWS)
+    , ((superMask .|. shiftMask, xK_bracketright), shiftToNext >> nextWS)
     , ((superMask .|. shiftMask, xK_n), renameWorkspace def)
     , ((superMask .|. shiftMask, xK_m), withWorkspace def (windows . W.shift))
     , ((superMask .|. shiftMask, xK_d), removeWorkspace)
