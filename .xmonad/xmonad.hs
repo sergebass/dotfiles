@@ -29,6 +29,8 @@ myConfig = desktopConfig
     , ((superMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
     , ((superMask .|. shiftMask .|. controlMask, xK_z), spawn "i3lock -c 000000")
     , ((superMask .|. controlMask, xK_z), spawn "xscreensaver-command -lock")
+    -- alternative launchers
+    , ((superMask, xK_Menu), spawn "gmrun")
     -- take a screenshot of entire display
     , ((superMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
     -- take a screenshot of focused window
@@ -41,7 +43,7 @@ myConfig = desktopConfig
     -- keyboard layout switching
     , ((superMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
     , ((superMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
-    -- backlight brightness
+    -- screen backlight brightness
     , ((superMask .|. controlMask, xK_Home), spawn "xbacklight -set 100")
     , ((superMask .|. controlMask, xK_End), spawn "xbacklight -set 50")
     , ((superMask .|. controlMask, xK_Page_Up), spawn "xbacklight -inc 10")
@@ -61,11 +63,16 @@ myConfig = desktopConfig
     , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
     ]
      `additionalKeysP`
-    [ ("<XF86AudioLowerVolume>", spawn "amixer -D pulse set Master 5%-")
-    , ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse set Master 5%+")
-    , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
+    [ --audio controls
+      ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    , ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+    -- screen backlight brightness
     , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
     , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
+    -- miscellaneous stuff
+    , ("<XF86Explorer>", spawn "thunar")
     , ("<XF86Calculator>", spawn "gnome-calculator")
     , ("<XF86Search>", spawn "xdg-open https://duckduckgo.com")
     ]
