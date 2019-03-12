@@ -41,8 +41,8 @@ myConfig = desktopConfig
     -- take a screenshot of focused window
     , ((superMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
     -- various calculators
-    , ((superMask .|. shiftMask, xK_equal), spawn "urxvt -e bc -l")
-    , ((superMask .|. shiftMask, xK_KP_Enter), spawn "gnome-calculator")
+    , ((superMask, xK_equal), spawn "urxvt -e bc -l")
+    , ((superMask, xK_KP_Enter), spawn "gnome-calculator")
     -- web browser
     , ((superMask .|. shiftMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
     -- keyboard layout switching
