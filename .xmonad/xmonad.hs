@@ -32,7 +32,7 @@ myConfig = desktopConfig
     -- several ways of session locking
     , ((superMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
     , ((superMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
-    , ((superMask .|. shiftMask .|. controlMask, xK_z), spawn "i3lock -c 000000")
+    , ((superMask .|. altMask, xK_z), spawn "i3lock -c 000000")
     , ((superMask .|. controlMask, xK_z), spawn "xscreensaver-command -lock")
     -- alternative launchers
     , ((superMask, xK_Menu), spawn "gmrun")
