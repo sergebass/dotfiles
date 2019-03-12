@@ -64,6 +64,8 @@ myConfig = desktopConfig
     [ ("<XF86AudioLowerVolume>", spawn "amixer -D pulse set Master 5%-")
     , ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse set Master 5%+")
     , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
+    , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
+    , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
     , ("<XF86Calculator>", spawn "gnome-calculator")
     , ("<XF86Search>", spawn "xdg-open https://duckduckgo.com")
     ]
