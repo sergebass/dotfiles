@@ -44,7 +44,7 @@ myConfig = desktopConfig
     , ((superMask, xK_equal), spawn "urxvt -e bc -l")
     , ((superMask, xK_KP_Enter), spawn "gnome-calculator")
     -- web browser
-    , ((superMask .|. shiftMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
+    , ((superMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
     -- keyboard layout switching
     , ((superMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
     , ((superMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
