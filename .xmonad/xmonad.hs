@@ -46,8 +46,7 @@ myConfig = desktopConfig
     -- web browser
     , ((superMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
     -- keyboard layout switching
-    , ((superMask .|. shiftMask, xK_F11), spawn "setxkbmap -layout ru")
-    , ((superMask .|. shiftMask, xK_F12), spawn "setxkbmap -layout us")
+    , ((superMask, xK_F12), spawn "setxkbmap -layout \"us,ru,ua,us(intl)\" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape")
     -- screen backlight brightness
     , ((superMask .|. controlMask, xK_Home), spawn "xbacklight -set 100")
     , ((superMask .|. controlMask, xK_End), spawn "xbacklight -set 50")

@@ -12,7 +12,7 @@ export SAL_USE_VCLPLUGIN=gen
 
 # map CapsLock to be an Escape button equivalent (for easier vim use)
 # also, configure keyboard layout switching via Shift+CapsLock
-setxkbmap -layout "us,ru,ua,us(intl)" -option grp:shift_caps_toggle -option grp_led:scroll -option ctrl:nocaps
+setxkbmap -layout "us,ru,ua,us(intl)" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape
 
 # this is needed for lightdm to actually lock screen, otherwise it asks no password to unlock
 light-locker &
