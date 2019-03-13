@@ -16,7 +16,43 @@ set contentassistmode
 
 set clipboard=unnamedplus
 
-nnoremap <CR> <C-]>
+eclipseaction Exit org.eclipse.ui.file.exit
+eclipseaction Restart org.eclipse.ui.file.restartWorkbench
+
+eclipseaction ShowKeyAssist org.eclipse.ui.window.showKeyAssist
+
+eclipseaction GoToNextAnnotation org.eclipse.ui.edit.text.gotoNextAnnotation
+eclipseaction GoToPreviousAnnotation org.eclipse.ui.edit.text.gotoPreviousAnnotation
+
+eclipseaction SearchDeclarationsInProject org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
+eclipseaction SearchReferencesInProject org.eclipse.jdt.ui.edit.text.java.search.references.in.project
+
+eclipseaction SearchDeclarationsInWorkspace org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace
+eclipseaction SearchReferencesInWorkspace org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
+
+eclipseaction OpenHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
+eclipseaction OpenCallHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy
+eclipseaction OpenTypeHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy
+eclipseaction OpenStructure org.eclipse.jdt.ui.navigate.java.open.structure
+eclipseaction OpenImplementation org.eclipse.jdt.ui.edit.text.java.open.implementation
+eclipseaction OpenSuperImplementation org.eclipse.jdt.ui.edit.text.java.open.super.implementation
+
+eclipseaction OrganizeImports org.eclipse.jdt.ui.edit.text.java.organize.imports
+eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
+
+eclipseaction RenameElement org.eclipse.jdt.ui.edit.text.java.rename.element
+
+eclipseaction ShowInBreadCrumb org.eclipse.jdt.ui.edit.text.java.gotoBreadcrumb
+eclipseaction ToggleBreadCrumb org.eclipse.jdt.ui.edit.text.java.toggleBreadcrumb
+
+eclipseaction ShowInNavigator org.eclipse.jdt.ui.edit.text.java.show.in.navigator.view
+
+eclipseaction ShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
+
+eclipseaction ToggleComment org.eclipse.jdt.ui.edit.text.java.toggle.comment
+
+eclipseaction NextEditor org.eclipse.ui.window.nextEditor
+eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 
 nnoremap S :wa<CR>
 nnoremap Q :qa<CR>
@@ -27,11 +63,31 @@ nnoremap \y "+y
 nnoremap \p "+p
 nnoremap \P "+P
 
+nnoremap ]q :GoToNextAnnotation<CR>
+nnoremap [q :GoToPreviousAnnotation<CR>
+
+nnoremap <Space>en :GoToNextAnnotation<CR>
+nnoremap <Space>ep :GoToPreviousAnnotation<CR>
+
+nnoremap gO :ShowOutline<CR>
+
+nnoremap <F2> :RenameElement<CR>
+
+nnoremap <Space>? :ShowKeyAssist<CR>
+
+nnoremap \<Tab> :ShowInNavigator<CR>
+
+nnoremap <CR> <C-]>
+
+nnoremap \<CR> :SearchReferencesInWorkspace<CR>
+
+nnoremap <Space>ss :SearchReferencesInWorkspace<CR>
+
 nnoremap <Space><Space> <Esc>:
 nnoremap <Space><Tab> <C-^>
 nnoremap <Space>w <C-W>
 
-nnoremap <Space>qq :qa<CR>
+nnoremap <Space>qq :Exit<CR>
 
 nnoremap <Space>fs :w<CR>
 nnoremap <Space>fS :wa<CR>
@@ -44,7 +100,3 @@ nnoremap <Space>bp :bprev<CR>
 nnoremap <Space>bR :e!
 nnoremap <Space>bY gg"+yG
 nnoremap <Space>bP ggvG"+p
-
-eclipseaction SearchDeclarations org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
-nnoremap <Space>ss :SearchDeclarations<CR>
-nnoremap \<CR> :SearchDeclarations<CR>
