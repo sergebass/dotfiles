@@ -16,18 +16,16 @@ set contentassistmode
 
 set clipboard=unnamedplus
 
-let mapleader='\\'
-
 nnoremap <CR> <C-]>
 
 nnoremap S :wa<CR>
 nnoremap Q :qa<CR>
 
-nnoremap <Leader>v :vim<CR>
+nnoremap \v :vim<CR>
 
-nnoremap <Leader>y "+y
-nnoremap <Leader>p "+p
-nnoremap <Leader>P "+P
+nnoremap \y "+y
+nnoremap \p "+p
+nnoremap \P "+P
 
 nnoremap <Space><Space> <Esc>:
 nnoremap <Space><Tab> <C-^>
@@ -49,3 +47,4 @@ nnoremap <Space>bP ggvG"+p
 
 eclipseaction SearchDeclarations org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
 nnoremap <Space>ss :SearchDeclarations<CR>
+nnoremap \<CR> :SearchDeclarations<CR>
