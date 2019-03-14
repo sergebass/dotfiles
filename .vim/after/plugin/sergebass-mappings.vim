@@ -36,10 +36,10 @@ nnoremap \@ :source Session
 nnoremap <C-N> :Tags<CR>
 nnoremap <C-P> :call fzf#vim#history()<CR>
 
-" emulate Spacemacs/SpaceVim
+map <BS> <C-W>
+map <BS><BS> <C-W>w
 
-" simplify mode-specific bindings (a la spacemacs)
-map <BS> <Space>m
+" emulate Spacemacs/SpaceVim
 
 nnoremap <Space><Space> :
 nnoremap <Space><Tab> <C-^>
