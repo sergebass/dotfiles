@@ -317,8 +317,13 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;; remap <Backspace> to be the equivalent of ""<Space> m""
-  (define-key key-translation-map [?\d] (kbd "SPC m"))
+  (define-key key-translation-map (kbd "DEL") (kbd "C-W"))
+  (define-key key-translation-map (kbd "M-SPC") (kbd "SPC m"))
+
+  ;; free up the normal backslash for to be our vim-like <Leader>/<LocalLeader>,
+  ;; rebind to use C-\ instead for the evil-execute-in-emacs-state
+  (define-key evil-motion-state-map (kbd "\\") nil)
+  (global-set-key (kbd "C-\\") 'evil-execute-in-emacs-state)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
