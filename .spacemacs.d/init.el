@@ -155,8 +155,7 @@ values."
    dotspacemacs-emacs-leader-key "M-m"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
-   ;; dotspacemacs-major-mode-leader-key "<DEL>"
-   dotspacemacs-major-mode-leader-key nil
+   dotspacemacs-major-mode-leader-key "M-SPC"
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
@@ -317,8 +316,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  (define-key key-translation-map (kbd "DEL") (kbd "C-W"))
-  (define-key key-translation-map (kbd "M-SPC") (kbd "SPC m"))
+  (define-key evil-normal-state-map (kbd "DEL") evil-window-map)
 
   ;; free up the normal backslash for to be our vim-like <Leader>/<LocalLeader>,
   ;; rebind to use C-\ instead for the evil-execute-in-emacs-state
