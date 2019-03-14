@@ -54,6 +54,8 @@ eclipseaction ToggleComment org.eclipse.jdt.ui.edit.text.java.toggle.comment
 eclipseaction NextEditor org.eclipse.ui.window.nextEditor
 eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 
+nnoremap <BS> ^
+
 nnoremap S :wa<CR>
 nnoremap Q :qa<CR>
 
