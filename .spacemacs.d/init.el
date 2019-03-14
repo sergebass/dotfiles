@@ -155,7 +155,8 @@ values."
    dotspacemacs-emacs-leader-key "M-m"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
-   dotspacemacs-major-mode-leader-key "<DEL>"
+   ;; dotspacemacs-major-mode-leader-key "<DEL>"
+   dotspacemacs-major-mode-leader-key nil
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
@@ -315,6 +316,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; remap <Backspace> to be the equivalent of ""<Space> m""
+  (define-key key-translation-map [?\d] (kbd "SPC m"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
