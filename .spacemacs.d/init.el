@@ -155,7 +155,7 @@ values."
    dotspacemacs-emacs-leader-key "M-m"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
-   dotspacemacs-major-mode-leader-key "M-SPC"
+   dotspacemacs-major-mode-leader-key "DEL"
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
@@ -317,17 +317,17 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (define-key evil-normal-state-map (kbd "RET") 'evil-jump-to-tag)
-  (define-key evil-normal-state-map (kbd "DEL") 'evil-jump-backward)
-  (define-key evil-normal-state-map (kbd "TAB") 'evil-jump-forward)
+
+  (define-key evil-normal-state-map (kbd "C-o") 'evil-jump-backward)
+  (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
 
   ;; free up the normal backslash for to be our vim-like <Leader>/<LocalLeader>,
-  ;; rebind to use C-\ instead for the evil-execute-in-emacs-state
-  (define-key evil-motion-state-map (kbd "\\") nil)
+  ;; Use C-\ instead of \ for the evil-execute-in-emacs-state;
   (global-set-key (kbd "C-\\") 'evil-execute-in-emacs-state)
 
-  ;; define my own set of commands with prefix bound to the backslash key
+  ;; define my own set of normal mode commands with prefix bound to the backslash key
   (define-prefix-command 'my-leader-map)
-  (global-set-key (kbd "\\") 'my-leader-map)
+  (define-key evil-normal-state-map (kbd "\\") 'my-leader-map)
 
   (define-key my-leader-map (kbd "RET") 'xref-find-references)
   (define-key my-leader-map (kbd "TAB") 'neotree)
