@@ -38,9 +38,17 @@
                 "<backspace>"
             ],
             "after": [
-                "^"
+                "<C-o>"
             ]
-        }
+        },
+        {
+            "before": [
+                "<tab>"
+            ],
+            "after": [
+                "<C-i>"
+            ]
+        },
         {
             "before": [
                 "<leader>",
