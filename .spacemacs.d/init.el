@@ -325,6 +325,13 @@ you should place your code here."
   ;; rebind to use C-\ instead for the evil-execute-in-emacs-state
   (define-key evil-motion-state-map (kbd "\\") nil)
   (global-set-key (kbd "C-\\") 'evil-execute-in-emacs-state)
+
+  ;; define my own set of commands with prefix bound to the backslash key
+  (define-prefix-command 'my-leader-map)
+  (global-set-key (kbd "\\") 'my-leader-map)
+
+  (define-key my-leader-map (kbd "RET") 'xref-find-references)
+  (define-key my-leader-map (kbd "TAB") 'neotree)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
