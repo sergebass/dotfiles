@@ -55,8 +55,6 @@ eclipseaction NextEditor org.eclipse.ui.window.nextEditor
 eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 
 nnoremap <CR> <C-]>
-nnoremap <BS> <C-O>
-nnoremap <Tab> <C-I>
 
 nnoremap S :wa<CR>
 nnoremap Q :qa<CR>
@@ -89,6 +87,8 @@ nnoremap <Space><Space> <Esc>:
 nnoremap <Space><Tab> <C-^>
 nnoremap <Space>w <C-W>
 
+nmap <BS> <Space>m
+
 nnoremap <Space>qq :Exit<CR>
 nnoremap <Space>qr :Restart<CR>
 
@@ -103,3 +103,11 @@ nnoremap <Space>bp :bprev<CR>
 nnoremap <Space>bR :e!
 nnoremap <Space>bY gg"+yG
 nnoremap <Space>bP ggvG"+p
+
+" jumping around
+nnoremap <Space>mgg <C-]>
+
+" refactoring
+nnoremap <Space>mri :OrganizeImports<CR>
+nnoremap <Space>mrf :QuickFormat<CR>
+nnoremap <Space>mrr :RenameElement<CR>
