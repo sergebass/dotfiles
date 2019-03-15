@@ -21,6 +21,7 @@ setlocal keywordprg=:JavaDocPreview
 
 nnoremap <buffer> K :JavaDocPreview<CR>
 nmap <buffer> <F2> K
+nmap <buffer> <Space>mhh K
 
 nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://docs.oracle.com/javase/10/docs/api/index.html"<CR>
@@ -29,12 +30,16 @@ nnoremap <buffer> <M-F1> :!xdg-open "https://docs.oracle.com/javase/10/docs/api/
 nnoremap <buffer> \\? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> Java API"<Left>
 vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* Java API"<Left>
 
+nnoremap <buffer> <Space>mff :LocateFile<CR>
+
 " F3 is the traditional Eclipse way to follow the selected identifier
 nnoremap <buffer> <CR> :JavaSearchContext -a edit<CR>
 nmap <buffer> <F3> <CR>
+nmap <buffer> <Space>mgg <CR>
 
 " quickly search the word under cursor using eclim (Eclipse's Ctrl+Shift+G analog)
 nnoremap <buffer> \<CR> :JavaSearch -a edit -x all -s all -t all<CR>:cfirst<CR>
+nmap <buffer> <Space>mhu \<CR>
 
 " search the word under cursor in external files (Java sources only,
 " ripgrep is assumed to be the underlying search engine)
@@ -60,6 +65,7 @@ nnoremap <buffer> \\jd :JavaDocComment<CR>
 
 nnoremap <buffer> \\rm :JavaMove<Space>
 nnoremap <buffer> \\rr :JavaRename<Space>
+nnoremap <buffer> <Space>mrr :JavaRename<Space>
 nnoremap <buffer> \\ru :RefactorUndo<CR>
 
 nnoremap <buffer> \\nc :JavaNew class<Space>
@@ -82,13 +88,16 @@ nnoremap <buffer> \\mi :JavaImpl<CR>
 nnoremap <buffer> \\md :JavaDelegate<CR>
 
 nnoremap <buffer> \\t :JUnit<CR>
+nnoremap <buffer> <Space>mtt :JUnit<CR>
 nnoremap <buffer> \\T :JUnitFindTest<CR>
 
 nnoremap <buffer> \\1 :JavaCorrect<CR>
 
 nnoremap <buffer> \\i :JavaImportOrganize<CR>
+nnoremap <buffer> <Space>mri :JavaImportOrganize<CR>
 
 nnoremap <buffer> \\~ :%JavaFormat<CR>
+nnoremap <buffer> <Space>mrf :%JavaFormat<CR>
 vnoremap <buffer> \\~ :JavaFormat<CR>
 
 " Eclim documentation page: http://eclim.org/vim/java/debug.html

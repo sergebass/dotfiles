@@ -36,13 +36,13 @@ nnoremap \@ :source Session
 nnoremap <C-N> :Tags<CR>
 nnoremap <C-P> :call fzf#vim#history()<CR>
 
-" Make Backspace key symmetrical to Tab (that produces <C-I> in terminal modes).
-nmap <BS> <C-O>
-
 " emulate Spacemacs/SpaceVim
 
 nnoremap <Space><Space> :
 nnoremap <Space><Tab> <C-^>
+
+" use Backspace key for a quicker way to access spacemacs-mode-specific commands
+nmap <BS> <Space>m
 
 nmap <F1> <Space>h
 
