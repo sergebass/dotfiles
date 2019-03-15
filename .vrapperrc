@@ -54,7 +54,9 @@ eclipseaction ToggleComment org.eclipse.jdt.ui.edit.text.java.toggle.comment
 eclipseaction NextEditor org.eclipse.ui.window.nextEditor
 eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 
-nnoremap <BS> ^
+nnoremap <CR> <C-]>
+nnoremap <BS> <C-O>
+nnoremap <Tab> <C-I>
 
 nnoremap S :wa<CR>
 nnoremap Q :qa<CR>
@@ -78,8 +80,6 @@ nnoremap <F2> :RenameElement<CR>
 nnoremap <Space>? :ShowKeyAssist<CR>
 
 nnoremap \<Tab> :ShowInNavigator<CR>
-
-nnoremap <CR> <C-]>
 
 nnoremap \<CR> :SearchReferencesInWorkspace<CR>
 
