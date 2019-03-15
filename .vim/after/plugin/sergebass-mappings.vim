@@ -44,6 +44,9 @@ nmap <BS> <C-O>
 nnoremap <Space><Space> :
 nnoremap <Space><Tab> <C-^>
 
+nmap <F1> <Space>h
+
+nnoremap <Space>h<Space> :h<CR>
 nnoremap <Space>? :Maps<CR>
 nnoremap <Space>hk :Maps<CR>
 nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
