@@ -33,7 +33,7 @@ nnoremap \r :reg<CR>
 
 " in normal mode:
 nnoremap \y "+y
-nnoremap \Y "+yy
+nnoremap \Y "+y$
 
 nnoremap \p "+p
 nnoremap \P "+P
