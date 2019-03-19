@@ -9,6 +9,7 @@
     "editor.rulers": [80, 120],
     "editor.renderControlCharacters": true,
     "editor.minimap.enabled": false,
+    "terminal.integrated.cursorBlinking": true,
     "workbench.colorCustomizations": {
         "editor.background": "#000000",
         "editorRuler.foreground": "#002020"
