@@ -26,6 +26,9 @@ noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 
+" quickly look up the contents of all registers
+nnoremap \r :reg<CR>
+
 " a faster way to copy/paste using clipboard (instead of the default register)
 vnoremap \y "+y
 nnoremap \y "+y
