@@ -172,6 +172,16 @@
         },
         {
             "before": [
+                "<del>"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "x"
+            ]
+        },
+        {
+            "before": [
                 "H"
             ],
             "after": [
@@ -421,9 +431,21 @@
             ]
         }
     ],
+    "vim.normalModeKeyBindings": [
+    ],
     "vim.insertModeKeyBindings": [],
     "vim.insertModeKeyBindingsNonRecursive": [],
     "vim.visualModeKeyBindings": [],
-    "vim.visualModeKeyBindingsNonRecursive": [],
-    "terminal.integrated.cursorBlinking": true
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<del>"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        }
+    ]
 }
