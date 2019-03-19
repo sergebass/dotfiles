@@ -172,6 +172,15 @@
         },
         {
             "before": [
+                "\\",
+                "r"
+            ],
+            "commands": [
+                ":reg"
+            ]
+        },
+        {
+            "before": [
                 "<del>"
             ],
             "after": [
