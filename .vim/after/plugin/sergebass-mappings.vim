@@ -25,9 +25,18 @@ vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 
 " a faster way to copy/paste using clipboard (instead of the default register)
+vnoremap \y "+y
 nnoremap \y "+y
+nnoremap \Y "+yy
+
 nnoremap \p "+p
 nnoremap \P "+P
+
+" a way to delete text without retaining it
+" (and touching other registers along the way): use the "black hole" register
+vnoremap \d "_d
+nnoremap \d "_d
+nnoremap \D "_dd
 
 " session management accelerators (don't forget to add .vim extension!)
 nnoremap \# :mksession! Session
