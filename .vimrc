@@ -50,8 +50,8 @@ endif
 set mouse=a " enable mouse use in all modes
 
 " copy to clipboard by default
-set clipboard+=unnamedplus
-set clipboard+=unnamed
+set clipboard^=unnamedplus
+set clipboard^=unnamed
 
 set expandtab
 set tabstop=4
