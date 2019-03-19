@@ -40,6 +40,11 @@ vnoremap \d "_d
 nnoremap \d "_d
 nnoremap \D "_dd
 
+" we can still use the "x" command for the traditional operation,
+" so let's tweak Del to act like in non-modal editors (delete and not save):
+vnoremap <Del> "_d
+nnoremap <Del> "_x
+
 " session management accelerators (don't forget to add .vim extension!)
 nnoremap \# :mksession! Session
 nnoremap \@ :source Session
