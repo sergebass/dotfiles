@@ -2,5 +2,13 @@
     {
         "key": "ctrl+n",
         "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "shift+-",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
     }
 ]

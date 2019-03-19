@@ -260,6 +260,14 @@
         },
         {
             "before": [
+                "_"
+            ],
+            "commands": [
+                "workbench.action.togglePanel"
+            ]
+        },
+        {
+            "before": [
                 "H"
             ],
             "after": [
