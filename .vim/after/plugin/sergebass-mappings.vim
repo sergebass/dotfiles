@@ -13,7 +13,7 @@ nnoremap S :wa<CR>
 " since "Q" is equivalent to "gQ" and is rarely used:
 nnoremap Q :qa<CR>
 
-" since "Y" is equivalent to "yy", make Y copy to the end of line:
+" since "Y" is normally equivalent to "yy", make Y copy to the end of line:
 " (this will be more consistent with C or D that also act until the end of line)
 nnoremap Y y$
 
@@ -29,22 +29,28 @@ inoremap <silent> <C-S> <C-O>:update<CR>
 " quickly look up the contents of all registers
 nnoremap \r :reg<CR>
 
-" a faster way to copy/paste using clipboard (instead of the default register)
-vnoremap \y "+y
+" copying/pasting/deleting tweaks
+
+" in normal mode:
 nnoremap \y "+y
 nnoremap \Y "+yy
 
 nnoremap \p "+p
 nnoremap \P "+P
 
-" a way to delete text without retaining it
-" (and touching other registers along the way): use the "black hole" register
-vnoremap \d "_d
 nnoremap \d "_d
-nnoremap \D "_dd
+nnoremap \D "_d$
+
+" in visual mode:
+vnoremap \y "+y
+
+vnoremap \p "_d"+p
+vnoremap \P "_d"+P
+
+vnoremap \d "_d
 
 " we can still use the "x" command for the traditional operation,
-" so let's tweak Del to act like in non-modal editors (delete and not save):
+" so let's tweak Del to act like in non-modal editors (just delete, not save):
 vnoremap <Del> "_d
 nnoremap <Del> "_x
 
