@@ -182,6 +182,74 @@
         },
         {
             "before": [
+                "\\",
+                "y"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "y"
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "Y"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "y",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "p"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "p"
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "P"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "P"
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "D"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d",
+                "$"
+            ]
+        },
+        {
+            "before": [
                 "<del>"
             ],
             "after": [
@@ -447,6 +515,56 @@
     "vim.insertModeKeyBindingsNonRecursive": [],
     "vim.visualModeKeyBindings": [],
     "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "\\",
+                "y"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "y"
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "p"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d",
+                "\"",
+                "+",
+                "p"
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "P"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d",
+                "\"",
+                "+",
+                "P"
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        },
         {
             "before": [
                 "<del>"
