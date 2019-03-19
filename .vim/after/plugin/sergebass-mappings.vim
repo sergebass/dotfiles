@@ -13,10 +13,12 @@ nnoremap S :wa<CR>
 " since "Q" is equivalent to "gQ" and is rarely used:
 nnoremap Q :qa<CR>
 
-" since "Y" is equivalent to "yy":
-" nnoremap Y "+y
+" since "Y" is equivalent to "yy", make Y copy to the end of line:
+" (this will be more consistent with C or D that also act until the end of line)
+nnoremap Y y$
 
-" FIXME make use of "X" as well (which is the same as "dh") (?)
+" since "X" is equivalent to "dh":
+nnoremap X :wqa<CR>
 
 " an alternative way to quickly save the file being edited
 " (make sure to turn off terminal flow control via Ctrl+S/Q)
