@@ -7,6 +7,9 @@
 let mapleader = "\<Space>o"
 let maplocalleader = "\<Space>mo"
 
+" since "C-Q" is equivalent to "C-V", use <C-Q> to save everything and quit
+nnoremap <C-Q> :wqa<CR>
+
 " since "S" is equivalent to "cc", reuse it for a different purpose
 nnoremap S :wa<CR>
 
