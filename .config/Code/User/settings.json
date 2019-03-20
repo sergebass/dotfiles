@@ -268,6 +268,14 @@
         },
         {
             "before": [
+                "X"
+            ],
+            "commands": [
+                "workbench.action.reopenClosedEditor"
+            ]
+        },
+        {
+            "before": [
                 "H"
             ],
             "after": [
