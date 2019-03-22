@@ -56,8 +56,8 @@ eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 
 nnoremap <CR> <C-]>
 
-nnoremap S :wa<CR>
-nnoremap Q :qa<CR>
+nnoremap S :w<CR>
+nnoremap Q :q<CR>
 
 nnoremap \v :vim<CR>
 
