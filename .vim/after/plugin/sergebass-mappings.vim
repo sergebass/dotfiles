@@ -10,11 +10,11 @@ let maplocalleader = "\<Space>mo"
 " since "C-Q" is equivalent to "C-V", use <C-Q> to save everything and quit
 nnoremap <C-Q> :wqa<CR>
 
-" since "S" is equivalent to "cc", reuse it for a different purpose
-nnoremap S :wa<CR>
+" since "S" is equivalent to "cc", reuse it to save the current buffer
+nnoremap S :w<CR>
 
-" since "Q" is equivalent to "gQ" and is rarely used:
-nnoremap Q :qa<CR>
+" since "Q" is equivalent to "gQ" and is rarely used, reuse it to close the current buffer
+nnoremap Q :q<CR>
 
 " since "Y" is normally equivalent to "yy", make Y copy to the end of line:
 " (this will be more consistent with C or D that also act until the end of line)
