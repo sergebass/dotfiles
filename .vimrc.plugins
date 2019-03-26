@@ -1,0 +1,4 @@
+" our vim/neovim plugins are configured here
+
+execute pathogen#infect()
+execute pathogen#helptags()

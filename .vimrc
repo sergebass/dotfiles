@@ -167,8 +167,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-execute pathogen#infect()
-execute pathogen#helptags()
+source ~/.vimrc.plugins
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
 if exists("g:did_load_filetypes")
