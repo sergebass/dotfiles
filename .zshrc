@@ -1,9 +1,15 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$HOME/.cargo/bin:$HOME/opt/nodejs/bin:/usr/local/bin:$PATH
+# ZSH startup script
 
-if [ -d "$HOME/opt/jdk" ] ; then
-    JAVA_HOME="$HOME/opt/jdk"
-    PATH="$HOME/opt/jdk/bin:$PATH"
+if [ -f ~/.profile ]; then
+    source ~/.profile
+fi
+
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
+if [ -f ~/dotfiles/scripts/h.sh ]; then
+    source ~/dotfiles/scripts/h.sh
 fi
 
 # Path to your oh-my-zsh installation.
@@ -144,14 +150,6 @@ bindkey '^S' history-incremental-pattern-search-forward
 
 bindkey '^P' up-history
 bindkey '^N' down-history
-
-if [ -f ~/dotfiles/scripts/h.sh ]; then
-    source ~/dotfiles/scripts/h.sh
-fi
-
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
 
 # disable terminal control flow (reclaim Ctrl+S and Ctrl+Q combinations)
 stty stop ''

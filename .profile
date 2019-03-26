@@ -10,23 +10,9 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
     . "$HOME/.bashrc"
     fi
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-if [ -d "$HOME/dotfiles/scripts" ] ; then
-    PATH="$HOME/dotfiles/scripts:$PATH"
-fi
-
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
 fi
 
 if [ -d "$HOME/.cabal/bin" ] ; then
@@ -38,12 +24,22 @@ if [ -d "$HOME/.cargo/bin" ] ; then
 fi
 
 if [ -d "$HOME/opt/jdk" ] ; then
-    JAVA_HOME="$HOME/opt/jdk"
+    export JAVA_HOME="$HOME/opt/jdk"
     PATH="$HOME/opt/jdk/bin:$PATH"
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+if [ -d "$HOME/opt/nodejs/bin" ] ; then
+    PATH="$HOME/opt/nodejs/bin:$PATH"
+fi
 
-# a temporary fix for LibreOffice + xmonad
-# (https://code.google.com/archive/p/xmonad/issues/200)
-export SAL_USE_VCLPLUGIN=gen
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/dotfiles/scripts" ] ; then
+    PATH="$HOME/dotfiles/scripts:$PATH"
+fi
+
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
