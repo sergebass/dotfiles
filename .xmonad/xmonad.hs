@@ -22,10 +22,10 @@ myConfig = desktopConfig
     }
      `additionalKeys`
     [ ((superMask, xK_s), selectWorkspace def)
-    , ((superMask, xK_bracketleft), prevWS)
-    , ((superMask, xK_bracketright), nextWS)
-    , ((superMask .|. shiftMask, xK_bracketleft), shiftToPrev >> prevWS)
-    , ((superMask .|. shiftMask, xK_bracketright), shiftToNext >> nextWS)
+    , ((superMask, xK_Left), prevWS)
+    , ((superMask, xK_Right), nextWS)
+    , ((superMask .|. shiftMask, xK_Left), shiftToPrev >> prevWS)
+    , ((superMask .|. shiftMask, xK_Right), shiftToNext >> nextWS)
     , ((superMask .|. shiftMask, xK_n), renameWorkspace def)
     , ((superMask .|. shiftMask, xK_m), withWorkspace def (windows . W.shift))
     , ((superMask .|. shiftMask, xK_d), removeWorkspace)
@@ -44,7 +44,7 @@ myConfig = desktopConfig
     , ((superMask, xK_equal), spawn "urxvt -e bc -l")
     , ((superMask, xK_KP_Enter), spawn "gnome-calculator")
     -- web browser
-    , ((superMask, xK_backslash), spawn "xdg-open https://duckduckgo.com")
+    , ((superMask, xK_slash), spawn "xdg-open https://duckduckgo.com")
     -- keyboard layout switching
     , ((superMask, xK_F12), spawn "setxkbmap -layout \"us,ru,ua,us(intl)\" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape")
     -- screen backlight brightness
@@ -54,6 +54,9 @@ myConfig = desktopConfig
     , ((superMask .|. controlMask, xK_Page_Down), spawn "xbacklight -dec 10")
     -- audio controls
     , ((superMask, xK_v), spawn "pavucontrol")
+    , ((superMask, xK_bracketleft), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ((superMask, xK_bracketright), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ((superMask, xK_backslash), spawn "pactl set-sink-volume @DEFAULT_SINK@ 10%")
     , ((superMask, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
     , ((superMask, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((superMask, xK_Home), spawn "pactl set-sink-volume @DEFAULT_SINK@ 50%")
