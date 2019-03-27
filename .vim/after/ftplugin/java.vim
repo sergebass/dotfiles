@@ -26,6 +26,87 @@ nmap <buffer> <Space>mhh K
 nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://docs.oracle.com/javase/10/docs/api/index.html"<CR>
 
+" These are spacemacs keybindings for java mode: TODO incorporate them here...
+
+" 3.1.1 Project management
+" SPC m p b     Build project
+" SPC m p c     Create project
+" SPC m p d     Delete project
+" SPC m p g     Open file in current project
+" SPC m p i     Import project
+" SPC m p j     Information about project
+" SPC m p k     Close project
+" SPC m p o     Open project
+" SPC m p p     Open project management buffer
+" SPC m p u     Update project
+
+" 3.1.2 Eclimd
+" SPC m d s     Start daemon
+" SPC m d k     Stop daemon
+
+" 3.1.3 Maven
+" SPC m m i     Run maven clean install
+" SPC m m I     Run maven install
+" SPC m m p     Run one already goal from list
+" SPC m m r     Run maven goals
+" SPC m m R     Run one maven goal
+" SPC m m t     Run maven test
+
+" 3.1.4 Goto
+" M-,   jump back from go to declaration/definition
+" SPC m g g     go to declaration
+" SPC m g t     go to type definition
+
+" 3.1.5 Refactoring
+" SPC m r i     optimize imports
+" SPC m r f     Format file
+" SPC m r r     Rename symbol
+
+" 3.1.6 Documentation, Find
+" SPC m f f     general find in project
+" SPC m h h     show documentation for symbol at point
+" SPC m h u     show usages for symbol at point
+
+" 3.1.7 Problems
+" SPC m e a     set all problems for next/prev action
+" SPC m e b     open buffer with problems
+" SPC m e c     show options with problem corrections
+" SPC m e e     set only errors for next/prev action
+" SPC m e f     set only current file for next/prev action
+" SPC m e n     go to next problem
+" SPC m e o     open buffer with problems
+" SPC m e p     go to previous problem
+" SPC m e w     set warnings for next/prev action
+
+" 3.1.8 Tests
+" SPC m t t     run JUnit tests for current method or current file or project
+
+" 3.2 Problems buffer
+" RET   go to problem place
+" a     show all problems
+" e     show only errors
+" f     show problems only for current file
+" g     refresh problems
+" q     quit
+" w     show only warnings
+
+" 3.3 Projects buffer
+" RET   go to current project
+" c     go to problem place
+" D     delete project
+" g     refresh buffer
+" i     info about current project
+" I     import existing project into the workspace
+" m     mark current project
+" M     mark all projects
+" N     create new project
+" o     open project
+" p     update project
+" q     quit
+" R     rename current project
+" u     unmark current project
+" U     unmark all projects
+
 " search the term under cursor on the web
 nnoremap <buffer> \\? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> Java API"<Left>
 vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* Java API"<Left>
