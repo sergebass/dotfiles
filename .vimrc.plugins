@@ -18,6 +18,9 @@ endif
 "
 call plug#begin('~/.vim/bundle')
 
+" we need Vim help for vim-plug itself (e.g. :help plug-options), so register vim-plug as a plugin.
+Plug 'junegunn/vim-plug'
+
 " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'
 
