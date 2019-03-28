@@ -21,6 +21,8 @@ eclipseaction Restart org.eclipse.ui.file.restartWorkbench
 
 eclipseaction ShowKeyAssist org.eclipse.ui.window.showKeyAssist
 
+eclipseuiaction ShowInformation org.eclipse.ui.edit.text.showInformation
+
 eclipseaction GoToNextAnnotation org.eclipse.ui.edit.text.gotoNextAnnotation
 eclipseaction GoToPreviousAnnotation org.eclipse.ui.edit.text.gotoPreviousAnnotation
 
@@ -30,12 +32,12 @@ eclipseaction SearchReferencesInProject org.eclipse.jdt.ui.edit.text.java.search
 eclipseaction SearchDeclarationsInWorkspace org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace
 eclipseaction SearchReferencesInWorkspace org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
 
-eclipseaction OpenHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
-eclipseaction OpenCallHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy
-eclipseaction OpenTypeHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy
-eclipseaction OpenStructure org.eclipse.jdt.ui.navigate.java.open.structure
-eclipseaction OpenImplementation org.eclipse.jdt.ui.edit.text.java.open.implementation
-eclipseaction OpenSuperImplementation org.eclipse.jdt.ui.edit.text.java.open.super.implementation
+eclipseuiaction OpenHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
+eclipseuiaction OpenCallHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy
+eclipseuiaction OpenTypeHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy
+eclipseuiaction OpenStructure org.eclipse.jdt.ui.navigate.java.open.structure
+eclipseuiaction OpenImplementation org.eclipse.jdt.ui.edit.text.java.open.implementation
+eclipseuiaction OpenSuperImplementation org.eclipse.jdt.ui.edit.text.java.open.super.implementation
 
 eclipseaction OrganizeImports org.eclipse.jdt.ui.edit.text.java.organize.imports
 eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
@@ -47,7 +49,7 @@ eclipseaction ToggleBreadCrumb org.eclipse.jdt.ui.edit.text.java.toggleBreadcrum
 
 eclipseaction ShowInNavigator org.eclipse.jdt.ui.edit.text.java.show.in.navigator.view
 
-eclipseaction ShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
+eclipseuiaction ShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
 
 eclipseaction ToggleComment org.eclipse.jdt.ui.edit.text.java.toggle.comment
 
@@ -70,6 +72,8 @@ nnoremap [q :GoToPreviousAnnotation<CR>
 
 nnoremap <Space>en :GoToNextAnnotation<CR>
 nnoremap <Space>ep :GoToPreviousAnnotation<CR>
+
+nnoremap K :ShowInformation<CR>
 
 nnoremap gO :ShowOutline<CR>
 
