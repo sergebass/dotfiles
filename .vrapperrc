@@ -32,6 +32,7 @@ eclipseaction SearchReferencesInProject org.eclipse.jdt.ui.edit.text.java.search
 eclipseaction SearchDeclarationsInWorkspace org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace
 eclipseaction SearchReferencesInWorkspace org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
 
+eclipseuiaction OpenType org.eclipse.jdt.ui.navigate.open.type
 eclipseuiaction OpenHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
 eclipseuiaction OpenCallHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy
 eclipseuiaction OpenTypeHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy
@@ -56,10 +57,16 @@ eclipseaction ToggleComment org.eclipse.jdt.ui.edit.text.java.toggle.comment
 eclipseaction NextEditor org.eclipse.ui.window.nextEditor
 eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 
+eclipseuiaction SwitchEditor org.eclipse.ui.window.switchToEditor
+eclipseuiaction ChooseEditor org.eclipse.ui.window.openEditorDropDown
+
 nnoremap <CR> <C-]>
 
 nnoremap S :w<CR>
 nnoremap Q :q<CR>
+
+nnoremap <C-P> :ChooseEditor<CR>
+nnoremap <C-N> :OpenType<CR>
 
 nnoremap \v :vim<CR>
 
