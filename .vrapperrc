@@ -19,18 +19,20 @@ set clipboard=unnamedplus
 eclipseaction Exit org.eclipse.ui.file.exit
 eclipseaction Restart org.eclipse.ui.file.restartWorkbench
 
-eclipseaction ShowKeyAssist org.eclipse.ui.window.showKeyAssist
+eclipseuiaction ShowKeyAssist org.eclipse.ui.window.showKeyAssist
 
 eclipseuiaction ShowInformation org.eclipse.ui.edit.text.showInformation
 
 eclipseaction GoToNextAnnotation org.eclipse.ui.edit.text.gotoNextAnnotation
 eclipseaction GoToPreviousAnnotation org.eclipse.ui.edit.text.gotoPreviousAnnotation
 
-eclipseaction SearchDeclarationsInProject org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
-eclipseaction SearchReferencesInProject org.eclipse.jdt.ui.edit.text.java.search.references.in.project
+eclipseuiaction SearchDeclarationsInProject org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
+eclipseuiaction SearchReferencesInProject org.eclipse.jdt.ui.edit.text.java.search.references.in.project
 
-eclipseaction SearchDeclarationsInWorkspace org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace
-eclipseaction SearchReferencesInWorkspace org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
+eclipseuiaction SearchDeclarationsInWorkspace org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace
+eclipseuiaction SearchReferencesInWorkspace org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
+
+eclipseuiaction SearchTextInWorkspace org.eclipse.search.ui.performTextSearchWorkspace
 
 eclipseuiaction OpenType org.eclipse.jdt.ui.navigate.open.type
 eclipseuiaction OpenHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
@@ -74,6 +76,9 @@ nnoremap \y "+y
 nnoremap \p "+p
 nnoremap \P "+P
 
+nnoremap \/ :SearchTextInWorkspace<CR>
+vnoremap \/ :SearchTextInWorkspace<CR>
+
 nnoremap ]q :GoToNextAnnotation<CR>
 nnoremap [q :GoToPreviousAnnotation<CR>
 
@@ -91,8 +96,10 @@ nnoremap <Space>? :ShowKeyAssist<CR>
 nnoremap \<Tab> :ShowInNavigator<CR>
 
 nnoremap \<CR> :SearchReferencesInWorkspace<CR>
+vnoremap \<CR> :SearchReferencesInWorkspace<CR>
 
 nnoremap <Space>ss :SearchReferencesInWorkspace<CR>
+vnoremap <Space>ss :SearchReferencesInWorkspace<CR>
 
 nnoremap <Space><Space> <Esc>:
 nnoremap <Space><Tab> <C-^>
