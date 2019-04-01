@@ -62,7 +62,7 @@ nnoremap \# :mksession! Session
 nnoremap \@ :source Session
 
 nnoremap <C-N> :Tags<CR>
-nnoremap <C-P> :call fzf#vim#history()<CR>
+nnoremap <C-P> :GFiles<CR>
 
 " emulate Spacemacs/SpaceVim
 
