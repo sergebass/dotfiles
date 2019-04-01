@@ -133,8 +133,10 @@ nnoremap <Space>' :terminal<CR>
 
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
 " use the same shortcut for convenience
-nnoremap <M-Space> :terminal<CR>
-tnoremap <M-Space> <C-\><C-n>
+if has('nvim') || (v:version >= 800)
+    nnoremap <M-BS> :terminal<CR>
+    tnoremap <M-BS> <C-\><C-n>
+endif
 
 " use \ with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
