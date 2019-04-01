@@ -12,7 +12,11 @@ endif
 
 hi clear
 
-hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=NONE gui=NONE guifg=#c0c0c0 guibg=NONE
+if has("gui_running")
+    hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=0 gui=NONE guifg=#c0c0c0 guibg=#000000
+else
+    hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=NONE gui=NONE guifg=#c0c0c0 guibg=NONE
+endif
 
 hi User1 term=bold cterm=bold ctermfg=yellow ctermbg=blue gui=bold guifg=#ffff20 guibg=#000040
 
