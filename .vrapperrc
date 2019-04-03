@@ -62,8 +62,6 @@ eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 eclipseuiaction SwitchEditor org.eclipse.ui.window.switchToEditor
 eclipseuiaction ChooseEditor org.eclipse.ui.window.openEditorDropDown
 
-nnoremap <CR> <C-]>
-
 nnoremap S :w<CR>
 nnoremap Q :q<CR>
 
@@ -105,8 +103,6 @@ nnoremap <Space><Space> <Esc>:
 nnoremap <Space><Tab> <C-^>
 nnoremap <Space>w <C-W>
 
-nmap <BS> <Space>m
-
 nnoremap <Space>qq :Exit<CR>
 nnoremap <Space>qr :Restart<CR>
 
@@ -122,10 +118,16 @@ nnoremap <Space>bR :e!
 nnoremap <Space>bY gg"+yG
 nnoremap <Space>bP ggvG"+p
 
+" a shorter alias for mode-specific bindings
+nmap <Space>m <CR>
+
 " jumping around
-nnoremap <Space>mgg <C-]>
+nnoremap <CR><CR> <C-]>
+nnoremap <CR>gg <C-]>
+
+nnoremap <BS> <C-O>
 
 " refactoring
-nnoremap <Space>mri :OrganizeImports<CR>
-nnoremap <Space>mrf :QuickFormat<CR>
-nnoremap <Space>mrr :RenameElement<CR>
+nnoremap <CR>ri :OrganizeImports<CR>
+nnoremap <CR>rf :QuickFormat<CR>
+nnoremap <CR>rr :RenameElement<CR>
