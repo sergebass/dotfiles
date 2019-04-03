@@ -12,13 +12,13 @@ nnoremap \\ff :LocateFile<CR>
 
 nnoremap \\bb :BuffersToggle<CR>
 
-nnoremap \\<Tab> :ProjectTree<CR>
-nnoremap \\<M-Tab> :ProjectsTree<CR>
+nnoremap <CR><Tab> :ProjectTree<CR>
+nnoremap <CR><M-Tab> :ProjectsTree<CR>
 
 nnoremap \\! :ProjectProblems!<CR>
 nnoremap \\!! :ProjectProblems<CR>
 
-nnoremap \\ptd :ProjectTodo<CR>
+nnoremap \\pt :ProjectTodo<CR>
 nnoremap \\pr :ProjectRefreshAll<CR>
 
 nnoremap \\ac :Ant clean<CR>

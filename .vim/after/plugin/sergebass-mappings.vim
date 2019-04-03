@@ -2,10 +2,12 @@
 """ KEYBOARD MAPPINGS
 """ -----------------
 
-" use Spacemacs-style prefixes, where <Space>o and <Space>m are reserved for
-" user (use them for 3rd party plugins to avoid clashes with our mappings)
-let mapleader = "\<Space>o"
-let maplocalleader = "\<Space>mo"
+" let 3rd party plugins use these prefixes for their default keybindings
+let mapleader = '_'
+let maplocalleader = '_'
+
+" Allow saving of files as sudo if we forgot to start vim using sudo.
+cnoremap w!! w !sudo tee > /dev/null %
 
 " since "C-Q" is equivalent to "C-V", use <C-Q> to save everything and quit
 nnoremap <C-Q> :wqa<CR>
@@ -25,9 +27,9 @@ nnoremap X :call fzf#vim#history()<CR><CR>
 
 " an alternative way to quickly save the file being edited
 " (make sure to turn off terminal flow control via Ctrl+S/Q)
+inoremap <silent> <C-S> <C-O>:update<CR>
 noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
-inoremap <silent> <C-S> <C-O>:update<CR>
 
 " quickly look up the contents of all registers
 nnoremap \r :reg<CR>
@@ -64,13 +66,20 @@ nnoremap \@ :source Session
 nnoremap <C-N> :Tags<CR>
 nnoremap <C-P> :GFiles<CR>
 
+nnoremap <TAB> <C-I>
+nnoremap <BS> <C-O>
+
+nnoremap <M-TAB> g,
+nnoremap <M-BS> g;
+
 " emulate Spacemacs/SpaceVim
 
 nnoremap <Space><Space> :
 nnoremap <Space><Tab> <C-^>
 
-" use Backspace key for a quicker way to access spacemacs-mode-specific commands
-nmap <BS> <Space>m
+" make mode-specific mappings a bit shorter, use another big button as a prefix
+unmap <CR>
+nmap <Space>m <CR>
 
 nmap <F1> <Space>h
 
@@ -134,8 +143,8 @@ nnoremap <Space>' :terminal<CR>
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
 " use the same shortcut for convenience
 if has('nvim') || (v:version >= 800)
-    nnoremap <M-BS> :terminal<CR>
-    tnoremap <M-BS> <C-\><C-n>
+    nnoremap <C-\> :terminal<CR>
+    tnoremap <C-\> <C-\><C-n>
 endif
 
 " use \ with numeric keys to simulate finctional keys,
@@ -289,20 +298,21 @@ nnoremap <silent> \pc :CtrlPChange<CR>
 nnoremap <silent> \px :CtrlPMixed<CR>
 
 " using NERDTree
-nnoremap <silent> \<Tab> :NERDTreeFind<CR>
+nnoremap <silent> \<Tab> :NERDTreeToggle<CR>
+nnoremap <silent> \<M-Tab> :NERDTreeFind<CR>
 
-nnoremap <silent> <M-Tab> :Explore<CR>
-nnoremap <silent> \<M-Tab> :Lexplore<CR>
+nnoremap <silent> \\<Tab> :Explore<CR>
+nnoremap <silent> \\<M-Tab> :Lexplore<CR>
 
 nnoremap <silent> \fr :browse oldfiles<CR>
 
-nnoremap <silent> <C-_> :TagbarToggle<CR>
-nnoremap <silent> \<C-_> :MinimapToggle<CR>
+nnoremap <silent> \<BS> :TagbarToggle<CR>
+nnoremap <silent> \\<BS> :MinimapToggle<CR>
 
 nnoremap <silent> gO :TagbarOpen fjc<CR>
 
 " quickly close both quickfix and location list windows
-noremap <silent> _ :lclose<CR>:cclose<CR>
+noremap <silent> \_ :lclose<CR>:cclose<CR>
 
 " facilitate quickfix navigation
 nnoremap <silent> \[ :cprev<CR>
@@ -336,9 +346,6 @@ nnoremap \\= :lw<CR>
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
 nnoremap \\<M-Del> :ClearLocationList<CR>
 
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cnoremap w!! w !sudo tee > /dev/null %
-
 " map Ctrl+R to replace highlighted text (with confirmation)
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
@@ -363,17 +370,14 @@ nnoremap \\* :match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
 vnoremap \\* "*y<Esc>:match SPCustomHighlight "<C-r>*"
 
 " easily copy the word under cursor into the command line being edited
-nnoremap <C-\> :<C-r>=expand("<cword>")<CR><Home>
-vnoremap <C-\> "*y<Esc>:<C-r>*<Home>
-cnoremap <C-\> <C-r>=expand("<cword>")<CR>
-
-" in case Alt+Enter is recognized correctly, make it an equivalent of Ctrl+Backslash
-map <M-CR> <C-\>
+nnoremap <M-CR> :<C-r>=expand("<cword>")<CR>
+vnoremap <M-CR> "*y<Esc>:<C-r>*
+cnoremap <M-CR> <C-r>=expand("<cword>")<CR>
 
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
-nnoremap <CR> g<C-]>
-nmap <C-LeftMouse> <CR>
+nnoremap <CR><CR> g<C-]>
+nmap <C-LeftMouse> <CR><CR>
 
 " quickly search the word under cursor using fzf.vim
 nnoremap \<CR> :Ag<CR>:cfirst<CR>
