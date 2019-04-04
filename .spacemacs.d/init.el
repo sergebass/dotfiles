@@ -319,7 +319,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  (define-key evil-normal-state-map (kbd "RET RET") 'evil-jump-to-tag)
+  (define-key evil-normal-state-map (kbd "RET RET") 'spacemacs/jump-to-definition)
 
   ;; (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
   ;; (define-key evil-normal-state-map (kbd "C-o") 'evil-jump-backward)
@@ -335,7 +335,7 @@ you should place your code here."
   (define-prefix-command 'my-leader-map)
   (define-key evil-normal-state-map (kbd "\\") 'my-leader-map)
 
-  (define-key my-leader-map (kbd "RET") 'xref-find-references)
+  (define-key my-leader-map (kbd "RET") 'projectile-grep)
   (define-key my-leader-map (kbd "TAB") 'neotree)
 
   (setq eclim-executable "~/opt/eclipse/plugins/org.eclim_2.8.0/bin/eclim"
