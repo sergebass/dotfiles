@@ -321,8 +321,8 @@ you should place your code here."
 
   (define-key evil-normal-state-map (kbd "RET RET") 'evil-jump-to-tag)
 
-  (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
-  (define-key evil-normal-state-map (kbd "C-o") 'evil-jump-backward)
+  ;; (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
+  ;; (define-key evil-normal-state-map (kbd "C-o") 'evil-jump-backward)
 
   (define-key evil-normal-state-map (kbd "TAB") 'evil-jump-forward)
   (define-key evil-normal-state-map (kbd "DEL") 'evil-jump-backward)
