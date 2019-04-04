@@ -323,9 +323,6 @@ you should place your code here."
 
   (define-key evil-normal-state-map (kbd "RET RET") 'spacemacs/jump-to-definition)
 
-  ;; (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
-  ;; (define-key evil-normal-state-map (kbd "C-o") 'evil-jump-backward)
-
   (define-key evil-normal-state-map (kbd "TAB") 'evil-jump-forward)
   (define-key evil-normal-state-map (kbd "DEL") 'evil-jump-backward)
 
@@ -340,6 +337,11 @@ you should place your code here."
   (define-key my-leader-map (kbd "TAB") 'neotree)
   (define-key my-leader-map (kbd "RET") 'projectile-ag)
   (define-key my-leader-map (kbd "/") 'projectile-grep)
+
+  (spacemacs/set-leader-keys "<left>" 'evil-window-left)
+  (spacemacs/set-leader-keys "<right>" 'evil-window-right)
+  (spacemacs/set-leader-keys "<up>" 'evil-window-up)
+  (spacemacs/set-leader-keys "<down>" 'evil-window-down)
 
   (setq eclim-executable "~/opt/eclipse/plugins/org.eclim_2.8.0/bin/eclim"
         eclim-eclipse-dirs "~/opt/eclipse/")
