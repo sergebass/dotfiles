@@ -337,7 +337,9 @@ you should place your code here."
 
   (define-key my-leader-map (kbd "RET") 'xref-find-references)
   (define-key my-leader-map (kbd "TAB") 'neotree)
-  )
+
+  (setq eclim-executable "~/opt/eclipse/plugins/org.eclim_2.8.0/bin/eclim")
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
