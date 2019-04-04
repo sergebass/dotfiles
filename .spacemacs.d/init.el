@@ -58,7 +58,9 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+      ag
+   )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -335,11 +337,14 @@ you should place your code here."
   (define-prefix-command 'my-leader-map)
   (define-key evil-normal-state-map (kbd "\\") 'my-leader-map)
 
-  (define-key my-leader-map (kbd "RET") 'projectile-grep)
   (define-key my-leader-map (kbd "TAB") 'neotree)
+  (define-key my-leader-map (kbd "RET") 'projectile-ag)
+  (define-key my-leader-map (kbd "/") 'projectile-grep)
 
   (setq eclim-executable "~/opt/eclipse/plugins/org.eclim_2.8.0/bin/eclim"
         eclim-eclipse-dirs "~/opt/eclipse/")
+
+  ;; (define-key java-mode-map (kbd "\\ RET") 'eclim-java-find-references)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -364,7 +369,7 @@ you should place your code here."
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (vimrc-mode dactyl-mode psci purescript-mode psc-ide idris-mode prop-menu xterm-color unfill shell-pop org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim multi-term htmlize helm-company helm-c-yasnippet gnuplot fuzzy eshell-z eshell-prompt-extras esh-help company-tern dash-functional tern company-statistics company-shell company-emacs-eclim company-cabal auto-yasnippet ac-ispell auto-complete tide sql-indent insert-shebang fish-mode flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell auto-dictionary intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets company-ghci company-ghc ghc company haskell-mode cmm-mode smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter evil-magit magit transient git-commit with-editor diff-hl mmm-mode markdown-toc markdown-mode gh-md eclim web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode powerline spinner hydra parent-mode flx highlight smartparens iedit anzu evil goto-chg undo-tree f dash s bind-map bind-key helm avy helm-core popup async helm-projectile helm-make projectile pkg-info epl auto-compile packed ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package typescript-mode toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-mode-manager helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode bracketed-paste auto-highlight-symbol aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (ag vimrc-mode dactyl-mode psci purescript-mode psc-ide idris-mode prop-menu xterm-color unfill shell-pop org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim multi-term htmlize helm-company helm-c-yasnippet gnuplot fuzzy eshell-z eshell-prompt-extras esh-help company-tern dash-functional tern company-statistics company-shell company-emacs-eclim company-cabal auto-yasnippet ac-ispell auto-complete tide sql-indent insert-shebang fish-mode flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell auto-dictionary intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets company-ghci company-ghc ghc company haskell-mode cmm-mode smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter evil-magit magit transient git-commit with-editor diff-hl mmm-mode markdown-toc markdown-mode gh-md eclim web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode powerline spinner hydra parent-mode flx highlight smartparens iedit anzu evil goto-chg undo-tree f dash s bind-map bind-key helm avy helm-core popup async helm-projectile helm-make projectile pkg-info epl auto-compile packed ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package typescript-mode toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-mode-manager helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode bracketed-paste auto-highlight-symbol aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t)
  '(tool-bar-mode nil))
