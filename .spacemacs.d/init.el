@@ -348,6 +348,8 @@ you should place your code here."
 
   (setq-default tab-width 4)
 
+  (setq-default scroll-margin 1)
+
   ;; (define-key java-mode-map (kbd "\\ RET") 'eclim-java-find-references)
 )
 
