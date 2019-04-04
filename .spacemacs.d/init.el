@@ -344,6 +344,8 @@ you should place your code here."
   (setq eclim-executable "~/opt/eclipse/plugins/org.eclim_2.8.0/bin/eclim"
         eclim-eclipse-dirs "~/opt/eclipse/")
 
+  (setq-default tab-width 4)
+
   ;; (define-key java-mode-map (kbd "\\ RET") 'eclim-java-find-references)
 )
 
