@@ -1,20 +1,4 @@
-set number
-set cursorline
-
-set hlsearch
-set incsearch
-
-set tabstop=4
-set expandtab
-set shiftwidth=4
-
-set textwidth=120
-set scrolloff=1
-
-set startnormalmode
-set contentassistmode
-
-set clipboard=unnamedplus
+" Vrapper configuration
 
 eclipseaction Exit org.eclipse.ui.file.exit
 eclipseaction Restart org.eclipse.ui.file.restartWorkbench
@@ -25,6 +9,8 @@ eclipseuiaction ShowInformation org.eclipse.ui.edit.text.showInformation
 
 eclipseaction GoToNextAnnotation org.eclipse.ui.edit.text.gotoNextAnnotation
 eclipseaction GoToPreviousAnnotation org.eclipse.ui.edit.text.gotoPreviousAnnotation
+
+eclipseuiaction OpenSearchDialog org.eclipse.search.ui.openSearchDialog
 
 eclipseuiaction SearchDeclarationsInProject org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
 eclipseuiaction SearchReferencesInProject org.eclipse.jdt.ui.edit.text.java.search.references.in.project
@@ -44,7 +30,6 @@ eclipseuiaction OpenSuperImplementation org.eclipse.jdt.ui.edit.text.java.open.s
 
 eclipseaction OrganizeImports org.eclipse.jdt.ui.edit.text.java.organize.imports
 eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
-
 eclipseaction RenameElement org.eclipse.jdt.ui.edit.text.java.rename.element
 
 eclipseaction ShowInBreadCrumb org.eclipse.jdt.ui.edit.text.java.gotoBreadcrumb
@@ -61,6 +46,28 @@ eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 
 eclipseuiaction SwitchEditor org.eclipse.ui.window.switchToEditor
 eclipseuiaction ChooseEditor org.eclipse.ui.window.openEditorDropDown
+
+eclipseuiaction RunUnitTest org.eclipse.jdt.junit.junitShortcut.run
+
+" vim-like settings
+
+set number
+set cursorline
+
+set hlsearch
+set incsearch
+
+set tabstop=4
+set expandtab
+set shiftwidth=4
+
+set textwidth=120
+set scrolloff=1
+
+set startnormalmode
+set contentassistmode
+
+set clipboard=unnamedplus
 
 nnoremap S :w<CR>
 nnoremap Q :q<CR>
@@ -82,12 +89,6 @@ nnoremap [q :GoToPreviousAnnotation<CR>
 
 nnoremap <Space>en :GoToNextAnnotation<CR>
 nnoremap <Space>ep :GoToPreviousAnnotation<CR>
-
-nnoremap K :ShowInformation<CR>
-
-nnoremap gO :ShowOutline<CR>
-
-nnoremap <F2> :RenameElement<CR>
 
 nnoremap <Space>? :ShowKeyAssist<CR>
 
@@ -124,10 +125,27 @@ nmap <Space>m <CR>
 " jumping around
 nnoremap <CR><CR> <C-]>
 nnoremap <CR>gg <C-]>
+" nnoremap <CR>gt <C-]>
 
 nnoremap <BS> <C-O>
+
+nnoremap gO :ShowOutline<CR>
+
+nnoremap <CR>hh :ShowInformation<CR>
+nnoremap K :ShowInformation<CR>
+
+nnoremap <CR>ff :OpenSearchDialog<CR>
+
+nnoremap <CR>hu :SearchReferencesInWorkspace<CR>
 
 " refactoring
 nnoremap <CR>ri :OrganizeImports<CR>
 nnoremap <CR>rf :QuickFormat<CR>
 nnoremap <CR>rr :RenameElement<CR>
+
+" SPC m e b 	open buffer with problems
+" SPC m e o 	open buffer with problems
+nnoremap <CR>en :GoToNextAnnotation<CR>
+nnoremap <CR>ep :GoToPreviousAnnotation<CR>
+
+nnoremap <CR>tt :RunUnitTest<CR>
