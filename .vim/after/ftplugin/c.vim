@@ -22,4 +22,9 @@ nnoremap <buffer> \\?2 :!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>=ex
 vnoremap <buffer> \\?2 "*y<Esc>:!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
 
 " toggle between source and header
-nnoremap <buffer> <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+nmap <buffer> <CR>ga :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+
+" SPC m g a 	open matching file (e.g. switch between .cpp and .h)
+" SPC m g A 	open matching file in another window (e.g. switch between .cpp and .h)
+" SPC m D 	disaster: disassemble c/c++ code
+" SPC m r 	srefactor: refactor thing at point.
