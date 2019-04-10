@@ -4,3 +4,5 @@ xrandr | grep -ws connected
 
 xrandr --output DP2 --off
 xrandr --output DP2 --auto --left-of eDP1
+
+xrandr --output DP2 --primary
