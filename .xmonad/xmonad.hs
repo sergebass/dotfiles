@@ -56,7 +56,7 @@ myConfig = desktopConfig
     , ((superMask, xK_v), spawn "pavucontrol")
     , ((superMask, xK_bracketleft), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((superMask, xK_bracketright), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ((superMask, xK_backslash), spawn "pactl set-sink-volume @DEFAULT_SINK@ 10%")
+    , ((superMask, xK_backslash), spawn "pactl set-sink-volume @DEFAULT_SINK@ 20%")
     , ((superMask, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
     , ((superMask, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((superMask, xK_Home), spawn "pactl set-sink-volume @DEFAULT_SINK@ 50%")
