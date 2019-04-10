@@ -1,0 +1,6 @@
+#!/bin/sh
+# FIXME make it list all displays if no arguments are provided, do the rest otherwise
+xrandr | grep -ws connected
+
+xrandr --output DP2 --off
+xrandr --output DP2 --auto --left-of eDP1
