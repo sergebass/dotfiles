@@ -335,6 +335,7 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "\\") 'my-leader-map)
 
   (define-key my-leader-map (kbd "TAB") 'neotree)
+  (define-key my-leader-map (kbd "DEL") 'helm-imenu)
   (define-key my-leader-map (kbd "RET") 'projectile-ag)
   (define-key my-leader-map (kbd "/") 'projectile-grep)
 
