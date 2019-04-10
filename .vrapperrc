@@ -48,6 +48,7 @@ eclipseuiaction SwitchEditor org.eclipse.ui.window.switchToEditor
 eclipseuiaction ChooseEditor org.eclipse.ui.window.openEditorDropDown
 
 eclipseuiaction RunUnitTest org.eclipse.jdt.junit.junitShortcut.run
+eclipseaction ShowBlame org.eclipse.egit.ui.team.ShowBlame
 
 " vim-like settings
 
@@ -118,6 +119,8 @@ nnoremap <Space>bp :bprev<CR>
 nnoremap <Space>bR :e!
 nnoremap <Space>bY gg"+yG
 nnoremap <Space>bP ggvG"+p
+
+nnoremap <Space>gb :ShowBlame<CR>
 
 " a shorter alias for mode-specific bindings
 nmap <Space>m <CR>
