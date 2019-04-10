@@ -317,16 +317,18 @@ nnoremap <silent> \pc :CtrlPChange<CR>
 nnoremap <silent> \px :CtrlPMixed<CR>
 
 " using NERDTree
-nnoremap <silent> \<Tab> :NERDTreeToggle<CR>
-nnoremap <silent> \<M-Tab> :NERDTreeFind<CR>
+nnoremap <silent> \<Tab> :NERDTreeFind<CR>
+nnoremap <silent> \\<Tab> :NERDTreeToggle<CR>
 
-nnoremap <silent> \\<Tab> :Explore<CR>
+nnoremap <silent> \<M-Tab> :Explore<CR>
 nnoremap <silent> \\<M-Tab> :Lexplore<CR>
 
 nnoremap <silent> \fr :browse oldfiles<CR>
 
-nnoremap <silent> \<BS> :TagbarToggle<CR>
-nnoremap <silent> \\<BS> :MinimapToggle<CR>
+" local tag navigation
+nnoremap <silent> \<BS> :TagbarOpen fjc<CR>
+nnoremap <silent> \\<BS> :TagbarToggle<CR>
+nnoremap <silent> \<M-BS> :MinimapToggle<CR>
 
 nnoremap <silent> gO :TagbarOpen fjc<CR>
 
