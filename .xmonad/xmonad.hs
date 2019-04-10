@@ -48,10 +48,9 @@ myConfig = desktopConfig
     -- keyboard layout switching
     , ((superMask, xK_F12), spawn "setxkbmap -layout \"us,ru,ua,us(intl)\" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape")
     -- screen backlight brightness
-    , ((superMask .|. controlMask, xK_Home), spawn "xbacklight -set 100")
-    , ((superMask .|. controlMask, xK_End), spawn "xbacklight -set 50")
-    , ((superMask .|. controlMask, xK_Page_Up), spawn "xbacklight -inc 10")
-    , ((superMask .|. controlMask, xK_Page_Down), spawn "xbacklight -dec 10")
+    , ((superMask .|. controlMask, xK_bracketleft), spawn "xbacklight -dec 10")
+    , ((superMask .|. controlMask, xK_bracketright), spawn "xbacklight -inc 10")
+    , ((superMask .|. controlMask, xK_backslash), spawn "xbacklight -set 100")
     -- audio controls
     , ((superMask, xK_v), spawn "pavucontrol")
     , ((superMask, xK_bracketleft), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
