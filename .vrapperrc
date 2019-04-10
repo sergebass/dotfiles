@@ -130,6 +130,7 @@ nnoremap <CR>gg <C-]>
 nnoremap <BS> <C-O>
 
 nnoremap gO :ShowOutline<CR>
+nnoremap \<BS> :ShowOutline<CR>
 
 nnoremap <CR>hh :ShowInformation<CR>
 nnoremap K :ShowInformation<CR>
