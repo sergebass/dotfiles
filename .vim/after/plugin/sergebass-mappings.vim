@@ -138,6 +138,25 @@ nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>gg :Ggrep<Space>
 nnoremap <Space>gM :Gmove<Space>
 
+" SPC g > 	show submodule prompt
+" SPC g b 	open a magit blame
+" SPC g f h 	show file commits history
+" SPC g H c 	clear highlights
+" SPC g H h 	highlight regions by age of commits
+" SPC g H t 	highlight regions by last updated time
+" SPC g I 	open helm-gitignore
+" SPC g s 	open a magit status window
+" SPC g S 	stage current file
+" SPC g m 	magit dispatch popup
+" SPC g M 	display the last commit message of the current line
+" SPC g t 	launch the git time machine
+" SPC g U 	unstage current file
+
+" SPC g l c 	on a commit hash, browse to the current file at this commit
+" SPC g l C 	on a commit hash, create link to the file at this commit and copy it
+" SPC g l l 	on a region, browse to file at current lines position
+" SPC g l L 	on a region, create a link to the file highlighting the selected lines
+
 nnoremap <Space>' :terminal<CR>
 
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
