@@ -273,6 +273,8 @@ au Syntax * RainbowParenthesesLoadBraces
 
 au VimEnter * RainbowParenthesesToggle
 
+au BufReadPost *.fr set filetype=frege syntax=haskell
+
 au BufReadPost */.xmobarrc set syntax=haskell
 au BufReadPost */gitconfig set syntax=gitconfig
 au BufReadPost */.vrapperrc set syntax=vim
