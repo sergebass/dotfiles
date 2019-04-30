@@ -353,6 +353,8 @@ you should place your code here."
   (setq-default scroll-margin 1)
 
   ;; (define-key java-mode-map (kbd "\\ RET") 'eclim-java-find-references)
+
+  (blink-cursor-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
