@@ -55,6 +55,7 @@ values."
      spell-checking
      syntax-checking
      version-control
+     theming
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -313,6 +314,21 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
+  (setq theming-modifications '(
+    ;; requires the theming layer
+    (lush
+      (default :background "#000000" :foreground "#ffffff")
+      (linum :background "#000000" :foreground "#777777")
+      )
+    ;; (gruvbox
+    ;;   (default :background "#1D2021" :foreground "#fdf4c1")
+    ;;   (linum :background "#000000" :foreground "#878787")
+    ;;   (fringe :background "#000000")
+    ;;   (linum-relative-current-face :inherit (shadow default) :background "#3C3836" :foreground "#ff0000")
+    ;;   (font-lock-comment-face :slant italic)
+    ;;   )
+    ))
   )
 
 (defun dotspacemacs/user-config ()
