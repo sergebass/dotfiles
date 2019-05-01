@@ -344,6 +344,9 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "TAB") 'evil-jump-forward)
   (define-key evil-normal-state-map (kbd "DEL") 'evil-jump-backward)
 
+  ;; somehow evil ended up without C-W x combo support... let's claim it back
+  (define-key evil-window-map (kbd "x") 'ace-swap-window)
+
   ;; free up the normal backslash for to be our vim-like <Leader>/<LocalLeader>,
   ;; Use C-\ instead of \ for the evil-execute-in-emacs-state;
   (global-set-key (kbd "C-\\") 'evil-execute-in-emacs-state)
