@@ -47,8 +47,23 @@ eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 eclipseuiaction SwitchEditor org.eclipse.ui.window.switchToEditor
 eclipseuiaction ChooseEditor org.eclipse.ui.window.openEditorDropDown
 
+eclipseuiaction GoToUnitTest org.eclipse.jdt.junit.gotoTest
 eclipseuiaction RunUnitTest org.eclipse.jdt.junit.junitShortcut.run
+eclipseuiaction DebugUnitTest org.eclipse.jdt.junit.junitShortcut.debug
+eclipseuiaction RerunLastUnitTest org.eclipse.jdt.junit.junitShortcut.rerunLast
+eclipseuiaction RerunFailedUnitTests org.eclipse.jdt.junit.junitShortcut.rerunFailedFirst
+
+eclipseuiaction RunPluginUnitTest org.eclipse.pde.ui.junitWorkbenchShortcut.run
+eclipseuiaction DebugPluginUnitTest org.eclipse.pde.ui.junitWorkbenchShortcut.debug
+
 eclipseaction ShowBlame org.eclipse.egit.ui.team.ShowBlame
+
+" eclipseuiaction ActivateEditor org.eclipse.ui.window.activateEditor
+" org.eclipse.ui.window.fullscreenmode
+" org.eclipse.ui.navigate.previousTab
+" org.eclipse.ui.navigate.collapseAll
+" org.eclipse.ui.navigate.expandAll
+" org.eclipse.ui.navigate.showIn
 
 " vim-like settings
 
@@ -152,4 +167,11 @@ nnoremap <CR>rr :RenameElement<CR>
 nnoremap <CR>en :GoToNextAnnotation<CR>
 nnoremap <CR>ep :GoToPreviousAnnotation<CR>
 
+nnoremap \\T :GoToUnitTest<CR>
 nnoremap <CR>tt :RunUnitTest<CR>
+nnoremap <CR>td :DebugUnitTest<CR>
+nnoremap <CR>tl :RerunLastUnitTest<CR>
+nnoremap <CR>tf :RerunFailedUnitTests<CR>
+
+nnoremap <CR>TT :RunPluginUnitTest<CR>
+nnoremap <CR>TD :DebugPluginUnitTest<CR>
