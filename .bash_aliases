@@ -49,6 +49,9 @@ alias gl1N='git log --pretty="format:" --name-only -1'
 # show only lines containing FIXME markers in the latest commit
 alias gl1FIXME='grep -Hn FIXME $(git log --pretty="format:" --name-only -1)'
 
+# show only names of files containing FIXME markers in the latest commit
+alias gl1FIXMEN='grep -l FIXME $(git log --pretty="format:" --name-only -1)'
+
 # stage only non-whitespace changes (https://stackoverflow.com/a/7149602)
 alias gaddnw='git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -'
 
