@@ -14,7 +14,40 @@ alias ec='emacsclient -c'
 
 alias gsb='git status -sb'
 alias gg='git grep'
+
+# Show unstages changes
+alias gd='git diff'
+# Show stages changes
+alias gds='git diff --staged'
+# Show all changes (staged and not yet)
 alias gda='git diff HEAD'
+
+# show only names of changed files: in working directory
+alias gdN='git diff --name-only'
+# show only names of changed files: in staged area
+alias gdsN='git diff --name-only --staged'
+# show only names of changed files: both staged and unstaged
+alias gdaN='git diff --name-only HEAD'
+
+# invoke editor with all of the unstaged files
+alias gdE='$EDITOR $(git diff --name-only)'
+# invoke editor with all of the staged files
+alias gdsE='$EDITOR $(git diff --name-only --staged)'
+# invoke editor with all of the staged and unstaged files
+alias gdaE='$EDITOR $(git diff --name-only HEAD)'
+
+# show FIXME markers in unstaged files
+alias gdFIXME='grep -Hn FIXME $(git diff --name-only)'
+# show FIXME markers in staged files
+alias gdsFIXME='grep -Hn FIXME $(git diff --name-only --staged)'
+# show FIXME markers in both staged and unstaged files
+alias gdaFIXME='grep -Hn FIXME $(git diff --name-only HEAD)'
+
+# show only the list of file names in the latest commit
+alias gl1N='git log --pretty="format:" --name-only -1'
+
+# show only lines containing FIXME markers in the latest commit
+alias gl1FIXME='grep -Hn FIXME $(git log --pretty="format:" --name-only -1)'
 
 # stage only non-whitespace changes (https://stackoverflow.com/a/7149602)
 alias gaddnw='git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -'
