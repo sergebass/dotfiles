@@ -43,6 +43,13 @@ alias gdsFIXME='grep -Hn FIXME $(git diff --name-only --staged)'
 # show FIXME markers in both staged and unstaged files
 alias gdaFIXME='grep -Hn FIXME $(git diff --name-only HEAD)'
 
+# show only names of files with FIXME markers in unstaged files
+alias gdFIXMEN='grep -l FIXME $(git diff --name-only)'
+# show only names of files with FIXME markers in staged files
+alias gdsFIXMEN='grep -l FIXME $(git diff --name-only --staged)'
+# show only names of files with FIXME markers in both staged and unstaged files
+alias gdaFIXMEN='grep -l FIXME $(git diff --name-only HEAD)'
+
 # show only the list of file names in the latest commit
 alias gl1N='git log --pretty="format:" --name-only -1'
 
