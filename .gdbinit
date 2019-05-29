@@ -1,4 +1,8 @@
 # INSTALL INSTRUCTIONS: save as ~/.gdbinit
+
+# Here we have our own new way of configuring gdb in Python:
+source ~/.gdbinit.py
+
 #
 # DESCRIPTION: A user-friendly gdb configuration file, for x86/x86_64 and ARM platforms.
 #
