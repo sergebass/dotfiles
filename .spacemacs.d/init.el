@@ -350,6 +350,8 @@ you should place your code here."
   ;; free up the normal backslash for to be our vim-like <Leader>/<LocalLeader>,
   ;; Use C-\ instead of \ for the evil-execute-in-emacs-state;
   (global-set-key (kbd "C-\\") 'evil-execute-in-emacs-state)
+  ;; conversely, use M-\ to escape from those Emacs modes that are not 'villified' yet
+  (global-set-key (kbd "M-\\") 'evil-escape)
 
   ;; define my own set of normal mode commands with prefix bound to the backslash key
   (define-prefix-command 'my-leader-map)
