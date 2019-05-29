@@ -1,8 +1,4 @@
 # INSTALL INSTRUCTIONS: save as ~/.gdbinit
-
-# Here we have our own new way of configuring gdb in Python:
-source ~/.gdbinit.py
-
 #
 # DESCRIPTION: A user-friendly gdb configuration file, for x86/x86_64 and ARM platforms.
 #
@@ -210,6 +206,10 @@ define color_underline
 	   echo \033[4m
     end
 end
+
+
+# Here we have our own new way of configuring gdb in Python:
+source ~/.gdbinit.py
 
 # this way anyone can have their custom prompt - argp's idea :-)
 # can also be used to redefine anything else in particular the colors aka theming
