@@ -368,6 +368,10 @@ you should place your code here."
   (spacemacs/set-leader-keys "<up>" 'evil-window-up)
   (spacemacs/set-leader-keys "<down>" 'evil-window-down)
 
+  ;; make evil-surround behave the same as stock surround.vim, to avoid confusion
+  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
+  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
+
   (setq eclim-executable "~/opt/eclipse/plugins/org.eclim_2.8.0/bin/eclim"
         eclim-eclipse-dirs "~/opt/eclipse/")
 
