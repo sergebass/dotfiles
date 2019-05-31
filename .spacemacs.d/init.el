@@ -372,6 +372,10 @@ you should place your code here."
   (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
 
+  ;; use <+> and <-> keypad keys as equivalents for vim's <C-A> and <C-X> (increment/decrement)
+  (define-key evil-normal-state-map (kbd "<kp-add>") 'evil-numbers/inc-at-pt)
+  (define-key evil-normal-state-map (kbd "<kp-subtract>") 'evil-numbers/dec-at-pt)
+
   (setq eclim-executable "~/opt/eclipse/plugins/org.eclim_2.8.0/bin/eclim"
         eclim-eclipse-dirs "~/opt/eclipse/")
 
