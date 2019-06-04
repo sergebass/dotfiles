@@ -23,6 +23,7 @@ myConfig = desktopConfig
     }
      `additionalKeys`
     [ ((superMask, xK_minus), toggleWS)
+    , ((superMask, xK_0), addWorkspace "0")
     , ((superMask, xK_s), selectWorkspace def)
     , ((superMask, xK_Left), prevWS)
     , ((superMask, xK_Right), nextWS)
