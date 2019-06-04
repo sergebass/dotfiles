@@ -11,35 +11,9 @@ eclipseaction GoToNextAnnotation org.eclipse.ui.edit.text.gotoNextAnnotation
 eclipseaction GoToPreviousAnnotation org.eclipse.ui.edit.text.gotoPreviousAnnotation
 
 eclipseuiaction OpenSearchDialog org.eclipse.search.ui.openSearchDialog
-
-eclipseuiaction SearchDeclarationsInProject org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
-eclipseuiaction SearchReferencesInProject org.eclipse.jdt.ui.edit.text.java.search.references.in.project
-
-eclipseuiaction SearchDeclarationsInWorkspace org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace
-eclipseuiaction SearchReferencesInWorkspace org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
+eclipseuiaction OpenResource org.eclipse.ui.navigate.openResource
 
 eclipseuiaction SearchTextInWorkspace org.eclipse.search.ui.performTextSearchWorkspace
-
-eclipseuiaction OpenType org.eclipse.jdt.ui.navigate.open.type
-eclipseuiaction OpenHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
-eclipseuiaction OpenCallHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy
-eclipseuiaction OpenTypeHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy
-eclipseuiaction OpenStructure org.eclipse.jdt.ui.navigate.java.open.structure
-eclipseuiaction OpenImplementation org.eclipse.jdt.ui.edit.text.java.open.implementation
-eclipseuiaction OpenSuperImplementation org.eclipse.jdt.ui.edit.text.java.open.super.implementation
-
-eclipseaction OrganizeImports org.eclipse.jdt.ui.edit.text.java.organize.imports
-eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
-eclipseaction RenameElement org.eclipse.jdt.ui.edit.text.java.rename.element
-
-eclipseaction ShowInBreadCrumb org.eclipse.jdt.ui.edit.text.java.gotoBreadcrumb
-eclipseaction ToggleBreadCrumb org.eclipse.jdt.ui.edit.text.java.toggleBreadcrumb
-
-eclipseaction ShowInNavigator org.eclipse.jdt.ui.edit.text.java.show.in.navigator.view
-
-eclipseuiaction ShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
-
-eclipseaction ToggleComment org.eclipse.jdt.ui.edit.text.java.toggle.comment
 
 eclipseaction NextEditor org.eclipse.ui.window.nextEditor
 eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
@@ -47,16 +21,44 @@ eclipseaction PreviousEditor org.eclipse.ui.window.previousEditor
 eclipseuiaction SwitchEditor org.eclipse.ui.window.switchToEditor
 eclipseuiaction ChooseEditor org.eclipse.ui.window.openEditorDropDown
 
-eclipseuiaction GoToUnitTest org.eclipse.jdt.junit.gotoTest
-eclipseuiaction RunUnitTest org.eclipse.jdt.junit.junitShortcut.run
-eclipseuiaction DebugUnitTest org.eclipse.jdt.junit.junitShortcut.debug
-eclipseuiaction RerunLastUnitTest org.eclipse.jdt.junit.junitShortcut.rerunLast
-eclipseuiaction RerunFailedUnitTests org.eclipse.jdt.junit.junitShortcut.rerunFailedFirst
-
 eclipseuiaction RunPluginUnitTest org.eclipse.pde.ui.junitWorkbenchShortcut.run
 eclipseuiaction DebugPluginUnitTest org.eclipse.pde.ui.junitWorkbenchShortcut.debug
 
 eclipseaction ShowBlame org.eclipse.egit.ui.team.ShowBlame
+
+" JDT actions
+eclipseuiaction JdtSearchDeclarationsInProject org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
+eclipseuiaction JdtSearchReferencesInProject org.eclipse.jdt.ui.edit.text.java.search.references.in.project
+
+eclipseuiaction JdtSearchDeclarationsInWorkspace org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace
+eclipseuiaction JdtSearchReferencesInWorkspace org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
+
+eclipseuiaction JdtOpenType org.eclipse.jdt.ui.navigate.open.type
+eclipseuiaction JdtOpenHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
+eclipseuiaction JdtOpenCallHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy
+eclipseuiaction JdtOpenTypeHierarchy org.eclipse.jdt.ui.edit.text.java.org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy
+eclipseuiaction JdtOpenStructure org.eclipse.jdt.ui.navigate.java.open.structure
+eclipseuiaction JdtOpenImplementation org.eclipse.jdt.ui.edit.text.java.open.implementation
+eclipseuiaction JdtOpenSuperImplementation org.eclipse.jdt.ui.edit.text.java.open.super.implementation
+
+eclipseaction JdtOrganizeImports org.eclipse.jdt.ui.edit.text.java.organize.imports
+eclipseaction JdtQuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
+eclipseaction JdtRenameElement org.eclipse.jdt.ui.edit.text.java.rename.element
+
+eclipseaction JdtShowInBreadCrumb org.eclipse.jdt.ui.edit.text.java.gotoBreadcrumb
+eclipseaction JdtToggleBreadCrumb org.eclipse.jdt.ui.edit.text.java.toggleBreadcrumb
+
+eclipseaction JdtShowInNavigator org.eclipse.jdt.ui.edit.text.java.show.in.navigator.view
+
+eclipseuiaction JdtShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
+
+eclipseaction JdtToggleComment org.eclipse.jdt.ui.edit.text.java.toggle.comment
+
+eclipseuiaction JdtGoToUnitTest org.eclipse.jdt.junit.gotoTest
+eclipseuiaction JdtRunUnitTest org.eclipse.jdt.junit.junitShortcut.run
+eclipseuiaction JdtDebugUnitTest org.eclipse.jdt.junit.junitShortcut.debug
+eclipseuiaction JdtRerunLastUnitTest org.eclipse.jdt.junit.junitShortcut.rerunLast
+eclipseuiaction JdtRerunFailedUnitTests org.eclipse.jdt.junit.junitShortcut.rerunFailedFirst
 
 " eclipseuiaction ActivateEditor org.eclipse.ui.window.activateEditor
 " org.eclipse.ui.window.fullscreenmode
@@ -89,7 +91,7 @@ nnoremap S :w<CR>
 nnoremap Q :q<CR>
 
 nnoremap <C-P> :ChooseEditor<CR>
-nnoremap <C-N> :OpenType<CR>
+nnoremap <C-N> :OpenResource<CR>
 
 nnoremap \v :vim<CR>
 
@@ -108,13 +110,13 @@ nnoremap <Space>ep :GoToPreviousAnnotation<CR>
 
 nnoremap <Space>? :ShowKeyAssist<CR>
 
-nnoremap \<Tab> :ShowInNavigator<CR>
+nnoremap \<Tab> :JdtShowInNavigator<CR>
 
-nnoremap \<CR> :SearchReferencesInWorkspace<CR>
-vnoremap \<CR> :SearchReferencesInWorkspace<CR>
+nnoremap \<CR> :JdtSearchReferencesInWorkspace<CR>
+vnoremap \<CR> :JdtSearchReferencesInWorkspace<CR>
 
-nnoremap <Space>ss :SearchReferencesInWorkspace<CR>
-vnoremap <Space>ss :SearchReferencesInWorkspace<CR>
+nnoremap <Space>ss :JdtSearchReferencesInWorkspace<CR>
+vnoremap <Space>ss :JdtSearchReferencesInWorkspace<CR>
 
 nnoremap <Space><Space> <Esc>:
 nnoremap <Space><Tab> <C-^>
@@ -123,9 +125,13 @@ nnoremap <Space>w <C-W>
 nnoremap <Space>qq :Exit<CR>
 nnoremap <Space>qr :Restart<CR>
 
+nnoremap <Space>pf :OpenResource<CR>
+
 nnoremap <Space>fs :w<CR>
 nnoremap <Space>fS :wa<CR>
 nnoremap <Space>fed :new<CR>:e ~/.vrapperrc<CR>
+nnoremap <Space>ff :OpenResource<CR>
+nnoremap <Space>fr :ChooseEditor<CR>
 
 nnoremap <Space>bb :files<CR>
 nnoremap <Space>bd :bd<CR>
@@ -147,31 +153,31 @@ nnoremap <CR>gg <C-]>
 
 nnoremap <BS> <C-O>
 
-nnoremap gO :ShowOutline<CR>
-nnoremap \<BS> :ShowOutline<CR>
+nnoremap gO :JdtShowOutline<CR>
+nnoremap \<BS> :JdtShowOutline<CR>
 
 nnoremap <CR>hh :ShowInformation<CR>
 nnoremap K :ShowInformation<CR>
 
 nnoremap <CR>ff :OpenSearchDialog<CR>
 
-nnoremap <CR>hu :SearchReferencesInWorkspace<CR>
+nnoremap <CR>hu :JdtSearchReferencesInWorkspace<CR>
 
 " refactoring
-nnoremap <CR>ri :OrganizeImports<CR>
-nnoremap <CR>rf :QuickFormat<CR>
-nnoremap <CR>rr :RenameElement<CR>
+nnoremap <CR>ri :JdtOrganizeImports<CR>
+nnoremap <CR>rf :JdtQuickFormat<CR>
+nnoremap <CR>rr :JdtRenameElement<CR>
 
 " SPC m e b 	open buffer with problems
 " SPC m e o 	open buffer with problems
 nnoremap <CR>en :GoToNextAnnotation<CR>
 nnoremap <CR>ep :GoToPreviousAnnotation<CR>
 
-nnoremap \\T :GoToUnitTest<CR>
-nnoremap <CR>tt :RunUnitTest<CR>
-nnoremap <CR>td :DebugUnitTest<CR>
-nnoremap <CR>tl :RerunLastUnitTest<CR>
-nnoremap <CR>tf :RerunFailedUnitTests<CR>
+nnoremap \\T :JdtGoToUnitTest<CR>
+nnoremap <CR>tt :JdtRunUnitTest<CR>
+nnoremap <CR>td :JdtDebugUnitTest<CR>
+nnoremap <CR>tl :JdtRerunLastUnitTest<CR>
+nnoremap <CR>tf :JdtRerunFailedUnitTests<CR>
 
 nnoremap <CR>TT :RunPluginUnitTest<CR>
 nnoremap <CR>TD :DebugPluginUnitTest<CR>
