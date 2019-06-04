@@ -21,7 +21,8 @@ myConfig = desktopConfig
     , normalBorderColor = "#404040"
     }
      `additionalKeys`
-    [ ((superMask, xK_s), selectWorkspace def)
+    [ ((superMask, xK_minus), toggleWS)
+    , ((superMask, xK_s), selectWorkspace def)
     , ((superMask, xK_Left), prevWS)
     , ((superMask, xK_Right), nextWS)
     , ((superMask .|. shiftMask, xK_Left), shiftToPrev >> prevWS)
@@ -101,5 +102,4 @@ main = do
             { ppOutput = hPutStrLn xmproc
             , ppTitle = xmobarColor "cyan" ""
             }
-        -- , workspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=" ]
         }
