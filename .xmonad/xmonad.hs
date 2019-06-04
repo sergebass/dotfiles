@@ -49,6 +49,8 @@ myConfig = desktopConfig
     , ((superMask, xK_KP_Enter), spawn "gnome-calculator")
     -- web browser
     , ((superMask, xK_slash), spawn "xdg-open https://duckduckgo.com")
+    -- random background image selection
+    , ((superMask, xK_minus), spawn "feh --bg-max --randomize --recursive ~/backgrounds/")
     -- keyboard layout switching
     , ((superMask, xK_F12), spawn "setxkbmap -layout \"us,ru,ua,us(intl)\" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape")
     -- screen backlight brightness
