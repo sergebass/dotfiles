@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.CopyWindow (copy)
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DynamicWorkspaces
 import XMonad.Config.Desktop
@@ -29,6 +30,7 @@ myConfig = desktopConfig
     , ((superMask .|. shiftMask, xK_Right), shiftToNext >> nextWS)
     , ((superMask .|. shiftMask, xK_n), renameWorkspace def)
     , ((superMask .|. shiftMask, xK_m), withWorkspace def (windows . W.shift))
+    , ((superMask .|. shiftMask, xK_equal), withWorkspace def (windows . copy))
     , ((superMask .|. shiftMask, xK_d), removeWorkspace)
     -- several ways of session locking
     , ((superMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
