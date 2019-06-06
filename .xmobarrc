@@ -30,7 +30,7 @@ Config {
        \<action=`baobab`>☉ %disku%</action> │ \
        \<action=`urxvt -e htop`>⇄ %diskio%</action> │ \
        \<action=`urxvt -e nmtui`>⇅ %dynnetwork%</action> │ \
-       \<action=`xbacklight | xmessage -nearmouse -file -`>%backlight%</action> │ \
+       \<action=`xbacklight -set 100`>%backlight%</action> │ \
        \<action=`pavucontrol`><fc=#00FFFF>♪</fc> %volume%</action> │ \
        \<action=`urxvt -e xev`>%kbd%</action> │ \
        \<action=`orage`>%date%</action> │ \
