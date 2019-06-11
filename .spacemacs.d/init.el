@@ -31,7 +31,10 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     (c-c++ :variables c-c++-enable-clang-support t)
+     (c-c++
+       :variables
+            c-c++-enable-clang-support t
+            c-c++-default-mode-for-headers 'c++-mode)
      markdown
      python
      vimscript
