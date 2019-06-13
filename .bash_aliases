@@ -75,6 +75,9 @@ alias rg='rg -L --hidden --no-heading -n --column'
 # this is an Escape sequence to dynamically change rxvt terminal font size
 alias rxvt-font-size='printf "\033]50;%s%d\007" "xft:Inconsolata:medium:antialias=true:hintstyle=hintslight:pixelsize="'
 
+# disassemble an object file, with source code, C++ name demangling and Intel assembly syntax
+alias disasm='objdump -drwCS -Mintel'
+
 # cd to selected directory, specified on the command line or chosen from the fzf list
 # start directory lookup from the current directory and ignore hidden directories (starting with dot)
 fzcd() {
