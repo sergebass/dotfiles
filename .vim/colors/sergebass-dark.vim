@@ -56,7 +56,7 @@ if has("nvim")
 endif
 
 " line length limit highlighting
-hi ColorColumn term=NONE cterm=NONE ctermbg=0 guibg=#301010
+hi ColorColumn term=NONE cterm=NONE ctermbg=17 guibg=#00005f
 
 hi StatusLine term=reverse cterm=bold ctermfg=15 ctermbg=20 gui=bold guifg=#ffffff guibg=#0000b8
 hi StatusLineNC term=reverse cterm=NONE ctermfg=15 ctermbg=17 gui=NONE guifg=#b2b2b2 guibg=#00005f
