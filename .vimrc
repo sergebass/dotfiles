@@ -66,6 +66,8 @@ set backspace=indent,eol,start
 
 " apply user-defined autocompletion when pressing <Tab> (used by supertab plugin)
 let g:SuperTabDefaultCompletionType = "<C-X><C-U>"
+" do not autocomplete at the start of the line, after a comma or after a space:
+let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
 set completeopt=longest,menuone
 set completefunc=
 set omnifunc=
