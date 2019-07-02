@@ -377,18 +377,21 @@ nnoremap <silent> gV `[v`]
 map + <Plug>(wildfire-fuel)
 vmap - <Plug>(wildfire-water)
 
-" make left mouse double click perform search of a word under cursor
-nnoremap <2-LeftMouse> *
+" make left mouse double click perform search of a word under cursor (and shows the number of matches).
+nnoremap <2-LeftMouse> *:%s///gn<CR>
 
-" define a custom highlighting for the word under cursor or a selection
-" in all open buffers
-nnoremap \* :bufdo match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
-vnoremap \* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
+" display the number of matches when using "*"
+nnoremap \* *:%s///gn<CR>
 
 " define a custom highlighting for the word under cursor or a selection
 " in the current buffer
 nnoremap \\* :match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
 vnoremap \\* "*y<Esc>:match SPCustomHighlight "<C-r>*"
+
+" define a custom highlighting for the word under cursor or a selection
+" in all open buffers
+nnoremap \\\* :bufdo match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
+vnoremap \\\* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
 
 " easily copy the word under cursor into the command line being edited
 nnoremap <M-CR> :<C-r>=expand("<cword>")<CR>
