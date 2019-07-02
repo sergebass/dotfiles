@@ -116,6 +116,8 @@ autocmd FileType sh setlocal keywordprg=:Man
 
 " LanguageClient global settings
 let g:LanguageClient_serverCommands = {
+    \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'haskell': ['hie', '--lsp'],
     \ 'java': ['tcp://127.0.0.1:55555'],
