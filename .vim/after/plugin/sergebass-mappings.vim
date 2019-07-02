@@ -378,10 +378,10 @@ map + <Plug>(wildfire-fuel)
 vmap - <Plug>(wildfire-water)
 
 " make left mouse double click perform search of a word under cursor (and shows the number of matches).
-nnoremap <2-LeftMouse> *:%s///gn<CR>
+nnoremap <2-LeftMouse> *<C-O>:%s///gn<CR>``
 
 " display the number of matches when using "*"
-nnoremap \* *:%s///gn<CR>
+nnoremap \* *<C-O>:%s///gn<CR>``
 
 " define a custom highlighting for the word under cursor or a selection
 " in the current buffer
