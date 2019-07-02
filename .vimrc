@@ -114,6 +114,9 @@ set keywordprg=:grep\ -ws
 autocmd FileType vim setlocal keywordprg=:help
 autocmd FileType sh setlocal keywordprg=:Man
 
+" to be able to use vim's formatting commands like gq with LanguageClient
+set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+
 " LanguageClient global settings
 let g:LanguageClient_serverCommands = {
     \ 'c': ['clangd'],
