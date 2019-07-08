@@ -29,7 +29,7 @@ Config {
        \<action=`urxvt -e htop`>%memory%%swap%</action> │ \
        \<action=`baobab`>☉ %disku%</action> │ \
        \<action=`urxvt -e htop`>⇄ %diskio%</action> │ \
-       \<action=`urxvt -e nmtui`>⇅ %dynnetwork%</action> │ \
+       \<action=`urxvt -e nmtui`>⇅ %dynnetwork% %wlp2s0wi%</action> │ \
        \<action=`xbacklight -set 100`>%backlight%</action> │ \
        \<action=`pavucontrol`><fc=#00FFFF>♪</fc> %volume%</action> │ \
        \<action=`urxvt -e xev`>%kbd%</action> │ \
@@ -139,7 +139,7 @@ Config {
                          , "--high"     , "red"
                          ] 20
 
-        -- , Run Wireless "wlp9s0" [] 10
+        , Run Wireless "wlp2s0" [ "-t", "<essid>:<quality>%" ] 20
 
         , Run Battery [ "--template" , "<acstatus>"
                       , "--Low"      , "40"        -- units: %
