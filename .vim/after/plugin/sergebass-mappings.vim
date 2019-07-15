@@ -31,9 +31,6 @@ inoremap <silent> <C-S> <C-O>:update<CR>
 noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 
-" quickly look up the contents of all registers
-nnoremap \r :reg<CR>
-
 " copying/pasting/deleting tweaks
 
 " in normal mode:
@@ -367,9 +364,6 @@ nnoremap \\= :lw<CR>
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
 nnoremap \\<M-Del> :ClearLocationList<CR>
 
-" map Ctrl+R to replace highlighted text (with confirmation)
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
-
 " quickly reselect just pasted text
 nnoremap <silent> gV `[v`]
 
@@ -397,6 +391,16 @@ vnoremap \\\* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
 nnoremap <M-CR> :<C-r>=expand("<cword>")<CR>
 vnoremap <M-CR> "*y<Esc>:<C-r>*
 cnoremap <M-CR> <C-r>=expand("<cword>")<CR>
+
+" replace selected word in the entire file (with confirmation)
+nnoremap \R :%s/<C-r>=expand("<cword>")<CR>//gc<left><left><left>
+" replace selected word from the current line to the end of file (with confirmation)
+nnoremap \r :.,$s/<C-r>=expand("<cword>")<CR>//gc<left><left><left>
+
+" replace highlighted text in the entire file (with confirmation)
+vnoremap \R "hy:%s/<C-r>h//gc<left><left><left>
+" replace highlighted text from the current line to the end of file (with confirmation)
+vnoremap \r "hy:.,$s/<C-r>h//gc<left><left><left>
 
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
@@ -448,9 +452,6 @@ nnoremap \sb :execute 'new <bar> 0r !svn ann -v #'<CR>:set readonly filetype=svn
 " quick ways to switch between light and dark themes
 nnoremap \<F7> :colorscheme sergebass-light<CR>
 nnoremap \<F8> :colorscheme sergebass-dark<CR>
-
-nnoremap \R :set readonly<CR>
-nnoremap \W :set noreadonly<CR>
 
 " shortcuts for language client/server use
 nnoremap \K :call LanguageClient#textDocument_hover()<CR>
