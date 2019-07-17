@@ -202,13 +202,6 @@ inoremap <silent> <M-Down> <C-o>gj
 inoremap <silent> <M-Home> <C-o>g<Home>
 inoremap <silent> <M-End>  <C-o>g<End>
 
-" make it easier to jump between the start and end of a line
-" (preserve original functions though)
-nnoremap H ^
-nnoremap L $
-nnoremap \H H
-nnoremap \L L
-
 " enable CamelCase navigation
 let g:camelchar = "A-Z0-9_.,;:{([<`'\""
 
