@@ -31,4 +31,4 @@ trayer \
     --width 5 \
     &  # send to background
 
-feh --bg-max --randomize --recursive ~/backgrounds/ &
+feh --bg-max --randomize --recursive --draw-filename ~/backgrounds/ &
