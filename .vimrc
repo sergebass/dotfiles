@@ -116,6 +116,9 @@ set keywordprg=:grep\ -ws
 autocmd FileType vim setlocal keywordprg=:help
 autocmd FileType sh setlocal keywordprg=:Man
 
+let g:tagbar_width=60
+let g:tagbar_show_linenumbers=1 " show absolute line numbers
+
 " to be able to use vim's formatting commands like gq with LanguageClient
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
