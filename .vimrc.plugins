@@ -11,63 +11,17 @@ endif
 
 " Make sure you use single quotes
 
-" " Specify a directory for plugins
-" " - For Neovim: ~/.local/share/nvim/plugged
-" " - Avoid using standard Vim directory names like 'plugin'
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 " we need Vim help for vim-plug itself (e.g. :help plug-options), so register vim-plug as a plugin.
 Plug 'junegunn/vim-plug'
 
-Plug 'airblade/vim-gitgutter'
-Plug 'arithran/vim-delete-hidden-buffers'
-Plug 'autozimu/LanguageClient-neovim'
-Plug 'chaoren/vim-wordmotion'
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'derekwyatt/vim-scala'
-Plug 'ElmCast/elm-vim'
-Plug 'embear/vim-localvimrc'
-Plug 'ervandew/ag'
-Plug 'ervandew/supertab'
-Plug 'flazz/vim-colorschemes'
-Plug 'gcmt/wildfire.vim'
-Plug 'guns/xterm-color-table.vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'idris-hackers/idris-vim'
-Plug 'janko-m/vim-test'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'kopischke/vim-fetch'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'lyuts/vim-rtags'
-Plug 'majutsushi/tagbar'
-Plug 'MattesGroeger/vim-bookmarks'
-Plug 'metakirby5/codi.vim'
-Plug 'mhinz/vim-grepper'
-Plug 'mkitt/tabline.vim'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'PProvost/vim-ps1'
-Plug 'purescript-contrib/purescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'romainl/vim-qf'
-Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'severin-lemaignan/vim-minimap'
-Plug 'sgur/vim-editorconfig'
-Plug 'sk1418/QFGrep'
-Plug 'tmux-plugins/tpm'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-syntastic/syntastic'
-Plug 'yssl/QFEnter'
-
-" Language Server Protocol client
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'
@@ -91,13 +45,63 @@ Plug 'yssl/QFEnter'
 " " Plugin options
 " Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
 " " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 Plug '/usr/share/lilypond/2.18.2/vim'
+
+" Tim Pope's vim plugins
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+
+" Language Server Protocol support
+Plug 'autozimu/LanguageClient-neovim'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+
+" Specific language support plugins
+Plug 'derekwyatt/vim-scala'
+Plug 'ElmCast/elm-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'idris-hackers/idris-vim'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'PProvost/vim-ps1'
+Plug 'purescript-contrib/purescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'rust-lang/rust.vim'
+
+" Various other plugins
+Plug 'airblade/vim-gitgutter'
+Plug 'arithran/vim-delete-hidden-buffers'
+Plug 'chaoren/vim-wordmotion'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'embear/vim-localvimrc'
+Plug 'ervandew/ag'
+Plug 'ervandew/supertab'
+Plug 'flazz/vim-colorschemes'
+Plug 'gcmt/wildfire.vim'
+Plug 'guns/xterm-color-table.vim'
+Plug 'janko-m/vim-test'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'kopischke/vim-fetch'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'lyuts/vim-rtags'
+Plug 'majutsushi/tagbar'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'metakirby5/codi.vim'
+Plug 'mhinz/vim-grepper'
+Plug 'mkitt/tabline.vim'
+Plug 'romainl/vim-qf'
+Plug 'scrooloose/nerdtree'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'sgur/vim-editorconfig'
+Plug 'sk1418/QFGrep'
+Plug 'vim-syntastic/syntastic'
+Plug 'yssl/QFEnter'
 
 " Initialize plugin system
 call plug#end()
