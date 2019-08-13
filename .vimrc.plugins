@@ -59,8 +59,8 @@ Plug 'tpope/vim-unimpaired'
 
 " Language Server Protocol support
 Plug 'autozimu/LanguageClient-neovim'
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 
 " Specific language support plugins
 Plug 'derekwyatt/vim-scala'
