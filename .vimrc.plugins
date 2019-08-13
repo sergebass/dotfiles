@@ -19,7 +19,6 @@ call plug#begin('~/.vim/plugged')
 " we need Vim help for vim-plug itself (e.g. :help plug-options), so register vim-plug as a plugin.
 Plug 'junegunn/vim-plug'
 
-" ----------------------
 Plug 'airblade/vim-gitgutter'
 Plug 'arithran/vim-delete-hidden-buffers'
 Plug 'autozimu/LanguageClient-neovim'
@@ -37,8 +36,6 @@ Plug 'guns/xterm-color-table.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'idris-hackers/idris-vim'
 Plug 'janko-m/vim-test'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'kopischke/vim-fetch'
 Plug 'ludovicchabant/vim-gutentags'
@@ -67,9 +64,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-syntastic/syntastic'
 Plug 'yssl/QFEnter'
-" ----------------------
-
-" Plug '/usr/share/lilypond/2.18.2/vim'
 
 " Language Server Protocol client
 " Plug 'prabirshrestha/async.vim'
@@ -97,11 +91,13 @@ Plug 'yssl/QFEnter'
 " " Plugin options
 " Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-" " Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
+Plug '/usr/share/lilypond/2.18.2/vim'
 
 " Initialize plugin system
 call plug#end()
