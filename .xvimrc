@@ -1,0 +1,23 @@
+" Maps escape to jj and jk so you don't ever have to actually hit that pesky
+" escape key to get out of insert mode. Feel free to switch this with another
+" common choice: Caps Lock.
+inoremap jj <Esc>`^
+inoremap jk <Esc>`^
+
+" Quick command mode
+nnoremap ; :
+
+" Search the string cursor points to. Very Useful.
+map ,s viw:xccmd findSelectedTextInWorkspace<CR>
+
+" Save when esc
+ino <Esc> <Esc>:xcmenucmd Save<CR>
+
+" tab new
+map ,tn :xccmd newTab<CR>
+" tab close
+map ,tc :tabclose<CR>
+" tab pre
+map ,ti :xccmd selectPreviousTab<CR>
+" tab next
+map ,to :xccmd selectNextTab<CR>
