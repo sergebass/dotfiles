@@ -175,16 +175,6 @@ noremap <silent> \7 <F7>
 noremap <silent> \8 <F8>
 noremap <silent> \9 <F9>
 noremap <silent> \0 <F10>
-noremap <silent> \10 <F10>
-noremap <silent> \11 <F11>
-noremap <silent> \12 <F12>
-noremap <silent> \13 <F13>
-noremap <silent> \14 <F14>
-noremap <silent> \15 <F15>
-noremap <silent> \16 <F16>
-noremap <silent> \17 <F17>
-noremap <silent> \18 <F18>
-noremap <silent> \19 <F19>
 
 " navigation mappings
 
