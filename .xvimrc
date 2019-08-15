@@ -1,23 +1,65 @@
+set number	
+set wrap	
+" set ignorecase	
+" set smartcase	
+" set [no]wrapscan	
+" set [no]errorbells	
+set incsearch	
+set hlsearch	
+" set [no]gdefault	
+set expandtab
+" set guioptions
+" set timeoutlen
+" set laststatus
+set clipboard=unnamed
+" set [no]vimregex	Tells XVim to use Vim's regular expression. Currently support <,> for word boundary, \c,\C for specifying case (in)sensitiveness.
+" set [no]relativenumber	
+" set [no]alwaysuseinputsource	With this option all the input is first sent to input source of the system. If you are using France, Portugese or Swedish keyboard consider turning this on. When enabling this, also consider running defaults write com.apple.dt.Xcode ApplePressAndHoldEnabled -bool false to disable the press and hold character menu in recent OS X releases. (See issue https://github.com/JugglerShu/XVim/issues/598).
+set blinkcursor	
+" set [no]startofline	Tells XVim to move the cursor to the first non-blank of the line when using jump commands (gg, G etc). Defaults to on
+
+" since "S" is equivalent to "cc", reuse it to save the current buffer
+nnoremap S :w<CR>
+
+" since "Q" is equivalent to "gQ" and is rarely used, reuse it to close the current buffer
+nnoremap Q :q<CR>
+
+" since "Y" is normally equivalent to "yy", make Y copy to the end of line:
+" (this will be more consistent with C or D that also act until the end of line)
+nnoremap Y y$
+
+nnoremap <Space><Space> :
+
+nnoremap <Space>w <C-w>
+
+nnoremap <Space><Left> <C-w>h
+nnoremap <Space><Right> <C-w>l
+nnoremap <Space><Up> <C-w>k
+nnoremap <Space><Down> <C-w>j
+
+" nnoremap <Space>qq :xcmenucmd Quit<CR>
+
+nnoremap <Space>fs :w<CR>
+nnoremap <Space>fS :wa<CR>
+" nnoremap <Space>fed :e ~/.xvimrc<CR>
+
 " Maps escape to jj and jk so you don't ever have to actually hit that pesky
 " escape key to get out of insert mode. Feel free to switch this with another
 " common choice: Caps Lock.
-inoremap jj <Esc>`^
-inoremap jk <Esc>`^
+" inoremap jj <Esc>`^
+" inoremap jk <Esc>`^
 
-" Quick command mode
-nnoremap ; :
-
-" Search the string cursor points to. Very Useful.
-map ,s viw:xccmd findSelectedTextInWorkspace<CR>
+" Search the string cursor points to.
+nnoremap \<CR> viw:xccmd findSelectedTextInWorkspace<CR>
 
 " Save when esc
-ino <Esc> <Esc>:xcmenucmd Save<CR>
+" ino <Esc> <Esc>:xcmenucmd Save<CR>
 
 " tab new
-map ,tn :xccmd newTab<CR>
+" map ,tn :xccmd newTab<CR>
 " tab close
-map ,tc :tabclose<CR>
+" map ,tc :tabclose<CR>
 " tab pre
-map ,ti :xccmd selectPreviousTab<CR>
+" map ,ti :xccmd selectPreviousTab<CR>
 " tab next
-map ,to :xccmd selectNextTab<CR>
+" map ,to :xccmd selectNextTab<CR>
