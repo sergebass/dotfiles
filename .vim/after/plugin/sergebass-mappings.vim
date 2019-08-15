@@ -13,7 +13,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 nnoremap <C-Q> :qa<CR>
 
 " since "S" is equivalent to "cc", reuse it to save the current buffer
-nnoremap S :w<CR>
+nnoremap S :update<CR>
 
 " since "Q" is equivalent to "gQ" and is rarely used, reuse it to close the current buffer
 nnoremap Q :q<CR>
