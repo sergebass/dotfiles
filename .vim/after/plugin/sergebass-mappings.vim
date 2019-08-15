@@ -19,9 +19,6 @@ nnoremap Q :q<CR>
 " (this will be more consistent with C or D that also act until the end of line)
 nnoremap Y y$
 
-" since "X" is equivalent to "dh", reuse it to open last edited file (a la Vimium browser extension)
-nnoremap X :call fzf#vim#history()<CR><CR>
-
 " an alternative way to quickly save the file being edited
 " (make sure to turn off terminal flow control via Ctrl+S/Q)
 inoremap <silent> <C-S> <C-O>:update<CR>
