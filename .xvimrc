@@ -18,6 +18,9 @@ set clipboard=unnamed
 set blinkcursor	
 " set [no]startofline	Tells XVim to move the cursor to the first non-blank of the line when using jump commands (gg, G etc). Defaults to on
 
+" emergency mapping to use if Backspace does not work (Looking at Macbook...)
+inoremap ^H ^Odh
+
 " since "S" is equivalent to "cc", reuse it to save the current buffer
 nnoremap S :w<CR>
 
