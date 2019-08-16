@@ -34,4 +34,5 @@ nmap <buffer> <CR>gg <CR><CR>
 " SPC m g a 	open matching file (e.g. switch between .cpp and .h)
 " SPC m g A 	open matching file in another window (e.g. switch between .cpp and .h)
 " SPC m D 	disaster: disassemble c/c++ code
-" SPC m r 	srefactor: refactor thing at point.
+
+nnoremap <buffer> <CR>rr :LspRename<CR>
