@@ -139,6 +139,17 @@ let g:LanguageClient_serverCommands = {
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 
+" register C/C++/Objective C LSP server for vim-lsp plugin
+" (the -background-index option is not available in clangd-7)
+        " \ 'cmd': {server_info->['clangd', '-background-index']},
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
+
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
 
