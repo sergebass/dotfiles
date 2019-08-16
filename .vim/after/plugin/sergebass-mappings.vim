@@ -9,11 +9,11 @@ let maplocalleader = '_'
 " Allow saving of files as sudo if we forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
-" since "S" is equivalent to "cc", reuse it to save the current buffer
-nnoremap S :update<CR>
+" since "S" is equivalent to "cc", reuse it to save all modified buffers
+nnoremap S :bufdo! update<CR>
 
-" since "Q" is equivalent to "gQ" and is rarely used, reuse it to close the current buffer
-nnoremap Q :q<CR>
+" since "Q" is equivalent to "gQ" and is rarely used, reuse it to close all windows and quit
+nnoremap Q :qa<CR>
 
 " since "Y" is normally equivalent to "yy", make Y copy to the end of line:
 " (this will be more consistent with C or D that also act until the end of line)
@@ -21,12 +21,12 @@ nnoremap Y y$
 
 " an alternative way to quickly save the file being edited
 " (make sure to turn off terminal flow control via Ctrl+S/Q)
-inoremap <silent> <C-S> <C-O>:update<CR>
-noremap <silent> <C-S> :update<CR>
-vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
 
-" since "C-Q" is equivalent to "C-V", use <C-Q> to close all windows and quit
-nnoremap <C-Q> :qa<CR>
+" since "C-Q" is equivalent to "C-V", use <C-Q> to save all buffers and quit
+nnoremap <C-Q> :wqa<CR>
 
 " copying/pasting/deleting tweaks
 
