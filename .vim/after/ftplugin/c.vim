@@ -8,7 +8,11 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
-setlocal keywordprg=man
+" setlocal keywordprg=man
+setlocal keywordprg=:LspHover
+
+" nnoremap <buffer> K :LspHover<CR>
+nmap <buffer> <CR>hh K
 
 nnoremap <buffer> <F1> :!xdg-open "https://en.cppreference.com/w/c"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "http://www.cplusplus.com/reference/clibrary/"<CR>
