@@ -24,6 +24,9 @@ vnoremap <buffer> \\?2 "*y<Esc>:!xdg-open "http://www.cplusplus.com/search.do?q=
 " toggle between source and header
 nmap <buffer> <CR>ga :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
 
+nnoremap <buffer> <CR><CR> :LspDefinition<CR>
+nmap <buffer> <CR>gg <CR><CR>
+
 " SPC m g a 	open matching file (e.g. switch between .cpp and .h)
 " SPC m g A 	open matching file in another window (e.g. switch between .cpp and .h)
 " SPC m D 	disaster: disassemble c/c++ code
