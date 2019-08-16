@@ -9,8 +9,8 @@ let maplocalleader = '_'
 " Allow saving of files as sudo if we forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
-" since "S" is equivalent to "cc", reuse it to save all modified buffers
-nnoremap S :bufdo! update<CR>
+" since "S" is equivalent to "cc", reuse it to save all buffers
+nnoremap S :wa<CR>
 
 " since "Q" is equivalent to "gQ" and is rarely used, reuse it to close all windows and quit
 nnoremap Q :qa<CR>
@@ -26,7 +26,7 @@ noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 
 " since "C-Q" is equivalent to "C-V", use <C-Q> to save all buffers and quit
-nnoremap <C-Q> :wqa<CR>
+nnoremap <C-Q> :xa<CR>
 
 " copying/pasting/deleting tweaks
 
