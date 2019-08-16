@@ -52,3 +52,8 @@ libdvdcss2
 vlc
 vlc-plugin-fluidsynth
 ripgrep
+cmake
+bear
+clang
+clang-tools
+
