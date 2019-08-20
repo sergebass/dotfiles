@@ -17,3 +17,6 @@
 # various user-specific vim files
 *.swp
 Session.vim
+
+# ctags tag files
+tags
