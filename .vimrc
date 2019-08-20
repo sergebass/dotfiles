@@ -128,6 +128,7 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['clangd'],
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'haskell': ['hie', '--lsp'],
+    \ 'purescript': ['purescript-language-server', '--stdio'],
     \ 'elm': ['elm-language-server', '--stdio'],
     \ 'java': ['tcp://127.0.0.1:55555'],
     \ 'javascript': ['javascript-typescript-stdio'],
