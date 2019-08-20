@@ -139,6 +139,7 @@ let g:LanguageClient_serverCommands = {
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
 
 " register C/C++/Objective C LSP server for vim-lsp plugin
 " (the -background-index option is not available in clangd-7)
