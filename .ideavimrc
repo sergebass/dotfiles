@@ -1,0 +1,6 @@
+set number " enable line numbers
+set scrolloff=1 " keep at least one line visible above/below cursor
+
+set incsearch " do incremental searching
+set hlsearch " highlight search results
+set nowrapscan " do not wrap after search results are exhausted
