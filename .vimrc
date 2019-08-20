@@ -161,6 +161,16 @@ if executable('typescript-language-server')
         \ 'whitelist': ['typescript'],
         \ })
 endif
+
+" register Elm LSP server for vim-lsp plugin
+if executable('elm-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'elm-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'elm-language-server --stdio']},
+        \ 'whitelist': ['elm'],
+        \ })
+endif
+
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
 
