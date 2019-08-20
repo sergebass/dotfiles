@@ -66,15 +66,15 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 
 " Specific language support plugins
-Plug 'derekwyatt/vim-scala'
-Plug 'ElmCast/elm-vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'idris-hackers/idris-vim'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'PProvost/vim-ps1'
 Plug 'purescript-contrib/purescript-vim'
+Plug 'ElmCast/elm-vim'
+Plug 'idris-hackers/idris-vim'
+Plug 'derekwyatt/vim-scala'
 Plug 'Quramy/tsuquyomi'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'PProvost/vim-ps1'
 
 " Various other plugins
 Plug 'airblade/vim-gitgutter'
