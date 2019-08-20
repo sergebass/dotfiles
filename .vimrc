@@ -21,8 +21,6 @@ set scrolloff=1 " keep at least one line visible above/below cursor
 set ruler " show the cursor position all the time
 set rulerformat=%l:%c%V
 
-set nowrapscan " do not wrap after search results are exhausted
-
 set laststatus=2 " always display status line, even with one file being edited
 set statusline=%m%r%1*\ %f\ %*%y%{fugitive#statusline()}%{ObsessionStatus()}\ %=#%n\ \"%{v:register}\ u%B/%{&fenc}/%{&ff}\ %l:%c%V\ %p%%/%L
 
@@ -44,6 +42,7 @@ set history=100 " keep this many lines of command line history
 
 set incsearch " do incremental searching
 set hlsearch " highlight search results
+set nowrapscan " do not wrap after search results are exhausted
 
 if has("nvim")
     set inccommand=nosplit " highlight text affected by a substitute command
