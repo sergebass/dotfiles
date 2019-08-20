@@ -163,6 +163,15 @@ if executable('typescript-language-server')
         \ })
 endif
 
+" register Purescript LSP server for vim-lsp plugin
+if executable('purescript-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'purescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'purescript-language-server --stdio']},
+        \ 'whitelist': ['purescript'],
+        \ })
+endif
+
 " register Elm LSP server for vim-lsp plugin
 if executable('elm-language-server')
     au User lsp_setup call lsp#register_server({
