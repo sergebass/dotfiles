@@ -105,6 +105,7 @@ Plug 'sgur/vim-editorconfig'
 Plug 'sk1418/QFGrep'
 Plug 'vim-syntastic/syntastic'
 Plug 'yssl/QFEnter'
+Plug 'terryma/vim-multiple-cursors'
 
 " Initialize plugin system
 call plug#end()
