@@ -429,6 +429,17 @@ nnoremap \sb :execute 'new <bar> 0r !svn ann -v #'<CR>:set readonly filetype=svn
 nnoremap \<F7> :colorscheme sergebass-light<CR>
 nnoremap \<F8> :colorscheme sergebass-dark<CR>
 
+" modify key mapping for vim-multiple-cursors plugin
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<A-n>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
 " shortcuts for language client/server use (LanguageClient plugin)
 nnoremap \K :call LanguageClient#textDocument_hover()<CR>
 nnoremap \gd :call LanguageClient#textDocument_definition()<CR>
