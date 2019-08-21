@@ -121,18 +121,17 @@ set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 " LanguageClient global settings
 let g:LanguageClient_serverCommands = {
-    \ 'c': ['clangd'],
-    \ 'cpp': ['clangd'],
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'haskell': ['hie', '--lsp'],
     \ 'purescript': ['purescript-language-server', '--stdio'],
     \ 'elm': ['elm-language-server', '--stdio'],
+    \ 'typescript': ['typescript-language-server', '--stdio'],
+    \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
+    \ 'javascript': ['typescript-language-server', '--stdio'],
+    \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
+    \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'java': ['tcp://127.0.0.1:55555'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'typescript.tsx': ['javascript-typescript-stdio'],
-    \ 'typescript_': ['tsserver'],
     \ }
 
 " Automatically start language servers.
