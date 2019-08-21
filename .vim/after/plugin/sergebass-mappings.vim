@@ -429,8 +429,13 @@ nnoremap \sb :execute 'new <bar> 0r !svn ann -v #'<CR>:set readonly filetype=svn
 nnoremap \<F7> :colorscheme sergebass-light<CR>
 nnoremap \<F8> :colorscheme sergebass-dark<CR>
 
-" shortcuts for language client/server use
+" shortcuts for language client/server use (LanguageClient plugin)
 nnoremap \K :call LanguageClient#textDocument_hover()<CR>
 nnoremap \gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap \<F5> :call LanguageClient_contextMenu()<CR>
 nnoremap \<F2> :call LanguageClient#textDocument_rename()<CR>
+
+" shortcuts for language client/server use (vim-lsp plugin)
+nnoremap \\K :LspHover<CR>
+nnoremap \\gd :LspDefinition<CR>
+nnoremap \\<F2> :LspRename<CR>
