@@ -2,10 +2,6 @@
 """ KEYBOARD MAPPINGS
 """ -----------------
 
-" let 3rd party plugins use these prefixes for their default keybindings
-let mapleader = '_'
-let maplocalleader = '_'
-
 " Allow saving of files as sudo if we forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
