@@ -323,6 +323,10 @@ au Syntax * RainbowParenthesesLoadBraces
 
 au VimEnter * RainbowParenthesesToggle
 
+" Force .h files to be treated as C++ headers
+au BufReadPost *.h set filetype=cpp syntax=cpp
+
+" Frege sources are very much Haskell-like
 au BufReadPost *.fr set filetype=frege syntax=haskell
 
 au BufReadPost */.xmobarrc set syntax=haskell
