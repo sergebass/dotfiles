@@ -463,8 +463,10 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " shortcuts for language client/server use (LanguageClient plugin)
 nnoremap \K :call LanguageClient#textDocument_hover()<CR>
 nnoremap \gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap \<F5> :call LanguageClient_contextMenu()<CR>
+nnoremap \gO :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap \<F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap \<F5> :call LanguageClient_contextMenu()<CR>
+nnoremap \<F7> :call LanguageClient#textDocument_references()<CR>
 
 " shortcuts for language client/server use (vim-lsp plugin)
 nnoremap \\K :LspHover<CR>
