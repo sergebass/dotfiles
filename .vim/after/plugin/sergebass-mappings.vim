@@ -384,8 +384,8 @@ nnoremap <CR><CR> g<C-]>
 nmap <C-LeftMouse> <CR><CR>
 
 " quickly search the word under cursor using fzf.vim
-nnoremap \<CR> :Ag<CR>:cfirst<CR>
-nmap \\<CR> \<CR>
+nnoremap \<CR> :Rg <C-r>=expand("<cword>")<CR><CR>
+nnoremap \\<CR> :Ag <C-r>=expand("<cword>")<CR><CR>
 
 " search the word under cursor in external files
 nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
