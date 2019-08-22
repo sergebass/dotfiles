@@ -4,3 +4,159 @@ set scrolloff=1 " keep at least one line visible above/below cursor
 set incsearch " do incremental searching
 set hlsearch " highlight search results
 set nowrapscan " do not wrap after search results are exhausted
+
+" since "S" is equivalent to "cc", reuse it to save all buffers
+nnoremap S :wa<CR>
+
+" since "Q" is equivalent to "gQ" and is rarely used, reuse it to close all windows and quit
+" nnoremap Q :qa<CR>
+
+" since "Y" is normally equivalent to "yy", make Y copy to the end of line:
+" (this will be more consistent with C or D that also act until the end of line)
+nnoremap Y y$
+
+" emulate Spacemacs/SpaceVim
+
+nnoremap <Space><Space> :
+nnoremap <Space><Tab> <C-^>  " FIXME doesn't work in Android Studio
+
+" make mode-specific mappings a bit shorter, use another big button as a prefix
+unmap <CR>
+nmap <Space>m <CR>
+
+nmap <F1> <Space>h
+
+nnoremap <Space>h<Space> :h<CR>
+" nnoremap <Space>? :Maps<CR>
+" nnoremap <Space>hk :Maps<CR>
+" nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
+
+" nnoremap <Space>qq :qa<CR>
+" nnoremap <Space>qQ :qa!<CR>
+
+" nnoremap <Space>pf :GFiles<CR>
+" nnoremap <Space>pr :GFiles?<CR>
+" nnoremap <Space>pt :NERDTreeFind<CR>
+" nnoremap <Space>pg :Tags<CR>
+
+" nnoremap <Space>ff :Files<CR>
+" nnoremap <Space>fr :call fzf#vim#history()<CR>
+nnoremap <Space>fs :w<CR>
+nnoremap <Space>fS :wa<CR>
+nnoremap <Space>fy <C-G>
+" nnoremap <Space>ft :NERDTreeToggle<CR>
+" nnoremap <Space>fed :new<CR>:e ~/.vimrc<CR>
+
+" nnoremap <Space>bb :call fzf#vim#buffers()<CR>
+" nnoremap <Space>bd :bd<CR>
+" nnoremap <Space>bn :bnext<CR>
+" nnoremap <Space>bp :bprev<CR>
+nnoremap <Space>bR :e!
+nnoremap <Space>bY gg"+yG
+nnoremap <Space>bP ggvG"+p
+
+" nnoremap <Space>ss :BLines<CR>
+" nnoremap <Space>sb :Lines<CR>
+" nnoremap <Space>/ :Rg<CR>
+" nnoremap <Space>sp :Rg<CR>
+" nnoremap <Space>sap :Ag<CR>
+" nnoremap <Space>* :let w=expand("<cword>")<CR><CR>:Rg <C-r>=w<CR><CR>
+" nnoremap <Space>sP :Rg<CR>
+" nnoremap <Space>saP :Ag<CR>
+
+" error navigation
+" nnoremap <Space>el :cw<CR>
+" nnoremap <Space>en :cnext<CR>
+" nnoremap <Space>ep :cprev<CR>
+
+" code commenting
+" vmap <Space>; gc
+" nmap <Space>cl gcc
+
+" quick shortcuts for vim-fugitive
+" nnoremap <Space>gs :Gstatus<CR>
+" nnoremap <Space>gl :Glog<CR>
+" nnoremap <Space>gd :Gdiff<CR>
+" nnoremap <Space>gb :Gblame<CR>
+" nnoremap <Space>gg :Ggrep<Space>
+" nnoremap <Space>gM :Gmove<Space>
+
+" SPC g > 	show submodule prompt
+" SPC g b 	open a magit blame
+" SPC g f h 	show file commits history
+" SPC g H c 	clear highlights
+" SPC g H h 	highlight regions by age of commits
+" SPC g H t 	highlight regions by last updated time
+" SPC g I 	open helm-gitignore
+" SPC g s 	open a magit status window
+" SPC g S 	stage current file
+" SPC g m 	magit dispatch popup
+" SPC g M 	display the last commit message of the current line
+" SPC g t 	launch the git time machine
+" SPC g U 	unstage current file
+
+" SPC g l c 	on a commit hash, browse to the current file at this commit
+" SPC g l C 	on a commit hash, create link to the file at this commit and copy it
+" SPC g l l 	on a region, browse to file at current lines position
+" SPC g l L 	on a region, create a link to the file highlighting the selected lines
+
+nnoremap <Space>' :shell<CR>
+
+nnoremap <Space>w <C-w>
+
+nnoremap <silent> <Space><Left> <C-w>h
+nnoremap <silent> <Space><Right> <C-w>l
+nnoremap <silent> <Space><Up> <C-w>k
+nnoremap <silent> <Space><Down> <C-w>j
+
+" a quick way to navigate between tabs
+nnoremap <Space>1 1gt
+nnoremap <Space>2 2gt
+nnoremap <Space>3 3gt
+nnoremap <Space>4 4gt
+nnoremap <Space>5 5gt
+nnoremap <Space>6 6gt
+nnoremap <Space>7 7gt
+nnoremap <Space>8 8gt
+nnoremap <Space>9 9gt
+nnoremap <Space>0 10gt
+
+" Tab navigation
+" nnoremap <silent> <Space><Insert> :tabnew<CR>
+" nnoremap <silent> <Space><Del> :tabclose<CR>
+" nnoremap <silent> <Space><Home> :tabfirst<CR>
+" nnoremap <silent> <Space><End> :tablast<CR>
+nnoremap <silent> <Space><PageUp> :tabprev<CR>
+nnoremap <silent> <Space><PageDown> :tabnext<CR>
+
+" replace selected word in the entire file (with confirmation)
+" nnoremap \R :%s/<C-r>=expand("<cword>")<CR>//gc<left><left><left>
+" replace selected word from the current line to the end of file (with confirmation)
+" nnoremap \r :.,$s/<C-r>=expand("<cword>")<CR>//gc<left><left><left>
+
+" replace highlighted text in the entire file (with confirmation)
+" vnoremap \R "hy:%s/<C-r>h//gc<left><left><left>
+" replace highlighted text from the current line to the end of file (with confirmation)
+" vnoremap \r "hy:.,$s/<C-r>h//gc<left><left><left>
+
+" quickly search the word under cursor using fzf.vim
+" nnoremap \<CR> :Ag<CR>:cfirst<CR>
+" nmap \\<CR> \<CR>
+
+" search the word under cursor in external files
+" nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
+" quote the selected text in visual mode since that's to be used for multiple words
+" vnoremap \/ "*y<Esc>:grep -s "<C-r>*"<Left>
+
+" search the word under cursor on the web
+" nnoremap \? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+" vnoremap \? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
+
+" search the word under cursor in all open buffers
+" nnoremap <Space>sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>
+" quote the selected text in visual mode since that's to be used for multiple words
+" vnoremap <Space>sB "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
+
+" nnoremap <silent> gO :TagbarOpen fjc<CR>
+
+nnoremap <CR><CR> gd
