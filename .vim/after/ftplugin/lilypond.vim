@@ -3,10 +3,10 @@
 """ -------------------------------
 
 " I don't like tabs, use spaces throughout
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set autoindent
+setlocal expandtab
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal autoindent
 
 " TODO find a command line utility to query Lilypond manuals
 "setlocal keywordprg=hoogle

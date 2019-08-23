@@ -3,10 +3,10 @@
 """ -------------------------------
 
 " I don't like tabs, use spaces throughout
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set autoindent
+setlocal expandtab
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal autoindent
 
 nnoremap <buffer> <F1> :!xdg-open "https://markdown-guide.readthedocs.io/en/latest/basics.html"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://daringfireball.net/projects/markdown/syntax"<CR>
