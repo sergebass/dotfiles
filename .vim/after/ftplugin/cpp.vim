@@ -8,6 +8,9 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
+" for some reason vim-commentary uses /* */ C-style commenting, but let's use // instead
+setlocal commentstring=//\ %s
+
 " setlocal keywordprg=man
 setlocal keywordprg=:LspHover
 
