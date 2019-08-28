@@ -369,14 +369,14 @@ vnoremap <M-CR> "*y<Esc>:<C-r>*
 cnoremap <M-CR> <C-r>=expand("<cword>")<CR>
 
 " replace selected word in the entire file (with confirmation)
-nnoremap \R :%s/<C-r>=expand("<cword>")<CR>//gc<left><left><left>
+nnoremap \R :%s/<C-r>=expand("<cword>")<CR>/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 " replace selected word from the current line to the end of file (with confirmation)
-nnoremap \r :.,$s/<C-r>=expand("<cword>")<CR>//gc<left><left><left>
+nnoremap \r :.,$s/<C-r>=expand("<cword>")<CR>/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 
 " replace highlighted text in the entire file (with confirmation)
-vnoremap \R "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap \R "hy:%s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 " replace highlighted text from the current line to the end of file (with confirmation)
-vnoremap \r "hy:.,$s/<C-r>h//gc<left><left><left>
+vnoremap \r "hy:.,$s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
