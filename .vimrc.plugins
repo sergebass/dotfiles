@@ -3,10 +3,15 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if has("win32")
+    " FIXME provide a Windows-specific command to downoad vim.plug
+else
+    " Linux, FreeBSD and Mac OSX all use similar Unix path conventions and utilities
+    if empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
 endif
 
 " Make sure you use single quotes
