@@ -248,7 +248,18 @@ endif
 " GENERAL UI SETTINGS
 " -------------------
 
-set gfn=Inconsolata\ Medium\ 10
+" make GUI font dependent on the OS
+if has("gui_running")
+    if has("gui_macvim")
+        set guifont=Menlo\ Regular:h12
+    elseif has("gui_win32")
+        " set guifont=Consolas:h10:cANSI
+        set guifont=Lucida\ Console:h10:cANSI
+    else
+        set guifont=Inconsolata\ Medium\ 10
+    endif
+endif
+
 set guioptions-=T
 
 if $TERM == "linux"
