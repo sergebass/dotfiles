@@ -52,7 +52,7 @@ Plug 'junegunn/fzf.vim'
 
 " " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
-Plug '/usr/share/lilypond/2.18.2/vim'
+" Plug '/usr/share/lilypond/2.18.2/vim'
 
 " Tim Pope's vim plugins
 Plug 'tpope/vim-commentary'
@@ -63,24 +63,36 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
 " Language Server Protocol support
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+if has("win32")
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
+        \ }
+else
+    " Linux, FreeBSD and Mac OSX all use similar Unix path conventions and utilities
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
+endif
 
-" Specific language support plugins
-Plug 'neovimhaskell/haskell-vim'
-Plug 'purescript-contrib/purescript-vim'
-Plug 'ElmCast/elm-vim'
-Plug 'idris-hackers/idris-vim'
-Plug 'derekwyatt/vim-scala'
-Plug 'lyuts/vim-rtags'
-Plug 'rust-lang/rust.vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'PProvost/vim-ps1'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+
+" Autocompletion plus many other things (needs vim with Python)
+" Plug 'ycm-core/YouCompleteMe'
+
+" Language-specific plugins
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'purescript-contrib/purescript-vim'
+" Plug 'ElmCast/elm-vim'
+" Plug 'idris-hackers/idris-vim'
+" Plug 'derekwyatt/vim-scala'
+" Plug 'lyuts/vim-rtags'
+" Plug 'rust-lang/rust.vim'
+" Plug 'Quramy/tsuquyomi'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'PProvost/vim-ps1'
 
 " Various other plugins
 Plug 'airblade/vim-gitgutter'
