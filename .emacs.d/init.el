@@ -7,6 +7,8 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3") ;; work around bug in emacs 26.2
+
 (package-initialize)
 (package-refresh-contents)
 
