@@ -20,3 +20,6 @@ Session.vim
 
 # ctags tag files
 tags
+
+# plug.vim manages its plugins separately
+.vim/plugged
