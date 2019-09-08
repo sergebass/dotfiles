@@ -56,4 +56,9 @@ cmake
 bear
 clang
 clang-tools
+gparted
+baobab
+usb-creator-gtk
+xmonad
+xz-utils
 
