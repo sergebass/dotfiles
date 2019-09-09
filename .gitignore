@@ -23,3 +23,5 @@ tags
 
 # plug.vim manages its plugins separately
 .vim/plugged
+
+.vim/undo
