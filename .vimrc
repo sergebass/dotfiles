@@ -121,6 +121,7 @@ let g:NERDTreeMapHelp='<F1>' " do not use ? for help, we need it for reverse sea
 let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeWinSize=64
+let g:NERDTreeQuitOnOpen=1 " close NERDtree window after opening a file
 
 " to be able to use vim's formatting commands like gq with LanguageClient
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
