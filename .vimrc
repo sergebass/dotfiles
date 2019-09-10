@@ -115,6 +115,7 @@ autocmd FileType sh setlocal keywordprg=:Man
 
 let g:tagbar_width=60
 let g:tagbar_show_linenumbers=1 " show absolute line numbers
+let g:tagbar_map_help='<F1>' " do not use ? for help, we need it for reverse search in the window
 
 " to be able to use vim's formatting commands like gq with LanguageClient
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
