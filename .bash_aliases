@@ -15,12 +15,12 @@ alias ec='emacsclient -c'
 alias gsb='git status -sb'
 alias gg='git grep'
 
-# Show unstages changes
-alias gd='git diff'
-# Show stages changes
-alias gds='git diff --staged'
-# Show all changes (staged and not yet)
-alias gda='git diff HEAD'
+# Show unstages changes (include submodules)
+alias gd='git diff --submodule=diff'
+# Show stages changes (include submodules)
+alias gds='git diff --staged --submodule=diff'
+# Show all changes (staged and not yet) (include submodules)
+alias gda='git diff --submodule=diff HEAD'
 
 # show only names of changed files: in working directory
 alias gdN='git diff --name-only'
