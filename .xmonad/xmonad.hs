@@ -42,8 +42,10 @@ myConfig = desktopConfig
     , ((superMask, xK_Menu), spawn "gmrun")
     -- take a screenshot of entire display
     , ((superMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
+    , ((superMask .|. controlMask, xK_p), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
     -- take a screenshot of focused window
     , ((superMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
+    , ((superMask .|. controlMask .|. shiftMask, xK_p), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
     -- various calculators
     , ((superMask, xK_equal), spawn "urxvt -e bc -l")
     , ((superMask, xK_KP_Enter), spawn "gnome-calculator")
