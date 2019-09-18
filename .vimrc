@@ -6,6 +6,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set encoding=utf-8
+set fileencoding=utf-8
+
 " double star makes :find look for files recursively
 set path=.,/usr/local/include,/usr/include,,**
 
@@ -260,8 +263,7 @@ if has("gui_running")
     if has("gui_macvim")
         set guifont=Menlo\ Regular:h12
     elseif has("gui_win32")
-        " set guifont=Consolas:h10:cANSI
-        set guifont=Lucida\ Console:h10:cANSI
+        set guifont=Ubuntu\ Mono:h10:cANSI
     else
         set guifont=Inconsolata\ Medium\ 10
     endif
