@@ -10,7 +10,11 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " double star makes :find look for files recursively
-set path=.,/usr/local/include,/usr/include,,**
+if has("win32")
+    "FIXME set path=.,/usr/local/include,/usr/include,,**
+else
+    set path=.,/usr/local/include,/usr/include,,**
+endif
 
 " even though we define our mappings in other files, we need to make sure
 " that leader and local leader keys are established well before then

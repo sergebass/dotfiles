@@ -92,7 +92,7 @@ nnoremap <Space>fs :w<CR>
 nnoremap <Space>fS :wa<CR>
 nnoremap <Space>fy <C-G>
 nnoremap <Space>ft :NERDTreeToggle<CR>
-nnoremap <Space>fed :new<CR>:e ~/.vimrc<CR>
+nnoremap <Space>fed :new<CR>:e $MYVIMRC<CR>
 
 nnoremap <Space>bb :call fzf#vim#buffers()<CR>
 nnoremap <Space>bd :bd<CR>
