@@ -149,6 +149,9 @@ nnoremap <Space>gM :Gmove<Space>
 
 nnoremap <Space>' :terminal<CR>
 
+" miscellaneous UI toggles
+nnoremap <Space>tn :set invnumber<CR>
+
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
 " use the same shortcut for convenience
 if has('nvim') || (v:version >= 800)
