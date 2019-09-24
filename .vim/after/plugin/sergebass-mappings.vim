@@ -150,7 +150,9 @@ nnoremap <Space>gM :Gmove<Space>
 nnoremap <Space>' :terminal<CR>
 
 " miscellaneous UI toggles
-nnoremap <Space>tn :set invnumber<CR>
+nnoremap <Space>tn :set number!<CR>
+nnoremap <Space>thh :set cursorline!<CR>
+nnoremap <Space>thc :set cursorcolumn!<CR>
 
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
 " use the same shortcut for convenience
