@@ -401,16 +401,16 @@ vmap \\\<CR> \\\/<CR>:copen<CR>
 " search the word under cursor in external files
 
 " a) using ripgrep (rg)
-nnoremap \/ :Rg <C-r>=expand("<cword>")<CR>
+nnoremap \/ :RgWords <C-r>=expand("<cword>")<CR>
 " Rg does not understand quotes, just paste the whole selected chunk as is
 " FIXME parentheses need proper quoted to work
-vnoremap \/ "*y<Esc>:Rg <C-r>*
+vnoremap \/ "*y<Esc>:RgWords <C-r>*
 
 " b) using silver-searcher (ag)
-nnoremap \\/ :Ag <C-r>=expand("<cword>")<CR>
+nnoremap \\/ :AgWords <C-r>=expand("<cword>")<CR>
 " Ag does not understand quotes, just paste the whole selected chunk as is
 " FIXME parentheses need proper quoted to work
-vnoremap \\/ "*y<Esc>:Ag <C-r>*
+vnoremap \\/ "*y<Esc>:AgWords <C-r>*
 
 " c) using grep (always available)
 nnoremap \\\/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>

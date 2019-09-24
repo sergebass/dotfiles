@@ -10,3 +10,19 @@ command RemoveSelectedMultipleBlankLines '<,'>s/^\_s\+\n/\r/e
 
 command RemoveAllRedundantWhitespace %s/\s\+$//e
 command RemoveSelectedRedundantWhitespace '<,'>s/\s\+$//e
+
+" Augment FZF's :Rg to enable preview (press '?' for display) and perform exact word search
+command! -bang -nargs=* RgWords
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --word-regexp --case-sensitive '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Augment FZF's :Ag to enable preview (press '?' for display) and perform exact word search
+command! -bang -nargs=* AgWords
+  \ call fzf#vim#grep(
+  \   'ag --nogroup --column --color --word-regexp --case-sensitive '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
