@@ -12,20 +12,6 @@ setlocal autoindent
 setlocal commentstring=//\ %s
 
 " setlocal keywordprg=man
-"
-" Augment FZF's :Rg to enable preview (press '?' for display) and perform exact word search
-command! -bang -nargs=* RgCpp
-  \ call fzf#vim#grep(
-  \   'rg -t cpp --column --line-number --no-heading --color=always --word-regexp --case-sensitive '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
-" redefine quick search mappings to perform C++-specific search of identifier under cursor
-nnoremap \<CR> :RgCpp <C-r>=expand("<cword>")<CR><CR>
-" Rg does not understand quotes, just paste the whole selected chunk as is
-" FIXME parentheses need proper quoted to work
-vnoremap \<CR> "*y<Esc>:RgCpp <C-r>*<CR>
 
 " nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
 nmap <buffer> <CR>hh :call LanguageClient#textDocument_hover()<CR>

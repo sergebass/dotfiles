@@ -11,6 +11,22 @@ setlocal autoindent
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 " setlocal makeprg=stack\ build
 
+" Override default :RgId to use correct file type for JavaScript files (the one that rg expects)
+command! -bang -nargs=* RgId
+  \ call fzf#vim#grep(
+  \   'rg -t js --column --line-number --no-heading --color=always --word-regexp --case-sensitive '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Override default :AgId to use correct file type for JavaScript files (the one that ag expects)
+command! -bang -nargs=* AgId
+  \ call fzf#vim#grep(
+  \   'ag --js --nogroup --column --color --word-regexp --case-sensitive '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
 nnoremap <buffer> <F1> :!xdg-open "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://dev.w3.org/html5/html-author/"<CR>
 
