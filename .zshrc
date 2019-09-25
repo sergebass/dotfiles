@@ -110,7 +110,7 @@ bindkey -v
 export KEYTIMEOUT=1  # 0.1 sec delay when pressing <Esc>
 
 setopt promptsubst
-PS1_BASE=$'%B%{$fg[yellow]$bg[blue]%}%*%s%{$reset_color%} %B%{$fg[green]%}%n%{$fg[magenta]%}@%m%{$reset_color%} %y %{$fg[yellow]%}%0~%{$reset_color%} $(git_prompt_info)\n%(!.%S%{$fg[red]%}#root#%s.)'
+PS1_BASE=$'%B%{$fg[yellow]$bg[blue]%}%*%s%{$reset_color%} %y %B%{$fg[green]%}%n%{$fg[magenta]%}@%m%{$reset_color%} %{$fg[yellow]%}%0~\n%{$reset_color%}$(git_current_branch) %(!.%S%{$fg[red]%}#root#%s.)'
 
 function precmd {
     print "$reset_color\033[4m${(l:$COLUMNS:: :)}$reset_color"
