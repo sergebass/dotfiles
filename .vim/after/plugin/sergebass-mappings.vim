@@ -121,32 +121,48 @@ nnoremap <Space>ep :cprev<CR>
 vmap <Space>; gc
 nmap <Space>cl gcc
 
-" quick shortcuts for vim-fugitive
+" spacemacs-compatible quick shortcuts for vim-fugitive
 nnoremap <Space>gs :Gstatus<CR>
 nnoremap <Space>gl :Glog<CR>
 nnoremap <Space>gd :Gdiff<CR>
 nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>gg :Ggrep<Space>
-nnoremap <Space>gM :Gmove<Space>
+nnoremap <Space>gfh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filetype=git buftype=nofile<CR>gg
+nnoremap <Space>gS :!git add %<CR>
+nnoremap <Space>gU :!git reset %<CR>
 
+" remaining unimplemented spacemacs mappings for git
 " SPC g > 	show submodule prompt
-" SPC g b 	open a magit blame
-" SPC g f h 	show file commits history
 " SPC g H c 	clear highlights
 " SPC g H h 	highlight regions by age of commits
 " SPC g H t 	highlight regions by last updated time
 " SPC g I 	open helm-gitignore
-" SPC g s 	open a magit status window
-" SPC g S 	stage current file
 " SPC g m 	magit dispatch popup
 " SPC g M 	display the last commit message of the current line
 " SPC g t 	launch the git time machine
-" SPC g U 	unstage current file
 
 " SPC g l c 	on a commit hash, browse to the current file at this commit
 " SPC g l C 	on a commit hash, create link to the file at this commit and copy it
 " SPC g l l 	on a region, browse to file at current lines position
 " SPC g l L 	on a region, create a link to the file highlighting the selected lines
+
+" non-Spacemacs useful git mappings (for both vim-fugitive and vim-gitgutter)
+
+nnoremap \gm :Gmove<Space>
+nnoremap \gr :Grename<Space>
+nnoremap \gx :Gbrowse<CR>
+nnoremap \gza :GitGutterFold<CR>
+nnoremap \ghp :GitGutterPreviewHunk<CR>
+nnoremap \ghs :GitGutterStageHunk<CR>
+nnoremap \ghu :GitGutterUndoHunk<CR>
+
+" An easier way to see git change history for a current line or selection
+nnoremap \gfh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filetype=git buftype=nofile<CR>gg
+vnoremap \gfh :<C-u>execute 'new <bar> 0r !git log -L <C-r>=line("'<")<CR>,<C-r>=line("'>")<CR>:#'<CR>:set readonly filetype=git buftype=nofile<CR>gg
+
+" looking up file history in subversion
+nnoremap \sfh :execute 'new <bar> 0r !svn log -v --diff #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
+nnoremap \sfb :execute 'new <bar> 0r !svn ann -v #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
 
 nnoremap <Space>' :terminal<CR>
 
@@ -442,14 +458,6 @@ vnoremap \wl :<C-w>RemoveSelectedMultipleBlankLines<CR>
 
 nnoremap \ww :retab<CR>:RemoveAllMultipleBlankLines<CR>:RemoveAllRedundantWhitespace<CR>
 vnoremap \ww :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:<C-w>RemoveSelectedRedundantWhitespace<CR>
-
-" An easier way to see git change history for a current line or selection
-nnoremap \gh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filetype=git buftype=nofile<CR>gg
-vnoremap \gh :<C-u>execute 'new <bar> 0r !git log -L <C-r>=line("'<")<CR>,<C-r>=line("'>")<CR>:#'<CR>:set readonly filetype=git buftype=nofile<CR>gg
-
-" looking up file history in subversion
-nnoremap \sh :execute 'new <bar> 0r !svn log -v --diff #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
-nnoremap \sb :execute 'new <bar> 0r !svn ann -v #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
 
 " quick ways to switch between light and dark themes
 nnoremap \<F7> :colorscheme sergebass-light<CR>
