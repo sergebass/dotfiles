@@ -404,13 +404,13 @@ vmap \\\<CR> \\\/<CR>:copen<CR>
 nnoremap \/ :RgId <C-r>=expand("<cword>")<CR>
 " Rg does not understand quotes, just paste the whole selected chunk as is
 " FIXME parentheses need proper quoted to work
-vnoremap \/ "*y<Esc>:RgId <C-r>*
+vnoremap \/ "*y<Esc>:Rg <C-r>*
 
 " b) using silver-searcher (ag)
 nnoremap \\/ :AgId <C-r>=expand("<cword>")<CR>
 " Ag does not understand quotes, just paste the whole selected chunk as is
 " FIXME parentheses need proper quoted to work
-vnoremap \\/ "*y<Esc>:AgId <C-r>*
+vnoremap \\/ "*y<Esc>:Ag <C-r>*
 
 " c) using grep (always available)
 nnoremap \\\/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
