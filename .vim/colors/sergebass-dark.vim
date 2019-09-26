@@ -20,9 +20,11 @@ endif
 
 " user-defined highlights for statusline
 hi User1 term=bold,inverse cterm=bold,inverse ctermfg=red ctermbg=blue gui=bold,inverse guifg=#ff0000 guibg=#000040
-hi User2 term=bold,underline cterm=bold,underline ctermfg=yellow ctermbg=blue gui=bold,underline guifg=#ffff20 guibg=#000040
-hi User3 term=underline cterm=underline ctermfg=green ctermbg=blue gui=underline guifg=#00ff00 guibg=#000040
-hi User4 term=underline cterm=underline ctermfg=cyan ctermbg=blue gui=underline guifg=#8080ff guibg=#000040
+hi User2 term=bold,underline cterm=bold,underline ctermfg=red ctermbg=blue gui=bold,underline guifg=#ff0000 guibg=#000040
+hi User3 term=bold,underline cterm=underline ctermfg=magenta ctermbg=blue gui=bold,underline guifg=#a000a0 guibg=#000040
+hi User4 term=bold,underline cterm=bold,underline ctermfg=yellow ctermbg=blue gui=bold,underline guifg=#ffff20 guibg=#000040
+hi User5 term=underline cterm=underline ctermfg=green ctermbg=blue gui=underline guifg=#00ff00 guibg=#000040
+hi User6 term=underline cterm=underline ctermfg=cyan ctermbg=blue gui=underline guifg=#8080ff guibg=#000040
 hi User9 term=NONE cterm=NONE ctermfg=grey ctermbg=blue gui=NONE guifg=#b2b2b2 guibg=#000040
 
 " FIXME temporary highlighting placeholders, taken from vim documentation;
