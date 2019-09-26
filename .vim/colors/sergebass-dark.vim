@@ -18,7 +18,12 @@ else
     hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=NONE gui=NONE guifg=#c0c0c0 guibg=NONE
 endif
 
-hi User1 term=bold cterm=bold ctermfg=yellow ctermbg=blue gui=bold guifg=#ffff20 guibg=#000040
+" user-defined highlights for statusline
+hi User1 term=bold,inverse cterm=bold,inverse ctermfg=red ctermbg=blue gui=bold,inverse guifg=#ff0000 guibg=#000040
+hi User2 term=bold,underline cterm=bold,underline ctermfg=yellow ctermbg=blue gui=bold,underline guifg=#ffff20 guibg=#000040
+hi User3 term=underline cterm=underline ctermfg=green ctermbg=blue gui=underline guifg=#00ff00 guibg=#000040
+hi User4 term=underline cterm=underline ctermfg=cyan ctermbg=blue gui=underline guifg=#8080ff guibg=#000040
+hi User9 term=NONE cterm=NONE ctermfg=grey ctermbg=blue gui=NONE guifg=#b2b2b2 guibg=#000040
 
 " FIXME temporary highlighting placeholders, taken from vim documentation;
 " uncomment and fix.
@@ -58,14 +63,8 @@ endif
 " line length limit highlighting
 hi ColorColumn term=NONE cterm=NONE ctermbg=17 guibg=#00005f
 
-hi StatusLine term=reverse cterm=bold ctermfg=15 ctermbg=20 gui=bold guifg=#ffffff guibg=#0000b8
-hi StatusLineNC term=reverse cterm=NONE ctermfg=15 ctermbg=17 gui=NONE guifg=#b2b2b2 guibg=#00005f
-
-" change statusline colors depending on the current mode
-if version >= 700
-  au InsertEnter * hi StatusLine term=reverse cterm=bold ctermfg=15 ctermbg=22 gui=bold guifg=#ffffff guibg=#006000
-  au InsertLeave * hi StatusLine term=reverse cterm=bold ctermfg=15 ctermbg=20 gui=bold guifg=#ffffff guibg=#0000b8
-endif
+hi StatusLine term=inverse cterm=bold ctermfg=blue ctermbg=yellow gui=bold guifg=#000040 guibg=#ffff20
+hi StatusLineNC term=NONE cterm=NONE ctermfg=yellow ctermbg=blue gui=NONE guifg=#b2b2b2 guibg=#00005f
 
 hi TabLine term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=NONE guifg=#eeeeee guibg=#0000af
 hi TabLineFill term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=NONE guifg=#eeeeee guibg=#0000af
@@ -423,8 +422,6 @@ hi link GitGutterChangeDelete DiffChange
 "SpellLocal     xxx ctermbg=14 gui=undercurl guisp=Cyan
 "SpellRare      xxx ctermbg=13 gui=undercurl guisp=Magenta
 "Statement      xxx ctermfg=11 guifg=#aa4444
-"StatusLine     xxx cterm=bold ctermfg=15 ctermbg=19 gui=bold guifg=#ffffff guibg=#0000af
-"StatusLineNC   xxx ctermfg=249 ctermbg=237 guifg=#b2b2b2 guibg=#3a3a3a
 "StorageClass   xxx links to Type
 "String         xxx links to Constant
 "Structure      xxx links to Type
