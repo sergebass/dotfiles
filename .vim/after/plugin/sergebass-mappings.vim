@@ -263,8 +263,12 @@ nnoremap <silent> <Space><PageDown> :tabnext<CR>
 " rxvt without tmux does not support Ctrl+PgUp/Down tab navigation, so use these alternatives instead
 noremap <silent> <M-PageUp> :tabprev<CR>
 noremap <silent> <M-PageDown> :tabnext<CR>
+
 noremap <silent> <M-Home> :tabmove-<CR>
 noremap <silent> <M-End> :tabmove+<CR>
+
+" allow user to choose where to move the tab (empty input causes it to move to the very end)
+noremap \<Insert> :tabmove<Space>
 
 " Buffer management
 noremap <silent> \<PageUp> :bp<CR>
