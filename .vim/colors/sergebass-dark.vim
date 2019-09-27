@@ -21,8 +21,8 @@ endif
 " user-defined highlights for statusline
 hi User1 term=bold,inverse cterm=bold,inverse ctermfg=red ctermbg=blue gui=bold,inverse guifg=#ff0000 guibg=#000040
 hi User2 term=bold,underline cterm=bold,underline ctermfg=red ctermbg=blue gui=bold,underline guifg=#ff0000 guibg=#000040
-hi User3 term=bold,underline cterm=underline ctermfg=magenta ctermbg=blue gui=bold,underline guifg=#a000a0 guibg=#000040
-hi User4 term=bold,underline cterm=bold,underline ctermfg=yellow ctermbg=blue gui=bold,underline guifg=#ffff20 guibg=#000040
+hi User3 term=bold,underline cterm=bold ctermfg=magenta ctermbg=blue gui=bold guifg=#a000a0 guibg=#000040
+hi User4 term=bold,underline cterm=bold ctermfg=yellow ctermbg=blue gui=bold guifg=#ffff20 guibg=#000040
 hi User5 term=underline cterm=underline ctermfg=green ctermbg=blue gui=underline guifg=#00ff00 guibg=#000040
 hi User6 term=underline cterm=underline ctermfg=cyan ctermbg=blue gui=underline guifg=#8080ff guibg=#000040
 hi User9 term=NONE cterm=NONE ctermfg=grey ctermbg=blue gui=NONE guifg=#b2b2b2 guibg=#000040
@@ -65,12 +65,12 @@ endif
 " line length limit highlighting
 hi ColorColumn term=NONE cterm=NONE ctermbg=17 guibg=#00005f
 
-hi StatusLine term=inverse cterm=bold ctermfg=blue ctermbg=yellow gui=bold guifg=#000040 guibg=#ffff20
-hi StatusLineNC term=NONE cterm=NONE ctermfg=yellow ctermbg=blue gui=NONE guifg=#b2b2b2 guibg=#00005f
+hi StatusLine term=inverse cterm=bold ctermfg=17 ctermbg=226 gui=bold guifg=#000040 guibg=#ffd700
+hi StatusLineNC term=NONE cterm=NONE ctermfg=226 ctermbg=17 gui=NONE guifg=#b2b2b2 guibg=#00005f
 
-hi TabLine term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=NONE guifg=#eeeeee guibg=#0000af
-hi TabLineFill term=reverse cterm=reverse ctermfg=19 ctermbg=255 gui=NONE guifg=#eeeeee guibg=#0000af
-hi TabLineSel term=reverse cterm=reverse,bold ctermfg=22 ctermbg=220 gui=bold guifg=#ffd700 guibg=#005f00
+hi TabLine term=inverse cterm=NONE ctermfg=254 ctermbg=18 gui=NONE guifg=#e4e4e4 guibg=#000087
+hi TabLineFill term=inverse cterm=NONE ctermfg=254 ctermbg=18 gui=NONE guifg=#e4e4e4 guibg=#000087
+hi TabLineSel term=inverse,bold cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
 
 hi MoreMsg term=reverse cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
 hi ModeMsg term=reverse cterm=reverse,bold ctermfg=22 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005f00
