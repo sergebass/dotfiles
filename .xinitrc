@@ -6,6 +6,8 @@
 #xrandr --output $MONITOR2 --off
 #xrandr --output $MONITOR2 --auto --right-of $MONITOR1
 
+xrdb -merge ~/.Xresources
+
 # a temporary fix for LibreOffice + xmonad
 # (https://code.google.com/archive/p/xmonad/issues/200)
 export SAL_USE_VCLPLUGIN=gen
@@ -33,5 +35,5 @@ trayer \
 
 feh --bg-max --randomize --recursive --draw-filename ~/backgrounds/ &
 
-# exec xmonad
-exec i3
+# if you use startx, specify WM like this:
+# startx `which i3`
