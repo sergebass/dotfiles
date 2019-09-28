@@ -170,21 +170,22 @@ bar {
 }
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media volume controls (PulseAudio)
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SINK@ toggle # mute microphone
 
-# Media volume controls (ALSA)
-# bindsym XF86AudioMute exec amixer sset 'Master' toggle
-# bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
-# bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
+# Alternative keys for volume control (ALSA)
+bindsym $mod+bracketleft exec amixer -D pulse sset Master unmute 5%-
+bindsym $mod+bracketright exec amixer -D pulse sset Master unmute 5%+
+bindsym $mod+backslash exec amixer -D pulse sset Master unmute 20%
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
