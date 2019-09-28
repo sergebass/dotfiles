@@ -15,7 +15,7 @@ export SAL_USE_VCLPLUGIN=gen
 setxkbmap -layout "us,ru,ua,us(intl)" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape
 
 # this is needed for lightdm to actually lock screen, otherwise it asks no password to unlock
-light-locker &
+# light-locker &
 
 # configure system tray for use with xmonad/xmobar
 trayer \
@@ -32,3 +32,6 @@ trayer \
     &  # send to background
 
 feh --bg-max --randomize --recursive --draw-filename ~/backgrounds/ &
+
+# exec xmonad
+exec i3
