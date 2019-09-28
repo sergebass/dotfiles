@@ -188,6 +188,13 @@ bindsym $mod+bracketleft exec amixer -D pulse sset Master unmute 5%-
 bindsym $mod+bracketright exec amixer -D pulse sset Master unmute 5%+
 bindsym $mod+backslash exec amixer -D pulse sset Master unmute 20%
 
+# Alternative keys for volume control (FreeBSD)
+# bindsym $mod+shift+v exec urxvt -e aumix
+# bindsym $mod+shift+v exec xmixer
+# bindsym $mod+bracketleft exec mixer vol -5
+# bindsym $mod+bracketright exec mixer vol +5
+# bindsym $mod+backslash exec mixer vol 20
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
