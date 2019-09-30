@@ -1,11 +1,11 @@
 [Midnight-Commander]
 verbose=true
 shell_patterns=true
-auto_save_setup=true
+auto_save_setup=false
 preallocate_space=false
 auto_menu=false
 use_internal_view=true
-use_internal_edit=true
+use_internal_edit=false
 clear_before_exec=true
 confirm_delete=true
 confirm_overwrite=true
@@ -82,7 +82,7 @@ editor_backup_extension=~
 editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
-skin=default
+skin=modarcon16-defbg
 
 [Layout]
 message_visible=1
@@ -94,7 +94,7 @@ menubar_visible=1
 free_space=1
 horizontal_split=0
 vertical_equal=1
-left_panel_size=40
+left_panel_size=136
 horizontal_equal=1
 top_panel_size=1
 
@@ -103,7 +103,7 @@ timeformat_recent=%b %e %H:%M
 timeformat_old=%b %e  %Y
 ftp_proxy_host=gate
 ftpfs_password=anonymous@
-display_codepage=ASCII
+display_codepage=UTF-8
 source_codepage=Other_8_bit
 autodetect_codeset=
 clipboard_store=
@@ -115,6 +115,8 @@ xterm=
 color_terminals=
 
 xterm-256color=
+
+screen-256color-bce=
 
 [Panels]
 show_mini_info=true
@@ -136,6 +138,8 @@ permission_mode=false
 torben_fj_mode=false
 quick_search_mode=2
 select_flags=6
+
+simple_swap=false
 
 [FindFile]
 file_case_sens=true
