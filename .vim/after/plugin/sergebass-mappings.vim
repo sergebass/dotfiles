@@ -21,8 +21,8 @@ inoremap <C-S> <C-O>:update<CR>
 noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 
-" since "C-Q" is equivalent to "C-V", use <C-Q> to save all buffers and quit
-nnoremap <C-Q> :xa<CR>
+" since "C-Q" is equivalent to "C-V", use <C-Q> to delete current buffer
+nnoremap <C-Q> :bd<CR>
 
 " copying/pasting/deleting tweaks
 
