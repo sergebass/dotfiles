@@ -6,6 +6,6 @@ hi SPWarningMarker term=reverse cterm=bold ctermfg=226 ctermbg=69 gui=bold guifg
 " We need this to enable proper highlight handling with multiple splits (https://vi.stackexchange.com/a/7294)
 augroup SPCustomHighlighting
     autocmd!
-    autocmd VimEnter,WinEnter * call matchadd('SPErrorMarker', '\<\(FIXME\|BUG\|XXX\|ASAP\|URGENT\|ERROR\|FAILURE\|FAILED\)\>')
-    autocmd VimEnter,WinEnter * call matchadd('SPWarningMarker', '\<\(TODO\|NOTE\|Note\|WARNING\)\>')
+    autocmd VimEnter,WinEnter * call matchadd('SPErrorMarker', '\<\(FIXME\|BUG\|XXX\|ASAP\|URGENT\|ERROR\|FAILURE\|FAILED\)\>\|!!!\|???')
+    autocmd VimEnter,WinEnter * call matchadd('SPWarningMarker', '\<\(TODO\|NB\|NOTE\|Note\|WARNING\|CAUTION\|ATTENTION\)\>')
 augroup END
