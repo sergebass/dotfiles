@@ -35,5 +35,8 @@ trayer \
 
 feh --bg-max --randomize --recursive --draw-filename ~/backgrounds/ &
 
+# USB storage automounter
+udiskie &
+
 # if you use startx, specify WM like this:
 # startx `which i3`
