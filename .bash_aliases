@@ -238,6 +238,10 @@ function clean-all()
     ccache -C
 }
 
-function rmd () {
+function rmd() {
     pandoc $1 | lynx -stdin
+}
+
+function yta() {
+    mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
