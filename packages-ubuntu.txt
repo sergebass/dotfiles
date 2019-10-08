@@ -27,6 +27,7 @@ gparted
 gpm
 htop
 i3
+icecast2
 iotop
 libdvdcss2
 libtool
