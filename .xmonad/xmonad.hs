@@ -75,6 +75,10 @@ myConfig = desktopConfig
     , ((0, 0x1008FF11), spawn "amixer -D pulse set Master 5%-")
     , ((0, 0x1008FF13), spawn "amixer -D pulse set Master 5%+")
     , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
+    -- song control
+    , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
+    , ((superMask .|. shiftMask, xK_greater), spawn "mpc next")
+    , ((superMask .|. shiftMask, xK_less), spawn "mpc prev")
     ]
      `additionalKeysP`
     [ --audio controls
@@ -82,6 +86,10 @@ myConfig = desktopConfig
     , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
     , ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+    -- song control
+    , ("<XF86AudioPlay>", spawn "mpc toggle")
+    , ("<XF86AudioNext>", spawn "mpc next")
+    , ("<XF86AudioPrev>", spawn "mpc prev")
     -- screen backlight brightness
     , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
     , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
