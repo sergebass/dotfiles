@@ -20,6 +20,8 @@ feh
 flac
 geeqie
 git
+gmpc
+gmpc-plugins
 gparted
 gparted
 gpm
@@ -32,8 +34,13 @@ libxml2:i386
 lilypond
 mc
 metar
+mpc
+mpd
 mpv
 mupdf
+ncmpc
+ncmpc-lyrics
+ncmpcpp
 neovim
 neovim-qt
 net-tools
@@ -56,6 +63,7 @@ vim
 vlc
 vlc-plugin-fluidsynth
 xbacklight
+xfce4-mpc-plugin
 xmobar
 xmonad
 xmonad
