@@ -16,6 +16,8 @@ altMask = mod1Mask
 
 myConfig = desktopConfig
     { modMask = superMask
+    -- to change default terminal emulator, run:
+    -- sudo update-alternatives --config x-terminal-emulator
     , terminal = "x-terminal-emulator"
     , borderWidth = 2
     , focusedBorderColor = "#FFB000" -- Orange-ish color
@@ -33,6 +35,10 @@ myConfig = desktopConfig
     , ((superMask .|. shiftMask, xK_m), withWorkspace def (windows . W.shift))
     , ((superMask .|. shiftMask, xK_equal), withWorkspace def (windows . copy))
     , ((superMask .|. shiftMask, xK_d), removeWorkspace)
+    -- alternative shortcuts to launch terminal emulators in case the stock one does not work
+    , ((superMask .|. controlMask, xK_Return), spawn "x-terminal-emulator")
+    , ((superMask .|. controlMask .|. shiftMask, xK_Return), spawn "rxvt-unicode")
+    , ((superMask .|. controlMask .|. shiftMask .|. altMask, xK_Return), spawn "xterm")
     -- several ways of session locking
     , ((superMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
     , ((superMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
