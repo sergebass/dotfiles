@@ -9,6 +9,7 @@ chromium-codecs-ffmpeg-extra
 clang
 clang-tools
 cmake
+ctags
 curl
 dmenu
 dnsutils
@@ -66,7 +67,6 @@ vlc-plugin-fluidsynth
 xbacklight
 xfce4-mpc-plugin
 xmobar
-xmonad
 xmonad
 xz-utils
 youtube-dl
