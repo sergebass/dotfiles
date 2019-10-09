@@ -118,13 +118,13 @@ function precmd {
     print -P "%f%k%B\033[4m${(l:$COLUMNS:: :)}$PRE_PROMPT"
 }
 
-local PS1_BASE=$'%F{yellow}%0~ %F{red}$(git_current_branch) %(!.%S%{%F{red}%}#root#%s.)'
-local RETURN_STATUS="%B%(?:%F{green}:%F{red}) => %f"
+local PS1_BASE=$'%B%F{yellow}%0~ %F{red}$(git_current_branch) '
+local USER_INDICATOR="%B%(!.%F{red} # .%F{green} $ )%f"
 
 function zle-line-init zle-keymap-select {
     INSERT_PROMPT_ON="${${KEYMAP/(main|viins)/%S}/vicmd/}"
     INSERT_PROMPT_OFF="${${KEYMAP/(main|viins)/%s}/vicmd/}"
-    local PS1="$PS1_BASE${INSERT_PROMPT_ON}${RETURN_STATUS}${INSERT_PROMPT_OFF} %B%F{white}%k"
+    local PS1="$PS1_BASE${INSERT_PROMPT_ON}${USER_INDICATOR}${INSERT_PROMPT_OFF} %B%F{white}%k"
     zle reset-prompt
 }
 
@@ -132,7 +132,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function zle-line-finish {
-    export PS1="$PS1_BASE${RETURN_STATUS} %B%F{white}%k"
+    export PS1="$PS1_BASE${USER_INDICATOR} %B%F{white}%k"
     zle reset-prompt
     zle accept-line
 }
