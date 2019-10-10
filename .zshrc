@@ -111,20 +111,19 @@ export KEYTIMEOUT=1  # 0.1 sec delay when pressing <Esc>
 
 setopt promptsubst
 
-local PRE_PROMPT=$'%u%B%F{yellow}%K{blue}%D%k %K{blue}%*%s%f%k %F{green}%n%F{magenta}@%m%f%k (%y) %F{cyan}#%!'
-
 # this function creates a solid line separator between individual commands (for the whole width of the screen)
 function precmd {
-    print -P "%f%k%B\033[4m${(l:$COLUMNS:: :)}$PRE_PROMPT"
+    print -P "%f%k%B\033[4m${(l:$COLUMNS:: :)}"
 }
 
-local PS1_BASE=$'%B%F{yellow}%0~ %F{red}$(git_current_branch) '
+local PRE_PROMPT=$'%u%B%F{yellow}%K{blue}%D%k %K{blue}%*%s%f%k %F{green}%n%F{magenta}@%m%f%k (%y) %F{cyan}#%!\n'
+local PS1_BASE=$PRE_PROMPT$'%B%F{yellow}%0~ %F{red}$(git_current_branch) '
 local USER_INDICATOR="%B%(!.%F{red} # .%F{green} $ )%f"
 
 function zle-line-init zle-keymap-select {
     INSERT_PROMPT_ON="${${KEYMAP/(main|viins)/%S}/vicmd/}"
     INSERT_PROMPT_OFF="${${KEYMAP/(main|viins)/%s}/vicmd/}"
-    local PS1="$PS1_BASE${INSERT_PROMPT_ON}${USER_INDICATOR}${INSERT_PROMPT_OFF} %B%F{white}%k"
+    export PS1="$PS1_BASE${INSERT_PROMPT_ON}${USER_INDICATOR}${INSERT_PROMPT_OFF} %B%F{white}%k"
     zle reset-prompt
 }
 
