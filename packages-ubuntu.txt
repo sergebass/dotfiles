@@ -21,6 +21,7 @@ feh
 flac
 geeqie
 git
+gitk
 gmpc
 gmpc-plugins
 gparted
@@ -35,6 +36,7 @@ libtool
 libxml2:i386
 lilypond
 mc
+meld
 metar
 mpc
 mpd
