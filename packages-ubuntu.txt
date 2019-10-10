@@ -19,6 +19,8 @@ exfat-fuse
 exfat-utils
 feh
 flac
+fonts-inconsolata
+fonts-ubuntu-console
 geeqie
 git
 gitk
