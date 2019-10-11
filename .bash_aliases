@@ -92,9 +92,20 @@ function decolorize()
     perl -pe 's/\e\[[\d;]*m//g;'
 }
 
-function colorize()
+function highlightIssues()
 {
-    exec $@ 2>&1 | sed -e 's/.*\bFAIL.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bERR.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bWARN.*/\x1b[33;7m&\x1b[0m/i'
+    egrep --color --ignore-case '^.*\b(fail|err|warn|problem|attention|caution).*\b|$'
+}
+
+function colorizeIssues()
+{
+    perl -pe 's:^.*\b(fail|err|problem).*\b|$:\033[31;1m$&\033[30;0m:gi; s:^.*\b(warn|attention|caution).*\b|$:\033[33;1m$&\033[30;0m:gi'
+}
+
+# Note that the stock Mac OS X has a version of sed different from GNU sed (with different options), this one is for GNU sed
+function colorizeIssuesWithSed()
+{
+    sed -e 's/.*\bFAIL.*/\x1b[31;7m&\x1b[0m/i; s/.*\bERR.*/\x1b[31;7m&\x1b[0m/i; s/.*\bWARN.*/\x1b[33;7m&\x1b[0m/i'
 }
 
 function red-errors()
