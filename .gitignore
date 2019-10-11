@@ -27,6 +27,7 @@ tags
 .vim/undo
 
 # mpd databases are host-specific
+.mpd/mpd.log
 .mpd/mpd.db
 .mpd/mpd.pid
 .mpd/mpdstate
