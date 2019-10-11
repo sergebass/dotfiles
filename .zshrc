@@ -113,7 +113,7 @@ setopt promptsubst
 
 # this function creates a solid line separator between individual commands (for the whole width of the screen)
 function precmd {
-    print -P "%f%k%B\033[4m${(l:$COLUMNS:: :)}"
+    print -P "%f%k%B\033[4m%(?.%F{white}.%F{red})${(l:$COLUMNS:: :)}"
 }
 
 local PRE_PROMPT=$'%u%B%F{yellow}%K{blue}%D%k %K{blue}%*%s%f%k %F{green}%n%F{magenta}@%m%f%k (%y) %F{cyan}#%!\n'
