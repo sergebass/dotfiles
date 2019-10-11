@@ -86,6 +86,28 @@ alias rxvt-font-size='printf "\033]50;%s%d\007" "xft:Inconsolata:medium:antialia
 # disassemble an object file, with source code, C++ name demangling and Intel assembly syntax
 alias disasm='objdump -drwCS -Mintel'
 
+# filters stdin, removing ANSI color escape sequences, outputs to stdout
+function decolorize()
+{
+    perl -pe 's/\e\[[\d;]*m//g;'
+}
+
+function colorize()
+{
+    exec $@ 2>&1 | sed -e 's/.*\bFAIL.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bERR.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bWARN.*/\x1b[33;7m&\x1b[0m/i'
+}
+
+function red-errors()
+{
+    (set -o pipefail;
+
+    if [ -n "$ZSH_VERSION" ]; then
+        setopt nomultios
+    fi
+
+    "$@" 2>&1 >&3 | sed $'s,.*,\e[31m&\e[m,' >&2) 3>&1
+}
+
 # cd to selected directory, specified on the command line or chosen from the fzf list
 # start directory lookup from the current directory and ignore hidden directories (starting with dot)
 fzcd() {
@@ -166,22 +188,6 @@ function f()
 function fr()
 {
     find -name \*.c\* -o -name \*.h\* -o -name \*.py -o -name \*.sh -o -name \*.pl -o -name \*.pro | xargs -n 1 grep --color=none -Hn "$@"
-}
-
-function c()
-{
-    exec $@ 2>&1 | sed -e 's/.*\bFAIL.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bERR.*/\x1b[31;7m&\x1b[0m/i' -e 's/.*\bWARN.*/\x1b[33;7m&\x1b[0m/i'
-}
-
-function red-errors()
-{
-    (set -o pipefail;
-
-    if [ -n "$ZSH_VERSION" ]; then
-        setopt nomultios
-    fi
-
-    "$@" 2>&1 >&3 | sed $'s,.*,\e[31m&\e[m,' >&2) 3>&1
 }
 
 function qm()
