@@ -1,3 +1,6 @@
+# a forceful way to kick ourselves out of X (and elsewhere)
+alias xlogout='pkill -u $USER'
+
 alias v='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvim'
 
 # alias vr='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvr'
