@@ -43,3 +43,6 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# if a job-specific configuration file exists, load it too
+[[ -e ~/.workenv ]] && source ~/.workenv
