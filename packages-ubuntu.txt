@@ -61,6 +61,7 @@ tig
 tmux
 tmux-plugin-manager
 trayer
+tree
 udiskie
 ufraw
 usb-creator-gtk
