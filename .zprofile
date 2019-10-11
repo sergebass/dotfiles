@@ -1,3 +1,3 @@
-# reuse environment setup from .profile
-# (taken from https://superuser.com/a/187673)
-emulate sh -c '. ~/.profile'
+# reuse environment setup from .profile, if it exists
+# (taken from https://superuser.com/a/398990)
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
