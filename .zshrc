@@ -116,7 +116,7 @@ function precmd {
     print -P "%f%k\033[4m%(?.%F{white}${(l:$COLUMNS:: :)}.%B%F{red}${(l:$COLUMNS::^:)})"
 }
 
-local PRE_PROMPT=$'%u%B%F{yellow}%K{blue}%D%k %K{blue}%*%s%f%k %F{green}%n%F{magenta}@%m%f%k (%y) %F{cyan}#%!\n'
+local PRE_PROMPT=$'%u%B%F{yellow}%K{blue}%D%k %K{blue}%*%s%f%k %F{green}%n%F{magenta}@%m%f%k (%y) %F{cyan}#%! %F{yellow}&%j\n'
 local PROMPT_BASE=$PRE_PROMPT$'%B%F{yellow}%0~ %F{red}$(git_current_branch) '
 local USER_INDICATOR="%B%(!.%F{red} !> .%F{green} => )%f"
 
