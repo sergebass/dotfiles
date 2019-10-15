@@ -1,3 +1,12 @@
+# --------------------------------------------------
+# Various aliases, compatible with both bash and zsh
+# --------------------------------------------------
+
+# a quicker way to go up directory trees
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
 # a forceful way to kick ourselves out of X (and elsewhere)
 alias xlogout='pkill -u $USER'
 
