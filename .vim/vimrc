@@ -67,6 +67,9 @@ set autoindent
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" do not use sandboxing for local vim scripts (a bit less secure but much less bothersome either)
+let g:localvimrc_sandbox=0
+
 " whitelist all project-specific local vimrc files
 "let g:localvimrc_whitelist=['/home/sperynskyi/git/.*', '/home/sperynskyi/svn/.*', '/home/sperynskyi/repos/.*']
 
