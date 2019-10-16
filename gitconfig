@@ -1,3 +1,6 @@
+[alias]
+    m3 = mergetool -t nvim
+
 [core]
     pager = less -F -X
 
