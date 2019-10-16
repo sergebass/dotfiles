@@ -146,7 +146,31 @@ nnoremap <Space>gU :!git reset %<CR>
 " SPC g l l 	on a region, browse to file at current lines position
 " SPC g l L 	on a region, create a link to the file highlighting the selected lines
 
-" non-Spacemacs useful git mappings (for both vim-fugitive and vim-gitgutter)
+" spacemacs diff mode mappings (from development branch):
+" SPC m a 	Apply a hunk
+" SPC m d 	Kill the hunk at point
+" SPC m D 	Kill the current file's hunk
+" SPC m e 	Call ediff-patch-file on current buffer
+" SPC m f c 	Convert unified diffs to context diffs
+" SPC m f r 	Reverse the direction of the diffs
+" SPC m f u 	Convert context diffs to unified diffs
+" SPC m g 	Jump to the corresponding source line
+" SPC m j 	Next hunk
+" SPC m J 	Next file
+" SPC m k 	Previous hunk
+" SPC m K 	Previous file
+" SPC m q 	Close the diff window
+" SPC m r 	Revert a hunk
+" SPC m s 	Split the current hunk at point into two hunks
+" SPC m u 	Undo" non-Spacemacs useful git mappings (for both vim-fugitive and vim-gitgutter)
+
+" shortcuts to navigate between merge conflicts and pull chunks from local/remote/base versions into the merged one
+" (stay in the merged file buffer and apply for each of the conflict chunk)
+nnoremap \g[ ?<<<<<<< <CR>
+nnoremap \g] /<<<<<<< <CR>
+nnoremap \gL :diffget _LOCAL_<CR>
+nnoremap \gR :diffget _REMOTE_<CR>
+nnoremap \gB :diffget _BASE_<CR>
 
 nnoremap \gm :Gmove<Space>
 nnoremap \gr :Grename<Space>
