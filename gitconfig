@@ -40,22 +40,31 @@
 
 [diff]
     submodule = log
-    tool = vimdiff
+    ; tool = vimdiff
+    tool = nvim
     guitool = meld
 
 [difftool]
     prompt = true
 
+[difftool "nvim"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
 
 [merge]
-    tool = vimdiff
+    ; tool = vimdiff
+    tool = nvim
     guitool = meld
     conflictstyle = diff3
 
 [mergetool]
     prompt = true
+
+[mergetool "nvim"]
+    ; cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+    cmd = nvim -d -c 'wincmd J' "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
 
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
