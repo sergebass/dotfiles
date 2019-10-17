@@ -72,6 +72,9 @@
     csq = commit -evm 'FIXME squash this'
     cam = commit --amend --verbose
 
+    ; undo the latest commit
+    u1 = reset --hard HEAD~1
+
     ; unstage files, unstage all without arguments
     u = reset HEAD
 
