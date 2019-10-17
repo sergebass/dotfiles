@@ -6,3 +6,10 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 alias -g _COLORIZE_ISSUES=' 2>&1 | colorizeIssues'
+
+# enable auto-change-directory mode (no need to prepend "cd")
+setopt autocd
+
+# quick ways to navigate, e.g. "~D" instead of "cd ~/Downloads"
+hash -d D=~/Downloads
+hash -d M=~/Music
