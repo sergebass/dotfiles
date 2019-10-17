@@ -4,8 +4,8 @@ if [ -f ~/.profile ]; then
     source ~/.profile
 fi
 
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
+if [ -f ~/.zsh_aliases ]; then
+    source ~/.zsh_aliases
 fi
 
 if [ -f ~/dotfiles/scripts/h.sh ]; then
