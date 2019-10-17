@@ -1,5 +1,82 @@
 [alias]
-    m3 = mergetool -t nvim
+    ; display all configured aliases
+    alias = config --get-regexp 'alias.*'
+
+    ; invoke text editor on global git configuration file (most likely this one)
+    edit-config = config --global --edit
+
+    s = status -sb
+
+    stat = diff --stat
+
+    sl = stash list
+    ss = stash save
+    sp = stash pop
+    sa = stash apply
+
+    g = grep
+
+    l = log --color --decorate --graph --date=iso --pretty=format:"%C(green)%h\\ %ai%C(yellow)%d\\ %Creset%s%C(blue)\\ [%an\\ <%ae>]"
+    ll = !git l --numstat
+
+    ; show only the list of file names in the latest commit
+    ln1 = log --pretty="format:" --name-only -1
+
+    ; show only names of changed files: in working directory
+    dn = diff --name-only
+    ; show only names of changed files: in staged area
+    dns = diff --name-only --staged
+    ; show only names of changed files: both staged and unstaged
+    dna = diff --name-only HEAD
+
+    ; diff unstaged files (including submodules)
+    d = diff --submodule=diff
+    ; diff staged files (including submodules)
+    ds = diff --submodule=diff --staged
+    ; diff all changes (staged and not yet) (including submodules)
+    da = diff --submodule=diff HEAD
+
+    ; diff unstaged files (including submodules) using difftool
+    dt = difftool -t nvim --submodule=diff
+    ; diff staged files (including submodules) using difftool
+    dts = difftool -t nvim --submodule=diff --staged
+    ; diff all changes (staged and not yet) (including submodules) using difftool
+    dta = difftool -t nvim --submodule=diff HEAD
+
+    mt = mergetool -t nvim
+
+    co = checkout
+    cob = checkout -b
+
+    bn = "!git rev-parse --abbrev-ref HEAD"
+    bu = branch --set-upstream-to
+    bd = branch --delete
+
+    ri = rebase --interactive
+    ra = rebase --abort
+    rc = rebase --continue
+
+    ap = add --patch
+    au = add --update
+    aup = add --update --patch
+
+    ; add and commit in a single step
+    ac = !git add -u && git commit -ev
+
+    c = commit -ev
+    csq = commit -evm 'FIXME squash this'
+    cam = commit --amend --verbose
+
+    ; unstage files, unstage all without arguments
+    u = reset HEAD
+
+    ; revert a file
+    rv = checkout --
+
+    pf = push --force-with-lease
+    pu = push --set-upstream
+
+    last-tag = describe --tags --abbrev=0
 
 [core]
     pager = less -F -X

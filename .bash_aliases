@@ -24,6 +24,8 @@ alias e='emacsclient'
 alias et='emacsclient -t'
 alias ec='emacsclient -c'
 
+alias g='git'
+
 alias gsb='git status -sb'
 alias gg='git grep'
 
