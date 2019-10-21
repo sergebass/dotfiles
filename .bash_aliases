@@ -276,3 +276,6 @@ function rmd() {
 function yta() {
     mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
+
+alias mac_finder_show_hidden_files='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias mac_finder_hide_hidden_files='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
