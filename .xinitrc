@@ -38,5 +38,8 @@ feh --bg-max --randomize --recursive --draw-filename ~/backgrounds/ &
 # USB storage automounter
 udiskie &
 
+# a Network Manager applet to make it easier to manage network connections (especially Wi-Fi)
+nm-applet &
+
 # if you use startx, specify WM like this:
 # startx `which i3`
