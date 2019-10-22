@@ -21,6 +21,10 @@
     ; search git history to find the specified regexp in changes
     hr = log -G
 
+    search = log -S
+    search-regexp = log -G
+    search-with-stat = log --stat -S
+
     l = log --color --decorate --graph --date=iso --pretty=format:"%C(green)%h\\ %ai%C(yellow)%d\\ %Creset%s%C(blue)\\ [%an\\ <%ae>]"
     ll = !git l --numstat
 
