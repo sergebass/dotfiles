@@ -23,7 +23,8 @@
 
     search-text = log --stat --all --remotes -S
     search-text-regexp = log --stat --all --remotes -G
-    search-file = log --stat --all --remotes --follow --
+    search-file = log --stat --all --remotes --follow
+    search-file-diff = log -p --stat --all --remotes --follow
 
     l = log --color --decorate --graph --date=iso --pretty=format:"%C(green)%h\\ %ai%C(yellow)%d\\ %Creset%s%C(blue)\\ [%an\\ <%ae>]"
     ll = !git l --numstat
