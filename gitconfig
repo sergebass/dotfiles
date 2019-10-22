@@ -48,6 +48,8 @@
     ; diff all changes (staged and not yet) (including submodules) using difftool
     dta = difftool -t nvim --submodule=diff HEAD
 
+    show-merge-conflicts = diff --name-only --diff-filter=U
+
     mt = mergetool -t nvim
 
     co = checkout
