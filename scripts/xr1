@@ -8,5 +8,5 @@ MONITOR2=HDMI-1
 xrandr --output $MONITOR1 --off
 xrandr --output $MONITOR2 --off
 
-xrandr --output $MONITOR1 --auto --primary
-xrandr --output $MONITOR2 --auto --same-as $MONITOR1
+xrandr --verbose --output $MONITOR1 --auto --primary
+xrandr --verbose --output $MONITOR2 --auto --same-as $MONITOR1
