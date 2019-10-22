@@ -53,6 +53,7 @@
     dta = difftool -t nvim --submodule=diff HEAD
 
     show-merge-conflicts = diff --name-only --diff-filter=U
+    check-merge-conflicts = diff --check
 
     mt = mergetool -t nvim
 
