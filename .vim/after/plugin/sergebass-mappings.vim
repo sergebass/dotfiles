@@ -288,8 +288,14 @@ nnoremap <silent> <Space><PageDown> :tabnext<CR>
 noremap <silent> <M-PageUp> :tabprev<CR>
 noremap <silent> <M-PageDown> :tabnext<CR>
 
+inoremap <silent> <M-PageUp> <C-O>:tabprev<CR>
+inoremap <silent> <M-PageDown> <C-O>:tabnext<CR>
+
 noremap <silent> <M-Home> :tabmove-<CR>
 noremap <silent> <M-End> :tabmove+<CR>
+
+inoremap <silent> <M-Home> <C-O>:tabmove-<CR>
+inoremap <silent> <M-End> <C-O>:tabmove+<CR>
 
 " allow user to choose where to move the tab (empty input causes it to move to the very end)
 noremap \<Insert> :tabmove<Space>
