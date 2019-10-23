@@ -25,6 +25,8 @@ geeqie
 git
 gitk
 gmpc
+gmpc
+gmpc-plugins
 gmpc-plugins
 gparted
 gparted
