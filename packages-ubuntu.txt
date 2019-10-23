@@ -69,6 +69,9 @@ usb-creator-gtk
 vim
 vlc
 vlc-plugin-fluidsynth
+wicd-cli
+wicd-curses
+wicd-gtk
 xbacklight
 xfce4-mpc-plugin
 xmobar
