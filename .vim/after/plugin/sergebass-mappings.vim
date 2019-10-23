@@ -22,7 +22,7 @@ noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 
 " since "C-Q" is equivalent to "C-V", use <C-Q> to delete current buffer
-nnoremap <C-Q> :bd<CR>
+nnoremap <C-Q> :bdelete<CR>
 
 " copying/pasting/deleting tweaks
 
@@ -96,7 +96,7 @@ nnoremap <Space>fed :new<CR>:e $MYVIMRC<CR>
 nnoremap <Space>fei :new<CR>:e ~/.vim/vimrc<CR>
 
 nnoremap <Space>bb :call fzf#vim#buffers()<CR>
-nnoremap <Space>bd :bd<CR>
+nnoremap <Space>bd :bdelete<CR>
 nnoremap <Space>bn :bnext<CR>
 nnoremap <Space>bp :bprev<CR>
 nnoremap <Space>bR :e!
@@ -280,6 +280,9 @@ nnoremap <Space>0 10gt
 nnoremap <silent> <Space><CR> :tabnew<CR>
 nnoremap <silent> <Space><BS> :tabclose<CR>
 
+" allow user to choose where to move the tab (empty input causes it to move to the very end)
+nnoremap <Space>\ :tabmove<Space>
+
 " Tab navigation (full keyboards)
 nnoremap <silent> <Space><Insert> :tabnew<CR>
 nnoremap <silent> <Space><Del> :tabclose<CR>
@@ -302,7 +305,7 @@ inoremap <silent> <M-Home> <C-O>:tabmove-<CR>
 inoremap <silent> <M-End> <C-O>:tabmove+<CR>
 
 " allow user to choose where to move the tab (empty input causes it to move to the very end)
-noremap \<Insert> :tabmove<Space>
+nnoremap \<Insert> :tabmove<Space>
 
 " Buffer management
 noremap <silent> \<PageUp> :bp<CR>
