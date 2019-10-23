@@ -22,6 +22,7 @@ Config {
    -- referenced packages: battery-stats, baobab, weather-util, lm-sensors, hddtemp
    , template = "\
        \<action=`urxvt`>%StdinReader%</action> }{ │ \
+       \<action=`gmpc`><fc=#aaaaff>%music%</fc></action> │ \
        \<action=`urxvt -e nmtui`><fc=#00af87>%whoami%@%hostname%</fc></action> │ \
        \<action=`weather CYOW | xmessage -nearmouse -file -`>%WeatherScript%</action> │ \
        \<action=`urxvt -e htop`>%multicpu% %cpufreq%</action> \
@@ -54,6 +55,8 @@ Config {
         -- [ Run Com "uptime" ["-s"] "up" 0
 
         [ Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 20
+
+        , Run Com "current-audio.sh" [] "music" 20
 
         -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa" ] 36000
         , Run Com "get-weather.sh" [] "WeatherScript" 600
