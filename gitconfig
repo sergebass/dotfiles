@@ -21,13 +21,15 @@
     ; search git history to find the specified regexp in changes
     hr = log -G
 
-    search-text = log --stat --all --remotes -S
-    search-text-regexp = log --stat --all --remotes -G
+    log-verbosely = log --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
+
+    search-text = !git log-verbosely --stat --all --remotes -S
+    search-text-regexp = !git log-verbosely --stat --all --remotes -G
 
     search-file = log --stat --all --remotes --follow --
     search-file-diff = log -p --stat --all --remotes --follow --
 
-    l = log --color --decorate --graph --date=iso --pretty=format:"%C(green)%h\\ %ai%C(yellow)%d\\ %Creset%s%C(blue)\\ [%an\\ <%ae>]"
+    l = log --color --decorate --graph --date=iso --pretty=format:"%C(green)%h\\ %ai%C(yellow)%d\\ %Creset%s%C(cyan\\ bold)\\ [%an\\ <%ae>]"
     ll = !git l --numstat
 
     ; show only the list of file names in the latest commit
