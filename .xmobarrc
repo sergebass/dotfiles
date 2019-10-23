@@ -22,7 +22,6 @@ Config {
    -- referenced packages: battery-stats, baobab, weather-util, lm-sensors, hddtemp
    , template = "\
        \<action=`urxvt`>%StdinReader%</action> }{ │ \
-       \<action=`gmpc`><fc=#aaaaff>%music%</fc></action> │ \
        \<action=`urxvt -e nmtui`><fc=#00af87>%whoami%@%hostname%</fc></action> │ \
        \<action=`weather CYOW | xmessage -nearmouse -file -`>%WeatherScript%</action> │ \
        \<action=`urxvt -e htop`>%multicpu% %cpufreq%</action> \
@@ -32,7 +31,8 @@ Config {
        \<action=`urxvt -e htop`>⇄ %diskio%</action> │ \
        \<action=`urxvt -e nmtui`>⇅ %dynnetwork% %wlp2s0wi%</action> │ \
        \<action=`xbacklight -set 100`>%backlight%</action> │ \
-       \<action=`pavucontrol`><fc=#00FFFF>♪</fc> %volume%</action> │ \
+       \<action=`pavucontrol`><fc=#00FFFF>♪</fc> %volume%</action> \
+       \<action=`gmpc`><fc=#aaaaff>%music%</fc></action> │ \
        \<action=`urxvt -e xev`>%kbd%</action> │ \
        \<action=`orage`>%date%</action> │ \
        \<action=`battery-graph`><fc=#00FFFF>⚡</fc> %battery%</action>"
