@@ -37,7 +37,7 @@ myConfig = desktopConfig
     , ((superMask .|. shiftMask, xK_d), removeWorkspace)
     -- alternative shortcuts to launch terminal emulators in case the stock one does not work
     , ((superMask .|. controlMask, xK_Return), spawn "x-terminal-emulator")
-    , ((superMask .|. controlMask .|. shiftMask, xK_Return), spawn "rxvt-unicode")
+    , ((superMask .|. controlMask .|. shiftMask, xK_Return), spawn "urxvt")
     , ((superMask .|. controlMask .|. shiftMask .|. altMask, xK_Return), spawn "xterm")
     -- several ways of session locking
     , ((superMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
@@ -54,23 +54,22 @@ myConfig = desktopConfig
     , ((superMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
     , ((superMask .|. controlMask .|. shiftMask, xK_p), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
     -- various calculators
-    , ((superMask, xK_equal), spawn "urxvt -e bc -l")
+    , ((superMask, xK_grave), spawn "x-terminal-emulator -e bc -l")
     , ((superMask, xK_KP_Enter), spawn "gnome-calculator")
     -- web browser
     , ((superMask, xK_slash), spawn "xdg-open https://duckduckgo.com")
     -- random background image selection
-    , ((superMask, xK_minus), spawn "feh --bg-max --randomize --recursive ~/backgrounds/")
+    , ((superMask .|. shiftMask, xK_minus), spawn "feh --bg-max --randomize --recursive ~/backgrounds/")
     -- keyboard layout switching
     , ((superMask, xK_F12), spawn "setxkbmap -layout \"us,ru,ua,us(intl)\" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape")
     -- screen backlight brightness
-    , ((superMask .|. controlMask, xK_bracketleft), spawn "xbacklight -dec 10")
-    , ((superMask .|. controlMask, xK_bracketright), spawn "xbacklight -inc 10")
-    , ((superMask .|. controlMask, xK_backslash), spawn "xbacklight -set 100")
+    , ((superMask .|. altMask, xK_bracketleft), spawn "xbacklight -dec 10")
+    , ((superMask .|. altMask, xK_bracketright), spawn "xbacklight -inc 10")
+    , ((superMask .|. altMask, xK_backslash), spawn "xbacklight -set 100")
     -- audio controls
     , ((superMask, xK_v), spawn "pavucontrol")
-    , ((superMask, xK_bracketleft), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ((superMask, xK_bracketright), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ((superMask, xK_backslash), spawn "pactl set-sink-volume @DEFAULT_SINK@ 20%")
+    , ((superMask, xK_minus), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ((superMask, xK_equal), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
     , ((superMask, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
     , ((superMask, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((superMask, xK_Home), spawn "pactl set-sink-volume @DEFAULT_SINK@ 50%")
@@ -83,9 +82,9 @@ myConfig = desktopConfig
     , ((0, 0x1008FF13), spawn "amixer -D pulse set Master 5%+")
     , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
     -- song control
-    , ((superMask .|. altMask, xK_bracketleft), spawn "mpc prev")
-    , ((superMask .|. altMask, xK_bracketright), spawn "mpc next")
-    , ((superMask .|. altMask, xK_backslash), spawn "mpc toggle")
+    , ((superMask, xK_bracketleft), spawn "mpc prev")
+    , ((superMask, xK_bracketright), spawn "mpc next")
+    , ((superMask, xK_backslash), spawn "mpc toggle")
     ]
      `additionalKeysP`
     [ --audio controls
