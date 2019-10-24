@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mpc -f '[%title% ][@%name%][=%id%]' current || echo '!!'
+mpc -f '[%title% ][@%name%]' current || echo '--'
