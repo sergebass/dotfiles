@@ -47,6 +47,8 @@ myConfig = desktopConfig
     -- alternative launchers
     , ((superMask, xK_Menu), spawn "exo-open /usr/share/applications")
     , ((superMask .|. altMask, xK_p), spawn "exo-open /usr/share/applications")
+    -- system monitor
+    , ((superMask, xK_Escape), spawn "x-terminal-emulator -e htop")
     -- take a screenshot of entire display
     , ((superMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
     , ((superMask .|. controlMask, xK_p), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
