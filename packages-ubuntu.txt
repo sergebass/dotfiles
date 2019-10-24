@@ -17,6 +17,7 @@ emacs
 etckeeper
 exfat-fuse
 exfat-utils
+exo-utils
 feh
 flac
 fonts-inconsolata

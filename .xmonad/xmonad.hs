@@ -45,7 +45,8 @@ myConfig = desktopConfig
     , ((superMask .|. altMask, xK_z), spawn "i3lock -c 000000")
     , ((superMask .|. controlMask, xK_z), spawn "xscreensaver-command -lock")
     -- alternative launchers
-    , ((superMask, xK_Menu), spawn "gmrun")
+    , ((superMask, xK_Menu), spawn "exo-open /usr/share/applications")
+    , ((superMask .|. altMask, xK_p), spawn "exo-open /usr/share/applications")
     -- take a screenshot of entire display
     , ((superMask, xK_Print), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
     , ((superMask .|. controlMask, xK_p), spawn "scrot screenshot--%Y-%m-%d-%H-%M-%S.png")
