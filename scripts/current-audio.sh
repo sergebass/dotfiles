@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mpc current
+mpc current || echo "--"
