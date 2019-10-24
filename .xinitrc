@@ -33,6 +33,9 @@ trayer \
     --width 5 \
     &  # send to background
 
+# need to run this or dm-tool cannot lock screen otherwise
+light-locker &
+
 feh --bg-max --randomize --recursive --draw-filename ~/backgrounds/ &
 
 # USB storage automounter
