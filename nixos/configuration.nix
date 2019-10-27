@@ -92,6 +92,8 @@
     xfce.exo
     xfce.thunar
     firefox
+    keybase
+    keybase-gui
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
