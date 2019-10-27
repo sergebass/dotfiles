@@ -94,6 +94,7 @@
     firefox
     keybase
     keybase-gui
+    kbfs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
