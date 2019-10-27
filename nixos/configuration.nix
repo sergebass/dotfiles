@@ -74,6 +74,9 @@
     htop
     git
     tig
+    bc
+    fzf
+    ripgrep-all
     xmonad-with-packages
     xmobar
     dmenu
@@ -81,6 +84,14 @@
     i3
     i3status
     i3lock
+    mpd
+    mpc_cli
+    ncmpcpp
+    pavucontrol
+    rxvt_unicode
+    xfce.exo
+    xfce.thunar
+    firefox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
