@@ -16,6 +16,23 @@
 
   boot.supportedFilesystems = [ "zfs" ];
 
+  # These explicit fstab mount points are only needed since we use root ZFS filesystem,
+  # otherwise the order of mounts between fstab automounter and ZFS itself is unpredictable
+  fileSystems."/home" = {
+      device = "zroot/home";
+      fsType = "zfs";
+  };
+
+  fileSystems."/home/sergii" = {
+      device = "zroot/home/sergii";
+      fsType = "zfs";
+  };
+
+  fileSystems."/home/sergii/works" = {
+      device = "zroot/home/sergii/works";
+      fsType = "zfs";
+  };
+
   # according to the installer, ZFS requires this:
   networking.hostId = "CAFEBABE";
 
