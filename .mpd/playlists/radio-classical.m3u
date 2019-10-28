@@ -11,6 +11,19 @@ https://wshu-iad.streamguys1.com/wshu-baroque
 #EXTINF:-1,KMFA Ancient Voices
 https://kmfa.streamguys1.com/KMFA-mp3
 
+#EXTINF:-1,WGBH/WCRB Classical Radio Boston
+https://streams.audio.wgbh.org:8204/classical-hi
+http://audio.wgbh.org:8004/
+
+#EXTINF:-1,WGBH/WCRB Boston Early Music Channel
+https://streams.audio.wgbh.org:8113/BostonEarlyMusic-8112
+
+#EXTINF:-1,WGBH/WCRB Boston Symphony Orchestra Concert Channel
+https://streams.audio.wgbh.org:8107/BSOConcert-8106
+
+#EXTINF:-1,WGBH/WCRB Bach Channel
+https://streams.audio.wgbh.org:8208/Bach-8108
+
 #EXTINF:-1,Boston Baroque
 http://peridot.streamguys.com:7010/bblive-sgplayer-aac
 
