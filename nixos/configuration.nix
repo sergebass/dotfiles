@@ -87,6 +87,8 @@
     mpd
     mpc_cli
     ncmpcpp
+    mpv
+    youtube-dl
     pavucontrol
     rxvt_unicode
     xfce.exo
