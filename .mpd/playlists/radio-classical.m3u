@@ -1,15 +1,24 @@
 #EXTM3U
 #PLAYLIST:Classical Radio Streams
 
-#EXTINF:-1,Sunday Baroque
+#EXTINF:-1,Sunday Baroque (WSHU)
 https://wshu-iad.streamguys1.com/wshu-baroque
-
-#EXTINF:-1,Rema Radio (Renaissance and Early Music)
-https://remaradio.eu/stream/rema
 
 #https://www.radioswissclassic.ch/de/live/aacp.m3u
 #EXTINF:-1,Radio Swiss Classic
 http://stream.srg-ssr.ch/m/rsc_de/aacp_96
 
+#EXTINF:-1,Ottos Baroque Musick
+http://sc-baroque.1.fm:8045/
+
+#EXTINF:-1,Rema Radio (Renaissance and Early Music)
+https://remaradio.eu/stream/rema
+
 #EXTINF:-1,CBC Music (Eastern)
 https://cbcliveradio2-lh.akamaihd.net/i/CBCR2_TOR@382863/master.m3u8
+
+#EXTINF:-1,WQXR Classical
+http://q2stream.wqxr.org/wqxr
+
+#EXTINF:-1,WQXR New Sounds
+http://q2stream.wqxr.org/q2
