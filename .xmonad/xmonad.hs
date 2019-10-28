@@ -24,7 +24,7 @@ myConfig = desktopConfig
     , normalBorderColor = "#404040"
     }
      `additionalKeys`
-    [ ((superMask, xK_BackSpace), toggleWS)
+    [ ((superMask, xK_Tab), toggleWS)
     , ((superMask, xK_0), addWorkspace "0")
     , ((superMask, xK_s), selectWorkspace def)
     , ((superMask, xK_Left), prevWS)
@@ -94,7 +94,7 @@ myConfig = desktopConfig
     , ((superMask .|. altMask, xK_9), spawn "pactl set-sink-volume @DEFAULT_SINK@ 90%")
     , ((superMask .|. altMask, xK_0), spawn "pactl set-sink-volume @DEFAULT_SINK@ 100%")
     -- song control
-    , ((superMask, xK_backslash), spawn "x-terminal-emulator -e ncmpcpp")
+    , ((superMask, xK_BackSpace), spawn "x-terminal-emulator -e ncmpcpp")
     , ((superMask .|. shiftMask, xK_bracketleft), spawn "mpc prev")
     , ((superMask .|. shiftMask, xK_bracketright), spawn "mpc next")
     , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
