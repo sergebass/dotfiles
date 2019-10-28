@@ -84,10 +84,10 @@ myConfig = desktopConfig
     , ((0, 0x1008FF13), spawn "amixer -D pulse set Master 5%+")
     , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
     -- song control
-    , ((superMask, xK_backslash), spawn "mpc toggle")
+    , ((superMask, xK_backslash), spawn "x-terminal-emulator -e ncmpcpp")
     , ((superMask .|. shiftMask, xK_bracketleft), spawn "mpc prev")
     , ((superMask .|. shiftMask, xK_bracketright), spawn "mpc next")
-    , ((superMask .|. shiftMask, xK_backslash), spawn "x-terminal-emulator -e ncmpcpp")
+    , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
     ]
      `additionalKeysP`
     [ --audio controls
