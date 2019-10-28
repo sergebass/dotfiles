@@ -4,3 +4,12 @@
 #http://www.radioswissjazz.ch/live/aacp.m3u
 #EXTINF:-1,Radio Swiss Jazz
 http://stream.srg-ssr.ch/m/rsj/aacp_96
+
+#EXTINF:-1,SmoothJazz.com Global
+http://sj128.hnux.com/live
+
+#EXTINF:-1,The Breeze 181 FM
+http://181fm-edge1.cdnstream.com/181-breeze_128k.mp3
+
+#EXTINF:-1,KKJZ - KJazz 88.1
+http://1.ice1.firststreaming.com/kkjz_fm.mp3
