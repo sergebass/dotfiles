@@ -1,4 +1,5 @@
 adobe-flashplugin
+apt-file
 autoconf
 automake
 baobab
