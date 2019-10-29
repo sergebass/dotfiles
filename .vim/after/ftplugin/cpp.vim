@@ -58,6 +58,13 @@ nnoremap <buffer> \<F1> :Evaluate<Space>
 
 tnoremap \<F1> print<Space>
 
+nnoremap <buffer> \\dt :call TermDebugSendCommand('info threads')<CR>
+nnoremap <buffer> \\dl :call TermDebugSendCommand('info locals')<CR>
+nnoremap <buffer> \\db :call TermDebugSendCommand('info breakpoints')<CR>
+nnoremap <buffer> \\dr :call TermDebugSendCommand('info registers')<CR>
+nnoremap <buffer> \\df :call TermDebugSendCommand('frame')<CR>
+nnoremap <buffer> \\ds :call TermDebugSendCommand('backtrace')<CR>
+
 " nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
 nmap <buffer> <CR>hh :call LanguageClient#textDocument_hover()<CR>
 
@@ -73,8 +80,8 @@ vnoremap <buffer> \\?2 "*y<Esc>:!xdg-open "http://www.cplusplus.com/search.do?q=
 
 " toggle between source and header
 " (TODO)
-" SPC m g a 	open matching file (e.g. switch between .cpp and .h)
-" SPC m g A 	open matching file in another window (e.g. switch between .cpp and .h)
+" SPC m g a     open matching file (e.g. switch between .cpp and .h)
+" SPC m g A     open matching file in another window (e.g. switch between .cpp and .h)
 " FIXME this doesn't work!
 nmap <buffer> <CR>ga :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
 
@@ -84,7 +91,7 @@ nmap <buffer> <CR>gg <CR><CR>
 
 nnoremap <buffer> <CR>rr :call LanguageClient#textDocument_rename()<CR>
 
-" SPC m D 	disaster: disassemble c/c++ code
+" SPC m D   disaster: disassemble c/c++ code
 
 " LanguageClient#textDocument_typeDefinition()
 " LanguageClient#textDocument_implementation()
