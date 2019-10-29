@@ -25,8 +25,9 @@ let termdebugger = "gdb"
 " let g:termdebug_wide = 163
 
 " start debugging session
-nnoremap <buffer> \<F5> :Termdebug<CR>
+nnoremap <buffer> \<F9> :Termdebug<CR>
 " :Run [args]      run the program with [args] or the previous arguments
+nnoremap <buffer> \<F5> :Run<CR>
 " :Arguments {args}  set arguments for the next `:Run`
 " :Stop    interrupt the program
 nnoremap <buffer> \<F10> :Stop<CR>
