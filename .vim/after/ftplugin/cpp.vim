@@ -42,21 +42,26 @@ nnoremap <buffer> <F10> :Clear<CR>
 
 " :Step    execute the gdb "step" command
 nnoremap <buffer> <F5> :Step<CR>
+tnoremap <F5> step<CR>
 " :Over    execute the gdb "next" command (`:Next` is a Vim command)
 nnoremap <buffer> <F6> :Over<CR>
+tnoremap <F6> next<CR>
 " :Finish  execute the gdb "finish" command
 nnoremap <buffer> <F7> :Finish<CR>
+tnoremap <F7> finish<CR>
 " :Continue    execute the gdb "continue" command
 nnoremap <buffer> <F8> :Continue<CR>
+tnoremap <F8> continue<CR>
 
 " :Evaluate (or just plain K)
 " :'<,'>Evaluate` "evaluate the Visually selected text
 nnoremap <buffer> <F1> :Evaluate<CR>
 vnoremap <buffer> <F1> :Evaluate<CR>
 nnoremap <buffer> <RightMouse> :Evaluate<CR>
+tnoremap <F1> print<Space>
+
 nnoremap <buffer> <F12> :Evaluate<Space>
 nnoremap <buffer> \<F1> :Evaluate<Space>
-
 tnoremap \<F1> print<Space>
 
 nnoremap <buffer> \\dt :call TermDebugSendCommand('info threads')<CR>
