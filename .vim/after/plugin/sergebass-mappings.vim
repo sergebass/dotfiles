@@ -71,8 +71,6 @@ nnoremap <Space><Tab> <C-^>
 silent! unmap <CR>
 nmap <Space>m <CR>
 
-nmap <F1> <Space>h
-
 nnoremap <Space>h<Space> :h<CR>
 nnoremap <Space>? :Maps<CR>
 nnoremap <Space>hk :Maps<CR>
@@ -198,8 +196,17 @@ nnoremap <Space>thc :set cursorcolumn!<CR>
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
 " use the same shortcut for convenience
 if has('nvim') || (v:version >= 800)
-    nnoremap <C-\> :terminal<CR>
+    noremap <C-\> :terminal<CR>
     tnoremap <C-\> <C-\><C-n>
+
+    "shortcuts for quick navigation between debugger, program output and source during debugging
+    " :Source "jump to the window with the source code, create it if there isn't one
+    noremap <F2> :Source<CR>
+    " :Program "jump to the window with the running program
+    noremap <F3> :Program<CR>
+    " :Gdb " jump to the gdb window
+    noremap <F4> :Gdb<CR>
+
 endif
 
 " use \ with numeric keys to simulate finctional keys,
@@ -214,6 +221,17 @@ noremap <silent> \7 <F7>
 noremap <silent> \8 <F8>
 noremap <silent> \9 <F9>
 noremap <silent> \0 <F10>
+
+noremap <silent> \\1 \<F1>
+noremap <silent> \\2 \<F2>
+noremap <silent> \\3 \<F3>
+noremap <silent> \\4 \<F4>
+noremap <silent> \\5 \<F5>
+noremap <silent> \\6 \<F6>
+noremap <silent> \\7 \<F7>
+noremap <silent> \\8 \<F8>
+noremap <silent> \\9 \<F9>
+noremap <silent> \\0 \<F10>
 
 " navigation mappings
 
@@ -501,8 +519,8 @@ nnoremap \ww :retab<CR>:RemoveAllMultipleBlankLines<CR>:RemoveAllRedundantWhites
 vnoremap \ww :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:<C-w>RemoveSelectedRedundantWhitespace<CR>
 
 " quick ways to switch between light and dark themes
-nnoremap \<F7> :colorscheme sergebass-light<CR>
-nnoremap \<F8> :colorscheme sergebass-dark<CR>
+nnoremap \tl :colorscheme sergebass-light<CR>
+nnoremap \td :colorscheme sergebass-dark<CR>
 
 " modify key mapping for vim-multiple-cursors plugin
 let g:multi_cursor_use_default_mapping=0

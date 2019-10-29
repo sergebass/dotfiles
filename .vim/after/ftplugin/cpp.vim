@@ -21,21 +21,21 @@ packadd termdebug
 " FIXME configure this:
 " let g:termdebug_wide = 163
 
-" TODO add shortcuts for :Break, :Clear, :Evaluate etc.
-" :Termdebug
-" :Gdb " jump to the gdb window
-" :Program "jump to the window with the running program
-" :Source "jump to the window with the source code, create it if there isn't one
-"
+" start debugging session
+nnoremap <buffer> \<F5> :Termdebug<CR>
+" :Run [args]      run the program with [args] or the previous arguments
+" :Arguments {args}  set arguments for the next `:Run`
+" :Stop    interrupt the program
+nnoremap <buffer> \<F10> :Stop<CR>
+
+" (the shortcuts for quick navigation between debugger, program output and source during debugging
+" are defined in the main mapping file)
+
 " :Break " set a breakpoint at the current line; a sign will be displayed
 nnoremap <buffer> <F9> :Break<CR>
 " :Clear " delete the breakpoint at the current line
 nnoremap <buffer> <F10> :Clear<CR>
-"
-" :Run [args]      run the program with [args] or the previous arguments
-" :Arguments {args}  set arguments for the next `:Run`
-" :Stop    interrupt the program
-"
+
 " :Step    execute the gdb "step" command
 nnoremap <buffer> <F5> :Step<CR>
 " :Over    execute the gdb "next" command (`:Next` is a Vim command)
@@ -44,18 +44,21 @@ nnoremap <buffer> <F6> :Over<CR>
 nnoremap <buffer> <F7> :Finish<CR>
 " :Continue    execute the gdb "continue" command
 nnoremap <buffer> <F8> :Continue<CR>
-"
+
 " :Evaluate (or just plain K)
 " :'<,'>Evaluate` "evaluate the Visually selected text
-nnoremap <buffer> <F3> :Evaluate<CR>
-vnoremap <buffer> <F3> :Evaluate<CR>
-nnoremap <RightMouse> :Evaluate<CR>
+nnoremap <buffer> <F1> :Evaluate<CR>
+vnoremap <buffer> <F1> :Evaluate<CR>
+nnoremap <buffer> <RightMouse> :Evaluate<CR>
+nnoremap <buffer> <F12> :Evaluate<Space>
+nnoremap <buffer> \<F1> :Evaluate<Space>
+
+tnoremap \<F1> print<Space>
 
 " nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
 nmap <buffer> <CR>hh :call LanguageClient#textDocument_hover()<CR>
 
-nnoremap <buffer> <F1> :!xdg-open "https://en.cppreference.com/w/cpp"<CR>
-nnoremap <buffer> <M-F1> :!xdg-open "http://www.cplusplus.com"<CR>
+nnoremap <buffer> \\<F1> :!xdg-open "https://en.cppreference.com/w/cpp"<CR>
 
 " search the word under cursor in cppreference.com reference (using browser)
 nnoremap <buffer> \\?1 :!xdg-open "https://en.cppreference.com/mwiki/index.php?search=<C-r>=expand("<cword>")<CR>"<Left>
