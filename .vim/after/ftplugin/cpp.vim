@@ -13,6 +13,11 @@ setlocal commentstring=//\ %s
 
 " setlocal keywordprg=man
 
+" This is a new feature in vim to better integrate with gdb
+packadd termdebug
+
+" TODO add shortcuts for :Break, :Clear, :Evaluate etc.
+
 " nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
 nmap <buffer> <CR>hh :call LanguageClient#textDocument_hover()<CR>
 
