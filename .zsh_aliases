@@ -1,10 +1,5 @@
 # ZSH-specific aliases
 
-# zsh understands bash aliases, so let's reuse those first
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
-
 alias -g _COLORIZE_ISSUES=' 2>&1 | colorizeIssues'
 
 # enable auto-change-directory mode (no need to prepend "cd")

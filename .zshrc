@@ -4,6 +4,11 @@ if [ -f ~/.profile ]; then
     source ~/.profile
 fi
 
+# zsh understands bash aliases, so let's reuse those first
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
 if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
 fi
@@ -159,5 +164,8 @@ stty stop ''
 stty start ''
 stty -ixon
 stty -ixoff
+
+# enable zmv for versatile file moving/renaming
+autoload zmv
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
