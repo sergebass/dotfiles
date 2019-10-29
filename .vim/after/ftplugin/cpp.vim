@@ -13,10 +13,43 @@ setlocal commentstring=//\ %s
 
 " setlocal keywordprg=man
 
+" FIXME should this be in global configuration instead?
 " This is a new feature in vim to better integrate with gdb
 packadd termdebug
 
+" FIXME should this be in global configuration instead?
+" FIXME configure this:
+" let g:termdebug_wide = 163
+
 " TODO add shortcuts for :Break, :Clear, :Evaluate etc.
+" :Termdebug
+" :Gdb " jump to the gdb window
+" :Program "jump to the window with the running program
+" :Source "jump to the window with the source code, create it if there isn't one
+"
+" :Break " set a breakpoint at the current line; a sign will be displayed
+nnoremap <buffer> <F9> :Break<CR>
+" :Clear " delete the breakpoint at the current line
+nnoremap <buffer> <F10> :Clear<CR>
+"
+" :Run [args]      run the program with [args] or the previous arguments
+" :Arguments {args}  set arguments for the next `:Run`
+" :Stop    interrupt the program
+"
+" :Step    execute the gdb "step" command
+nnoremap <buffer> <F5> :Step<CR>
+" :Over    execute the gdb "next" command (`:Next` is a Vim command)
+nnoremap <buffer> <F6> :Over<CR>
+" :Finish  execute the gdb "finish" command
+nnoremap <buffer> <F7> :Finish<CR>
+" :Continue    execute the gdb "continue" command
+nnoremap <buffer> <F8> :Continue<CR>
+"
+" :Evaluate (or just plain K)
+" :'<,'>Evaluate` "evaluate the Visually selected text
+nnoremap <buffer> <F3> :Evaluate<CR>
+vnoremap <buffer> <F3> :Evaluate<CR>
+nnoremap <RightMouse> :Evaluate<CR>
 
 " nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
 nmap <buffer> <CR>hh :call LanguageClient#textDocument_hover()<CR>
