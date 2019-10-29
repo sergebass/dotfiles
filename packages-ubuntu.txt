@@ -5,6 +5,7 @@ automake
 baobab
 bear
 cabal
+cgdb
 chromium-browser
 chromium-codecs-ffmpeg-extra
 clang
@@ -23,6 +24,7 @@ feh
 flac
 fonts-inconsolata
 fonts-ubuntu-console
+gdb
 geeqie
 git
 gitk
@@ -41,6 +43,7 @@ libdvdcss2
 libtool
 libxml2:i386
 lilypond
+lldb
 mc
 meld
 metar
