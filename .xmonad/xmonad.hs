@@ -24,7 +24,7 @@ myConfig = desktopConfig
     , normalBorderColor = "#404040"
     }
      `additionalKeys`
-    [ ((superMask, xK_BackSpace), toggleWS)
+    [ ((superMask, xK_Tab), toggleWS)
     , ((superMask, xK_0), addWorkspace "0")
     , ((superMask, xK_s), selectWorkspace def)
     , ((superMask, xK_Left), prevWS)
@@ -72,6 +72,7 @@ myConfig = desktopConfig
     , ((superMask, xK_v), spawn "pavucontrol")
     , ((superMask, xK_bracketleft), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((superMask, xK_bracketright), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ((superMask, xK_backslash), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
     , ((superMask, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
     , ((superMask, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((superMask, xK_Home), spawn "pactl set-sink-volume @DEFAULT_SINK@ 50%")
@@ -83,11 +84,21 @@ myConfig = desktopConfig
     , ((0, 0x1008FF11), spawn "amixer -D pulse set Master 5%-")
     , ((0, 0x1008FF13), spawn "amixer -D pulse set Master 5%+")
     , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
+    , ((superMask .|. altMask, xK_1), spawn "pactl set-sink-volume @DEFAULT_SINK@ 10%")
+    , ((superMask .|. altMask, xK_2), spawn "pactl set-sink-volume @DEFAULT_SINK@ 20%")
+    , ((superMask .|. altMask, xK_3), spawn "pactl set-sink-volume @DEFAULT_SINK@ 30%")
+    , ((superMask .|. altMask, xK_4), spawn "pactl set-sink-volume @DEFAULT_SINK@ 40%")
+    , ((superMask .|. altMask, xK_5), spawn "pactl set-sink-volume @DEFAULT_SINK@ 50%")
+    , ((superMask .|. altMask, xK_6), spawn "pactl set-sink-volume @DEFAULT_SINK@ 60%")
+    , ((superMask .|. altMask, xK_7), spawn "pactl set-sink-volume @DEFAULT_SINK@ 70%")
+    , ((superMask .|. altMask, xK_8), spawn "pactl set-sink-volume @DEFAULT_SINK@ 80%")
+    , ((superMask .|. altMask, xK_9), spawn "pactl set-sink-volume @DEFAULT_SINK@ 90%")
+    , ((superMask .|. altMask, xK_0), spawn "pactl set-sink-volume @DEFAULT_SINK@ 100%")
     -- song control
-    , ((superMask, xK_backslash), spawn "x-terminal-emulator -e ncmpcpp")
+    , ((superMask, xK_BackSpace), spawn "x-terminal-emulator -e ncmpcpp")
+    , ((superMask .|. altMask, xK_BackSpace), spawn "mpc toggle")
     , ((superMask .|. shiftMask, xK_bracketleft), spawn "mpc prev")
     , ((superMask .|. shiftMask, xK_bracketright), spawn "mpc next")
-    , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
     ]
      `additionalKeysP`
     [ --audio controls
