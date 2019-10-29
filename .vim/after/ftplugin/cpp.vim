@@ -17,6 +17,9 @@ setlocal commentstring=//\ %s
 " This is a new feature in vim to better integrate with gdb
 packadd termdebug
 
+" Use gdb as our debugger
+let termdebugger = "gdb"
+
 " FIXME should this be in global configuration instead?
 " FIXME configure this:
 " let g:termdebug_wide = 163
