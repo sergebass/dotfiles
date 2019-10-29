@@ -137,6 +137,13 @@ let g:NERDTreeQuitOnOpen=1 " close NERDtree window after opening a file
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 " LanguageClient global settings
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+" let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
+
+let g:LanguageClient_diagnosticsList = "Location"
+
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
     \ 'purescript': ['purescript-language-server', '--stdio'],
@@ -150,10 +157,6 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'java': ['tcp://127.0.0.1:55555'],
     \ }
-
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
-" let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
 
 " register C/C++/Objective C LSP server for vim-lsp plugin
 " (the -background-index option is not available in clangd-7)
