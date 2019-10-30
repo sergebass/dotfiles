@@ -58,23 +58,27 @@ alias gdsFIXME='grep -Hn FIXME $(git diff --name-only --staged)'
 alias gdaFIXME='grep -Hn FIXME $(git diff --name-only HEAD)'
 
 # show only names of files with FIXME markers in unstaged files
-alias gdFIXMEN='grep -l FIXME $(git diff --name-only)'
+alias gdnFIXME='grep -l FIXME $(git diff --name-only)'
 # show only names of files with FIXME markers in staged files
-alias gdsFIXMEN='grep -l FIXME $(git diff --name-only --staged)'
+alias gdsnFIXME='grep -l FIXME $(git diff --name-only --staged)'
 # show only names of files with FIXME markers in both staged and unstaged files
-alias gdaFIXMEN='grep -l FIXME $(git diff --name-only HEAD)'
+alias gdanFIXME='grep -l FIXME $(git diff --name-only HEAD)'
 
 alias gl='git log-briefly'
-alias gll='git log-verbosely'
+alias gl1='git log-briefly -1'
+alias gln='git log-briefly --name-status'
+alias gl1n='git log-briefly -1 --name-status'
 
-# show only the list of file names in the latest commit
-alias gl1N='git log --pretty="format:" --name-only -1'
+alias gll='git log-verbosely'
+alias gll1='git log-verbosely -1'
+alias glln='git log-verbosely --name-status'
+alias gll1n='git log-verbosely -1 --name-status'
 
 # show only lines containing FIXME markers in the latest commit
-alias gl1FIXME='grep -Hn FIXME $(git log --pretty="format:" --name-only -1)'
+alias gl1FIXME='grep -Hn FIXME $(git log --pretty="format:" --name-only -1) 2> /dev/null'
 
 # show only names of files containing FIXME markers in the latest commit
-alias gl1FIXMEN='grep -l FIXME $(git log --pretty="format:" --name-only -1)'
+alias gl1nFIXME='grep -l FIXME $(git log --pretty="format:" --name-only -1) 2> /dev/null'
 
 # stage only non-whitespace changes (https://stackoverflow.com/a/7149602)
 alias gaddnw='git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -'
