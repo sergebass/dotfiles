@@ -186,7 +186,7 @@ vnoremap \gfh :<C-u>execute 'new <bar> 0r !git log -L <C-r>=line("'<")<CR>,<C-r>
 nnoremap \sfh :execute 'new <bar> 0r !svn log -v --diff #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
 nnoremap \sfb :execute 'new <bar> 0r !svn ann -v #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
 
-nnoremap <Space>' :vsplit term://zsh<CR>
+nnoremap <Space>' :vsplit term://$SHELL<CR>
 
 " miscellaneous UI toggles
 nnoremap <Space>tn :set number!<CR>
@@ -196,7 +196,7 @@ nnoremap <Space>thc :set cursorcolumn!<CR>
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
 " use the same shortcut for convenience
 if has('nvim') || (v:version >= 800)
-    noremap <C-\> :vsplit term://zsh<CR>
+    noremap <C-\> :vsplit term://$SHELL<CR>
     tnoremap <C-\> <C-\><C-n>
 
     "shortcuts for quick navigation between debugger, program output and source during debugging
