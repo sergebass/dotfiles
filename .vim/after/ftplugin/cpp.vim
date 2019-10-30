@@ -8,6 +8,9 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal autoindent
 
+" Only use valid C++ identifier characters
+setlocal iskeyword=@,48-57,_
+
 " for some reason vim-commentary uses /* */ C-style commenting, but let's use // instead
 setlocal commentstring=//\ %s
 
