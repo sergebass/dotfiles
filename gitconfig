@@ -1,6 +1,5 @@
 [alias]
-    ; display all configured aliases
-    alias = config --get-regexp 'alias.*'
+    list-aliases = config --get-regexp 'alias.*'
 
     ; invoke text editor on global git configuration file (most likely this one)
     edit-config = config --global --edit
@@ -14,23 +13,17 @@
     sp = stash pop
     sa = stash apply
 
-    g = grep
-
-    ; search git history to find the specified string in changes
-    h = log -S
-    ; search git history to find the specified regexp in changes
-    hr = log -G
-
+    log-briefly = log --date=iso --decorate=full --color --pretty=format:"%C(green)%h\\ %ai\\ %Creset\\%s\\ %C(cyan\\ bold)(%an)%C(yellow\\ bold)%d"
     log-verbosely = log --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
+
+    log-graph = !git log-briefly --graph
+    log-stat = !git log-briefly --numstat
 
     search-text = !git log-verbosely --stat --all --remotes -S
     search-text-regexp = !git log-verbosely --stat --all --remotes -G
 
     search-file = log --stat --all --remotes --follow --
     search-file-diff = log -p --stat --all --remotes --follow --
-
-    l = log --color --decorate --graph --date=iso --pretty=format:"%C(green)%h\\ %ai%C(yellow)%d\\ %Creset%s%C(cyan\\ bold)\\ [%an\\ <%ae>]"
-    ll = !git l --numstat
 
     ; show only the list of file names in the latest commit
     ln1 = log --pretty="format:" --name-only -1
@@ -56,10 +49,9 @@
     ; diff all changes (staged and not yet) (including submodules) using difftool
     dta = difftool -t nvim --submodule=diff HEAD
 
-    show-merge-conflicts = diff --name-only --diff-filter=U
-    check-merge-conflicts = diff --check
-
-    mt = mergetool -t nvim
+    conflicts-show = diff --name-only --diff-filter=U
+    conflicts-check = diff --check
+    conflicts-merge = mergetool -t nvim
 
     co = checkout
     cob = checkout -b
