@@ -216,10 +216,8 @@ source ~/.gdbinit.py
 # just remap the color variables defined above
 source ~/.gdbinit.local
 
-# can't use the color functions because we are using the set command
-if $COLOREDPROMPT == 1
-	set prompt \033[31mgdb$ \033[0m
-end
+set prompt gdb:\040
+set extended-prompt \[\e[0;1;32m\]gdb\[\e[0;1;33m\] \f: \[\e[0m\]
 
 # Initialize these variables else comparisons will fail for coloring
 # we must initialize all of them at once, 32 and 64 bits, and ARM.
@@ -3815,21 +3813,6 @@ end
 document loadcmds
 Syntax: loadcmds MACHO_HEADER_START_ADDRESS
 | Dump the Mach-O load commands
-end
-
-# defining it here doesn't get the space #$#$%"#!
-define disablecolorprompt
-    set prompt gdb$
-end
-document disablecolorprompt
-| Remove color from prompt
-end
-
-define enablecolorprompt
-    set prompt \033[31mgdb$ \033[0m
-end
-document enablecolorprompt
-| Enable color prompt
 end
 
 #EOF
