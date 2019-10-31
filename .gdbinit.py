@@ -2,7 +2,7 @@
 
 import os
 
-print("Welcome to gdb!")
+print("Loading user gdb configuration (Python)...")
 
 term = os.getenv("TERM")
 print("TERM:", term)

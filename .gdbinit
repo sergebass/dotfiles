@@ -69,6 +69,8 @@
 
 # __________________gdb options_________________
 
+echo Loading user gdb configuration...\n
+
 # set to 1 to have ARM target debugging as default, use the "arm" command to switch inside gdb
 set $ARM = 0
 # set to 0 if you have problems with the colorized prompt - reported by Plouj with Ubuntu gdb 7.2
@@ -214,7 +216,10 @@ source ~/.gdbinit.py
 # this way anyone can have their custom prompt - argp's idea :-)
 # can also be used to redefine anything else in particular the colors aka theming
 # just remap the color variables defined above
-source ~/.gdbinit.local
+source ~/.gdbinit.workspace
+
+# project-specific configuration (if gdb is invoked in project root directory)
+source .gdbinit.project
 
 set prompt gdb:\040
 set extended-prompt \[\e[0;1;32m\]gdb\[\e[0;1;33m\] \f: \[\e[0m\]
