@@ -210,16 +210,8 @@ define color_underline
 end
 
 
-# Here we have our own new way of configuring gdb in Python:
+# Load user-specific configuration as a Python gdb script
 source ~/.gdbinit.py
-
-# this way anyone can have their custom prompt - argp's idea :-)
-# can also be used to redefine anything else in particular the colors aka theming
-# just remap the color variables defined above
-source ~/.gdbinit.workspace
-
-# project-specific configuration (if gdb is invoked in project root directory)
-source .gdbinit.project
 
 set prompt gdb:\040
 set extended-prompt \[\e[0;1;32m\]gdb\[\e[0;1;33m\] \f: \[\e[0m\]
