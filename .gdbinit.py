@@ -16,4 +16,4 @@ else:
 gdb.execute("source ~/.gdbinit.workspace.py")
 
 # Load project-specific configuration (if gdb is invoked in project root directory)
-gdb.execute("source ~/.gdbinit.project.py")
+gdb.execute("source .gdbinit.project.py")
