@@ -65,9 +65,19 @@ myConfig = desktopConfig
     -- keyboard layout switching
     , ((superMask, xK_F12), spawn "setxkbmap -layout \"us,ru,ua,us(intl)\" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape")
     -- screen backlight brightness
-    , ((superMask .|. altMask, xK_bracketleft), spawn "xbacklight -dec 10")
-    , ((superMask .|. altMask, xK_bracketright), spawn "xbacklight -inc 10")
-    , ((superMask .|. altMask, xK_backslash), spawn "xbacklight -set 100")
+    , ((superMask .|. controlMask, xK_bracketleft), spawn "xbacklight -dec 10")
+    , ((superMask .|. controlMask, xK_bracketright), spawn "xbacklight -inc 10")
+    , ((superMask .|. controlMask, xK_backslash), spawn "xbacklight -set 100")
+    , ((superMask .|. controlMask, xK_1), spawn "set-laptop-backlight-brightness 0.1")
+    , ((superMask .|. controlMask, xK_2), spawn "set-laptop-backlight-brightness 0.2")
+    , ((superMask .|. controlMask, xK_3), spawn "set-laptop-backlight-brightness 0.3")
+    , ((superMask .|. controlMask, xK_4), spawn "set-laptop-backlight-brightness 0.4")
+    , ((superMask .|. controlMask, xK_5), spawn "set-laptop-backlight-brightness 0.5")
+    , ((superMask .|. controlMask, xK_6), spawn "set-laptop-backlight-brightness 0.6")
+    , ((superMask .|. controlMask, xK_7), spawn "set-laptop-backlight-brightness 0.7")
+    , ((superMask .|. controlMask, xK_8), spawn "set-laptop-backlight-brightness 0.8")
+    , ((superMask .|. controlMask, xK_9), spawn "set-laptop-backlight-brightness 0.9")
+    , ((superMask .|. controlMask, xK_0), spawn "set-laptop-backlight-brightness 1.0")
     -- audio controls
     , ((superMask, xK_v), spawn "pavucontrol")
     , ((superMask, xK_bracketleft), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
