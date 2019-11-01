@@ -37,6 +37,7 @@ gparted
 gparted
 gpm
 htop
+hwinfo
 i3
 icecast2
 iotop
