@@ -41,7 +41,7 @@ myConfig = desktopConfig
     , ((superMask .|. controlMask .|. shiftMask .|. altMask, xK_Return), spawn "xterm")
     -- several ways of session locking
     , ((superMask, xK_z), spawn "i3lock -e -f -c 002020")
-    , ((superMask .|. altMask, xK_z), spawn "dm-tool lock") -- don't forget to run light-locker in background!
+    , ((superMask .|. altMask, xK_z), spawn "xdg-screensaver lock") -- don't forget to run light-locker in background!
     , ((superMask .|. shiftMask, xK_z), spawn "xset dpms force off; slock")
     , ((superMask .|. controlMask, xK_z), spawn "xscreensaver-command -lock")
     -- alternative launchers
