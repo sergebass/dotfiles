@@ -10,6 +10,9 @@ alias ....='cd ../../..'
 # a forceful way to kick ourselves out of X (and elsewhere)
 alias xlogout='pkill -u $USER'
 
+# a quick way to start or connect to the main tmux session
+alias tmx='tmux new-session -A -s 0'
+
 alias v='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvim'
 
 # alias vr='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvr'
