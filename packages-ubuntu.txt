@@ -2,6 +2,7 @@ adobe-flashplugin
 apt-file
 autoconf
 automake
+away
 baobab
 bear
 cabal
