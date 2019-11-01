@@ -107,6 +107,8 @@ alias rgcj='rg -L --hidden --no-heading -n --column -t cpp -t c -t java'
 # this is an Escape sequence to dynamically change rxvt terminal font size
 alias rxvt-font-size='printf "\033]50;%s%d\007" "xft:Inconsolata:medium:antialias=true:hintstyle=hintslight:pixelsize="'
 
+alias ubuntu-drivers='software-properties-gtk --open-tab=4'
+
 # disassemble an object file, with source code, C++ name demangling and Intel assembly syntax
 alias disasm='objdump -drwCS -Mintel'
 
