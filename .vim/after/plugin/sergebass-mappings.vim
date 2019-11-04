@@ -309,12 +309,6 @@ nnoremap <silent> <Space><PageDown> :tabnext<CR>
 " allow user to choose where to move the tab (empty input causes it to move to the very end)
 nnoremap <Space>\ :tabmove<Space>
 
-" Buffer management
-noremap <silent> \_ :ball<CR>
-noremap <silent> \\| :vert ball<CR>
-
-nnoremap <Space><Del> :DeleteHiddenBuffers<CR>
-
 " resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <M-/> <C-w><
 noremap <silent> <kDivide> <C-w><
