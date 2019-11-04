@@ -74,41 +74,59 @@ nnoremap <buffer> \\dr :call TermDebugSendCommand('info registers')<CR>
 nnoremap <buffer> \\df :call TermDebugSendCommand('frame')<CR>
 nnoremap <buffer> \\ds :call TermDebugSendCommand('backtrace')<CR>
 
+
 " Debugging keybindings from develop.spacemacs.org
 " ------------------------------------------------
 " SPC m d d d   start debugging
+nnoremap <buffer> <CR>ddd :Termdebug<CR>
 " SPC m d d l   debug last configuration
 " SPC m d d r   debug recent configuration
 " SPC m d c     continue
+nnoremap <buffer> <CR>dc :Continue<CR>
 " SPC m d i     step in
+nnoremap <buffer> <CR>di :Step<CR>
 " SPC m d o     step out
+nnoremap <buffer> <CR>do :Finish<CR>
 " SPC m d s     next step
+nnoremap <buffer> <CR>ds :Over<CR>
 " SPC m d v     inspect value at point
+nnoremap <buffer> <CR>dv :Evaluate<CR>
 " SPC m d r     restart frame
 " SPC m d .     debug transient state
 " SPC m d a     abandon current session
 " SPC m d A     abandon all process
 " SPC m d e e   eval
+nnoremap <buffer> <CR>dee :Evaluate<Space>
 " SPC m d e r   eval region
+vnoremap <buffer> <CR>der :Evaluate<CR>
 " SPC m d e t   eval value at point
+nnoremap <buffer> <CR>det :Evaluate<CR>
 " SPC m d S s   switch session
 " SPC m d S t   switch thread
 " SPC m d S f   switch frame
 " SPC m d I i   inspect
+nnoremap <buffer> <CR>dIi :Evaluate<Space>
 " SPC m d I r   inspect region
+vnoremap <buffer> <CR>dIr :Evaluate<CR>
 " SPC m d I t   inspect value at point
+nnoremap <buffer> <CR>dIt :Evaluate<CR>
 " SPC m d b b   toggle a breakpoint
 " SPC m d b c   change breakpoint condition
 " SPC m d b l   change breakpoint log condition
 " SPC m d b h   change breakpoint hit count
 " SPC m d b a   add a breakpoint
+nnoremap <buffer> <CR>dba :Break<CR>
 " SPC m d b d   delete a breakpoint
+nnoremap <buffer> <CR>dbd :Clear<CR>
 " SPC m d b D   clear all breakpoints
 " SPC m d '_    Run debug REPL
 " SPC m d w l   list local variables
+nnoremap <buffer> <CR>dwl :call TermDebugSendCommand('info locals')<CR>
 " SPC m d w o   goto output buffer if present
+nnoremap <buffer> <CR>dwo :Program<CR>
 " SPC m d w s   list sessions
 " SPC m d w b   list breakpoints
+nnoremap <buffer> <CR>dwb :call TermDebugSendCommand('info breakpoints')<CR>
 
 " nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
 nmap <buffer> <CR>hh :call LanguageClient#textDocument_hover()<CR>
