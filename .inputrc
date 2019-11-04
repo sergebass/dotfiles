@@ -1,1 +1,39 @@
 set editing-mode vi
+
+# quick debugging shortcuts for gdb (other apps do not use functional keys in readline mode anyway)
+
+# <F1>
+"\eOP": "show locals\n"
+
+# <F2>
+"\eOQ": "<F2>"
+
+# <F3>
+"\eOR": "<F3>"
+
+# <F4>
+"\eOS": "<F4>"
+
+# <F5>
+"\e[15~": "step\n"
+
+# <F6>
+"\e[17~": "next\n"
+
+# <F7>
+"\e[18~": "finish\n"
+
+# <F8>
+"\e[19~": "continue\n"
+
+# <F9>
+"\e[20~": "info breakpoints\n"
+
+# <F10>
+"\e[21~": "delete breakpoint "
+
+# <F11>
+"\e[23~": "<F11>"
+
+# <F12>
+"\e[24~": "<F12>"
