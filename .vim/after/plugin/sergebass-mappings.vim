@@ -294,36 +294,12 @@ nnoremap <Space>8 8gt
 nnoremap <Space>9 9gt
 nnoremap <Space>0 10gt
 
-" Tab navigation (reduced keyboards without Insert/Delete/Home/End/PageUp/PageDown keys)
+" Tab navigation
 nnoremap <silent> <Space><CR> :tabnew<CR>
 nnoremap <silent> <Space><BS> :tabclose<CR>
 
 " allow user to choose where to move the tab (empty input causes it to move to the very end)
 nnoremap <Space>\ :tabmove<Space>
-
-" Tab navigation (full keyboards)
-nnoremap <silent> <Space><Insert> :tabnew<CR>
-nnoremap <silent> <Space><Del> :tabclose<CR>
-nnoremap <silent> <Space><Home> :tabfirst<CR>
-nnoremap <silent> <Space><End> :tablast<CR>
-nnoremap <silent> <Space><PageUp> :tabprev<CR>
-nnoremap <silent> <Space><PageDown> :tabnext<CR>
-
-" rxvt without tmux does not support Ctrl+PgUp/Down tab navigation, so use these alternatives instead
-noremap <silent> <M-PageUp> :tabprev<CR>
-noremap <silent> <M-PageDown> :tabnext<CR>
-
-inoremap <silent> <M-PageUp> <C-O>:tabprev<CR>
-inoremap <silent> <M-PageDown> <C-O>:tabnext<CR>
-
-noremap <silent> <M-Home> :tabmove-<CR>
-noremap <silent> <M-End> :tabmove+<CR>
-
-inoremap <silent> <M-Home> <C-O>:tabmove-<CR>
-inoremap <silent> <M-End> <C-O>:tabmove+<CR>
-
-" allow user to choose where to move the tab (empty input causes it to move to the very end)
-nnoremap \<Insert> :tabmove<Space>
 
 " Buffer management
 noremap <silent> \<PageUp> :bp<CR>
