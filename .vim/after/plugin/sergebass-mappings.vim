@@ -302,11 +302,6 @@ nnoremap <silent> <Space><BS> :tabclose<CR>
 nnoremap <Space>\ :tabmove<Space>
 
 " Buffer management
-noremap <silent> \<PageUp> :bp<CR>
-noremap <silent> \<PageDown> :bn<CR>
-noremap <silent> \<Home> :bfirst<CR>
-noremap <silent> \<End> :blast<CR>
-noremap <silent> \<Del> :bdelete<CR>
 noremap <silent> \_ :ball<CR>
 noremap <silent> \\| :vert ball<CR>
 
