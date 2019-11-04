@@ -305,7 +305,7 @@ nnoremap <Space>\ :tabmove<Space>
 noremap <silent> \_ :ball<CR>
 noremap <silent> \\| :vert ball<CR>
 
-nnoremap <M-Del> :DeleteHiddenBuffers<CR>
+nnoremap <Space><Del> :DeleteHiddenBuffers<CR>
 
 " resize current window (tested with rxvt-unicode-256color)
 noremap <silent> <M-/> <C-w><
@@ -374,7 +374,7 @@ nnoremap <silent> \+ :copen<CR>
 nnoremap \= :cw<CR>
 
 " clear quickfix list (useful for incremental results of grepadd or vimgrepadd)
-nnoremap \<M-Del> :ClearQuickfixList<CR>
+nnoremap \<Del> :ClearQuickfixList<CR>
 
 " facilitate location list navigation
 nnoremap <silent> \\[ :lprev<CR>
@@ -390,7 +390,7 @@ nnoremap <silent> \\+ :lopen<CR>
 nnoremap \\= :lw<CR>
 
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
-nnoremap \\<M-Del> :ClearLocationList<CR>
+nnoremap \\<Del> :ClearLocationList<CR>
 
 " quickly reselect just pasted text
 nnoremap <silent> gV `[v`]
