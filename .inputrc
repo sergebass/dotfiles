@@ -1,6 +1,7 @@
 set editing-mode vi
 
 # quick debugging shortcuts for gdb (other apps do not use functional keys in readline mode anyway)
+$if Gdb
 
 # <F1>
 "\eOP": "show locals\n"
@@ -37,3 +38,5 @@ set editing-mode vi
 
 # <F12>
 "\e[24~": "<F12>"
+
+$endif # Gdb
