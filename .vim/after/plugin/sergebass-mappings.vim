@@ -294,9 +294,13 @@ nnoremap <Space>8 8gt
 nnoremap <Space>9 9gt
 nnoremap <Space>0 10gt
 
-" Tab navigation
+" Tab navigation (for reduced keyboards)
 nnoremap <silent> <Space><CR> :tabnew<CR>
 nnoremap <silent> <Space><BS> :tabclose<CR>
+
+" Tab navigation
+nnoremap <silent> <Space><Insert> :tabnew<CR>
+nnoremap <silent> <Space><Del> :tabclose<CR>
 nnoremap <silent> <Space><Home> :tabfirst<CR>
 nnoremap <silent> <Space><End> :tablast<CR>
 nnoremap <silent> <Space><PageUp> :tabprev<CR>
