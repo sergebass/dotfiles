@@ -2,6 +2,9 @@
 # Various aliases, compatible with both bash and zsh
 # --------------------------------------------------
 
+# a quick way to chdir into dotfiles directory
+alias _DF='cd ~/dotfiles'
+
 # a quicker way to go up directory trees
 alias ..='cd ..'
 alias ...='cd ../..'
