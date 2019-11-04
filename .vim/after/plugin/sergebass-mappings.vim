@@ -297,6 +297,10 @@ nnoremap <Space>0 10gt
 " Tab navigation
 nnoremap <silent> <Space><CR> :tabnew<CR>
 nnoremap <silent> <Space><BS> :tabclose<CR>
+nnoremap <silent> <Space><Home> :tabfirst<CR>
+nnoremap <silent> <Space><End> :tablast<CR>
+nnoremap <silent> <Space><PageUp> :tabprev<CR>
+nnoremap <silent> <Space><PageDown> :tabnext<CR>
 
 " allow user to choose where to move the tab (empty input causes it to move to the very end)
 nnoremap <Space>\ :tabmove<Space>
