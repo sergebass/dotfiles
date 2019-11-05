@@ -59,9 +59,6 @@ nnoremap <C-P> :GFiles<CR>
 nnoremap <TAB> <C-I>
 nnoremap <BS> <C-O>
 
-nnoremap <M-TAB> g,
-nnoremap <M-BS> g;
-
 " emulate Spacemacs/SpaceVim
 
 nnoremap <Space><Space> :
