@@ -56,9 +56,6 @@ nnoremap \@ :source Session
 nnoremap <C-N> :Tags<CR>
 nnoremap <C-P> :GFiles<CR>
 
-nnoremap <TAB> <C-I>
-nnoremap <BS> <C-O>
-
 " emulate Spacemacs/SpaceVim
 
 nnoremap <Space><Space> :
@@ -350,9 +347,9 @@ nnoremap <silent> \\<M-Tab> :Lexplore<CR>
 nnoremap <silent> \fr :browse oldfiles<CR>
 
 " local tag navigation
-nnoremap <silent> \<BS> :TagbarOpen fjc<CR>
-nnoremap <silent> \\<BS> :TagbarToggle<CR>
-nnoremap <silent> \<M-BS> :MinimapToggle<CR>
+nnoremap <silent> <BS> :TagbarOpen fjc<CR>
+nnoremap <silent> \<BS> :TagbarToggle<CR>
+nnoremap <silent> \\<BS> :MinimapToggle<CR>
 
 nnoremap <silent> gO :TagbarOpen fjc<CR>
 
