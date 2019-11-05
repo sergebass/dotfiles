@@ -13,7 +13,7 @@ nnoremap \\ff :LocateFile<CR>
 nnoremap \\bb :BuffersToggle<CR>
 
 nnoremap <CR><Tab> :ProjectTree<CR>
-nnoremap <CR><M-Tab> :ProjectsTree<CR>
+nnoremap <CR>\<Tab> :ProjectsTree<CR>
 
 nnoremap \\! :ProjectProblems!<CR>
 nnoremap \\!! :ProjectProblems<CR>

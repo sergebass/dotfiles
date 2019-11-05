@@ -305,18 +305,11 @@ nnoremap <silent> <Space><PageDown> :tabnext<CR>
 " allow user to choose where to move the tab (empty input causes it to move to the very end)
 nnoremap <Space>\ :tabmove<Space>
 
-" resize current window (tested with rxvt-unicode-256color)
-noremap <silent> <M-/> <C-w><
-noremap <silent> <kDivide> <C-w><
-
-noremap <silent> <M-*> <C-w>>
-noremap <silent> <kMultiply> <C-w>>
-
-noremap <silent> <M-+> <C-w>+
-noremap <silent> <kPlus> <C-w>+
-
-noremap <silent> <M--> <C-w>-
-noremap <silent> <kMinus> <C-w>-
+" resize current window
+noremap <silent> <M-h> <C-w><
+noremap <silent> <M-l> <C-w>>
+noremap <silent> <M-j> <C-w>+
+noremap <silent> <M-k> <C-w>-
 
 " Miscellaneous useful search/navigation stuff
 
