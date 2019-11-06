@@ -447,6 +447,9 @@ vnoremap \r "hy:.,$s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 nnoremap <CR><CR> g<C-]>
 nmap <C-LeftMouse> <CR><CR>
 
+" let user input their own search terms
+nnoremap <M-/> :grep -s -w<Space>
+
 " default mappings for searching the word under cursor, auto-executed
 nmap \<CR> \/<CR>
 vmap \<CR> \/<CR>
