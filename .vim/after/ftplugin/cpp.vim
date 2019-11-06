@@ -16,6 +16,9 @@ setlocal commentstring=//\ %s
 
 " setlocal keywordprg=man
 
+" do our formatting using clang-format and the '=' command
+setlocal equalprg=clang-format
+
 " FIXME should this be in global configuration instead?
 " This is a new feature in vim to better integrate with gdb
 packadd termdebug
