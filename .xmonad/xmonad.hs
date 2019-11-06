@@ -106,9 +106,9 @@ myConfig = desktopConfig
     , ((superMask .|. altMask, xK_0), spawn "pactl set-sink-volume @DEFAULT_SINK@ 100%")
     -- song control
     , ((superMask, xK_BackSpace), spawn "x-terminal-emulator -e ncmpcpp")
-    , ((superMask .|. altMask, xK_BackSpace), spawn "mpc toggle")
     , ((superMask .|. shiftMask, xK_bracketleft), spawn "mpc prev")
     , ((superMask .|. shiftMask, xK_bracketright), spawn "mpc next")
+    , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
     ]
      `additionalKeysP`
     [ --audio controls
