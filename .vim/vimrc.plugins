@@ -93,6 +93,7 @@ endif
 " Plug 'Quramy/tsuquyomi'
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'PProvost/vim-ps1'
+" Plug 'chooh/brightscript.vim'
 
 " Various other plugins
 Plug 'airblade/vim-gitgutter'
