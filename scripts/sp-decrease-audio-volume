@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# using PulseAudio
+pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# using ALSA
+# amixer -D pulse set Master 5%-
+
+# using OSS/FreeBSD
+# mixer vol -5
+
+# FIXME not sure how to do this in Mac OS X

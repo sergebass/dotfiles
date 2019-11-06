@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# using PulseAudio
+pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# using ALSA
+# amixer -D pulse set Master toggle
+
+# using OSS/FreeBSD
+# FIXME there is no volume toggle in OSS mixer?
+# mixer vol 0
+
+# FIXME not sure how to do this in Mac OS X
