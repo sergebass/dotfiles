@@ -411,8 +411,7 @@ nnoremap <silent> gV `[v`]
 map + <Plug>(wildfire-fuel)
 vmap - <Plug>(wildfire-water)
 
-" make left mouse double click perform search of a word under cursor (and shows the number of matches).
-nnoremap <2-LeftMouse> *<C-O>:%s///gn<CR>``
+nmap <2-LeftMouse> <CR><CR>
 
 " display the number of matches when using "*"
 nnoremap \* *<C-O>:%s///gn<CR>``
