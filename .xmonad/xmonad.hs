@@ -80,20 +80,12 @@ myConfig = desktopConfig
     , ((superMask .|. controlMask, xK_0), spawn "set-laptop-backlight-brightness 1.0")
     -- audio controls
     , ((superMask, xK_v), spawn "pavucontrol")
-    , ((superMask, xK_bracketleft), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ((superMask, xK_bracketright), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ((superMask, xK_backslash), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-    , ((superMask, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ((superMask, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ((superMask, xK_Home), spawn "pactl set-sink-volume @DEFAULT_SINK@ 50%")
-    , ((superMask, xK_End), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-    , ((superMask .|. shiftMask, xK_Page_Up), spawn "amixer -D pulse sset Master unmute 5%+")
-    , ((superMask .|. shiftMask, xK_Page_Down), spawn "amixer -D pulse sset Master unmute 5%-")
-    , ((superMask .|. shiftMask, xK_Home), spawn "amixer -D pulse sset Master 50%")
-    , ((superMask .|. shiftMask, xK_End), spawn "amixer -D pulse sset Master toggle")
-    , ((0, 0x1008FF11), spawn "amixer -D pulse set Master 5%-")
-    , ((0, 0x1008FF13), spawn "amixer -D pulse set Master 5%+")
-    , ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle")
+    , ((superMask, xK_bracketleft), spawn "sp-decrease-audio-volume")
+    , ((superMask, xK_bracketright), spawn "sp-increase-audio-volume")
+    , ((superMask, xK_backslash), spawn "sp-toggle-audio-mute")
+    , ((0, 0x1008FF11), spawn "sp-decrease-audio-volume")
+    , ((0, 0x1008FF13), spawn "sp-increase-audio-volume")
+    , ((0, 0x1008FF12), spawn "sp-toggle-audio-mute")
     , ((superMask .|. altMask, xK_1), spawn "pactl set-sink-volume @DEFAULT_SINK@ 10%")
     , ((superMask .|. altMask, xK_2), spawn "pactl set-sink-volume @DEFAULT_SINK@ 20%")
     , ((superMask .|. altMask, xK_3), spawn "pactl set-sink-volume @DEFAULT_SINK@ 30%")
@@ -110,11 +102,11 @@ myConfig = desktopConfig
     , ((superMask .|. shiftMask, xK_bracketright), spawn "mpc next")
     , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
     ]
-     `additionalKeysP`
+     `additionalKeysP` -- direct keys without prefix
     [ --audio controls
-      ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+      ("<XF86AudioRaiseVolume>", spawn "sp-increase-audio-volume")
+    , ("<XF86AudioLowerVolume>", spawn "sp-decrease-audio-volume")
+    , ("<XF86AudioMute>", spawn "sp-toggle-audio-mute")
     , ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
     -- song control
     , ("<XF86AudioPlay>", spawn "mpc toggle")
