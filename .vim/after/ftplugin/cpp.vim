@@ -66,7 +66,6 @@ vnoremap <buffer> <F1> :Evaluate<CR>
 nnoremap <buffer> <RightMouse> :Evaluate<CR>
 tnoremap <F1> print<Space>
 
-nnoremap <buffer> <F12> :Evaluate<Space>
 nnoremap <buffer> \<F1> :Evaluate<Space>
 tnoremap \<F1> print<Space>
 
