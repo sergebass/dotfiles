@@ -235,6 +235,18 @@ noremap <silent> \\0 \<F10>
 nnoremap <silent> <M-[> :tabprev<CR>
 nnoremap <silent> <M-]> :tabnext<CR>
 
+" a quick way to navigate between tabs
+nnoremap <M-1> 1gt
+nnoremap <M-2> 2gt
+nnoremap <M-3> 3gt
+nnoremap <M-4> 4gt
+nnoremap <M-5> 5gt
+nnoremap <M-6> 6gt
+nnoremap <M-7> 7gt
+nnoremap <M-8> 8gt
+nnoremap <M-9> 9gt
+nnoremap <M-0> 10gt
+
 " move between windows (without arrows)
 nnoremap <silent> <M-h> <C-w>h
 nnoremap <silent> <M-l> <C-w>l
@@ -284,7 +296,7 @@ nnoremap <silent> <Space><Right> <C-w>l
 nnoremap <silent> <Space><Up> <C-w>k
 nnoremap <silent> <Space><Down> <C-w>j
 
-" a quick way to navigate between tabs
+" a quick way to navigate between tabs (spacemacs prefix, serial)
 nnoremap <Space>1 1gt
 nnoremap <Space>2 2gt
 nnoremap <Space>3 3gt
