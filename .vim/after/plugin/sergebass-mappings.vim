@@ -446,37 +446,25 @@ vnoremap \r "hy:.,$s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 nnoremap <CR><CR> g<C-]>
 nmap <C-LeftMouse> <CR><CR>
 
-" let user input their own search terms
-nnoremap <M-/> :grep -s -w<Space>
-
 " default mappings for searching the word under cursor, auto-executed
 nmap \<CR> \/<CR>
 vmap \<CR> \/<CR>
 
-nmap \\<CR> \\/<CR>
-vmap \\<CR> \\/<CR>
+nmap \\<CR> \\/<CR>:copen<CR>
+vmap \\<CR> \\/<CR>:copen<CR>
 
-nmap \\\<CR> \\\/<CR>:copen<CR>
-vmap \\\<CR> \\\/<CR>:copen<CR>
-
-" search the word under cursor in external files
+" search the word under cursor in external files (reference search)
 
 " a) using ripgrep (rg)
-nnoremap \/ :RgId <C-r>=expand("<cword>")<CR>
+nnoremap \/ :RgWords <C-r>=expand("<cword>")<CR>
 " Rg does not understand quotes, just paste the whole selected chunk as is
 " FIXME parentheses need proper quoted to work
-vnoremap \/ "*y<Esc>:Rg <C-r>*
-
-" b) using silver-searcher (ag)
-nnoremap \\/ :AgId <C-r>=expand("<cword>")<CR>
-" Ag does not understand quotes, just paste the whole selected chunk as is
-" FIXME parentheses need proper quoted to work
-vnoremap \\/ "*y<Esc>:Ag <C-r>*
+vnoremap \/ "*y<Esc>:RgWords <C-r>*
 
 " c) using grep (always available)
-nnoremap \\\/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
+nnoremap \\/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap \\\/ "*y<Esc>:grep -s "<C-r>*"<Left>
+vnoremap \\/ "*y<Esc>:grep -s "<C-r>*"<Left>
 
 " search the word under cursor on the web
 nnoremap \? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
@@ -523,8 +511,8 @@ nnoremap <silent> <F12> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> \K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> \gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> \gO :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> <M-.> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <M-,> :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> <M-\> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <M-/> :call LanguageClient#textDocument_references()<CR>
 
 " shortcuts for language client/server use (vim-lsp plugin)
 nnoremap \\K :LspHover<CR>
