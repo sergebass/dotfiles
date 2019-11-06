@@ -231,6 +231,16 @@ noremap <silent> \\0 \<F10>
 
 " navigation mappings
 
+" Tab navigation (using Meta/Alt key)
+nnoremap <silent> <M-[> :tabprev<CR>
+nnoremap <silent> <M-]> :tabnext<CR>
+
+" move between windows (without arrows)
+nnoremap <silent> <M-h> <C-w>h
+nnoremap <silent> <M-l> <C-w>l
+nnoremap <silent> <M-k> <C-w>k
+nnoremap <silent> <M-j> <C-w>j
+
 " make arrow keys work on screen lines (useful for wrapped long lines);
 " the traditional {hjkl}/g{hjkl} behave as usual (logical lines)
 
@@ -259,11 +269,6 @@ vnoremap <silent> <S-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:
 onoremap <silent> H :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
 onoremap <silent> L :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 
-" Use these mappings to avoid reaching for arrow keys
-" (or if terminal does not register Shift+{Left/Right} keys properly)
-map <silent> <C-h> <S-Left>
-map <silent> <C-l> <S-Right>
-
 " Make jumping to the next method/function faster (for languages with Java/C++ style curly braces)
 nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
@@ -273,6 +278,7 @@ nnoremap <silent> <C-k> [m
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
 nnoremap <Space>w <C-w>
 
+" move between windows (spacemacs space prefix, with arrows)
 nnoremap <silent> <Space><Left> <C-w>h
 nnoremap <silent> <Space><Right> <C-w>l
 nnoremap <silent> <Space><Up> <C-w>k
@@ -294,7 +300,7 @@ nnoremap <Space>0 10gt
 nnoremap <silent> <Space><CR> :tabnew<CR>
 nnoremap <silent> <Space><BS> :tabclose<CR>
 
-" Tab navigation
+" Tab navigation (using spacemacs prefix on bigger keyboards)
 nnoremap <silent> <Space><Insert> :tabnew<CR>
 nnoremap <silent> <Space><Del> :tabclose<CR>
 nnoremap <silent> <Space><Home> :tabfirst<CR>
@@ -305,11 +311,15 @@ nnoremap <silent> <Space><PageDown> :tabnext<CR>
 " allow user to choose where to move the tab (empty input causes it to move to the very end)
 nnoremap <Space>\ :tabmove<Space>
 
-" resize current window
-noremap <silent> <M-h> <C-w><
-noremap <silent> <M-l> <C-w>>
-noremap <silent> <M-j> <C-w>+
-noremap <silent> <M-k> <C-w>-
+" quicker way to move tabs
+noremap <silent> <M-{> :tabmove-<CR>
+noremap <silent> <M-}> :tabmove+<CR>
+
+" resize current window in increments of 4 rows/columns
+noremap <silent> <M-<> 4<C-w><
+noremap <silent> <M->> 4<C-w>>
+noremap <silent> <M-)> 4<C-w>+
+noremap <silent> <M-(> 4<C-w>-
 
 " Miscellaneous useful search/navigation stuff
 
