@@ -29,7 +29,9 @@ set rulerformat=%l:%c%V
 set laststatus=2 " always display status line, even with one file being edited
 set statusline=%1*%m%r%*\ %f\ %3*%{fugitive#statusline()}%9*\ %y%{ObsessionStatus()}\ %=#%n\ \"%{v:register}\ u%B/%{&fenc}/%{&ff}\ %l:%c%V\ %p%%/%L
 
-autocmd TermOpen * setlocal statusline=%*%{b:term_title}%9*%=#%n\ %l:%c%V\ %p%%/%L
+if !has("win32")
+    autocmd TermOpen * setlocal statusline=%*%{b:term_title}%9*%=#%n\ %l:%c%V\ %p%%/%L
+endif
 
 set autoread " automatically reload files changed by external programs
 au CursorHold,CursorHoldI * :checktime " check for updates each time cursor stops moving
@@ -288,9 +290,9 @@ if has("gui_running")
     if has("gui_macvim")
         set guifont=Menlo\ Regular:h12
     elseif has("gui_win32")
-        set guifont=Ubuntu\ Mono:h10:cANSI
+        set guifont=Consolas:h11
     else
-        set guifont=Inconsolata\ Medium\ 10
+        set guifont=Ubuntu\ Mono:h10:cANSI
     endif
 endif
 
