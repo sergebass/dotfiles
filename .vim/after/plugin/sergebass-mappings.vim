@@ -87,7 +87,11 @@ nnoremap <Space>fS :wa<CR>
 nnoremap <Space>fy <C-G>
 nnoremap <Space>ft :NERDTreeToggle<CR>
 nnoremap <Space>fed :new<CR>:e $MYVIMRC<CR>
-nnoremap <Space>fei :new<CR>:e ~/.vim/vimrc<CR>
+if has("win32")
+    nnoremap <Space>fei :new<CR>:e ~/vimfiles/vimrc<CR>
+else
+    nnoremap <Space>fei :new<CR>:e ~/.vim/vimrc<CR>
+endif
 
 nnoremap <Space>bb :call fzf#vim#buffers()<CR>
 nnoremap <Space>bd :bdelete<CR>
