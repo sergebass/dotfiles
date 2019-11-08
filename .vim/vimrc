@@ -356,7 +356,7 @@ endif
 colorscheme sergebass-dark
 
 " try to use transparent background, if supported (see background erasure (BCE) mode in terminals)
-if !exists("g:GuiLoaded") " Neovim-Qt doesn't support transparent backgrounds
+if !(exists("g:GuiLoaded") || has("gui_running")) " GUI vim/neovim versions don't support transparent backgrounds
     hi Normal ctermbg=NONE guibg=NONE
 endif
 
