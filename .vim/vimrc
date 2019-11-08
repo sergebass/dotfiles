@@ -29,7 +29,7 @@ set rulerformat=%l:%c%V
 set laststatus=2 " always display status line, even with one file being edited
 set statusline=%1*%m%r%*\ %f\ %3*%{fugitive#statusline()}%9*\ %y%{ObsessionStatus()}\ %=#%n\ \"%{v:register}\ u%B/%{&fenc}/%{&ff}\ %l:%c%V\ %p%%/%L
 
-if !has("win32")
+if has("nvim")
     autocmd TermOpen * setlocal statusline=%*%{b:term_title}%9*%=#%n\ %l:%c%V\ %p%%/%L
 endif
 
