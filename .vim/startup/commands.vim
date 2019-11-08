@@ -2,6 +2,8 @@
 """ CUSTOM COMMANDS
 """ ---------------
 
+command DeleteOtherBuffers %bd | e#
+
 command! ClearQuickfixList call ClearQuickfixList()
 command! ClearLocationList call ClearLocationList()
 
