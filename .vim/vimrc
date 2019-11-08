@@ -359,6 +359,11 @@ endif
 " (one other option may be to have the "if &termguicolors" check for auto detection)
 colorscheme sergebass-dark
 
+" try to use transparent background, if supported (see background erasure (BCE) mode in terminals)
+if !exists("g:GuiLoaded") " Neovim-Qt doesn't support transparent backgrounds
+    hi Normal ctermbg=NONE guibg=NONE
+endif
+
 " FIXME replace rainbow parenthese plugin with the one from
 " https://github.com/luochen1990/rainbow (hopefully this works properly)
 "
