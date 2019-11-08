@@ -186,7 +186,11 @@ vnoremap \gfh :<C-u>execute 'new <bar> 0r !git log -L <C-r>=line("'<")<CR>,<C-r>
 nnoremap \sfh :execute 'new <bar> 0r !svn log -v --diff #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
 nnoremap \sfb :execute 'new <bar> 0r !svn ann -v #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
 
-nnoremap <silent> <Space>' :vsplit term://$SHELL<CR>
+if has("win32")
+    nnoremap <silent> <Space>' :vsplit term://cmd.exe<CR>
+else
+    nnoremap <silent> <Space>' :vsplit term://$SHELL<CR>
+endif
 
 " miscellaneous UI toggles
 nnoremap <Space>tn :set number!<CR>
