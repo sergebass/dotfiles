@@ -285,18 +285,14 @@ endif
 " GENERAL UI SETTINGS
 " -------------------
 
-" make GUI font dependent on the OS
-if has("gui_running")
-    if has("gui_macvim")
-        set guifont=Menlo\ Regular:h12
-    elseif has("gui_win32")
-        set guifont=Consolas:h11
-    else
-        set guifont=Ubuntu\ Mono:h10:cANSI
-    endif
-endif
+set guioptions-=L " Don't add left-hand scrollbar on split
+set guioptions-=R " Dont' add right-hand scrollbar on split
+set guioptions-=l " Disable Left-hand scrollbar always
+set guioptions-=r " Disable right-hand scrollbar always
+set guioptions-=m " Remove menu bar
+set guioptions-=T " Remove toolbarset guioptions-=T " remove toolbar
 
-set guioptions-=T
+set guifont=Inconsolata:h12
 
 if $TERM == "linux"
 \ || $TERM == "screen-256color"
