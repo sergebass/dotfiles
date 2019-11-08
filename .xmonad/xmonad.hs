@@ -35,6 +35,8 @@ myConfig = desktopConfig
     , ((superMask .|. shiftMask, xK_m), withWorkspace def (windows . W.shift))
     , ((superMask .|. shiftMask, xK_equal), withWorkspace def (windows . copy))
     , ((superMask .|. shiftMask, xK_d), removeWorkspace)
+    -- a shortcut to invoke xkill, to get rid of stuck GUI apps
+    , ((superMask .|. altMask, xK_Delete), spawn "xkill")
     -- alternative shortcuts to launch terminal emulators in case the stock one does not work
     , ((superMask .|. controlMask, xK_Return), spawn "x-terminal-emulator")
     , ((superMask .|. controlMask .|. shiftMask, xK_Return), spawn "urxvt")
