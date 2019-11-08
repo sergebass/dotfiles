@@ -12,11 +12,7 @@ endif
 
 hi clear
 
-if has("gui_running")
-    hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=0 gui=NONE guifg=#c0c0c0 guibg=#000000
-else
-    hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=NONE gui=NONE guifg=#c0c0c0 guibg=NONE
-endif
+hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=0 gui=NONE guifg=#c0c0c0 guibg=#000000
 
 " user-defined highlights for statusline
 hi User1 term=bold,inverse cterm=bold,inverse ctermfg=red ctermbg=blue gui=bold,inverse guifg=#ff0000 guibg=#000040
