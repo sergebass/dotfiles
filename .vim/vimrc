@@ -292,7 +292,7 @@ set guioptions-=r " Disable right-hand scrollbar always
 set guioptions-=m " Remove menu bar
 set guioptions-=T " Remove toolbarset guioptions-=T " remove toolbar
 
-set guifont=Inconsolata:h12
+set guifont=Inconsolata:h11
 
 if $TERM == "linux"
 \ || $TERM == "screen-256color"
