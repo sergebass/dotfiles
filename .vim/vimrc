@@ -75,6 +75,11 @@ set autoindent
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+if has("nvim")
+    " increase default terminal scrollback size
+    set scrollback=100000
+endif
+
 " do not use sandboxing for local vim scripts (a bit less secure but much less bothersome either)
 let g:localvimrc_sandbox=0
 
