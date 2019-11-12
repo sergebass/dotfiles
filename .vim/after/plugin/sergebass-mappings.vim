@@ -75,11 +75,6 @@ nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 nnoremap <Space>qq :qa<CR>
 nnoremap <Space>qQ :qa!<CR>
 
-nnoremap <Space>pf :GFiles<CR>
-nnoremap <Space>pr :GFiles?<CR>
-nnoremap <Space>pt :NERDTreeFind<CR>
-nnoremap <Space>pg :Tags<CR>
-
 nnoremap <Space>ff :Files<CR>
 nnoremap <Space>fr :call fzf#vim#history()<CR>
 nnoremap <Space>fs :w<CR>
@@ -110,10 +105,25 @@ nnoremap <Space>* :let w=expand("<cword>")<CR><CR>:Rg <C-r>=w<CR><CR>
 nnoremap <Space>sP :Rg<CR>
 nnoremap <Space>saP :Ag<CR>
 
+nmap <Space>p' <Space>'
+nnoremap <Space>pf :GFiles<CR>
+nnoremap <Space>pr :GFiles?<CR>
+nnoremap <Space>pt :NERDTreeFind<CR>
+nnoremap <Space>pg :Tags<CR>
+nnoremap <Space>pc :make<CR>
+nnoremap <Space>pr :make clean<CR>
+nnoremap <Space>pT :make test<CR>
+nnoremap <Space>pG :!ctags -R<CR>
+nmap <Space>pF gF
+
+" project building (using makeprg variable, possibly pre-configured via an .lvimrc project file)
+nmap <Space>cc <Space>pc
+
 " error navigation
 nnoremap <Space>el :cw<CR>
 nnoremap <Space>en :cnext<CR>
 nnoremap <Space>ep :cprev<CR>
+nnoremap <Space>ec :ClearQuickfixList<CR>
 
 " code commenting
 vmap <Space>; gc
