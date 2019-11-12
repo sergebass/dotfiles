@@ -75,7 +75,7 @@ set autoindent
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("nvim")
+if has("nvim") || (version >= 810)
     " increase default terminal scrollback size
     set scrollback=100000
 endif
