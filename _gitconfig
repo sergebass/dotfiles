@@ -4,7 +4,7 @@
     ; invoke text editor on global git configuration file (most likely this one)
     edit-config = config --global --edit
 
-    s = status -sb
+    sb = status -sb
 
     stat = diff --stat
 
@@ -16,14 +16,24 @@
     log-briefly = log --date=iso --decorate=full --color --pretty=format:"%C(green)%h\\ %ai\\ %Creset\\%s\\ %C(cyan\\ bold)(%an)%C(yellow\\ bold)%d"
     log-verbosely = log --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
 
+    l = !git log-briefly
+    ll = !git log-verbosely
+
+    l1 = !git log-briefly -1
+    ll1 = !git log-verbosely -1
+
     log-graph = !git log-briefly --graph
     log-stat = !git log-briefly --numstat
 
     search-text = !git log-verbosely --stat --all --remotes -S
     search-text-regexp = !git log-verbosely --stat --all --remotes -G
 
+    s = !git search-text
+
     search-file = log --stat --all --remotes --follow --
     search-file-diff = log -p --stat --all --remotes --follow --
+
+    sf = !git search-file
 
     ; show only the list of file names in the latest commit
     ln1 = log --pretty="format:" --name-only -1
@@ -72,8 +82,12 @@
     ac = !git add -u && git commit -ev
 
     c = commit -ev
-    csq = commit -evm 'FIXME squash this'
-    cam = commit --amend --verbose
+
+    commit-to-squash = commit -evm 'FIXME squash this'
+    csq = !git commit-to-squash
+
+    commit-fix = commit --amend --verbose
+    commit-fix-author = commit --amend --verbose --reset-author
 
     ; undo the latest commit
     u1 = reset --hard HEAD~1
