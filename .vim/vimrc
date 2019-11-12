@@ -385,3 +385,5 @@ au BufReadPost */.vrapperrc set syntax=vim
 au BufReadPost */.workenv set syntax=sh
 
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
