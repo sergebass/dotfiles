@@ -24,7 +24,7 @@ myConfig = desktopConfig
     , normalBorderColor = "#404040"
     }
      `additionalKeys`
-    [ ((superMask, xK_Tab), toggleWS)
+    [ ((superMask, xK_BackSpace), toggleWS)
     , ((superMask, xK_0), addWorkspace "0")
     , ((superMask, xK_s), selectWorkspace def)
     , ((superMask, xK_Left), prevWS)
@@ -58,7 +58,7 @@ myConfig = desktopConfig
     , ((superMask .|. shiftMask, xK_Print), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
     , ((superMask .|. controlMask .|. shiftMask, xK_p), spawn "scrot -u screenshot--%Y-%m-%d-%H-%M-%S--window.png")
     -- various calculators
-    , ((superMask, xK_grave), spawn "x-terminal-emulator -e bc -l")
+    , ((superMask, xK_equal), spawn "x-terminal-emulator -e ghci")  -- Haskell REPL doubles as a calculator quite well ;)
     , ((superMask, xK_KP_Enter), spawn "gnome-calculator")
     -- web browser
     , ((superMask, xK_slash), spawn "xdg-open https://duckduckgo.com")
@@ -99,7 +99,7 @@ myConfig = desktopConfig
     , ((superMask .|. altMask, xK_9), spawn "pactl set-sink-volume @DEFAULT_SINK@ 90%")
     , ((superMask .|. altMask, xK_0), spawn "pactl set-sink-volume @DEFAULT_SINK@ 100%")
     -- song control
-    , ((superMask, xK_BackSpace), spawn "x-terminal-emulator -e ncmpcpp")
+    , ((superMask, xK_grave), spawn "x-terminal-emulator -e ncmpcpp")
     , ((superMask .|. shiftMask, xK_bracketleft), spawn "mpc prev")
     , ((superMask .|. shiftMask, xK_bracketright), spawn "mpc next")
     , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
