@@ -71,6 +71,7 @@ tmux
 tmux-plugin-manager
 trayer
 tree
+tree
 udiskie
 ufraw
 usb-creator-gtk
