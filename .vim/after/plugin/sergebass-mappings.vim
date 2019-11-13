@@ -58,6 +58,10 @@ nnoremap <C-P> :GFiles<CR>
 
 nnoremap <BS> <C-O>
 
+" for quicker navigation between location with changes
+nnoremap <M-Tab> g,
+nnoremap <M-BS> g;
+
 " emulate Spacemacs/SpaceVim
 
 nnoremap <Space><Space> :
