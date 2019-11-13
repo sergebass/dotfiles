@@ -19,6 +19,15 @@ setlocal commentstring=//\ %s
 " do our formatting using clang-format and the '=' command
 setlocal equalprg=clang-format
 
+" Add highlighting for function definition in C++ (adapted from vim.fandom.com)
+highlight CppMethodDefinition term=inverse cterm=inverse gui=inverse
+function! EnhanceCppSyntax()
+  syntax match cppMethodDefinition "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
+  highlight default link cppMethodDefinition CppMethodDefinition
+endfunction
+
+autocmd Syntax cpp call EnhanceCppSyntax()
+
 " FIXME should this be in global configuration instead?
 " This is a new feature in vim to better integrate with gdb
 packadd termdebug
