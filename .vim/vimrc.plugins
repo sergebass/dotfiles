@@ -87,7 +87,6 @@ endif
 " Plug 'Quramy/tsuquyomi'
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'PProvost/vim-ps1'
-" Plug 'chooh/brightscript.vim'
 
 " Various other plugins
 Plug 'airblade/vim-gitgutter'
@@ -119,6 +118,11 @@ Plug 'sk1418/QFGrep'
 Plug 'vim-syntastic/syntastic'
 Plug 'yssl/QFEnter'
 Plug 'terryma/vim-multiple-cursors'
+
+" install user-specific plugins, if configured
+if filereadable(expand("~/.user-plugins.vim"))
+    source ~/.user-plugins.vim
+endif
 
 " Initialize plugin system
 call plug#end()
