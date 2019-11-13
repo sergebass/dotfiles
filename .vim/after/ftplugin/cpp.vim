@@ -28,6 +28,10 @@ endfunction
 
 autocmd Syntax cpp call EnhanceCppSyntax()
 
+" jump to next/previous method definition (adapted from vim.fandom.com)
+nnoremap <silent> <C-j> /\v^(\w+\s+)?\w+::\w+\(.*\)<CR>
+nnoremap <silent> <C-k> ?\v^(\w+\s+)?\w+::\w+\(.*\)<CR>
+
 " FIXME should this be in global configuration instead?
 " This is a new feature in vim to better integrate with gdb
 packadd termdebug
