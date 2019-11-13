@@ -213,8 +213,8 @@ end
 # Load user-specific configuration as a Python gdb script
 source ~/.gdbinit.py
 
-set prompt gdb:\040
-set extended-prompt \[\e[0;1;32m\]gdb\[\e[0;1;33m\] \f: \[\e[0m\]
+set prompt gdb =>\040
+set extended-prompt \[\e[0;1;32m\]gdb\[\e[0;1;33m\] \f => \[\e[0m\]
 
 # Initialize these variables else comparisons will fail for coloring
 # we must initialize all of them at once, 32 and 64 bits, and ARM.
