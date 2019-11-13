@@ -371,20 +371,23 @@ au Syntax * RainbowParenthesesLoadBraces
 au VimEnter * RainbowParenthesesToggle
 
 " Force .h and .inl files to be treated as C++ headers
-au BufReadPost *.h set filetype=cpp syntax=cpp
-au BufReadPost *.inl set filetype=cpp syntax=cpp
+au BufReadPost *.h set filetype=cpp
+au BufReadPost *.inl set filetype=cpp
+
+au BufReadPost *.gdb set filetype=gdb
 
 " Frege sources are very much Haskell-like
 au BufReadPost *.fr set filetype=frege syntax=haskell
 
-au BufReadPost */.xmobarrc set syntax=haskell
-au BufReadPost */gitconfig set syntax=gitconfig
-au BufReadPost */_gitconfig set syntax=gitconfig
-au BufReadPost */.vrapperrc set syntax=vim
+" Special configuration files
+au BufReadPost */.xmobarrc set filetype=haskell
+au BufReadPost */gitconfig set filetype=gitconfig
+au BufReadPost */_gitconfig set filetype=gitconfig
+au BufReadPost */.vrapperrc set filetype=vim
 
-au BufReadPost */.workenv set syntax=sh
+au BufReadPost */.workenv set filetype=sh
 
-au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl set filetype=glsl
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
