@@ -432,6 +432,7 @@ map + <Plug>(wildfire-fuel)
 vmap - <Plug>(wildfire-water)
 
 nmap <2-LeftMouse> <CR><CR>
+nmap <M-LeftMouse> gF
 
 " display the number of matches when using "*"
 nnoremap \* *<C-O>:%s///gn<CR>``
