@@ -121,9 +121,9 @@ nnoremap <Space>pG :!ctags -R<CR>
 nmap <Space>pF gF
 
 " project building (using makeprg variable, possibly pre-configured via an .lvimrc project file)
-nnoremap <Space>cc :make<CR>
 nnoremap <Space>cm :make<CR>
-nnoremap <Space>cr :make clean<CR>
+nmap <Space>cc <Space>pc
+nmap <Space>cr <Space>pr
 
 " error navigation
 nnoremap <Space>el :cw<CR>
