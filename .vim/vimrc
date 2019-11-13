@@ -80,12 +80,6 @@ if has("nvim") || (version >= 810)
     set scrollback=100000
 endif
 
-" do not use sandboxing for local vim scripts (a bit less secure but much less bothersome either)
-let g:localvimrc_sandbox=0
-
-" whitelist all project-specific local vimrc files
-"let g:localvimrc_whitelist=['/home/sperynskyi/git/.*', '/home/sperynskyi/svn/.*', '/home/sperynskyi/repos/.*']
-
 " apply user-defined autocompletion when pressing <Tab> (used by supertab plugin)
 let g:SuperTabDefaultCompletionType = "<C-X><C-U>"
 " do not autocomplete at the start of the line, after a comma or after a space:
@@ -393,3 +387,15 @@ au BufReadPost */.workenv set syntax=sh
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" do not use sandboxing for local vim scripts (a bit less secure but much less bothersome either)
+let g:localvimrc_sandbox=0
+
+" apply user-specific settings, if available
+
+if filereadable(expand("~/.user.vim"))
+    " user-specific settings may be something that should not be tracked in this repo, like work-specific settings
+    " e.g.:
+    " let g:localvimrc_whitelist=['/home/sergii/work/project']
+    source ~/.user.vim
+endif
