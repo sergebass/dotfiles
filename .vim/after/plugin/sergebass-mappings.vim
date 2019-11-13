@@ -434,8 +434,8 @@ nnoremap \\<Del> :ClearLocationList<CR>
 nnoremap <silent> gV `[v`]
 
 " This selects the next and the previous closest text object.
-map + <Plug>(wildfire-fuel)
-vmap - <Plug>(wildfire-water)
+map <M-o> <Plug>(wildfire-fuel)
+vmap <M-i> <Plug>(wildfire-water)
 
 nmap <2-LeftMouse> <CR><CR>
 nmap <M-LeftMouse> gF
