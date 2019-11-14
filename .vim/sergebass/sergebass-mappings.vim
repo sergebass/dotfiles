@@ -220,12 +220,12 @@ if has('nvim') || (v:version >= 800)
     tnoremap <C-\> <C-\><C-n>
 
     "shortcuts for quick navigation between debugger, program output and source during debugging
-    " :Source "jump to the window with the source code, create it if there isn't one
-    noremap <F2> :Source<CR>
+    " :Gdb " jump to the gdb window
+    noremap <F2> :Gdb<CR>
     " :Program "jump to the window with the running program
     noremap <F3> :Program<CR>
-    " :Gdb " jump to the gdb window
-    noremap <F4> :Gdb<CR>
+    " :Source "jump to the window with the source code, create it if there isn't one
+    noremap <F4> :Source<CR>
 
 endif
 
