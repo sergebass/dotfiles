@@ -55,6 +55,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-scriptease'
 
 " Language Server Protocol support
 if has("win32")
