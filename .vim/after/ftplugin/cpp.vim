@@ -266,3 +266,13 @@ nnoremap <buffer> <CR>rr :call LanguageClient#textDocument_rename()<CR>
 "     SPC m g m t   member types [ccls]
 "     SPC m g m f   member functions [ccls]
 "     SPC m g m v   member variables [ccls]
+
+" -----------------------------------------------------------------------------
+" apply workspace-specific C++ settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-cpp.vim"))
+    source ~/.workspace-cpp.vim
+endif

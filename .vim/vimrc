@@ -391,12 +391,3 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " do not use sandboxing for local vim scripts (a bit less secure but much less bothersome either)
 let g:localvimrc_sandbox=0
-
-" apply user-specific settings, if available
-
-if filereadable(expand("~/.workspace.vim"))
-    " workspace-specific settings that should not be tracked in this git repo
-    " e.g.:
-    " let g:localvimrc_whitelist=['/home/sergii/work/project']
-    source ~/.workspace.vim
-endif
