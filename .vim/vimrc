@@ -394,9 +394,9 @@ let g:localvimrc_sandbox=0
 
 " apply user-specific settings, if available
 
-if filereadable(expand("~/.user.vim"))
-    " user-specific settings may be something that should not be tracked in this repo, like work-specific settings
+if filereadable(expand("~/.workspace.vim"))
+    " workspace-specific settings that should not be tracked in this git repo
     " e.g.:
     " let g:localvimrc_whitelist=['/home/sergii/work/project']
-    source ~/.user.vim
+    source ~/.workspace.vim
 endif
