@@ -245,9 +245,9 @@ if exists("syntax_on")
 endif
 
 if has("win32")
-    source ~/vimfiles/vimrc.plugins
+    source ~/vimfiles/plugins.vim
 else
-    source ~/.vim/vimrc.plugins
+    source ~/.vim/plugins.vim
 endif
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
