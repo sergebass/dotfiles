@@ -45,4 +45,4 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # if a job-specific configuration file exists, load it too
-[[ -e ~/.workenv ]] && source ~/.workenv
+[[ -e ~/.workspace.sh ]] && source ~/.workspace.sh
