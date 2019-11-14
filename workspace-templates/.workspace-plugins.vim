@@ -1,0 +1,1 @@
+Plug 'chooh/brightscript.vim'
