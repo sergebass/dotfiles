@@ -69,7 +69,7 @@
 
 # __________________gdb options_________________
 
-echo Loading user gdb configuration...\n
+echo Loading user configuration...\n
 
 # set to 1 to have ARM target debugging as default, use the "arm" command to switch inside gdb
 set $ARM = 0
@@ -209,9 +209,14 @@ define color_underline
     end
 end
 
-
-# Load user-specific configuration as a Python gdb script
+# Load the Python version of the initialization script
 source ~/.gdbinit.py
+
+# Load workspace-specific script (if available)
+source ~/.workspace.gdb
+
+# Load project-specific script (if available in current directory)
+source .project.gdb
 
 set prompt gdb =>\040
 set extended-prompt \[\e[0;1;32m\]gdb \[\e[0;7;33m\]\f\[\e[0;1;36m\] => \[\e[0m\]
