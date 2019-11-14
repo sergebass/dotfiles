@@ -212,10 +212,8 @@ nnoremap <Space>thc :set cursorcolumn!<CR>
 if has('nvim') || (v:version >= 800)
     if has("win32")
         nnoremap <silent> <Space>' :vsplit term://cmd.exe<CR>
-        noremap <silent> <C-\> :vsplit term://cmd.exe<CR>
     else
         nnoremap <silent> <Space>' :vsplit term://$SHELL<CR>
-        noremap <silent> <C-\> :vsplit term://$SHELL<CR>
     endif
 
     " the shortcut to yield control from terminal to (n)vim
