@@ -10,8 +10,6 @@ runtime! sergebass/sergebass-syntax.vim
 
 if filereadable(expand("~/.workspace.vim"))
     " workspace-specific settings that should not be tracked in this git repo
-    " e.g.:
-    " let g:localvimrc_whitelist=['/home/sergii/work/project']
     source ~/.workspace.vim
 endif
 

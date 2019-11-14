@@ -391,3 +391,6 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " do not use sandboxing for local vim scripts (a bit less secure but much less bothersome either)
 let g:localvimrc_sandbox=0
+
+" trust all .lvimrc scripts under our home directory
+let g:localvimrc_whitelist=[expand("~")]
