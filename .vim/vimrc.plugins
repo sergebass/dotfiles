@@ -120,8 +120,8 @@ Plug 'yssl/QFEnter'
 Plug 'terryma/vim-multiple-cursors'
 
 " install user-specific plugins, if configured
-if filereadable(expand("~/.user-plugins.vim"))
-    source ~/.user-plugins.vim
+if filereadable(expand("~/.workspace-plugins.vim"))
+    source ~/.workspace-plugins.vim
 endif
 
 " Initialize plugin system
