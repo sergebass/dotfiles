@@ -99,13 +99,15 @@ alias _sync='sync & watch -n 1 grep -e Dirty: -e Writeback: /proc/meminfo'
 
 alias t='tig --all'
 
-alias ag='ag -f --hidden --noheading --nobreak --nogroup --numbers --column --vimgrep'
-alias rg='rg -L --hidden --no-heading -n --column'
-alias rgc='rg -L --hidden --no-heading -n --column -t cpp -t c'
-alias rgj='rg -L --hidden --no-heading -n --column -t java'
-alias rgjs='rg -L --hidden --no-heading -n --column -t js'
-alias rgts='rg -L --hidden --no-heading -n --column -t ts'
-alias rgcj='rg -L --hidden --no-heading -n --column -t cpp -t c -t java'
+alias ag='ag -f --noheading --nobreak --nogroup --numbers --column --vimgrep'
+
+alias rg='rg -L --no-heading -n --column'
+
+alias rgc='rg -L --no-heading -n --column -t cpp -t c'
+alias rgj='rg -L --no-heading -n --column -t java'
+alias rgjs='rg -L --no-heading -n --column -t js'
+alias rgts='rg -L --no-heading -n --column -t ts'
+alias rgcj='rg -L --no-heading -n --column -t cpp -t c -t java'
 
 # this is an Escape sequence to dynamically change rxvt terminal font size
 alias rxvt-font-size='printf "\033]50;%s%d\007" "xft:Inconsolata:medium:antialias=true:hintstyle=hintslight:pixelsize="'
