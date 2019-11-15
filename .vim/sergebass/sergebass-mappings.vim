@@ -316,7 +316,7 @@ nnoremap <Space>w <C-w>
 
 " a quicker way to hide and maximize windows
 noremap <silent> + <C-w>o
-noremap <silent> - <C-w>c
+noremap <silent> _ <C-w>c
 
 " move between windows (spacemacs space prefix, with arrows)
 nnoremap <silent> <Space><Left> <C-w>h
