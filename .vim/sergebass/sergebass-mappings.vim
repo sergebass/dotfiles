@@ -338,6 +338,7 @@ nnoremap <Space>0 10gt
 
 " Tab navigation (for reduced keyboards)
 nnoremap <silent> <Space><CR> :tabnew<CR>
+nnoremap <silent> <Space><M-CR> :tabnew<CR>:tabmove 0<CR>
 nnoremap <silent> <Space><BS> :tabclose<CR>
 
 " Tab navigation (using spacemacs prefix on bigger keyboards)
