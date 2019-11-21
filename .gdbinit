@@ -221,6 +221,10 @@ source .project.gdb
 set prompt gdb =>\040
 set extended-prompt \[\e[0;1;32m\]gdb \[\e[0;7;33m\]\f\[\e[0;1;36m\] => \[\e[0m\]
 
+# Enable demangling of C++ names
+set print demangle on
+set print asm-demangle on
+
 # Initialize these variables else comparisons will fail for coloring
 # we must initialize all of them at once, 32 and 64 bits, and ARM.
 set $oldrax = 0
