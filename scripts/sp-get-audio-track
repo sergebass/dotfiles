@@ -1,4 +1,16 @@
-#!/bin/sh
+#!/usr/bin/env python3
 
-# the sed command is here to trim redundant whitespace (as emitted by some radio stations)
-(mpc -f '[%title% ][@%name%]' current || echo '--') | sed 's/  \+/ /g'
+import subprocess
+
+PREFIX_LENGTH = 20
+SUFFIX_LENGTH = 20
+SEPARATOR = ".."
+ERROR_OUTPUT = "--"
+
+process = subprocess.run(["mpc", "-f", "[%title% ][@%name%]", "current"], stdout=subprocess.PIPE)
+output = process.stdout.decode().strip() if process.returncode == 0 else ERROR_OUTPUT
+
+if (len(output) > PREFIX_LENGTH + SUFFIX_LENGTH + len(SEPARATOR)):
+    print(output[:PREFIX_LENGTH] + SEPARATOR + output[-SUFFIX_LENGTH:])
+else:
+    print(output)
