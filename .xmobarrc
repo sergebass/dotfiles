@@ -54,9 +54,9 @@ Config {
    , commands =
         -- [ Run Com "uptime" ["-s"] "up" 0
 
-        [ Run Com "get-pulseaudio-volume.sh" ["Master"] "volume" 20
+        [ Run Com "sp-get-audio-volume" ["Master"] "volume" 20
 
-        , Run Com "current-audio.sh" [] "music" 20
+        , Run Com "sp-get-audio-track" [] "music" 20
 
         -- , Run Weather "CYOW" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa" ] 36000
         , Run Com "get-weather.sh" [] "WeatherScript" 600
