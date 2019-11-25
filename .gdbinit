@@ -1,5 +1,8 @@
 # A startup configuration script for gdb
 
+echo Loading gdb-dashboard configuration...\n
+source ~/.gdb-dashboard
+
 echo Loading user configuration...\n
 
 set confirm off
@@ -23,12 +26,12 @@ set extended-prompt \[\e[0;1;32m\]gdb \[\e[0;7;33m\]\f\[\e[0;1;36m\] => \[\e[0m\
 set print demangle on
 set print asm-demangle on
 
-define hook-stop
-    info args
-    info locals
-    echo --- Source ---\n
-    list
-end
+# define hook-stop
+#     info args
+#     info locals
+#     echo --- Source ---\n
+#     list
+# end
 
 # Load the Python version of the initialization script
 source ~/.gdbinit.py
