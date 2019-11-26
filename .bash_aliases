@@ -233,6 +233,12 @@ function git-find-file()
     done
 }
 
+function gdb-tmux() {
+    local tty="$(tmux split-pane -hPF "#{pane_tty}" "tail -f /dev/null")"
+    tmux last-pane
+    gdb -ex "dashboard -output $tty" "$@"
+}
+
 function yta() {
     mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
