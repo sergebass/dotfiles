@@ -523,6 +523,7 @@ vnoremap \ww :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:
 
 " a quicker way to spellcheck the document (do not complete the command on purpose, to be able to change language if needed)
 noremap \~ :setlocal spell spelllang=en_us
+noremap \\~ :setlocal nospell<CR>
 
 " quick ways to switch between light and dark themes
 nnoremap \tl :colorscheme sergebass-light<CR>
