@@ -31,17 +31,6 @@ hi User9 term=NONE cterm=NONE ctermfg=grey ctermbg=blue gui=NONE guifg=#b2b2b2 g
 " FoldColumn  'foldcolumn'
 " SignColumn  column where |signs| are displayed
 "
-" SpellBad    Word that is not recognized by the spellchecker. |spell|
-"         This will be combined with the highlighting used otherwise.
-" SpellCap    Word that should start with a capital. |spell|
-"         This will be combined with the highlighting used otherwise.
-" SpellLocal  Word that is recognized by the spellchecker as one that is
-"         used in another region. |spell|
-"         This will be combined with the highlighting used otherwise.
-" SpellRare   Word that is recognized by the spellchecker as one that is
-"         hardly ever used. |spell|
-"         This will be combined with the highlighting used otherwise.
-"
 " Title       titles for output from ":set all", ":autocmd" etc.
 " VisualNOS   Visual mode selection when vim is "Not Owning the Selection".
 "         Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
@@ -86,6 +75,17 @@ hi Ignore ctermfg=black guifg=bg
 hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff guibg=#000000
 hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
 hi MatchParen term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
+
+" Spellchecking
+
+" Word that is not recognized by the spellchecker.
+hi SpellBad term=inverse cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#800000
+" Word that should start with a capital.
+hi SpellCap term=inverse cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#000080
+" Word that is recognized by the spellchecker as one that is used in another region.
+hi SpellLocal term=inverse cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#008080
+" Word that is recognized by the spellchecker as one that is hardly ever used.
+hi SpellRare term=inverse cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#800080
 
 " popup menus (autocompletion etc.)
 hi Pmenu term=reverse cterm=NONE ctermfg=228 ctermbg=17 gui=NONE guifg=#ffff87 guibg=#00005f  " normal item
@@ -415,10 +415,6 @@ hi link GitGutterChangeDelete DiffChange
 "SpecialChar    xxx links to Special
 "SpecialComment xxx links to Special
 "SpecialKey     xxx ctermfg=125 ctermbg=236 guifg=#af005f guibg=#303030
-"SpellBad       xxx ctermbg=9 gui=undercurl guisp=Red
-"SpellCap       xxx ctermbg=12 gui=undercurl guisp=Blue
-"SpellLocal     xxx ctermbg=14 gui=undercurl guisp=Cyan
-"SpellRare      xxx ctermbg=13 gui=undercurl guisp=Magenta
 "Statement      xxx ctermfg=11 guifg=#aa4444
 "StorageClass   xxx links to Type
 "String         xxx links to Constant
