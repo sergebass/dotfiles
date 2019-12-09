@@ -1,14 +1,24 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# FIXME implement mode detection logic
+os=$(uname)
 
-# using PulseAudio
-pavucontrol
+if [ "$os" == "Linux" ]; then
+    # FIXME detect if PulseAudio is indeed running, else fall back on ALSA
 
-# using ALSA
-# alsamixer
+    # using PulseAudio
+    pavucontrol
 
-# using OSS/FreeBSD
-# aumix
+    # using ALSA
+    # alsamixer
 
-# FIXME not sure how to do this in Mac OS X
+elif [ "$os" == "FreeBSD" ]; then
+    aumix
+elif [ "$os" == "Darwin" ]; then
+    open /System/Library/PreferencePanes/Sound.prefPane
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    echo "FIXME Running on MinGW32"
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+    echo "FIXME Running on MinGW64"
+else
+    echo "Cannot invoke audio volume control: unknown OS"
+fi
