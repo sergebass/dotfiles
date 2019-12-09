@@ -81,7 +81,7 @@ myConfig = desktopConfig
     , ((superMask .|. controlMask, xK_9), spawn "set-laptop-backlight-brightness 0.9")
     , ((superMask .|. controlMask, xK_0), spawn "set-laptop-backlight-brightness 1.0")
     -- audio controls
-    , ((superMask, xK_v), spawn "pavucontrol")
+    , ((superMask, xK_grave), spawn "sp-audio-volume-control")
     , ((superMask, xK_bracketleft), spawn "sp-decrease-audio-volume")
     , ((superMask, xK_bracketright), spawn "sp-increase-audio-volume")
     , ((superMask, xK_backslash), spawn "sp-toggle-audio-mute")
@@ -99,7 +99,7 @@ myConfig = desktopConfig
     , ((superMask .|. altMask, xK_9), spawn "pactl set-sink-volume @DEFAULT_SINK@ 90%")
     , ((superMask .|. altMask, xK_0), spawn "pactl set-sink-volume @DEFAULT_SINK@ 100%")
     -- song control
-    , ((superMask, xK_grave), spawn "x-terminal-emulator -e ncmpcpp")
+    , ((superMask .|. shiftMask, xK_grave), spawn "x-terminal-emulator -e ncmpcpp")
     , ((superMask .|. shiftMask, xK_bracketleft), spawn "mpc prev")
     , ((superMask .|. shiftMask, xK_bracketright), spawn "mpc next")
     , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
