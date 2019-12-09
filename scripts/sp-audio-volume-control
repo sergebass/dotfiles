@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# FIXME implement mode detection logic
+
+# using PulseAudio
+pavucontrol
+
+# using ALSA
+# alsamixer
+
+# using OSS/FreeBSD
+# aumix
+
+# FIXME not sure how to do this in Mac OS X
