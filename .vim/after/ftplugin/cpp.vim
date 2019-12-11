@@ -19,6 +19,14 @@ setlocal commentstring=//\ %s
 " do our formatting using clang-format and the '=' command
 setlocal equalprg=clang-format
 
+function! SwitchSourceHeader()
+  if (expand ("%:e") == "cpp")
+    return expand("%:t:r") . ".h"
+  else
+    return expand("%:t:r") . ".cpp"
+  endif
+endfunction
+
 " Add highlighting for function definition in C++ (adapted from vim.fandom.com)
 highlight CppMethodDefinition term=inverse cterm=inverse gui=inverse
 function! EnhanceCppSyntax()
@@ -157,11 +165,8 @@ nnoremap <buffer> \\?2 :!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>=ex
 vnoremap <buffer> \\?2 "*y<Esc>:!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
 
 " toggle between source and header
-" (TODO)
-" SPC m g a     open matching file (e.g. switch between .cpp and .h)
-" SPC m g A     open matching file in another window (e.g. switch between .cpp and .h)
-" FIXME this doesn't work!
-nmap <buffer> <CR>ga :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
+nmap <buffer> <CR>ga :find <C-r>=SwitchSourceHeader()<CR><CR>
+nmap <buffer> <CR>gA :vert sfind <C-r>=SwitchSourceHeader()<CR><CR>
 
 " nnoremap <buffer> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <buffer> <CR><CR> :call LanguageClient#textDocument_definition()<CR>
