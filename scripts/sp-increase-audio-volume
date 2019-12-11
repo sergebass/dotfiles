@@ -1,12 +1,24 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# using PulseAudio
-pactl set-sink-volume @DEFAULT_SINK@ +5%
+os=$(uname)
 
-# using ALSA
-# amixer -D pulse set Master 5%+
+if [ "$os" == "Linux" ]; then
+    # FIXME detect if PulseAudio is indeed running, else fall back on ALSA
 
-# using OSS/FreeBSD
-# mixer vol +5
+    # using PulseAudio
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
 
-# FIXME not sure how to do this in Mac OS X
+    # using ALSA
+    # amixer -D pulse set Master 5%-
+elif [ "$os" == "FreeBSD" ]; then
+    mixer vol +5
+elif [ "$os" == "Darwin" ]; then
+    echo "FIXME not sure how to change audio volume in Mac OS X"
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    echo "FIXME Running on MinGW32"
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+    echo "FIXME Running on MinGW64"
+else
+    echo "Cannot change audio volume: unknown OS"
+fi
+
