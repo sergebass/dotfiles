@@ -138,6 +138,8 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
+  services.keybase.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sergii = {
      isNormalUser = true;
