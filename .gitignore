@@ -20,6 +20,8 @@ Session.vim
 
 # ctags tag files
 tags
+tags.lock
+tags.temp
 
 # plug.vim manages its plugins separately
 .vim/plugged
@@ -31,3 +33,5 @@ tags
 .mpd/mpd.db
 .mpd/mpd.pid
 .mpd/mpdstate
+
+.fonts/.uuid
