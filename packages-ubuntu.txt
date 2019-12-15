@@ -88,4 +88,5 @@ xmobar
 xmonad
 xz-utils
 youtube-dl
+zfsutils-linux
 zsh
