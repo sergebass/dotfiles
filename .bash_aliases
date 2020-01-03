@@ -16,6 +16,9 @@ alias xlogout='pkill -u $USER'
 # a quick way to start or connect to the main tmux session
 alias tmx='tmux new-session -A -s 0'
 
+# create a second tmux viewport to the same session group (e.g. for use with multiple monitors)
+alias tmx_='tmux new-session -A -s 0_ -t 0'
+
 alias v='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvim'
 
 # alias vr='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvr'
