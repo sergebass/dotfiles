@@ -8,10 +8,8 @@ SEPARATOR = ".."
 ERROR_OUTPUT = "--"
 
 def get_status_information() -> str:
-    process2 = subprocess.run(["mpc"], stdout=subprocess.PIPE)
-    output2 = process2.stdout.decode().strip() if process2.returncode == 0 else ERROR_OUTPUT
-
-    return output2.split("\n")[1].strip()
+    process = subprocess.run(["mpc"], stdout=subprocess.PIPE)
+    return process.stdout.decode().strip().split("\n")[1] if process.returncode == 0 else ERROR_OUTPUT
 
 def get_song_information() -> str:
     process = subprocess.run(["mpc", "-f", "[%title% ][@%name%]", "current"], stdout=subprocess.PIPE)
@@ -22,4 +20,4 @@ def get_song_information() -> str:
     else:
         return output
 
-print(get_song_information() + " " + get_status_information())
+print((get_song_information() + " " + get_status_information()).strip())
