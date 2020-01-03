@@ -58,6 +58,7 @@ neovim-qt
 net-tools
 openssh-server
 p7zip-full
+printer-driver-cups-pdf
 ripgrep
 rxvt-unicode-256color
 scrot
