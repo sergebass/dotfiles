@@ -7,10 +7,19 @@ SUFFIX_LENGTH = 20
 SEPARATOR = ".."
 ERROR_OUTPUT = "--"
 
-process = subprocess.run(["mpc", "-f", "[%title% ][@%name%]", "current"], stdout=subprocess.PIPE)
-output = process.stdout.decode().strip() if process.returncode == 0 else ERROR_OUTPUT
+def get_status_information() -> str:
+    process2 = subprocess.run(["mpc"], stdout=subprocess.PIPE)
+    output2 = process2.stdout.decode().strip() if process2.returncode == 0 else ERROR_OUTPUT
 
-if (len(output) > PREFIX_LENGTH + SUFFIX_LENGTH + len(SEPARATOR)):
-    print(output[:PREFIX_LENGTH] + SEPARATOR + output[-SUFFIX_LENGTH:])
-else:
-    print(output)
+    return output2.split("\n")[1].strip()
+
+def get_song_information() -> str:
+    process = subprocess.run(["mpc", "-f", "[%title% ][@%name%]", "current"], stdout=subprocess.PIPE)
+    output = process.stdout.decode().strip() if process.returncode == 0 else ""
+
+    if (len(output) > PREFIX_LENGTH + SUFFIX_LENGTH + len(SEPARATOR)):
+        return output[:PREFIX_LENGTH] + SEPARATOR + output[-SUFFIX_LENGTH:]
+    else:
+        return output
+
+print(get_song_information() + " " + get_status_information())
