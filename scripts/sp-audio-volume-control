@@ -6,10 +6,10 @@ if [ "$os" == "Linux" ]; then
     # FIXME detect if PulseAudio is indeed running, else fall back on ALSA
 
     # using PulseAudio
-    pavucontrol
+    pavucontrol &
 
     # using ALSA
-    # alsamixer
+    alsamixer
 
 elif [ "$os" == "FreeBSD" ]; then
     aumix
