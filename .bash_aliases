@@ -19,9 +19,12 @@ alias tmx='tmux new-session -A -s 0'
 # create a second tmux viewport to the same session group (e.g. for use with multiple monitors)
 alias tmx_='tmux new-session -A -s 0_ -t 0'
 
-alias v='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvim'
+alias v='nvim'
 
-# alias vr='NVIM_LISTEN_ADDRESS=/tmp/nvim-socket nvr'
+# first, install neovim-remote: pip3 install neovim-remote
+# avoid nested neovim sessions when invoking editor from :terminal sessions
+alias vv='nvr -O'
+alias vvv='nvr --remote-tab'
 
 # alias vs='vim --servername sp-server --remote-silent'
 # alias gvs='gvim --servername sp-server --remote-silent'
