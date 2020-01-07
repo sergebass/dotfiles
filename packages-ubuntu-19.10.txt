@@ -80,6 +80,7 @@ wicd-cli
 wicd-curses
 wicd-gtk
 xbacklight
+xdotool
 xfce4-mpc-plugin
 xmobar
 xmonad
