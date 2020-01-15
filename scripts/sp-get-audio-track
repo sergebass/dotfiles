@@ -9,7 +9,8 @@ ERROR_OUTPUT = "--"
 
 def get_status_information() -> str:
     process = subprocess.run(["mpc"], stdout=subprocess.PIPE)
-    return process.stdout.decode().strip().split("\n")[1] if process.returncode == 0 else ERROR_OUTPUT
+    output_lines = process.stdout.decode().strip().split("\n")
+    return output_lines[1] if process.returncode == 0 and len(output_lines) > 1 else ERROR_OUTPUT
 
 def get_song_information() -> str:
     process = subprocess.run(["mpc", "-f", "[%title% ][@%name%]", "current"], stdout=subprocess.PIPE)
