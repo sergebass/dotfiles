@@ -1,0 +1,41 @@
+#EXTM3U
+#EXTINF:0,JAZZRADIO.com - Cool Jazz
+http://prem1.jazzradio.com:80/cooljazz_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Blues Rock
+http://prem4.jazzradio.com:80/bluesrock_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Blues
+http://prem1.jazzradio.com:80/blues_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Vibraphone Jazz
+http://prem4.jazzradio.com:80/vibraphonejazz_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Trumpet Jazz
+http://prem4.jazzradio.com:80/trumpetjazz_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Timeless Classics
+http://prem1.jazzradio.com:80/timelessclassics_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Smooth Bossa Nova
+http://prem1.jazzradio.com:80/smoothbossanova_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Sinatra Style
+http://prem4.jazzradio.com:80/sinatrastyle_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Piano Trios
+http://prem1.jazzradio.com:80/pianotrios_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Mellow Piano Jazz
+http://prem1.jazzradio.com:80/mellowpianojazz_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Latin Jazz
+http://prem4.jazzradio.com:80/latinjazz_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Fusion Lounge
+http://prem1.jazzradio.com:80/fusionlounge_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Jazz Ballads
+http://prem1.jazzradio.com:80/jazzballads_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Guitar Jazz
+http://prem4.jazzradio.com:80/guitarjazz_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Smooth Uptempo
+http://prem1.jazzradio.com:80/smoothuptempo_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Smooth Jazz 24'7
+http://prem4.jazzradio.com:80/smoothjazz247_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Smooth Jazz
+http://prem1.jazzradio.com:80/smoothjazz_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Mellow Jazz
+http://prem4.jazzradio.com:80/mellowjazz_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Bossa Nova
+http://prem1.jazzradio.com:80/bossanova_aac?FIXME
+#EXTINF:0,JAZZRADIO.com - Bass Jazz
+http://prem4.jazzradio.com:80/bassjazz_aac?FIXME

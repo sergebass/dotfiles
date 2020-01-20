@@ -1,0 +1,25 @@
+#EXTM3U
+#EXTINF:0,ROCKRADIO.COM - Progressive Rock
+http://prem4.rockradio.com:80/progressiverock_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - Pop Rock
+http://prem1.rockradio.com:80/poprock_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - Classic Rock
+http://prem4.rockradio.com:80/classicrock_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - Classic Metal
+http://prem1.rockradio.com:80/classicmetal_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - Classic Hard Rock
+http://prem1.rockradio.com:80/classichardrock_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - Classic Folk Rock
+http://prem4.rockradio.com:80/classicfolkrock_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - Blues Rock
+http://prem1.rockradio.com:80/bluesrock_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - 80s Rock
+http://prem4.rockradio.com:80/80srock_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - 60s Rock
+http://prem4.rockradio.com:80/60srock_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - Rock Ballads
+http://prem1.rockradio.com:80/rockballads_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - 70s Rock
+http://prem4.rockradio.com:80/70srock_aac?FIXME
+#EXTINF:0,ROCKRADIO.COM - Soft Rock
+http://prem4.rockradio.com:80/softrock_aac?FIXME
