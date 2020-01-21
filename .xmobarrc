@@ -23,16 +23,16 @@ Config {
    , template = "\
        \<action=`x-terminal-emulator`>%StdinReader%</action> }{ │ \
        \<action=`x-terminal-emulator -e nmtui`><fc=#00af87>%whoami%@%hostname%</fc></action> │ \
-       \<action=`weather CYOW | xmessage -nearmouse -file -`>%WeatherScript%</action> │ \
+       \<action=`weather CYOW | xmessage -geometry 800x400 -nearmouse -file -`>%WeatherScript%</action> │ \
        \<action=`x-terminal-emulator -e htop`>%multicpu% %cpufreq%</action> \
-       \<action=`(sensors && hddtemp /dev/sd? 2>&1) | xmessage -nearmouse -file -`>%coretemp%</action> │ \
+       \<action=`(sensors && hddtemp /dev/sd? 2>&1) | xmessage -geometry 800x400 -nearmouse -file -`>%coretemp%</action> │ \
        \<action=`x-terminal-emulator -e htop`>%memory%%swap%</action> │ \
        \<action=`baobab`>☉ %disku%</action> │ \
        \<action=`x-terminal-emulator -e htop`>⇄ %diskio%</action> │ \
        \<action=`x-terminal-emulator -e nmtui`>⇅ %dynnetwork% %wlo1wi%</action> │ \
        \<action=`xbacklight -set 100`>%backlight%</action> │ \
        \<action=`pavucontrol`><fc=#00FFFF>♪</fc> %volume%</action> \
-       \<action=`gmpc`><fc=#aaaaff>%music%</fc></action> │ \
+       \<action=`mpc | head -1 | xmessage -geometry 1280x100 -nearmouse -file -`><fc=#aaaaff>%music%</fc></action> │ \
        \<action=`x-terminal-emulator -e xev`>%kbd%</action> │ \
        \<action=`orage`>%date%</action> │ \
        \<action=`battery-graph`><fc=#00FFFF>⚡</fc> %battery%</action>"
