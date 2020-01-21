@@ -4,16 +4,16 @@ set editing-mode vi
 $if Gdb
 
 # <F1>
-"\eOP": "show locals\n"
+"\eOP": "info locals\n"
 
 # <F2>
-"\eOQ": "<F2>"
+"\eOQ": "info args\n"
 
 # <F3>
-"\eOR": "<F3>"
+"\eOR": "info frame\n"
 
 # <F4>
-"\eOS": "<F4>"
+"\eOS": "info registers\n"
 
 # <F5>
 "\e[15~": "step\n"
