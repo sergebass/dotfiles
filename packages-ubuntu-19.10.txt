@@ -38,6 +38,7 @@ i3
 icecast2
 iotop
 libdvdcss2
+libnotify-bin
 libtool
 libxml2:i386
 lilypond
