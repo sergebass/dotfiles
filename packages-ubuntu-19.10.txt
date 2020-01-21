@@ -48,6 +48,7 @@ meld
 metar
 mpc
 mpd
+mpdris2
 mpv
 mupdf
 mupdf-tools
