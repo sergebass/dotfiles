@@ -2,8 +2,8 @@
 
 import subprocess
 
-PREFIX_LENGTH = 40
-SUFFIX_LENGTH = 10
+PREFIX_LENGTH = 30
+SUFFIX_LENGTH = 1
 SEPARATOR = ".."
 ERROR_OUTPUT = "--"
 
