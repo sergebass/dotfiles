@@ -180,8 +180,13 @@ nnoremap <Space>gU :!git reset %<CR>
 
 " shortcuts to navigate between merge conflicts and pull chunks from local/remote/base versions into the merged one
 " (stay in the merged file buffer and apply for each of the conflict chunk)
+
 nnoremap \g[ ?<<<<<<<<Space><CR>
-nnoremap \g] />>>>>>><Space><CR>
+nnoremap \g] /<<<<<<<<Space><CR>
+
+nnoremap \g{ ?>>>>>>><Space><CR>
+nnoremap \g} />>>>>>><Space><CR>
+
 nnoremap \gL :diffget _LOCAL_<CR>
 nnoremap \gR :diffget _REMOTE_<CR>
 nnoremap \gB :diffget _BASE_<CR>
