@@ -146,37 +146,37 @@ nnoremap <Space>gS :!git add %<CR>
 nnoremap <Space>gU :!git reset %<CR>
 
 " remaining unimplemented spacemacs mappings for git
-" SPC g > 	show submodule prompt
-" SPC g H c 	clear highlights
-" SPC g H h 	highlight regions by age of commits
-" SPC g H t 	highlight regions by last updated time
-" SPC g I 	open helm-gitignore
-" SPC g m 	magit dispatch popup
-" SPC g M 	display the last commit message of the current line
-" SPC g t 	launch the git time machine
+" SPC g >   show submodule prompt
+" SPC g H c     clear highlights
+" SPC g H h     highlight regions by age of commits
+" SPC g H t     highlight regions by last updated time
+" SPC g I   open helm-gitignore
+" SPC g m   magit dispatch popup
+" SPC g M   display the last commit message of the current line
+" SPC g t   launch the git time machine
 
-" SPC g l c 	on a commit hash, browse to the current file at this commit
-" SPC g l C 	on a commit hash, create link to the file at this commit and copy it
-" SPC g l l 	on a region, browse to file at current lines position
-" SPC g l L 	on a region, create a link to the file highlighting the selected lines
+" SPC g l c     on a commit hash, browse to the current file at this commit
+" SPC g l C     on a commit hash, create link to the file at this commit and copy it
+" SPC g l l     on a region, browse to file at current lines position
+" SPC g l L     on a region, create a link to the file highlighting the selected lines
 
 " spacemacs diff mode mappings (from development branch):
-" SPC m a 	Apply a hunk
-" SPC m d 	Kill the hunk at point
-" SPC m D 	Kill the current file's hunk
-" SPC m e 	Call ediff-patch-file on current buffer
-" SPC m f c 	Convert unified diffs to context diffs
-" SPC m f r 	Reverse the direction of the diffs
-" SPC m f u 	Convert context diffs to unified diffs
-" SPC m g 	Jump to the corresponding source line
-" SPC m j 	Next hunk
-" SPC m J 	Next file
-" SPC m k 	Previous hunk
-" SPC m K 	Previous file
-" SPC m q 	Close the diff window
-" SPC m r 	Revert a hunk
-" SPC m s 	Split the current hunk at point into two hunks
-" SPC m u 	Undo" non-Spacemacs useful git mappings (for both vim-fugitive and vim-gitgutter)
+" SPC m a   Apply a hunk
+" SPC m d   Kill the hunk at point
+" SPC m D   Kill the current file's hunk
+" SPC m e   Call ediff-patch-file on current buffer
+" SPC m f c     Convert unified diffs to context diffs
+" SPC m f r     Reverse the direction of the diffs
+" SPC m f u     Convert context diffs to unified diffs
+" SPC m g   Jump to the corresponding source line
+" SPC m j   Next hunk
+" SPC m J   Next file
+" SPC m k   Previous hunk
+" SPC m K   Previous file
+" SPC m q   Close the diff window
+" SPC m r   Revert a hunk
+" SPC m s   Split the current hunk at point into two hunks
+" SPC m u   Undo" non-Spacemacs useful git mappings (for both vim-fugitive and vim-gitgutter)
 
 " shortcuts to navigate between merge conflicts and pull chunks from local/remote/base versions into the merged one
 " (stay in the merged file buffer and apply for each of the conflict chunk)
