@@ -1,53 +1,53 @@
 #EXTM3U
-#EXTINF:0,ClassicalRadio.com - Wind Works
-http://prem1.classicalradio.com:80/windworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Tchaikovsky
-http://prem4.classicalradio.com:80/tchaikovsky_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Symphonies
-http://prem1.classicalradio.com:80/symphonies_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - String Works
-http://prem1.classicalradio.com:80/stringworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Renaissance Period
-http://prem1.classicalradio.com:80/renaissanceperiod_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Overtures
-http://prem1.classicalradio.com:80/overtures_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Organ Works
-http://prem4.classicalradio.com:80/organworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Operas
-http://prem4.classicalradio.com:80/operas_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Nocturnes
-http://prem4.classicalradio.com:80/nocturnes_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Medieval Period
-http://prem4.classicalradio.com:80/medievalperiod_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Harpsichord Works
-http://prem4.classicalradio.com:80/harpsichordworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Grieg
-http://prem4.classicalradio.com:80/grieg_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Flute Works
-http://prem4.classicalradio.com:80/fluteworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Debussy
-http://prem4.classicalradio.com:80/debussy_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Classical Guitar Works
-http://prem4.classicalradio.com:80/classicalguitarworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Telemann
-http://prem4.classicalradio.com:80/telemann_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Vivaldi
-http://prem1.classicalradio.com:80/vivaldi_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Trumpet Works
-http://prem4.classicalradio.com:80/trumpetworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Orchestral Works
-http://prem1.classicalradio.com:80/orchestralworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Concertos
-http://prem4.classicalradio.com:80/concertos_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Handel
-http://prem1.classicalradio.com:80/handel_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Romantic Period
-http://prem4.classicalradio.com:80/romanticperiod_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Baroque Period
-http://prem1.classicalradio.com:80/baroqueperiod_aac?FIXME
 #EXTINF:0,ClassicalRadio.com - Bach
 http://prem1.classicalradio.com:80/bach_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Baroque Period
+http://prem1.classicalradio.com:80/baroqueperiod_aac?FIXME
 #EXTINF:0,ClassicalRadio.com - Chopin
 http://prem1.classicalradio.com:80/chopin_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Guitar Works
+http://prem4.classicalradio.com:80/classicalguitarworks_aac?FIXME
 #EXTINF:0,ClassicalRadio.com - Classical Relaxation
 http://prem4.classicalradio.com:80/classicalrelaxation_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Concertos
+http://prem4.classicalradio.com:80/concertos_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Debussy
+http://prem4.classicalradio.com:80/debussy_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Flute Works
+http://prem4.classicalradio.com:80/fluteworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Grieg
+http://prem4.classicalradio.com:80/grieg_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Handel
+http://prem1.classicalradio.com:80/handel_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Harpsichord Works
+http://prem4.classicalradio.com:80/harpsichordworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Medieval Period
+http://prem4.classicalradio.com:80/medievalperiod_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Nocturnes
+http://prem4.classicalradio.com:80/nocturnes_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Operas
+http://prem4.classicalradio.com:80/operas_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Orchestral Works
+http://prem1.classicalradio.com:80/orchestralworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Organ Works
+http://prem4.classicalradio.com:80/organworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Overtures
+http://prem1.classicalradio.com:80/overtures_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Renaissance Period
+http://prem1.classicalradio.com:80/renaissanceperiod_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Romantic Period
+http://prem4.classicalradio.com:80/romanticperiod_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - String Works
+http://prem1.classicalradio.com:80/stringworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Symphonies
+http://prem1.classicalradio.com:80/symphonies_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Tchaikovsky
+http://prem4.classicalradio.com:80/tchaikovsky_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Telemann
+http://prem4.classicalradio.com:80/telemann_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Trumpet Works
+http://prem4.classicalradio.com:80/trumpetworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Vivaldi
+http://prem1.classicalradio.com:80/vivaldi_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Wind Works
+http://prem1.classicalradio.com:80/windworks_aac?FIXME
