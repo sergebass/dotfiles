@@ -2,9 +2,6 @@
 """ KEYBOARD MAPPINGS
 """ -----------------
 
-" Allow saving of files as sudo if we forgot to start vim using sudo.
-cnoremap w!! w !sudo tee > /dev/null %
-
 " since "S" is equivalent to "cc", reuse it to save all buffers
 nnoremap S :wa<CR>
 

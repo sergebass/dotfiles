@@ -2,6 +2,9 @@
 """ CUSTOM COMMANDS
 """ ---------------
 
+" Allow saving of files as sudo if we forgot to start vim using sudo.
+command Wsudo w !sudo tee > /dev/null %
+
 command DeleteOtherBuffers %bd | e#
 
 command! ClearQuickfixList call ClearQuickfixList()
