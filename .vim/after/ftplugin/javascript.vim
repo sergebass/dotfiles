@@ -9,7 +9,7 @@ setlocal shiftwidth=4
 setlocal autoindent
 
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
-" setlocal makeprg=stack\ build
+setlocal makeprg=eslint\ -f\ unix
 
 " Override default :RgId to use correct file type for JavaScript files (the one that rg expects)
 command! -bang -nargs=* RgId
