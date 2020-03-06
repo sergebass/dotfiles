@@ -478,24 +478,24 @@ nnoremap <CR><CR> g<C-]>
 nmap <C-LeftMouse> <CR><CR>
 
 " default mappings for searching the word under cursor, auto-executed
-nmap \<CR> \/<CR>
-vmap \<CR> \/<CR>
+nmap \<CR> \/<CR>:copen<CR>
+vmap \<CR> \/<CR>:copen<CR>
 
-nmap \\<CR> \\/<CR>:copen<CR>
-vmap \\<CR> \\/<CR>:copen<CR>
+nmap \\<CR> \\/<CR>
+vmap \\<CR> \\/<CR>
 
 " search the word under cursor in external files (reference search)
 
-" a) using ripgrep (rg)
-nnoremap \/ :RgWords <C-r>=expand("<cword>")<CR>
+" a) using grep (always available)
+nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR> **<left><left><left>
+" quote the selected text in visual mode since that's to be used for multiple words
+vnoremap \/ "*y<Esc>:grep -s "<C-r>*"<Left> **<left><left><left>
+
+" b) using ripgrep (rg)
+nnoremap \\/ :RgWords <C-r>=expand("<cword>")<CR>
 " Rg does not understand quotes, just paste the whole selected chunk as is
 " FIXME parentheses need proper quoted to work
-vnoremap \/ "*y<Esc>:RgWords <C-r>*
-
-" c) using grep (always available)
-nnoremap \\/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR>
-" quote the selected text in visual mode since that's to be used for multiple words
-vnoremap \\/ "*y<Esc>:grep -s "<C-r>*"<Left>
+vnoremap \\/ "*y<Esc>:RgWords <C-r>*
 
 " search the word under cursor on the web
 nnoremap \? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
