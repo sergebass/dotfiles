@@ -391,6 +391,7 @@ nnoremap <silent> \\<Tab> :NERDTreeToggle<CR>
 nnoremap <silent> \\\<Tab> :Lexplore<CR>
 
 nnoremap <silent> \fr :browse oldfiles<CR>
+nnoremap  \ff :FindFiles<Space>
 
 " local tag navigation
 nnoremap <silent> \<BS> :TagbarOpen fjc<CR>
