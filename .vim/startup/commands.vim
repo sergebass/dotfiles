@@ -50,5 +50,7 @@ command! -bang -nargs=* AgId
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+command! -nargs=1 LocateFiles call LocateFiles(<q-args>)
 command! -nargs=1 FindFiles call FindFiles(<q-args>)
 command! -nargs=+ FindAndReplace call FindAndReplace(<f-args>)
+
