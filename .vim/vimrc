@@ -374,6 +374,8 @@ au VimEnter * RainbowParenthesesToggle
 au BufReadPost *.h set filetype=cpp
 au BufReadPost *.inl set filetype=cpp
 
+au BufReadPost *.nasm set filetype=asm
+
 au BufReadPost *.gdb set filetype=gdb
 
 " Frege sources are very much Haskell-like
