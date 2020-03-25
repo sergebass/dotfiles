@@ -2,6 +2,8 @@
 """ JAVA-SPECIFIC CONFIGURATION
 """ ---------------------------
 
+runtime! sergebass/sergebass-eclim.vim
+
 " error format for ant/javac
 setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 

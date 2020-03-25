@@ -1,4 +1,3 @@
-runtime! sergebass/sergebass-eclim.vim
 runtime! sergebass/sergebass-mappings.vim
 runtime! sergebass/sergebass-syntax.vim
 
