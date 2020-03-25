@@ -404,34 +404,28 @@ nnoremap <silent> gO :TagbarOpen fjc<CR>
 " quickly close both quickfix and location list windows
 noremap <silent> \_ :lclose<CR>:cclose<CR>
 
-" facilitate quickfix navigation
-nnoremap <silent> \[ :cprev<CR>
-nnoremap <silent> \] :cnext<CR>
-nnoremap <silent> \{ :cpfile<CR>
-nnoremap <silent> \} :cnfile<CR>
-nnoremap <silent> \( :colder<CR>
-nnoremap <silent> \) :cnewer<CR>
-nnoremap <silent> \, :cfirst<CR>
-nnoremap <silent> \. :clast<CR>
-nnoremap <silent> \- :cclose<CR>
-nnoremap <silent> \+ :copen<CR>
-nnoremap \= :cw<CR>
+" facilitate quickfix navigation (emulate vim-unimpaired when possible)
+nnoremap <silent> [Q :cfirst<CR>
+nnoremap <silent> ]Q :clast<CR>
+nnoremap <silent> [q :cprev<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [<C-Q> :cpfile<CR>
+nnoremap <silent> ]<C-Q> :cnfile<CR>
+nnoremap <silent> [<M-Q> :colder<CR>
+nnoremap <silent> ]<M-Q> :cnewer<CR>
 
 " clear quickfix list (useful for incremental results of grepadd or vimgrepadd)
 nnoremap \<Del> :ClearQuickfixList<CR>
 
-" facilitate location list navigation
-nnoremap <silent> \\[ :lprev<CR>
-nnoremap <silent> \\] :lnext<CR>
-nnoremap <silent> \\{ :lpfile<CR>
-nnoremap <silent> \\} :lnfile<CR>
-nnoremap <silent> \\( :lolder<CR>
-nnoremap <silent> \\) :lnewer<CR>
-nnoremap <silent> \\, :lfirst<CR>
-nnoremap <silent> \\. :llast<CR>
-nnoremap <silent> \\- :lclose<CR>
-nnoremap <silent> \\+ :lopen<CR>
-nnoremap \\= :lw<CR>
+" facilitate location list navigation (emulate vim-unimpaired when possible)
+nnoremap <silent> [L :lfirst<CR>
+nnoremap <silent> ]L :llast<CR>
+nnoremap <silent> [l :lprev<CR>
+nnoremap <silent> ]l :lnext<CR>
+nnoremap <silent> [<C-L> :lpfile<CR>
+nnoremap <silent> ]<C-L> :lnfile<CR>
+nnoremap <silent> [<M-L> :lolder<CR>
+nnoremap <silent> ]<M-L> :lnewer<CR>
 
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
 nnoremap \\<Del> :ClearLocationList<CR>
