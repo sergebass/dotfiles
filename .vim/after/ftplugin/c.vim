@@ -8,11 +8,37 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal autoindent
 
-" setlocal keywordprg=man
-setlocal keywordprg=:LspHover
+" use // for commenting with vim-commentary (C99+ supports them)
+setlocal commentstring=//\ %s
 
-" nnoremap <buffer> K :LspHover<CR>
-nmap <buffer> <CR>hh K
+" Only use valid C identifier characters
+setlocal iskeyword=@,48-57,_
+
+" we need that comment mark at the end since this on-hover function does not accept arguments but uses the word under cursor
+setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
+
+nmap <buffer> <Space>mhh K
+
+" do our formatting using clang-format and the '=' command
+setlocal equalprg=clang-format
+
+function! SwitchSourceHeader()
+  if (expand ("%:e") == "c")
+    return expand("%:t:r") . ".h"
+  else
+    return expand("%:t:r") . ".c"
+  endif
+endfunction
+
+" toggle between source and header
+" SPC m g a     open matching file (e.g. switch between .c and .h)
+nmap <buffer> <Space>mga :find <C-r>=SwitchSourceHeader()<CR><CR>
+" SPC m g A     open matching file in another window (e.g. switch between .c and .h)
+nmap <buffer> <Space>mgA :vert sfind <C-r>=SwitchSourceHeader()<CR><CR>
+
+" quicker shortcuts for source-header toggle
+nmap <buffer> \\` <Space>mga
+nmap <buffer> \\~ <Space>mgA
 
 nnoremap <buffer> <F1> :!xdg-open "https://en.cppreference.com/w/c"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "http://www.cplusplus.com/reference/clibrary/"<CR>
@@ -25,14 +51,9 @@ vnoremap <buffer> \\?1 "*y<Esc>:!xdg-open "https://en.cppreference.com/mwiki/ind
 nnoremap <buffer> \\?2 :!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>=expand("<cword>")<CR>"<Left>
 vnoremap <buffer> \\?2 "*y<Esc>:!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
 
-" toggle between source and header
-nmap <buffer> <CR>ga :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+nnoremap <buffer> <CR> :call LanguageClient#textDocument_definition()<CR>
+nmap <buffer> <Space>mgg <CR>
 
-nnoremap <buffer> <CR><CR> :LspDefinition<CR>
-nmap <buffer> <CR>gg <CR><CR>
+" SPC m D   disaster: disassemble c/c++ code
 
-" SPC m g a 	open matching file (e.g. switch between .cpp and .h)
-" SPC m g A 	open matching file in another window (e.g. switch between .cpp and .h)
-" SPC m D 	disaster: disassemble c/c++ code
-
-nnoremap <buffer> <CR>rr :LspRename<CR>
+nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>

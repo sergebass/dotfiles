@@ -8,13 +8,16 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal autoindent
 
-" Only use valid C++ identifier characters
-setlocal iskeyword=@,48-57,_
-
 " for some reason vim-commentary uses /* */ C-style commenting, but let's use // instead
 setlocal commentstring=//\ %s
 
-" setlocal keywordprg=man
+" Only use valid C++ identifier characters
+setlocal iskeyword=@,48-57,_
+
+" we need that comment mark at the end since this on-hover function does not accept arguments but uses the word under cursor
+setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
+
+nmap <buffer> <Space>mhh K
 
 " do our formatting using clang-format and the '=' command
 setlocal equalprg=clang-format
@@ -26,6 +29,16 @@ function! SwitchSourceHeader()
     return expand("%:t:r") . ".cpp"
   endif
 endfunction
+
+" toggle between source and header
+" SPC m g a     open matching file (e.g. switch between .cpp and .h)
+nmap <buffer> <Space>mga :find <C-r>=SwitchSourceHeader()<CR><CR>
+" SPC m g A     open matching file in another window (e.g. switch between .cpp and .h)
+nmap <buffer> <Space>mgA :vert sfind <C-r>=SwitchSourceHeader()<CR><CR>
+
+" quicker shortcuts for source-header toggle
+nmap <buffer> \\` <Space>mga
+nmap <buffer> \\~ <Space>mgA
 
 " Add highlighting for function definition in C++ (adapted from vim.fandom.com)
 highlight CppMethodDefinition term=inverse cterm=inverse gui=inverse
@@ -101,58 +114,55 @@ nnoremap <buffer> \\ds :call TermDebugSendCommand('backtrace')<CR>
 " Debugging keybindings from develop.spacemacs.org
 " ------------------------------------------------
 " SPC m d d d   start debugging
-nnoremap <buffer> <CR>ddd :Termdebug<CR>
+nnoremap <buffer> <Space>mddd :Termdebug<CR>
 " SPC m d d l   debug last configuration
 " SPC m d d r   debug recent configuration
 " SPC m d c     continue
-nnoremap <buffer> <CR>dc :Continue<CR>
+nnoremap <buffer> <Space>mdc :Continue<CR>
 " SPC m d i     step in
-nnoremap <buffer> <CR>di :Step<CR>
+nnoremap <buffer> <Space>mdi :Step<CR>
 " SPC m d o     step out
-nnoremap <buffer> <CR>do :Finish<CR>
+nnoremap <buffer> <Space>mdo :Finish<CR>
 " SPC m d s     next step
-nnoremap <buffer> <CR>ds :Over<CR>
+nnoremap <buffer> <Space>mds :Over<CR>
 " SPC m d v     inspect value at point
-nnoremap <buffer> <CR>dv :Evaluate<CR>
+nnoremap <buffer> <Space>mdv :Evaluate<CR>
 " SPC m d r     restart frame
 " SPC m d .     debug transient state
 " SPC m d a     abandon current session
 " SPC m d A     abandon all process
 " SPC m d e e   eval
-nnoremap <buffer> <CR>dee :Evaluate<Space>
+nnoremap <buffer> <Space>mdee :Evaluate<Space>
 " SPC m d e r   eval region
-vnoremap <buffer> <CR>der :Evaluate<CR>
+vnoremap <buffer> <Space>mder :Evaluate<CR>
 " SPC m d e t   eval value at point
-nnoremap <buffer> <CR>det :Evaluate<CR>
+nnoremap <buffer> <Space>mdet :Evaluate<CR>
 " SPC m d S s   switch session
 " SPC m d S t   switch thread
 " SPC m d S f   switch frame
 " SPC m d I i   inspect
-nnoremap <buffer> <CR>dIi :Evaluate<Space>
+nnoremap <buffer> <Space>mdIi :Evaluate<Space>
 " SPC m d I r   inspect region
-vnoremap <buffer> <CR>dIr :Evaluate<CR>
+vnoremap <buffer> <Space>mdIr :Evaluate<CR>
 " SPC m d I t   inspect value at point
-nnoremap <buffer> <CR>dIt :Evaluate<CR>
+nnoremap <buffer> <Space>mdIt :Evaluate<CR>
 " SPC m d b b   toggle a breakpoint
 " SPC m d b c   change breakpoint condition
 " SPC m d b l   change breakpoint log condition
 " SPC m d b h   change breakpoint hit count
 " SPC m d b a   add a breakpoint
-nnoremap <buffer> <CR>dba :Break<CR>
+nnoremap <buffer> <Space>mdba :Break<CR>
 " SPC m d b d   delete a breakpoint
-nnoremap <buffer> <CR>dbd :Clear<CR>
+nnoremap <buffer> <Space>mdbd :Clear<CR>
 " SPC m d b D   clear all breakpoints
 " SPC m d '_    Run debug REPL
 " SPC m d w l   list local variables
-nnoremap <buffer> <CR>dwl :call TermDebugSendCommand('info locals')<CR>
+nnoremap <buffer> <Space>mdwl :call TermDebugSendCommand('info locals')<CR>
 " SPC m d w o   goto output buffer if present
-nnoremap <buffer> <CR>dwo :Program<CR>
+nnoremap <buffer> <Space>mdwo :Program<CR>
 " SPC m d w s   list sessions
 " SPC m d w b   list breakpoints
-nnoremap <buffer> <CR>dwb :call TermDebugSendCommand('info breakpoints')<CR>
-
-" nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
-nmap <buffer> <CR>hh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <buffer> <Space>mdwb :call TermDebugSendCommand('info breakpoints')<CR>
 
 nnoremap <buffer> \\<F1> :!xdg-open "https://en.cppreference.com/w/cpp"<CR>
 
@@ -164,15 +174,10 @@ vnoremap <buffer> \\?1 "*y<Esc>:!xdg-open "https://en.cppreference.com/mwiki/ind
 nnoremap <buffer> \\?2 :!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>=expand("<cword>")<CR>"<Left>
 vnoremap <buffer> \\?2 "*y<Esc>:!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
 
-" toggle between source and header
-nmap <buffer> <CR>ga :find <C-r>=SwitchSourceHeader()<CR><CR>
-nmap <buffer> <CR>gA :vert sfind <C-r>=SwitchSourceHeader()<CR><CR>
+nnoremap <buffer> <CR> :call LanguageClient#textDocument_definition()<CR>
+nmap <buffer> <Space>mgg <CR>
 
-" nnoremap <buffer> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <buffer> <CR><CR> :call LanguageClient#textDocument_definition()<CR>
-nmap <buffer> <CR>gg <CR><CR>
-
-nnoremap <buffer> <CR>rr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
 
 " SPC m D   disaster: disassemble c/c++ code
 

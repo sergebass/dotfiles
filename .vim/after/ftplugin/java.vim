@@ -25,7 +25,7 @@ nnoremap <buffer> <M-F1> :!xdg-open "https://docs.oracle.com/javase/10/docs/api/
 setlocal keywordprg=:JavaDocPreview
 
 nnoremap <buffer> K :JavaDocPreview<CR>
-nmap <buffer> <CR>hh K
+nmap <buffer> <Space>mhh K
 
 " These are spacemacs keybindings for java mode: TODO incorporate them here...
 
@@ -68,10 +68,10 @@ nmap <buffer> <CR>hh K
 nnoremap <buffer> \\? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> Java API"<Left>
 vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* Java API"<Left>
 
-nnoremap <buffer> <CR>ff :LocateFile<CR>
+nnoremap <buffer> <Space>mff :LocateFile<CR>
 
 nnoremap <buffer> <CR><CR> :JavaSearchContext -a edit<CR>
-nmap <buffer> <CR>gg <CR><CR>
+nmap <buffer> <Space>mgg <CR><CR>
 
 " 3.1.4 Goto
 " M-,   jump back from go to declaration/definition
@@ -80,7 +80,7 @@ nmap <buffer> <CR>gg <CR><CR>
 
 " quickly search the word under cursor using eclim (Eclipse's Ctrl+Shift+G analog)
 nnoremap <buffer> \<CR> :JavaSearch -a edit -x all -s all -t all<CR>:cfirst<CR>
-nmap <buffer> <CR>hu \<CR>
+nmap <buffer> <Space>mhu \<CR>
 
 " search the word under cursor in external files (Java sources only,
 " ripgrep is assumed to be the underlying search engine)
@@ -123,17 +123,17 @@ noremap <buffer> \\mgs! :JavaGetSet!<CR>
 nnoremap <buffer> \\mi :JavaImpl<CR>
 nnoremap <buffer> \\md :JavaDelegate<CR>
 
-nnoremap <buffer> <CR>tt :JUnit<CR>
+nnoremap <buffer> <Space>mtt :JUnit<CR>
 nnoremap <buffer> \\T :JUnitFindTest<CR>
 
 nnoremap <buffer> \\1 :JavaCorrect<CR>
 
 " refactoring
-nnoremap <buffer> <CR>rm :JavaMove<Space>
-nnoremap <buffer> <CR>rr :JavaRename<Space>
-nnoremap <buffer> <CR>ru :RefactorUndo<CR>
-nnoremap <buffer> <CR>ri :JavaImportOrganize<CR>
-nnoremap <buffer> <CR>rf :%JavaFormat<CR>
+nnoremap <buffer> <Space>mrm :JavaMove<Space>
+nnoremap <buffer> <Space>mrr :JavaRename<Space>
+nnoremap <buffer> <Space>mru :RefactorUndo<CR>
+nnoremap <buffer> <Space>mri :JavaImportOrganize<CR>
+nnoremap <buffer> <Space>mrf :%JavaFormat<CR>
 
 " Eclim documentation page: http://eclim.org/vim/java/debug.html
 "

@@ -20,17 +20,17 @@ nnoremap <buffer> <M-F1> :!xdg-open "https://dev.w3.org/html5/html-author/"<CR>
 
 " shortcuts for language client/server use
 nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
-nmap <buffer> <CR>hh K
+nmap <buffer> <Space>mhh K
 
 nnoremap <buffer> <silent> <CR><CR> :call LanguageClient#textDocument_definition()<CR>
-nmap <buffer> <CR>gg :call LanguageClient#textDocument_definition()<CR>
+" SPC m g g 	jump to entity's definition
+nmap <buffer> <Space>mgg :call LanguageClient#textDocument_definition()<CR>
 
 nnoremap <buffer> <silent> <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " SPC m = 	reformat the buffer
 " SPC m g b 	jump back
-" SPC m g g 	jump to entity's definition
 " SPC m g t 	jump to entity's type definition
 " SPC m g u 	references
 " SPC m h h 	documentation at point

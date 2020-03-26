@@ -64,10 +64,6 @@ nnoremap <M-BS> g;
 nnoremap <Space><Space> :
 nnoremap <Space><Tab> <C-^>
 
-" make mode-specific mappings a bit shorter, use another big button as a prefix
-silent! unmap <CR>
-nmap <Space>m <CR>
-
 nnoremap <Space>h<Space> :h<CR>
 nnoremap <Space>? :Maps<CR>
 nnoremap <Space>hk :Maps<CR>
