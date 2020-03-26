@@ -69,6 +69,8 @@ nnoremap <Space>? :Maps<CR>
 nnoremap <Space>hk :Maps<CR>
 nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
+nnoremap <Space>\? :Commands<CR>
+
 nnoremap <Space>qq :qa<CR>
 nnoremap <Space>qQ :qa!<CR>
 
@@ -228,16 +230,16 @@ endif
 
 " use \ with numeric keys to simulate finctional keys,
 " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
-noremap <silent> \1 <F1>
-noremap <silent> \2 <F2>
-noremap <silent> \3 <F3>
-noremap <silent> \4 <F4>
-noremap <silent> \5 <F5>
-noremap <silent> \6 <F6>
-noremap <silent> \7 <F7>
-noremap <silent> \8 <F8>
-noremap <silent> \9 <F9>
-noremap <silent> \0 <F10>
+map \1 <F1>
+map \2 <F2>
+map \3 <F3>
+map \4 <F4>
+map \5 <F5>
+map \6 <F6>
+map \7 <F7>
+map \8 <F8>
+map \9 <F9>
+map \0 <F10>
 
 " navigation mappings
 
@@ -458,6 +460,7 @@ nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR> **<left><lef
 vnoremap \/ "*y<Esc>:grep -s "<C-r>*"<Left> **<left><left><left>
 
 " search the word under cursor on the web
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap \? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
 vnoremap \? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
 
