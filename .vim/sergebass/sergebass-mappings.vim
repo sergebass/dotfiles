@@ -243,17 +243,6 @@ noremap <silent> \8 <F8>
 noremap <silent> \9 <F9>
 noremap <silent> \0 <F10>
 
-noremap <silent> \\1 \<F1>
-noremap <silent> \\2 \<F2>
-noremap <silent> \\3 \<F3>
-noremap <silent> \\4 \<F4>
-noremap <silent> \\5 \<F5>
-noremap <silent> \\6 \<F6>
-noremap <silent> \\7 \<F7>
-noremap <silent> \\8 \<F8>
-noremap <silent> \\9 \<F9>
-noremap <silent> \\0 \<F10>
-
 " navigation mappings
 
 " Tab navigation (using Meta/Alt key)
@@ -386,20 +375,21 @@ nnoremap <silent> \px :CtrlPMixed<CR>
 
 " using NERDTree
 nnoremap <silent> \<Tab> :NERDTreeFind<CR>
-nnoremap <silent> \\<Tab> :NERDTreeToggle<CR>
+" nnoremap <silent> \<M-Tab> :NERDTreeToggle<CR>
 
-nnoremap <silent> \\\<Tab> :Lexplore<CR>
+" using netrw
+nnoremap <silent> \<M-Tab> :Lexplore<CR>
 
 nnoremap <silent> \fr :browse oldfiles<CR>
 nnoremap  \lf :LocateFiles<Space>
 nnoremap  \ff :FindFiles<Space>
 
 " local tag navigation
-nnoremap <silent> \<BS> :TagbarOpen fjc<CR>
-nnoremap <silent> \\<BS> :TagbarToggle<CR>
-nnoremap <silent> \\\<BS> :MinimapToggle<CR>
-
 nnoremap <silent> gO :TagbarOpen fjc<CR>
+
+nnoremap <silent> \<BS> :TagbarOpen fjc<CR>
+" nnoremap <silent> \<M-BS> :TagbarToggle<CR>
+nnoremap <silent> \<M-BS> :MinimapToggle<CR>
 
 " quickly close both quickfix and location list windows
 noremap <silent> \_ :lclose<CR>:cclose<CR>
@@ -428,7 +418,7 @@ nnoremap <silent> [<M-L> :lolder<CR>
 nnoremap <silent> ]<M-L> :lnewer<CR>
 
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
-nnoremap \\<Del> :ClearLocationList<CR>
+nnoremap \<M-Del> :ClearLocationList<CR>
 
 " quickly reselect just pasted text
 nnoremap <silent> gV `[v`]
@@ -440,18 +430,19 @@ vmap <M-i> <Plug>(wildfire-water)
 nmap <2-LeftMouse> <CR><CR>
 nmap <M-LeftMouse> gF
 
-" display the number of matches when using "*"
-nnoremap \* *<C-O>:%s///gn<CR>``
+" display the number of matches when using "*" and "#"
+nnoremap * *<C-O>:%s///gn<CR>``
+nnoremap # #<C-O>:%s///gn<CR>``
 
 " define a custom highlighting for the word under cursor or a selection
 " in the current buffer
-nnoremap \\* :match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
-vnoremap \\* "*y<Esc>:match SPCustomHighlight "<C-r>*"
+nnoremap \* :match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
+vnoremap \* "*y<Esc>:match SPCustomHighlight "<C-r>*"
 
 " define a custom highlighting for the word under cursor or a selection
 " in all open buffers
-nnoremap \\\* :bufdo match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
-vnoremap \\\* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
+" nnoremap \\\* :bufdo match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
+" vnoremap \\\* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
 
 " easily copy the word under cursor into the command line being edited
 nnoremap <M-CR> :<C-r>=expand("<cword>")<CR>
@@ -470,28 +461,17 @@ vnoremap \r "hy:.,$s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
-nnoremap <CR><CR> g<C-]>
-nmap <C-LeftMouse> <CR><CR>
+nnoremap <CR> g<C-]>
+nmap <C-LeftMouse> <CR>
 
 " default mappings for searching the word under cursor, auto-executed
 nmap \<CR> \/<CR>:copen<CR>
 vmap \<CR> \/<CR>:copen<CR>
 
-nmap \\<CR> \\/<CR>
-vmap \\<CR> \\/<CR>
-
 " search the word under cursor in external files (reference search)
-
-" a) using grep (always available)
 nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR> **<left><left><left>
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap \/ "*y<Esc>:grep -s "<C-r>*"<Left> **<left><left><left>
-
-" b) using ripgrep (rg)
-nnoremap \\/ :RgWords <C-r>=expand("<cword>")<CR>
-" Rg does not understand quotes, just paste the whole selected chunk as is
-" FIXME parentheses need proper quoted to work
-vnoremap \\/ "*y<Esc>:RgWords <C-r>*
 
 " search the word under cursor on the web
 nnoremap \? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
@@ -521,9 +501,9 @@ vnoremap \wl :<C-w>RemoveSelectedMultipleBlankLines<CR>
 nnoremap \ww :retab<CR>:RemoveAllMultipleBlankLines<CR>:RemoveAllRedundantWhitespace<CR>
 vnoremap \ww :retab<CR><Esc>gv:<C-w>RemoveSelectedMultipleBlankLines<CR><Esc>gv:<C-w>RemoveSelectedRedundantWhitespace<CR>
 
-" a quicker way to spellcheck the document (do not complete the command on purpose, to be able to change language if needed)
-noremap \~ :setlocal spell spelllang=en_us
-noremap \\~ :setlocal nospell<CR>
+" spell check the document (do not complete the command on purpose, to be able to change language if needed)
+noremap <Space>Sb :setlocal spell spelllang=en_us
+noremap <Space>tS :setlocal nospell<CR>
 
 " quick ways to switch between light and dark themes
 nnoremap \tl :colorscheme sergebass-light<CR>
@@ -547,8 +527,3 @@ nnoremap <silent> \gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> \gO :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <silent> <M-\> :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> <M-/> :call LanguageClient#textDocument_references()<CR>
-
-" shortcuts for language client/server use (vim-lsp plugin)
-nnoremap \\K :LspHover<CR>
-nnoremap \\gd :LspDefinition<CR>
-nnoremap \\<F2> :LspRename<CR>
