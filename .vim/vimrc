@@ -151,6 +151,9 @@ let g:LanguageClient_autoStart = 1
 
 let g:LanguageClient_diagnosticsList = "Location"
 
+" Install Rust language server using a command like:
+" $ rustup component add rls --toolchain stable-x86_64-unknown-linux-gnu
+" (adjust toolchain accordingly)
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
     \ 'purescript': ['purescript-language-server', '--stdio'],

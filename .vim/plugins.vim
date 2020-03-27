@@ -84,7 +84,7 @@ endif
 " Plug 'idris-hackers/idris-vim'
 " Plug 'derekwyatt/vim-scala'
 " Plug 'lyuts/vim-rtags'
-" Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 " Plug 'Quramy/tsuquyomi'
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'PProvost/vim-ps1'
