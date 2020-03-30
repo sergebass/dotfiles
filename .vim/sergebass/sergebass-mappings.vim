@@ -247,6 +247,10 @@ map \0 <F10>
 nnoremap <silent> <M-[> :tabprev<CR>
 nnoremap <silent> <M-]> :tabnext<CR>
 
+" a quicker way to move tabs around
+nnoremap <silent> <M-{> :tabmove-<CR>
+nnoremap <silent> <M-}> :tabmove+<CR>
+
 " move between windows (without arrows)
 nnoremap <silent> <M-h> <C-w>h
 nnoremap <silent> <M-l> <C-w>l
@@ -326,11 +330,7 @@ nnoremap <silent> <Space><PageUp> :tabprev<CR>
 nnoremap <silent> <Space><PageDown> :tabnext<CR>
 
 " allow user to choose where to move the tab (empty input causes it to move to the very end)
-nnoremap <Space>\ :tabmove<Space>
-
-" quicker way to move tabs
-noremap <silent> <M-{> :tabmove-<CR>
-noremap <silent> <M-}> :tabmove+<CR>
+nnoremap <Space>\<BS> :tabmove<Space>
 
 " resize current window in increments of 4 rows/columns
 noremap <silent> <M-<> 4<C-w><
