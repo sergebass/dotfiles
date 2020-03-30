@@ -470,7 +470,7 @@ nnoremap <Space>sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent
 vnoremap <Space>sB "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
 
 " search the word under cursor and replace it with another text
-nnoremap \' :FindAndReplace <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
+nnoremap \% :FindAndReplace <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
 
 " autocompletion like in many IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
