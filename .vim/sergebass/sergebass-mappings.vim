@@ -508,7 +508,7 @@ let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " shortcuts for language client/server use (LanguageClient plugin)
-nnoremap <silent> <F12> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> \<Bar> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> \K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> \gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> \gO :call LanguageClient#textDocument_documentSymbol()<CR>
