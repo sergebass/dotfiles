@@ -1,8 +1,7 @@
-""" ------------------------------
-""" IDRIS-SPECIFIC CONFIGURATION
-""" ------------------------------
+""" --------------------------------
+""" Idris-specific vim configuration
+""" --------------------------------
 
-" I don't like tabs, use spaces throughout
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
@@ -11,6 +10,7 @@ setlocal autoindent
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 " setlocal makeprg=stack\ build
 
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap <buffer> <F1> :!xdg-open "https://www.idris-lang.org/documentation/"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "http://docs.idris-lang.org/en/latest/"<CR>
 
@@ -23,3 +23,13 @@ vnoremap <buffer> \\? "*y<Esc>:!xdg-open "http://docs.idris-lang.org/en/latest/s
 " nnoremap <buffer> \\st :!stack test<CR>
 " nnoremap <buffer> \\si :!stack install<CR>
 " nnoremap <buffer> \\sr :term stack repl<CR>
+
+" -----------------------------------------------------------------------------
+" Apply workspace-specific Idris settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-idris.vim"))
+    source ~/.workspace-idris.vim
+endif

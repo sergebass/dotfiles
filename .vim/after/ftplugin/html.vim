@@ -1,11 +1,17 @@
-""" ---------------------------
-""" HTML-SPECIFIC CONFIGURATION
-""" ---------------------------
+""" -------------------------------
+""" HTML-specific vim configuration
+""" -------------------------------
+
+setlocal expandtab
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal autoindent
 
 " TODO find relevant utilities to do formatting and quick lookup:
 "setlocal equalprg=html-tidy
 "setlocal keywordprg=hoogle
 
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/tags/default.asp"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://dev.w3.org/html5/html-author/"<CR>
 
@@ -51,3 +57,13 @@ nnoremap <buffer> \\v :Validate<CR>
 " SPC m g h 	quickly navigate CSS rules using helm
 " SPC m z c 	fold css statement to one line
 " SPC m z o 	unfold css statement to one line
+
+" -----------------------------------------------------------------------------
+" Apply workspace-specific HTML settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-html.vim"))
+    source ~/.workspace-html.vim
+endif

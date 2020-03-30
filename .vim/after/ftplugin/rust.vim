@@ -12,6 +12,7 @@ setlocal autoindent
 " setlocal makeprg=cargo
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 " nnoremap <buffer> <F1> :!xdg-open "https://haskell.org/hoogle/"<CR>
 " nnoremap <buffer> <M-F1> :!xdg-open "https://www.stackage.org"<CR>
 
@@ -29,15 +30,12 @@ nnoremap <buffer> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <buffer> gO :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <buffer> <C-N> :call LanguageClient#textDocument_documentSymbol()<CR>
 
-" LanguageClient#textDocument_typeDefinition()
-" LanguageClient#textDocument_implementation()
-" LanguageClient#textDocument_codeAction()
-" LanguageClient#textDocument_completion()
-" LanguageClient#textDocument_formatting()
-" LanguageClient#textDocument_rangeFormatting()
-" LanguageClient#textDocument_documentHighlight()
-" LanguageClient#clearDocumentHighlight()
-" LanguageClient#workspace_symbol()
-" LanguageClient#workspace_applyEdit()
-" LanguageClient#workspace_()
-" LanguageClient#workspace_()
+" -----------------------------------------------------------------------------
+" Apply workspace-specific Rust settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-rust.vim"))
+    source ~/.workspace-rust.vim
+endif

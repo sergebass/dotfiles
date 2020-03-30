@@ -1,13 +1,13 @@
-""" -------------------------------
-""" MARKDOWN-SPECIFIC CONFIGURATION
-""" -------------------------------
+""" -----------------------------------
+""" Markdown-specific vim configuration
+""" -----------------------------------
 
-" I don't like tabs, use spaces throughout
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal autoindent
 
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap <buffer> <F1> :!xdg-open "https://markdown-guide.readthedocs.io/en/latest/basics.html"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://daringfireball.net/projects/markdown/syntax"<CR>
 
@@ -86,3 +86,13 @@ nnoremap <buffer> <M-F1> :!xdg-open "https://daringfireball.net/projects/markdow
 " M-j 	markdown-move-down
 " M-h 	markdown-promote
 " M-l 	markdown-demote
+
+" -----------------------------------------------------------------------------
+" Apply workspace-specific Markdown settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-markdown.vim"))
+    source ~/.workspace-markdown.vim
+endif

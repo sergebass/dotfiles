@@ -100,10 +100,12 @@ nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
 " SPC m r i     organize includes
 
 " Note: semantic-refactor is only available for Emacs 24.4+.
+"
 " 3.1 Formatting (clang-format)
 " Key binding   Description
 " SPC m = =     format current region or buffer
 " SPC m = f     format current function
+"
 " 3.2 RTags
 " Key binding   Description
 " SPC m g .     find symbol at point
@@ -135,13 +137,16 @@ nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
 " SPC m g V     print enum value at point
 " SPC m g X     fix fixit at point
 " SPC m g Y     cycle overlays on screen
+"
 " 3.3 cquery / ccls
 
 " The key bindings listed below are in addition to the default key bindings defined by the LSP layer. A [ccls] or [cquery] suffix indicates that the binding is for the indicated backend only.
+"
 " 3.3.1 backend (language server)
 " Key binding   Description
 " SPC m b f     refresh index (e.g. after branch change)
 " SPC m b p     preprocess file
+"
 " 3.3.2 goto
 " Key binding   Description
 " SPC m g &     find references (address)
@@ -169,7 +174,7 @@ nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
 "     SPC m g m v   member variables [ccls]
 
 " -----------------------------------------------------------------------------
-" apply workspace-specific C++ settings, if available;
+" Apply workspace-specific C++ settings, if available;
 " this is placed at the end to make sure workspace configuration takes priority
 " and possibly overrides our stock mappings (including the above)
 " -----------------------------------------------------------------------------

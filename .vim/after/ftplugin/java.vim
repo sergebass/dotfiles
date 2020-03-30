@@ -1,6 +1,6 @@
-""" ---------------------------
-""" JAVA-SPECIFIC CONFIGURATION
-""" ---------------------------
+""" -------------------------------
+""" Java-specific vim configuration
+""" -------------------------------
 
 runtime! sergebass/sergebass-eclim.vim
 
@@ -19,6 +19,7 @@ setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\
 " 
 "     g:EclimJavaDebugStatusWinHeight (Default: 10) Sets the window height for the splits inside the debug status window. This is only applicable when the orientation is vertical.
  
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://docs.oracle.com/javase/10/docs/api/index.html"<CR>
 
@@ -204,3 +205,13 @@ iabbrev <buffer> __apache import static org.apache.commons.collections.Collectio
 
 iabbrev <buffer> __guava import static com.google.common.base.Preconditions.*;<CR>
                         \import static com.google.common.collect.Collections2.*;<CR>
+
+" -----------------------------------------------------------------------------
+" Apply workspace-specific Java settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-java.vim"))
+    source ~/.workspace-java.vim
+endif

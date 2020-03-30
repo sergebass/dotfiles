@@ -1,8 +1,7 @@
-""" ------------------------------
-""" HASKELL-SPECIFIC CONFIGURATION
-""" ------------------------------
+""" ----------------------------------
+""" Haskell-specific vim configuration
+""" ----------------------------------
 
-" I don't like tabs, use spaces throughout
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
@@ -11,6 +10,7 @@ setlocal autoindent
 setlocal keywordprg=stack\ hoogle\ --\ --count=100
 setlocal makeprg=stack\ build
 
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap <buffer> <F1> :!xdg-open "https://haskell.org/hoogle/"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://www.stackage.org"<CR>
 
@@ -130,3 +130,13 @@ nnoremap <buffer> \\sr :term stack repl<CR>
 " SPC m m p 	go to previous type hole
 " SPC m m > 	make indent deeper
 " SPC m m < 	make indent shallower
+
+" -----------------------------------------------------------------------------
+" Apply workspace-specific Haskell settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-haskell.vim"))
+    source ~/.workspace-haskell.vim
+endif

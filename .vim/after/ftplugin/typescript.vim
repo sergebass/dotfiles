@@ -1,8 +1,7 @@
-""" ---------------------------------
-""" TYPESCRIPT-SPECIFIC CONFIGURATION
-""" ---------------------------------
+""" -------------------------------------
+""" Typescript-specific vim configuration
+""" -------------------------------------
 
-" I don't like tabs, use spaces throughout
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
@@ -11,6 +10,7 @@ setlocal autoindent
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 setlocal makeprg=tsc
 
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap <buffer> <F1> :!xdg-open "https://www.typescriptlang.org/docs/home.html"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://dev.w3.org/html5/html-author/"<CR>
 
@@ -37,3 +37,13 @@ nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " SPC m r r 	rename symbol
 " SPC m s p 	send selected region or current buffer to the web playground
 " SPC m S r 	restart server
+
+" -----------------------------------------------------------------------------
+" Apply workspace-specific Typescript settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-typescript.vim"))
+    source ~/.workspace-typescript.vim
+endif

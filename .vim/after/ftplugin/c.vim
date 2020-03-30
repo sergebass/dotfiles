@@ -41,6 +41,7 @@ nmap <buffer> <Space>mgA :vert sfind <C-r>=SwitchSourceHeader()<CR><CR>
 nmap <buffer> \\` <Space>mga
 nmap <buffer> \\~ <Space>mgA
 
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap <buffer> <F1> :!xdg-open "https://en.cppreference.com/w/c"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "http://www.cplusplus.com/reference/clibrary/"<CR>
 
@@ -58,3 +59,18 @@ nmap <buffer> <Space>mgg <CR>
 " SPC m D   disaster: disassemble c/c++ code
 
 nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
+
+nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <buffer> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <buffer> gO :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <buffer> <C-N> :call LanguageClient#textDocument_documentSymbol()<CR>
+
+" -----------------------------------------------------------------------------
+" Apply workspace-specific C settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-c.vim"))
+    source ~/.workspace-c.vim
+endif

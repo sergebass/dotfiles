@@ -1,8 +1,7 @@
-""" ---------------------------------
-""" JAVASCRIPT-SPECIFIC CONFIGURATION
-""" ---------------------------------
+""" -------------------------------------
+""" Javascript-specific vim configuration
+""" -------------------------------------
 
-" I don't like tabs, use spaces throughout
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
@@ -27,6 +26,7 @@ command! -bang -nargs=* AgId
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap <buffer> <F1> :!xdg-open "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference"<CR>
 nnoremap <buffer> <M-F1> :!xdg-open "https://dev.w3.org/html5/html-author/"<CR>
 
@@ -122,3 +122,13 @@ nnoremap <buffer> <M-F1> :!xdg-open "https://dev.w3.org/html5/html-author/"<CR>
 " SPC m s r 	send current region to the skewer REPL
 " SPC m s R 	send current region to the skewer REPL and switch to it in insert state
 " SPC m s s 	switch to REPL
+
+" -----------------------------------------------------------------------------
+" Apply workspace-specific Javascript settings, if available;
+" this is placed at the end to make sure workspace configuration takes priority
+" and possibly overrides our stock mappings (including the above)
+" -----------------------------------------------------------------------------
+
+if filereadable(expand("~/.workspace-javascript.vim"))
+    source ~/.workspace-javascript.vim
+endif
