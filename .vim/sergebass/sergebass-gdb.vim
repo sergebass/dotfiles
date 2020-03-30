@@ -14,27 +14,31 @@ let termdebugger = "gdb"
 " let g:termdebug_wide = 163
 
 " :Run [args]      run the program with [args] or the previous arguments
-nnoremap <buffer> \<F5> :Run<CR>
+nnoremap <buffer> <F12> :Run<CR>
 " :Arguments {args}  set arguments for the next `:Run`
-" :Stop    interrupt the program
-nnoremap <buffer> \<F10> :Stop<CR>
 
 " (the shortcuts for quick navigation between debugger, program output and source during debugging
 " are defined in the main mapping file)
 
 " :Break " set a breakpoint at the current line; a sign will be displayed
 nnoremap <buffer> \\' :Break<CR>
+nnoremap <buffer> <F9> :Break<CR>
 " :Clear " delete the breakpoint at the current line
 nnoremap <buffer> \\" :Clear<CR>
+nnoremap <buffer> <F10> :Clear<CR>
 
-" :Step    execute the gdb "step" command
-nnoremap <buffer> <M-;> :Step<CR>
 " :Over    execute the gdb "next" command (`:Next` is a Vim command)
-nnoremap <buffer> <M-'> :Over<CR>
+nnoremap <buffer> <M-;> :Over<CR>
+nnoremap <buffer> <F5> :Over<CR>
+" :Step    execute the gdb "step" command
+nnoremap <buffer> <M-'> :Step<CR>
+nnoremap <buffer> <F6> :Step<CR>
 " :Finish  execute the gdb "finish" command
-nnoremap <buffer> <M-,> :Finish<CR>
+nnoremap <buffer> <M-"> :Finish<CR>
+nnoremap <buffer> <F7> :Finish<CR>
 " :Continue    execute the gdb "continue" command
-nnoremap <buffer> <M-.> :Continue<CR>
+nnoremap <buffer> <M-:> :Continue<CR>
+nnoremap <buffer> <F8> :Continue<CR>
 
 " :Evaluate
 " :'<,'>Evaluate` "evaluate the Visually selected text
@@ -88,6 +92,7 @@ vnoremap <buffer> <Space>mdIr :Evaluate<CR>
 " SPC m d I t   inspect value at point
 nnoremap <buffer> <Space>mdIt :Evaluate<CR>
 " SPC m d b b   toggle a breakpoint
+nnoremap <buffer> <Space>mdbb :Break<CR>
 " SPC m d b c   change breakpoint condition
 " SPC m d b l   change breakpoint log condition
 " SPC m d b h   change breakpoint hit count
@@ -104,4 +109,3 @@ nnoremap <buffer> <Space>mdwo :Program<CR>
 " SPC m d w s   list sessions
 " SPC m d w b   list breakpoints
 nnoremap <buffer> <Space>mdwb :call TermDebugSendCommand('info breakpoints')<CR>
-
