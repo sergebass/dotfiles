@@ -1,8 +1,9 @@
-""" -------------------------------
-""" C-SPECIFIC CONFIGURATION
-""" -------------------------------
+""" ----------------------------
+""" C-specific vim configuration
+""" ----------------------------
 
-" I don't like tabs, use spaces throughout
+runtime! sergebass/sergebass-gdb.vim
+
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4

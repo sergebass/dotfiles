@@ -1,8 +1,9 @@
-""" -------------------------------
-""" C++-SPECIFIC CONFIGURATION
-""" -------------------------------
+""" ------------------------------
+""" C++-specific vim configuration
+""" ------------------------------
 
-" I don't like tabs, use spaces throughout
+runtime! sergebass/sergebass-gdb.vim
+
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
@@ -53,117 +54,7 @@ autocmd Syntax cpp call EnhanceCppSyntax()
 nnoremap <silent> <C-j> /\v^(\w+\s+)?\w+::\w+\(.*\)<CR>
 nnoremap <silent> <C-k> ?\v^(\w+\s+)?\w+::\w+\(.*\)<CR>
 
-" FIXME should this be in global configuration instead?
-" This is a new feature in vim to better integrate with gdb
-packadd termdebug
-
-" Use gdb as our debugger
-let termdebugger = "gdb"
-
-" FIXME should this be in global configuration instead?
-" FIXME configure this:
-" let g:termdebug_wide = 163
-
-" start debugging session
-nnoremap <buffer> \<F9> :Termdebug<CR>
-" :Run [args]      run the program with [args] or the previous arguments
-nnoremap <buffer> \<F5> :Run<CR>
-" :Arguments {args}  set arguments for the next `:Run`
-" :Stop    interrupt the program
-nnoremap <buffer> \<F10> :Stop<CR>
-
-" (the shortcuts for quick navigation between debugger, program output and source during debugging
-" are defined in the main mapping file)
-
-" :Break " set a breakpoint at the current line; a sign will be displayed
-nnoremap <buffer> <F9> :Break<CR>
-" :Clear " delete the breakpoint at the current line
-nnoremap <buffer> <F10> :Clear<CR>
-
-" :Step    execute the gdb "step" command
-nnoremap <buffer> <F5> :Step<CR>
-tnoremap <F5> step<CR>
-" :Over    execute the gdb "next" command (`:Next` is a Vim command)
-nnoremap <buffer> <F6> :Over<CR>
-tnoremap <F6> next<CR>
-" :Finish  execute the gdb "finish" command
-nnoremap <buffer> <F7> :Finish<CR>
-tnoremap <F7> finish<CR>
-" :Continue    execute the gdb "continue" command
-nnoremap <buffer> <F8> :Continue<CR>
-tnoremap <F8> continue<CR>
-
-" :Evaluate (or just plain K)
-" :'<,'>Evaluate` "evaluate the Visually selected text
-nnoremap <buffer> <F1> :Evaluate<CR>
-vnoremap <buffer> <F1> :Evaluate<CR>
-nnoremap <buffer> <RightMouse> :Evaluate<CR>
-tnoremap <F1> print<Space>
-
-nnoremap <buffer> \<F1> :Evaluate<Space>
-tnoremap \<F1> print<Space>
-
-nnoremap <buffer> \\dt :call TermDebugSendCommand('info threads')<CR>
-nnoremap <buffer> \\dl :call TermDebugSendCommand('info locals')<CR>
-nnoremap <buffer> \\db :call TermDebugSendCommand('info breakpoints')<CR>
-nnoremap <buffer> \\dr :call TermDebugSendCommand('info registers')<CR>
-nnoremap <buffer> \\df :call TermDebugSendCommand('frame')<CR>
-nnoremap <buffer> \\ds :call TermDebugSendCommand('backtrace')<CR>
-
-
-" Debugging keybindings from develop.spacemacs.org
-" ------------------------------------------------
-" SPC m d d d   start debugging
-nnoremap <buffer> <Space>mddd :Termdebug<CR>
-" SPC m d d l   debug last configuration
-" SPC m d d r   debug recent configuration
-" SPC m d c     continue
-nnoremap <buffer> <Space>mdc :Continue<CR>
-" SPC m d i     step in
-nnoremap <buffer> <Space>mdi :Step<CR>
-" SPC m d o     step out
-nnoremap <buffer> <Space>mdo :Finish<CR>
-" SPC m d s     next step
-nnoremap <buffer> <Space>mds :Over<CR>
-" SPC m d v     inspect value at point
-nnoremap <buffer> <Space>mdv :Evaluate<CR>
-" SPC m d r     restart frame
-" SPC m d .     debug transient state
-" SPC m d a     abandon current session
-" SPC m d A     abandon all process
-" SPC m d e e   eval
-nnoremap <buffer> <Space>mdee :Evaluate<Space>
-" SPC m d e r   eval region
-vnoremap <buffer> <Space>mder :Evaluate<CR>
-" SPC m d e t   eval value at point
-nnoremap <buffer> <Space>mdet :Evaluate<CR>
-" SPC m d S s   switch session
-" SPC m d S t   switch thread
-" SPC m d S f   switch frame
-" SPC m d I i   inspect
-nnoremap <buffer> <Space>mdIi :Evaluate<Space>
-" SPC m d I r   inspect region
-vnoremap <buffer> <Space>mdIr :Evaluate<CR>
-" SPC m d I t   inspect value at point
-nnoremap <buffer> <Space>mdIt :Evaluate<CR>
-" SPC m d b b   toggle a breakpoint
-" SPC m d b c   change breakpoint condition
-" SPC m d b l   change breakpoint log condition
-" SPC m d b h   change breakpoint hit count
-" SPC m d b a   add a breakpoint
-nnoremap <buffer> <Space>mdba :Break<CR>
-" SPC m d b d   delete a breakpoint
-nnoremap <buffer> <Space>mdbd :Clear<CR>
-" SPC m d b D   clear all breakpoints
-" SPC m d '_    Run debug REPL
-" SPC m d w l   list local variables
-nnoremap <buffer> <Space>mdwl :call TermDebugSendCommand('info locals')<CR>
-" SPC m d w o   goto output buffer if present
-nnoremap <buffer> <Space>mdwo :Program<CR>
-" SPC m d w s   list sessions
-" SPC m d w b   list breakpoints
-nnoremap <buffer> <Space>mdwb :call TermDebugSendCommand('info breakpoints')<CR>
-
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
 nnoremap <buffer> \\<F1> :!xdg-open "https://en.cppreference.com/w/cpp"<CR>
 
 " search the word under cursor in cppreference.com reference (using browser)

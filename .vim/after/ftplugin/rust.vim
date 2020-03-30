@@ -1,6 +1,8 @@
-""" ------------------------------
-""" RUST-SPECIFIC CONFIGURATION
-""" ------------------------------
+""" -------------------------------
+""" Rust-specific vim configuration
+""" -------------------------------
+
+runtime! sergebass/sergebass-gdb.vim
 
 setlocal expandtab
 setlocal tabstop=4
