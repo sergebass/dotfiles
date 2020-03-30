@@ -512,5 +512,5 @@ nnoremap <silent> \<Bar> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> \K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> \gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> \gO :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> <M-\> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <M-/> :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> \= :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> \^ :call LanguageClient#textDocument_references()<CR>
