@@ -294,10 +294,6 @@ nnoremap <silent> <C-k> [m
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
 nnoremap <Space>w <C-w>
 
-" a quicker way to hide and maximize windows
-noremap <silent> + <C-w>o
-noremap <silent> _ <C-w>c
-
 " move between windows (spacemacs space prefix, with arrows)
 nnoremap <silent> <Space><Left> <C-w>h
 nnoremap <silent> <Space><Right> <C-w>l
@@ -410,8 +406,8 @@ nnoremap \<M-Del> :ClearLocationList<CR>
 nnoremap <silent> gV `[v`]
 
 " This selects the next and the previous closest text object.
-map <M-o> <Plug>(wildfire-fuel)
-vmap <M-i> <Plug>(wildfire-water)
+map + <Plug>(wildfire-fuel)
+vmap _ <Plug>(wildfire-water)
 
 nmap <2-LeftMouse> <CR><CR>
 nmap <M-LeftMouse> gF
