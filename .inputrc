@@ -24,6 +24,9 @@ $if Gdb
 # <F5>
 "\e[15~": "next\n"
 
+# <M-:>
+"\e:": "nexti\n"
+
 # <M-'>
 "\e'": "step\n"
 
@@ -31,13 +34,16 @@ $if Gdb
 "\e[17~": "step\n"
 
 # <M-">
-"\e\"": "finish\n"
+"\e\"": "stepi\n"
+
+# <M-,>
+"\e,": "finish\n"
 
 # <F7>
 "\e[18~": "finish\n"
 
-# <M-:>
-"\e:": "continue\n"
+# <M-.>
+"\e.": "continue\n"
 
 # <F8>
 "\e[19~": "continue\n"

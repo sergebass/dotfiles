@@ -34,10 +34,10 @@ nnoremap <buffer> <F5> :Over<CR>
 nnoremap <buffer> <M-'> :Step<CR>
 nnoremap <buffer> <F6> :Step<CR>
 " :Finish  execute the gdb "finish" command
-nnoremap <buffer> <M-"> :Finish<CR>
+nnoremap <buffer> <M-,> :Finish<CR>
 nnoremap <buffer> <F7> :Finish<CR>
 " :Continue    execute the gdb "continue" command
-nnoremap <buffer> <M-:> :Continue<CR>
+nnoremap <buffer> <M-.> :Continue<CR>
 nnoremap <buffer> <F8> :Continue<CR>
 
 " :Evaluate
@@ -52,7 +52,6 @@ nnoremap <buffer> \\db :call TermDebugSendCommand('info breakpoints')<CR>
 nnoremap <buffer> \\dr :call TermDebugSendCommand('info registers')<CR>
 nnoremap <buffer> \\df :call TermDebugSendCommand('frame')<CR>
 nnoremap <buffer> \\ds :call TermDebugSendCommand('backtrace')<CR>
-
 
 " Debugging keybindings from develop.spacemacs.org
 " ------------------------------------------------
