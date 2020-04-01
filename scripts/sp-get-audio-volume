@@ -1,2 +1,2 @@
 #!/bin/sh
-pactl list sinks | grep '^[[:space:]]Volume:' | sed -e 's,.* \([0-9][0-9]*%\).*,\1,' | tr '\n' ' ' | xargs
+pactl list sinks | egrep 'Mute:|^[[:space:]]Volume:' | sed -e 's/Mute: yes$/×/' -e 's/Mute: no//' -e 's,.* \([0-9][0-9]*%\).*,\1,' | tr -d '\n' | xargs echo -n

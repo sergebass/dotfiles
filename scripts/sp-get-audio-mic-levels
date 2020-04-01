@@ -1,2 +1,2 @@
 #!/bin/sh
-pactl list sources | grep '^[[:space:]]Volume:' | sed -e 's,.* \([0-9][0-9]*%\).*,\1,' | tr '\n' ' ' | xargs echo -n
+pactl list sources | egrep 'Mute:|^[[:space:]]Volume:' | sed -e 's/Mute: yes$/×/' -e 's/Mute: no/!!/' -e 's,.* \([0-9][0-9]*%\).*,\1,' | tr -d '\n' | xargs echo -n
