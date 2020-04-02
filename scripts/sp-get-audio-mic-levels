@@ -1,2 +1,19 @@
-#!/bin/sh
-pactl list sources | egrep 'Mute:|^[[:space:]]Volume:' | sed -e 's/Mute: yes$/×/' -e 's/Mute: no/!!/' -e 's,.* \([0-9][0-9]*%\).*,\1,' | tr -d '\n' | xargs echo -n
+#!/usr/bin/env bash
+
+os=$(uname)
+
+if [ "$os" == "Linux" ]; then
+    # FIXME detect if PulseAudio is indeed running, else fall back on ALSA
+    pactl list sources | egrep 'Mute:|^[[:space:]]Volume:' | sed -e 's/Mute: yes$/×/' -e 's/Mute: no/!!/' -e 's,.* \([0-9][0-9]*%\).*,\1,' | tr -d '\n' | xargs echo -n
+elif [ "$os" == "FreeBSD" ]; then
+    # mixer vol
+    echo "--"
+elif [ "$os" == "Darwin" ]; then
+    echo "--"
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    echo "--"
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+    echo "--"
+else
+    echo "--"
+fi
