@@ -9,7 +9,7 @@ elif [ "$os" == "FreeBSD" ]; then
     # mixer vol
     echo "--"
 elif [ "$os" == "Darwin" ]; then
-    echo "--"
+    echo "$(osascript -e 'input volume of (get volume settings)')%"
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
     echo "--"
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
