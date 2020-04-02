@@ -6,7 +6,7 @@ if [ "$os" == "Linux" ]; then
     # FIXME detect if PulseAudio is indeed running, else fall back on ALSA
     pactl list sinks | egrep 'Mute:|^[[:space:]]Volume:' | sed -e 's/Mute: yes$/×/' -e 's/Mute: no//' -e 's,.* \([0-9][0-9]*%\).*,\1,' | tr -d '\n' | xargs echo -n
 elif [ "$os" == "FreeBSD" ]; then
-    mixer vol
+    echo "$(mixer vol | cut -w -f 7-8)%"
 elif [ "$os" == "Darwin" ]; then
     echo -n "$(osascript -e 'output muted of (get volume settings)' | sed -e 's/true/×/' -e 's/false//')"
     echo "$(osascript -e 'output volume of (get volume settings)')%"
