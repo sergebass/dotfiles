@@ -32,8 +32,8 @@ Config {
        \<action=`x-terminal-emulator -e nmtui`>⇅ %dynnetwork% %wlo1wi%</action> │ \
        \<action=`xbacklight -set 100`>%backlight%</action> │ \
        \<action=`pavucontrol`><fc=#FF0000>●</fc> %micLevels%</action> \
-       \<action=`pavucontrol`><fc=#FFFF00>♪</fc> %volume%</action> \
-       \<action=`mpc | head -1 | xmessage -geometry 1280x100 -nearmouse -file -`><fc=#aaaaff>%music%</fc></action> │ \
+       \<action=`pavucontrol`><fc=#FFFF00>▶</fc> %volume%</action> \
+       \<action=`mpc | head -1 | xmessage -geometry 1280x100 -nearmouse -file -`><fc=#00FFFF>♪</fc><fc=#aaaaff>%music%</fc></action> │ \
        \<action=`x-terminal-emulator -e xev`>%kbd%</action> │ \
        \<action=`orage`>%date%</action> │ \
        \<action=`battery-graph`><fc=#00FFFF>⚡</fc> %battery%</action>"
