@@ -8,6 +8,7 @@ if [ "$os" == "Linux" ]; then
 elif [ "$os" == "FreeBSD" ]; then
     mixer vol
 elif [ "$os" == "Darwin" ]; then
+    echo -n "$(osascript -e 'output muted of (get volume settings)' | sed -e 's/true/×/' -e 's/false//')"
     echo "$(osascript -e 'output volume of (get volume settings)')%"
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
     echo "--"
