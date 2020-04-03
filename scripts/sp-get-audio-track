@@ -2,18 +2,35 @@
 
 import subprocess
 
+MPC_CLIENT = "mpc"
 PREFIX_LENGTH = 30
 SUFFIX_LENGTH = 1
 SEPARATOR = ".."
 ERROR_OUTPUT = "--"
 
 def get_status_information() -> str:
-    process = subprocess.run(["mpc"], stdout=subprocess.PIPE)
+    process = subprocess.run([MPC_CLIENT], stdout=subprocess.PIPE)
     output_lines = process.stdout.decode().strip().split("\n")
     return output_lines[1] if process.returncode == 0 and len(output_lines) > 1 else ERROR_OUTPUT
 
+def get_playback_information() -> str:
+    status_fields = get_status_information().split(" ");
+    return status_fields[0] if len(status_fields) > 0 else ""
+
+def get_playback_code() -> str:
+    playback_status = get_playback_information();
+    if playback_status == "[playing]":
+        return ""
+    elif playback_status == "[paused]":
+        return "‖"
+    else:
+        return "■"
+
+    status_fields = get_status_information().split(" ");
+    return status_fields[0] if len(status_fields) > 0 else ""
+
 def get_song_information() -> str:
-    process = subprocess.run(["mpc", "-f", "[%title% ][@%name%]", "current"], stdout=subprocess.PIPE)
+    process = subprocess.run([MPC_CLIENT, "-f", "[%title% ][@%name%]", "current"], stdout=subprocess.PIPE)
     output = process.stdout.decode().strip() if process.returncode == 0 else ""
 
     if (len(output) > PREFIX_LENGTH + SUFFIX_LENGTH + len(SEPARATOR)):
@@ -21,4 +38,4 @@ def get_song_information() -> str:
     else:
         return output
 
-print((get_song_information() + " " + get_status_information()).strip())
+print((get_playback_code() + " " + get_song_information()).strip())
