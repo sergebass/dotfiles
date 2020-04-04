@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import subprocess
+import time
 
 MPC_CLIENT = "mpc"
-PREFIX_LENGTH = 30
-SUFFIX_LENGTH = 1
-SEPARATOR = ".."
+WINDOW_LENGTH = 40
+SEPARATOR = " :: "
 ERROR_OUTPUT = "--"
 
 def get_status_information() -> str:
@@ -31,11 +31,16 @@ def get_playback_code() -> str:
 
 def get_song_information() -> str:
     process = subprocess.run([MPC_CLIENT, "-f", "[%title% ][@%name%]", "current"], stdout=subprocess.PIPE)
-    output = process.stdout.decode().strip() if process.returncode == 0 else ""
+    song_info = process.stdout.decode().strip() if process.returncode == 0 else ""
 
-    if (len(output) > PREFIX_LENGTH + SUFFIX_LENGTH + len(SEPARATOR)):
-        return output[:PREFIX_LENGTH] + SEPARATOR + output[-SUFFIX_LENGTH:]
+    if len(song_info) > WINDOW_LENGTH:
+        offset = int((int(time.time()) % 60) / 60 * len(song_info))
+        remainingLength = len(song_info) - offset
+        if remainingLength >= WINDOW_LENGTH:
+            return song_info[offset:offset + WINDOW_LENGTH]
+        else:
+            return song_info[offset:offset + remainingLength] + SEPARATOR + song_info[0:WINDOW_LENGTH - remainingLength]
     else:
-        return output
+        return song_info
 
 print((get_playback_code() + " " + get_song_information()).strip())
