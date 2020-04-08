@@ -78,16 +78,17 @@ endif
 " Plug 'ycm-core/YouCompleteMe'
 
 " Language-specific plugins
-" Plug 'neovimhaskell/haskell-vim'
-" Plug 'purescript-contrib/purescript-vim'
-" Plug 'ElmCast/elm-vim'
-" Plug 'idris-hackers/idris-vim'
-" Plug 'derekwyatt/vim-scala'
-" Plug 'lyuts/vim-rtags'
 Plug 'rust-lang/rust.vim'
-" Plug 'Quramy/tsuquyomi'
+Plug 'udalov/kotlin-vim'
+" Plug 'ElmCast/elm-vim'
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'PProvost/vim-ps1'
+" Plug 'Quramy/tsuquyomi'
+" Plug 'derekwyatt/vim-scala'
+" Plug 'idris-hackers/idris-vim'
+" Plug 'lyuts/vim-rtags'
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'purescript-contrib/purescript-vim'
 
 " Various other plugins
 Plug 'airblade/vim-gitgutter'
