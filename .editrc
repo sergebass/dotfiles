@@ -1,1 +1,15 @@
 bind -v
+
+bind "^L" ed-clear-screen
+
+bind "^R" em-inc-search-prev
+bind "^S" em-inc-search-next
+
+lldb:bind \\t lldb-complete
+
+lldb:bind -s "\e;" "next\n"
+lldb:bind -s "\e:" "nexti\n"
+lldb:bind -s "\e'" "step\n"
+lldb:bind -s "\e\"" "stepi\n"
+lldb:bind -s "\e," "finish\n"
+lldb:bind -s "\e." "continue\n"
