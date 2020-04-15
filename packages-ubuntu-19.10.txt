@@ -62,6 +62,7 @@ openssh-server
 p7zip-full
 printer-driver-cups-pdf
 ripgrep
+rlwrap
 rxvt-unicode-256color
 scrot
 sqlite3
