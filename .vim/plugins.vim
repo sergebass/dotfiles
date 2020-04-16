@@ -77,6 +77,9 @@ endif
 " Autocompletion plus many other things (needs vim with Python)
 " Plug 'ycm-core/YouCompleteMe'
 
+" support of native debuggers (gdb, lldb, pdb etc.)
+Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+
 " Language-specific plugins
 Plug 'rust-lang/rust.vim'
 Plug 'udalov/kotlin-vim'
