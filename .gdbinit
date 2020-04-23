@@ -7,8 +7,10 @@ echo Loading user configuration...\n
 
 set confirm off
 set verbose off
+
 set history filename ~/.gdb_history
-set history save
+set history size unlimited
+set history save on
 
 set output-radix 0x10
 set input-radix 0x10
