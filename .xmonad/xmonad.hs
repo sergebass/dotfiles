@@ -102,7 +102,7 @@ myConfig = desktopConfig
     , ((superMask .|. altMask, xK_9), spawn "pactl set-sink-volume @DEFAULT_SINK@ 90%")
     , ((superMask .|. altMask, xK_0), spawn "pactl set-sink-volume @DEFAULT_SINK@ 100%")
     -- song control
-    , ((superMask, xK_minus), spawn "x-terminal-emulator -e ncmpcpp")
+    , ((superMask .|. shiftMask, xK_grave), spawn "x-terminal-emulator -e ncmpcpp")
     , ((superMask .|. shiftMask, xK_bracketleft), spawn "mpc prev")
     , ((superMask .|. shiftMask, xK_bracketright), spawn "mpc next")
     , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
