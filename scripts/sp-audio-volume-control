@@ -15,10 +15,12 @@ elif [ "$os" == "FreeBSD" ]; then
     aumix
 elif [ "$os" == "Darwin" ]; then
     open /System/Library/PreferencePanes/Sound.prefPane
+elif [ "$(expr substr $(uname -s) 1 7)" == "MSYS_NT" ]; then
+    SndVol.exe
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-    echo "FIXME Running on MinGW32"
+    SndVol.exe
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-    echo "FIXME Running on MinGW64"
+    SndVol.exe
 else
     echo "Cannot invoke audio volume control: unknown OS"
 fi
