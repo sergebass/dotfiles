@@ -23,6 +23,10 @@ if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+if [ -d "$HOME/opt/android-platform-tools" ] ; then
+    PATH="$HOME/opt/android-platform-tools/bin:$PATH"
+fi
+
 if [ -d "$HOME/opt/jdk" ] ; then
     export JAVA_HOME="$HOME/opt/jdk"
     PATH="$HOME/opt/jdk/bin:$PATH"
