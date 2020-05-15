@@ -431,6 +431,10 @@ nnoremap <M-CR> :<C-r>=expand("<cword>")<CR>
 vnoremap <M-CR> "*y<Esc>:<C-r>*
 cnoremap <M-CR> <C-r>=expand("<cword>")<CR>
 
+" insert the current full file path and file name only into the command line at the current position
+cnoremap <M-/> <C-r>=expand("%:p")<CR>
+cnoremap <M-\> <C-r>=expand("%:t")<CR>
+
 " replace selected word in the entire file (with confirmation)
 nnoremap \R :%s/\<<C-r>=expand("<cword>")<CR>\>/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 " replace selected word from the current line to the end of file (with confirmation)
