@@ -459,9 +459,9 @@ nmap \<CR> \/<CR>:copen<CR>
 vmap \<CR> \/<CR>:copen<CR>
 
 " search the word under cursor in external files (reference search)
-nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep -s -w <C-r>=w<CR> **<left><left><left>
+nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep! -s -w <C-r>=w<CR>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap \/ "*y<Esc>:grep -s "<C-r>*"<Left> **<left><left><left>
+vnoremap \/ "*y<Esc>:grep! -s "<C-r>*"<Left>
 
 " search the word under cursor on the web
 " FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
