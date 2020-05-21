@@ -1,0 +1,1 @@
+/home/sergii/.fzf/shell/key-bindings.fish
