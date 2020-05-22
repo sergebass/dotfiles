@@ -20,7 +20,7 @@ URxvt.shading: 12
 
 ! black
 *.color0:       #000000
-*.color8:       #d0d0d0
+*.color8:       #404040
 
 ! red
 *.color1:       #d00000
