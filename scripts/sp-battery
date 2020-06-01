@@ -5,7 +5,7 @@ os=$(uname)
 if [ "$os" == "Linux" ]; then
     upower -i $(upower -e | grep 'BAT') | grep -E "state|time|percentage"
 elif [ "$os" == "FreeBSD" ]; then
-    echo "FIXME TODO"
+    acpiconf -i 0 | grep -E "State|Remaining"
 elif [ "$os" == "Darwin" ]; then
     echo "FIXME TODO"
 elif [ "$(expr substr $(uname -s) 1 7)" == "MSYS_NT" ]; then
