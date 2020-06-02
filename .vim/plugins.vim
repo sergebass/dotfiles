@@ -57,6 +57,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-scriptease'
 
+Plug 'tmux-plugins/vim-tmux'
+
 " Language Server Protocol support
 if has("win32")
     Plug 'autozimu/LanguageClient-neovim', {
