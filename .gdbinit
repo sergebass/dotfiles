@@ -28,6 +28,8 @@ set extended-prompt \[\e[0;1;32m\]gdb \[\e[0;7;33m\]\f\[\e[0;1;36m\] => \[\e[0m\
 set print demangle on
 set print asm-demangle on
 
+set disassembly-flavor intel
+
 # define hook-stop
 #     info args
 #     info locals
