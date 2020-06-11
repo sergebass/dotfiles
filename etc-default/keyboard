@@ -5,6 +5,6 @@
 XKBMODEL="pc105"
 XKBLAYOUT="us,ru,ua,us(intl)"
 XKBVARIANT=""
-XKBOPTIONS="grp:shift_caps_toggle,grp_led:scroll,caps:escape"
+XKBOPTIONS="grp:shifts_toggle,grp:shift_caps_toggle,grp_led:scroll,caps:escape"
 
 BACKSPACE="guess"
