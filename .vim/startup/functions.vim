@@ -45,20 +45,25 @@ endfunction
 function! SPTabLine()
   let s = ''
   for i in range(tabpagenr('$'))
-    let tab = i + 1
-    let winnr = tabpagewinnr(tab)
-    let buflist = tabpagebuflist(tab)
-    let bufnr = buflist[winnr - 1]
-    let bufname = bufname(bufnr)
-    let bufmodified = getbufvar(bufnr, "&mod")
+    let tab_number = i + 1
 
-    let s .= '%' . tab . 'T'
-    let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
-    let s .=  ' ' . tab . '.' . tabpagewinnr(tab) . (tab == tabpagenr() ? '*' : '') . ':'
+    let window_number = tabpagewinnr(tab_number)
+    let window_count = tabpagewinnr(tab_number, '$')
 
-    let s .= (bufname != '' ? fnamemodify(bufname, ':t') : '[-]')
+    let buffers = tabpagebuflist(tab_number)
+    let buffer_number = buffers[window_number - 1]
+    let buffer_name = bufname(buffer_number)
 
-    if bufmodified
+    let is_buffer_modified = getbufvar(buffer_number, "&mod")
+
+    let s .= '%' . tab_number . 'T'
+    let s .= (tab_number == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+
+    let s .=  ' ' . tab_number . ':'
+
+    let s .= (buffer_name != '' ? fnamemodify(buffer_name, ':t') : '--')
+
+    if is_buffer_modified
       let s .= '!'
     endif
 
