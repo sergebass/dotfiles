@@ -103,6 +103,8 @@
 
     last-tag = describe --tags --abbrev=0
 
+    backup = !git diff @{upstream} > ~/git-backup-$(git rev-parse --abbrev-ref HEAD)-$(date "+%Y%m%d-%H%M%S").patch
+
 [core]
     pager = less -F -X
 
