@@ -476,6 +476,10 @@ vnoremap <Space>sB "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r
 " search the word under cursor and replace it with another text
 nnoremap \% :FindAndReplace <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
 
+" shortcuts for quicker FIXME marker location
+nnoremap [F ?FIXME<CR>
+nnoremap ]F /FIXME<CR>
+
 " autocompletion like in many IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
 inoremap <silent> <C-Space> <C-x><C-u>
