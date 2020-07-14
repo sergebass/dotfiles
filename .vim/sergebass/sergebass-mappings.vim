@@ -412,9 +412,9 @@ vmap _ <Plug>(wildfire-water)
 nmap <2-LeftMouse> <CR><CR>
 nmap <M-LeftMouse> gF
 
-" display the number of matches when using "*" and "#"
-nnoremap * *<C-O>:%s///gn<CR>``
-nnoremap # #<C-O>:%s///gn<CR>``
+" similar to "*" and "#" but display the number of matches without jumping to the next result
+nnoremap <M-*> *<C-O>:%s///gn<CR>``
+nnoremap <M-#> #<C-O>:%s///gn<CR>``
 
 " define a custom highlighting for the word under cursor or a selection
 " in the current buffer
