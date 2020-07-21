@@ -131,13 +131,14 @@ nnoremap <Space>saP :let w=expand("<cword>")<CR><CR>:Ag! <C-r>=w<CR>
 " nnoremap <Space>sF :grep<Space>
 " nnoremap <Space>sgf :grep<Space>
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows):
 " search the web using DuckDuckGo
-nnoremap <Space>swd :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+nnoremap <Space>swd :!sp-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+
 " search the web using Google
-nnoremap <Space>swg :!xdg-open "https://google.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+nnoremap <Space>swg :!sp-open "https://google.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+
 " search the web using Wikipedia (English)
-nnoremap <Space>sww :!xdg-open "https://en.wikipedia.org/w/index.php?search=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+nnoremap <Space>sww :!sp-open "https://en.wikipedia.org/w/index.php?search=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
 
 nnoremap <Space>pf :GFiles<CR>
 nnoremap <Space>pr :GFiles?<CR>
@@ -498,9 +499,8 @@ nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep! -s -w <C-r>=w<CR>
 vnoremap \/ "*y<Esc>:grep! -s "<C-r>*"<Left>
 
 " search the word under cursor on the web
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap \? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
-vnoremap \? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
+nnoremap \? :!sp-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+vnoremap \? "*y<Esc>:!sp-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
 
 " search the word under cursor in all currently open buffers
 nnoremap \sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:tabnew <bar> silent bufdo grepadd! -s -w <C-r>=w<CR> % <bar> only<C-Left><C-Left><C-Left><Left>
