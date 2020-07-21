@@ -502,8 +502,12 @@ vnoremap \/ "*y<Esc>:grep! -s "<C-r>*"<Left>
 nnoremap \? :!sp-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
 vnoremap \? "*y<Esc>:!sp-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
 
+" search some text in all currently open buffers
+nnoremap \sb :ClearQuickfixList<CR>:tabnew <bar> silent bufdo grepadd! -s -w  % <bar> only<C-Left><C-Left><C-Left><Left>
+
 " search the word under cursor in all currently open buffers
 nnoremap \sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:tabnew <bar> silent bufdo grepadd! -s -w <C-r>=w<CR> % <bar> only<C-Left><C-Left><C-Left><Left>
+
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap \sB "*y<Esc>:ClearQuickfixList<CR>:tabnew <bar> silent bufdo grepadd! -s "<C-r>*" % <bar> only<C-Left><C-Left><C-Left><Left><Left>
 
