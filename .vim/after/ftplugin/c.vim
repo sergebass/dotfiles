@@ -41,17 +41,16 @@ nmap <buffer> <Space>mgA :vert sfind <C-r>=SwitchSourceHeader()<CR><CR>
 nmap <buffer> \\` <Space>mga
 nmap <buffer> \\~ <Space>mgA
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap <buffer> <F1> :!xdg-open "https://en.cppreference.com/w/c"<CR>
-nnoremap <buffer> <M-F1> :!xdg-open "http://www.cplusplus.com/reference/clibrary/"<CR>
+nnoremap <buffer> <F1> :!sp-open "https://en.cppreference.com/w/c"<CR>
+nnoremap <buffer> <M-F1> :!sp-open "http://www.cplusplus.com/reference/clibrary/"<CR>
 
 " search the word under cursor in cppreference.com reference (using browser)
-nnoremap <buffer> \\?1 :!xdg-open "https://en.cppreference.com/mwiki/index.php?search=<C-r>=expand("<cword>")<CR>"<Left>
-vnoremap <buffer> \\?1 "*y<Esc>:!xdg-open "https://en.cppreference.com/mwiki/index.php?search=<C-r>*"<Left>
+nnoremap <buffer> \\?1 :!sp-open "https://en.cppreference.com/mwiki/index.php?search=<C-r>=expand("<cword>")<CR>"<Left>
+vnoremap <buffer> \\?1 "*y<Esc>:!sp-open "https://en.cppreference.com/mwiki/index.php?search=<C-r>*"<Left>
 
 " search the word under cursor in cplusplus.com reference (using browser)
-nnoremap <buffer> \\?2 :!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>=expand("<cword>")<CR>"<Left>
-vnoremap <buffer> \\?2 "*y<Esc>:!xdg-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
+nnoremap <buffer> \\?2 :!sp-open "http://www.cplusplus.com/search.do?q=<C-r>=expand("<cword>")<CR>"<Left>
+vnoremap <buffer> \\?2 "*y<Esc>:!sp-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
 
 nnoremap <buffer> <CR> :call LanguageClient#textDocument_definition()<CR>
 nmap <buffer> <Space>mgg <CR>

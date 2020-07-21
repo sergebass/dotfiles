@@ -10,13 +10,12 @@ setlocal autoindent
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 " setlocal makeprg=stack\ build
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap <buffer> <F1> :!xdg-open "https://www.idris-lang.org/documentation/"<CR>
-nnoremap <buffer> <M-F1> :!xdg-open "http://docs.idris-lang.org/en/latest/"<CR>
+nnoremap <buffer> <F1> :!sp-open "https://www.idris-lang.org/documentation/"<CR>
+nnoremap <buffer> <M-F1> :!sp-open "http://docs.idris-lang.org/en/latest/"<CR>
 
 " search the word under cursor in Idris documentation database (using browser)
-nnoremap <buffer> \\? :!xdg-open "http://docs.idris-lang.org/en/latest/search.html?q=<C-r>=expand("<cword>")<CR>"<Left>
-vnoremap <buffer> \\? "*y<Esc>:!xdg-open "http://docs.idris-lang.org/en/latest/search.html?q=<C-r>*"<Left>
+nnoremap <buffer> \\? :!sp-open "http://docs.idris-lang.org/en/latest/search.html?q=<C-r>=expand("<cword>")<CR>"<Left>
+vnoremap <buffer> \\? "*y<Esc>:!sp-open "http://docs.idris-lang.org/en/latest/search.html?q=<C-r>*"<Left>
 
 " nnoremap <buffer> \\sc :!stack clean<CR>
 " nnoremap <buffer> \\sb :!stack build<CR>

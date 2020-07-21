@@ -10,13 +10,12 @@ setlocal autoindent
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 setlocal makeprg=tsc
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap <buffer> <F1> :!xdg-open "https://www.typescriptlang.org/docs/home.html"<CR>
-nnoremap <buffer> <M-F1> :!xdg-open "https://dev.w3.org/html5/html-author/"<CR>
+nnoremap <buffer> <F1> :!sp-open "https://www.typescriptlang.org/docs/home.html"<CR>
+nnoremap <buffer> <M-F1> :!sp-open "https://dev.w3.org/html5/html-author/"<CR>
 
 " search the word under cursor in Hoogle database (using browser)
-" nnoremap <buffer> \\? :!xdg-open "https://www.haskell.org/hoogle/?hoogle=<C-r>=expand("<cword>")<CR>"<Left>
-" vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://www.haskell.org/hoogle/?hoogle=<C-r>*"<Left>
+" nnoremap <buffer> \\? :!sp-open "https://www.haskell.org/hoogle/?hoogle=<C-r>=expand("<cword>")<CR>"<Left>
+" vnoremap <buffer> \\? "*y<Esc>:!sp-open "https://www.haskell.org/hoogle/?hoogle=<C-r>*"<Left>
 
 " shortcuts for language client/server use
 nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>

@@ -19,9 +19,8 @@ setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\
 " 
 "     g:EclimJavaDebugStatusWinHeight (Default: 10) Sets the window height for the splits inside the debug status window. This is only applicable when the orientation is vertical.
  
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap <buffer> <F1> :!xdg-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
-nnoremap <buffer> <M-F1> :!xdg-open "https://docs.oracle.com/javase/10/docs/api/index.html"<CR>
+nnoremap <buffer> <F1> :!sp-open "https://docs.oracle.com/javase/8/docs/api/"<CR>
+nnoremap <buffer> <M-F1> :!sp-open "https://docs.oracle.com/javase/10/docs/api/index.html"<CR>
 
 setlocal keywordprg=:JavaDocPreview
 
@@ -66,8 +65,8 @@ nmap <buffer> <Space>mhh K
 " SPC m e w     set warnings for next/prev action
 
 " search the term under cursor on the web
-nnoremap <buffer> \\? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> Java API"<Left>
-vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* Java API"<Left>
+nnoremap <buffer> \\? :!sp-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> Java API"<Left>
+vnoremap <buffer> \\? "*y<Esc>:!sp-open "https://duckduckgo.com?q=<C-r>* Java API"<Left>
 
 nnoremap <buffer> <Space>mff :LocateFile<CR>
 

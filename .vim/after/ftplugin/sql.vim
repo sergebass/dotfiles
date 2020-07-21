@@ -10,21 +10,20 @@ setlocal autoindent
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 " setlocal makeprg=stack\ build
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/sql/sql_quickref.asp"<CR>
-nnoremap <buffer> <M-F1> :!xdg-open "https://www.postgresql.org/docs/current/sql-commands.html"<CR>
+nnoremap <buffer> <F1> :!sp-open "https://www.w3schools.com/sql/sql_quickref.asp"<CR>
+nnoremap <buffer> <M-F1> :!sp-open "https://www.postgresql.org/docs/current/sql-commands.html"<CR>
 
 " search the word under cursor in PostgreSQL database (using browser)
-nnoremap <buffer> \\?p :!xdg-open "https://www.postgresql.org/search/?q=<C-r>=expand("<cword>")<CR>"<Left>
-vnoremap <buffer> \\?p "*y<Esc>:!xdg-open "https://www.postgresql.org/search/?q=<C-r>*"<Left>
+nnoremap <buffer> \\?p :!sp-open "https://www.postgresql.org/search/?q=<C-r>=expand("<cword>")<CR>"<Left>
+vnoremap <buffer> \\?p "*y<Esc>:!sp-open "https://www.postgresql.org/search/?q=<C-r>*"<Left>
 
 " search the word under cursor in MySQL database (using browser)
-nnoremap <buffer> \\?m :!xdg-open "https://dev.mysql.com/doc/search/?q=<C-r>=expand("<cword>")<CR>"<Left>
-vnoremap <buffer> \\?m "*y<Esc>:!xdg-open "https://dev.mysql.com/doc/search/?q=<C-r>*"<Left>
+nnoremap <buffer> \\?m :!sp-open "https://dev.mysql.com/doc/search/?q=<C-r>=expand("<cword>")<CR>"<Left>
+vnoremap <buffer> \\?m "*y<Esc>:!sp-open "https://dev.mysql.com/doc/search/?q=<C-r>*"<Left>
 
 " search the word under cursor in SQLite database (using browser)
-nnoremap <buffer> \\?l :!xdg-open "https://sqlite.org/search?q=<C-r>=expand("<cword>")<CR>"<Left>
-vnoremap <buffer> \\?l "*y<Esc>:!xdg-open "https://sqlite.org/search/?q=<C-r>*"<Left>
+nnoremap <buffer> \\?l :!sp-open "https://sqlite.org/search?q=<C-r>=expand("<cword>")<CR>"<Left>
+vnoremap <buffer> \\?l "*y<Esc>:!sp-open "https://sqlite.org/search/?q=<C-r>*"<Left>
 
 " -----------------------------------------------------------------------------
 " Apply workspace-specific SQL settings, if available;

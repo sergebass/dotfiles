@@ -11,9 +11,8 @@ setlocal autoindent
 "setlocal equalprg=cssbeautify
 "setlocal keywordprg=hoogle
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/cssref/"<CR>
-nnoremap <buffer> <M-F1> :!xdg-open "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"<CR>
+nnoremap <buffer> <F1> :!sp-open "https://www.w3schools.com/cssref/"<CR>
+nnoremap <buffer> <M-F1> :!sp-open "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"<CR>
 
 nnoremap <buffer> \\v :Validate<CR>
 

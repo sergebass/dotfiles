@@ -10,13 +10,12 @@ setlocal autoindent
 setlocal keywordprg=stack\ hoogle\ --\ --count=100
 " setlocal makeprg=stack\ build
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap <buffer> <F1> :!xdg-open "http://www.frege-lang.org/doc/fregedoc.html"<CR>
-nnoremap <buffer> <M-F1> :!xdg-open "http://www.frege-lang.org/doc/"<CR>
+nnoremap <buffer> <F1> :!sp-open "http://www.frege-lang.org/doc/fregedoc.html"<CR>
+nnoremap <buffer> <M-F1> :!sp-open "http://www.frege-lang.org/doc/"<CR>
 
 " search the word under cursor in Hoogle database (using browser)
-nnoremap <buffer> \\? :!xdg-open "https://www.haskell.org/hoogle/?hoogle=<C-r>=expand("<cword>")<CR>"<Left>
-vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://www.haskell.org/hoogle/?hoogle=<C-r>*"<Left>
+nnoremap <buffer> \\? :!sp-open "https://www.haskell.org/hoogle/?hoogle=<C-r>=expand("<cword>")<CR>"<Left>
+vnoremap <buffer> \\? "*y<Esc>:!sp-open "https://www.haskell.org/hoogle/?hoogle=<C-r>*"<Left>
 
 " -----------------------------------------------------------------------------
 " Apply workspace-specific Frege settings, if available;

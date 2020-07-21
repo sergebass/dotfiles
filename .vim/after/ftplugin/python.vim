@@ -9,12 +9,11 @@ setlocal autoindent
 
 " setlocal keywordprg=ri
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-" nnoremap <buffer> <F1> :!xdg-open "https://rubyapi.org/"<CR>
+" nnoremap <buffer> <F1> :!sp-open "https://rubyapi.org/"<CR>
 
 " search the word under cursor in the Ruby API database (using browser)
-" nnoremap <buffer> \\? :!xdg-open "https://rubyapi.org/2.7/o/s?q=<C-r>=expand("<cword>")<CR>"<Left>
-" vnoremap <buffer> \\? "*y<Esc>:!xdg-open "https://rubyapi.org/2.7/o/s?q=<C-r>*"<Left>
+" nnoremap <buffer> \\? :!sp-open "https://rubyapi.org/2.7/o/s?q=<C-r>=expand("<cword>")<CR>"<Left>
+" vnoremap <buffer> \\? "*y<Esc>:!sp-open "https://rubyapi.org/2.7/o/s?q=<C-r>*"<Left>
 
 " -----------------------------------------------------------------------------
 " Apply workspace-specific Python settings, if available;

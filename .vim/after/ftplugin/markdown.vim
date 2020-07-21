@@ -7,9 +7,8 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal autoindent
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap <buffer> <F1> :!xdg-open "https://markdown-guide.readthedocs.io/en/latest/basics.html"<CR>
-nnoremap <buffer> <M-F1> :!xdg-open "https://daringfireball.net/projects/markdown/syntax"<CR>
+nnoremap <buffer> <F1> :!sp-open "https://markdown-guide.readthedocs.io/en/latest/basics.html"<CR>
+nnoremap <buffer> <M-F1> :!sp-open "https://daringfireball.net/projects/markdown/syntax"<CR>
 
 " 5.1 Element insertion
 " SPC m - 	insert horizontal line

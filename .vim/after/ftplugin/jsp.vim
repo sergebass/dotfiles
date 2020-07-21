@@ -8,8 +8,7 @@
 
 call SuperTabSetDefaultCompletionType("<C-N>")
 
-" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows)
-nnoremap <buffer> <F1> :!xdg-open "https://www.w3schools.com/xml/dom_nodetype.asp"<CR>
+nnoremap <buffer> <F1> :!sp-open "https://www.w3schools.com/xml/dom_nodetype.asp"<CR>
 
 nnoremap <buffer> \\v :Validate<CR>
 
