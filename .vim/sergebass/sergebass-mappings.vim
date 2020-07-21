@@ -469,9 +469,9 @@ nnoremap \? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-
 vnoremap \? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
 
 " search the word under cursor in all open buffers
-nnoremap <Space>sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:silent bufdo grepadd! -s -w <C-r>=w<CR> %<Left><Left>
+nnoremap <Space>sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:tabnew <bar> silent bufdo grepadd! -s -w <C-r>=w<CR> % <bar> only<C-Left><C-Left><C-Left><Left>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Space>sB "*y<Esc>:ClearQuickfixList<CR>:silent bufdo grepadd! -s "<C-r>*" %<Left><Left><Left>
+vnoremap <Space>sB "*y<Esc>:ClearQuickfixList<CR>:tabnew <bar> silent bufdo grepadd! -s "<C-r>*" % <bar> only<C-Left><C-Left><C-Left><Left><Left>
 
 " search the word under cursor and replace it with another text
 nnoremap \% :FindAndReplace <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
