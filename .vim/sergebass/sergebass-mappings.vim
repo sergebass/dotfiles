@@ -91,20 +91,54 @@ nnoremap <Space>bb :call fzf#vim#buffers()<CR>
 nnoremap <Space>bd :bdelete<CR>
 nnoremap <Space>bn :bnext<CR>
 nnoremap <Space>bp :bprev<CR>
-nnoremap <Space>bR :e!
+nnoremap <Space>bR :e!<CR>
 nnoremap <Space>bY gg"+yG
 nnoremap <Space>bP ggvG"+p
 
-nnoremap <Space>ss :BLines<CR>
-nnoremap <Space>sb :Lines<CR>
-nnoremap <Space>/ :Rg<CR>
-nnoremap <Space>sp :Rg<CR>
-nnoremap <Space>sap :Ag<CR>
-nnoremap <Space>* :let w=expand("<cword>")<CR><CR>:Rg <C-r>=w<CR><CR>
-nnoremap <Space>sP :Rg<CR>
-nnoremap <Space>saP :Ag<CR>
+" --------------
+" Searching text
+" --------------
 
-nmap <Space>p' <Space>'
+" search some text in the current buffer/file (use fzf.vim)
+nnoremap <Space>ss :BLines!<Space>
+
+" search the word under cursor in current buffer/file (use fzf.vim)
+nnoremap <Space>sS :let w=expand("<cword>")<CR><CR>:BLines! <C-r>=w<CR>
+
+" search some text in all currently open buffers (use fzf.vim)
+nnoremap <Space>sb :Lines!<Space>
+
+" search the word under cursor in all currently open buffers (use fzf.vim)
+nnoremap <Space>sB :let w=expand("<cword>")<CR><CR>:Lines! <C-r>=w<CR>
+
+" search some text in the current project (use fzf.vim + ripgrep)
+nnoremap <Space>sp :Rg!<Space>
+nmap <Space>/ <Space>sp
+
+" search the word under cursor in the current project (use fzf.vim + ripgrep)
+nnoremap <Space>sP :let w=expand("<cword>")<CR><CR>:Rg! <C-r>=w<CR>
+nmap <Space>* <Space>sP
+
+" search some text in the current project (use fzf.vim + silver searcher)
+nnoremap <Space>sap :Ag!<Space>
+
+" search the word under cursor in the current project (use fzf.vim + silver searcher)
+nnoremap <Space>saP :let w=expand("<cword>")<CR><CR>:Ag! <C-r>=w<CR>
+
+" search some text in files in an arbitrary directory
+" FIXME TODO
+" nnoremap <Space>sf :grep<Space>
+" nnoremap <Space>sF :grep<Space>
+" nnoremap <Space>sgf :grep<Space>
+
+" FIXME make OS-agnostic (xdg-open is not available on Mac or Windows):
+" search the web using DuckDuckGo
+nnoremap <Space>swd :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+" search the web using Google
+nnoremap <Space>swg :!xdg-open "https://google.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+" search the web using Wikipedia (English)
+nnoremap <Space>sww :!xdg-open "https://en.wikipedia.org/w/index.php?search=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
+
 nnoremap <Space>pf :GFiles<CR>
 nnoremap <Space>pr :GFiles?<CR>
 nnoremap <Space>pt :NERDTreeFind<CR>
@@ -468,10 +502,10 @@ vnoremap \/ "*y<Esc>:grep! -s "<C-r>*"<Left>
 nnoremap \? :!xdg-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
 vnoremap \? "*y<Esc>:!xdg-open "https://duckduckgo.com?q=<C-r>* <C-r>=&filetype<CR>"<Left>
 
-" search the word under cursor in all open buffers
-nnoremap <Space>sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:tabnew <bar> silent bufdo grepadd! -s -w <C-r>=w<CR> % <bar> only<C-Left><C-Left><C-Left><Left>
+" search the word under cursor in all currently open buffers
+nnoremap \sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:tabnew <bar> silent bufdo grepadd! -s -w <C-r>=w<CR> % <bar> only<C-Left><C-Left><C-Left><Left>
 " quote the selected text in visual mode since that's to be used for multiple words
-vnoremap <Space>sB "*y<Esc>:ClearQuickfixList<CR>:tabnew <bar> silent bufdo grepadd! -s "<C-r>*" % <bar> only<C-Left><C-Left><C-Left><Left><Left>
+vnoremap \sB "*y<Esc>:ClearQuickfixList<CR>:tabnew <bar> silent bufdo grepadd! -s "<C-r>*" % <bar> only<C-Left><C-Left><C-Left><Left><Left>
 
 " search the word under cursor and replace it with another text
 nnoremap \% :FindAndReplace <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
