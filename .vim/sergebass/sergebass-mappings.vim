@@ -351,6 +351,7 @@ nnoremap <Space>0 10gt
 nnoremap <silent> <Space><CR> :tabnew<CR>
 nnoremap <silent> <Space><M-CR> :tabnew<CR>:tabmove 0<CR>
 nnoremap <silent> <Space><BS> :tabclose<CR>
+nnoremap <silent> <Space><M-BS> :tabonly<CR>
 
 " Tab navigation (using spacemacs prefix on bigger keyboards)
 nnoremap <silent> <Space><Insert> :tabnew<CR>
