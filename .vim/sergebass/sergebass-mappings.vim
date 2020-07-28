@@ -512,12 +512,15 @@ nnoremap \sB :ClearQuickfixList<CR>:let w=expand("<cword>")<CR><CR>:tabnew <bar>
 " quote the selected text in visual mode since that's to be used for multiple words
 vnoremap \sB "*y<Esc>:ClearQuickfixList<CR>:tabnew <bar> silent bufdo grepadd! -s "<C-r>*" % <bar> only<C-Left><C-Left><C-Left><Left><Left>
 
-" search the word under cursor and replace it with another text
-nnoremap \% :FindAndReplace <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
+" search the FIXME markers in all currently open buffers
+nnoremap \sF :ClearQuickfixList<CR>:tabnew <bar> silent bufdo grepadd! -s -w FIXME % <bar> only<C-Left><C-Left><C-Left><Left>
 
 " shortcuts for quicker FIXME marker location
 nnoremap [F ?FIXME<CR>
 nnoremap ]F /FIXME<CR>
+
+" search the word under cursor and replace it with another text
+nnoremap \% :FindAndReplace <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
 
 " autocompletion like in many IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
