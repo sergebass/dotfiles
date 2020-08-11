@@ -85,6 +85,7 @@ endif
 " Language-specific plugins
 Plug 'rust-lang/rust.vim'
 Plug 'udalov/kotlin-vim'
+Plug 'hsanson/vim-android'
 " Plug 'ElmCast/elm-vim'
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'PProvost/vim-ps1'
