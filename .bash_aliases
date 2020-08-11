@@ -107,13 +107,13 @@ alias t='tig --all'
 
 alias ag='ag -f --noheading --nobreak --nogroup --numbers --column --vimgrep'
 
-alias rg='rg -L --no-heading -n --column'
+alias rg='rg -L --sort path --no-heading -n --column'
 
-alias rgc='rg -L --no-heading -n --column -t cpp -t c'
-alias rgj='rg -L --no-heading -n --column -t java'
-alias rgjs='rg -L --no-heading -n --column -t js'
-alias rgts='rg -L --no-heading -n --column -t ts'
-alias rgcj='rg -L --no-heading -n --column -t cpp -t c -t java'
+alias rgc='rg -L --sort path --no-heading -n --column -t cpp -t c'
+alias rgj='rg -L --sort path --no-heading -n --column -t java'
+alias rgjs='rg -L --sort path --no-heading -n --column -t js'
+alias rgts='rg -L --sort path --no-heading -n --column -t ts'
+alias rgcj='rg -L --sort path --no-heading -n --column -t cpp -t c -t java'
 
 # this is an Escape sequence to dynamically change rxvt terminal font size
 alias rxvt-font-size='printf "\033]50;%s%d\007" "xft:Inconsolata:medium:antialias=true:hintstyle=hintslight:pixelsize="'
