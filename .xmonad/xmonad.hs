@@ -6,13 +6,22 @@ import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
-import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
+import XMonad.Util.EZConfig(additionalKeys, additionalKeysP, additionalMouseBindings)
 import XMonad.Util.Run(spawnPipe, hPutStrLn)
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
 superMask = mod4Mask -- Use Super instead of Alt
 altMask = mod1Mask
+
+-- mouse buttons with their respective numbers
+mouseLeftClick   = 1
+mouseMiddleClick = 2
+mouseRightClick  = 3
+mouseWheelUp     = 4
+mouseWheelDown   = 5
+mouseWheelLeft   = 6
+mouseWheelRight  = 7
 
 myConfig = desktopConfig
     { modMask = superMask
@@ -23,6 +32,10 @@ myConfig = desktopConfig
     , focusedBorderColor = "#FFB000" -- Orange-ish color
     , normalBorderColor = "#404040"
     }
+     `additionalMouseBindings`
+    [ ((superMask, mouseWheelUp), \w -> spawn "sp-increase-audio-volume")
+    , ((superMask, mouseWheelDown), \w -> spawn "sp-decrease-audio-volume")
+    ]
      `additionalKeys`
     [ ((superMask, xK_BackSpace), toggleWS)
     , ((superMask, xK_0), addWorkspace "0")
