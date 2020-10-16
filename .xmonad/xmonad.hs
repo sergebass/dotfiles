@@ -37,6 +37,10 @@ myConfig = desktopConfig
      `additionalMouseBindings`
     [ ((superMask, mouseWheelUp), const $ spawn "sp-increase-audio-volume")
     , ((superMask, mouseWheelDown), const $ spawn "sp-decrease-audio-volume")
+    , ((superMask, mouseMiddleClick), const $ spawn "sp-toggle-audio-mute")
+    , ((superMask .|. altMask, mouseWheelUp), const $ spawn "pactl set-source-volume @DEFAULT_SOURCE@ +5%")
+    , ((superMask .|. altMask, mouseWheelDown), const $ spawn "pactl set-source-volume @DEFAULT_SOURCE@ -5%")
+    , ((superMask .|. altMask, mouseMiddleClick), const $ spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
     , ((0, mouseExtraButton1), const $ spawn "sp-audio-volume-control")
     , ((0, mouseExtraButton2), const $ spawn "x-terminal-emulator -e ncmpcpp")
     ]
