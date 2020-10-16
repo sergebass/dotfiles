@@ -22,6 +22,8 @@ mouseWheelUp     = 4
 mouseWheelDown   = 5
 mouseWheelLeft   = 6
 mouseWheelRight  = 7
+mouseExtraButton1  = 8
+mouseExtraButton2  = 9
 
 myConfig = desktopConfig
     { modMask = superMask
@@ -33,8 +35,10 @@ myConfig = desktopConfig
     , normalBorderColor = "#404040"
     }
      `additionalMouseBindings`
-    [ ((superMask, mouseWheelUp), \w -> spawn "sp-increase-audio-volume")
-    , ((superMask, mouseWheelDown), \w -> spawn "sp-decrease-audio-volume")
+    [ ((superMask, mouseWheelUp), const $ spawn "sp-increase-audio-volume")
+    , ((superMask, mouseWheelDown), const $ spawn "sp-decrease-audio-volume")
+    , ((0, mouseExtraButton1), const $ spawn "sp-audio-volume-control")
+    , ((0, mouseExtraButton2), const $ spawn "x-terminal-emulator -e ncmpcpp")
     ]
      `additionalKeys`
     [ ((superMask, xK_BackSpace), toggleWS)
