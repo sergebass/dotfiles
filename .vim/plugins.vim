@@ -59,6 +59,9 @@ Plug 'tpope/vim-scriptease'
 
 Plug 'tmux-plugins/vim-tmux'
 
+" Find-and-Replace (in multiple files)
+Plug 'brooth/far.vim'
+
 " Language Server Protocol support
 if has("win32")
     Plug 'autozimu/LanguageClient-neovim', {
