@@ -253,3 +253,6 @@ alias mac_finder_show_hidden_files='defaults write com.apple.finder AppleShowAll
 alias mac_finder_hide_hidden_files='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 alias scan_wifi='nmcli device wifi'
+
+alias find_newest_file_here="find -type f -printf '%T+ %p\n' | sort -r | head -n 1"
+alias find_oldest_file_here="find -type f -printf '%T+ %p\n' | sort | head -n 1"
