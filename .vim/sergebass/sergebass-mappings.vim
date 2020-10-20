@@ -475,16 +475,6 @@ inoremap <M-/> <C-r>=expand("%:p")<CR>
 cnoremap <M-\> <C-r>=expand("%:t")<CR>
 inoremap <M-\> <C-r>=expand("%:t")<CR>
 
-" replace selected word in the entire file (with confirmation)
-nnoremap \R :%s/\<<C-r>=expand("<cword>")<CR>\>/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
-" replace selected word from the current line to the end of file (with confirmation)
-nnoremap \r :.,$s/\<<C-r>=expand("<cword>")<CR>\>/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
-
-" replace highlighted text in the entire file (with confirmation)
-vnoremap \R "hy:%s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
-" replace highlighted text from the current line to the end of file (with confirmation)
-vnoremap \r "hy:.,$s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
-
 " by default (may be overridden in format-specific scripts),
 " use ctags for jumping, with selection between multiple candidates
 nnoremap <CR> g<C-]>
@@ -519,6 +509,16 @@ nnoremap \sF :ClearQuickfixList<CR>:tabnew <bar> silent bufdo grepadd! -s -w FIX
 " shortcuts for quicker FIXME marker location
 nnoremap [F ?FIXME<CR>
 nnoremap ]F /FIXME<CR>
+
+" replace selected word in the entire file (with confirmation)
+nnoremap \R :%s/\<<C-r>=expand("<cword>")<CR>\>/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
+" replace selected word from the current line to the end of file (with confirmation)
+nnoremap \r :.,$s/\<<C-r>=expand("<cword>")<CR>\>/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
+
+" replace highlighted text in the entire file (with confirmation)
+vnoremap \R "hy:%s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
+" replace highlighted text from the current line to the end of file (with confirmation)
+vnoremap \r "hy:.,$s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 
 " search the word under cursor and replace it with another text
 nnoremap \% :FindAndReplace <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
