@@ -50,3 +50,5 @@ fi
 
 # if a job-specific configuration file exists, load it too
 [[ -e ~/.workspace.sh ]] && source ~/.workspace.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"
