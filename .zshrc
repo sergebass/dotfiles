@@ -1,22 +1,5 @@
 # ZSH startup script
 
-if [ -f ~/.profile ]; then
-    source ~/.profile
-fi
-
-# zsh understands bash aliases, so let's reuse those first
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
-
-if [ -f ~/.zsh_aliases ]; then
-    source ~/.zsh_aliases
-fi
-
-if [ -f ~/dotfiles/scripts/h.sh ]; then
-    source ~/dotfiles/scripts/h.sh
-fi
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -169,3 +152,20 @@ stty -ixoff
 autoload zmv
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -f ~/.profile ]; then
+    source ~/.profile
+fi
+
+# zsh understands bash aliases, so let's reuse those first
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
+if [ -f ~/.zsh_aliases ]; then
+    source ~/.zsh_aliases
+fi
+
+if [ -f ~/dotfiles/scripts/h.sh ]; then
+    source ~/dotfiles/scripts/h.sh
+fi
