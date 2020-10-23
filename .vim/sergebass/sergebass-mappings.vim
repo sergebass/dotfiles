@@ -50,8 +50,8 @@ nnoremap <Del> "_x
 nnoremap \# :mksession! Session
 nnoremap \@ :source Session
 
-nnoremap <C-N> :Tags<CR>
-nnoremap <C-P> :GFiles<CR>
+nnoremap <C-N> :Tags!<CR>
+nnoremap <C-P> :GFiles!<CR>
 
 nnoremap <BS> <C-O>
 
@@ -65,16 +65,16 @@ nnoremap <Space><Space> :
 nnoremap <Space><Tab> <C-^>
 
 nnoremap <Space>h<Space> :h<CR>
-nnoremap <Space>? :Maps<CR>
-nnoremap <Space>hk :Maps<CR>
+nnoremap <Space>? :Maps!<CR>
+nnoremap <Space>hk :Maps!<CR>
 nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
-nnoremap <Space>\? :Commands<CR>
+nnoremap <Space>\? :Commands!<CR>
 
 nnoremap <Space>qq :qa<CR>
 nnoremap <Space>qQ :qa!<CR>
 
-nnoremap <Space>ff :Files<CR>
+nnoremap <Space>ff :Files!<CR>
 nnoremap <Space>fr :call fzf#vim#history()<CR>
 nnoremap <Space>fs :w<CR>
 nnoremap <Space>fS :wa<CR>
@@ -103,27 +103,33 @@ nnoremap <Space>bP ggvG"+p
 nnoremap <Space>ss :BLines!<Space>
 
 " search the word under cursor in current buffer/file (use fzf.vim)
-nnoremap <Space>sS :let w=expand("<cword>")<CR><CR>:BLines! <C-r>=w<CR>
+nnoremap <Space>sS :let w=expand("<cword>")<CR><CR>:BLines! <C-r>=w<CR><CR>
 
 " search some text in all currently open buffers (use fzf.vim)
 nnoremap <Space>sb :Lines!<Space>
 
 " search the word under cursor in all currently open buffers (use fzf.vim)
-nnoremap <Space>sB :let w=expand("<cword>")<CR><CR>:Lines! <C-r>=w<CR>
+nnoremap <Space>sB :let w=expand("<cword>")<CR><CR>:Lines! <C-r>=w<CR><CR>
+
+" search some text in the current project (use default tool)
+nmap <Space>sp <Space>srp
+nmap <Space>/ <Space>srp
+
+" search the word under cursor in the current project (use default tool)
+nmap <Space>sP <Space>srP
+nmap <Space>* <Space>srP
 
 " search some text in the current project (use fzf.vim + ripgrep)
-nnoremap <Space>sp :Rg!<Space>
-nmap <Space>/ <Space>sp
+nnoremap <Space>srp :Rg!<Space>
 
 " search the word under cursor in the current project (use fzf.vim + ripgrep)
-nnoremap <Space>sP :let w=expand("<cword>")<CR><CR>:Rg! <C-r>=w<CR>
-nmap <Space>* <Space>sP
+nnoremap <Space>srP :let w=expand("<cword>")<CR><CR>:Rg! <C-r>=w<CR><CR>
 
 " search some text in the current project (use fzf.vim + silver searcher)
 nnoremap <Space>sap :Ag!<Space>
 
 " search the word under cursor in the current project (use fzf.vim + silver searcher)
-nnoremap <Space>saP :let w=expand("<cword>")<CR><CR>:Ag! <C-r>=w<CR>
+nnoremap <Space>saP :let w=expand("<cword>")<CR><CR>:Ag! <C-r>=w<CR><CR>
 
 " search some text in files in an arbitrary directory (current by default) using default tool
 nmap <Space>sf <Space>sGf
@@ -147,13 +153,13 @@ nnoremap <Space>saF :Ag! <C-r>=expand("<cword>")<CR><CR>
 nnoremap <Space>sgf :FindText grep "" **<left><left><left><left>
 
 " search word under cursor in files in an arbitrary directory (current by default) using grepprg
-nnoremap <Space>sgF :FindText grep\ -w "<C-r>=expand("<cword>")<CR>" **<left><left><left><left>
+nnoremap <Space>sgF :FindText grep\ -w "<C-r>=expand("<cword>")<CR>" **<CR>
 
 " search some text in files in an arbitrary directory (current by default) using git grep
 nnoremap <Space>sGf :FindText Ggrep "" **<left><left><left><left>
 
 " search word under cursor in files in an arbitrary directory (current by default) using git grep
-nnoremap <Space>sGF :FindText Ggrep\ -w "<C-r>=expand("<cword>")<CR>" **<left><left><left><left>
+nnoremap <Space>sGF :FindText Ggrep\ -w "<C-r>=expand("<cword>")<CR>" **<CR>
 
 " search the web using DuckDuckGo
 nnoremap <Space>swd :!sp-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
@@ -164,10 +170,10 @@ nnoremap <Space>swg :!sp-open "https://google.com?q=<C-r>=expand("<cword>")<CR> 
 " search the web using Wikipedia (English)
 nnoremap <Space>sww :!sp-open "https://en.wikipedia.org/w/index.php?search=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
 
-nnoremap <Space>pf :GFiles<CR>
+nnoremap <Space>pf :GFiles!<CR>
 nnoremap <Space>pr :GFiles?<CR>
 nnoremap <Space>pt :NERDTreeFind<CR>
-nnoremap <Space>pg :Tags<CR>
+nnoremap <Space>pg :Tags!<CR>
 nnoremap <Space>pc :make<CR>
 nnoremap <Space>pr :make clean<CR>
 nnoremap <Space>pT :make test<CR>
