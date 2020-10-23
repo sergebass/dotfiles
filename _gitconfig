@@ -13,6 +13,8 @@
     sp = stash pop
     sa = stash apply
 
+    g = grep --color -I -n
+
     log-briefly = log --date=iso --decorate=full --color --pretty=format:"%C(green)%h\\ %ai\\ %Creset\\%s\\ %C(cyan\\ bold)(%an)%C(yellow\\ bold)%d"
     log-verbosely = log --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
 
