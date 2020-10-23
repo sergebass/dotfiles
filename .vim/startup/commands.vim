@@ -52,5 +52,5 @@ command! -bang -nargs=* AgId
 
 command! -nargs=1 LocateFiles call LocateFiles(<q-args>)
 command! -nargs=1 FindFiles call FindFiles(<q-args>)
-command! -nargs=+ FindAndReplace call FindAndReplace(<f-args>)
-
+command! -nargs=+ FindText call FindText(<f-args>)
+command! -nargs=+ FindAndReplaceText call FindAndReplaceText(<f-args>)

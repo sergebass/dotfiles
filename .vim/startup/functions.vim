@@ -34,12 +34,18 @@ function! FindFiles(file_pattern)
   call delete(error_file)
 endfunction
 
-function FindAndReplace(oldText, newText, filePattern)
-    let findCommand = 'grep -w -s ' . a:oldText . ' ' . a:filePattern . ' | cw'
-    execute l:findCommand
+function FindText(searcher_with_args, text, file_pattern)
+    let find_command = a:searcher_with_args . ' ' . a:text . ' ' . a:file_pattern . ' | cw'
+    execute l:find_command
     " FIXME handle errors
-    let replaceCommand = 'cfdo %s/' . a:oldText . '/' . a:newText . '/gc | cclose'
-    execute l:replaceCommand
+endfunction
+
+function FindAndReplaceText(searcher_with_args, old_text, new_text, file_pattern)
+    let find_command = a:searcher_with_args . ' ' . a:old_text . ' ' . a:file_pattern . ' | cw'
+    execute l:find_command
+    " FIXME handle errors
+    let replace_command = 'cfdo %s/' . a:old_text . '/' . a:new_text . '/gc | cclose'
+    execute l:replace_command
 endfunction
 
 function! SPTabLine()

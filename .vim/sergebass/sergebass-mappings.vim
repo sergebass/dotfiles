@@ -125,11 +125,35 @@ nnoremap <Space>sap :Ag!<Space>
 " search the word under cursor in the current project (use fzf.vim + silver searcher)
 nnoremap <Space>saP :let w=expand("<cword>")<CR><CR>:Ag! <C-r>=w<CR>
 
-" search some text in files in an arbitrary directory
-" FIXME TODO
-" nnoremap <Space>sf :grep<Space>
-" nnoremap <Space>sF :grep<Space>
-" nnoremap <Space>sgf :grep<Space>
+" search some text in files in an arbitrary directory (current by default) using default tool
+nmap <Space>sf <Space>sGf
+
+" search word under cursor in files in an arbitrary directory (current by default) using default tool
+nmap <Space>sF <Space>sGF
+
+" search some text in files in an arbitrary directory (current by default) using rg
+nnoremap <Space>srf :Rg!<CR>
+
+" search word under cursor in files in an arbitrary directory (current by default) using rg
+nnoremap <Space>srF :Rg! <C-r>=expand("<cword>")<CR><CR>
+
+" search some text in files in an arbitrary directory (current by default) using ag
+nnoremap <Space>saf :Ag!<CR>
+
+" search word under cursor in files in an arbitrary directory (current by default) using ag
+nnoremap <Space>saF :Ag! <C-r>=expand("<cword>")<CR><CR>
+
+" search some text in files in an arbitrary directory (current by default) using grepprg
+nnoremap <Space>sgf :FindText grep "" **<left><left><left><left>
+
+" search word under cursor in files in an arbitrary directory (current by default) using grepprg
+nnoremap <Space>sgF :FindText grep\ -w "<C-r>=expand("<cword>")<CR>" **<left><left><left><left>
+
+" search some text in files in an arbitrary directory (current by default) using git grep
+nnoremap <Space>sGf :FindText Ggrep "" **<left><left><left><left>
+
+" search word under cursor in files in an arbitrary directory (current by default) using git grep
+nnoremap <Space>sGF :FindText Ggrep\ -w "<C-r>=expand("<cword>")<CR>" **<left><left><left><left>
 
 " search the web using DuckDuckGo
 nnoremap <Space>swd :!sp-open "https://duckduckgo.com?q=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
@@ -165,7 +189,7 @@ nnoremap <Space>ec :ClearQuickfixList<CR>
 vmap <Space>; gc
 nmap <Space>cl gcc
 
-" spacemacs-compatible quick shortcuts for vim-fugitive
+" spacemacs-compatible quick shortcuts for vim-fugitive (and more)
 nnoremap <Space>gs :Gstatus<CR>
 nnoremap <Space>gl :Glog<CR>
 nnoremap <Space>gd :Gdiff<CR>
@@ -520,8 +544,8 @@ vnoremap \R "hy:%s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 " replace highlighted text from the current line to the end of file (with confirmation)
 vnoremap \r "hy:.,$s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 
-" search the word under cursor and replace it with another text
-nnoremap \% :FindAndReplace <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
+" search the word under cursor in files under current directory and replace it with another text
+nnoremap \% :FindAndReplaceText grep\ -w <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
 
 " autocompletion like in many IDEs (Ctrl+Space);
 " note that this does not work properly in terminals, only in gvim
