@@ -75,7 +75,7 @@ nnoremap <Space>qq :qa<CR>
 nnoremap <Space>qQ :qa!<CR>
 
 nnoremap <Space>ff :Files!<CR>
-nnoremap <Space>fr :call fzf#vim#history()<CR>
+nnoremap <Space>fr :call fzf#vim#history(1)<CR>
 nnoremap <Space>fs :w<CR>
 nnoremap <Space>fS :wa<CR>
 nnoremap <Space>fy <C-G>
@@ -87,7 +87,7 @@ else
     nnoremap <Space>fei :new<CR>:e ~/.vim/vimrc<CR>
 endif
 
-nnoremap <Space>bb :call fzf#vim#buffers()<CR>
+nnoremap <Space>bb :call fzf#vim#buffers(1)<CR>
 nnoremap <Space>bd :bdelete<CR>
 nnoremap <Space>bn :bnext<CR>
 nnoremap <Space>bp :bprev<CR>
