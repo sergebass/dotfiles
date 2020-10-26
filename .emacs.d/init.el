@@ -14,6 +14,9 @@
 
 (setq inhibit-startup-screen t)
 
+; use C-\ to switch layouts
+(setq default-input-method "cyrillic-jcuken")
+
 (package-install 'intero)
 (add-hook 'haskell-mode-hook 'intero-mode)
 
