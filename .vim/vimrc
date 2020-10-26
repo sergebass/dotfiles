@@ -9,6 +9,14 @@ set nocompatible
 set encoding=utf-8
 set fileencoding=utf-8
 
+" configure alternative keyboard layout for Russian character input
+set keymap=russian-jcuken
+" but do not enable alternative layout right away (Use ^^/Ctrl+6 to switch)
+" 0 == :lmap is off and IM is off
+set iminsert=0
+" -1 == re-use the value of iminsert
+set imsearch=-1
+
 " double star makes :find look for files recursively
 if has("win32")
     "FIXME set path=.,/usr/local/include,/usr/include,,**

@@ -2,6 +2,9 @@
 """ KEYBOARD MAPPINGS
 """ -----------------
 
+" To always reset input mode to default English when leaving Insert mode with <Esc>
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+
 " since "S" is equivalent to "cc", reuse it to save all buffers
 nnoremap S :wa<CR>
 
