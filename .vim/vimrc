@@ -9,8 +9,9 @@ set nocompatible
 set encoding=utf-8
 set fileencoding=utf-8
 
-" configure alternative keyboard layout for Russian character input
-set keymap=russian-jcuken
+" configure alternative keyboard layout for Latin characters with diacritics
+" (using dead characters as configured in keymap/accents.vim)
+set keymap=accents
 " but do not enable alternative layout right away (Use ^^/Ctrl+6 to switch)
 " 0 == :lmap is off and IM is off
 set iminsert=0

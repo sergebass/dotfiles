@@ -5,6 +5,15 @@
 " To always reset input mode to default English when leaving Insert mode with <Esc>
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
+" Quick shortcuts to change input methods/keyboard layouts
+
+" Latin with dead characters
+nnoremap \kl :set keymap=accents<CR>
+" Russian (JCUKEN)
+nnoremap \kr :set keymap=russian-jcuken<CR>
+" Ukrainian (JCUKEN)
+nnoremap \ku :set keymap=ukrainian-jcuken<CR>
+
 " since "S" is equivalent to "cc", reuse it to save all buffers
 nnoremap S :wa<CR>
 
