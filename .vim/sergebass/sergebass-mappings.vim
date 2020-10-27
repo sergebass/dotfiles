@@ -3,7 +3,7 @@
 """ -----------------
 
 " To always reset input mode to default English when leaving Insert mode with <Esc>
-inoremap <ESC> <ESC>:set iminsert=0<CR>
+" inoremap <ESC> <ESC>:set iminsert=0<CR>
 
 " Quick shortcuts to change input methods/keyboard layouts
 
