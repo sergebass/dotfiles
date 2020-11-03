@@ -139,6 +139,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-syntastic/syntastic'
 Plug 'yssl/QFEnter'
 
+" non-github-hosted plugins
+Plug 'https://gitlab.com/gi1242/vim-emoji-ab'
+
 " install user-specific plugins, if configured
 if filereadable(expand("~/.workspace-plugins.vim"))
     source ~/.workspace-plugins.vim
