@@ -62,6 +62,9 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'tmux-plugins/vim-tmux'
 
+" vim UI plugin for tpope/dadbod
+Plug 'kristijanhusak/vim-dadbod-ui'
+
 " Find-and-Replace (in multiple files)
 Plug 'brooth/far.vim'
 
