@@ -48,6 +48,7 @@ Plug 'junegunn/fzf.vim'
 " Plug '/usr/share/lilypond/2.18.2/vim'
 
 " Tim Pope's vim plugins
+Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
