@@ -49,6 +49,7 @@ Plug 'junegunn/fzf.vim'
 
 " Tim Pope's vim plugins
 Plug 'tpope/vim-capslock'
+Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
