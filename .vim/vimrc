@@ -175,6 +175,8 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
     \ 'c': ['clangd'],
     \ 'cpp': ['clangd'],
+    \ 'objc': ['clangd'],
+    \ 'objcpp': ['clangd'],
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'java': ['tcp://127.0.0.1:55555'],
     \ }
