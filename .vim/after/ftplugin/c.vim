@@ -23,7 +23,7 @@ nmap <buffer> <Space>mhh K
 " do our formatting using clang-format and the '=' command
 setlocal equalprg=clang-format
 
-function! SwitchSourceHeader()
+function! SwitchCSourceHeader()
   if (expand ("%:e") == "c")
     return expand("%:t:r") . ".h"
   else
@@ -33,13 +33,13 @@ endfunction
 
 " toggle between source and header
 " SPC m g a     open matching file (e.g. switch between .c and .h)
-nmap <buffer> <Space>mga :find <C-r>=SwitchSourceHeader()<CR><CR>
+nmap <buffer> <Space>mga :call LanguageClient#textDocument_switchSourceHeader()<CR>
 " SPC m g A     open matching file in another window (e.g. switch between .c and .h)
-nmap <buffer> <Space>mgA :vert sfind <C-r>=SwitchSourceHeader()<CR><CR>
+nmap <buffer> <Space>mgA :vsplit <bar> call LanguageClient#textDocument_switchSourceHeader()<CR>
 
-" quicker shortcuts for source-header toggle
-nmap <buffer> \\` <Space>mga
-nmap <buffer> \\~ <Space>mgA
+" alternative method for switching between sources and headers
+nmap <buffer> \\` :find <C-r>=SwitchCSourceHeader()<CR><CR>
+nmap <buffer> \\~ :vert sfind <C-r>=SwitchCSourceHeader()<CR><CR>
 
 nnoremap <buffer> <F1> :!sp-open "https://en.cppreference.com/w/c"<CR>
 nnoremap <buffer> <M-F1> :!sp-open "http://www.cplusplus.com/reference/clibrary/"<CR>

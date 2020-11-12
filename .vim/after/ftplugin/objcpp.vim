@@ -23,7 +23,7 @@ nmap <buffer> <Space>mhh K
 " do our formatting using clang-format and the '=' command
 setlocal equalprg=clang-format
 
-function! SwitchSourceHeader()
+function! SwitchObjCppSourceHeader()
   if (expand ("%:e") == "mm")
     return expand("%:t:r") . ".h"
   else
@@ -32,14 +32,14 @@ function! SwitchSourceHeader()
 endfunction
 
 " toggle between source and header
-" SPC m g a     open matching file (e.g. switch between .cpp and .h)
-nmap <buffer> <Space>mga :find <C-r>=SwitchSourceHeader()<CR><CR>
-" SPC m g A     open matching file in another window (e.g. switch between .cpp and .h)
-nmap <buffer> <Space>mgA :vert sfind <C-r>=SwitchSourceHeader()<CR><CR>
+" SPC m g a     open matching file (e.g. switch between .mm and .h)
+nmap <buffer> <Space>mga :call LanguageClient#textDocument_switchSourceHeader()<CR>
+" SPC m g A     open matching file in another window (e.g. switch between .mm and .h)
+nmap <buffer> <Space>mgA :vsplit <bar> call LanguageClient#textDocument_switchSourceHeader()<CR>
 
-" quicker shortcuts for source-header toggle
-nmap <buffer> \\` <Space>mga
-nmap <buffer> \\~ <Space>mgA
+" alternative method for switching between sources and headers
+nmap <buffer> \\` :find <C-r>=SwitchObjCppSourceHeader()<CR><CR>
+nmap <buffer> \\~ :vert sfind <C-r>=SwitchObjCppSourceHeader()<CR><CR>
 
 " Add highlighting for function definition in C++ (adapted from vim.fandom.com)
 highlight CppMethodDefinition term=inverse cterm=inverse gui=inverse
