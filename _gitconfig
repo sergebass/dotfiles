@@ -234,3 +234,5 @@
     header = 15
     help = 214
     error = 196 bold reverse
+[pull]
+	rebase = true
