@@ -69,6 +69,10 @@ nmap <buffer> <Space>mgg <CR>
 
 nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
 
+nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <buffer> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <buffer> gO :call LanguageClient#textDocument_documentSymbol()<CR>
+
 " -----------------------------------------------------------------------------
 " Apply workspace-specific Objective C++ settings, if available;
 " this is placed at the end to make sure workspace configuration takes priority

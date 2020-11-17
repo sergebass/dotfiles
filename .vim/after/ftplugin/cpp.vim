@@ -69,6 +69,10 @@ nmap <buffer> <Space>mgg <CR>
 
 nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
 
+nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <buffer> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <buffer> gO :call LanguageClient#textDocument_documentSymbol()<CR>
+
 " SPC m D   disaster: disassemble c/c++ code
 
 " LanguageClient#textDocument_typeDefinition()

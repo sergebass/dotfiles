@@ -62,7 +62,6 @@ nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <buffer> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <buffer> gO :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <buffer> <C-N> :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " -----------------------------------------------------------------------------
 " Apply workspace-specific C settings, if available;
