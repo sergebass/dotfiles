@@ -59,8 +59,8 @@ vnoremap <Del> "_d
 nnoremap <Del> "_x
 
 " session management accelerators (don't forget to add .vim extension!)
-nnoremap \# :mksession! Session
-nnoremap \@ :source Session
+" nnoremap \# :mksession! Session
+" nnoremap \@ :source Session
 
 nnoremap <C-N> :Tags!<CR>
 nnoremap <C-P> :GFiles!<CR>
@@ -496,13 +496,13 @@ nnoremap <M-#> #<C-O>:%s///gn<CR>``
 
 " define a custom highlighting for the word under cursor or a selection
 " in the current buffer
-nnoremap \* :match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
-vnoremap \* "*y<Esc>:match SPCustomHighlight "<C-r>*"
+nnoremap \# :match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
+vnoremap \# "*y<Esc>:match SPCustomHighlight "<C-r>*"
 
 " define a custom highlighting for the word under cursor or a selection
 " in all open buffers
-" nnoremap \\\* :bufdo match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
-" vnoremap \\\* "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
+nnoremap \@ :bufdo match SPCustomHighlight "<C-r>=expand("<cword>")<CR>"
+vnoremap \@ "*y<Esc>:bufdo match SPCustomHighlight "<C-r>*"
 
 " easily copy the word under cursor into the command line being edited
 nnoremap <M-CR> :<C-r>=expand("<cword>")<CR>
@@ -600,10 +600,16 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
+" NOTE that if you are using Plug mapping you should not use `noremap` mappings
+
 " shortcuts for language client/server use (LanguageClient plugin)
-nnoremap <silent> \<Bar> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> \K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> \gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> \gO :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> \= :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> \^ :call LanguageClient#textDocument_references()<CR>
+
+nmap <silent> \<Bar> <Plug>(lcn-menu)
+nmap <silent> \K <Plug>(lcn-hover)
+nmap <silent> \gd <Plug>(lcn-definition)
+nmap <silent> \gD <Plug>(lcn-implementation)
+nmap <silent> \gO <Plug>(lcn-symbols)
+nmap <silent> \= <Plug>(lcn-rename)
+nmap <silent> \^ <Plug>(lcn-references)
+nmap <silent> \* <Plug>(lcn-highlight)
+nmap <silent> \+ <Plug>(lcn-explain-error)
