@@ -494,11 +494,48 @@ colors:
 # at once.
 key_bindings:
 
+    # ---------------------------------------------
     # fixes for MacOS: Control+symbol made explicit
 
+    - { key: Space, mods: Control, chars: "\x00" }
+    - { key: Key2, mods: Control, chars: "\x00" }
+    - { key: Key2, mods: Control|Shift, chars: "\x00" }
+
+    - { key: A, mods: Control, chars: "\x01" }
+    - { key: B, mods: Control, chars: "\x02" }
+    - { key: C, mods: Control, chars: "\x03" }
+    - { key: D, mods: Control, chars: "\x04" }
+    - { key: E, mods: Control, chars: "\x05" }
+    - { key: F, mods: Control, chars: "\x06" }
+    - { key: G, mods: Control, chars: "\x07" }
+    - { key: H, mods: Control, chars: "\x08" }
+    - { key: I, mods: Control, chars: "\x09" }
+    - { key: J, mods: Control, chars: "\x0a" }
+    - { key: K, mods: Control, chars: "\x0b" }
+    - { key: L, mods: Control, chars: "\x0c" }
+    - { key: M, mods: Control, chars: "\x0d" }
+    - { key: N, mods: Control, chars: "\x0e" }
+    - { key: O, mods: Control, chars: "\x0f" }
+    - { key: P, mods: Control, chars: "\x10" }
     - { key: Q, mods: Control, chars: "\x11" }
+    - { key: R, mods: Control, chars: "\x12" }
+    - { key: S, mods: Control, chars: "\x13" }
+    - { key: T, mods: Control, chars: "\x14" }
+    - { key: U, mods: Control, chars: "\x15" }
+    - { key: V, mods: Control, chars: "\x16" }
+    - { key: W, mods: Control, chars: "\x17" }
+    - { key: X, mods: Control, chars: "\x18" }
+    - { key: Y, mods: Control, chars: "\x19" }
+    - { key: Z, mods: Control, chars: "\x1a" }
+
+    - { key: LBracket, mods: Control, chars: "\x1b" }
+    - { key: Backslash, mods: Control, chars: "\x1c" }
+    - { key: RBracket, mods: Control, chars: "\x1d" }
+    - { key: Key6, mods: Control, chars: "\x1e" }
+    - { key: Key6, mods: Control|Shift, chars: "\x1e" }
     - { key: Slash, mods: Control, chars: "\x1f" }
 
+    # -----------------------------------------
     # fixes for MacOS: Alt+symbol made explicit
 
     # all letters
