@@ -494,6 +494,7 @@ colors:
 # at once.
 key_bindings:
     - { key: Q, mods: Control, chars: "\x11" }
+    - { key: Slash, mods: Control, chars: "\x1f" }
   #- { key: Paste,                                action: Paste          }
   #- { key: Copy,                                 action: Copy           }
   #- { key: L,         mods: Control,             action: ClearLogNotice }
