@@ -19,14 +19,9 @@ setlocal autoindent
 " nnoremap <buffer> \\? :!sp-open "https://www.haskell.org/hoogle/?hoogle=<C-r>=expand("<cword>")<CR>"<Left>
 " vnoremap <buffer> \\? "*y<Esc>:!sp-open "https://www.haskell.org/hoogle/?hoogle=<C-r>*"<Left>
 
-nnoremap <buffer> <CR> :call LanguageClient#textDocument_definition()<CR>
-nmap <buffer> <Space>mgg <CR>
+nmap <buffer> <silent> K <Plug>(lcn-hover)
 
-nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
-
-nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <buffer> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <buffer> gO :call LanguageClient#textDocument_documentSymbol()<CR>
+nmap <buffer> <silent> <CR> <Plug>(lcn-definition)
 
 " -----------------------------------------------------------------------------
 " Apply workspace-specific Rust settings, if available;

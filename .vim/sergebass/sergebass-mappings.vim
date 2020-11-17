@@ -613,3 +613,20 @@ nmap <silent> \= <Plug>(lcn-rename)
 nmap <silent> \^ <Plug>(lcn-references)
 nmap <silent> \* <Plug>(lcn-highlight)
 nmap <silent> \+ <Plug>(lcn-explain-error)
+
+" use LanguageClient as default filetype-specific mappings
+
+" jump to definition of the symbol under cursor
+nmap <silent> <Space>mgg <Plug>(lcn-definition)
+
+" switch to another/accompanying source (e.g. source-header) file in the same window
+nmap <silent> <Space>mga :call LanguageClient#textDocument_switchSourceHeader()<CR>
+
+" switch to another/accompanying source (e.g. source-header) file in a vertical split
+nmap <silent> <Space>mgA :vsplit <bar> call LanguageClient#textDocument_switchSourceHeader()<CR>
+
+" rename symbol under cursor
+nmap <silent> <Space>mrr <Plug>(lcn-rename)
+
+" display help about symbol under cursor
+nmap <silent> <Space>mhh <Plug>(lcn-hover)

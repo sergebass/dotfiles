@@ -15,10 +15,14 @@ setlocal commentstring=//\ %s
 " Only use valid C identifier characters
 setlocal iskeyword=@,48-57,_
 
+" NOTE that if you are using Plug mapping you should not use `noremap` mappings
+
 " we need that comment mark at the end since this on-hover function does not accept arguments but uses the word under cursor
 setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
 
-nmap <buffer> <Space>mhh K
+nmap <buffer> <silent> K <Plug>(lcn-hover)
+
+nmap <buffer> <silent> <CR> <Plug>(lcn-definition)
 
 " do our formatting using clang-format and the '=' command
 setlocal equalprg=clang-format
@@ -30,12 +34,6 @@ function! SwitchCSourceHeader()
     return expand("%:t:r") . ".c"
   endif
 endfunction
-
-" toggle between source and header
-" SPC m g a     open matching file (e.g. switch between .c and .h)
-nmap <buffer> <Space>mga :call LanguageClient#textDocument_switchSourceHeader()<CR>
-" SPC m g A     open matching file in another window (e.g. switch between .c and .h)
-nmap <buffer> <Space>mgA :vsplit <bar> call LanguageClient#textDocument_switchSourceHeader()<CR>
 
 " alternative method for switching between sources and headers
 nmap <buffer> \\` :find <C-r>=SwitchCSourceHeader()<CR><CR>
@@ -52,16 +50,7 @@ vnoremap <buffer> \\?1 "*y<Esc>:!sp-open "https://en.cppreference.com/mwiki/inde
 nnoremap <buffer> \\?2 :!sp-open "http://www.cplusplus.com/search.do?q=<C-r>=expand("<cword>")<CR>"<Left>
 vnoremap <buffer> \\?2 "*y<Esc>:!sp-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
 
-nnoremap <buffer> <CR> :call LanguageClient#textDocument_definition()<CR>
-nmap <buffer> <Space>mgg <CR>
-
 " SPC m D   disaster: disassemble c/c++ code
-
-nnoremap <buffer> <Space>mrr :call LanguageClient#textDocument_rename()<CR>
-
-nnoremap <buffer> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <buffer> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <buffer> gO :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " -----------------------------------------------------------------------------
 " Apply workspace-specific C settings, if available;
