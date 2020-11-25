@@ -371,6 +371,9 @@ nnoremap <silent> <C-k> [m
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)
 nnoremap <Space>w <C-w>
 
+" a quick way to close other windows _and_ tabs
+nnoremap <Space>wO :only <bar> tabonly<CR>
+
 " move between windows (spacemacs space prefix, with arrows)
 nnoremap <silent> <Space><Left> <C-w>h
 nnoremap <silent> <Space><Right> <C-w>l
