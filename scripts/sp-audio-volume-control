@@ -13,6 +13,8 @@ if [ "$os" == "Linux" ]; then
 
 elif [ "$os" == "FreeBSD" ]; then
     aumix
+elif [ "$os" == "NetBSD" ]; then
+    aiomixer
 elif [ "$os" == "Darwin" ]; then
     open /System/Library/PreferencePanes/Sound.prefPane
 elif [ "$(expr substr $(uname -s) 1 7)" == "MSYS_NT" ]; then
