@@ -122,11 +122,17 @@ myConfig = desktopConfig
     , ((superMask .|. altMask, xK_8), spawn "pactl set-sink-volume @DEFAULT_SINK@ 80%")
     , ((superMask .|. altMask, xK_9), spawn "pactl set-sink-volume @DEFAULT_SINK@ 90%")
     , ((superMask .|. altMask, xK_0), spawn "pactl set-sink-volume @DEFAULT_SINK@ 100%")
+    , ((superMask .|. altMask, xK_Down), spawn "sp-decrease-audio-volume")
+    , ((superMask .|. altMask, xK_Up), spawn "sp-increase-audio-volume")
+    , ((superMask .|. altMask, xK_Home), spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+    , ((superMask .|. altMask, xK_End), spawn "sp-toggle-audio-mute")
     -- song control
     , ((superMask .|. shiftMask, xK_grave), spawn "x-terminal-emulator -e ncmpcpp")
     , ((superMask .|. shiftMask, xK_bracketleft), spawn "mpc prev")
     , ((superMask .|. shiftMask, xK_bracketright), spawn "mpc next")
     , ((superMask .|. shiftMask, xK_backslash), spawn "mpc toggle")
+    , ((superMask .|. altMask, xK_Left), spawn "mpc prev")
+    , ((superMask .|. altMask, xK_Right), spawn "mpc next")
     ]
      `additionalKeysP` -- direct keys without prefix
     [ --audio controls
