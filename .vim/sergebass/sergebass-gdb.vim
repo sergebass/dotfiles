@@ -2,6 +2,12 @@
 """ Shared configuration for gdb-based debugging
 """ --------------------------------------------
 
+" While our debugging infrastructure is being developed, just use simple helpers 
+" to get current file and line number for gdb and lldb, respectively,
+" and copy them to clipboard (to paste them right into the debugger)
+nnoremap <buffer> \\bl :let @+=expand("%") . ":" . line(".")<CR>:echo @+<CR>
+nnoremap <buffer> \\bL :let @+="-f " . expand("%") . " -l " . line(".")<CR>:echo @+<CR>
+
 " FIXME should this be in global configuration instead?
 " This is a new feature in vim to better integrate with gdb
 packadd termdebug
