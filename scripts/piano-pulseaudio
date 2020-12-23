@@ -1,0 +1,17 @@
+#!/bin/sh
+
+echo "Killing any running fluidsynth instances..."
+pkill fluidsynth
+sleep 1
+
+echo "Launching fluidsynth MIDI synthesizer..."
+/usr/bin/fluidsynth --audio-driver pulseaudio --midi-driver alsa_seq --server --no-shell --gain 5 --reverb on --chorus on --sample-rate 48000 /usr/share/sounds/sf2/FluidR3_GM.sf2 &
+
+echo "Waiting a bit until fluidsynth is up and running..."
+sleep 5
+
+echo "Connecting Keystation MIDI keyboard to fluidsynth MIDI synthesizer..."
+aconnect -l
+aconnect "USB Keystation:0" "FLUID Synth:0"
+
+echo "Should be connected now. Try playing something..."
