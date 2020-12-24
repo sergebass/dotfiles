@@ -2,11 +2,11 @@
 # FIXME make it list all displays if no arguments are provided, do the rest otherwise
 xrandr | grep -ws connected
 
-MONITOR1=eDP-1-1
-MONITOR2=HDMI-1-1
+MONITOR1=HDMI-0
+MONITOR2=HDMI-1
 
 xrandr --output $MONITOR1 --off
 xrandr --output $MONITOR2 --off
 
-xrandr --verbose --output $MONITOR1 --auto
-xrandr --verbose --output $MONITOR2 --auto --left-of $MONITOR1 --primary
+xrandr --verbose --output $MONITOR1 --auto --primary
+xrandr --verbose --output $MONITOR2 --auto --same-as $MONITOR1

@@ -9,4 +9,3 @@ xrandr --output $MONITOR1 --off
 xrandr --output $MONITOR2 --off
 
 xrandr --verbose --output $MONITOR1 --auto --primary
-xrandr --verbose --output $MONITOR2 --auto --same-as $MONITOR1
