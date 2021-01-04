@@ -31,8 +31,9 @@ tags.temp
 .vim/.netrwhist
 
 # mpd databases are host-specific
-.mpd/mpd.log
 .mpd/mpd.db
+.mpd/mpd.conf
+.mpd/mpd.log
 .mpd/mpd.pid
 .mpd/mpdstate
 
