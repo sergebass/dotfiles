@@ -54,3 +54,5 @@ command! -nargs=1 LocateFiles call LocateFiles(<q-args>)
 command! -nargs=1 FindFiles call FindFiles(<q-args>)
 command! -nargs=+ FindText call FindText(<f-args>)
 command! -nargs=+ FindAndReplaceText call FindAndReplaceText(<f-args>)
+
+command! -nargs=1 SPFindFile call SPFindFileWithLine(<q-args>)

@@ -366,6 +366,9 @@ onoremap <silent> L :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<
 nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
+" Jump to the file:line[:column] location taken from the clipboard
+nnoremap \F :SPFindFile <C-r>+<CR>
+
 " Window manipulation/navigation
 
 " A duplicate of Ctrl+W for in-browser SSH use (Ctrl+W closes browser tabs normally)

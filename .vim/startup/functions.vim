@@ -82,3 +82,17 @@ function! SPTabLine()
   endif
   return s
 endfunction
+
+function! SPFindFileWithLine(file_with_line)
+    let parts = split(a:file_with_line, ':')
+    if len(parts) == 1  " just the file name is present
+        execute 'find' parts[0]
+    elseif len(parts) == 2  " filename:line
+        execute 'find' ('+' . parts[1]) parts[0]
+    elseif len(parts) == 3  " filename:line:column
+        execute 'find' ('+' . parts[1]) parts[0]
+        execute 'normal! ' . parts[2] . '|'
+    else
+        echoe "Invalid argument"
+    endif
+endfunction
