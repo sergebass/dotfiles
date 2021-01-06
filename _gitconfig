@@ -109,6 +109,8 @@
 
     backup = !git diff @{upstream} > ~/git-backup-$(git rev-parse --abbrev-ref HEAD)-$(date "+%Y%m%d-%H%M%S").patch
 
+    commits-by-author = shortlog -s -n --all --no-merges
+
 [core]
     pager = less -F -X
 
