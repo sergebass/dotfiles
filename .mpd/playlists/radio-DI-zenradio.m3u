@@ -1,0 +1,353 @@
+#EXTM3U
+# NOTE Replace FIXME with your Digitally Imported Listen Key
+
+#EXTINF:0,ZenRadio.com - Acoustic Vocal Chillout (MP3, server 1)
+http://prem1.zenradio.com:80/zracousticvocalchillout?FIXME
+#EXTINF:0,ZenRadio.com - Acoustic Vocal Chillout (MP3, server 4)
+http://prem4.zenradio.com:80/zracousticvocalchillout?FIXME
+#EXTINF:0,ZenRadio.com - Acoustic Vocal Chillout (AAC, server 1)
+http://prem1.zenradio.com:80/zracousticvocalchillout_aac?FIXME
+#EXTINF:0,ZenRadio.com - Acoustic Vocal Chillout (AAC, server 4)
+http://prem4.zenradio.com:80/zracousticvocalchillout_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Ambient (MP3, server 1)
+http://prem1.zenradio.com:80/zrambient?FIXME
+#EXTINF:0,ZenRadio.com - Ambient (MP3, server 4)
+http://prem4.zenradio.com:80/zrambient?FIXME
+#EXTINF:0,ZenRadio.com - Ambient (AAC, server 1)
+http://prem1.zenradio.com:80/zrambient_aac?FIXME
+#EXTINF:0,ZenRadio.com - Ambient (AAC, server 4)
+http://prem4.zenradio.com:80/zrambient_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Atmospheric Dreams (MP3, server 1)
+http://prem1.zenradio.com:80/zratmosphericdreams?FIXME
+#EXTINF:0,ZenRadio.com - Atmospheric Dreams (MP3, server 4)
+http://prem4.zenradio.com:80/zratmosphericdreams?FIXME
+#EXTINF:0,ZenRadio.com - Atmospheric Dreams (AAC, server 1)
+http://prem1.zenradio.com:80/zratmosphericdreams_aac?FIXME
+#EXTINF:0,ZenRadio.com - Atmospheric Dreams (AAC, server 4)
+http://prem4.zenradio.com:80/zratmosphericdreams_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Baby Sleep (MP3, server 1)
+http://prem1.zenradio.com:80/zrbabysleep?FIXME
+#EXTINF:0,ZenRadio.com - Baby Sleep (MP3, server 4)
+http://prem4.zenradio.com:80/zrbabysleep?FIXME
+#EXTINF:0,ZenRadio.com - Baby Sleep (AAC, server 1)
+http://prem1.zenradio.com:80/zrbabysleep_aac?FIXME
+#EXTINF:0,ZenRadio.com - Baby Sleep (AAC, server 4)
+http://prem4.zenradio.com:80/zrbabysleep_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Chillout (MP3, server 1)
+http://prem1.zenradio.com:80/zrchillout?FIXME
+#EXTINF:0,ZenRadio.com - Chillout (MP3, server 4)
+http://prem4.zenradio.com:80/zrchillout?FIXME
+#EXTINF:0,ZenRadio.com - Chillout (AAC, server 1)
+http://prem1.zenradio.com:80/zrchillout_aac?FIXME
+#EXTINF:0,ZenRadio.com - Chillout (AAC, server 4)
+http://prem4.zenradio.com:80/zrchillout_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Chillout Dreams (MP3, server 1)
+http://prem1.zenradio.com:80/zrchilloutdreams?FIXME
+#EXTINF:0,ZenRadio.com - Chillout Dreams (MP3, server 4)
+http://prem4.zenradio.com:80/zrchilloutdreams?FIXME
+#EXTINF:0,ZenRadio.com - Chillout Dreams (AAC, server 1)
+http://prem1.zenradio.com:80/zrchilloutdreams_aac?FIXME
+#EXTINF:0,ZenRadio.com - Chillout Dreams (AAC, server 4)
+http://prem4.zenradio.com:80/zrchilloutdreams_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Deep Concentration (MP3, server 1)
+http://prem1.zenradio.com:80/zrdeepconcentration?FIXME
+#EXTINF:0,ZenRadio.com - Deep Concentration (MP3, server 4)
+http://prem4.zenradio.com:80/zrdeepconcentration?FIXME
+#EXTINF:0,ZenRadio.com - Deep Concentration (AAC, server 1)
+http://prem1.zenradio.com:80/zrdeepconcentration_aac?FIXME
+#EXTINF:0,ZenRadio.com - Deep Concentration (AAC, server 4)
+http://prem4.zenradio.com:80/zrdeepconcentration_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Deep Focus (MP3, server 1)
+http://prem1.zenradio.com:80/zrdeepfocus?FIXME
+#EXTINF:0,ZenRadio.com - Deep Focus (MP3, server 4)
+http://prem4.zenradio.com:80/zrdeepfocus?FIXME
+#EXTINF:0,ZenRadio.com - Deep Focus (AAC, server 1)
+http://prem1.zenradio.com:80/zrdeepfocus_aac?FIXME
+#EXTINF:0,ZenRadio.com - Deep Focus (AAC, server 4)
+http://prem4.zenradio.com:80/zrdeepfocus_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Downtempo Lounge (MP3, server 1)
+http://prem1.zenradio.com:80/zrdowntempolounge?FIXME
+#EXTINF:0,ZenRadio.com - Downtempo Lounge (MP3, server 4)
+http://prem4.zenradio.com:80/zrdowntempolounge?FIXME
+#EXTINF:0,ZenRadio.com - Downtempo Lounge (AAC, server 1)
+http://prem1.zenradio.com:80/zrdowntempolounge_aac?FIXME
+#EXTINF:0,ZenRadio.com - Downtempo Lounge (AAC, server 4)
+http://prem4.zenradio.com:80/zrdowntempolounge_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - East Asian Meditation (MP3, server 1)
+http://prem1.zenradio.com:80/zreastasianmeditation?FIXME
+#EXTINF:0,ZenRadio.com - East Asian Meditation (MP3, server 4)
+http://prem4.zenradio.com:80/zreastasianmeditation?FIXME
+#EXTINF:0,ZenRadio.com - East Asian Meditation (AAC, server 1)
+http://prem1.zenradio.com:80/zreastasianmeditation_aac?FIXME
+#EXTINF:0,ZenRadio.com - East Asian Meditation (AAC, server 4)
+http://prem4.zenradio.com:80/zreastasianmeditation_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Love & Relaxation (MP3, server 1)
+http://prem1.zenradio.com:80/zrlovenrelaxation?FIXME
+#EXTINF:0,ZenRadio.com - Love & Relaxation (MP3, server 4)
+http://prem4.zenradio.com:80/zrlovenrelaxation?FIXME
+#EXTINF:0,ZenRadio.com - Love & Relaxation (AAC, server 1)
+http://prem1.zenradio.com:80/zrlovenrelaxation_aac?FIXME
+#EXTINF:0,ZenRadio.com - Love & Relaxation (AAC, server 4)
+http://prem4.zenradio.com:80/zrlovenrelaxation_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Meditation (MP3, server 1)
+http://prem1.zenradio.com:80/zrmeditation?FIXME
+#EXTINF:0,ZenRadio.com - Meditation (MP3, server 4)
+http://prem4.zenradio.com:80/zrmeditation?FIXME
+#EXTINF:0,ZenRadio.com - Meditation (AAC, server 1)
+http://prem1.zenradio.com:80/zrmeditation_aac?FIXME
+#EXTINF:0,ZenRadio.com - Meditation (AAC, server 4)
+http://prem4.zenradio.com:80/zrmeditation_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Native American Flute (MP3, server 1)
+http://prem1.zenradio.com:80/zrnativeamericanflute?FIXME
+#EXTINF:0,ZenRadio.com - Native American Flute (MP3, server 4)
+http://prem4.zenradio.com:80/zrnativeamericanflute?FIXME
+#EXTINF:0,ZenRadio.com - Native American Flute (AAC, server 1)
+http://prem1.zenradio.com:80/zrnativeamericanflute_aac?FIXME
+#EXTINF:0,ZenRadio.com - Native American Flute (AAC, server 4)
+http://prem4.zenradio.com:80/zrnativeamericanflute_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Nature (MP3, server 1)
+http://prem1.zenradio.com:80/zrnature?FIXME
+#EXTINF:0,ZenRadio.com - Nature (MP3, server 4)
+http://prem4.zenradio.com:80/zrnature?FIXME
+#EXTINF:0,ZenRadio.com - Nature (AAC, server 1)
+http://prem1.zenradio.com:80/zrnature_aac?FIXME
+#EXTINF:0,ZenRadio.com - Nature (AAC, server 4)
+http://prem4.zenradio.com:80/zrnature_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - New Age (MP3, server 1)
+http://prem1.zenradio.com:80/zrnewage?FIXME
+#EXTINF:0,ZenRadio.com - New Age (MP3, server 4)
+http://prem4.zenradio.com:80/zrnewage?FIXME
+#EXTINF:0,ZenRadio.com - New Age (AAC, server 1)
+http://prem1.zenradio.com:80/zrnewage_aac?FIXME
+#EXTINF:0,ZenRadio.com - New Age (AAC, server 4)
+http://prem4.zenradio.com:80/zrnewage_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Ocean Sounds (MP3, server 1)
+http://prem1.zenradio.com:80/zroceansounds?FIXME
+#EXTINF:0,ZenRadio.com - Ocean Sounds (MP3, server 4)
+http://prem4.zenradio.com:80/zroceansounds?FIXME
+#EXTINF:0,ZenRadio.com - Ocean Sounds (AAC, server 1)
+http://prem1.zenradio.com:80/zroceansounds_aac?FIXME
+#EXTINF:0,ZenRadio.com - Ocean Sounds (AAC, server 4)
+http://prem4.zenradio.com:80/zroceansounds_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Peaceful Healing (MP3, server 1)
+http://prem1.zenradio.com:80/zrpeacefulhealing?FIXME
+#EXTINF:0,ZenRadio.com - Peaceful Healing (MP3, server 4)
+http://prem4.zenradio.com:80/zrpeacefulhealing?FIXME
+#EXTINF:0,ZenRadio.com - Peaceful Healing (AAC, server 1)
+http://prem1.zenradio.com:80/zrpeacefulhealing_aac?FIXME
+#EXTINF:0,ZenRadio.com - Peaceful Healing (AAC, server 4)
+http://prem4.zenradio.com:80/zrpeacefulhealing_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Perfect Sunsets (MP3, server 1)
+http://prem1.zenradio.com:80/zrperfectsunsets?FIXME
+#EXTINF:0,ZenRadio.com - Perfect Sunsets (MP3, server 4)
+http://prem4.zenradio.com:80/zrperfectsunsets?FIXME
+#EXTINF:0,ZenRadio.com - Perfect Sunsets (AAC, server 1)
+http://prem1.zenradio.com:80/zrperfectsunsets_aac?FIXME
+#EXTINF:0,ZenRadio.com - Perfect Sunsets (AAC, server 4)
+http://prem4.zenradio.com:80/zrperfectsunsets_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Pregnancy Relaxation (MP3, server 1)
+http://prem1.zenradio.com:80/zrpregnancyrelaxation?FIXME
+#EXTINF:0,ZenRadio.com - Pregnancy Relaxation (MP3, server 4)
+http://prem4.zenradio.com:80/zrpregnancyrelaxation?FIXME
+#EXTINF:0,ZenRadio.com - Pregnancy Relaxation (AAC, server 1)
+http://prem1.zenradio.com:80/zrpregnancyrelaxation_aac?FIXME
+#EXTINF:0,ZenRadio.com - Pregnancy Relaxation (AAC, server 4)
+http://prem4.zenradio.com:80/zrpregnancyrelaxation_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Reiki (MP3, server 1)
+http://prem1.zenradio.com:80/zrreiki?FIXME
+#EXTINF:0,ZenRadio.com - Reiki (MP3, server 4)
+http://prem4.zenradio.com:80/zrreiki?FIXME
+#EXTINF:0,ZenRadio.com - Reiki (AAC, server 1)
+http://prem1.zenradio.com:80/zrreiki_aac?FIXME
+#EXTINF:0,ZenRadio.com - Reiki (AAC, server 4)
+http://prem4.zenradio.com:80/zrreiki_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Relaxation (MP3, server 1)
+http://prem1.zenradio.com:80/zrrelaxation?FIXME
+#EXTINF:0,ZenRadio.com - Relaxation (MP3, server 4)
+http://prem4.zenradio.com:80/zrrelaxation?FIXME
+#EXTINF:0,ZenRadio.com - Relaxation (AAC, server 1)
+http://prem1.zenradio.com:80/zrrelaxation_aac?FIXME
+#EXTINF:0,ZenRadio.com - Relaxation (AAC, server 4)
+http://prem4.zenradio.com:80/zrrelaxation_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Relaxing Classical (MP3, server 1)
+http://prem1.zenradio.com:80/zrrelaxingclassical?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Classical (MP3, server 4)
+http://prem4.zenradio.com:80/zrrelaxingclassical?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Classical (AAC, server 1)
+http://prem1.zenradio.com:80/zrrelaxingclassical_aac?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Classical (AAC, server 4)
+http://prem4.zenradio.com:80/zrrelaxingclassical_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Relaxing Flute (MP3, server 1)
+http://prem1.zenradio.com:80/zrrelaxingflute?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Flute (MP3, server 4)
+http://prem4.zenradio.com:80/zrrelaxingflute?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Flute (AAC, server 1)
+http://prem1.zenradio.com:80/zrrelaxingflute_aac?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Flute (AAC, server 4)
+http://prem4.zenradio.com:80/zrrelaxingflute_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Relaxing Guitar (MP3, server 1)
+http://prem1.zenradio.com:80/zrrelaxingguitar?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Guitar (MP3, server 4)
+http://prem4.zenradio.com:80/zrrelaxingguitar?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Guitar (AAC, server 1)
+http://prem1.zenradio.com:80/zrrelaxingguitar_aac?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Guitar (AAC, server 4)
+http://prem4.zenradio.com:80/zrrelaxingguitar_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Relaxing Piano (MP3, server 1)
+http://prem1.zenradio.com:80/zrrelaxingpiano?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Piano (MP3, server 4)
+http://prem4.zenradio.com:80/zrrelaxingpiano?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Piano (AAC, server 1)
+http://prem1.zenradio.com:80/zrrelaxingpiano_aac?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Piano (AAC, server 4)
+http://prem4.zenradio.com:80/zrrelaxingpiano_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Relaxing Spa & Massage (MP3, server 1)
+http://prem1.zenradio.com:80/zrrelaxingspanmassage?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Spa & Massage (MP3, server 4)
+http://prem4.zenradio.com:80/zrrelaxingspanmassage?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Spa & Massage (AAC, server 1)
+http://prem1.zenradio.com:80/zrrelaxingspanmassage_aac?FIXME
+#EXTINF:0,ZenRadio.com - Relaxing Spa & Massage (AAC, server 4)
+http://prem4.zenradio.com:80/zrrelaxingspanmassage_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Shamanic Music (MP3, server 1)
+http://prem1.zenradio.com:80/zrshamanicmusic?FIXME
+#EXTINF:0,ZenRadio.com - Shamanic Music (MP3, server 4)
+http://prem4.zenradio.com:80/zrshamanicmusic?FIXME
+#EXTINF:0,ZenRadio.com - Shamanic Music (AAC, server 1)
+http://prem1.zenradio.com:80/zrshamanicmusic_aac?FIXME
+#EXTINF:0,ZenRadio.com - Shamanic Music (AAC, server 4)
+http://prem4.zenradio.com:80/zrshamanicmusic_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Sleep Relaxation (MP3, server 1)
+http://prem1.zenradio.com:80/zrsleeprelaxation?FIXME
+#EXTINF:0,ZenRadio.com - Sleep Relaxation (MP3, server 4)
+http://prem4.zenradio.com:80/zrsleeprelaxation?FIXME
+#EXTINF:0,ZenRadio.com - Sleep Relaxation (AAC, server 1)
+http://prem1.zenradio.com:80/zrsleeprelaxation_aac?FIXME
+#EXTINF:0,ZenRadio.com - Sleep Relaxation (AAC, server 4)
+http://prem4.zenradio.com:80/zrsleeprelaxation_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Sounds of Rain (MP3, server 1)
+http://prem1.zenradio.com:80/zrsoundsofrain?FIXME
+#EXTINF:0,ZenRadio.com - Sounds of Rain (MP3, server 4)
+http://prem4.zenradio.com:80/zrsoundsofrain?FIXME
+#EXTINF:0,ZenRadio.com - Sounds of Rain (AAC, server 1)
+http://prem1.zenradio.com:80/zrsoundsofrain_aac?FIXME
+#EXTINF:0,ZenRadio.com - Sounds of Rain (AAC, server 4)
+http://prem4.zenradio.com:80/zrsoundsofrain_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Space Dreams (MP3, server 1)
+http://prem1.zenradio.com:80/zrspacedreams?FIXME
+#EXTINF:0,ZenRadio.com - Space Dreams (MP3, server 4)
+http://prem4.zenradio.com:80/zrspacedreams?FIXME
+#EXTINF:0,ZenRadio.com - Space Dreams (AAC, server 1)
+http://prem1.zenradio.com:80/zrspacedreams_aac?FIXME
+#EXTINF:0,ZenRadio.com - Space Dreams (AAC, server 4)
+http://prem4.zenradio.com:80/zrspacedreams_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Stress Relief (MP3, server 1)
+http://prem1.zenradio.com:80/zrstressrelief?FIXME
+#EXTINF:0,ZenRadio.com - Stress Relief (MP3, server 4)
+http://prem4.zenradio.com:80/zrstressrelief?FIXME
+#EXTINF:0,ZenRadio.com - Stress Relief (AAC, server 1)
+http://prem1.zenradio.com:80/zrstressrelief_aac?FIXME
+#EXTINF:0,ZenRadio.com - Stress Relief (AAC, server 4)
+http://prem4.zenradio.com:80/zrstressrelief_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Study Music (MP3, server 1)
+http://prem1.zenradio.com:80/zrstudymusic?FIXME
+#EXTINF:0,ZenRadio.com - Study Music (MP3, server 4)
+http://prem4.zenradio.com:80/zrstudymusic?FIXME
+#EXTINF:0,ZenRadio.com - Study Music (AAC, server 1)
+http://prem1.zenradio.com:80/zrstudymusic_aac?FIXME
+#EXTINF:0,ZenRadio.com - Study Music (AAC, server 4)
+http://prem4.zenradio.com:80/zrstudymusic_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Tibetan Music (MP3, server 1)
+http://prem1.zenradio.com:80/zrtibetanmusic?FIXME
+#EXTINF:0,ZenRadio.com - Tibetan Music (MP3, server 4)
+http://prem4.zenradio.com:80/zrtibetanmusic?FIXME
+#EXTINF:0,ZenRadio.com - Tibetan Music (AAC, server 1)
+http://prem1.zenradio.com:80/zrtibetanmusic_aac?FIXME
+#EXTINF:0,ZenRadio.com - Tibetan Music (AAC, server 4)
+http://prem4.zenradio.com:80/zrtibetanmusic_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Tibetan Singing Bowls (MP3, server 1)
+http://prem1.zenradio.com:80/zrtibetansingingbowls?FIXME
+#EXTINF:0,ZenRadio.com - Tibetan Singing Bowls (MP3, server 4)
+http://prem4.zenradio.com:80/zrtibetansingingbowls?FIXME
+#EXTINF:0,ZenRadio.com - Tibetan Singing Bowls (AAC, server 1)
+http://prem1.zenradio.com:80/zrtibetansingingbowls_aac?FIXME
+#EXTINF:0,ZenRadio.com - Tibetan Singing Bowls (AAC, server 4)
+http://prem4.zenradio.com:80/zrtibetansingingbowls_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Tranquility & Healing (MP3, server 1)
+http://prem1.zenradio.com:80/zrtranquilitynhealing?FIXME
+#EXTINF:0,ZenRadio.com - Tranquility & Healing (MP3, server 4)
+http://prem4.zenradio.com:80/zrtranquilitynhealing?FIXME
+#EXTINF:0,ZenRadio.com - Tranquility & Healing (AAC, server 1)
+http://prem1.zenradio.com:80/zrtranquilitynhealing_aac?FIXME
+#EXTINF:0,ZenRadio.com - Tranquility & Healing (AAC, server 4)
+http://prem4.zenradio.com:80/zrtranquilitynhealing_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Vocal Chillout (MP3, server 1)
+http://prem1.zenradio.com:80/zrvocalchillout?FIXME
+#EXTINF:0,ZenRadio.com - Vocal Chillout (MP3, server 4)
+http://prem4.zenradio.com:80/zrvocalchillout?FIXME
+#EXTINF:0,ZenRadio.com - Vocal Chillout (AAC, server 1)
+http://prem1.zenradio.com:80/zrvocalchillout_aac?FIXME
+#EXTINF:0,ZenRadio.com - Vocal Chillout (AAC, server 4)
+http://prem4.zenradio.com:80/zrvocalchillout_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Vocal New Age (MP3, server 1)
+http://prem1.zenradio.com:80/zrvocalnewage?FIXME
+#EXTINF:0,ZenRadio.com - Vocal New Age (MP3, server 4)
+http://prem4.zenradio.com:80/zrvocalnewage?FIXME
+#EXTINF:0,ZenRadio.com - Vocal New Age (AAC, server 1)
+http://prem1.zenradio.com:80/zrvocalnewage_aac?FIXME
+#EXTINF:0,ZenRadio.com - Vocal New Age (AAC, server 4)
+http://prem4.zenradio.com:80/zrvocalnewage_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Yoga (MP3, server 1)
+http://prem1.zenradio.com:80/zryoga?FIXME
+#EXTINF:0,ZenRadio.com - Yoga (MP3, server 4)
+http://prem4.zenradio.com:80/zryoga?FIXME
+#EXTINF:0,ZenRadio.com - Yoga (AAC, server 1)
+http://prem1.zenradio.com:80/zryoga_aac?FIXME
+#EXTINF:0,ZenRadio.com - Yoga (AAC, server 4)
+http://prem4.zenradio.com:80/zryoga_aac?FIXME
+
+#EXTINF:0,ZenRadio.com - Zen (MP3, server 1)
+http://prem1.zenradio.com:80/zrzen?FIXME
+#EXTINF:0,ZenRadio.com - Zen (MP3, server 4)
+http://prem4.zenradio.com:80/zrzen?FIXME
+#EXTINF:0,ZenRadio.com - Zen (AAC, server 1)
+http://prem1.zenradio.com:80/zrzen_aac?FIXME
+#EXTINF:0,ZenRadio.com - Zen (AAC, server 4)
+http://prem4.zenradio.com:80/zrzen_aac?FIXME
