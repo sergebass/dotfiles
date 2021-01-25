@@ -1,53 +1,506 @@
 #EXTM3U
-#EXTINF:0,ClassicalRadio.com - Bach
+# NOTE Replace FIXME with your Digitally Imported Listen Key
+
+#EXTINF:0,ClassicalRadio.com - 20th Century (MP3, server 1)
+http://prem1.classicalradio.com:80/20thcentury?FIXME
+#EXTINF:0,ClassicalRadio.com - 20th Century (MP3, server 4)
+http://prem4.classicalradio.com:80/20thcentury?FIXME
+#EXTINF:0,ClassicalRadio.com - 20th Century (AAC, server 1)
+http://prem1.classicalradio.com:80/20thcentury_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - 20th Century (AAC, server 4)
+http://prem4.classicalradio.com:80/20thcentury_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - 21th Century (MP3, server 1)
+http://prem1.classicalradio.com:80/21stcentury?FIXME
+#EXTINF:0,ClassicalRadio.com - 21th Century (MP3, server 4)
+http://prem4.classicalradio.com:80/21stcentury?FIXME
+#EXTINF:0,ClassicalRadio.com - 21th Century (AAC, server 1)
+http://prem1.classicalradio.com:80/21stcentury_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - 21th Century (AAC, server 4)
+http://prem4.classicalradio.com:80/21stcentury_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Adagios (MP3, server 1)
+http://prem1.classicalradio.com:80/adagios?FIXME
+#EXTINF:0,ClassicalRadio.com - Adagios (MP3, server 4)
+http://prem4.classicalradio.com:80/adagios?FIXME
+#EXTINF:0,ClassicalRadio.com - Adagios (AAC, server 1)
+http://prem1.classicalradio.com:80/adagios_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Adagios (AAC, server 4)
+http://prem4.classicalradio.com:80/adagios_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Bach (MP3, server 1)
+http://prem1.classicalradio.com:80/bach?FIXME
+#EXTINF:0,ClassicalRadio.com - Bach (MP3, server 4)
+http://prem4.classicalradio.com:80/bach?FIXME
+#EXTINF:0,ClassicalRadio.com - Bach (AAC, server 1)
 http://prem1.classicalradio.com:80/bach_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Baroque Period
+#EXTINF:0,ClassicalRadio.com - Bach (AAC, server 4)
+http://prem4.classicalradio.com:80/bach_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Ballets (MP3, server 1)
+http://prem1.classicalradio.com:80/ballets?FIXME
+#EXTINF:0,ClassicalRadio.com - Ballets (MP3, server 4)
+http://prem4.classicalradio.com:80/ballets?FIXME
+#EXTINF:0,ClassicalRadio.com - Ballets (AAC, server 1)
+http://prem1.classicalradio.com:80/ballets_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Ballets (AAC, server 4)
+http://prem4.classicalradio.com:80/ballets_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Baroque Period (MP3, server 1)
+http://prem1.classicalradio.com:80/baroqueperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Baroque Period (MP3, server 4)
+http://prem4.classicalradio.com:80/baroqueperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Baroque Period (AAC, server 1)
 http://prem1.classicalradio.com:80/baroqueperiod_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Chopin
+#EXTINF:0,ClassicalRadio.com - Baroque Period (AAC, server 4)
+http://prem4.classicalradio.com:80/baroqueperiod_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Beethoven (MP3, server 1)
+http://prem1.classicalradio.com:80/beethoven?FIXME
+#EXTINF:0,ClassicalRadio.com - Beethoven (MP3, server 4)
+http://prem4.classicalradio.com:80/beethoven?FIXME
+#EXTINF:0,ClassicalRadio.com - Beethoven (AAC, server 1)
+http://prem1.classicalradio.com:80/beethoven_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Beethoven (AAC, server 4)
+http://prem4.classicalradio.com:80/beethoven_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Brahms (MP3, server 1)
+http://prem1.classicalradio.com:80/brahms?FIXME
+#EXTINF:0,ClassicalRadio.com - Brahms (MP3, server 4)
+http://prem4.classicalradio.com:80/brahms?FIXME
+#EXTINF:0,ClassicalRadio.com - Brahms (AAC, server 1)
+http://prem1.classicalradio.com:80/brahms_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Brahms (AAC, server 4)
+http://prem4.classicalradio.com:80/brahms_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Cello Works (MP3, server 1)
+http://prem1.classicalradio.com:80/celloworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Cello Works (MP3, server 4)
+http://prem4.classicalradio.com:80/celloworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Cello Works (AAC, server 1)
+http://prem1.classicalradio.com:80/celloworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Cello Works (AAC, server 4)
+http://prem4.classicalradio.com:80/celloworks_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Chamber Works (MP3, server 1)
+http://prem1.classicalradio.com:80/chamberworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Chamber Works (MP3, server 4)
+http://prem4.classicalradio.com:80/chamberworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Chamber Works (AAC, server 1)
+http://prem1.classicalradio.com:80/chamberworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Chamber Works (AAC, server 4)
+http://prem4.classicalradio.com:80/chamberworks_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Chopin (MP3, server 1)
+http://prem1.classicalradio.com:80/chopin?FIXME
+#EXTINF:0,ClassicalRadio.com - Chopin (MP3, server 4)
+http://prem4.classicalradio.com:80/chopin?FIXME
+#EXTINF:0,ClassicalRadio.com - Chopin (AAC, server 1)
 http://prem1.classicalradio.com:80/chopin_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Classical Guitar Works
+#EXTINF:0,ClassicalRadio.com - Chopin (AAC, server 4)
+http://prem4.classicalradio.com:80/chopin_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Choral Works (MP3, server 1)
+http://prem1.classicalradio.com:80/choralworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Choral Works (MP3, server 4)
+http://prem4.classicalradio.com:80/choralworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Choral Works (AAC, server 1)
+http://prem1.classicalradio.com:80/choralworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Choral Works (AAC, server 4)
+http://prem4.classicalradio.com:80/choralworks_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Classical Guitar Works (MP3, server 1)
+http://prem1.classicalradio.com:80/classicalguitarworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Guitar Works (MP3, server 4)
+http://prem4.classicalradio.com:80/classicalguitarworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Guitar Works (AAC, server 1)
+http://prem1.classicalradio.com:80/classicalguitarworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Guitar Works (AAC, server 4)
 http://prem4.classicalradio.com:80/classicalguitarworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Classical Relaxation
+
+#EXTINF:0,ClassicalRadio.com - Classical Period (MP3, server 1)
+http://prem1.classicalradio.com:80/classicalperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Period (MP3, server 4)
+http://prem4.classicalradio.com:80/classicalperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Period (AAC, server 1)
+http://prem1.classicalradio.com:80/classicalperiod_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Period (AAC, server 4)
+http://prem4.classicalradio.com:80/classicalperiod_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Classical Piano Trios (MP3, server 1)
+http://prem1.classicalradio.com:80/classicalpianotrios?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Piano Trios (MP3, server 4)
+http://prem4.classicalradio.com:80/classicalpianotrios?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Piano Trios (AAC, server 1)
+http://prem1.classicalradio.com:80/classicalpianotrios_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Piano Trios (AAC, server 4)
+http://prem4.classicalradio.com:80/classicalpianotrios_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Classical Relaxation (MP3, server 1)
+http://prem1.classicalradio.com:80/classicalrelaxation?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Relaxation (MP3, server 4)
+http://prem4.classicalradio.com:80/classicalrelaxation?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Relaxation (AAC, server 1)
+http://prem1.classicalradio.com:80/classicalrelaxation_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Classical Relaxation (AAC, server 4)
 http://prem4.classicalradio.com:80/classicalrelaxation_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Concertos
+
+#EXTINF:0,ClassicalRadio.com - Concertos (MP3, server 1)
+http://prem1.classicalradio.com:80/concertos?FIXME
+#EXTINF:0,ClassicalRadio.com - Concertos (MP3, server 4)
+http://prem4.classicalradio.com:80/concertos?FIXME
+#EXTINF:0,ClassicalRadio.com - Concertos (AAC, server 1)
+http://prem1.classicalradio.com:80/concertos_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Concertos (AAC, server 4)
 http://prem4.classicalradio.com:80/concertos_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Debussy
+
+#EXTINF:0,ClassicalRadio.com - Contemporary Period (MP3, server 1)
+http://prem1.classicalradio.com:80/contemporaryperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Contemporary Period (MP3, server 4)
+http://prem4.classicalradio.com:80/contemporaryperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Contemporary Period (AAC, server 1)
+http://prem1.classicalradio.com:80/contemporaryperiod_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Contemporary Period (AAC, server 4)
+http://prem4.classicalradio.com:80/contemporaryperiod_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Debussy (MP3, server 1)
+http://prem1.classicalradio.com:80/debussy?FIXME
+#EXTINF:0,ClassicalRadio.com - Debussy (MP3, server 4)
+http://prem4.classicalradio.com:80/debussy?FIXME
+#EXTINF:0,ClassicalRadio.com - Debussy (AAC, server 1)
+http://prem1.classicalradio.com:80/debussy_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Debussy (AAC, server 4)
 http://prem4.classicalradio.com:80/debussy_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Flute Works
+
+#EXTINF:0,ClassicalRadio.com - Easy Classical (MP3, server 1)
+http://prem1.classicalradio.com:80/easyclassical?FIXME
+#EXTINF:0,ClassicalRadio.com - Easy Classical (MP3, server 4)
+http://prem4.classicalradio.com:80/easyclassical?FIXME
+#EXTINF:0,ClassicalRadio.com - Easy Classical (AAC, server 1)
+http://prem1.classicalradio.com:80/easyclassical_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Easy Classical (AAC, server 4)
+http://prem4.classicalradio.com:80/easyclassical_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Flute Works (MP3, server 1)
+http://prem1.classicalradio.com:80/fluteworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Flute Works (MP3, server 4)
+http://prem4.classicalradio.com:80/fluteworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Flute Works (AAC, server 1)
+http://prem1.classicalradio.com:80/fluteworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Flute Works (AAC, server 4)
 http://prem4.classicalradio.com:80/fluteworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Grieg
+
+#EXTINF:0,ClassicalRadio.com - Gregorian Chant (MP3, server 1)
+http://prem1.classicalradio.com:80/gregorianchant?FIXME
+#EXTINF:0,ClassicalRadio.com - Gregorian Chant (MP3, server 4)
+http://prem4.classicalradio.com:80/gregorianchant?FIXME
+#EXTINF:0,ClassicalRadio.com - Gregorian Chant (AAC, server 1)
+http://prem1.classicalradio.com:80/gregorianchant_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Gregorian Chant (AAC, server 4)
+http://prem4.classicalradio.com:80/gregorianchant_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Grieg (MP3, server 1)
+http://prem1.classicalradio.com:80/grieg?FIXME
+#EXTINF:0,ClassicalRadio.com - Grieg (MP3, server 4)
+http://prem4.classicalradio.com:80/grieg?FIXME
+#EXTINF:0,ClassicalRadio.com - Grieg (AAC, server 1)
+http://prem1.classicalradio.com:80/grieg_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Grieg (AAC, server 4)
 http://prem4.classicalradio.com:80/grieg_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Handel
+
+#EXTINF:0,ClassicalRadio.com - Handel (MP3, server 1)
+http://prem1.classicalradio.com:80/handel?FIXME
+#EXTINF:0,ClassicalRadio.com - Handel (MP3, server 4)
+http://prem4.classicalradio.com:80/handel?FIXME
+#EXTINF:0,ClassicalRadio.com - Handel (AAC, server 1)
 http://prem1.classicalradio.com:80/handel_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Harpsichord Works
+#EXTINF:0,ClassicalRadio.com - Handel (AAC, server 4)
+http://prem4.classicalradio.com:80/handel_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Harpsichord Works (MP3, server 1)
+http://prem1.classicalradio.com:80/harpsichordworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Harpsichord Works (MP3, server 4)
+http://prem4.classicalradio.com:80/harpsichordworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Harpsichord Works (AAC, server 1)
+http://prem1.classicalradio.com:80/harpsichordworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Harpsichord Works (AAC, server 4)
 http://prem4.classicalradio.com:80/harpsichordworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Medieval Period
+
+#EXTINF:0,ClassicalRadio.com - Haydn (MP3, server 1)
+http://prem1.classicalradio.com:80/haydn?FIXME
+#EXTINF:0,ClassicalRadio.com - Haydn (MP3, server 4)
+http://prem4.classicalradio.com:80/haydn?FIXME
+#EXTINF:0,ClassicalRadio.com - Haydn (AAC, server 1)
+http://prem1.classicalradio.com:80/haydn_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Haydn (AAC, server 4)
+http://prem4.classicalradio.com:80/haydn_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Liszt (MP3, server 1)
+http://prem1.classicalradio.com:80/liszt?FIXME
+#EXTINF:0,ClassicalRadio.com - Liszt (MP3, server 4)
+http://prem4.classicalradio.com:80/liszt?FIXME
+#EXTINF:0,ClassicalRadio.com - Liszt (AAC, server 1)
+http://prem1.classicalradio.com:80/liszt_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Liszt (AAC, server 4)
+http://prem4.classicalradio.com:80/liszt_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Medieval Period (MP3, server 1)
+http://prem1.classicalradio.com:80/medievalperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Medieval Period (MP3, server 4)
+http://prem4.classicalradio.com:80/medievalperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Medieval Period (AAC, server 1)
+http://prem1.classicalradio.com:80/medievalperiod_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Medieval Period (AAC, server 4)
 http://prem4.classicalradio.com:80/medievalperiod_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Nocturnes
+
+#EXTINF:0,ClassicalRadio.com - Mozart (MP3, server 1)
+http://prem1.classicalradio.com:80/mozart?FIXME
+#EXTINF:0,ClassicalRadio.com - Mozart (MP3, server 4)
+http://prem4.classicalradio.com:80/mozart?FIXME
+#EXTINF:0,ClassicalRadio.com - Mozart (AAC, server 1)
+http://prem1.classicalradio.com:80/mozart_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Mozart (AAC, server 4)
+http://prem4.classicalradio.com:80/mozart_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Nocturnes (MP3, server 1)
+http://prem1.classicalradio.com:80/nocturnes?FIXME
+#EXTINF:0,ClassicalRadio.com - Nocturnes (MP3, server 4)
+http://prem4.classicalradio.com:80/nocturnes?FIXME
+#EXTINF:0,ClassicalRadio.com - Nocturnes (AAC, server 1)
+http://prem1.classicalradio.com:80/nocturnes_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Nocturnes (AAC, server 4)
 http://prem4.classicalradio.com:80/nocturnes_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Operas
+
+#EXTINF:0,ClassicalRadio.com - Opera Highlights (MP3, server 1)
+http://prem1.classicalradio.com:80/operahighlights?FIXME
+#EXTINF:0,ClassicalRadio.com - Opera Highlights (MP3, server 4)
+http://prem4.classicalradio.com:80/operahighlights?FIXME
+#EXTINF:0,ClassicalRadio.com - Opera Highlights (AAC, server 1)
+http://prem1.classicalradio.com:80/operahighlights_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Opera Highlights (AAC, server 4)
+http://prem4.classicalradio.com:80/operahighlights_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Operas (MP3, server 1)
+http://prem1.classicalradio.com:80/operas?FIXME
+#EXTINF:0,ClassicalRadio.com - Operas (MP3, server 4)
+http://prem4.classicalradio.com:80/operas?FIXME
+#EXTINF:0,ClassicalRadio.com - Operas (AAC, server 1)
+http://prem1.classicalradio.com:80/operas_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Operas (AAC, server 4)
 http://prem4.classicalradio.com:80/operas_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Orchestral Works
+
+#EXTINF:0,ClassicalRadio.com - Orchestral Works (MP3, server 1)
+http://prem1.classicalradio.com:80/orchestralworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Orchestral Works (MP3, server 4)
+http://prem4.classicalradio.com:80/orchestralworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Orchestral Works (AAC, server 1)
 http://prem1.classicalradio.com:80/orchestralworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Organ Works
+#EXTINF:0,ClassicalRadio.com - Orchestral Works (AAC, server 4)
+http://prem4.classicalradio.com:80/orchestralworks_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Organ Works (MP3, server 1)
+http://prem1.classicalradio.com:80/organworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Organ Works (MP3, server 4)
+http://prem4.classicalradio.com:80/organworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Organ Works (AAC, server 1)
+http://prem1.classicalradio.com:80/organworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Organ Works (AAC, server 4)
 http://prem4.classicalradio.com:80/organworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Overtures
+
+#EXTINF:0,ClassicalRadio.com - Overtures (MP3, server 1)
+http://prem1.classicalradio.com:80/overtures?FIXME
+#EXTINF:0,ClassicalRadio.com - Overtures (MP3, server 4)
+http://prem4.classicalradio.com:80/overtures?FIXME
+#EXTINF:0,ClassicalRadio.com - Overtures (AAC, server 1)
 http://prem1.classicalradio.com:80/overtures_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Renaissance Period
+#EXTINF:0,ClassicalRadio.com - Overtures (AAC, server 4)
+http://prem4.classicalradio.com:80/overtures_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Piano Works (MP3, server 1)
+http://prem1.classicalradio.com:80/pianoworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Piano Works (MP3, server 4)
+http://prem4.classicalradio.com:80/pianoworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Piano Works (AAC, server 1)
+http://prem1.classicalradio.com:80/pianoworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Piano Works (AAC, server 4)
+http://prem4.classicalradio.com:80/pianoworks_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Relaxing Flute (MP3, server 1)
+http://prem1.classicalradio.com:80/relaxingflute?FIXME
+#EXTINF:0,ClassicalRadio.com - Relaxing Flute (MP3, server 4)
+http://prem4.classicalradio.com:80/relaxingflute?FIXME
+#EXTINF:0,ClassicalRadio.com - Relaxing Flute (AAC, server 1)
+http://prem1.classicalradio.com:80/relaxingflute_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Relaxing Flute (AAC, server 4)
+http://prem4.classicalradio.com:80/relaxingflute_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Relaxing Piano (MP3, server 1)
+http://prem1.classicalradio.com:80/relaxingpiano?FIXME
+#EXTINF:0,ClassicalRadio.com - Relaxing Piano (MP3, server 4)
+http://prem4.classicalradio.com:80/relaxingpiano?FIXME
+#EXTINF:0,ClassicalRadio.com - Relaxing Piano (AAC, server 1)
+http://prem1.classicalradio.com:80/relaxingpiano_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Relaxing Piano (AAC, server 4)
+http://prem4.classicalradio.com:80/relaxingpiano_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Renaissance Period (MP3, server 1)
+http://prem1.classicalradio.com:80/renaissanceperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Renaissance Period (MP3, server 4)
+http://prem4.classicalradio.com:80/renaissanceperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Renaissance Period (AAC, server 1)
 http://prem1.classicalradio.com:80/renaissanceperiod_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Romantic Period
+#EXTINF:0,ClassicalRadio.com - Renaissance Period (AAC, server 4)
+http://prem4.classicalradio.com:80/renaissanceperiod_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Romantic Period (MP3, server 1)
+http://prem1.classicalradio.com:80/romanticperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Romantic Period (MP3, server 4)
+http://prem4.classicalradio.com:80/romanticperiod?FIXME
+#EXTINF:0,ClassicalRadio.com - Romantic Period (AAC, server 1)
+http://prem1.classicalradio.com:80/romanticperiod_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Romantic Period (AAC, server 4)
 http://prem4.classicalradio.com:80/romanticperiod_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - String Works
+
+#EXTINF:0,ClassicalRadio.com - Sacred Works (MP3, server 1)
+http://prem1.classicalradio.com:80/sacredworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Sacred Works (MP3, server 4)
+http://prem4.classicalradio.com:80/sacredworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Sacred Works (AAC, server 1)
+http://prem1.classicalradio.com:80/sacredworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Sacred Works (AAC, server 4)
+http://prem4.classicalradio.com:80/sacredworks_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Schubert (MP3, server 1)
+http://prem1.classicalradio.com:80/schubert?FIXME
+#EXTINF:0,ClassicalRadio.com - Schubert (MP3, server 4)
+http://prem4.classicalradio.com:80/schubert?FIXME
+#EXTINF:0,ClassicalRadio.com - Schubert (AAC, server 1)
+http://prem1.classicalradio.com:80/schubert_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Schubert (AAC, server 4)
+http://prem4.classicalradio.com:80/schubert_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Shostakovich (MP3, server 1)
+http://prem1.classicalradio.com:80/shostakovich?FIXME
+#EXTINF:0,ClassicalRadio.com - Shostakovich (MP3, server 4)
+http://prem4.classicalradio.com:80/shostakovich?FIXME
+#EXTINF:0,ClassicalRadio.com - Shostakovich (AAC, server 1)
+http://prem1.classicalradio.com:80/shostakovich_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Shostakovich (AAC, server 4)
+http://prem4.classicalradio.com:80/shostakovich_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Solo Instruments (MP3, server 1)
+http://prem1.classicalradio.com:80/soloinstruments?FIXME
+#EXTINF:0,ClassicalRadio.com - Solo Instruments (MP3, server 4)
+http://prem4.classicalradio.com:80/soloinstruments?FIXME
+#EXTINF:0,ClassicalRadio.com - Solo Instruments (AAC, server 1)
+http://prem1.classicalradio.com:80/soloinstruments_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Solo Instruments (AAC, server 4)
+http://prem4.classicalradio.com:80/soloinstruments_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Solo Piano (MP3, server 1)
+http://prem1.classicalradio.com:80/solopiano?FIXME
+#EXTINF:0,ClassicalRadio.com - Solo Piano (MP3, server 4)
+http://prem4.classicalradio.com:80/solopiano?FIXME
+#EXTINF:0,ClassicalRadio.com - Solo Piano (AAC, server 1)
+http://prem1.classicalradio.com:80/solopiano_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Solo Piano (AAC, server 4)
+http://prem4.classicalradio.com:80/solopiano_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Sonatas (MP3, server 1)
+http://prem1.classicalradio.com:80/sonatas?FIXME
+#EXTINF:0,ClassicalRadio.com - Sonatas (MP3, server 4)
+http://prem4.classicalradio.com:80/sonatas?FIXME
+#EXTINF:0,ClassicalRadio.com - Sonatas (AAC, server 1)
+http://prem1.classicalradio.com:80/sonatas_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Sonatas (AAC, server 4)
+http://prem4.classicalradio.com:80/sonatas_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Songs & Lieder (MP3, server 1)
+http://prem1.classicalradio.com:80/songsnlieders?FIXME
+#EXTINF:0,ClassicalRadio.com - Songs & Lieder (MP3, server 4)
+http://prem4.classicalradio.com:80/songsnlieders?FIXME
+#EXTINF:0,ClassicalRadio.com - Songs & Lieder (AAC, server 1)
+http://prem1.classicalradio.com:80/songsnlieders_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Songs & Lieder (AAC, server 4)
+http://prem4.classicalradio.com:80/songsnlieders_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - String Works (MP3, server 1)
+http://prem1.classicalradio.com:80/stringworks?FIXME
+#EXTINF:0,ClassicalRadio.com - String Works (MP3, server 4)
+http://prem4.classicalradio.com:80/stringworks?FIXME
+#EXTINF:0,ClassicalRadio.com - String Works (AAC, server 1)
 http://prem1.classicalradio.com:80/stringworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Symphonies
+#EXTINF:0,ClassicalRadio.com - String Works (AAC, server 4)
+http://prem4.classicalradio.com:80/stringworks_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Symphonies (MP3, server 1)
+http://prem1.classicalradio.com:80/symphonies?FIXME
+#EXTINF:0,ClassicalRadio.com - Symphonies (MP3, server 4)
+http://prem4.classicalradio.com:80/symphonies?FIXME
+#EXTINF:0,ClassicalRadio.com - Symphonies (AAC, server 1)
 http://prem1.classicalradio.com:80/symphonies_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Tchaikovsky
+#EXTINF:0,ClassicalRadio.com - Symphonies (AAC, server 4)
+http://prem4.classicalradio.com:80/symphonies_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Tchaikovsky (MP3, server 1)
+http://prem1.classicalradio.com:80/tchaikovsky?FIXME
+#EXTINF:0,ClassicalRadio.com - Tchaikovsky (MP3, server 4)
+http://prem4.classicalradio.com:80/tchaikovsky?FIXME
+#EXTINF:0,ClassicalRadio.com - Tchaikovsky (AAC, server 1)
+http://prem1.classicalradio.com:80/tchaikovsky_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Tchaikovsky (AAC, server 4)
 http://prem4.classicalradio.com:80/tchaikovsky_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Telemann
+
+#EXTINF:0,ClassicalRadio.com - Telemann (MP3, server 1)
+http://prem1.classicalradio.com:80/telemann?FIXME
+#EXTINF:0,ClassicalRadio.com - Telemann (MP3, server 4)
+http://prem4.classicalradio.com:80/telemann?FIXME
+#EXTINF:0,ClassicalRadio.com - Telemann (AAC, server 1)
+http://prem1.classicalradio.com:80/telemann_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Telemann (AAC, server 4)
 http://prem4.classicalradio.com:80/telemann_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Trumpet Works
+
+#EXTINF:0,ClassicalRadio.com - Trumpet Works (MP3, server 1)
+http://prem1.classicalradio.com:80/trumpetworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Trumpet Works (MP3, server 4)
+http://prem4.classicalradio.com:80/trumpetworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Trumpet Works (AAC, server 1)
+http://prem1.classicalradio.com:80/trumpetworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Trumpet Works (AAC, server 4)
 http://prem4.classicalradio.com:80/trumpetworks_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Vivaldi
+
+#EXTINF:0,ClassicalRadio.com - Violin Works (MP3, server 1)
+http://prem1.classicalradio.com:80/violinworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Violin Works (MP3, server 4)
+http://prem4.classicalradio.com:80/violinworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Violin Works (AAC, server 1)
+http://prem1.classicalradio.com:80/violinworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Violin Works (AAC, server 4)
+http://prem4.classicalradio.com:80/violinworks_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Vivaldi (MP3, server 1)
+http://prem1.classicalradio.com:80/vivaldi?FIXME
+#EXTINF:0,ClassicalRadio.com - Vivaldi (MP3, server 4)
+http://prem4.classicalradio.com:80/vivaldi?FIXME
+#EXTINF:0,ClassicalRadio.com - Vivaldi (AAC, server 1)
 http://prem1.classicalradio.com:80/vivaldi_aac?FIXME
-#EXTINF:0,ClassicalRadio.com - Wind Works
+#EXTINF:0,ClassicalRadio.com - Vivaldi (AAC, server 4)
+http://prem4.classicalradio.com:80/vivaldi_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Waltzes, Polkas and Marches (MP3, server 1)
+http://prem1.classicalradio.com:80/waltzespolkasnmarches?FIXME
+#EXTINF:0,ClassicalRadio.com - Waltzes, Polkas and Marches (MP3, server 4)
+http://prem4.classicalradio.com:80/waltzespolkasnmarches?FIXME
+#EXTINF:0,ClassicalRadio.com - Waltzes, Polkas and Marches (AAC, server 1)
+http://prem1.classicalradio.com:80/waltzespolkasnmarches_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Waltzes, Polkas and Marches (AAC, server 4)
+http://prem4.classicalradio.com:80/waltzespolkasnmarches_aac?FIXME
+
+#EXTINF:0,ClassicalRadio.com - Wind Works (MP3, server 1)
+http://prem1.classicalradio.com:80/windworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Wind Works (MP3, server 4)
+http://prem4.classicalradio.com:80/windworks?FIXME
+#EXTINF:0,ClassicalRadio.com - Wind Works (AAC, server 1)
 http://prem1.classicalradio.com:80/windworks_aac?FIXME
+#EXTINF:0,ClassicalRadio.com - Wind Works (AAC, server 4)
+http://prem4.classicalradio.com:80/windworks_aac?FIXME
