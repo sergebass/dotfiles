@@ -1,0 +1,482 @@
+#EXTM3U
+# NOTE Replace FIXME with your Digitally Imported Listen Key
+
+#EXTINF:0,RadioTunes.com - 00s Country
+http://prem1.radiotunes.com:80/00scountry_aac?FIXME
+#EXTINF:0,RadioTunes.com - 00s Country
+http://prem4.radiotunes.com:80/00scountry_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 00s Dance
+http://prem1.radiotunes.com:80/00sdance_aac?FIXME
+#EXTINF:0,RadioTunes.com - 00s Dance
+http://prem4.radiotunes.com:80/00sdance_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 00s Hits
+http://prem1.radiotunes.com:80/hit00s_aac?FIXME
+#EXTINF:0,RadioTunes.com - 00s Hits
+http://prem4.radiotunes.com:80/hit00s_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 00s R&B
+http://prem1.radiotunes.com:80/00srnb_aac?FIXME
+#EXTINF:0,RadioTunes.com - 00s R&B
+http://prem4.radiotunes.com:80/00srnb_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 00s Rock
+http://prem1.radiotunes.com:80/00srock_aac?FIXME
+#EXTINF:0,RadioTunes.com - 00s Rock
+http://prem4.radiotunes.com:80/00srock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 60s Hits
+http://prem1.radiotunes.com:80/hit60s_aac?FIXME
+#EXTINF:0,RadioTunes.com - 60s Hits
+http://prem4.radiotunes.com:80/hit60s_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 60s Rock
+http://prem1.radiotunes.com:80/60srock_aac?FIXME
+#EXTINF:0,RadioTunes.com - 60s Rock
+http://prem4.radiotunes.com:80/60srock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 70s Hits
+http://prem1.radiotunes.com:80/hit70s_aac?FIXME
+#EXTINF:0,RadioTunes.com - 70s Hits
+http://prem4.radiotunes.com:80/hit70s_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 70s Rock
+http://prem1.radiotunes.com:80/70srock_aac?FIXME
+#EXTINF:0,RadioTunes.com - 70s Rock
+http://prem4.radiotunes.com:80/70srock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 80s Alt & New Wave
+http://prem1.radiotunes.com:80/80saltnnewwave_aac?FIXME
+#EXTINF:0,RadioTunes.com - 80s Alt & New Wave
+http://prem4.radiotunes.com:80/80saltnnewwave_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 80s Dance
+http://prem1.radiotunes.com:80/80sdance_aac?FIXME
+#EXTINF:0,RadioTunes.com - 80s Dance
+http://prem4.radiotunes.com:80/80sdance_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 80s Hits
+http://prem1.radiotunes.com:80/the80s_aac?FIXME
+#EXTINF:0,RadioTunes.com - 80s Hits
+http://prem4.radiotunes.com:80/the80s_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 80s Rock Hits
+http://prem1.radiotunes.com:80/80srock_aac?FIXME
+#EXTINF:0,RadioTunes.com - 80s Rock Hits
+http://prem4.radiotunes.com:80/80srock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 90s Country
+http://prem1.radiotunes.com:80/90scountry_aac?FIXME
+#EXTINF:0,RadioTunes.com - 90s Country
+http://prem4.radiotunes.com:80/90scountry_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 90s Dance
+http://prem1.radiotunes.com:80/90sdance_aac?FIXME
+#EXTINF:0,RadioTunes.com - 90s Dance
+http://prem4.radiotunes.com:80/90sdance_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 90s Hits
+http://prem1.radiotunes.com:80/hit90s_aac?FIXME
+#EXTINF:0,RadioTunes.com - 90s Hits
+http://prem4.radiotunes.com:80/hit90s_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 90s R&B
+http://prem1.radiotunes.com:80/90srnb_aac?FIXME
+#EXTINF:0,RadioTunes.com - 90s R&B
+http://prem4.radiotunes.com:80/90srnb_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - 90s Rock
+http://prem1.radiotunes.com:80/90srock_aac?FIXME
+#EXTINF:0,RadioTunes.com - 90s Rock
+http://prem4.radiotunes.com:80/90srock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Alternative Rock
+http://prem1.radiotunes.com:80/altrock_aac?FIXME
+#EXTINF:0,RadioTunes.com - Alternative Rock
+http://prem4.radiotunes.com:80/altrock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Ambient
+http://prem1.radiotunes.com:80/rtambient_aac?FIXME
+#EXTINF:0,RadioTunes.com - Ambient
+http://prem4.radiotunes.com:80/rtambient_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - American Songbook
+http://prem1.radiotunes.com:80/americansongbook_aac?FIXME
+#EXTINF:0,RadioTunes.com - American Songbook
+http://prem4.radiotunes.com:80/americansongbook_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Baroque Period
+http://prem1.radiotunes.com:80/baroque_aac?FIXME
+#EXTINF:0,RadioTunes.com - Baroque Period
+http://prem4.radiotunes.com:80/baroque_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Bebop Jazz
+http://prem1.radiotunes.com:80/bebop_aac?FIXME
+#EXTINF:0,RadioTunes.com - Bebop Jazz
+http://prem4.radiotunes.com:80/bebop_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Blues Rock
+http://prem1.radiotunes.com:80/bluesrock_aac?FIXME
+#EXTINF:0,RadioTunes.com - Blues Rock
+http://prem4.radiotunes.com:80/bluesrock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Bossa Nova
+http://prem1.radiotunes.com:80/bossanova_aac?FIXME
+#EXTINF:0,RadioTunes.com - Bossa Nova
+http://prem4.radiotunes.com:80/bossanova_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Cafe de Paris
+http://prem1.radiotunes.com:80/cafedeparis_aac?FIXME
+#EXTINF:0,RadioTunes.com - Cafe de Paris
+http://prem4.radiotunes.com:80/cafedeparis_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Chill & Tropical House
+http://prem1.radiotunes.com:80/rtchillntropicalhouse_aac?FIXME
+#EXTINF:0,RadioTunes.com - Chill & Tropical House
+http://prem4.radiotunes.com:80/rtchillntropicalhouse_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Chillout
+http://prem1.radiotunes.com:80/rtchillout_aac?FIXME
+#EXTINF:0,RadioTunes.com - Chillout
+http://prem4.radiotunes.com:80/rtchillout_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Classic Hip-Hop
+http://prem1.radiotunes.com:80/classicrap_aac?FIXME
+#EXTINF:0,RadioTunes.com - Classic Hip-Hop
+http://prem4.radiotunes.com:80/classicrap_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Classic Motown
+http://prem1.radiotunes.com:80/classicmotown_aac?FIXME
+#EXTINF:0,RadioTunes.com - Classic Motown
+http://prem4.radiotunes.com:80/classicmotown_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Classic Rock
+http://prem1.radiotunes.com:80/classicrock_aac?FIXME
+#EXTINF:0,RadioTunes.com - Classic Rock
+http://prem4.radiotunes.com:80/classicrock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Classical Guitar
+http://prem1.radiotunes.com:80/guitar_aac?FIXME
+#EXTINF:0,RadioTunes.com - Classical Guitar
+http://prem4.radiotunes.com:80/guitar_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Classical Period
+http://prem1.radiotunes.com:80/classicalperiod_aac?FIXME
+#EXTINF:0,RadioTunes.com - Classical Period
+http://prem4.radiotunes.com:80/classicalperiod_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Classical Piano Trios
+http://prem1.radiotunes.com:80/classicalpianotrios_aac?FIXME
+#EXTINF:0,RadioTunes.com - Classical Piano Trios
+http://prem4.radiotunes.com:80/classicalpianotrios_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Club Bollywood
+http://prem1.radiotunes.com:80/clubbollywood_aac?FIXME
+#EXTINF:0,RadioTunes.com - Club Bollywood
+http://prem4.radiotunes.com:80/clubbollywood_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Coffee Jazz
+http://prem1.radiotunes.com:80/coffeejazz_aac?FIXME
+#EXTINF:0,RadioTunes.com - Coffee Jazz
+http://prem4.radiotunes.com:80/coffeejazz_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Contemporary Christian
+http://prem1.radiotunes.com:80/christian_aac?FIXME
+#EXTINF:0,RadioTunes.com - Contemporary Christian
+http://prem4.radiotunes.com:80/christian_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Country
+http://prem1.radiotunes.com:80/country_aac?FIXME
+#EXTINF:0,RadioTunes.com - Country
+http://prem4.radiotunes.com:80/country_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Cuban Lounge
+http://prem1.radiotunes.com:80/cubanlounge_aac?FIXME
+#EXTINF:0,RadioTunes.com - Cuban Lounge
+http://prem4.radiotunes.com:80/cubanlounge_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - DaTempo Lounge
+http://prem1.radiotunes.com:80/datempolounge_aac?FIXME
+#EXTINF:0,RadioTunes.com - DaTempo Lounge
+http://prem4.radiotunes.com:80/datempolounge_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Dance Hits
+http://prem1.radiotunes.com:80/dancehits_aac?FIXME
+#EXTINF:0,RadioTunes.com - Dance Hits
+http://prem4.radiotunes.com:80/dancehits_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Dave Koz & Friends
+http://prem1.radiotunes.com:80/davekoz_aac?FIXME
+#EXTINF:0,RadioTunes.com - Dave Koz & Friends
+http://prem4.radiotunes.com:80/davekoz_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Disco Party
+http://prem1.radiotunes.com:80/discoparty_aac?FIXME
+#EXTINF:0,RadioTunes.com - Disco Party
+http://prem4.radiotunes.com:80/discoparty_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Downtempo Lounge
+http://prem1.radiotunes.com:80/rtdowntempolounge_aac?FIXME
+#EXTINF:0,RadioTunes.com - Downtempo Lounge
+http://prem4.radiotunes.com:80/rtdowntempolounge_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Dreamscapes
+http://prem1.radiotunes.com:80/dreamscapes_aac?FIXME
+#EXTINF:0,RadioTunes.com - Dreamscapes
+http://prem4.radiotunes.com:80/dreamscapes_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - EDM Fest
+http://prem1.radiotunes.com:80/edmfest_aac?FIXME
+#EXTINF:0,RadioTunes.com - EDM Fest
+http://prem4.radiotunes.com:80/edmfest_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - EuroDance
+http://prem1.radiotunes.com:80/rteurodance_aac?FIXME
+#EXTINF:0,RadioTunes.com - EuroDance
+http://prem4.radiotunes.com:80/rteurodance_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Hard Rock
+http://prem1.radiotunes.com:80/hardrock_aac?FIXME
+#EXTINF:0,RadioTunes.com - Hard Rock
+http://prem4.radiotunes.com:80/hardrock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Indie Dance
+http://prem1.radiotunes.com:80/rtindiedance_aac?FIXME
+#EXTINF:0,RadioTunes.com - Indie Dance
+http://prem4.radiotunes.com:80/rtindiedance_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Indie Rock
+http://prem1.radiotunes.com:80/indierock_aac?FIXME
+#EXTINF:0,RadioTunes.com - Indie Rock
+http://prem4.radiotunes.com:80/indierock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Jazz Classics
+http://prem1.radiotunes.com:80/jazzclassics_aac?FIXME
+#EXTINF:0,RadioTunes.com - Jazz Classics
+http://prem4.radiotunes.com:80/jazzclassics_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Jpop
+http://prem1.radiotunes.com:80/jpop_aac?FIXME
+#EXTINF:0,RadioTunes.com - Jpop
+http://prem4.radiotunes.com:80/jpop_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Latin Pop Hits
+http://prem1.radiotunes.com:80/latinpophits_aac?FIXME
+#EXTINF:0,RadioTunes.com - Latin Pop Hits
+http://prem4.radiotunes.com:80/latinpophits_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Lounge
+http://prem1.radiotunes.com:80/rtlounge_aac?FIXME
+#EXTINF:0,RadioTunes.com - Lounge
+http://prem4.radiotunes.com:80/rtlounge_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Love Music
+http://prem1.radiotunes.com:80/lovemusic_aac?FIXME
+#EXTINF:0,RadioTunes.com - Love Music
+http://prem4.radiotunes.com:80/lovemusic_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Meditation
+http://prem1.radiotunes.com:80/meditation_aac?FIXME
+#EXTINF:0,RadioTunes.com - Meditation
+http://prem4.radiotunes.com:80/meditation_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Mellow Jazz
+http://prem1.radiotunes.com:80/mellowjazz_aac?FIXME
+#EXTINF:0,RadioTunes.com - Mellow Jazz
+http://prem4.radiotunes.com:80/mellowjazz_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Mellow Smooth Jazz
+http://prem1.radiotunes.com:80/mellowsmoothjazz_aac?FIXME
+#EXTINF:0,RadioTunes.com - Mellow Smooth Jazz
+http://prem4.radiotunes.com:80/mellowsmoothjazz_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Metal
+http://prem1.radiotunes.com:80/metal_aac?FIXME
+#EXTINF:0,RadioTunes.com - Metal
+http://prem4.radiotunes.com:80/metal_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Modern Blues
+http://prem1.radiotunes.com:80/modernblues_aac?FIXME
+#EXTINF:0,RadioTunes.com - Modern Blues
+http://prem4.radiotunes.com:80/modernblues_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Modern Rock
+http://prem1.radiotunes.com:80/modernrock_aac?FIXME
+#EXTINF:0,RadioTunes.com - Modern Rock
+http://prem4.radiotunes.com:80/modernrock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Mostly Classical
+http://prem1.radiotunes.com:80/classical_aac?FIXME
+#EXTINF:0,RadioTunes.com - Mostly Classical
+http://prem4.radiotunes.com:80/classical_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Movie Soundtracks
+http://prem1.radiotunes.com:80/soundtracks_aac?FIXME
+#EXTINF:0,RadioTunes.com - Movie Soundtracks
+http://prem4.radiotunes.com:80/soundtracks_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Mozart
+http://prem1.radiotunes.com:80/mozart_aac?FIXME
+#EXTINF:0,RadioTunes.com - Mozart
+http://prem4.radiotunes.com:80/mozart_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Nature
+http://prem1.radiotunes.com:80/nature_aac?FIXME
+#EXTINF:0,RadioTunes.com - Nature
+http://prem4.radiotunes.com:80/nature_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - New Age
+http://prem1.radiotunes.com:80/newage_aac?FIXME
+#EXTINF:0,RadioTunes.com - New Age
+http://prem4.radiotunes.com:80/newage_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Old School Funk & Soul
+http://prem1.radiotunes.com:80/oldschoolfunknsoul_aac?FIXME
+#EXTINF:0,RadioTunes.com - Old School Funk & Soul
+http://prem4.radiotunes.com:80/oldschoolfunknsoul_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Oldies
+http://prem1.radiotunes.com:80/oldies_aac?FIXME
+#EXTINF:0,RadioTunes.com - Oldies
+http://prem4.radiotunes.com:80/oldies_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Piano Jazz
+http://prem1.radiotunes.com:80/pianojazz_aac?FIXME
+#EXTINF:0,RadioTunes.com - Piano Jazz
+http://prem4.radiotunes.com:80/pianojazz_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Pop Rock
+http://prem1.radiotunes.com:80/poprock_aac?FIXME
+#EXTINF:0,RadioTunes.com - Pop Rock
+http://prem4.radiotunes.com:80/poprock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Reggaeton
+http://prem1.radiotunes.com:80/reggaeton_aac?FIXME
+#EXTINF:0,RadioTunes.com - Reggaeton
+http://prem4.radiotunes.com:80/reggaeton_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Relaxation
+http://prem1.radiotunes.com:80/relaxation_aac?FIXME
+#EXTINF:0,RadioTunes.com - Relaxation
+http://prem4.radiotunes.com:80/relaxation_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Relaxing Ambient Piano
+http://prem1.radiotunes.com:80/relaxingambientpiano_aac?FIXME
+#EXTINF:0,RadioTunes.com - Relaxing Ambient Piano
+http://prem4.radiotunes.com:80/relaxingambientpiano_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Romantic Period
+http://prem1.radiotunes.com:80/romantic_aac?FIXME
+#EXTINF:0,RadioTunes.com - Romantic Period
+http://prem4.radiotunes.com:80/romantic_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Romantica
+http://prem1.radiotunes.com:80/romantica_aac?FIXME
+#EXTINF:0,RadioTunes.com - Romantica
+http://prem4.radiotunes.com:80/romantica_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Romantica Latina
+http://prem1.radiotunes.com:80/romanticalatina_aac?FIXME
+#EXTINF:0,RadioTunes.com - Romantica Latina
+http://prem4.radiotunes.com:80/romanticalatina_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Roots Reggae
+http://prem1.radiotunes.com:80/rootsreggae_aac?FIXME
+#EXTINF:0,RadioTunes.com - Roots Reggae
+http://prem4.radiotunes.com:80/rootsreggae_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Salsa
+http://prem1.radiotunes.com:80/salsa_aac?FIXME
+#EXTINF:0,RadioTunes.com - Salsa
+http://prem4.radiotunes.com:80/salsa_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Sleep Relaxation
+http://prem1.radiotunes.com:80/sleeprelaxation_aac?FIXME
+#EXTINF:0,RadioTunes.com - Sleep Relaxation
+http://prem4.radiotunes.com:80/sleeprelaxation_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Slow R&B
+http://prem1.radiotunes.com:80/slowjams_aac?FIXME
+#EXTINF:0,RadioTunes.com - Slow R&B
+http://prem4.radiotunes.com:80/slowjams_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Smooth Beats
+http://prem1.radiotunes.com:80/smoothbeats_aac?FIXME
+#EXTINF:0,RadioTunes.com - Smooth Beats
+http://prem4.radiotunes.com:80/smoothbeats_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Smooth Bossa Nova
+http://prem1.radiotunes.com:80/smoothbossanova_aac?FIXME
+#EXTINF:0,RadioTunes.com - Smooth Bossa Nova
+http://prem4.radiotunes.com:80/smoothbossanova_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Smooth Jazz
+http://prem1.radiotunes.com:80/smoothjazz_aac?FIXME
+#EXTINF:0,RadioTunes.com - Smooth Jazz
+http://prem4.radiotunes.com:80/smoothjazz_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Smooth Jazz 24x7
+http://prem1.radiotunes.com:80/smoothjazz247_aac?FIXME
+#EXTINF:0,RadioTunes.com - Smooth Jazz 24x7
+http://prem4.radiotunes.com:80/smoothjazz247_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Smooth Lounge
+http://prem1.radiotunes.com:80/smoothlounge_aac?FIXME
+#EXTINF:0,RadioTunes.com - Smooth Lounge
+http://prem4.radiotunes.com:80/smoothlounge_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Soft Rock
+http://prem1.radiotunes.com:80/softrock_aac?FIXME
+#EXTINF:0,RadioTunes.com - Soft Rock
+http://prem4.radiotunes.com:80/softrock_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Solo Piano
+http://prem1.radiotunes.com:80/solopiano_aac?FIXME
+#EXTINF:0,RadioTunes.com - Solo Piano
+http://prem4.radiotunes.com:80/solopiano_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Top Hits
+http://prem1.radiotunes.com:80/tophits_aac?FIXME
+#EXTINF:0,RadioTunes.com - Top Hits
+http://prem4.radiotunes.com:80/tophits_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Uptempo Smooth Jazz
+http://prem1.radiotunes.com:80/uptemposmoothjazz_aac?FIXME
+#EXTINF:0,RadioTunes.com - Uptempo Smooth Jazz
+http://prem4.radiotunes.com:80/uptemposmoothjazz_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Urban Hits
+http://prem1.radiotunes.com:80/urbanjamz_aac?FIXME
+#EXTINF:0,RadioTunes.com - Urban Hits
+http://prem4.radiotunes.com:80/urbanjamz_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Urban Pop Hits
+http://prem1.radiotunes.com:80/urbanpophits_aac?FIXME
+#EXTINF:0,RadioTunes.com - Urban Pop Hits
+http://prem4.radiotunes.com:80/urbanpophits_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Vocal Chillout
+http://prem1.radiotunes.com:80/rtvocalchillout_aac?FIXME
+#EXTINF:0,RadioTunes.com - Vocal Chillout
+http://prem4.radiotunes.com:80/rtvocalchillout_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Vocal Lounge
+http://prem1.radiotunes.com:80/rtvocallounge_aac?FIXME
+#EXTINF:0,RadioTunes.com - Vocal Lounge
+http://prem4.radiotunes.com:80/rtvocallounge_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Vocal New Age
+http://prem1.radiotunes.com:80/vocalnewage_aac?FIXME
+#EXTINF:0,RadioTunes.com - Vocal New Age
+http://prem4.radiotunes.com:80/vocalnewage_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - Vocal Smooth Jazz
+http://prem1.radiotunes.com:80/vocalsmoothjazz_aac?FIXME
+#EXTINF:0,RadioTunes.com - Vocal Smooth Jazz
+http://prem4.radiotunes.com:80/vocalsmoothjazz_aac?FIXME
+
+#EXTINF:0,RadioTunes.com - World
+http://prem1.radiotunes.com:80/world_aac?FIXME
+#EXTINF:0,RadioTunes.com - World
+http://prem4.radiotunes.com:80/world_aac?FIXME
