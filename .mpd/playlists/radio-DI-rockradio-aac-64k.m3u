@@ -1,0 +1,187 @@
+#EXTM3U
+# NOTE Replace FIXME with your Digitally Imported Listen Key
+
+#EXTINF:0,RockRadio.com - 00s Rock
+http://prem1.rockradio.com:80/00srock_low?FIXME
+#EXTINF:0,RockRadio.com - 00s Rock
+http://prem4.rockradio.com:80/00srock_low?FIXME
+
+#EXTINF:0,RockRadio.com - 60s Rock
+http://prem1.rockradio.com:80/60srock_low?FIXME
+#EXTINF:0,RockRadio.com - 60s Rock
+http://prem4.rockradio.com:80/60srock_low?FIXME
+
+#EXTINF:0,RockRadio.com - 70s Rock
+http://prem1.rockradio.com:80/70srock_low?FIXME
+#EXTINF:0,RockRadio.com - 70s Rock
+http://prem4.rockradio.com:80/70srock_low?FIXME
+
+#EXTINF:0,RockRadio.com - 80s Alternative
+http://prem1.rockradio.com:80/alternative80s_low?FIXME
+#EXTINF:0,RockRadio.com - 80s Alternative
+http://prem4.rockradio.com:80/alternative80s_low?FIXME
+
+#EXTINF:0,RockRadio.com - 80s Rock
+http://prem1.rockradio.com:80/80srock_low?FIXME
+#EXTINF:0,RockRadio.com - 80s Rock
+http://prem4.rockradio.com:80/80srock_low?FIXME
+
+#EXTINF:0,RockRadio.com - 90s Alternative
+http://prem1.rockradio.com:80/alternative90s_low?FIXME
+#EXTINF:0,RockRadio.com - 90s Alternative
+http://prem4.rockradio.com:80/alternative90s_low?FIXME
+
+#EXTINF:0,RockRadio.com - 90s Rock
+http://prem1.rockradio.com:80/90srock_low?FIXME
+#EXTINF:0,RockRadio.com - 90s Rock
+http://prem4.rockradio.com:80/90srock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Alternative Rock
+http://prem1.rockradio.com:80/alternativerock_low?FIXME
+#EXTINF:0,RockRadio.com - Alternative Rock
+http://prem4.rockradio.com:80/alternativerock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Black Metal
+http://prem1.rockradio.com:80/blackmetal_low?FIXME
+#EXTINF:0,RockRadio.com - Black Metal
+http://prem4.rockradio.com:80/blackmetal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Blues Rock
+http://prem1.rockradio.com:80/bluesrock_low?FIXME
+#EXTINF:0,RockRadio.com - Blues Rock
+http://prem4.rockradio.com:80/bluesrock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Classic Folk Rock
+http://prem1.rockradio.com:80/classicfolkrock_low?FIXME
+#EXTINF:0,RockRadio.com - Classic Folk Rock
+http://prem4.rockradio.com:80/classicfolkrock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Classic Hard Rock
+http://prem1.rockradio.com:80/classichardrock_low?FIXME
+#EXTINF:0,RockRadio.com - Classic Hard Rock
+http://prem4.rockradio.com:80/classichardrock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Classic Metal
+http://prem1.rockradio.com:80/classicmetal_low?FIXME
+#EXTINF:0,RockRadio.com - Classic Metal
+http://prem4.rockradio.com:80/classicmetal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Classic Rock
+http://prem1.rockradio.com:80/classicrock_low?FIXME
+#EXTINF:0,RockRadio.com - Classic Rock
+http://prem4.rockradio.com:80/classicrock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Death Metal
+http://prem1.rockradio.com:80/deathmetal_low?FIXME
+#EXTINF:0,RockRadio.com - Death Metal
+http://prem4.rockradio.com:80/deathmetal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Grunge
+http://prem1.rockradio.com:80/grunge_low?FIXME
+#EXTINF:0,RockRadio.com - Grunge
+http://prem4.rockradio.com:80/grunge_low?FIXME
+
+#EXTINF:0,RockRadio.com - Hair Bands
+http://prem1.rockradio.com:80/hairbands_low?FIXME
+#EXTINF:0,RockRadio.com - Hair Bands
+http://prem4.rockradio.com:80/hairbands_low?FIXME
+
+#EXTINF:0,RockRadio.com - Hard Rock
+http://prem1.rockradio.com:80/hardrock_low?FIXME
+#EXTINF:0,RockRadio.com - Hard Rock
+http://prem4.rockradio.com:80/hardrock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Heavy Metal
+http://prem1.rockradio.com:80/heavymetal_low?FIXME
+#EXTINF:0,RockRadio.com - Heavy Metal
+http://prem4.rockradio.com:80/heavymetal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Indie Rock
+http://prem1.rockradio.com:80/indierock_low?FIXME
+#EXTINF:0,RockRadio.com - Indie Rock
+http://prem4.rockradio.com:80/indierock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Industrial
+http://prem1.rockradio.com:80/industrial_low?FIXME
+#EXTINF:0,RockRadio.com - Industrial
+http://prem4.rockradio.com:80/industrial_low?FIXME
+
+#EXTINF:0,RockRadio.com - Melodic Death Metal
+http://prem1.rockradio.com:80/melodicdeathmetal_low?FIXME
+#EXTINF:0,RockRadio.com - Melodic Death Metal
+http://prem4.rockradio.com:80/melodicdeathmetal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Metal
+http://prem1.rockradio.com:80/metal_low?FIXME
+#EXTINF:0,RockRadio.com - Metal
+http://prem4.rockradio.com:80/metal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Metalcore
+http://prem1.rockradio.com:80/metalcore_low?FIXME
+#EXTINF:0,RockRadio.com - Metalcore
+http://prem4.rockradio.com:80/metalcore_low?FIXME
+
+#EXTINF:0,RockRadio.com - Modern Folk Rock
+http://prem1.rockradio.com:80/modernfolkrock_low?FIXME
+#EXTINF:0,RockRadio.com - Modern Folk Rock
+http://prem4.rockradio.com:80/modernfolkrock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Modern Rock
+http://prem1.rockradio.com:80/modernrock_low?FIXME
+#EXTINF:0,RockRadio.com - Modern Rock
+http://prem4.rockradio.com:80/modernrock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Nu Metal
+http://prem1.rockradio.com:80/numetal_low?FIXME
+#EXTINF:0,RockRadio.com - Nu Metal
+http://prem4.rockradio.com:80/numetal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Pop Rock
+http://prem1.rockradio.com:80/poprock_low?FIXME
+#EXTINF:0,RockRadio.com - Pop Rock
+http://prem4.rockradio.com:80/poprock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Power Metal
+http://prem1.rockradio.com:80/powermetal_low?FIXME
+#EXTINF:0,RockRadio.com - Power Metal
+http://prem4.rockradio.com:80/powermetal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Progressive Rock
+http://prem1.rockradio.com:80/progressiverock_low?FIXME
+#EXTINF:0,RockRadio.com - Progressive Rock
+http://prem4.rockradio.com:80/progressiverock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Punk Rock
+http://prem1.rockradio.com:80/punkrock_low?FIXME
+#EXTINF:0,RockRadio.com - Punk Rock
+http://prem4.rockradio.com:80/punkrock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Rock Ballads
+http://prem1.rockradio.com:80/rockballads_low?FIXME
+#EXTINF:0,RockRadio.com - Rock Ballads
+http://prem4.rockradio.com:80/rockballads_low?FIXME
+
+#EXTINF:0,RockRadio.com - Screamo Emo
+http://prem1.rockradio.com:80/screamoemo_low?FIXME
+#EXTINF:0,RockRadio.com - Screamo Emo
+http://prem4.rockradio.com:80/screamoemo_low?FIXME
+
+#EXTINF:0,RockRadio.com - Soft Rock
+http://prem1.rockradio.com:80/softrock_low?FIXME
+#EXTINF:0,RockRadio.com - Soft Rock
+http://prem4.rockradio.com:80/softrock_low?FIXME
+
+#EXTINF:0,RockRadio.com - Symphonic Metal
+http://prem1.rockradio.com:80/symphonicmetal_low?FIXME
+#EXTINF:0,RockRadio.com - Symphonic Metal
+http://prem4.rockradio.com:80/symphonicmetal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Thrash Metal
+http://prem1.rockradio.com:80/thrashmetal_low?FIXME
+#EXTINF:0,RockRadio.com - Thrash Metal
+http://prem4.rockradio.com:80/thrashmetal_low?FIXME
+
+#EXTINF:0,RockRadio.com - Yacht Rock
+http://prem1.rockradio.com:80/yachtrock_low?FIXME
+#EXTINF:0,RockRadio.com - Yacht Rock
+http://prem4.rockradio.com:80/yachtrock_low?FIXME
