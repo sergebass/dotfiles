@@ -45,7 +45,8 @@ myConfig = desktopConfig
     , ((0, mouseExtraButton2), const $ spawn "x-terminal-emulator -e ncmpcpp")
     ]
      `additionalKeys`
-    [ ((superMask, xK_BackSpace), toggleWS)
+    [ ((superMask .|. altMask .|. shiftMask, xK_slash), spawn "gmessage -file ~/.xmonad/xmonad.hs")
+    , ((superMask, xK_BackSpace), toggleWS)
     , ((superMask, xK_0), addWorkspace "0")
     , ((superMask, xK_s), selectWorkspace def)
     , ((superMask, xK_Left), prevWS)
