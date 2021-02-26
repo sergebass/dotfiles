@@ -208,10 +208,10 @@ vmap <Space>; gc
 nmap <Space>cl gcc
 
 " spacemacs-compatible quick shortcuts for vim-fugitive (and more)
-nnoremap <Space>gs :Gstatus<CR>
-nnoremap <Space>gl :Glog<CR>
-nnoremap <Space>gd :Gdiff<CR>
-nnoremap <Space>gb :Gblame<CR>
+nnoremap <Space>gs :Git<CR>
+nnoremap <Space>gl :Gclog<CR>
+nnoremap <Space>gd :Gdiffsplit<CR>
+nnoremap <Space>gb :Git blame<CR>
 nnoremap <Space>gg :Ggrep<Space>
 nnoremap <Space>gfh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filetype=git buftype=nofile<CR>gg
 nnoremap <Space>gS :!git add %<CR>
@@ -262,9 +262,9 @@ nnoremap \gL :diffget _LOCAL_<CR>
 nnoremap \gR :diffget _REMOTE_<CR>
 nnoremap \gB :diffget _BASE_<CR>
 
-nnoremap \gm :Gmove<Space>
-nnoremap \gr :Grename<Space>
-nnoremap \gx :Gbrowse<CR>
+nnoremap \gm :GMove<Space>
+nnoremap \gr :GRename<Space>
+nnoremap \gx :GBrowse<CR>
 nnoremap \gza :GitGutterFold<CR>
 nnoremap \ghp :GitGutterPreviewHunk<CR>
 nnoremap \ghs :GitGutterStageHunk<CR>
