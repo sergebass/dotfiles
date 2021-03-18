@@ -68,6 +68,8 @@
     co = checkout
     cob = checkout -b
 
+    fetch-pr = "!f() { git fetch $1 pull/$2/head && git checkout FETCH_HEAD; }; f"
+
     bn = "!git rev-parse --abbrev-ref HEAD"
     bu = branch --set-upstream-to
     bd = branch --delete
