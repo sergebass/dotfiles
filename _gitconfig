@@ -27,6 +27,8 @@
     log-graph = !git log-briefly --graph
     log-stat = !git log-briefly --numstat
 
+    log-files-only = show --pretty="" --name-only
+
     search-text = !git log-verbosely --stat --all --remotes -S
     search-text-regexp = !git log-verbosely --stat --all --remotes -G
 
