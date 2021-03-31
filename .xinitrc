@@ -4,14 +4,14 @@
 # (https://code.google.com/archive/p/xmonad/issues/200)
 export SAL_USE_VCLPLUGIN=gen
 
+# map CapsLock to be an Escape button equivalent (for easier vim use)
+# also, configure keyboard layout switching via Shift+CapsLock
+setxkbmap -layout "us,ru,ua,us(intl)" -option grp:shifts_toggle -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape
+
 # on a US keyboard, make sure right Alt (mod3 in xmonad) is different from left Alt
 xmodmap -e 'clear Mod1'
 xmodmap -e 'add Mod1 = Alt_L Meta_L'
 xmodmap -e 'add Mod3 = Alt_R'
-
-# map CapsLock to be an Escape button equivalent (for easier vim use)
-# also, configure keyboard layout switching via Shift+CapsLock
-setxkbmap -layout "us,ru,ua,us(intl)" -option grp:shifts_toggle -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape
 
 # Automatically configure the second monitor
 #MONITOR1=eDP1
