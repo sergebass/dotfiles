@@ -170,11 +170,11 @@ let g:LanguageClient_diagnosticsList = "Location"
 " $ rustup component add rls --toolchain stable-x86_64-unknown-linux-gnu
 " (adjust toolchain accordingly)
 
-" Use these lines to use clangd as a language server for C family of languages:
-    " \ 'c': ['clangd'],
-    " \ 'cpp': ['clangd'],
-    " \ 'objc': ['clangd'],
-    " \ 'objcpp': ['clangd'],
+" Use these lines to use ccls as a language server for the C family of languages:
+    " \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+    " \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+    " \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+    " \ 'objcpp': ['ccls', '--log-file=/tmp/cc.log'],
 
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
@@ -185,23 +185,33 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'objcpp': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
+    \ 'objc': ['clangd'],
+    \ 'objcpp': ['clangd'],
     \ 'java': ['tcp://127.0.0.1:55555'],
     \ }
 
 " register C/C++/Objective C LSP server for vim-lsp plugin
 " (the -background-index option is not available in clangd-7)
         " \ 'cmd': {server_info->['clangd', '-background-index']},
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
+" if executable('clangd')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'clangd',
+"         \ 'cmd': {server_info->['clangd']},
+"         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+"         \ })
+" endif
+
+" Register ccls C++ lanuage server.
+if executable('ccls')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'ccls',
+      \ 'cmd': {server_info->['ccls']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': {'cache': {'directory': expand('~/.cache/ccls') }},
+      \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
 endif
 
 " register TypeScript LSP server for vim-lsp plugin
