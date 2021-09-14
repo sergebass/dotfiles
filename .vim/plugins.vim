@@ -85,8 +85,9 @@ else
         \ }
 endif
 
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'm-pilia/vim-ccls'
 
 " Autocompletion plus many other things (needs vim with Python)
 " Plug 'ycm-core/YouCompleteMe'

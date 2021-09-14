@@ -159,12 +159,23 @@ set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 " let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
+let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
+let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
+" https://github.com/autozimu/LanguageClient-neovim/issues/379 LSP snippet is not supported
+"let g:LanguageClient_hasSnippetSupport = 0
 
 let g:LanguageClient_diagnosticsList = "Location"
 
 " Install Rust language server using a command like:
 " $ rustup component add rls --toolchain stable-x86_64-unknown-linux-gnu
 " (adjust toolchain accordingly)
+
+" Use these lines to use clangd as a language server for C family of languages:
+    " \ 'c': ['clangd'],
+    " \ 'cpp': ['clangd'],
+    " \ 'objc': ['clangd'],
+    " \ 'objcpp': ['clangd'],
+
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
     \ 'purescript': ['purescript-language-server', '--stdio'],
@@ -173,11 +184,12 @@ let g:LanguageClient_serverCommands = {
     \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
-    \ 'c': ['clangd'],
-    \ 'cpp': ['clangd'],
-    \ 'objc': ['clangd'],
-    \ 'objcpp': ['clangd'],
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'objcpp': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'java': ['tcp://127.0.0.1:55555'],
     \ }
 
