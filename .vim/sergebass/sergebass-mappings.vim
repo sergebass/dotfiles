@@ -608,31 +608,63 @@ let g:multi_cursor_quit_key            = '<Esc>'
 
 " NOTE that if you are using Plug mapping you should not use `noremap` mappings
 
-" shortcuts for language client/server use (LanguageClient plugin)
+" default shortcuts for language server/client use
 
-nmap <silent> \<Bar> <Plug>(lcn-menu)
-nmap <silent> \K <Plug>(lcn-hover)
-nmap <silent> \gd <Plug>(lcn-definition)
-nmap <silent> \gD <Plug>(lcn-implementation)
-nmap <silent> \gO <Plug>(lcn-symbols)
-nmap <silent> \= <Plug>(lcn-rename)
-nmap <silent> \^ <Plug>(lcn-references)
-nmap <silent> \* <Plug>(lcn-highlight)
-nmap <silent> \+ <Plug>(lcn-explain-error)
+" Neovim 0.5.0+ has built-in LSP client, use it by default
+if has("nvim")
 
-" use LanguageClient as default filetype-specific mappings
+    nmap <silent> \<Bar> <Plug>(lcn-menu)
 
-" jump to definition of the symbol under cursor
-nmap <silent> <Space>mgg <Plug>(lcn-definition)
+    nmap <silent> \K <cmd>lua vim.lsp.buf.hover()<CR>
+    nmap <silent> \gd <cmd>lua vim.lsp.buf.definition()<CR>
+    nmap <silent> \gD <cmd>lua vim.lsp.buf.declaration()<CR>
+    nmap <silent> \gi <cmd>lua vim.lsp.buf.implementation()<CR>
+    nmap <silent> \gO <cmd>lua vim.lsp.buf.document_symbol()<CR>
+    nmap <silent> \= <cmd>lua vim.lsp.buf.rename()<CR>
+    nmap <silent> \^ <cmd>lua vim.lsp.buf.references()<CR>
+    nmap <silent> \* <cmd>lua vim.lsp.buf.document_highlight()<CR>
+    " nmap <silent> \+ <Plug>(lcn-explain-error)
+
+    " jump to definition of the symbol under cursor
+    nmap <silent> <Space>mgg <cmd>lua vim.lsp.buf.definition()<CR>
+
+    " rename symbol under cursor
+    nmap <silent> <Space>mrr <cmd>lua vim.lsp.buf.rename()<CR>
+
+    " display help about symbol under cursor
+    nmap <silent> <Space>mhh <cmd>lua vim.lsp.buf.hover()<CR>
+
+else  " use 3rd-party language client(s) otherwise
+
+    nmap <silent> \<Bar> <Plug>(lcn-menu)
+
+    nmap <silent> \K <Plug>(lcn-hover)
+    nmap <silent> \gd <Plug>(lcn-definition)
+    " nmap <silent> \gD <Plug>(lcn-FIXME)
+    nmap <silent> \gi <Plug>(lcn-implementation)
+    nmap <silent> \gO <Plug>(lcn-symbols)
+    nmap <silent> \= <Plug>(lcn-rename)
+    nmap <silent> \^ <Plug>(lcn-references)
+    nmap <silent> \* <Plug>(lcn-highlight)
+    nmap <silent> \+ <Plug>(lcn-explain-error)
+
+    " use LanguageClient as default filetype-specific mappings
+
+    " jump to definition of the symbol under cursor
+    nmap <silent> <Space>mgg <Plug>(lcn-definition)
+
+    " rename symbol under cursor
+    nmap <silent> <Space>mrr <Plug>(lcn-rename)
+
+    " display help about symbol under cursor
+    nmap <silent> <Space>mhh <Plug>(lcn-hover)
+
+endif
+
+" LSP bindings shared between neovim and vim:
 
 " switch to another/accompanying source (e.g. source-header) file in the same window
 nmap <silent> <Space>mga :call LanguageClient#textDocument_switchSourceHeader()<CR>
 
 " switch to another/accompanying source (e.g. source-header) file in a vertical split
 nmap <silent> <Space>mgA :vsplit <bar> call LanguageClient#textDocument_switchSourceHeader()<CR>
-
-" rename symbol under cursor
-nmap <silent> <Space>mrr <Plug>(lcn-rename)
-
-" display help about symbol under cursor
-nmap <silent> <Space>mhh <Plug>(lcn-hover)
