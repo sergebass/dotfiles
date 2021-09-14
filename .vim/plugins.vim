@@ -72,6 +72,10 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'brooth/far.vim'
 
 " Language Server Protocol support
+
+" First, built-in LSP client support in neovim (version 0.5.0 and later)
+Plug 'neovim/nvim-lspconfig'
+
 if has("win32")
     Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',

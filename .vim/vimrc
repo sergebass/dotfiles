@@ -1,3 +1,10 @@
+" Initialize plugins first (some of the further configuration depends on it)
+if has("win32")
+    source ~/vimfiles/plugins.vim
+else
+    source ~/.vim/plugins.vim
+endif
+
 """ ---------------
 """ GENERAL OPTIONS
 """ ---------------
@@ -151,6 +158,24 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeWinSize=64
 let g:NERDTreeQuitOnOpen=1 " close NERDtree window after opening a file
 
+" Language Server Protocol support (generic)
+
+" Neovim-specific built-in LSP client configuration
+if has("nvim")
+lua << EOF
+    lspconfig = require'lspconfig'
+
+    -- rls (Rust)
+    lspconfig.rls.setup{}
+
+    -- ccls (C++)
+    lspconfig.ccls.setup{}
+
+    -- clangd (C++)
+    lspconfig.clangd.setup{}
+EOF
+endif
+
 " to be able to use vim's formatting commands like gq with LanguageClient
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
@@ -280,12 +305,6 @@ endif
 
 if exists("syntax_on")
   syntax reset
-endif
-
-if has("win32")
-    source ~/vimfiles/plugins.vim
-else
-    source ~/.vim/plugins.vim
 endif
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
