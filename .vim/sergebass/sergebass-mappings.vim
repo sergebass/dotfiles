@@ -613,17 +613,19 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " Neovim 0.5.0+ has built-in LSP client, use it by default
 if has("nvim")
 
-    nmap <silent> \<Bar> <Plug>(lcn-menu)
+    nmap <silent> \<Bar> <cmd>lua vim.lsp.buf.code_action()<CR>
 
     nmap <silent> \K <cmd>lua vim.lsp.buf.hover()<CR>
+    nmap <silent> \gt <cmd>lua vim.lsp.buf.type_definition()<CR>
     nmap <silent> \gd <cmd>lua vim.lsp.buf.definition()<CR>
     nmap <silent> \gD <cmd>lua vim.lsp.buf.declaration()<CR>
     nmap <silent> \gi <cmd>lua vim.lsp.buf.implementation()<CR>
     nmap <silent> \gO <cmd>lua vim.lsp.buf.document_symbol()<CR>
+    nmap <silent> \go <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
     nmap <silent> \= <cmd>lua vim.lsp.buf.rename()<CR>
     nmap <silent> \^ <cmd>lua vim.lsp.buf.references()<CR>
     nmap <silent> \* <cmd>lua vim.lsp.buf.document_highlight()<CR>
-    " nmap <silent> \+ <Plug>(lcn-explain-error)
+    nmap <silent> \+ <Plug>(lcn-explain-error)
 
     " jump to definition of the symbol under cursor
     nmap <silent> <Space>mgg <cmd>lua vim.lsp.buf.definition()<CR>
@@ -634,15 +636,35 @@ if has("nvim")
     " display help about symbol under cursor
     nmap <silent> <Space>mhh <cmd>lua vim.lsp.buf.hover()<CR>
 
+    " SPC m g &     find references (address)
+    " nmap <silent> <Space>mg& <cmd>lua vim.lsp.buf.()<CR>
+
+    " SPC m g R     find references (read)
+    " nmap <silent> <Space>mgR <cmd>lua vim.lsp.buf.()<CR>
+
+    " SPC m g W     find references (write)
+    " nmap <silent> <Space>mgW <cmd>lua vim.lsp.buf.()<CR>
+
+    " SPC m g c     find callers
+    nmap <silent> <Space>mgc <cmd>lua vim.lsp.buf.incoming_calls()<CR>
+
+    " SPC m g C     find callees
+    nmap <silent> <Space>mgC <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
+
+    " SPC m g v     vars
+    " nmap <silent> <Space>mgv <cmd>lua vim.lsp.buf.()<CR>
+
 else  " use 3rd-party language client(s) otherwise
 
     nmap <silent> \<Bar> <Plug>(lcn-menu)
 
     nmap <silent> \K <Plug>(lcn-hover)
+    nmap <silent> \gt <Plug>(lcn-type-definition)
     nmap <silent> \gd <Plug>(lcn-definition)
     " nmap <silent> \gD <Plug>(lcn-FIXME)
     nmap <silent> \gi <Plug>(lcn-implementation)
     nmap <silent> \gO <Plug>(lcn-symbols)
+    nmap <silent> \go <cmd>call LanguageClient#workspace_symbol()<CR>
     nmap <silent> \= <Plug>(lcn-rename)
     nmap <silent> \^ <Plug>(lcn-references)
     nmap <silent> \* <Plug>(lcn-highlight)
@@ -661,10 +683,16 @@ else  " use 3rd-party language client(s) otherwise
 
 endif
 
-" LSP bindings shared between neovim and vim:
+" spacemacs-like LSP bindings shared between neovim and vim:
 
 " switch to another/accompanying source (e.g. source-header) file in the same window
 nmap <silent> <Space>mga :call LanguageClient#textDocument_switchSourceHeader()<CR>
 
 " switch to another/accompanying source (e.g. source-header) file in a vertical split
 nmap <silent> <Space>mgA :vsplit <bar> call LanguageClient#textDocument_switchSourceHeader()<CR>
+
+" SPC m g f     find file at point (ffap)
+nmap <silent> <Space>mgf gf
+
+" SPC m g F     ffap other window
+nmap <silent> <Space>mgF gF
