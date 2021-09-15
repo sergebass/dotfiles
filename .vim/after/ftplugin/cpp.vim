@@ -20,9 +20,9 @@ setlocal iskeyword=@,48-57,_
 " we need that comment mark at the end since this on-hover function does not accept arguments but uses the word under cursor
 setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
 
-nmap <buffer> <silent> K <Plug>(lcn-hover)
+nmap <buffer> <silent> K \K
 
-nmap <buffer> <silent> <CR> <Plug>(lcn-definition)
+nmap <buffer> <silent> <CR> \gd
 
 " do our formatting using clang-format and the '=' command
 setlocal equalprg=clang-format
