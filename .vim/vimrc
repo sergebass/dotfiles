@@ -183,9 +183,14 @@ set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+
 " let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
-let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
-let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
+let g:LanguageClient_loadSettings = 1
+
+" Use an absolute configuration path if you want system-wide settings
+" (.vim/settings.json is used by default)
+" let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
+
 " https://github.com/autozimu/LanguageClient-neovim/issues/379 LSP snippet is not supported
 "let g:LanguageClient_hasSnippetSupport = 0
 
