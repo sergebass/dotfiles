@@ -58,6 +58,11 @@ hi ErrorMsg term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff0
 hi WarningMsg term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 
+hi link ErrorMsg LspDiagnosticsDefaultError ErrorMsg
+hi link WarningMsg LspDiagnosticsDefaultWarning WarningMsg
+hi link Question LspDiagnosticsDefaultInformation Question
+hi link Question LspDiagnosticsDefaultHint Question
+
 hi Search term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
 hi IncSearch term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
 
