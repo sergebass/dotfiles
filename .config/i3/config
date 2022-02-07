@@ -187,10 +187,10 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SINK@ toggle # mute microphone
 
 # Alternative keys for volume control (ALSA)
-bindsym $mod+shift+v exec pavucontrol
-bindsym $mod+bracketleft exec amixer -D pulse sset Master unmute 5%-
-bindsym $mod+bracketright exec amixer -D pulse sset Master unmute 5%+
-bindsym $mod+backslash exec amixer -D pulse sset Master unmute 20%
+bindsym $mod+shift+v exec pavucontrol-qt
+bindsym $mod+bracketleft exec amixer sset Master unmute 5%-
+bindsym $mod+bracketright exec amixer sset Master unmute 5%+
+bindsym $mod+backslash exec amixer sset Master unmute 20%
 
 # Alternative keys for volume control (FreeBSD)
 # bindsym $mod+shift+v exec urxvt -e aumix
