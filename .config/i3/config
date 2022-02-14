@@ -45,6 +45,9 @@ bindsym $mod+d exec rofi -show run
 # bindsym $mod+shift+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+shift+d exec rofi -show drun
 
+# select an arbitrary window from a menu to switch to
+bindsym $mod+Tab exec rofi -show window
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
