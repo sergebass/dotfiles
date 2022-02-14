@@ -25,8 +25,8 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp0s20u1.useDHCP = true;
   networking.interfaces.wlp1s0.useDHCP = true;
+  networking.interfaces.enp0s20u1.useDHCP = false;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -43,8 +43,9 @@
   services.xserver.enable = true;
   services.xserver.desktopManager.lxqt.enable = true;
   services.xserver.desktopManager.xfce.enable = false;
+  services.xserver.desktopManager.xterm.enable = false;
   services.xserver.windowManager.xmonad.enable = true;
-  services.xserver.windowManager.i3.enable = false;
+  services.xserver.windowManager.i3.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -63,37 +64,33 @@
   users.defaultUserShell = pkgs.fish;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.sergii = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
-  };
+  # users.users.sergii = {
+  #   isNormalUser = true;
+  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  #   shell = pkgs.zsh;
+  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # i3
-    # i3lock
-    # i3status
-    # i3status-rust
-    # rxvt_unicode
-    # slock
-    # vim
+    # pavucontrol
     alacritty
     bc
     brave
     cargo
     cmake
+    ctags
     curl
     dmenu
+    dunst
     feh
     file
     firefox
-    fish
     fzf
     gcc
     ghc
     git
+    git-lfs
     haskell-language-server
     htop
     links
@@ -104,19 +101,22 @@
     mupdf
     ncmpcpp
     neovim
-    pavucontrol
+    pciutils
     ripgrep
     ripgrep-all
     rls
+    rofi
     rustc
     stack
     tig
     tmux
+    trayer
+    udiskie
+    usbutils
     wget
     xmobar
     xmonad-with-packages
     youtube-dl
-    zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
