@@ -217,3 +217,13 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Screenshot taking
+
+# Take screenshot of the entire display
+bindsym $mod+Print exec scrot --pointer --exec 'lximage-qt $f' screenshot--%Y-%m-%d-%H-%M-%S.png
+bindsym $mod+p exec scrot --pointer --exec 'lximage-qt $f' screenshot--%Y-%m-%d-%H-%M-%S.png
+
+# Take screenshot of the focused window
+bindsym $mod+shift+Print exec scrot --focused --pointer --exec 'lximage-qt $f' screenshot--%Y-%m-%d-%H-%M-%S.png
+bindsym $mod+shift+p exec scrot --focused --pointer --exec 'lximage-qt $f' screenshot--%Y-%m-%d-%H-%M-%S.png
+
