@@ -6,6 +6,9 @@
 
     sb = status -sb
 
+    ; list untracked files only (without any markers, for scripting)
+    lsu = ls-files --others --exclude-standard
+
     stat = diff --stat
 
     sl = stash list
