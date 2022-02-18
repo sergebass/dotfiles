@@ -8,6 +8,8 @@
 
     ; list untracked files only (without any markers, for scripting)
     lsu = ls-files --others --exclude-standard
+    ; list untracked files only (without any markers, for scripting), NUL-delimited
+    lsu0 = ls-files --others --exclude-standard -z
 
     stat = diff --stat
 
