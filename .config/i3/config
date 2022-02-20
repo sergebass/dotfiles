@@ -29,6 +29,12 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# quickly change X keyboard languages/layouts
+bindsym $mod+F1 exec setxkbmap -layout us
+bindsym $mod+F2 exec setxkbmap -layout "us(intl)"
+bindsym $mod+F3 exec setxkbmap -layout ua
+bindsym $mod+F4 exec setxkbmap -layout ru
+
 # start a terminal
 bindsym $mod+Return exec alacritty
 
