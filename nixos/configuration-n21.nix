@@ -100,6 +100,7 @@
     git
     git-lfs
     htop
+    i3status-rust
     links
     mc
     mpc_cli
