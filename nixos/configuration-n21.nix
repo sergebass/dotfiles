@@ -107,6 +107,7 @@
     rls
     rofi
     rustc
+    scrot
     stack
     tig
     tmux
