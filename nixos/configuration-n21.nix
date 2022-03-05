@@ -44,7 +44,7 @@
   services.xserver.desktopManager.lxqt.enable = true;
   services.xserver.desktopManager.xfce.enable = false;
   services.xserver.desktopManager.xterm.enable = false;
-  services.xserver.windowManager.xmonad.enable = true;
+  # services.xserver.windowManager.xmonad.enable = true;
   services.xserver.windowManager.i3.enable = true;
 
   # Configure keymap in X11
@@ -77,7 +77,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # ghc
+    # haskell-language-server
     # pavucontrol
+    # stack
+    # xmobar
+    # xmonad-with-packages
     alacritty
     bc
     brave
@@ -92,10 +97,8 @@
     firefox
     fzf
     gcc
-    ghc
     git
     git-lfs
-    haskell-language-server
     htop
     links
     mc
@@ -112,15 +115,12 @@
     rofi
     rustc
     scrot
-    stack
     tig
     tmux
     trayer
     udiskie
     usbutils
     wget
-    xmobar
-    xmonad-with-packages
     youtube-dl
   ];
 
