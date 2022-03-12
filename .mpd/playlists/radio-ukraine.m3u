@@ -1,0 +1,89 @@
+#EXTM3U
+#PLAYLIST:Ukrainian stations
+
+#EXTINF:-1,Радіо НВ (Київ)
+https://online-radio.nv.ua/radionv.mp3
+
+#EXTINF:-1,Українське радіо (AAC 48 kbps)
+http://radio.ukr.radio:8000/ur1-aacplus-l
+#EXTINF:-1,Українське радіо (AAC 16 kbps)
+http://radio.ukr.radio:8000/ur1-aacp-ulow
+#EXTINF:-1,Українське радіо (MP3 192 kbps)
+http://radio.ukr.radio:8000/ur1-mp3
+#EXTINF:-1,Українське радіо (MP3 128 kbps)
+http://radio.ukr.radio:8000/ur1-mp3-m
+
+#EXTINF:-1,Українське радіо - Київ (AAC 48 kbps)
+http://radio.ukr.radio:8000/ur1-kyiv-aacplus-l
+#EXTINF:-1,Українське радіо - Київ (MP3 192 kbps)
+http://radio.ukr.radio:8000/ur1-kyiv-mp3
+#EXTINF:-1,Українське радіо - Київ (MP3 128 kbps)
+http://radio.ukr.radio:8000/ur1-kyiv-mp3-m
+
+#EXTINF:-1,Українське радіо - Львів (AAC 48 kbps)
+http://radio.ukr.radio:8000/ur1-lv-aacplus
+#EXTINF:-1,Українське радіо - Львів (MP3 192 kbps)
+http://radio.ukr.radio:8000/ur1-lv-mp3
+#EXTINF:-1,Українське радіо - Львів (MP3 128 kbps)
+http://radio.ukr.radio:8000/ur1-lv-mp3-m
+
+#EXTINF:-1,Українське радіо - Одеса (AAC 48 kbps)
+http://radio.ukr.radio:8000/ur1-od-aacplus
+#EXTINF:-1,Українське радіо - Одеса (MP3 192 kbps)
+http://radio.ukr.radio:8000/ur1-od-mp3
+#EXTINF:-1,Українське радіо - Одеса (MP3 128 kbps)
+http://radio.ukr.radio:8000/ur1-od-mp3-m
+
+#EXTINF:-1,Українське радіо - Вінниця (AAC 48 kbps)
+http://radio.ukr.radio:8000/ur1-vn-aacplus
+#EXTINF:-1,Українське радіо - Вінниця (MP3 192 kbps)
+http://radio.ukr.radio:8000/ur1-vn-mp3
+#EXTINF:-1,Українське радіо - Вінниця (MP3 128 kbps)
+http://radio.ukr.radio:8000/ur1-vn-mp3-m
+
+#EXTINF:-1,Українське радіо - Рось (AAC 48 kbps)
+http://radio.ukr.radio:8000/ur1-ck-aacplus
+#EXTINF:-1,Українське радіо - Рось (MP3 192 kbps)
+http://radio.ukr.radio:8000/ur1-ck-mp3
+#EXTINF:-1,Українське радіо - Рось (MP3 128 kbps)
+http://radio.ukr.radio:8000/ur1-ck-mp3-m
+
+#EXTINF:-1,Радіо Промінь (AAC 48 kbps)
+http://radio.ukr.radio:8000/ur2-aacplus-l
+#EXTINF:-1,Радіо Промінь (AAC 16 kbps)
+http://radio.ukr.radio:8000/ur2-aacp-ulow
+#EXTINF:-1,Радіо Промінь (MP3 192 kbps)
+http://radio.ukr.radio:8000/ur2-mp3
+#EXTINF:-1,Радіо Промінь (MP3 128 kbps)
+http://radio.ukr.radio:8000/ur2-mp3-m
+
+#EXTINF:-1,Радіо Культура (AAC 48 kbps)
+http://radio.ukr.radio:8000/ur3-aacplus-l
+#EXTINF:-1,Радіо Культура (AAC 16 kbps)
+http://radio.ukr.radio:8000/ur3-aacp-ulow
+#EXTINF:-1,Радіо Культура (MP3 192 kbps)
+http://radio.ukr.radio:8000/ur3-mp3
+#EXTINF:-1,Радіо Культура (MP3 128 kbps)
+http://radio.ukr.radio:8000/ur3-mp3-m
+
+#EXTINF:-1,Тиса FM (AAC 48 kbps)
+http://radio.ukr.radio:8000/tysafm-aacplus
+#EXTINF:-1,Тиса FM (MP3 192 kbps)
+http://radio.ukr.radio:8000/tysafm-mp3
+#EXTINF:-1,Тиса FM (MP3 128 kbps)
+http://radio.ukr.radio:8000/tysafm-mp3-m
+
+#EXTINF:-1,Всесвітня служба радіо (AAC 48 kbps)
+http://radio.ukr.radio:8000/rui-aacplus-l
+#EXTINF:-1,Всесвітня служба радіо (AAC 16 kbps)
+http://radio.ukr.radio:8000/rui-aacp-ulow
+#EXTINF:-1,Всесвітня служба радіо (MP3 192 kbps)
+http://radio.ukr.radio:8000/ur4-mp3
+#EXTINF:-1,Всесвітня служба радіо (MP3 128 kbps)
+http://radio.ukr.radio:8000/ur4-mp3-m
+
+#EXTINF:-1,Українські казки
+http://radio.ukr.radio:8000/kazka-mp3
+
+#EXTINF:-1,Мелодія FM
+https://www.melodiafm.ua/MelodiaFM.m3u
