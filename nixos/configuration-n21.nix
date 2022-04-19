@@ -41,11 +41,11 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.desktopManager.lxqt.enable = true;
+  services.xserver.windowManager.i3.enable = true;
+  services.xserver.desktopManager.lxqt.enable = false;
   services.xserver.desktopManager.xfce.enable = false;
   services.xserver.desktopManager.xterm.enable = false;
-  # services.xserver.windowManager.xmonad.enable = true;
-  services.xserver.windowManager.i3.enable = true;
+  services.xserver.windowManager.xmonad.enable = false;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -77,18 +77,27 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # cargo
+    # cmake
+    # ctags
+    # gcc
     # ghc
+    # git-lfs
     # haskell-language-server
-    # pavucontrol
+    # links
+    # pciutils
+    # ripgrep-all
+    # rls
+    # rustc
     # stack
     # xmobar
     # xmonad-with-packages
+    # youtube-dl
     alacritty
+    audacity
     bc
     brave
-    cargo
-    cmake
-    ctags
+    calibre
     curl
     dmenu
     dunst
@@ -96,12 +105,9 @@
     file
     firefox
     fzf
-    gcc
     git
-    git-lfs
     htop
     i3status-rust
-    links
     mc
     mpc_cli
     mpd
@@ -109,12 +115,9 @@
     mupdf
     ncmpcpp
     neovim
-    pciutils
+    pavucontrol
     ripgrep
-    ripgrep-all
-    rls
     rofi
-    rustc
     scrot
     tig
     tmux
@@ -122,7 +125,6 @@
     udiskie
     usbutils
     wget
-    youtube-dl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -133,7 +135,7 @@
   #   enableSSHSupport = true;
   # };
 
-  programs.zsh.enable = true;
+  # programs.zsh.enable = true;
   programs.fish.enable = true;
 
   # List services that you want to enable:
