@@ -79,7 +79,6 @@
   environment.systemPackages = with pkgs; [
     # cargo
     # cmake
-    # ctags
     # gcc
     # ghc
     # git-lfs
@@ -98,6 +97,7 @@
     bc
     brave
     calibre
+    ctags
     curl
     dmenu
     dunst
