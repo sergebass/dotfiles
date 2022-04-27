@@ -98,13 +98,13 @@ if has("nvim") || (version >= 810)
     set scrollback=100000
 endif
 
-" apply user-defined autocompletion when pressing <Tab> (used by supertab plugin)
-let g:SuperTabDefaultCompletionType = "<C-X><C-U>"
+" apply omni autocompletion when pressing <Tab> (used by supertab plugin)
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 " do not autocomplete at the start of the line, after a comma or after a space:
 let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
 set completeopt=longest,menuone
 set completefunc=LanguageClient#complete
-set omnifunc=
+set omnifunc=v:lua.vim.lsp.omnifunc
 
 " command mode autocompletion
 set wildmode=list:longest,full
