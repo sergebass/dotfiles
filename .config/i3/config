@@ -38,6 +38,9 @@ bindsym $mod+F4 exec setxkbmap -layout ru
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+# lock screen
+bindsym $mod+z exec i3lock -c 000000 -f
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
