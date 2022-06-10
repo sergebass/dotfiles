@@ -9,3 +9,5 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 export LESS="-FRX"
+
+source ~/.workspace.fish
