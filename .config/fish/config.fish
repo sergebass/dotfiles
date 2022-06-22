@@ -10,4 +10,6 @@ export VISUAL=nvim
 
 export LESS="-FRX"
 
+if test -e ~/.workspace.fish
 source ~/.workspace.fish
+end
