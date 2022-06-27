@@ -144,9 +144,13 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-syntastic/syntastic'
 Plug 'yssl/QFEnter'
 
-" org-mode support
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-orgmode/orgmode'
+if has("nvim")
+    " org-mode support
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-orgmode/orgmode'
+
+    Plug 'petertriho/nvim-scrollbar'
+endif
 
 " non-github-hosted plugins
 Plug 'https://gitlab.com/gi1242/vim-emoji-ab'

@@ -158,6 +158,12 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeWinSize=64
 let g:NERDTreeQuitOnOpen=1 " close NERDtree window after opening a file
 
+if has("nvim")
+lua << EOF
+    require'scrollbar'.setup()
+EOF
+endif
+
 " Language Server Protocol support (generic)
 
 " Neovim-specific built-in LSP client configuration
