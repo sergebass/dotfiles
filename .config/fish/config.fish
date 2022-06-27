@@ -1,5 +1,7 @@
-fish_add_path --prepend --move ~/.local/bin
-fish_add_path --prepend --move ~/bin
+if type -q fish_add_path
+    fish_add_path --prepend --move ~/.local/bin
+    fish_add_path --prepend --move ~/bin
+end
 
 if status is-interactive
     fish_vi_key_bindings
