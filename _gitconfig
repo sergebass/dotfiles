@@ -97,6 +97,7 @@
     ac = !git add -u && git commit -ev
 
     c = commit -ev
+    cm = commit -evm
 
     commit-to-squash = commit -evm 'FIXME squash this'
     csq = !git commit-to-squash
