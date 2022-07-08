@@ -24,10 +24,14 @@
     log-verbosely = log --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
 
     l = !git log-briefly
+    ls = !git l --stat
     ll = !git log-verbosely
+    lls = !git ll --stat
 
-    l1 = !git log-briefly -1
-    ll1 = !git log-verbosely -1
+    l1 = !git l -1
+    ls1 = !git ls -1
+    ll1 = !git ll -1
+    lls1 = !git lls -1
 
     log-graph = !git log-briefly --graph
     log-stat = !git log-briefly --numstat
