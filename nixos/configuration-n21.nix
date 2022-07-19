@@ -14,6 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # RTL SDR tuners don't work properly otherwise
+  boot.blacklistedKernelModules = [ "dvb_usb_rtl28xxu" ];
+
   networking.hostName = "n21"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
@@ -67,12 +70,17 @@
 
   users.defaultUserShell = pkgs.fish;
 
+  users.groups.plugdev = {};
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.sergii = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  #   shell = pkgs.zsh;
-  # };
+  users.users.sergii = {
+    isNormalUser = true;
+    extraGroups = [
+        "wheel" # Enable ‘sudo’ for the user.
+        "plugdev"
+    ];
+    shell = pkgs.fish;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -143,6 +151,8 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.udev.packages = [ pkgs.rtl-sdr ];
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -157,4 +167,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
 }
-
