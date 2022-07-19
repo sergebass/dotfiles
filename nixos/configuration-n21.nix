@@ -84,48 +84,63 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
   environment.systemPackages = with pkgs; [
+    # audacity
+    # brave
+    # calibre
     # cargo
+    # chromium
     # cmake
+    # dillo
+    # firefox
+    # firefox-esr
     # gcc
     # ghc
     # git-lfs
+    # gqrx
     # haskell-language-server
-    # links
-    # pciutils
+    # luajit
+    # mpc_cli
+    # mpd
+    # mpv
+    # mupdf
+    # ncmpcpp
+    # opera
+    # palemoon
     # ripgrep-all
     # rls
+    # rtl-sdr
     # rustc
+    # sox
     # stack
+    # vivaldi
+    # vlc
+    # w_scan
     # xmobar
     # xmonad-with-packages
     # youtube-dl
     alacritty
-    audacity
     bc
-    brave
-    calibre
     ctags
     curl
     dmenu
     dunst
     feh
     file
-    firefox
     fzf
     git
     htop
     i3status-rust
+    links2
     mc
-    mpc_cli
-    mpd
-    mpv
-    mupdf
-    ncmpcpp
     neovim
+    netsurf.browser
     pavucontrol
+    pciutils
     ripgrep
     rofi
+    rofi-file-browser
     scrot
     tig
     tmux
