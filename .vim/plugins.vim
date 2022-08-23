@@ -98,9 +98,6 @@ Plug 'm-pilia/vim-ccls'
 " Autocompletion plus many other things (needs vim with Python)
 " Plug 'ycm-core/YouCompleteMe'
 
-" support of native debuggers (gdb, lldb, pdb etc.)
-" Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
-
 " Language-specific plugins
 Plug 'rust-lang/rust.vim'
 Plug 'udalov/kotlin-vim'
@@ -114,6 +111,9 @@ Plug 'hsanson/vim-android'
 " Plug 'lyuts/vim-rtags'
 " Plug 'neovimhaskell/haskell-vim'
 " Plug 'purescript-contrib/purescript-vim'
+
+" Multi-language debugger support
+Plug 'puremourning/vimspector'
 
 " Various other plugins
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -154,6 +154,10 @@ if has("nvim")
     Plug 'nvim-orgmode/orgmode'
 
     Plug 'petertriho/nvim-scrollbar'
+
+    " support of native debuggers (gdb, lldb, pdb etc.)
+    " Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+
 endif
 
 " non-github-hosted plugins
