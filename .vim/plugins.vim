@@ -144,9 +144,11 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-syntastic/syntastic'
 Plug 'yssl/QFEnter'
 
+"NeoVim-specific plugins
 if has("nvim")
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+
     " org-mode support
-    Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-orgmode/orgmode'
 
     Plug 'petertriho/nvim-scrollbar'
