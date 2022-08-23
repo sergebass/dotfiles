@@ -73,20 +73,22 @@ Plug 'brooth/far.vim'
 
 " Language Server Protocol support
 
-" First, built-in LSP client support in neovim (version 0.5.0 and later)
-Plug 'neovim/nvim-lspconfig'
+if has("nvim")
+    " Built-in LSP client support in neovim (version 0.5.0 and later)
+    Plug 'neovim/nvim-lspconfig'
 
-if has("win32")
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
-        \ }
-else
-    " Linux, FreeBSD and Mac OSX all use similar Unix path conventions and utilities
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
+    if has("win32")
+        Plug 'autozimu/LanguageClient-neovim', {
+            \ 'branch': 'next',
+            \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
+            \ }
+    else
+        " Linux, FreeBSD and Mac OSX all use similar Unix path conventions and utilities
+        Plug 'autozimu/LanguageClient-neovim', {
+            \ 'branch': 'next',
+            \ 'do': 'bash install.sh',
+            \ }
+    endif
 endif
 
 Plug 'prabirshrestha/async.vim'
@@ -144,7 +146,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-syntastic/syntastic'
 Plug 'yssl/QFEnter'
 
-"NeoVim-specific plugins
+"Other NeoVim-specific plugins
 if has("nvim")
     Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 
