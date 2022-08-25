@@ -32,28 +32,32 @@ nnoremap <buffer> <F12> :Run<CR>
 " :Break " set a breakpoint at the current line; a sign will be displayed
 nnoremap <buffer> \\' :Break<CR>
 nnoremap <buffer> <F9> :Break<CR>
+
 " :Clear " delete the breakpoint at the current line
 nnoremap <buffer> \\" :Clear<CR>
 nnoremap <buffer> <F10> :Clear<CR>
 
 " :Over    execute the gdb "next" command (`:Next` is a Vim command)
-nnoremap <buffer> <M-;> :Over<CR>
+" nnoremap <buffer> <M-;> :Over<CR>
 nnoremap <buffer> <F5> :Over<CR>
+
 " :Step    execute the gdb "step" command
-nnoremap <buffer> <M-'> :Step<CR>
+" nnoremap <buffer> <M-'> :Step<CR>
 nnoremap <buffer> <F6> :Step<CR>
+
 " :Finish  execute the gdb "finish" command
-nnoremap <buffer> <M-,> :Finish<CR>
+" nnoremap <buffer> <M-,> :Finish<CR>
 nnoremap <buffer> <F7> :Finish<CR>
+
 " :Continue    execute the gdb "continue" command
-nnoremap <buffer> <M-.> :Continue<CR>
+" nnoremap <buffer> <M-.> :Continue<CR>
 nnoremap <buffer> <F8> :Continue<CR>
 
 " :Evaluate
 " :'<,'>Evaluate` "evaluate the Visually selected text
-nnoremap <buffer> <M-=> :Evaluate<CR>
-vnoremap <buffer> <M-=> :Evaluate<CR>
-nnoremap <buffer> <RightMouse> :Evaluate<CR>
+" nnoremap <buffer> <M-=> :Evaluate<CR>
+" vnoremap <buffer> <M-=> :Evaluate<CR>
+" nnoremap <buffer> <RightMouse> :Evaluate<CR>
 
 nnoremap <buffer> \\dt :call TermDebugSendCommand('info threads')<CR>
 nnoremap <buffer> \\dl :call TermDebugSendCommand('info locals')<CR>

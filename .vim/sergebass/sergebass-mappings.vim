@@ -706,6 +706,7 @@ nmap <Space>ddd <Plug>VimspectorLaunch
 " nmap <Space>ddd <Plug>VimspectorPause
 " nmap <Space>da <Plug>VimspectorStop
 nmap <Space>da <Plug>VimspectorReset
+nmap <Space>dA :VimspectorReset<CR>
 
 nmap <Space>dc <Plug>VimspectorContinue
 nmap <M-.> <Plug>VimspectorContinue
@@ -722,6 +723,7 @@ nmap <M-,> <Plug>VimspectorStepOut
 nmap <Space>dIt <Plug>VimspectorBalloonEval
 nmap <Space>dv <Plug>VimspectorBalloonEval
 nmap <M-=> <Plug>VimspectorBalloonEval
+nmap <RightMouse> <Plug>VimspectorBalloonEval
 
 nmap <Space>dbb <Plug>VimspectorToggleBreakpoint
 nmap <Space>dba <Plug>VimspectorAddFunctionBreakpoint
