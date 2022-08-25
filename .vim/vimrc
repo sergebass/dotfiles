@@ -231,13 +231,13 @@ let g:LanguageClient_serverCommands = {
 " register C/C++/Objective C LSP server for vim-lsp plugin
 " (the -background-index option is not available in clangd-7)
         " \ 'cmd': {server_info->['clangd', '-background-index']},
-" if executable('clangd')
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'clangd',
-"         \ 'cmd': {server_info->['clangd']},
-"         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-"         \ })
-" endif
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
 
 " Register ccls C++ lanuage server.
 if executable('ccls')
