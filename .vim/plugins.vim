@@ -98,11 +98,13 @@ Plug 'm-pilia/vim-ccls'
 " Autocompletion plus many other things (needs vim with Python)
 " Plug 'ycm-core/YouCompleteMe'
 
+" ALE (Asynchronous Lint Engine)
+Plug 'w0rp/ale'
+
 " Language-specific plugins
 Plug 'rust-lang/rust.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'hsanson/vim-android'
-Plug 'eslint/eslint'
 " Plug 'ElmCast/elm-vim'
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'PProvost/vim-ps1'
