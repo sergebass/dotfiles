@@ -8,7 +8,16 @@ setlocal shiftwidth=4
 setlocal autoindent
 
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
+
+" Install eslint like this:
+" npm init @eslint/config
 setlocal makeprg=eslint\ -f\ unix
+
+" Install js-beautify like this:
+" On Ubuntu: sudo apt install jsbeautifier
+" On Manjaro: pamac install js-beautify
+" Manually: npm -g install js-beautify && pip install jsbeautifier
+setlocal equalprg=js-beautify\ -f\ -
 
 " Override default :RgId to use correct file type for JavaScript files (the one that rg expects)
 command! -bang -nargs=* RgId
