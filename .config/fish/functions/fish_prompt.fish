@@ -48,12 +48,23 @@ function fish_prompt --description 'sergebass-prompt'
         else
             set color_cwd $fish_color_cwd
         end
-        set suffix '##'
-        set suffix_color (set_color --bold --reverse $color_cwd)
+        set suffix ' # '
     else
         set color_cwd $fish_color_cwd
-        set suffix '=>'
-        set suffix_color (set_color --bold $color_cwd)
+        set suffix ' $ '
+    end
+
+    switch $fish_bind_mode
+      case default
+        set suffix_color (set_color --bold --reverse brblue)
+      case insert
+        set suffix_color (set_color --bold --reverse green)
+      case replace_one
+        set suffix_color (set_color --bold --reverse brmagenta)
+      case visual
+        set suffix_color (set_color --bold --reverse bryellow)
+      case '*'
+        set suffix_color (set_color --bold --reverse red)
     end
 
     printf '%s%s' (set_color --bold $color_cwd) (prompt_pwd)
