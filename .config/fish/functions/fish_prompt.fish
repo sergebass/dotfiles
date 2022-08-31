@@ -57,17 +57,24 @@ function fish_prompt --description 'sergebass-prompt'
     switch $fish_bind_mode
       case default
         set suffix_color (set_color --bold --reverse brblue)
+        # Block cursor
         printf '\e]50;CursorShape=0\x7'
       case insert
         set suffix_color (set_color --bold --reverse green)
+        # Vertical cursor
         printf '\e]50;CursorShape=1\x7'
       case replace_one
         set suffix_color (set_color --bold --reverse brmagenta)
+        # Underline cursor
         printf '\e]50;CursorShape=2\x7'
       case visual
         set suffix_color (set_color --bold --reverse bryellow)
+        # Block cursor
+        printf '\e]50;CursorShape=0\x7'
       case '*'
         set suffix_color (set_color --bold --reverse red)
+        # Block cursor
+        printf '\e]50;CursorShape=0\x7'
     end
 
     printf '%s%s' (set_color --bold $color_cwd) (prompt_pwd)
