@@ -37,6 +37,9 @@ function fish_prompt --description 'sergebass-prompt'
 
     printf "\n"
 
+    # Do not shorten path components in pwd
+    set -g fish_prompt_pwd_dir_length 0
+
     set -l color_cwd
     set -l suffix
     if functions -q fish_is_root_user; and fish_is_root_user
