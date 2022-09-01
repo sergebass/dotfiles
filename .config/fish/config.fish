@@ -13,6 +13,7 @@ export VISUAL=nvim
 export LESS="-FRX"
 
 alias g git
+alias rg "rg -L --sort path --no-heading -n --column"
 
 if test -e ~/.workspace.fish
     source ~/.workspace.fish
