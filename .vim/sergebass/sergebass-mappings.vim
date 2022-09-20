@@ -45,6 +45,9 @@ nnoremap \P "+P
 nnoremap \d "_d
 nnoremap \D "_d$
 
+nnoremap \< vi{<
+nnoremap \> vi{>
+
 " in visual mode:
 vnoremap \y "+y
 
