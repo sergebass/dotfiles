@@ -1,5 +1,5 @@
 [submodule ".tmux/plugins/tpm"]
-	path = .tmux/plugins/tpm
+	path = .config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 [submodule ".emacs.d.spacemacs"]
 	path = .emacs.d.spacemacs
