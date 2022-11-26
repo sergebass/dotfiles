@@ -209,7 +209,7 @@ bindsym $mod+backslash exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ t
 bindsym $mod+Ctrl+backslash exec pavucontrol
 
 # Alternative keys for volume control (ALSA)
-bindsym $mod+shift+m exec alacritty -e alsamixer
+bindsym $mod+shift+m exec x-terminal-emulator -e alsamixer
 bindsym $mod+shift+bracketleft exec amixer sset Master unmute 5%-
 bindsym $mod+shift+bracketright exec amixer sset Master unmute 5%+
 bindsym $mod+shift+backslash exec amixer sset Master unmute 20%
