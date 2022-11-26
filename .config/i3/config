@@ -36,7 +36,8 @@ bindsym $mod+F3 exec setxkbmap -layout ua
 bindsym $mod+F4 exec setxkbmap -layout ru
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec x-terminal-emulator
 
 # lock screen
 bindsym $mod+z exec i3lock -c 000000 -f
