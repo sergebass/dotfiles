@@ -23,7 +23,7 @@ xsetroot -solid '#002020' -cursor_name left_ptr
 
 xrdb -merge ~/.Xresources
 
-feh --bg-max --randomize --recursive --draw-filename ~/backgrounds/ &
+feh --bg-max --randomize --recursive --draw-filename ~/wallpapers/ &
 
 # this is needed for lightdm to actually lock screen, otherwise it asks no password to unlock
 # light-locker &

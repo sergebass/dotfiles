@@ -238,4 +238,5 @@ bindsym $mod+shift+Print exec scrot --focused --pointer --exec 'lximage-qt $f' s
 bindsym $mod+shift+p exec scrot --focused --pointer --exec 'lximage-qt $f' screenshot--%Y-%m-%d-%H-%M-%S.png
 
 # Configure desktop background - first a solid color and then attempt to pick a wallpaper
-exec --no-startup-id xsetroot -solid "#333333"
+exec --no-startup-id xsetroot -solid '#002020' -cursor_name left_ptr
+exec --no-startup-id feh --bg-max --randomize --recursive --draw-filename ~/wallpapers/ &
