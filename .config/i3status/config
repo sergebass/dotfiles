@@ -51,7 +51,7 @@ disk "/home" {
 # }
 
 load {
-        format = "♥ %1min"
+        format = "♥ %1min %5min"
 }
 
 memory {
