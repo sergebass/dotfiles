@@ -20,6 +20,7 @@ order += "memory"
 order += "disk /"
 order += "disk /home"
 order += "tztime local"
+order += "volume master"
 order += "battery all"
 
 wireless _first_ {
@@ -52,6 +53,14 @@ memory {
         format = "RAM %free (%percentage_free)"
         threshold_degraded = "1G"
         format_degraded = "‼ RAM %free (%percentage_free)"
+}
+
+volume master {
+    format = "♪ %volume"
+    format_muted = "♪ %volume (MUTED)"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
 }
 
 tztime local {
