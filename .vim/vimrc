@@ -161,6 +161,7 @@ let g:NERDTreeQuitOnOpen=1 " close NERDtree window after opening a file
 " Configure markdown TOC generator (vim-markdown-toc plugin)
 let g:vmt_auto_update_on_save = 0  " Do not auto-update the TOC on saving
 let g:vmt_cycle_list_item_markers = 1  " Do not just use '*' for all nesting levels, cycle through the {*+-} set
+let g:vmt_list_item_char = '*'  " The default bullet item character
 
 if has("nvim")
 lua << EOF
