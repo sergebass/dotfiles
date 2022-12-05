@@ -148,6 +148,7 @@ Plug 'sk1418/QFGrep'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-syntastic/syntastic'
 Plug 'yssl/QFEnter'
+Plug 'mzlogin/vim-markdown-toc'
 
 "Other NeoVim-specific plugins
 if has("nvim")
