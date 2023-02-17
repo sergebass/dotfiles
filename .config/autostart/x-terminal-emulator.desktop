@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Default X Terminal Emulator
+Comment=
+Exec=x-terminal-emulator
+StartupNotify=false
+Terminal=false
+Hidden=false
