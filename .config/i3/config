@@ -42,6 +42,16 @@ bindsym $mod+Return exec x-terminal-emulator
 # lock screen
 bindsym $mod+z exec i3lock -c 000000 -f
 
+mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+  bindsym l exec i3-msg exit
+  bindsym r exec systemctl reboot
+  bindsym s exec systemctl shutdown
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+
+bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
