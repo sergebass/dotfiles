@@ -27,6 +27,8 @@ in {
       efi.canTouchEfiVariables = true;
     };
 
+    kernelPackages = pkgs.linuxPackages_latest;
+
     kernelParams = lib.mkForce [ "verbose" "nosplash" ];
 
     kernel.sysctl = {
