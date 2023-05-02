@@ -105,12 +105,16 @@ in {
         lightdm = {
           enable = true;
           greeter.enable = true;
-          background = /home/sergii/wallpaper.jpg;
+          background = /home/sergii/.background-image;
         };
       };
 
       desktopManager = {
         xterm.enable = false;
+        wallpaper = {
+          mode = "max";
+          combineScreens = false;
+        };
       };
 
       windowManager.i3 = {
