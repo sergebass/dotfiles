@@ -185,10 +185,16 @@ in {
       pavucontrol
       ripgrep
       rofi
+      rofi-bluetooth
+      rofi-calc
+      rofi-file-browser
+      rofi-mpd
+      rofi-pulse-select
+      rofi-systemd
+      rofi-top
       tig
       tmux
       wget
-      zfs
     ];
 
     variables = rec {
