@@ -103,6 +103,7 @@ in {
         lightdm = {
           enable = true;
           greeter.enable = true;
+          background = /home/sergii/wallpaper.jpg;
         };
       };
 
