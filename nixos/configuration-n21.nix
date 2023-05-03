@@ -6,7 +6,7 @@ let
   userId = 1000;
 
   aliases = {
-    v = "nvim";
+    v = "$VISUAL";
     g = "git";
     rg = "rg -L --sort path --no-heading -n --column";
     x11 = "startx (which i3)";
