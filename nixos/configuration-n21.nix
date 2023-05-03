@@ -248,6 +248,7 @@ in {
       tig
       tmux
       wget
+      ymuse  # GUI client for MPD
     ];
 
     variables = rec {
