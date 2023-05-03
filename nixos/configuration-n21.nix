@@ -9,7 +9,10 @@ let
     v = "nvim";
     g = "git";
     rg = "rg -L --sort path --no-heading -n --column";
+    x11 = "startx (which i3)";
   };
+
+  useDM = false;
 
 in {
   imports = [
@@ -103,10 +106,10 @@ in {
       enable = true;
 
       displayManager = {
-        startx.enable = false;
+        startx.enable = ! useDM;
 
         lightdm = {
-          enable = true;
+          enable = useDM;
           greeter.enable = true;
           background = /home/${userName}/.background-image;
         };
@@ -228,6 +231,7 @@ in {
       git
       gparted
       htop
+      kbd
       mc
       mpc_cli
       mpd
