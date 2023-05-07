@@ -249,10 +249,11 @@ in {
       rofi-pulse-select
       rofi-systemd
       rofi-top
-      xfce.thunar
       tig
       tmux
+      udiskie
       wget
+      xfce.thunar
       ymuse  # GUI client for MPD
     ];
 
