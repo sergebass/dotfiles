@@ -230,6 +230,7 @@ in {
       fzf
       git
       gparted
+      gvfs
       htop
       kbd
       mc
