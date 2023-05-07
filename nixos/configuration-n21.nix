@@ -249,6 +249,7 @@ in {
       rofi-pulse-select
       rofi-systemd
       rofi-top
+      xfce.thunar
       tig
       tmux
       wget
