@@ -102,6 +102,8 @@ in {
       jack.enable = true;
     };
 
+    gvfs.enable = true;  # Mount, trash, and other functionalities
+
     xserver = {
       enable = true;
 
@@ -230,7 +232,6 @@ in {
       fzf
       git
       gparted
-      gvfs
       htop
       kbd
       mc
@@ -252,9 +253,7 @@ in {
       rofi-top
       tig
       tmux
-      udiskie
       wget
-      xfce.thunar
       ymuse  # GUI client for MPD
     ];
 
@@ -285,6 +284,15 @@ in {
       loginShellInit = ''
         set -U fish_greeting ""
       '';
+    };
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-media-tags-plugin
+        thunar-volman
+      ];
     };
   };
 
