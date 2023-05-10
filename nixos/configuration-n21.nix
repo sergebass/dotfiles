@@ -254,6 +254,9 @@ in {
       tig
       tmux
       wget
+      xorg.xkill
+      xorg.xrandr
+      xorg.xsetroot
       ymuse  # GUI client for MPD
     ];
 
