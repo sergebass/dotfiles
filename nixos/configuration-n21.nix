@@ -246,6 +246,7 @@ in {
       ncmpcpp
       neovim
       pavucontrol
+      qrencode
       ripgrep
       rofi
       rofi-bluetooth
