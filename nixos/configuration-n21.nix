@@ -85,6 +85,10 @@ in {
   };
 
   services = {
+    getty = {
+      greetingLine = ''\e{bold}\e{green}NixOS ${config.system.nixos.label}-\m \e{lightmagenta} \n \e{yellow} \l \e{reset}'';
+    };
+
     openssh = {
       enable = true;
       forwardX11 = true;
