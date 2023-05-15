@@ -41,7 +41,7 @@ in {
       "kernel.sysrq" = 1;  # Enable all SysRq functions
     };
 
-    tmpOnTmpfs = true;  # Save SSD from some wear and tear
+    tmp.useTmpfs = true;  # Save SSD from some wear and tear
   };
 
   hardware = {
@@ -91,7 +91,7 @@ in {
 
     openssh = {
       enable = true;
-      forwardX11 = true;
+      settings.X11Forwarding = true;
     };
 
     timesyncd.enable = true;  # Enable NTP
@@ -315,5 +315,5 @@ in {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 }
