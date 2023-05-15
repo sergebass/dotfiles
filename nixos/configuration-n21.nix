@@ -231,6 +231,7 @@ in {
       dunst
       feh
       file
+      findutils
       firefox
       fish
       fzf
@@ -258,6 +259,7 @@ in {
       rofi-top
       tig
       tmux
+      tree
       wget
       xorg.xkill
       xorg.xrandr
