@@ -52,10 +52,6 @@ in {
     };
   };
 
-  security.rtkit.enable = true;
-
-  sound.enable = true;
-
   networking = {
     hostName = "pi400";
     networkmanager.enable = true;
@@ -81,6 +77,8 @@ in {
     keyMap = "us";
   };
 
+  security.rtkit.enable = true;
+
   services = {
     getty = {
       greetingLine = ''\e{bold}\e{green}NixOS ${config.system.nixos.label}-\m \e{lightmagenta} \n \e{yellow} \l \e{reset}'';
@@ -95,6 +93,14 @@ in {
     timesyncd.enable = true;  # Enable NTP
 
     gpm.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;  # Emulate PulseAudio
+      jack.enable = true;
+    };
 
     # Music Player Daemon
     mpd = {
@@ -181,7 +187,10 @@ in {
       mpd
       mpv
       ncmpcpp
+      ncpamixer
       neovim
+      pamix
+      pamixer
       parted
       raspberrypi-eeprom
       ripgrep
