@@ -23,7 +23,7 @@ let
     ${fluidsynth}/bin/fluidsynth --audio-driver pulseaudio --midi-driver alsa_seq --server --no-shell --gain 1 --reverb on --chorus on --sample-rate 48000 ${soundfont-fluid}/share/soundfonts/FluidR3_GM2-2.sf2 &
 
     echo "Waiting a bit until fluidsynth is up and running..."
-    ${coreutils-full}/bin/sleep 15
+    ${coreutils-full}/bin/sleep 20
 
     echo "Connecting Keystation MIDI keyboard to fluidsynth MIDI synthesizer..."
     ${alsa-utils}/bin/aconnect -l
@@ -250,6 +250,11 @@ in {
       shellAliases = aliases;
       loginShellInit = ''
         set -U fish_greeting ""
+
+        # Auto-start our MIDI keyboard -> fluidsynth link when logging in on tty1
+        if test "$(tty)" = "/dev/tty1";
+          ${synthConnectionScript}/bin/synth.sh
+        end
       '';
     };
   };
