@@ -12,6 +12,7 @@ export VISUAL=nvim
 
 export LESS="-FRX"
 
+alias v nvim
 alias g git
 alias rg "rg -L --sort path --no-heading -n --column"
 
