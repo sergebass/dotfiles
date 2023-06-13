@@ -7,5 +7,5 @@ hi SPWarningMarker term=reverse cterm=bold ctermfg=226 ctermbg=69 gui=bold guifg
 augroup SPCustomHighlighting
     autocmd!
     autocmd VimEnter,WinEnter * call matchadd('SPErrorMarker', '\<\(FIXME\|BUG\|XXX\|ASAP\|URGENT\|ERROR\|FAILURE\|FAILED\)\>\|!!!\|???\|<<<<<<<\|>>>>>>>')
-    autocmd VimEnter,WinEnter * call matchadd('SPWarningMarker', '\<\(TODO\|NB\|NOTE\|Note\|WARNING\|CAUTION\|ATTENTION\)\>\|=======\||||||||')
+    autocmd VimEnter,WinEnter * call matchadd('SPWarningMarker', '\<\(TODO\|NB\|NOTE\|Note\|WARNING\|Warning\|CAUTION\|ATTENTION\)\>\|=======\||||||||')
 augroup END
