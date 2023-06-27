@@ -54,7 +54,28 @@ in {
     };
   };
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+
+    sudo = {
+      enable = true;
+
+      # Do not require password for rebooting or powering the device off
+      extraRules = [{
+        commands = [
+          {
+            command = "${pkgs.systemd}/bin/reboot";
+            options = [ "NOPASSWD" ];
+          }
+          {
+            command = "${pkgs.systemd}/bin/poweroff";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+        groups = [ "wheel" ];
+      }];
+    };
+  };
 
   sound.enable = true;
 
@@ -208,9 +229,10 @@ in {
       uid = userId;
       isNormalUser = true;
       extraGroups = [
-        "wheel"  # Enable ‘sudo’ for the user.
-        "networkmanager"
         "audio"
+        "networkmanager"
+        "video"
+        "wheel"  # Enable 'sudo' for the user.
       ];
     #   packages = with pkgs; [
     #     firefox
