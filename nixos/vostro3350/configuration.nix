@@ -54,6 +54,8 @@ in {
       powerOnBoot = true;
       package = pkgs.bluez;
     };
+
+    rtl-sdr.enable = true;
   };
 
   fileSystems = {
@@ -232,6 +234,7 @@ in {
         "adm"
         "audio"
         "networkmanager"
+        "plugdev"  # For e.g. RTL-SDR
         "video"
         "wheel"  # Enable 'sudo' for the user.
       ];
@@ -255,9 +258,12 @@ in {
       fish
       fzf
       git
+      gnuradio
       gparted
+      gqrx
       htop
       kbd
+      luajit
       mc
       mpc_cli
       mpd
@@ -276,6 +282,8 @@ in {
       rofi-pulse-select
       rofi-systemd
       rofi-top
+      rtl-sdr
+      sox
       tig
       tmux
       tree
