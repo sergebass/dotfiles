@@ -257,7 +257,9 @@ in {
       firefox
       fish
       fzf
+      gcc13
       git
+      gnumake
       gnuradio
       gparted
       gqrx
