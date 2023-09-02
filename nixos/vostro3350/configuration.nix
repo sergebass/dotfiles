@@ -1,24 +1,60 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running `nixos-help`).
+# NixOS configuration for Dell Vostro 3350 laptop
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+let
+  userName = "sergii";
+  userId = 1000;
 
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  aliases = {
+    v = "$VISUAL";
+    g = "git";
+    rg = "rg -L --sort path --no-heading -n --column";
+    x11 = "startx (which i3)";
+  };
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
+  useDM = false;
 
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    # To redo hardware detection: nixos-generate-config
+    /etc/nixos/hardware-configuration.nix
+  ];
 
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  boot = {
+    loader = {
+      # This old laptop does not use UEFI, so stick with GRUB2
+      grub = {
+        enable = true;
+        device = "/dev/sda";
+      };
+    };
+
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    kernelParams = lib.mkForce [ "verbose" "nosplash" ];
+
+    kernel.sysctl = {
+      "kernel.sysrq" = 1;  # Enable all SysRq functions
+    };
+
+    tmp.useTmpfs = true;  # Save SSD from some wear and tear
+  };
+
+  hardware = {
+    pulseaudio.enable = false;  # Use PipeWire instead
+
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      package = pkgs.bluez;
+    };
+  };
 
   fileSystems = {
     "/".options = [ "compress=zstd" ];
@@ -27,93 +63,267 @@
     "/swap".options = [ "noatime" ];
   };
 
-  networking.hostName = "vostro3350"; # Define your hostname.
+  security = {
+    rtkit.enable = true;
 
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+    sudo = {
+      enable = true;
 
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_CA.UTF-8";
-
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-
-  
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  users.mutableUsers = true;
-
-  users.users.sergii = {
-    isNormalUser = true;
-    group = "users";
-    extraGroups = [
-      "adm"
-      "audio"
-      "networkmanager"
-      "video"
-      "wheel"  # Enable ‘sudo’ for the user.
-    ]; 
+      # Do not require password for rebooting or powering the device off
+      extraRules = [{
+        commands = [
+          {
+            command = "${pkgs.systemd}/bin/reboot";
+            options = [ "NOPASSWD" ];
+          }
+          {
+            command = "${pkgs.systemd}/bin/poweroff";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+        groups = [ "wheel" ];
+      }];
+    };
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  sound.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    fzf
-    git
-    gpm
-    mc
-    neovim
-    tig
-    tmux
-  ];
+  networking = {
+    hostName = "vostro3350";
+    networkmanager.enable = true;
+  };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  time.timeZone = "Canada/Eastern";
 
-  # List services that you want to enable:
+  i18n.defaultLocale = "en_CA.UTF-8";
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  console = {
+    earlySetup = true;
+    font = "ter-i16b";
+    packages = with pkgs; [ terminus_font ];
+    keyMap = "us";
+    # useXkbConfig = true; # use xkbOptions in tty.
+  };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  services = {
+    getty = {
+      greetingLine = ''\e{bold}\e{green}NixOS ${config.system.nixos.label}-\m \e{lightmagenta} \n \e{yellow} \l \e{reset}'';
+    };
+
+    openssh = {
+      enable = true;
+      settings.X11Forwarding = true;
+    };
+
+    timesyncd.enable = true;  # Enable NTP
+
+    gpm.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;  # Emulate PulseAudio
+      jack.enable = true;
+    };
+
+    gvfs.enable = true;  # Mount, trash, and other functionalities
+
+    xserver = {
+      enable = true;
+
+      displayManager = {
+        startx.enable = ! useDM;
+
+        lightdm = {
+          enable = useDM;
+          greeter.enable = true;
+          background = /home/${userName}/.background-image;
+        };
+      };
+
+      desktopManager = {
+        xterm.enable = false;
+        wallpaper = {
+          mode = "max";
+          combineScreens = false;
+        };
+      };
+
+      windowManager.i3 = {
+        enable = true;
+        extraPackages = with pkgs; [
+          i3status
+          i3lock
+        ];
+      };
+
+      libinput.enable = true;  # Enable touchpad support
+
+      layout = "us,us(intl),ru,ua";
+
+      xkbOptions = "grp:shift_caps_toggle";
+    };
+
+    blueman.enable = true;
+
+    printing.enable = true;  # Enable CUPS
+
+    udev.packages = [ pkgs.rtl-sdr ];
+
+    # Music Player Daemon
+    mpd = {
+      enable = true;
+      startWhenNeeded = true;  # systemd feature: only start MPD service upon connection to its socket
+
+      user = userName;  # Do not run as root
+
+      network = {
+        listenAddress = "any";  # Allow non-localhost connections
+        port = 6600;  # port 6600 is the default
+      };
+
+      musicDirectory = "/home/${userName}/music";
+      playlistDirectory = "/home/${userName}/music/playlists";
+
+      extraConfig = ''
+        audio_output {
+          type "pipewire"
+          name "PipeWire"
+        }
+
+        audio_output {
+          type "pulse"
+          name "PulseAudio"
+          # server "remote_server" # optional
+          # sink "remote_server_sink" # optional
+        }
+
+        # Audio output for use on Linux
+        audio_output {
+          type "alsa"
+          name "ALSA (default)"
+          # device "hw:0,0" # optional
+          # format "44100:16:2" # optional
+          # mixer_type "hardware" # optional
+          # mixer_device "default" # optional
+          # mixer_control "PCM" # optional
+          # mixer_index "0" # optional
+        }
+      '';
+    };
+  };
+
+  systemd.services.mpd.environment = {
+    # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+    XDG_RUNTIME_DIR = "/run/user/${toString userId}"; # MPD will look inside this directory for the PipeWire socket.
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users = {
+    mutableUsers = true;
+
+    defaultUserShell = pkgs.fish;
+
+    users."${userName}" = {
+      uid = userId;
+      isNormalUser = true;
+      extraGroups = [
+        "adm"
+        "audio"
+        "networkmanager"
+        "video"
+        "wheel"  # Enable 'sudo' for the user.
+      ];
+    };
+  };
+
+  environment = {
+    # List packages installed in system profile. To search, run:
+    # $ nix search wget
+    systemPackages = with pkgs; [
+      alacritty
+      bc
+      chromium
+      ctags
+      dmenu
+      dunst
+      feh
+      file
+      findutils
+      firefox
+      fish
+      fzf
+      git
+      gparted
+      htop
+      kbd
+      mc
+      mpc_cli
+      mpd
+      mpv
+      mupdf
+      ncmpcpp
+      neovim
+      pavucontrol
+      qrencode
+      ripgrep
+      rofi
+      rofi-bluetooth
+      rofi-calc
+      rofi-file-browser
+      rofi-mpd
+      rofi-pulse-select
+      rofi-systemd
+      rofi-top
+      tig
+      tmux
+      tree
+      wget
+      xorg.xkill
+      xorg.xrandr
+      xorg.xsetroot
+      ymuse  # GUI client for MPD
+    ];
+
+    variables = rec {
+      EDITOR = "nvim";
+      VISUAL = EDITOR;
+      PAGER = "less";
+      LESS = "-FRX";
+    };
+
+    localBinInPath = true;
+    homeBinInPath = true;
+  };
+
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
+    # Some programs need SUID wrappers, can be configured further
+    # or are started in user sessions.
+    # mtr.enable = true;
+
+    fish = {
+      enable = true;
+      shellAliases = aliases;
+      loginShellInit = ''
+        set -U fish_greeting ""
+      '';
+    };
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-media-tags-plugin
+        thunar-volman
+      ];
+    };
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -128,4 +338,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 }
-
