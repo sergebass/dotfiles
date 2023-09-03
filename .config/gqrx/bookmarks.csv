@@ -1,0 +1,7 @@
+# Tag name          ;  color
+Untagged            ; #c0c0c0
+
+# Frequency ; Name                     ; Modulation          ;  Bandwidth; Tags
+    98500000; 98.5 Jewel FM            ; WFM (stereo)        ;     160000; Untagged
+    99700000; 99.7 Boom FM             ; WFM (stereo)        ;     160000; Untagged
+   103300000; 103.3 CBC Music FM       ; WFM (stereo)        ;     160000; Untagged
