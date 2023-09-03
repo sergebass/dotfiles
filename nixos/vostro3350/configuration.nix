@@ -247,6 +247,7 @@ in {
     systemPackages = with pkgs; [
       alacritty
       bc
+      brave
       btrfs-heatmap
       btrfs-progs
       btrfs-snap
