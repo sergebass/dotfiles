@@ -247,7 +247,11 @@ in {
     systemPackages = with pkgs; [
       alacritty
       bc
+      btrfs-heatmap
+      btrfs-progs
+      btrfs-snap
       chromium
+      compsize  # Compression ratio calculator for btrfs
       ctags
       dmenu
       dunst
@@ -273,6 +277,7 @@ in {
       mupdf
       ncmpcpp
       neovim
+      parted
       pavucontrol
       qrencode
       ripgrep
