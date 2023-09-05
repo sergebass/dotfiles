@@ -1,3 +1,10 @@
+# Source bash profiles on login before launching fish
+if status is-login
+    exec bash -c "test -e /etc/profile && source/etc/profile;\
+                  test -e $HOME/.profile && source $HOME/.profile;\
+                  exec fish"
+end
+
 if type -q fish_add_path
     fish_add_path --prepend --move ~/.local/bin
     fish_add_path --prepend --move ~/bin
