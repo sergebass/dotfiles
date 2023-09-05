@@ -1,6 +1,6 @@
 # Source bash profiles on login before launching fish
 if status is-login
-    exec bash -c "test -e /etc/profile && source/etc/profile;\
+    exec bash -c "test -e /etc/profile && source /etc/profile;\
                   test -e $HOME/.profile && source $HOME/.profile;\
                   exec fish"
 end
