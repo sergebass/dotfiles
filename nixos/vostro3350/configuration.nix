@@ -257,6 +257,7 @@ in {
       dmenu
       dunst
       feh
+      ffmpeg
       file
       findutils
       firefox
