@@ -269,8 +269,10 @@ in {
       gnuradio
       gparted
       gqrx
+      hddtemp  # HDD temperature measurement tools
       htop
       kbd
+      lm_sensors  # Onboard sensor measurement tools
       luajit
       mc
       mpc_cli
