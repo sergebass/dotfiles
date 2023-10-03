@@ -4,9 +4,15 @@
 # (https://code.google.com/archive/p/xmonad/issues/200)
 export SAL_USE_VCLPLUGIN=gen
 
-# map CapsLock to be an Escape button equivalent (for easier vim use)
-# also, configure keyboard layout switching via Shift+CapsLock
-setxkbmap -layout "us,ru,ua,us(intl)" -option grp:shifts_toggle -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape -option terminate:ctrl_alt_bksp
+# Use CapsLock to be an Escape button equivalent (for easier vim use)
+# Configure keyboard layout switching via Shift+CapsLock
+# AltGr + Right Control enables Compose (Multi_Key) sequence input
+setxkbmap -layout 'us(altgr-intl),ua' \
+          -option grp:shift_caps_toggle \
+          -option grp_led:scroll \
+          -option caps:escape \
+          -option compose:rctrl-altgr \
+          -option terminate:ctrl_alt_bksp
 
 # on a US keyboard, make sure right Alt (mod3 in xmonad) is different from left Alt
 xmodmap -e 'clear Mod1'

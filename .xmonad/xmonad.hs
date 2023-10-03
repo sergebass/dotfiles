@@ -87,7 +87,7 @@ myConfig = desktopConfig
     -- random background image selection
     , ((superMask .|. shiftMask, xK_minus), spawn "feh --bg-max --randomize --recursive ~/backgrounds/")
     -- keyboard layout switching
-    , ((superMask, xK_F12), spawn "setxkbmap -layout \"us,ru,ua,us(intl)\" -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape -option terminate:ctrl_alt_bksp")
+    , ((superMask, xK_F1), spawn "setxkbmap -layout 'us(altgr-intl),ua' -option grp:shift_caps_toggle -option grp_led:scroll -option caps:escape -option compose:rctrl-altgr -option terminate:ctrl_alt_bksp")
     -- screen backlight brightness
     , ((superMask .|. controlMask, xK_bracketleft), spawn "xbacklight -dec 10")
     , ((superMask .|. controlMask, xK_bracketright), spawn "xbacklight -inc 10")
