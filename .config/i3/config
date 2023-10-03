@@ -32,6 +32,7 @@ floating_modifier $mod
 # quickly load/reset X keyboard languages/layouts
 bindsym $mod+F1 exec "setxkbmap -layout 'us(altgr-intl),ua' \
                                 -option grp:shift_caps_toggle \
+                                -option grp:shifts_toggle \
                                 -option grp_led:scroll \
                                 -option caps:escape \
                                 -option compose:rctrl-altgr \

@@ -5,10 +5,11 @@
 export SAL_USE_VCLPLUGIN=gen
 
 # Use CapsLock to be an Escape button equivalent (for easier vim use)
-# Configure keyboard layout switching via Shift+CapsLock
+# Configure keyboard layout switching via Shift+CapsLock or both Shifts together
 # AltGr + Right Control enables Compose (Multi_Key) sequence input
 setxkbmap -layout 'us(altgr-intl),ua' \
           -option grp:shift_caps_toggle \
+          -option grp:shifts_toggle \
           -option grp_led:scroll \
           -option caps:escape \
           -option compose:rctrl-altgr \
