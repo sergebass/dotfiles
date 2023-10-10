@@ -262,6 +262,7 @@ in {
       findutils
       firefox
       fish
+      freetube
       fzf
       gcc13
       git
@@ -302,7 +303,9 @@ in {
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
+      yewtube
       ymuse  # GUI client for MPD
+      youtube-tui
     ];
 
     variables = rec {
