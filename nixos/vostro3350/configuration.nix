@@ -162,9 +162,9 @@ in {
 
       libinput.enable = true;  # Enable touchpad support
 
-      layout = "us,us(intl),ru,ua";
+      layout = "us(altgr-intl),ua";
 
-      xkbOptions = "grp:shift_caps_toggle";
+      xkbOptions = "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr,terminate:ctrl_alt_bksp";
     };
 
     blueman.enable = true;
