@@ -251,6 +251,8 @@ in {
       btrfs-heatmap
       btrfs-progs
       btrfs-snap
+      calibre
+      calibre-web
       chromium
       compsize  # Compression ratio calculator for btrfs
       ctags
