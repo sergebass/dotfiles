@@ -256,6 +256,7 @@ in {
       findutils
       firefox
       fish
+      freetube
       fzf
       git
       gparted
