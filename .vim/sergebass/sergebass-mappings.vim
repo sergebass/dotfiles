@@ -61,7 +61,7 @@ vnoremap \d "_d
 vnoremap <Del> "_d
 nnoremap <Del> "_x
 
-# Quickly toggle line wrapping
+" Quickly toggle line wrapping
 nnoremap \W :set wrap!<CR>
 
 " session management accelerators (don't forget to add .vim extension!)
