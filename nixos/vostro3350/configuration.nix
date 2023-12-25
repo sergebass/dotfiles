@@ -45,7 +45,7 @@ in {
 
     tmp.useTmpfs = true;  # Save SSD from some wear and tear
 
-    supportedFilesystems = [ "zfs" ];
+    supportedFilesystems = [ "btrfs" "zfs" "ntfs" "ntfs3" ];
 
     zfs = {
       forceImportRoot = false;
