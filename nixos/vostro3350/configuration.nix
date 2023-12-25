@@ -35,7 +35,7 @@ in {
       };
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
     kernelParams = lib.mkForce [ "verbose" "nosplash" ];
 
@@ -44,6 +44,12 @@ in {
     };
 
     tmp.useTmpfs = true;  # Save SSD from some wear and tear
+
+    supportedFilesystems = [ "zfs" ];
+
+    zfs = {
+      forceImportRoot = false;
+    };
   };
 
   hardware = {
@@ -92,6 +98,8 @@ in {
 
   networking = {
     hostName = "vostro3350";
+    hostId = "98d39240";
+
     networkmanager.enable = true;
   };
 
@@ -310,6 +318,7 @@ in {
       yewtube
       ymuse  # GUI client for MPD
       youtube-tui
+      zfs
     ];
 
     variables = rec {
