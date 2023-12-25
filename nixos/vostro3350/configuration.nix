@@ -286,6 +286,7 @@ in {
       neovim
       parted
       pavucontrol
+      pciutils
       qrencode
       ripgrep
       rofi
@@ -301,6 +302,7 @@ in {
       tig
       tmux
       tree
+      usbutils
       wget
       xorg.xkill
       xorg.xrandr
