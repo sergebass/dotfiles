@@ -45,7 +45,13 @@ in {
 
     tmp.useTmpfs = true;  # Save SSD from some wear and tear
 
-    supportedFilesystems = [ "btrfs" "zfs" "ntfs" "ntfs3" ];
+    supportedFilesystems = [
+      "btrfs"
+      "zfs"
+      "exfat"
+      "ntfs"
+      "ntfs3"
+    ];
 
     zfs = {
       forceImportRoot = false;
@@ -266,6 +272,7 @@ in {
       ctags
       dmenu
       dunst
+      exfatprogs
       feh
       ffmpeg
       file
