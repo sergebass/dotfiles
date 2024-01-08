@@ -317,6 +317,7 @@ in {
       tig
       tmux
       tree
+      unzip
       usbutils
       wget
       xorg.xkill
@@ -326,6 +327,7 @@ in {
       ymuse  # GUI client for MPD
       youtube-tui
       zfs
+      zip
     ];
 
     variables = rec {
