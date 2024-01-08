@@ -282,6 +282,7 @@ in {
       freetube
       fzf
       gcc13
+      geeqie
       git
       gnumake
       gnuradio
