@@ -260,6 +260,8 @@ in {
     # $ nix search wget
     systemPackages = with pkgs; [
       alacritty
+      ardour
+      audacity
       bc
       brave
       btrfs-heatmap
@@ -268,8 +270,10 @@ in {
       calibre
       calibre-web
       chromium
+      coltrane
       compsize  # Compression ratio calculator for btrfs
       ctags
+      denemo
       dmenu
       dunst
       exfatprogs
@@ -280,6 +284,7 @@ in {
       firefox
       fish
       freetube
+      frescobaldi
       fzf
       gcc13
       geeqie
@@ -288,23 +293,35 @@ in {
       gnuradio
       gparted
       gqrx
+      guitarix
+      gxplugins-lv2
       hddtemp  # HDD temperature measurement tools
       htop
+      hydrogen
+      jackmeter
       kbd
       libreoffice
+      lilypond-with-fonts
       lm_sensors  # Onboard sensor measurement tools
       luajit
       mc
+      meterbridge
+      mi2ly
       mpc_cli
       mpd
       mpv
       mupdf
+      musescore
       ncmpcpp
       neovim
       parted
       pavucontrol
       pciutils
+      qjackctl
+      qpwgraph
       qrencode
+      qsynth
+      rakarrack
       ripgrep
       rofi
       rofi-bluetooth
@@ -319,6 +336,7 @@ in {
       tig
       tmux
       tree
+      tuxguitar
       unzip
       usbutils
       wget
