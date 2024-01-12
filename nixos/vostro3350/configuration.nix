@@ -291,6 +291,7 @@ in {
       hddtemp  # HDD temperature measurement tools
       htop
       kbd
+      libreoffice
       lm_sensors  # Onboard sensor measurement tools
       luajit
       mc
