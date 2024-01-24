@@ -289,6 +289,7 @@ in {
       gcc13
       geeqie
       git
+      glmark2
       gnumake
       gnuradio
       gparted
