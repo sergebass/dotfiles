@@ -304,6 +304,7 @@ in {
       libreoffice
       lilypond-with-fonts
       lm_sensors  # Onboard sensor measurement tools
+      lshw
       luajit
       mc
       meterbridge
