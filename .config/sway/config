@@ -1,0 +1,15 @@
+# Sway compositor configuration file
+
+# Much of the configuration is shared between i3 and sway, so avoid duplication.
+include ../shared-i3-and-sway-config
+
+input * {
+    xkb_layout "us(altgr-intl),ua"
+    xkb_options "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr"
+}
+
+# lock screen
+bindsym $mod+z exec swaylock --color 000000 --show-keyboard-layout --indicator-caps-lock --show-failed-attempts
+
+# Configure desktop background
+output * background ~/.wallpaper fit #002020
