@@ -334,6 +334,10 @@ in {
       rofi-top
       rtl-sdr
       sox
+      sway
+      swaybg
+      swayidle
+      swaylock
       tig
       tmux
       tree
