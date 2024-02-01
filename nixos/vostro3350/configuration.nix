@@ -285,6 +285,7 @@ in {
       fish
       freetube
       frescobaldi
+      fuzzel
       fzf
       gcc13
       geeqie
@@ -336,6 +337,7 @@ in {
       rtl-sdr
       sox
       sway
+      sway-launcher-desktop
       swaybg
       swayidle
       swaylock
