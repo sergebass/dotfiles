@@ -13,7 +13,7 @@ input * {
 # xwayland disable
 
 # Make windows using XWayland clearly state this fact in the title
-for_window [shell="xwayland"] title_format "<X11> %title"
+for_window [shell="xwayland"] title_format "X11 ┃ %title"
 
 # Configure desktop background
 output * background $HOME/.wallpaper fit #002020
