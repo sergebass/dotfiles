@@ -336,9 +336,9 @@ in {
       rofi-top
       rtl-sdr
       sox
-      sway
       sway-launcher-desktop
       swaybg
+      swayfx
       swayidle
       swaylock
       tig
