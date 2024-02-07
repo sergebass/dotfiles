@@ -347,6 +347,7 @@ in {
       tuxguitar
       unzip
       usbutils
+      vifm  # Vi-like File Manager
       wget
       xorg.xkill
       xorg.xrandr
