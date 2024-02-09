@@ -354,6 +354,7 @@ in {
       usbutils
       vifm  # Vi-like File Manager
       wget
+      xdg-user-dirs
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
