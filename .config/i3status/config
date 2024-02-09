@@ -81,10 +81,10 @@ disk "/" {
 }
 
 disk "/home" {
-    format = "☉ H %avail"
+    format = "☉ ~ %avail"
     low_threshold = 2
     threshold_type = gbytes_avail
-    format_below_threshold = "‼ ☉ H %avail"
+    format_below_threshold = "‼ ☉ ~ %avail"
 }
 
 volume master {
