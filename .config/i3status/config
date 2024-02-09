@@ -53,9 +53,9 @@ cpu_usage {
 
 cpu_temperature 0 {
     path = "/sys/class/thermal/thermal_zone0/temp"
-    format = "t %degrees °C"
+    format = "%degrees°C"
     max_threshold = 75
-    format_above_threshold =  "‼ t %degrees °C"
+    format_above_threshold =  "‼ %degrees°C"
 }
 
 load {
@@ -63,10 +63,6 @@ load {
 }
 
 memory {
-    format = "M %free (%percentage_free)"
-    threshold_degraded = "1G"
-    format_degraded = "‼ M %free (%percentage_free)"
-
     format = "M %free"
     threshold_degraded = "1Gi"
     threshold_critical = "512Mi"
@@ -105,13 +101,13 @@ tztime local {
 battery all {
     path = "/sys/class/power_supply/BAT%d/uevent"
 
-    format = "🔋%status %percentage %remaining ∅ %emptytime"
+    format = "B%status %percentage %remaining ∅ %emptytime"
     format_down = "⚡AC"
 
-    status_chr = "⚡"
-    status_bat = "▶"
+    status_chr = "+"
+    status_bat = "-"
     status_unk = "?"
-    status_full = "☻"
+    status_full = "."
 
     low_threshold = 10
     threshold_type = percentage
