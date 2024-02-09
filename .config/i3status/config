@@ -68,15 +68,17 @@ load {
 }
 
 memory {
+    # unit is only available for i3status 2.14+
+    # unit = G
     format = "M %free"
-    threshold_degraded = "1Gi"
-    threshold_critical = "512Mi"
+    threshold_degraded = 2G
+    threshold_critical = 1G
     format_degraded = "‼ M %free"
 }
 
 disk "/home" {
     format = "☉ ~ %avail"
-    low_threshold = 2
+    low_threshold = 10
     threshold_type = gbytes_avail
     format_below_threshold = "‼ ☉ ~ %avail"
 
@@ -86,7 +88,7 @@ disk "/home" {
 
 disk "/" {
     format = "☉ / %avail"
-    low_threshold = 2
+    low_threshold = 5
     threshold_type = gbytes_avail
     format_below_threshold = "‼ ☉ / %avail"
 }
