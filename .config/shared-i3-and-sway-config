@@ -38,7 +38,7 @@ bar {
 }
 
 # Toggle status bar mode between dock and hide
-$bindkeys $mod+Mod1+backslash bar mode toggle
+$bindkeys $mod+Mod1+Backspace bar mode toggle
 
 # Configure a terminal emulator
 set $terminalCommand alacritty
@@ -205,56 +205,88 @@ $bindkeys XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen bright
 
 # Audio volume controls
 
-# Increase audio volume (PipeWire)
+# Increase audio volume
+
+# PipeWire:
 set $raiseVolumeCommand wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ $audioVolumeAdjustmentPercent%+
+
+# PulseAudio:
+# set $raiseVolumeCommand pactl set-sink-volume @DEFAULT_SINK@ +$audioVolumeAdjustmentPercent%
+
+# ALSA/Linux:
+# set $raiseVolumeCommand amixer sset Master unmute $audioVolumeAdjustmentPercent%+
+
+# OSS/FreeBSD:
+# set $raiseVolumeCommand mixer vol +$audioVolumeAdjustmentPercent
+
 $bindkeysLocked XF86AudioRaiseVolume exec --no-startup-id $raiseVolumeCommand
 $bindkeysLocked $mod+Mod1+up exec --no-startup-id $raiseVolumeCommand
 $bindkeysLocked $mod+bracketright exec --no-startup-id $raiseVolumeCommand
 
-# Reduce audio volume (PipeWire)
+# Reduce audio volume
+
+# PipeWire:
 set $lowerVolumeCommand wpctl set-volume @DEFAULT_AUDIO_SINK@ $audioVolumeAdjustmentPercent%-
+
+# PulseAudio & PipeWire:
+# set $lowerVolumeCommand pactl set-sink-volume @DEFAULT_SINK@ -$audioVolumeAdjustmentPercent%
+
+# ALSA/Linux:
+# set $lowerVolumeCommand amixer sset Master unmute $audioVolumeAdjustmentPercent%-
+
+# OSS/FreeBSD:
+# set $lowerVolumeCommand mixer vol -$audioVolumeAdjustmentPercent
+
 $bindkeysLocked XF86AudioLowerVolume exec --no-startup-id $lowerVolumeCommand
 $bindkeysLocked $mod+Mod1+Down exec --no-startup-id $lowerVolumeCommand
 $bindkeysLocked $mod+bracketleft exec --no-startup-id $lowerVolumeCommand
 
-# Toggle audio playback muting (PipeWire)
+# Toggle audio playback muting
+
+# PipeWire:
 set $toggleMuteCommand wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# PulseAudio & PipeWire:
+# set $toggleMuteCommand pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# ALSA/Linux:
+# set $toggleMuteCommand amixer sset Master unmute 20%
+
+# OSS/FreeBSD:
+# set $toggleMuteCommand mixer vol 20
+
 $bindkeysLocked XF86AudioMute exec --no-startup-id $toggleMuteCommand
 $bindkeysLocked $mod+Mod1+m exec --no-startup-id $toggleMuteCommand
 $bindkeysLocked $mod+backslash exec --no-startup-id $toggleMuteCommand
 
-# Toggle microphone muting (PipeWire)
+# Toggle microphone muting
+
+# PipeWire:
 set $toggleMicMuteCommand wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+# PulseAudio & PipeWire:
+# set $toggleMicMuteCommand pactl set-source-mute @DEFAULT_SINK@ toggle
+
+# ALSA/Linux:
+# set $toggleMicMuteCommand
+
+# OSS/FreeBSD:
+# set $toggleMicMuteCommand
+
 $bindkeys XF86AudioMicMute exec --no-startup-id $toggleMicMuteCommand
 $bindkeys $mod+Mod1+Shift+m exec --no-startup-id $toggleMicMuteCommand
 
-# Invoke audio volume/recording level and routing control GUI tool
+# Invoke audio mixer UI
+
+# PulseAudio & PipeWire:
 $bindkeys $mod+Mod1+v exec pavucontrol
 
-# # Media volume controls (PulseAudio)
-# $bindkeys XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-# $bindkeys XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-# $bindkeys XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-# $bindkeys XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SINK@ toggle # mute microphone
+# ALSA/Linux:
+# $bindkeys $mod+Mod1+v exec $terminalCommand -e alsamixer
 
-# # Alternative keys for volume control (PulseAudio)
-# $bindkeys $mod+bracketleft exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-# $bindkeys $mod+bracketright exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-# $bindkeys $mod+backslash exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-# $bindkeys $mod+Ctrl+backslash exec pavucontrol
-
-# # Alternative keys for volume control (ALSA)
-# $bindkeys $mod+shift+m exec x-terminal-emulator -e alsamixer
-# $bindkeys $mod+shift+bracketleft exec amixer sset Master unmute 5%-
-# $bindkeys $mod+shift+bracketright exec amixer sset Master unmute 5%+
-# $bindkeys $mod+shift+backslash exec amixer sset Master unmute 20%
-
-# Alternative keys for volume control (FreeBSD)
-# $bindkeys $mod+shift+v exec urxvt -e aumix
-# $bindkeys $mod+shift+v exec xmixer
-# $bindkeys $mod+bracketleft exec mixer vol -5
-# $bindkeys $mod+bracketright exec mixer vol +5
-# $bindkeys $mod+backslash exec mixer vol 20
+# OSS/FreeBSD:
+# $bindkeys $mod+Mod1+v exec xmixer
+# $bindkeys $mod+Mod1+v exec $terminalCommand -e aumix
 
 # Media player control (for players supporting MPRIS)
 $bindkeys XF86AudioPlay exec --no-startup-id playerctl play-pause
