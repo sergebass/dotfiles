@@ -7,15 +7,21 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
+    interval = 5
+    output_format = "i3bar"
+
+    colors = true
+    color_good = "#00FF00"
+    color_degraded = "#FFFF00"
+    color_bad = "#FF0000"
 }
 
 # order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
+order += "cpu_usage"
 order += "cpu_temperature 0"
-order += "load"
+# order += "load"
 order += "memory"
 order += "disk /"
 order += "disk /home"
@@ -24,40 +30,61 @@ order += "volume master"
 order += "battery all"
 
 wireless _first_ {
-        format_up = "W %ip (%essid %quality %bitrate)"
-        format_down = "W ---"
+    format_up = "W %ip (%essid %quality %bitrate)"
+    format_down = "W ---"
 }
 
 ethernet _first_ {
-        format_up = "E %ip (%speed)"
-        format_down = "E ---"
+    format_up = "E %ip (%speed)"
+    format_down = "E ---"
 }
 
-battery all {
-        format = "⚡ %status %percentage %remaining"
-}
+cpu_usage {
+    format = "♥ %usage"
+    degraded_threshold = 50
+    format_above_degraded_threshold =  "‼ CPU %usage"
+    max_threshold = 80
+    format_above_threshold = "‼ ♥ %usage"
 
-disk "/" {
-        format = "☉ / %avail"
-}
-
-disk "/home" {
-        format = "☉ H %avail"
+    separator = false
 }
 
 cpu_temperature 0 {
-    format = "t %degrees °C"
     path = "/sys/class/thermal/thermal_zone0/temp"
+    format = "t %degrees °C"
+    max_threshold = 75
+    format_above_threshold =  "‼ t %degrees °C"
 }
 
 load {
-        format = "♥ %1min %5min"
+    format = "Load %1min %5min %15min"
 }
 
 memory {
-        format = "M %free (%percentage_free)"
-        threshold_degraded = "1G"
-        format_degraded = "‼ M %free (%percentage_free)"
+    format = "M %free (%percentage_free)"
+    threshold_degraded = "1G"
+    format_degraded = "‼ M %free (%percentage_free)"
+
+    format = "M %free"
+    threshold_degraded = "1Gi"
+    threshold_critical = "512Mi"
+    format_degraded = "‼ M %free"
+}
+
+disk "/" {
+    format = "☉ / %avail"
+    low_threshold = 2
+    threshold_type = gbytes_avail
+    format_below_threshold = "‼ ☉ / %avail"
+
+    separator = false
+}
+
+disk "/home" {
+    format = "☉ H %avail"
+    low_threshold = 2
+    threshold_type = gbytes_avail
+    format_below_threshold = "‼ ☉ H %avail"
 }
 
 volume master {
@@ -69,5 +96,18 @@ volume master {
 }
 
 tztime local {
-        format = "%a %Y-%m-%d %H:%M:%S"
+    format = "%a %Y-%m-%d %H:%M:%S"
+}
+
+battery all {
+    format = "🔋%status %percentage %remaining ∅ %emptytime"
+    format_down = "⚡AC"
+
+    status_chr = "⚡"
+    status_bat = "▶"
+    status_unk = "?"
+    status_full = "☻"
+
+    low_threshold = 10
+    threshold_type = percentage
 }
