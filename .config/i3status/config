@@ -48,7 +48,7 @@ cpu_usage {
     format_above_threshold = "‼ ♥ %usage"
 
     separator = false
-    separator_block_width = 1
+    separator_block_width = 8
 }
 
 cpu_temperature 0 {
@@ -80,7 +80,7 @@ disk "/" {
     format_below_threshold = "‼ ☉ / %avail"
 
     separator = false
-    separator_block_width = 1
+    separator_block_width = 8
 }
 
 disk "/home" {
