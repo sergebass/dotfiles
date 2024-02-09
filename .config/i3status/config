@@ -100,6 +100,8 @@ tztime local {
 }
 
 battery all {
+    path = "/sys/class/power_supply/BAT%d/uevent"
+
     format = "🔋%status %percentage %remaining ∅ %emptytime"
     format_down = "⚡AC"
 
