@@ -8,7 +8,7 @@
 
 general {
     interval = 5
-    output_format = "i3bar"
+    # output_format = "i3bar"
 
     colors = true
     color_good = "#00FF00"
