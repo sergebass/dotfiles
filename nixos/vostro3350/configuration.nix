@@ -295,6 +295,7 @@ in {
       gnuradio
       gparted
       gqrx
+      grim
       guitarix
       gxplugins-lv2
       hddtemp  # HDD temperature measurement tools
@@ -302,6 +303,7 @@ in {
       hydrogen
       jackmeter
       kbd
+      libnotify
       libreoffice
       lilypond-with-fonts
       lm_sensors  # Onboard sensor measurement tools
@@ -335,6 +337,7 @@ in {
       rofi-systemd
       rofi-top
       rtl-sdr
+      slurp
       sox
       sway-launcher-desktop
       swaybg
