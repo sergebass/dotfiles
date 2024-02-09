@@ -24,8 +24,8 @@ order += "cpu_usage"
 order += "cpu_temperature 0"
 # order += "load"
 order += "memory"
-order += "disk /"
 order += "disk /home"
+order += "disk /"
 order += "tztime local"
 order += "volume master"
 order += "battery all"
@@ -73,21 +73,21 @@ memory {
     format_degraded = "‼ M %free"
 }
 
-disk "/" {
-    format = "☉ / %avail"
-    low_threshold = 2
-    threshold_type = gbytes_avail
-    format_below_threshold = "‼ ☉ / %avail"
-
-    separator = false
-    separator_block_width = 8
-}
-
 disk "/home" {
     format = "☉ ~ %avail"
     low_threshold = 2
     threshold_type = gbytes_avail
     format_below_threshold = "‼ ☉ ~ %avail"
+
+    separator = false
+    separator_block_width = 8
+}
+
+disk "/" {
+    format = "☉ / %avail"
+    low_threshold = 2
+    threshold_type = gbytes_avail
+    format_below_threshold = "‼ ☉ / %avail"
 }
 
 volume master {
