@@ -4,41 +4,56 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+# There is no bindsym --to-code and --locked in i3, so use simple aliases
+set $bindkeys bindsym
+set $bindkeysLocked bindsym
 
 # Much of the configuration is shared between i3 and sway, so avoid duplication.
 include ../shared-i3-and-sway-config
 
 # Provide a simple menu to request a logout/exit, reboot or a poweroff
 mode "E[x]it, [r]eboot, [p]oweroff ?" {
-    bindsym x exec i3-msg exit
-    bindsym r exec systemctl reboot
-    bindsym p exec systemctl poweroff
+    $bindkeys x exec i3-msg exit
+    $bindkeys r exec systemctl reboot
+    $bindkeys p exec systemctl poweroff
 
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-    bindsym $mod+Shift+e mode "default"
+    $bindkeys Escape mode "default"
+    $bindkeys Return mode "default"
+    $bindkeys $mod+Shift+e mode "default"
 }
 
-bindsym $mod+Shift+e mode "E[x]it, [r]eboot, [p]oweroff ?"
+$bindkeys $mod+Shift+e mode "E[x]it, [r]eboot, [p]oweroff ?"
 
 # Quickly lock screen
-bindsym $mod+z exec i3lock --color 000000 --show-keyboard-layout --indicator-caps-lock --show-failed-attempts
+$bindkeys $mod+z exec i3lock --color=000000 --show-failed-attempts
 
-# Screenshot taking
+# Capture a screenshot of the entire screen, with mouse cursor
+set $captureEntireScreen scrot --pointer --file 'screenshot--%Y%m%d-%H%M%S.png' --exec 'lximage-qt $f'
+$bindkeys $mod+Print exec --no-startup-id $captureEntireScreen
+$bindkeys $mod+p exec --no-startup-id $captureEntireScreen
 
-# Take screenshot of the entire display
-bindsym $mod+Print exec scrot --pointer --exec 'lximage-qt $f' screenshot--%Y-%m-%d-%H-%M-%S.png
-bindsym $mod+p exec scrot --pointer --exec 'lximage-qt $f' screenshot--%Y-%m-%d-%H-%M-%S.png
+# Take screenshot of the focused window, with cursor
+set $captureWindow scrot scrot --focused --pointer --file 'screenshot--%Y%m%d-%H%M%S.png' --exec 'lximage-qt $f'
+$bindkeys $mod+Mod1+Print exec --no-startup-id $captureWindow
+$bindkeys $mod+Mod1+p exec --no-startup-id $captureWindow
 
-# Take screenshot of the focused window
-bindsym $mod+shift+Print exec scrot --focused --pointer --exec 'lximage-qt $f' screenshot--%Y-%m-%d-%H-%M-%S.png
-bindsym $mod+shift+p exec scrot --focused --pointer --exec 'lximage-qt $f' screenshot--%Y-%m-%d-%H-%M-%S.png
+# Load X11 keyboard layouts on startup
+exec  --no-startup-id setxkbmap -layout 'us(altgr-intl),ua' \
+                                -option grp:shift_caps_toggle \
+                                -option grp:shifts_toggle \
+                                -option grp_led:scroll \
+                                -option caps:escape \
+                                -option compose:rctrl-altgr
 
 # Configure desktop background - first a solid color and then attempt to pick a wallpaper
 exec --no-startup-id xsetroot -solid '#002020' -cursor_name left_ptr
-exec --no-startup-id feh --bg-max --randomize --recursive --draw-filename ~/wallpapers/ &
+exec --no-startup-id feh --bg-max --randomize --recursive --draw-filename ~/wallpapers/
 
+# Start the dunst service to handle incoming pop-up notification requests
+exec --no-startup-id dunst --startup-notification

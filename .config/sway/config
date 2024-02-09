@@ -1,13 +1,25 @@
-# Sway compositor configuration file
+# Sway Wayland compositor configuration file
+
+set $mod Mod4
+
+# Use a macro to bind all symbols by their key codes in the original layout
+# (this will keep keybindings operational even if a non-US or a non-Latin
+# keyboard layout is enabled)
+set $bindkeys bindsym --to-code
+set $bindkeysLocked bindsym --to-code --locked
 
 # Much of the configuration is shared between i3 and sway, so avoid duplication.
 include ../shared-i3-and-sway-config
 
-input * {
+input type:keyboard {
     xkb_layout "us(altgr-intl),ua"
     xkb_options "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr"
+    xkb_capslock disabled
     xkb_numlock enabled
 }
+
+# Configure desktop background
+output * background $HOME/.wallpaper fit #002020
 
 # Uncomment to see which apps depend on X11 instead of using Wayland directly
 # xwayland disable
@@ -15,21 +27,37 @@ input * {
 # Make windows using XWayland clearly state this fact in the title
 for_window [shell="xwayland"] title_format "X11 ┃ %title"
 
-# Configure desktop background
-output * background $HOME/.wallpaper fit #002020
+# Force message dialog windows to be floating at all times
+for_window [app_id="gxmessage"] floating enable
 
 # Provide a simple menu to request a logout/exit, reboot or a poweroff
 mode "E[x]it, [r]eboot, [p]oweroff ?" {
-    bindsym x exec swaymsg exit
-    bindsym r exec systemctl reboot
-    bindsym p exec systemctl poweroff
+bindsym x exec swaymsg exit
+bindsym r exec systemctl reboot
+bindsym p exec systemctl poweroff
 
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-    bindsym $mod+Shift+e mode "default"
+bindsym Escape mode "default"
+bindsym Return mode "default"
+bindsym $mod+Shift+e mode "default"
 }
 
 bindsym $mod+Shift+e mode "E[x]it, [r]eboot, [p]oweroff ?"
 
 # Quickly lock screen
 bindsym $mod+z exec swaylock --color 000000 --show-keyboard-layout --indicator-caps-lock --show-failed-attempts
+
+# Capture screenshots and place them in ~/Pictures (unless overridden via XDG)
+set $screenshotPath $(xdg-user-dir PICTURES)/screenshot--$(date '+%Y%m%d-%H%M%S').png
+
+# Capture a screenshot of the entire screen, with mouse cursor
+set $captureEntireScreen grim -c $screenshotPath
+$bindkeys $mod+Print exec --no-startup-id $captureEntireScreen
+$bindkeys $mod+p exec --no-startup-id $captureEntireScreen
+
+# Capture a portion of the screen, with cursor
+set $captureScreenArea grim -c -g "$(slurp)" $screenshotPath
+$bindkeys $mod+Mod1+Print exec --no-startup-id $captureScreenArea
+$bindkeys $mod+Mod1+p exec --no-startup-id $captureScreenArea
+
+# Start the dunst service to handle incoming pop-up notification requests
+exec --no-startup-id dunst --startup-notification

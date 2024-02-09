@@ -1,99 +1,133 @@
 # Configuration common to both i3 and sway
 # (included as a baseline in both WM-specific configurations)
 
+set $audioVolumeAdjustmentPercent 1
+set $audioAdvanceSeconds 10
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
 
+# Do not display borders if there's only one window showing
+smart_borders on
+
+# No need to click to change the focused container, just move the pointer
+focus_follows_mouse yes
+
+# Pressing Start+number the second time will bring us back to the original workspace
+workspace_auto_back_and_forth yes
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# quickly load/reset X keyboard languages/layouts
-bindsym $mod+F1 exec "setxkbmap -layout 'us(altgr-intl),ua' \
-                                -option grp:shift_caps_toggle \
-                                -option grp:shifts_toggle \
-                                -option grp_led:scroll \
-                                -option caps:escape \
-                                -option compose:rctrl-altgr \
-                                -option terminate:ctrl_alt_bksp"
+bar {
+    status_command i3status
+
+    mode dock
+    hidden_state hide
+    position bottom
+
+    font pango:monospace 8
+
+    # Display the bar if it is hidden by pressing this modifier
+    modifier Mod4
+
+    separator_symbol " ┃ "
+}
+
+# Toggle status bar mode between dock and hide
+$bindkeys $mod+Mod1+backslash bar mode toggle
 
 # Configure a terminal emulator
-set $term alacritty
-bindsym $mod+Return exec $term
+set $terminalCommand alacritty
+$bindkeys $mod+Return exec $terminalCommand
+
+# Reboot system (gracefully), also allowing to reboot while locked
+set $rebootCommand systemctl reboot
+$bindkeysLocked XF86Reload exec $rebootCommand
+$bindkeysLocked Control+Mod1+Delete exec $rebootCommand
 
 # Reload the configuration file
-bindsym $mod+Shift+c reload
+$bindkeys $mod+Shift+c reload
 
 # Restart WM/compositor in place
-bindsym $mod+Shift+r restart
+$bindkeys $mod+Shift+r restart
 
 # Kill focused window
-bindsym $mod+Shift+q kill
-bindsym XF86Close kill
+$bindkeys $mod+Shift+q kill
+$bindkeys XF86Close kill
 
-# start a program launcher
-bindsym $mod+d exec rofi -show run
+# Display an application launcher (by their executable names), can pass argv parameters to apps
+$bindkeys $mod+d exec "rofi -modes 'window,drun,run,filebrowser,ssh,keys' -show run -show-icons"
 
-bindsym $mod+Mod1+space exec rofi -show-icons -show drun
+# Display a desktop/GUI application launcher (for apps shipping with .desktop files)
+$bindkeys $mod+Mod1+space exec "rofi -modes 'drun,keys' -show drun -show-icons"
 
-# select an arbitrary window from a menu to switch to
-bindsym $mod+Tab exec rofi -show-icons -show window
+# Select an arbitrary window from a menu to switch to
+$bindkeys $mod+Mod1+Tab exec "rofi -modes 'window,keys' -show window -show-icons"
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# Implement xmonad-like next/previous window focus switching
+$bindkeys $mod+Tab focus next
+$bindkeys $mod+Shift+Tab focus prev
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# Change focus
+$bindkeys $mod+j focus left
+$bindkeys $mod+k focus down
+$bindkeys $mod+l focus up
+$bindkeys $mod+semicolon focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+colon move right
+# Alternatively, you can use the cursor keys:
+$bindkeys $mod+Left focus left
+$bindkeys $mod+Down focus down
+$bindkeys $mod+Up focus up
+$bindkeys $mod+Right focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# Move focused window
+$bindkeys $mod+Shift+j move left
+$bindkeys $mod+Shift+k move down
+$bindkeys $mod+Shift+l move up
+$bindkeys $mod+Shift+colon move right
 
-# move workspaces between monitors
-bindsym $mod+Shift+period move workspace to output right
-bindsym $mod+Shift+comma move workspace to output left
+# Alternatively, you can use the cursor keys:
+$bindkeys $mod+Shift+Left move left
+$bindkeys $mod+Shift+Down move down
+$bindkeys $mod+Shift+Up move up
+$bindkeys $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
+# Move workspaces between monitors
+$bindkeys $mod+Shift+period move workspace to output right
+$bindkeys $mod+Shift+comma move workspace to output left
 
-# split in vertical orientation
-bindsym $mod+v split v
+# Split in horizontal orientation
+$bindkeys $mod+h split h
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+# Split in vertical orientation
+$bindkeys $mod+v split v
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# Toggle fullscreen mode for the focused container
+$bindkeys $mod+f fullscreen toggle
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# Toggle global fullscreen mode for the focused container (span all monitors)
+$bindkeys $mod+Shift+f fullscreen toggle global
 
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# Change container layout (stacked, tabbed, toggle split)
+$bindkeys $mod+s layout stacking
+$bindkeys $mod+w layout tabbed
+$bindkeys $mod+e layout toggle split
 
-# focus the parent container
-bindsym $mod+a focus parent
+# Toggle tiling / floating
+$bindkeys $mod+Shift+space floating toggle
 
-# focus the child container
-#bindsym $mod+d focus child
+# Change focus between tiling / floating windows
+$bindkeys $mod+space focus mode_toggle
+
+# Focus the parent container
+$bindkeys $mod+a focus parent
+
+# Focus the child container
+#$bindkeys $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -108,31 +142,31 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+# Switch to workspace
+$bindkeys $mod+1 workspace $ws1
+$bindkeys $mod+2 workspace $ws2
+$bindkeys $mod+3 workspace $ws3
+$bindkeys $mod+4 workspace $ws4
+$bindkeys $mod+5 workspace $ws5
+$bindkeys $mod+6 workspace $ws6
+$bindkeys $mod+7 workspace $ws7
+$bindkeys $mod+8 workspace $ws8
+$bindkeys $mod+9 workspace $ws9
+$bindkeys $mod+0 workspace $ws10
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+# Move focused container to workspace
+$bindkeys $mod+Shift+1 move container to workspace $ws1
+$bindkeys $mod+Shift+2 move container to workspace $ws2
+$bindkeys $mod+Shift+3 move container to workspace $ws3
+$bindkeys $mod+Shift+4 move container to workspace $ws4
+$bindkeys $mod+Shift+5 move container to workspace $ws5
+$bindkeys $mod+Shift+6 move container to workspace $ws6
+$bindkeys $mod+Shift+7 move container to workspace $ws7
+$bindkeys $mod+Shift+8 move container to workspace $ws8
+$bindkeys $mod+Shift+9 move container to workspace $ws9
+$bindkeys $mod+Shift+0 move container to workspace $ws10
 
-# resize window (you can also use the mouse for that)
+# Resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
 
@@ -141,70 +175,92 @@ mode "resize" {
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
 
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
+    $bindkeys j resize shrink width 10 px or 10 ppt
+    $bindkeys k resize grow height 10 px or 10 ppt
+    $bindkeys l resize shrink height 10 px or 10 ppt
+    $bindkeys semicolon resize grow width 10 px or 10 ppt
 
     # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    $bindkeys Left resize shrink width 10 px or 10 ppt
+    $bindkeys Down resize grow height 10 px or 10 ppt
+    $bindkeys Up resize shrink height 10 px or 10 ppt
+    $bindkeys Right resize grow width 10 px or 10 ppt
 
     # back to normal: Enter or Escape or $mod+r
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+    $bindkeys Return mode "default"
+    $bindkeys Escape mode "default"
+    $bindkeys $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    status_command i3status
-    position bottom
-    font pango:monospace 8
-
-    # Display the bar if it is hidden by pressing this modifier
-    modifier Mod4
-}
+$bindkeys $mod+r mode "resize"
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+$bindkeys XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+$bindkeys XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Touchpad controls
-# bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+# $bindkeys XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
-# Media volume controls (PulseAudio)
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SINK@ toggle # mute microphone
+# The --locked option allows audio-related bindings to work even if the screen is locked
 
-# Alternative keys for volume control (PulseAudio)
-bindsym $mod+bracketleft exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-bindsym $mod+bracketright exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-bindsym $mod+backslash exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-bindsym $mod+Ctrl+backslash exec pavucontrol
+# Audio volume controls
 
-# Alternative keys for volume control (ALSA)
-bindsym $mod+shift+m exec x-terminal-emulator -e alsamixer
-bindsym $mod+shift+bracketleft exec amixer sset Master unmute 5%-
-bindsym $mod+shift+bracketright exec amixer sset Master unmute 5%+
-bindsym $mod+shift+backslash exec amixer sset Master unmute 20%
+# Increase audio volume (PipeWire)
+set $raiseVolumeCommand wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ $audioVolumeAdjustmentPercent%+
+$bindkeysLocked XF86AudioRaiseVolume exec --no-startup-id $raiseVolumeCommand
+$bindkeysLocked $mod+Mod1+up exec --no-startup-id $raiseVolumeCommand
+$bindkeysLocked $mod+bracketright exec --no-startup-id $raiseVolumeCommand
+
+# Reduce audio volume (PipeWire)
+set $lowerVolumeCommand wpctl set-volume @DEFAULT_AUDIO_SINK@ $audioVolumeAdjustmentPercent%-
+$bindkeysLocked XF86AudioLowerVolume exec --no-startup-id $lowerVolumeCommand
+$bindkeysLocked $mod+Mod1+Down exec --no-startup-id $lowerVolumeCommand
+$bindkeysLocked $mod+bracketleft exec --no-startup-id $lowerVolumeCommand
+
+# Toggle audio playback muting (PipeWire)
+set $toggleMuteCommand wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+$bindkeysLocked XF86AudioMute exec --no-startup-id $toggleMuteCommand
+$bindkeysLocked $mod+Mod1+m exec --no-startup-id $toggleMuteCommand
+$bindkeysLocked $mod+backslash exec --no-startup-id $toggleMuteCommand
+
+# Toggle microphone muting (PipeWire)
+set $toggleMicMuteCommand wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+$bindkeys XF86AudioMicMute exec --no-startup-id $toggleMicMuteCommand
+$bindkeys $mod+Mod1+Shift+m exec --no-startup-id $toggleMicMuteCommand
+
+# Invoke audio volume/recording level and routing control GUI tool
+$bindkeys $mod+Mod1+v exec pavucontrol
+
+# # Media volume controls (PulseAudio)
+# $bindkeys XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+# $bindkeys XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+# $bindkeys XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+# $bindkeys XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SINK@ toggle # mute microphone
+
+# # Alternative keys for volume control (PulseAudio)
+# $bindkeys $mod+bracketleft exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+# $bindkeys $mod+bracketright exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+# $bindkeys $mod+backslash exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+# $bindkeys $mod+Ctrl+backslash exec pavucontrol
+
+# # Alternative keys for volume control (ALSA)
+# $bindkeys $mod+shift+m exec x-terminal-emulator -e alsamixer
+# $bindkeys $mod+shift+bracketleft exec amixer sset Master unmute 5%-
+# $bindkeys $mod+shift+bracketright exec amixer sset Master unmute 5%+
+# $bindkeys $mod+shift+backslash exec amixer sset Master unmute 20%
 
 # Alternative keys for volume control (FreeBSD)
-# bindsym $mod+shift+v exec urxvt -e aumix
-# bindsym $mod+shift+v exec xmixer
-# bindsym $mod+bracketleft exec mixer vol -5
-# bindsym $mod+bracketright exec mixer vol +5
-# bindsym $mod+backslash exec mixer vol 20
+# $bindkeys $mod+shift+v exec urxvt -e aumix
+# $bindkeys $mod+shift+v exec xmixer
+# $bindkeys $mod+bracketleft exec mixer vol -5
+# $bindkeys $mod+bracketright exec mixer vol +5
+# $bindkeys $mod+backslash exec mixer vol 20
 
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# Media player control (for players supporting MPRIS)
+$bindkeys XF86AudioPlay exec --no-startup-id playerctl play-pause
+$bindkeys XF86AudioPause exec --no-startup-id playerctl pause
+$bindkeys XF86AudioStop exec --no-startup-id playerctl stop
+$bindkeys XF86AudioPrev exec --no-startup-id playerctl previous
+$bindkeys XF86AudioNext exec --no-startup-id playerctl next
+$bindkeys XF86AudioRewind exec --no-startup-id playerctl position $audioAdvanceSeconds-
+$bindkeys XF86AudioForward exec --no-startup-id playerctl position $audioAdvanceSeconds+
