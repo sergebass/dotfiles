@@ -337,12 +337,14 @@ in {
       rofi-systemd
       rofi-top
       rtl-sdr
+      scrot
       slurp
       sox
       sway-launcher-desktop
       swaybg
       swayfx
       swayidle
+      swayimg
       swaylock
       tig
       tmux
