@@ -108,7 +108,8 @@ battery all {
 
     format = "± %status %percentage %remaining %consumption ∅ %emptytime"
     format_down = "⚡AC"
-    format_percentage = "%.01f%s"
+    # format_percentage is only available for i3status 2.14+
+    # format_percentage = "%.01f%s"
 
     status_chr = "^"
     status_bat = "→"
