@@ -31,13 +31,13 @@ order += "volume master"
 order += "battery all"
 
 wireless _first_ {
-    format_up = "W %ip (%essid %quality %bitrate)"
-    format_down = "W ---"
+    format_up = "W %ip %essid %quality %bitrate"
+    format_down = "W --"
 }
 
 ethernet _first_ {
-    format_up = "E %ip (%speed)"
-    format_down = "E ---"
+    format_up = "E %ip %speed"
+    format_down = "E --"
 }
 
 cpu_usage {
@@ -101,13 +101,13 @@ tztime local {
 battery all {
     path = "/sys/class/power_supply/BAT%d/uevent"
 
-    format = "B%status %percentage %remaining ∅ %emptytime"
+    format = "B%status %percentage %remaining %consumption ∅ %emptytime"
     format_down = "⚡AC"
 
-    status_chr = "+"
-    status_bat = "-"
+    status_chr = "^"
+    status_bat = ":"
     status_unk = "?"
-    status_full = "."
+    status_full = "F"
 
     low_threshold = 10
     threshold_type = percentage
