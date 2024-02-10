@@ -390,7 +390,6 @@ in {
     # Sway is a Wayland compositor
     sway = {
       enable = true;
-      package = pkgs.sway;
       extraPackages= with pkgs; [
         grim
         rofi-wayland
@@ -406,6 +405,7 @@ in {
         "--verbose"
       ];
       extraSessionCommands = ''
+        # Some apps need explicit hints to choose Wayland over X11
         export GDK_BACKEND=wayland
         export SDL_VIDEODRIVER=wayland
         export QT_QPA_PLATFORM=wayland
@@ -415,6 +415,7 @@ in {
         export ELECTRON_OZONE_PLATFORM_HINT=wayland
         export MOZ_ENABLE_WAYLAND=1
       '';
+      wrapperFeatures.gtk = true;
     };
 
     thunar = {
