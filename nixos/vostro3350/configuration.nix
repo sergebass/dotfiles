@@ -295,7 +295,6 @@ in {
       gnuradio
       gparted
       gqrx
-      grim
       guitarix
       gxplugins-lv2
       hddtemp  # HDD temperature measurement tools
@@ -338,14 +337,8 @@ in {
       rofi-top
       rtl-sdr
       scrot
-      slurp
       sox
       sway-launcher-desktop
-      swaybg
-      swayfx
-      swayidle
-      swayimg
-      swaylock
       tig
       tmux
       tree
@@ -391,6 +384,34 @@ in {
       shellAliases = aliases;
       loginShellInit = ''
         set -U fish_greeting ""
+      '';
+    };
+
+    # Sway is a Wayland compositor
+    sway = {
+      enable = true;
+      extraPackages= with pkgs; [
+        grim
+        rofi-wayland
+        slurp
+        swaybg
+        swayfx
+        swayidle
+        swayimg
+        swaylock
+        wl-clipboard
+      ];
+      extraOptions = [
+        "--verbose"
+      ];
+      extraSessionCommands = ''
+        export GDK_BACKEND=wayland
+        export SDL_VIDEODRIVER=wayland
+        export QT_QPA_PLATFORM=wayland
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+        export _JAVA_AWT_WM_NONREPARENTING=1
+        export NIXOS_OZONE_WL=1
+        export MOZ_ENABLE_WAYLAND=1
       '';
     };
 
