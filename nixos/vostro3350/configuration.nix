@@ -338,7 +338,7 @@ in {
       rtl-sdr
       scrot
       sox
-      sway-launcher-desktop
+      sway-launcher-desktop  # Note that this tool is not really tied to sway at all
       tig
       tmux
       tree
@@ -390,6 +390,7 @@ in {
     # Sway is a Wayland compositor
     sway = {
       enable = true;
+      package = pkgs.sway;
       extraPackages= with pkgs; [
         grim
         rofi-wayland
