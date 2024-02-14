@@ -1,0 +1,75 @@
+# Configuration file for mako notifier
+
+# Sort messages by time, descending
+sort=-time
+
+# Show up to this many notification bubbles at a time
+max-visible=5
+
+max-history=5
+
+on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
+
+# Enable Pango markup
+markup=1
+
+# Display notifications even over full-screen windows
+layer=overlay
+
+# Location of messages on the screen
+anchor=top-right
+
+# Message format
+format=<span foreground="#e0e0e0" size="xx-small"><i>%a:</i></span>\n<span size="large"><b>%s</b></span>\n%b
+
+text-alignment=left
+
+font=monospace 10
+
+text-color=#ffffff
+background-color=#2e6040e0
+
+width=400
+height=200
+
+outer-margin=0
+margin=8
+padding=4
+
+border-size=2
+border-color=#88c0d0
+border-radius=4
+
+# Do show icons in notifications
+icons=1
+max-icon-size=64
+icon-location=left
+# icon-path=path:path:path
+
+# Default timeout (in milliseconds)
+default-timeout=5000
+
+# Do not ignore requested message timeouts
+ignore-timeout=0
+
+progress-color=source #5588AAFF
+
+[urgency=low]
+font=monospace 10
+border-color=#808080
+background-color=#202020c0
+
+[urgency=normal]
+font=monospace 12
+border-color=#008080
+background-color=#2e6040e0
+
+[urgency=high]
+font=monospace 14
+border-color=#ff0000
+background-color=#402020
+default-timeout=0
+
+[category=mpd]
+default-timeout=2000
+group-by=category
