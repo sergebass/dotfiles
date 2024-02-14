@@ -392,6 +392,7 @@ in {
       enable = true;
       extraPackages= with pkgs; [
         grim
+        mako  # Pop-up notifications
         rofi-wayland
         slurp
         swaybg
