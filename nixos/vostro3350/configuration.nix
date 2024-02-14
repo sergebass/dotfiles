@@ -337,6 +337,7 @@ in {
       rofi-top
       rtl-sdr
       scrot
+      sound-theme-freedesktop  # Freedesktop reference sounds
       sox
       sway-launcher-desktop  # Note that this tool is not really tied to sway at all
       tig

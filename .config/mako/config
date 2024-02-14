@@ -8,7 +8,10 @@ max-visible=5
 
 max-history=5
 
-on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
+# Play notification sounds via PulseAudio
+on-notify=exec paplay /usr/share/sounds/freedesktop/stereo/message.oga
+# Play notification sounds via PipeWire
+# on-notify=exec pw-play /usr/share/sounds/freedesktop/stereo/message.oga
 
 # Enable Pango markup
 markup=1
