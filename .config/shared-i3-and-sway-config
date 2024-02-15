@@ -44,10 +44,15 @@ $bindkeys $mod+Mod1+Delete bar mode toggle
 set $terminalCommand alacritty
 $bindkeys $mod+Return exec $terminalCommand
 
+# Launch GUI file manager
+set $fileManagerCommand thunar
+$bindkeys XF86MyComputer exec $fileManagerCommand
+$bindkeys $mod+Mod1+Return exec $fileManagerCommand
+
 # Launch default web browser and open a search page
 set $browserCommand xdg-open https://duckduckgo.com
-$bindkeys $mod+Mod1+Return exec $browserCommand
 $bindkeys XF86WWW exec $browserCommand
+$bindkeys $mod+Mod1+slash exec $browserCommand
 
 # Reboot system (gracefully), also allowing to reboot while locked
 set $rebootCommand systemctl reboot
