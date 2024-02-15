@@ -38,7 +38,7 @@ bar {
 }
 
 # Toggle status bar mode between dock and hide
-$bindkeys $mod+Mod1+Backspace bar mode toggle
+$bindkeys $mod+Mod1+Delete bar mode toggle
 
 # Configure a terminal emulator
 set $terminalCommand alacritty
@@ -67,6 +67,9 @@ $bindkeys $mod+Mod1+space exec "rofi -modes 'drun,keys' -show drun -show-icons"
 
 # Select an arbitrary window from a menu to switch to
 $bindkeys $mod+Mod1+Tab exec "rofi -modes 'window,keys' -show window -show-icons"
+
+# Dismiss the last displayed pop-up notification
+$bindkeys $mod+Mod1+Backspace exec makoctl dismiss
 
 # Implement xmonad-like next/previous window focus switching
 $bindkeys $mod+Tab focus next
