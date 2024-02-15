@@ -45,7 +45,9 @@ set $terminalCommand alacritty
 $bindkeys $mod+Return exec $terminalCommand
 
 # Launch default web browser and open a search page
-$bindkeys $mod+Mod1+Return exec xdg-open https://duckduckgo.com
+set $browserCommand xdg-open https://duckduckgo.com
+$bindkeys $mod+Mod1+Return exec $browserCommand
+$bindkeys XF86WWW exec $browserCommand
 
 # Reboot system (gracefully), also allowing to reboot while locked
 set $rebootCommand systemctl reboot
