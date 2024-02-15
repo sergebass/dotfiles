@@ -32,8 +32,8 @@ font=monospace 10
 text-color=#ffffff
 background-color=#2e6040e0
 
-width=400
-height=200
+width=600
+height=300
 
 outer-margin=0
 margin=8
