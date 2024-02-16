@@ -230,11 +230,11 @@ $bindkeys $mod+Mod1+backslash exec --no-startup-id $resetBrightnessCommand
 
 # Increase audio volume
 
-# PipeWire:
-set $raiseVolumeCommand wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ $audioVolumeAdjustmentPercent%+
+# PulseAudio & PipeWire:
+set $raiseVolumeCommand pamixer --increase $audioVolumeAdjustmentPercent --allow-boost
 
-# PulseAudio:
-# set $raiseVolumeCommand pactl set-sink-volume @DEFAULT_SINK@ +$audioVolumeAdjustmentPercent%
+# PipeWire:
+# set $raiseVolumeCommand wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ $audioVolumeAdjustmentPercent%+
 
 # ALSA/Linux:
 # set $raiseVolumeCommand amixer sset Master unmute $audioVolumeAdjustmentPercent%+
@@ -248,11 +248,11 @@ $bindkeysLocked $mod+bracketright exec --no-startup-id $raiseVolumeCommand
 
 # Reduce audio volume
 
-# PipeWire:
-set $lowerVolumeCommand wpctl set-volume @DEFAULT_AUDIO_SINK@ $audioVolumeAdjustmentPercent%-
-
 # PulseAudio & PipeWire:
-# set $lowerVolumeCommand pactl set-sink-volume @DEFAULT_SINK@ -$audioVolumeAdjustmentPercent%
+set $lowerVolumeCommand pamixer --decrease $audioVolumeAdjustmentPercent --allow-boost
+
+# PipeWire:
+# set $lowerVolumeCommand wpctl set-volume @DEFAULT_AUDIO_SINK@ $audioVolumeAdjustmentPercent%-
 
 # ALSA/Linux:
 # set $lowerVolumeCommand amixer sset Master unmute $audioVolumeAdjustmentPercent%-
@@ -266,11 +266,11 @@ $bindkeysLocked $mod+bracketleft exec --no-startup-id $lowerVolumeCommand
 
 # Toggle audio playback muting
 
-# PipeWire:
-set $toggleMuteCommand wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-
 # PulseAudio & PipeWire:
-# set $toggleMuteCommand pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $toggleMuteCommand pamixer --toggle-mute
+
+# PipeWire:
+# set $toggleMuteCommand wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 # ALSA/Linux:
 # set $toggleMuteCommand amixer sset Master unmute 20%
@@ -284,11 +284,11 @@ $bindkeysLocked $mod+backslash exec --no-startup-id $toggleMuteCommand
 
 # Toggle microphone muting
 
-# PipeWire:
-set $toggleMicMuteCommand wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-
 # PulseAudio & PipeWire:
-# set $toggleMicMuteCommand pactl set-source-mute @DEFAULT_SINK@ toggle
+set $toggleMicMuteCommand pamixer --default-source --toggle-mute
+
+# PipeWire:
+# set $toggleMicMuteCommand wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 # ALSA/Linux:
 # set $toggleMicMuteCommand

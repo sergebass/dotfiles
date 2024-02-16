@@ -319,6 +319,7 @@ in {
       musescore
       ncmpcpp
       neovim
+      pamixer  # CLI utilities to control PA & PW audio levels
       parted
       pavucontrol
       pciutils
@@ -349,8 +350,8 @@ in {
       usbutils
       vifm  # Vi-like File Manager
       wget
-      xdg-utils
       xdg-user-dirs
+      xdg-utils
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
