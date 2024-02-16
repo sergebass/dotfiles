@@ -49,15 +49,18 @@ bindsym $mod+z exec swaylock --color 000000 --show-keyboard-layout --indicator-c
 # Capture screenshots and place them in ~/Pictures (unless overridden via XDG)
 set $screenshotPath $(xdg-user-dir PICTURES)/screenshot--$(date '+%Y%m%d-%H%M%S').png
 
+# Use pw-play for direct PipeWire playback
+set $emitShutterSound paplay /usr/share/sounds/freedesktop/stereo/screen-capture.oga
+
 # Capture a screenshot of the entire screen, with mouse cursor
 set $captureEntireScreen grim -c $screenshotPath
-$bindkeys $mod+Print exec --no-startup-id $captureEntireScreen
-$bindkeys $mod+p exec --no-startup-id $captureEntireScreen
+$bindkeys $mod+Print exec --no-startup-id "$captureEntireScreen && $emitShutterSound"
+$bindkeys $mod+p exec --no-startup-id "$captureEntireScreen && $emitShutterSound"
 
 # Capture a portion of the screen, with cursor
 set $captureScreenArea grim -c -g "$(slurp)" $screenshotPath
-$bindkeys $mod+Mod1+Print exec --no-startup-id $captureScreenArea
-$bindkeys $mod+Mod1+p exec --no-startup-id $captureScreenArea
+$bindkeys $mod+Mod1+Print exec --no-startup-id "$captureEntireScreen && $emitShutterSound"
+$bindkeys $mod+Mod1+p exec --no-startup-id "$captureEntireScreen && $emitShutterSound"
 
 # Use mako for pop-up notifications
 exec --no-startup-id mako
