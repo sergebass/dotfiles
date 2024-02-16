@@ -24,21 +24,23 @@ output * background $HOME/.wallpaper fit #002020
 # Uncomment to see which apps depend on X11 instead of using Wayland directly
 # xwayland disable
 
-# Make windows using XWayland clearly state this fact in the title
-for_window [shell="xwayland"] title_format "X11 ┃ %title"
+for_window {
+    # Make windows using XWayland clearly state this fact in the title
+    [shell="xwayland"] title_format "X11 ┃ %title"
 
-# Force message dialog windows to be floating at all times
-for_window [app_id="gxmessage"] floating enable
+    # Force message dialog windows to be floating at all times
+    [app_id="gxmessage"] floating enable
+}
 
 # Provide a simple menu to request a logout/exit, reboot or a poweroff
 mode "E[x]it, [r]eboot, [p]oweroff ?" {
-bindsym x exec swaymsg exit
-bindsym r exec systemctl reboot
-bindsym p exec systemctl poweroff
+    bindsym x exec swaymsg exit
+    bindsym r exec systemctl reboot
+    bindsym p exec systemctl poweroff
 
-bindsym Escape mode "default"
-bindsym Return mode "default"
-bindsym $mod+Shift+e mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym $mod+Shift+e mode "default"
 }
 
 bindsym $mod+Shift+e mode "E[x]it, [r]eboot, [p]oweroff ?"
