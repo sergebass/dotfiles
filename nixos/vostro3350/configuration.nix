@@ -267,7 +267,6 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
-      acpilight  # Control backlight brightness via ACPI
       alacritty
       ardour
       audacity
@@ -313,6 +312,7 @@ in {
       kbd
       libnotify
       libreoffice
+      light # Control backlight brightness
       lilypond-with-fonts
       lm_sensors  # Onboard sensor measurement tools
       lshw

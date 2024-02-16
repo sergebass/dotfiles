@@ -209,9 +209,9 @@ $bindkeys $mod+r mode "resize"
 
 # Screen brightness (backlighting) controls
 set $brightnessChangePercent 10
-set $increaseBrightnessCommand xbacklight -inc $brightnessChangePercent
-set $decreaseBrightnessCommand xbacklight -dec $brightnessChangePercent
-set $resetBrightnessCommand xbacklight 100
+set $increaseBrightnessCommand light -A $brightnessChangePercent
+set $decreaseBrightnessCommand light -U $brightnessChangePercent
+set $resetBrightnessCommand light -S 100
 
 $bindkeys XF86MonBrightnessUp exec --no-startup-id $increaseBrightnessCommand
 $bindkeys $mod+Mod1+bracketright exec --no-startup-id $increaseBrightnessCommand
