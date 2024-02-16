@@ -207,9 +207,19 @@ mode "resize" {
 
 $bindkeys $mod+r mode "resize"
 
-# Screen brightness controls
-$bindkeys XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-$bindkeys XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+# Screen brightness (backlighting) controls
+set $brightnessChangePercent 10
+set $increaseBrightnessCommand xbacklight -inc $brightnessChangePercent
+set $decreaseBrightnessCommand xbacklight -dec $brightnessChangePercent
+set $resetBrightnessCommand xbacklight 100
+
+$bindkeys XF86MonBrightnessUp exec --no-startup-id $increaseBrightnessCommand
+$bindkeys $mod+Mod1+bracketright exec --no-startup-id $increaseBrightnessCommand
+
+$bindkeys XF86MonBrightnessDown exec --no-startup-id $decreaseBrightnessCommand
+$bindkeys $mod+Mod1+bracketleft exec --no-startup-id $decreaseBrightnessCommand
+
+$bindkeys $mod+Mod1+backslash exec --no-startup-id $resetBrightnessCommand
 
 # Touchpad controls
 # $bindkeys XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad

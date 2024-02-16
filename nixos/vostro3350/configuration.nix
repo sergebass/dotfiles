@@ -259,6 +259,7 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
+      acpilight  # Control backlight brightness via ACPI
       alacritty
       ardour
       audacity
