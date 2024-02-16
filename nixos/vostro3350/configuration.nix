@@ -122,6 +122,14 @@ in {
   };
 
   services = {
+    udev = {
+      enable = true;
+      # A rule to allow ACPI backlight control by a non-root user from video group
+      extraRules = with pkgs; ''
+        ACTION=="add", SUBSYSTEM=="backlight", RUN+="${coreutils}/bin/chgrp video $sys$devpath/brightness", RUN+="${coreutils}/bin/chmod g+w $sys$devpath/brightness"
+      '';
+    };
+
     getty = {
       greetingLine = ''\e{bold}\e{green}NixOS ${config.system.nixos.label}-\m \e{lightmagenta} \n \e{yellow} \l \e{reset}'';
     };
