@@ -357,6 +357,7 @@ in {
       unzip
       usbutils
       vifm  # Vi-like File Manager
+      vlc
       wget
       xdg-user-dirs
       xdg-utils
