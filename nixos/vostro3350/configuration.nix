@@ -267,7 +267,9 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
+      adbfs-rootless  # Mount Android phones on Linux with adb, no root required
       alacritty
+      android-tools  # Android SDK platform tools
       ardour
       audacity
       bc
