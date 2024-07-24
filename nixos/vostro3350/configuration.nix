@@ -272,6 +272,7 @@ in {
       android-tools  # Android SDK platform tools
       ardour
       audacity
+      baobab  # Used disk space visualizer
       bc
       brave
       btrfs-heatmap
