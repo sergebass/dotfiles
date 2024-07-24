@@ -6,6 +6,11 @@ setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal autoindent
+setlocal wrap
+setlocal linebreak
+
+" Using gq for formatting will call this function:
+set formatexpr=SPVentilatedFormatExpr()
 
 nnoremap <buffer> <F1> :!sp-open "https://markdown-guide.readthedocs.io/en/latest/basics.html"<CR>
 nnoremap <buffer> <M-F1> :!sp-open "https://daringfireball.net/projects/markdown/syntax"<CR>

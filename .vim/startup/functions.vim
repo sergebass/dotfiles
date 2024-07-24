@@ -12,7 +12,7 @@ endfunction
 
 " Find files anywhere (as tracked by locate)
 " and populate the quickfix list (based on https://vim.fandom.com/wiki/Searching_for_files)
-function! LocateFiles(file_pattern)
+function LocateFiles(file_pattern)
   let error_file = tempname()
   silent exe '!locate "' . a:file_pattern . '" | xargs file > ' . error_file
   set errorformat=%f:%m
@@ -23,7 +23,7 @@ endfunction
 
 " Find files under current directory (as found by find)
 " and populate the quickfix list (based on https://vim.fandom.com/wiki/Searching_for_files)
-function! FindFiles(file_pattern)
+function FindFiles(file_pattern)
   let error_file = tempname()
   " silent exe '!find . -name "' . a:file_pattern . '" | xargs file | sed "s/:/:1:/" > ' . error_file
   " set errorformat=%f:%l:%m
@@ -48,7 +48,7 @@ function FindAndReplaceText(searcher_with_args, old_text, new_text, file_pattern
     execute l:replace_command
 endfunction
 
-function! SPTabLine()
+function SPTabLine()
   let s = ''
   for i in range(tabpagenr('$'))
     let tab_number = i + 1
@@ -83,7 +83,7 @@ function! SPTabLine()
   return s
 endfunction
 
-function! SPFindFileWithLine(file_with_line)
+function SPFindFileWithLine(file_with_line)
     let parts = split(a:file_with_line, ':')
     if len(parts) == 1  " just the file name is present
         execute 'find' parts[0]
@@ -95,4 +95,19 @@ function! SPFindFileWithLine(file_with_line)
     else
         echoe "Invalid argument"
     endif
+endfunction
+
+function SPVentilatedFormatExpr()
+    let startLine = v:lnum
+    let endLine = v:lnum + v:count - 1
+
+    " First, join all selected lines together
+    execute startLine . ',' . endLine . 'join'
+
+    " And now automatically insert linebreaks after period and exclamation/question signs
+    execute startLine . ',' . endLine . 's/[.!?]\zs /\r/g'
+
+    " Since the size of the adjusted paragraph may have changed,
+    " jump to the beginning of the modifications.
+    execute 'normal! ' . startLine . 'gg'
 endfunction
