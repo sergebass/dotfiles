@@ -15,6 +15,8 @@ set formatexpr=SPVentilatedFormatExpr()
 nnoremap <buffer> <F1> :!sp-open "https://markdown-guide.readthedocs.io/en/latest/basics.html"<CR>
 nnoremap <buffer> <M-F1> :!sp-open "https://daringfireball.net/projects/markdown/syntax"<CR>
 
+nnoremap <buffer> gO :DoOutline<CR>
+
 " 5.1 Element insertion
 " SPC m - 	insert horizontal line
 " SPC m h i 	insert header dwim

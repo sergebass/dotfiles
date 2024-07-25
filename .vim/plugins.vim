@@ -148,6 +148,8 @@ Plug 'sk1418/QFGrep'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-syntastic/syntastic'
 Plug 'yssl/QFEnter'
+Plug 'habamax/vim-do-outline'
+Plug 'habamax/vim-asciidoctor'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'LnL7/vim-nix'
 

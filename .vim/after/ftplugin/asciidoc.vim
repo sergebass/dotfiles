@@ -15,6 +15,8 @@ set formatexpr=SPVentilatedFormatExpr()
 nnoremap <buffer> <F1> :!sp-open "https://docs.asciidoctor.org/asciidoc/latest/"<CR>
 nnoremap <buffer> <M-F1> :!sp-open "https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/"<CR>
 
+nnoremap <buffer> gO :DoOutline<CR>
+
 " -----------------------------------------------------------------------------
 " Apply workspace-specific AsciiDoc settings, if available;
 " this is placed at the end to make sure workspace configuration takes priority
