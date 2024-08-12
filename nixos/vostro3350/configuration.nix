@@ -107,6 +107,12 @@ in {
     hostId = "98d39240";
 
     networkmanager.enable = true;
+
+    nameservers = [
+      "1.1.1.1"
+      "8.8.8.8"
+      "9.9.9.9"
+    ];
   };
 
   time.timeZone = "Canada/Eastern";
@@ -285,6 +291,7 @@ in {
       compsize  # Compression ratio calculator for btrfs
       ctags
       denemo
+      dig
       dmenu
       dunst
       exfatprogs
