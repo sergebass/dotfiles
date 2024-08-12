@@ -258,6 +258,7 @@ in {
     # $ nix search wget
     systemPackages = with pkgs; [
       alacritty
+      alsa-utils
       bc
       chromium
       ctags
