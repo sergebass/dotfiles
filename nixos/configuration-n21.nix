@@ -91,6 +91,12 @@ in {
     # networking.firewall.allowedUDPPorts = [ ... ];
     # Or disable the firewall altogether.
     # networking.firewall.enable = false;
+
+    nameservers = [
+      "1.1.1.1"
+      "8.8.8.8"
+      "9.9.9.9"
+    ];
   };
 
   time.timeZone = "Canada/Eastern";
@@ -249,6 +255,7 @@ in {
       bc
       chromium
       ctags
+      dig
       dmenu
       dunst
       feh
