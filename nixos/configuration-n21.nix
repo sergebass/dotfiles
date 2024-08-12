@@ -77,8 +77,6 @@ in {
     };
   };
 
-  sound.enable = true;
-
   networking = {
     hostName = "n21";
     networkmanager.enable = true;
@@ -164,12 +162,13 @@ in {
         ];
       };
 
-      libinput.enable = true;  # Enable touchpad support
-
-      layout = "us,us(intl),ru,ua";
-
-      xkbOptions = "grp:shift_caps_toggle";
+      xkb = {
+        layout = "us,us(intl),ru,ua";
+        options = "grp:shift_caps_toggle";
+      };
     };
+
+    libinput.enable = true;  # Enable touchpad support
 
     blueman.enable = true;
 
