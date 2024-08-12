@@ -113,6 +113,13 @@ in {
       "8.8.8.8"
       "9.9.9.9"
     ];
+
+    dhcpcd = {
+      # Do not use DNS server returned by a DHCP server
+      extraConfig = ''
+        nohook resolv.conf
+      '';
+    };
   };
 
   time.timeZone = "Canada/Eastern";
