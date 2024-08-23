@@ -1,2 +1,4 @@
 set ignore-space = all
 set tab-size = 4
+set main-view-id = yes
+set main-view-id-width = 7
