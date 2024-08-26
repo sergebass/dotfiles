@@ -344,6 +344,7 @@ in {
       musescore
       ncmpcpp
       neovim
+      nushell
       pamixer  # CLI utilities to control PA & PW audio levels
       parted
       pavucontrol
