@@ -156,6 +156,8 @@ in {
 
     gpm.enable = true;
 
+    libinput.enable = true;  # Enable touchpad support
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -195,11 +197,10 @@ in {
         ];
       };
 
-      libinput.enable = true;  # Enable touchpad support
-
-      layout = "us(altgr-intl),ua";
-
-      xkbOptions = "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr,terminate:ctrl_alt_bksp";
+      xkb = {
+        layout = "us(altgr-intl),ua";
+        options = "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr,terminate:ctrl_alt_bksp";
+      };
     };
 
     blueman.enable = true;
