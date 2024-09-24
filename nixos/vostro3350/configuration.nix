@@ -366,8 +366,11 @@ in {
       rofi-top
       rtl-sdr
       scrot
+      signal-cli
+      signal-desktop
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
+      speedtest-cli
       sway-launcher-desktop  # Note that this tool is not really tied to sway at all
       tig
       tmux
