@@ -257,6 +257,21 @@ in {
     XDG_RUNTIME_DIR = "/run/user/${toString userId}"; # MPD will look inside this directory for the PipeWire socket.
   };
 
+  # Run LineageOS-based Android VM in a container (https://docs.waydro.id)
+  #
+  # To download an actual current Android image for the current platform:
+  # (remove "-s GAPPS" if you do not need Google apps)
+  #   sudo waydroid init -s GAPPS -f
+  #
+  # To start a session (headless), run:
+  #   waydroid session start
+  #
+  # Once the session is started, invoke full Android UI with:
+  # waydroid show-full-ui
+  #
+  # See also https://wiki.nixos.org/wiki/Waydroid
+  virtualisation.waydroid.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     mutableUsers = true;
