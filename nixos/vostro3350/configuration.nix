@@ -269,6 +269,10 @@ in {
   # Once the session is started, invoke full Android UI with:
   # waydroid show-full-ui
   #
+  # If Google apps (GAPPS) are installed, follow the steps at
+  # https://docs.waydro.id/faq/google-play-certification
+  # to enable Google Play services.
+  #
   # See also https://wiki.nixos.org/wiki/Waydroid
   virtualisation.waydroid.enable = true;
 
