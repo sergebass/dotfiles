@@ -409,6 +409,7 @@ in {
       xorg.xsetroot
       yewtube
       ymuse  # GUI client for MPD
+      youtube-music
       youtube-tui
       zfs
       zip
