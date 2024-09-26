@@ -106,19 +106,19 @@ in {
     hostName = "vostro3350";
     hostId = "98d39240";
 
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
 
-    nameservers = [
-      "1.1.1.1"
-      "8.8.8.8"
-      "9.9.9.9"
-    ];
+      # Prefer our own DNS server list
+      insertNameservers = [
+        "9.9.9.9"  # Quad9 DNS resolver (https://en.wikipedia.org/wiki/Quad9)
+        "8.8.8.8"  # Google Public DNS (https://en.wikipedia.org/wiki/Google_Public_DNS)
+        "8.8.4.4"  # Google Public DNS (https://en.wikipedia.org/wiki/Google_Public_DNS)
+        "1.1.1.1"  # CloudFlare DNS (https://en.wikipedia.org/wiki/1.1.1.1)
+        "1.0.0.1"  # CloudFlare DNS (https://en.wikipedia.org/wiki/1.1.1.1)
+      ];
 
-    dhcpcd = {
-      # Do not use DNS server returned by a DHCP server
-      extraConfig = ''
-        nohook resolv.conf
-      '';
+      wifi.powersave = true;
     };
   };
 
@@ -345,6 +345,7 @@ in {
       musescore
       ncmpcpp
       neovim
+      networkmanagerapplet  # Provides nm-connection-editor
       nushell
       pamixer  # CLI utilities to control PA & PW audio levels
       parted
