@@ -267,7 +267,7 @@ in {
   #   waydroid session start
   #
   # Once the session is started, invoke full Android UI with:
-  # waydroid show-full-ui
+  #   waydroid show-full-ui
   #
   # If Google apps (GAPPS) are installed, follow the steps at
   # https://docs.waydro.id/faq/google-play-certification
