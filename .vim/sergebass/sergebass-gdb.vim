@@ -11,17 +11,6 @@ nnoremap <buffer> \\bL :let @+="-f " . expand("%") . " -l " . line(".")<CR>:echo
 " FIXME a bit hacky, but direct breakpoint setting for LLDB, the "lldb" window name is hardcoded too
 nnoremap <buffer> \\BL :!tmux send-keys -t "lldb" "breakpoint set -f <C-R>=expand("%")<CR> -l <C-R>=line('.')<CR>" Enter<CR>
 
-" FIXME should this be in global configuration instead?
-" This is a new feature in vim to better integrate with gdb
-packadd termdebug
-
-" Use gdb as our debugger
-let termdebugger = "gdb"
-
-" FIXME should this be in global configuration instead?
-" FIXME configure this:
-" let g:termdebug_wide = 163
-
 " :Run [args]      run the program with [args] or the previous arguments
 nnoremap <buffer> <F12> :Run<CR>
 " :Arguments {args}  set arguments for the next `:Run`
