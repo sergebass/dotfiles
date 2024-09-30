@@ -216,6 +216,9 @@ if has("nvim")
 
     Plug 'petertriho/nvim-scrollbar'
 
+    " Support Debug Adapter Protocol plugins
+    Plug 'mfussenegger/nvim-dap'
+
     " support of native debuggers (gdb, lldb, pdb etc.)
     " Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
