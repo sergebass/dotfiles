@@ -2,7 +2,7 @@
 """ C-specific vim configuration
 """ ----------------------------
 
-runtime! sergebass/sergebass-gdb.vim
+runtime! sergebass/gdb.vim
 
 setlocal expandtab
 setlocal tabstop=4
