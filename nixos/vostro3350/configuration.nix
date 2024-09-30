@@ -316,7 +316,6 @@ in {
       chromium
       coltrane
       compsize  # Compression ratio calculator for btrfs
-      ctags
       denemo
       dig
       dmenu
@@ -397,6 +396,7 @@ in {
       tmux
       tree
       tuxguitar
+      universal-ctags
       unzip
       usbutils
       vifm  # Vi-like File Manager
