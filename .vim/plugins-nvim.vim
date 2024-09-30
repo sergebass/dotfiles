@@ -1,10 +1,17 @@
 " NeoVim-specific plugins
 
+"  Quickstart configs for Nvim LSP
+Plug 'neovim/nvim-lspconfig'
+
+set omnifunc=v:lua.vim.lsp.omnifunc
+
+" Nvim Treesitter configurations and abstraction layer
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 
-" org-mode support
+" Emacs org-mode support
 Plug 'nvim-orgmode/orgmode'
 
+" Extensible Neovim Scrollbar
 Plug 'petertriho/nvim-scrollbar'
 
 " Support Debug Adapter Protocol plugins
@@ -13,21 +20,17 @@ Plug 'mfussenegger/nvim-dap'
 " support of native debuggers (gdb, lldb, pdb etc.)
 " Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
-" FIXME Multiple file types
-" Plug 'FIXME', { 'for': ['clojure', 'scheme'] }
-
-" FIXME nushell support plugins
+" NuShell support: "All the lua functions I don't want to write twice."
 Plug 'nvim-lua/plenary.nvim'
-" Plug 'jose-elias-alvarez/null-ls.nvim'
+
+" null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 Plug 'nvimtools/none-ls.nvim'
+
+" Basic editor support for the nushell language
 Plug 'LhKipp/nvim-nu', {'do': ':TSInstall nu'}
 
-" Language Server Protocol support
-
-" Built-in LSP client support in neovim (version 0.5.0 and later)
-Plug 'neovim/nvim-lspconfig'
-
 " FIXME keep?
+" Language Server Protocol (LSP) support for vim and neovim.
 " if has("win32")
 "     Plug 'autozimu/LanguageClient-neovim', {
 "         \ 'branch': 'next',
@@ -88,5 +91,3 @@ Plug 'neovim/nvim-lspconfig'
 "    \ 'objcpp': ['clangd'],
 "    \ 'java': ['tcp://127.0.0.1:55555'],
 "    \ }
-
-set omnifunc=v:lua.vim.lsp.omnifunc
