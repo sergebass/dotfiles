@@ -444,11 +444,3 @@ ab :info: 🛈
 ab :telephone: 📞
 ab :email: 📧
 ab :computer: 💻
-
-if has("nvim")
-    if has("win32")
-        source ~/vimfiles/vimrc.lua
-    else
-        source ~/.vim/vimrc.lua
-    endif
-endif

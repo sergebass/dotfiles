@@ -10,3 +10,6 @@ else " Linux/Unix/OSX configuration
     let &packpath = &runtimepath
     source ~/.vim/vimrc
 endif
+
+" Our Neovim configuration in Lua
+lua require('vimrc')
