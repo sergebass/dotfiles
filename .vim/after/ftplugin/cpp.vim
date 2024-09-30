@@ -20,11 +20,11 @@ let g:ale_cpp_ccls_init_options = {}
 let g:ale_cpp_clangcheck_executable = 'clang-check'
 let g:ale_cpp_clangcheck_options = ''
 
-let g:ale_cpp_clangd_executable = 'clangd-15'
+let g:ale_cpp_clangd_executable = 'clangd'
 let g:ale_cpp_clangd_options = ''
 
 let g:ale_cpp_clangtidy_checks = []
-let g:ale_cpp_clangtidy_executable = 'clang-tidy-15'
+let g:ale_cpp_clangtidy_executable = 'clang-tidy'
 let g:ale_cpp_clangtidy_extra_options = ''
 let g:ale_cpp_clangtidy_options = ''
 
