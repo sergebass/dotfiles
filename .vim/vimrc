@@ -103,7 +103,7 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 " do not autocomplete at the start of the line, after a comma or after a space:
 let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
 set completeopt=longest,menuone
-set completefunc=LanguageClient#complete
+" set completefunc=FIXME
 set omnifunc=v:lua.vim.lsp.omnifunc
 
 " command mode autocompletion
@@ -120,6 +120,9 @@ set fillchars+=vert:║
 " netrw browser uses tabs to display file lists and this looks really bad
 " with tab highlighting
 autocmd FileType netrw set nolist
+"
+" use detailed listing style for netrw
+let g:netrw_liststyle = 1
 
 " fold based on syntax, do not fold by default
 set foldmethod=syntax
@@ -165,79 +168,22 @@ let g:vmt_list_item_char = '*'  " The default bullet item character
 let g:vmt_fence_text = 'TOC'
 let g:vmt_fence_closing_text = '/TOC'
 
-if has("nvim")
-lua << EOF
-    require'scrollbar'.setup()
-EOF
-endif
+" FIXME should this be in global configuration instead? (was in sergebass-gdb.vim)
+" This is a new feature in vim to better integrate with gdb
+packadd termdebug
 
-" Language Server Protocol support (generic)
+" Use gdb as our debugger
+let g:termdebugger = "gdb"
 
-" Neovim-specific built-in LSP client configuration
-if has("nvim")
-lua << EOF
-    lspconfig = require'lspconfig'
+" FIXME configure this:
+" let g:termdebug_wide = 163
 
-    -- rls (Rust)
-    lspconfig.rls.setup{}
+" Register language-specific helpers for vim-lsp plugin.
 
-    -- ccls (C++)
-    lspconfig.ccls.setup{}
-
-    -- clangd (C++)
-    lspconfig.clangd.setup{}
-EOF
-endif
-
-" to be able to use vim's formatting commands like gq with LanguageClient
-set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
-
-" LanguageClient global settings
-
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
-
-" let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
-let g:LanguageClient_loadSettings = 1
-
-" Use an absolute configuration path if you want system-wide settings
-" (.vim/settings.json is used by default)
-" let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
-
-" https://github.com/autozimu/LanguageClient-neovim/issues/379 LSP snippet is not supported
-"let g:LanguageClient_hasSnippetSupport = 0
-
-let g:LanguageClient_diagnosticsList = "Location"
-
-" Install Rust language server using a command like:
-" $ rustup component add rls --toolchain stable-x86_64-unknown-linux-gnu
-" (adjust toolchain accordingly)
-
-" Use these lines to use ccls as a language server for the C family of languages:
-    " \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
-    " \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
-    " \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
-    " \ 'objcpp': ['ccls', '--log-file=/tmp/cc.log'],
-
-let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie', '--lsp'],
-    \ 'purescript': ['purescript-language-server', '--stdio'],
-    \ 'elm': ['elm-language-server', '--stdio'],
-    \ 'typescript': ['typescript-language-server', '--stdio'],
-    \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
-    \ 'javascript': ['typescript-language-server', '--stdio'],
-    \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'c': ['clangd'],
-    \ 'cpp': ['clangd'],
-    \ 'objc': ['clangd'],
-    \ 'objcpp': ['clangd'],
-    \ 'java': ['tcp://127.0.0.1:55555'],
-    \ }
-
-" register C/C++/Objective C LSP server for vim-lsp plugin
+" register clangd C/C++/Objective C LSP server for vim-lsp plugin
 " (the -background-index option is not available in clangd-7)
         " \ 'cmd': {server_info->['clangd', '-background-index']},
+" FIXME clangd-15? FIXME go through multiple versions of clangd downwards?
 if executable('clangd')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
@@ -285,11 +231,10 @@ if executable('elm-language-server')
         \ })
 endif
 
+" FIXME add Nix LSP support: https://mattn.github.io/vim-lsp-settings/
+
 " git gutter: pass this option to git diff
 let g:gitgutter_diff_args = '-w'
-
-" use detailed listing style for netrw
-let g:netrw_liststyle = 1
 
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:100'
 let g:ctrlp_extensions = [
@@ -499,3 +444,11 @@ ab :info: 🛈
 ab :telephone: 📞
 ab :email: 📧
 ab :computer: 💻
+
+if has("nvim")
+    if has("win32")
+        source ~/vimfiles/vimrc.lua
+    else
+        source ~/.vim/vimrc.lua
+    endif
+endif

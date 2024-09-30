@@ -4,6 +4,47 @@
 
 runtime! sergebass/sergebass-gdb.vim
 
+" FIXME where do we place this?
+
+let b:ale_linters = ['cc', 'clangd']
+
+" FIXME ALE configuration for C++
+let g:ale_cpp_cc_executable = 'g++-12'
+let g:ale_cpp_cc_header_exts = ['h', 'hpp']
+let g:ale_cpp_cc_options = '-std=c++23 -Wall'
+let g:ale_cpp_cc_use_header_lang_flag = -1
+
+let g:ale_cpp_ccls_executable = 'ccls'
+let g:ale_cpp_ccls_init_options = {}
+
+let g:ale_cpp_clangcheck_executable = 'clang-check'
+let g:ale_cpp_clangcheck_options = ''
+
+let g:ale_cpp_clangd_executable = 'clangd-15'
+let g:ale_cpp_clangd_options = ''
+
+let g:ale_cpp_clangtidy_checks = []
+let g:ale_cpp_clangtidy_executable = 'clang-tidy-15'
+let g:ale_cpp_clangtidy_extra_options = ''
+let g:ale_cpp_clangtidy_options = ''
+
+let g:ale_cpp_clazy_checks = ['level1']
+let g:ale_cpp_clazy_executable = 'clazy-standalone'
+let g:ale_cpp_clazy_options = ''
+
+let g:ale_cpp_cppcheck_executable = 'cppcheck'
+let g:ale_cpp_cppcheck_options = '--enable=style'
+
+let g:ale_cpp_cpplint_executable = 'cpplint'
+let g:ale_cpp_cpplint_options = ''
+
+let g:ale_cpp_cquery_cache_directory = '/home/sergii/.cache/cquery'
+let g:ale_cpp_cquery_executable = 'cquery'
+
+let g:ale_cpp_flawfinder_executable = 'flawfinder'
+let g:ale_cpp_flawfinder_minlevel = 1
+let g:ale_cpp_flawfinder_options = ''
+
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
@@ -18,11 +59,25 @@ setlocal iskeyword=@,48-57,_
 " NOTE that if you are using Plug mapping you should not use `noremap` mappings
 
 " we need that comment mark at the end since this on-hover function does not accept arguments but uses the word under cursor
-setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
+" FIXME use LSPHover instead
+" setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
 
+" nmap <buffer> <silent> K :LspHover<CR>
 nmap <buffer> <silent> K \K
 
+" nmap <buffer> <silent> <CR> :LspDefinition<CR>
 nmap <buffer> <silent> <CR> \gd
+
+" nmap <buffer> gd <plug>(lsp-definition)
+" nmap <buffer> gs <plug>(lsp-document-symbol-search)
+" nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+" nmap <buffer> gr <plug>(lsp-references)
+" nmap <buffer> gi <plug>(lsp-implementation)
+" nmap <buffer> gt <plug>(lsp-type-definition)
+" nmap <buffer> <leader>rn <plug>(lsp-rename)
+" nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+" nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+" nmap <buffer> K <plug>(lsp-hover)
 
 " do our formatting using clang-format and the '=' command
 setlocal equalprg=clang-format
