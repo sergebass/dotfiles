@@ -10,6 +10,8 @@ setlocal autoindent
 setlocal keywordprg=stack\ hoogle\ --\ --count=100
 setlocal makeprg=stack\ build
 
+" setlocal omnifunc=haskellcomplete#Complete
+
 nnoremap <buffer> <F1> :!sp-open "https://haskell.org/hoogle/"<CR>
 nnoremap <buffer> <M-F1> :!sp-open "https://www.stackage.org"<CR>
 

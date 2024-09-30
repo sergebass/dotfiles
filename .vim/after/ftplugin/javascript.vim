@@ -19,6 +19,8 @@ setlocal makeprg=eslint\ -f\ unix
 " Manually: npm -g install js-beautify && pip install jsbeautifier
 setlocal equalprg=js-beautify\ -f\ -
 
+" setlocal omnifunc=javascriptcomplete#CompleteJS
+
 " Override default :RgId to use correct file type for JavaScript files (the one that rg expects)
 command! -bang -nargs=* RgId
   \ call fzf#vim#grep(

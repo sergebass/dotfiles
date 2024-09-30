@@ -11,6 +11,8 @@ setlocal autoindent
 "setlocal equalprg=html-tidy
 "setlocal keywordprg=hoogle
 
+" setlocal omnifunc=htmlcomplete#DetectOmniFlavor
+
 nnoremap <buffer> <F1> :!sp-open "https://www.w3schools.com/tags/default.asp"<CR>
 nnoremap <buffer> <M-F1> :!sp-open "https://dev.w3.org/html5/html-author/"<CR>
 

@@ -10,6 +10,8 @@ setlocal autoindent
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 setlocal makeprg=tsc
 
+" setlocal omnifunc=javascriptcomplete#CompleteJS
+
 nnoremap <buffer> <F1> :!sp-open "https://www.typescriptlang.org/docs/home.html"<CR>
 nnoremap <buffer> <M-F1> :!sp-open "https://dev.w3.org/html5/html-author/"<CR>
 

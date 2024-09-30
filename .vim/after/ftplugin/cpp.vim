@@ -62,7 +62,9 @@ setlocal iskeyword=@,48-57,_
 " FIXME use LSPHover instead
 " setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
 
-" nmap <buffer> <silent> K :LspHover<CR>
+" setlocal omnifunc=ccomplete#Complete
+
+"  nmap <buffer> <silent> K :LspHover<CR>
 nmap <buffer> <silent> K \K
 
 " nmap <buffer> <silent> <CR> :LspDefinition<CR>

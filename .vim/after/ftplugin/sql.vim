@@ -10,6 +10,8 @@ setlocal autoindent
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 " setlocal makeprg=stack\ build
 
+" setlocal omnifunc=sqlcomplete#Complete
+
 nnoremap <buffer> <F1> :!sp-open "https://www.w3schools.com/sql/sql_quickref.asp"<CR>
 nnoremap <buffer> <M-F1> :!sp-open "https://www.postgresql.org/docs/current/sql-commands.html"<CR>
 

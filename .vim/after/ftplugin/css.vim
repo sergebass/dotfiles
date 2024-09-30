@@ -11,6 +11,8 @@ setlocal autoindent
 "setlocal equalprg=cssbeautify
 "setlocal keywordprg=hoogle
 
+" setlocal omnifunc=csscomplete#CompleteCSS
+
 nnoremap <buffer> <F1> :!sp-open "https://www.w3schools.com/cssref/"<CR>
 nnoremap <buffer> <M-F1> :!sp-open "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"<CR>
 

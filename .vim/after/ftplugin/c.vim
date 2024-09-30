@@ -20,6 +20,8 @@ setlocal iskeyword=@,48-57,_
 " we need that comment mark at the end since this on-hover function does not accept arguments but uses the word under cursor
 setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
 
+" setlocal omnifunc=ccomplete#Complete
+
 nmap <buffer> <silent> K <Plug>(lcn-hover)
 
 nmap <buffer> <silent> <CR> <Plug>(lcn-definition)

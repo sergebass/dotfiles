@@ -9,6 +9,8 @@ setlocal autoindent
 
 " setlocal keywordprg=ri
 
+" setlocal omnifunc=python3complete#Complete
+
 " nnoremap <buffer> <F1> :!sp-open "https://rubyapi.org/"<CR>
 
 " search the word under cursor in the Ruby API database (using browser)
