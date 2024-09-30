@@ -2,7 +2,7 @@
 """ Java-specific configuration to work with eclim
 """ ----------------------------------------------
 
-runtime! sergebass/sergebass-eclim.vim
+runtime sergebass/eclim.vim
 
 " error format for ant/javac
 setlocal efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#

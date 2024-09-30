@@ -4,7 +4,7 @@
 
 " Java for Android is configured here by default; fix for desktop/server Java accordingly
 "
-" runtime! sergebass/sergebass-eclim-java.vim
+" runtime sergebass/eclim-java.vim
 
 nnoremap <buffer> \\<F1> :!sp-open "https://developer.android.com/reference"<CR>
 
