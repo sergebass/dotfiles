@@ -1,9 +1,14 @@
-" Initialize plugins first (some of the further configuration depends on it)
+" vimrc: entry point for Vim and NeoVim editor configuration
+
+" double star makes :find look for files recursively
 if has("win32")
-    source ~/vimfiles/plugins.vim
+    "FIXME set path=.,/usr/local/include,/usr/include,,**
 else
-    source ~/.vim/plugins.vim
+    set path=.,/usr/local/include,/usr/include,,**
 endif
+
+" Initialize plugins first (some of the further configuration depends on it)
+runtime plugins.vim
 
 """ ---------------
 """ GENERAL OPTIONS
@@ -24,13 +29,6 @@ set keymap=accents
 set iminsert=0
 " -1 == re-use the value of iminsert
 set imsearch=-1
-
-" double star makes :find look for files recursively
-if has("win32")
-    "FIXME set path=.,/usr/local/include,/usr/include,,**
-else
-    set path=.,/usr/local/include,/usr/include,,**
-endif
 
 " even though we define our mappings in other files, we need to make sure
 " that leader and local leader keys are established well before then
