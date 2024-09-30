@@ -88,3 +88,5 @@ Plug 'neovim/nvim-lspconfig'
 "    \ 'objcpp': ['clangd'],
 "    \ 'java': ['tcp://127.0.0.1:55555'],
 "    \ }
+
+set omnifunc=v:lua.vim.lsp.omnifunc
