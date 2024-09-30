@@ -7,6 +7,9 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal autoindent
 
+" do our formatting using jq and the '=' command
+setlocal equalprg=jq
+
 " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 " setlocal makeprg=stack\ build
 
