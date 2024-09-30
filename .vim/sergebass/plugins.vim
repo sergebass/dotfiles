@@ -386,7 +386,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'guns/xterm-color-table.vim'
 
 if has("nvim")
-    runtime plugins-nvim.vim
+    runtime sergebass/plugins-nvim.vim
 endif
 
 " Install user-specific plugins, if configured
