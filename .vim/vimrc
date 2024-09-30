@@ -331,7 +331,7 @@ endif
 runtime sergebass/plugins.vim
 runtime sergebass/functions.vim
 runtime sergebass/commands.vim
-runtime sergebass/keybindings.vim
+runtime sergebass/keymaps.vim
 runtime sergebass/syntax.vim
 
 " -----------------------------------------------------------------------------
