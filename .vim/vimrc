@@ -2,13 +2,17 @@
 
 " double star makes :find look for files recursively
 if has("win32")
-    "FIXME set path=.,/usr/local/include,/usr/include,,**
+    set path=.,,**
 else
     set path=.,/usr/local/include,/usr/include,,**
 endif
 
 " Initialize plugins first (some of the further configuration depends on it)
 runtime plugins.vim
+
+" Our custom Vim functions and commands
+runtime functions.vim
+runtime commands.vim
 
 """ ---------------
 """ GENERAL OPTIONS
@@ -284,14 +288,6 @@ au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 
 filetype plugin indent on
 syntax on
-
-if has("win32")
-    source ~/vimfiles/startup/functions.vim
-    source ~/vimfiles/startup/commands.vim
-else
-    source ~/.vim/startup/functions.vim
-    source ~/.vim/startup/commands.vim
-endif
 
 " this is useful for nested terminals, to make them use the existing nvim instance, if available
 if has("nvim") && executable("nvr")
