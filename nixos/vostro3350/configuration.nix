@@ -346,6 +346,7 @@ in {
       htop
       hydrogen
       jackmeter
+      jdk  # The open-source Java Development Kit
       kbd
       libnotify
       libreoffice
