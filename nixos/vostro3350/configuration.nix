@@ -314,6 +314,7 @@ in {
       calibre
       calibre-web
       chromium
+      cmake
       coltrane
       compsize  # Compression ratio calculator for btrfs
       denemo
@@ -332,6 +333,7 @@ in {
       fuzzel
       fzf
       gcc13
+      gdb  # GNU debugger
       geeqie
       git
       glmark2
@@ -352,6 +354,7 @@ in {
       libreoffice
       light # Control backlight brightness
       lilypond-with-fonts
+      lldb  # LLVM debugger
       lm_sensors  # Onboard sensor measurement tools
       lshw
       luajit
