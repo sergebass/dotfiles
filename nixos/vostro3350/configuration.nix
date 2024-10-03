@@ -369,6 +369,7 @@ in {
       ncmpcpp
       neovim
       networkmanagerapplet  # Provides nm-connection-editor
+      nodejs_22  # Node.JS and NPM
       nushell
       pamixer  # CLI utilities to control PA & PW audio levels
       parted
@@ -401,6 +402,7 @@ in {
       tmux
       tree
       tuxguitar
+      typescript
       universal-ctags
       unzip
       usbutils
