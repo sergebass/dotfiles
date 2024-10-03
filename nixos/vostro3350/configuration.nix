@@ -392,6 +392,7 @@ in {
       sox
       speedtest-cli
       sway-launcher-desktop  # Note that this tool is not really tied to sway at all
+      thunderbird
       tig
       tmux
       tree
