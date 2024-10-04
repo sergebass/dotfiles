@@ -346,7 +346,7 @@ in {
       geeqie
       git
       glmark2
-      gnome.gnome-maps
+      gnome-maps
       gnumake
       gnuradio
       gparted
