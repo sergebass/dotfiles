@@ -35,8 +35,6 @@ in {
       };
     };
 
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-
     kernelParams = lib.mkForce [ "verbose" "nosplash" ];
 
     kernel.sysctl = {
@@ -99,8 +97,6 @@ in {
       }];
     };
   };
-
-  sound.enable = true;
 
   networking = {
     hostName = "vostro3350";
