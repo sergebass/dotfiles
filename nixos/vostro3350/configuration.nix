@@ -252,6 +252,19 @@ in {
     };
   };
 
+  xdg.portal = {
+    enable = true;  # Enable xdg desktop integration (https://github.com/flatpak/xdg-desktop-portal).
+    xdgOpenUsePortal = true;  # Sets environment variable NIXOS_XDG_OPEN_USE_PORTAL to 1. This will make xdg-open use the portal to open programs...
+    wlr.enable = true;  # Enable desktop portal for wlroots-based desktops.
+    lxqt.enable = true;  # Enable the desktop portal for the LXQt desktop environment.
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome  # Backend implementation for xdg-desktop-portal for the GNOME desktop environment
+      xdg-desktop-portal-gtk  # Desktop integration portals for sandboxed apps
+      xdg-desktop-portal-xapp  # Backend implementation for xdg-desktop-portal for Cinnamon, MATE, Xfce
+    ];
+  };
+
   systemd.services.mpd.environment = {
     # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
     XDG_RUNTIME_DIR = "/run/user/${toString userId}"; # MPD will look inside this directory for the PipeWire socket.
@@ -409,8 +422,11 @@ in {
       vifm  # Vi-like File Manager
       vlc
       wget
-      xdg-user-dirs
-      xdg-utils
+      xdg-dbus-proxy  # DBus proxy for Flatpak and others
+      xdg-launch  # A command line XDG compliant launcher and tools
+      xdg-terminal-exec  # Reference implementation of the proposed XDG Default Terminal Execution Specification
+      xdg-user-dirs  # A tool to help manage well known user directories like the desktop folder and the music folder
+      xdg-utils  # A set of command line tools that assist applications with a variety of desktop integration tasks
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
