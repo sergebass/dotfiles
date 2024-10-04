@@ -380,6 +380,7 @@ in {
       networkmanagerapplet  # Provides nm-connection-editor
       nodejs_22  # Node.JS and NPM
       nushell
+      open-in-mpv  # Simple web extension to open videos in mpv
       pamixer  # CLI utilities to control PA & PW audio levels
       parted
       pavucontrol
