@@ -400,6 +400,7 @@ in {
       rofi-systemd
       rofi-top
       rtl-sdr
+      rustup  # Rust toolchain installer
       scrot
       signal-cli
       signal-desktop
