@@ -68,13 +68,6 @@ in {
     rtl-sdr.enable = true;
   };
 
-  fileSystems = {
-    "/".options = [ "compress=zstd" ];
-    "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
-    "/swap".options = [ "noatime" ];
-  };
-
   security = {
     rtkit.enable = true;
 
