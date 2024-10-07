@@ -40,19 +40,19 @@ shape = "Block"
 size = 10.0
 
 [font.bold]
-family = "Hack"
+family = "Inconsolata"
 style = "Bold"
 
 [font.bold_italic]
-family = "Hack"
+family = "Inconsolata"
 style = "Bold Italic"
 
 [font.italic]
-family = "Hack"
+family = "Inconsolata"
 style = "Italic"
 
 [font.normal]
-family = "Hack"
+family = "Inconsolata"
 style = "Regular"
 
 [[keyboard.bindings]]
