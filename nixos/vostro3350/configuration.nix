@@ -100,7 +100,7 @@ in {
 
   networking = {
     hostName = "vostro3350";
-    hostId = "98d39240";
+    hostId = "9f7ff30f";
 
     networkmanager = {
       enable = true;
@@ -305,28 +305,21 @@ in {
     };
   };
 
+  # We are OK with not completely free packages in our system
+  nixpkgs.config.allowUnfree = true;
+
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
       adbfs-rootless  # Mount Android phones on Linux with adb, no root required
       alacritty
-      android-tools  # Android SDK platform tools
-      ardour
       audacity
       baobab  # Used disk space visualizer
       bc
-      brave
-      btrfs-heatmap
-      btrfs-progs
-      btrfs-snap
       calibre
-      calibre-web
       chromium
-      cmake
       coltrane
-      compsize  # Compression ratio calculator for btrfs
-      denemo
       dig
       dmenu
       dunst
@@ -339,15 +332,11 @@ in {
       fish
       freetube
       frescobaldi
-      fuzzel
       fzf
-      gcc13
-      gdb  # GNU debugger
       geeqie
       git
       glmark2
       gnome-maps
-      gnumake
       gnuradio
       gparted
       gqrx
@@ -357,13 +346,11 @@ in {
       htop
       hydrogen
       jackmeter
-      jdk  # The open-source Java Development Kit
       kbd
       libnotify
       libreoffice
       light # Control backlight brightness
       lilypond-with-fonts
-      lldb  # LLVM debugger
       lm_sensors  # Onboard sensor measurement tools
       lshw
       luajit
@@ -378,7 +365,6 @@ in {
       ncmpcpp
       neovim
       networkmanagerapplet  # Provides nm-connection-editor
-      nodejs_22  # Node.JS and NPM
       nushell
       open-in-mpv  # Simple web extension to open videos in mpv
       pamixer  # CLI utilities to control PA & PW audio levels
@@ -400,7 +386,6 @@ in {
       rofi-systemd
       rofi-top
       rtl-sdr
-      rustup  # Rust toolchain installer
       scrot
       signal-cli
       signal-desktop
@@ -413,7 +398,6 @@ in {
       tmux
       tree
       tuxguitar
-      typescript
       universal-ctags
       unzip
       usbutils
@@ -428,9 +412,7 @@ in {
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
-      yewtube
       ymuse  # GUI client for MPD
-      youtube-music
       youtube-tui
       zfs
       zip
@@ -518,5 +500,5 @@ in {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
