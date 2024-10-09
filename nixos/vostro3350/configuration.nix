@@ -18,7 +18,7 @@ in {
   imports = [
     # Include the results of the hardware scan.
     # To redo hardware detection: nixos-generate-config
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   nix.settings.experimental-features = [
