@@ -65,6 +65,12 @@ in {
       package = pkgs.bluez;
     };
 
+    # Scanner support
+    sane = {
+      enable = true;
+      brscan4.enable = true;  # Brother DCP-7060D scanner
+    };
+
     rtl-sdr.enable = true;
   };
 
@@ -194,7 +200,16 @@ in {
 
     blueman.enable = true;
 
-    printing.enable = true;  # Enable CUPS
+    system-config-printer.enable = true;
+
+    printing = {
+      enable = true;  # Enable CUPS
+      cups-pdf.enable = true;
+      browsing = true;  # Advertise shared printers on our LAN
+      drivers = with pkgs; [
+        brlaser  # For Brother DCP-7060D (and others)
+      ];
+    };
 
     udev.packages = [ pkgs.rtl-sdr ];
 
@@ -271,8 +286,10 @@ in {
       extraGroups = [
         "adm"
         "audio"
+        "lp"  # Printer access
         "networkmanager"
         "plugdev"  # For e.g. RTL-SDR
+        "scanner"
         "video"
         "wheel"  # Enable 'sudo' for the user.
       ];
@@ -360,9 +377,11 @@ in {
       rofi-systemd
       rofi-top
       rtl-sdr
+      sane-frontends  # Scanner Access Now Easy
       scrot
       signal-cli
       signal-desktop
+      simple-scan  # Simple paper scanning GUI app
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
       speedtest-cli
@@ -386,6 +405,7 @@ in {
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
+      xsane  # Graphical scanning frontend for sane
       ymuse  # GUI client for MPD
       youtube-tui
       zfs
@@ -461,6 +481,8 @@ in {
         thunar-volman
       ];
     };
+
+    system-config-printer.enable = true;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
