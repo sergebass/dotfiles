@@ -354,7 +354,9 @@ in {
       btrfs-snap
       calibre
       calibre-web
+      ccache  # C++ compiler cache
       chromium
+      clang-tools  # Standalone command line tools for C++ development (clangd, clang-format etc.)
       cmake
       coltrane
       compsize  # Compression ratio calculator for btrfs
