@@ -12,7 +12,7 @@ let
     x11 = "startx (which i3)";
   };
 
-  useDM = false;
+  useDM = true;
 
 in {
   imports = [
@@ -163,6 +163,10 @@ in {
 
     gvfs.enable = true;  # Mount, trash, and other functionalities
 
+    displayManager = {
+        defaultSession = "xfce";
+    };
+
     xserver = {
       enable = true;
 
@@ -178,6 +182,7 @@ in {
 
       desktopManager = {
         xterm.enable = false;
+        xfce.enable = true;
         wallpaper = {
           mode = "max";
           combineScreens = false;
