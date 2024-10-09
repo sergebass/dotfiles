@@ -28,14 +28,23 @@ in {
 
   boot = {
     loader = {
-      # This old laptop does not use UEFI, so stick with GRUB2
+      # Since we reuse existing partitioning from the old laptop, keep the GRUB/MBR setting for now.
       grub = {
         enable = true;
         device = "/dev/sda";
       };
     };
 
-    kernelParams = lib.mkForce [ "verbose" "nosplash" ];
+    kernelParams = lib.mkForce [
+      "verbose"
+      "nosplash"
+
+      # To enable APU/GPU acceleration for AMD "Kaveri" processors we need to be explicit:
+      # (https://en.wikipedia.org/wiki/Graphics_Core_Next#Graphics_Core_Next_2)
+      # For Sea Islands (CIK i.e. GCN 2) cards
+      "radeon.cik_support=0"
+      "amdgpu.cik_support=1"
+    ];
 
     kernel.sysctl = {
       "kernel.sysrq" = 1;  # Enable all SysRq functions
@@ -58,6 +67,18 @@ in {
   };
 
   hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        amdvlk  # AMD/Vulkan support
+        rocmPackages.clr.icd  # AMD Common Language Runtime for hipamd, opencl, and rocclr
+      ];
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+      ];
+    };
+
     pulseaudio.enable = false;  # Use PipeWire instead
 
     bluetooth = {
@@ -66,7 +87,7 @@ in {
       package = pkgs.bluez;
     };
 
-    rtl-sdr.enable = true;
+    rtl-sdr.enable = true;  # For external Software Defined Radio dongles
   };
 
   fileSystems = {
@@ -153,7 +174,7 @@ in {
 
     timesyncd.enable = true;  # Enable NTP
 
-    gpm.enable = true;
+    gpm.enable = true;  # Enable mouse in plain Linux console mode
 
     libinput.enable = true;  # Enable touchpad support
 
@@ -169,6 +190,8 @@ in {
 
     xserver = {
       enable = true;
+
+      videoDrivers = [ "amdgpu" ];
 
       displayManager = {
         startx.enable = ! useDM;
@@ -351,9 +374,10 @@ in {
       fzf
       gcc13
       gdb  # GNU debugger
+      geekbench  # CPU benchmarking tool
       geeqie
       git
-      glmark2
+      glmark2  # OpenGL benchmarking tool (with Wayland support)
       gnome-maps
       gnumake
       gnuradio
