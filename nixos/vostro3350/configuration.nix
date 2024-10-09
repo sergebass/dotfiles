@@ -280,24 +280,28 @@ in {
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users = {
+  users = let
+    powerUserGroups = [
+      "adm"
+      "audio"
+      "lp"  # Printer access
+      "networkmanager"
+      "plugdev"  # For e.g. RTL-SDR
+      "scanner"
+      "video"
+      "wheel"  # Enable 'sudo' for the user.
+    ];
+  in {
     mutableUsers = true;
 
     defaultUserShell = pkgs.fish;
 
-    users."${userName}" = {
-      uid = userId;
-      isNormalUser = true;
-      extraGroups = [
-        "adm"
-        "audio"
-        "lp"  # Printer access
-        "networkmanager"
-        "plugdev"  # For e.g. RTL-SDR
-        "scanner"
-        "video"
-        "wheel"  # Enable 'sudo' for the user.
-      ];
+    users = {
+      "${userName}" = {
+        uid = userId;
+        isNormalUser = true;
+        extraGroups = powerUserGroups;
+      };
     };
   };
 
