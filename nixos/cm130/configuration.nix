@@ -344,6 +344,7 @@ in {
       android-studio-tools
       android-tools  # Android SDK platform tools
       ardour
+      asciidoctor  # A faster Asciidoc processor written in Ruby
       audacity
       baobab  # Used disk space visualizer
       bc
@@ -419,6 +420,7 @@ in {
       nushell
       open-in-mpv  # Simple web extension to open videos in mpv
       pamixer  # CLI utilities to control PA & PW audio levels
+      pandoc  # Converter between documentation formats
       parted
       pavucontrol
       pciutils
