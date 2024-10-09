@@ -362,6 +362,7 @@ in {
       dmenu
       dunst
       exfatprogs
+      fbmark  # Linux framebuffer benchmarking tool
       feh
       ffmpeg
       file
@@ -378,6 +379,7 @@ in {
       geeqie
       git
       glmark2  # OpenGL benchmarking tool (with Wayland support)
+      glxinfo  # Display OpenGL information (glxinfo and eglinfo)
       gnome-maps
       gnumake
       gnuradio
@@ -387,10 +389,12 @@ in {
       gxplugins-lv2
       hddtemp  # HDD temperature measurement tools
       htop
+      hwinfo  # Hardware detection tool from openSUSE
       hydrogen
       jackmeter
       jdk  # The open-source Java Development Kit
       kbd
+      libdrm  # Direct Rendering library and test utilities (e.g. modetest)
       libnotify
       libreoffice
       light # Control backlight brightness
@@ -451,7 +455,11 @@ in {
       unzip
       usbutils
       vifm  # Vi-like File Manager
+      vkmark  # Vulkan benchmarking suite
       vlc
+      vulkan-tools  # Khronos official Vulkan Tools and Utilities
+      wayland-utils  # Wayland utilities (wayland-info)
+      wev  # Wayland event tester (similar to xev for X11)
       wget
       xdg-dbus-proxy  # DBus proxy for Flatpak and others
       xdg-launch  # A command line XDG compliant launcher and tools
