@@ -276,12 +276,11 @@ in {
 
   xdg.portal = {
     enable = true;  # Enable xdg desktop integration (https://github.com/flatpak/xdg-desktop-portal).
-    xdgOpenUsePortal = true;  # Sets environment variable NIXOS_XDG_OPEN_USE_PORTAL to 1. This will make xdg-open use the portal to open programs...
+    xdgOpenUsePortal = false;  # Do not use portal to open programs or web links using xdg-open
     wlr.enable = true;  # Enable desktop portal for wlroots-based desktops.
     lxqt.enable = true;  # Enable the desktop portal for the LXQt desktop environment.
 
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome  # Backend implementation for xdg-desktop-portal for the GNOME desktop environment
       xdg-desktop-portal-gtk  # Desktop integration portals for sandboxed apps
       xdg-desktop-portal-xapp  # Backend implementation for xdg-desktop-portal for Cinnamon, MATE, Xfce
     ];
