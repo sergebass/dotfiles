@@ -404,6 +404,7 @@ in {
       dunst
       exfatprogs
       exiftool  # A tool to read, write and edit EXIF meta information
+      fastfetch  # Like neofetch, but much faster because written in C
       fbmark  # Linux framebuffer benchmarking tool
       feh
       ffmpeg
@@ -563,6 +564,10 @@ in {
       shellAliases = aliases;
       loginShellInit = ''
         set -U fish_greeting ""
+
+        if test "$(tty)" = "/dev/tty1";
+          ${pkgs.fastfetch}/bin/fastfetch
+        end
       '';
     };
 
