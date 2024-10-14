@@ -157,7 +157,7 @@ if executable('clangd')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
         \ 'cmd': {server_info->['clangd', '-background-index']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ 'whitelist': ['c', 'cpp', 'cc', 'objc', 'objcpp'],
         \ })
 endif
 
@@ -168,7 +168,7 @@ if executable('ccls')
       \ 'cmd': {server_info->['ccls']},
       \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
       \ 'initialization_options': {'cache': {'directory': expand('~/.cache/ccls') }},
-      \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ 'allowlist': ['c', 'cpp', 'cc', 'objc', 'objcpp'],
       \ })
 endif
 
