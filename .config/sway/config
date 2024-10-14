@@ -17,7 +17,7 @@ input type:keyboard {
     xkb_layout "us(altgr-intl),ua"
     xkb_options "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr"
     xkb_capslock disabled
-    xkb_numlock enabled
+    xkb_numlock disabled
 }
 
 input type:pointer {
@@ -45,6 +45,7 @@ for_window {
     [shell="xwayland"] title_format "X11 ┃ %title"
 
     # Force message dialog windows to be floating at all times
+    # (Windows can still be manually floated/unfloated with $mod+Shift+Space)
     [app_id="gxmessage"] floating enable
 }
 
