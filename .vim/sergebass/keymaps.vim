@@ -7,20 +7,21 @@
 
 " Quick shortcuts to change input methods/keyboard layouts
 
-" Latin with dead characters
+" Latin with dead characters (covers most Western/Central European languages)
 nnoremap \kl :set keymap=accents<CR>
-" Russian (JCUKEN)
-nnoremap \kr :set keymap=russian-jcuken<CR>
-" Ukrainian (JCUKEN)
+" Ukrainian (ЙЦУКЕН)
 nnoremap \ku :set keymap=ukrainian-jcuken<CR>
+" Russian (ЙЦУКЕН)
+nnoremap \kr :set keymap=russian-jcuken<CR>
 
 " since "S" is equivalent to "cc", reuse it to save all buffers
-nnoremap S :wa<CR>
+noremap S <Cmd>wa<CR>
 
 " since "Q" is equivalent to "gQ" and is rarely used, reuse it to close all windows and quit
-nnoremap Q :qa<CR>
+noremap Q <Cmd>qa<CR>
 
 " Remove all hidden buffers without windows
+" Here we do not use <Cmd> to ensure this operation is visible
 nnoremap \Q :DeleteHiddenBuffers<CR>
 
 " since "Y" is normally equivalent to "yy", make Y copy to the end of line:
@@ -29,12 +30,10 @@ nnoremap Y y$
 
 " an alternative way to quickly save the file being edited
 " (make sure to turn off terminal flow control via Ctrl+S/Q)
-inoremap <C-S> <C-O>:update<CR>
-noremap <C-S> :update<CR>
-vnoremap <C-S> <C-C>:update<CR>
+noremap <C-S> <Cmd>update<CR>
 
 " since "C-Q" is equivalent to "C-V", use <C-Q> to delete current buffer
-nnoremap <C-Q> :bdelete<CR>
+noremap <C-Q> <Cmd>bdelete<CR>
 
 " copying/pasting/deleting tweaks
 
@@ -65,20 +64,20 @@ vnoremap <Del> "_d
 nnoremap <Del> "_x
 
 " Quickly toggle line wrapping
-nnoremap \W :set wrap!<CR>
+noremap \W <Cmd>set wrap!<CR>
 
 " session management accelerators (don't forget to add .vim extension!)
 " nnoremap \# :mksession! Session
 " nnoremap \@ :source Session
 
-nnoremap <C-N> :Tags!<CR>
-nnoremap <C-P> :GFiles!<CR>
+noremap <C-N> <Cmd>Tags!<CR>
+noremap <C-P> <Cmd>GFiles!<CR>
 
 nnoremap <BS> <C-O>
 
 " for quicker navigation between location with changes
-nnoremap <M-Tab> g,
-nnoremap <M-BS> g;
+noremap <M-Tab> g,
+noremap <M-BS> g;
 
 " emulate Spacemacs/SpaceVim
 
@@ -86,33 +85,34 @@ nnoremap <Space><Space> :
 nnoremap <Space><Tab> <C-^>
 
 nnoremap <Space>h<Space> :h<CR>
-nnoremap <Space>? :Maps!<CR>
-nnoremap <Space>hk :Maps!<CR>
+noremap <Space>? <Cmd>Maps!<CR>
+noremap <Space>hk <Cmd>Maps!<CR>
 nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
-nnoremap <Space>\? :Commands!<CR>
+noremap <Space>\? <Cmd>Commands!<CR>
 
-nnoremap <Space>qq :qa<CR>
-nnoremap <Space>qQ :qa!<CR>
+noremap <Space>qq <Cmd>qa<CR>
+noremap <Space>qQ <Cmd>qa!<CR>
 
-nnoremap <Space>ff :Files!<CR>
-nnoremap <Space>fr :call fzf#vim#history(1)<CR>
-nnoremap <Space>fs :w<CR>
-nnoremap <Space>fS :wa<CR>
+noremap <Space>ff <Cmd>Files!<CR>
+noremap <Space>fr <Cmd>call fzf#vim#history(1)<CR>
+noremap <Space>fs <Cmd>w<CR>
+noremap <Space>fS <Cmd>wa<CR>
 nnoremap <Space>fy <C-G>
-nnoremap <Space>ft :NERDTreeToggle<CR>
-nnoremap <Space>fed :new<CR>:e $MYVIMRC<CR>
+noremap <Space>ft <Cmd>NERDTreeToggle<CR>
+noremap <Space>fed <Cmd>new<CR>:e $MYVIMRC<CR>
+
 if has("win32")
-    nnoremap <Space>fei :new<CR>:e ~/vimfiles/vimrc<CR>
+    noremap <Space>fei <Cmd>new<CR>:e ~/vimfiles/vimrc<CR>
 else
-    nnoremap <Space>fei :new<CR>:e ~/.vim/vimrc<CR>
+    noremap <Space>fei <Cmd>new<CR>:e ~/.vim/vimrc<CR>
 endif
 
-nnoremap <Space>bb :call fzf#vim#buffers(1)<CR>
-nnoremap <Space>bd :bdelete<CR>
-nnoremap <Space>bn :bnext<CR>
-nnoremap <Space>bp :bprev<CR>
-nnoremap <Space>bR :e!<CR>
+noremap <Space>bb <Cmd>call fzf#vim#buffers(1)<CR>
+noremap <Space>bd <Cmd>bdelete<CR>
+noremap <Space>bn <Cmd>bnext<CR>
+noremap <Space>bp <Cmd>bprev<CR>
+noremap <Space>bR <Cmd>e!<CR>
 nnoremap <Space>bY gg"+yG
 nnoremap <Space>bP ggvG"+p
 
@@ -207,9 +207,9 @@ nmap <Space>cc <Space>pc
 nmap <Space>cr <Space>pr
 
 " error navigation
-nnoremap <Space>el :cw<CR>
-nnoremap <Space>en :cnext<CR>
-nnoremap <Space>ep :cprev<CR>
+noremap <Space>el <Cmd>cw<CR>
+noremap <Space>en <Cmd>cnext<CR>
+noremap <Space>ep <Cmd>cprev<CR>
 nnoremap <Space>ec :ClearQuickfixList<CR>
 
 " code commenting
@@ -274,10 +274,11 @@ nnoremap \gB :diffget _BASE_<CR>
 nnoremap \gm :GMove<Space>
 nnoremap \gr :GRename<Space>
 nnoremap \gx :GBrowse<CR>
-nnoremap \gza :GitGutterFold<CR>
-nnoremap \ghp :GitGutterPreviewHunk<CR>
-nnoremap \ghs :GitGutterStageHunk<CR>
-nnoremap \ghu :GitGutterUndoHunk<CR>
+
+noremap \gza <Cmd>GitGutterFold<CR>
+noremap \ghp <Cmd>GitGutterPreviewHunk<CR>
+noremap \ghs <Cmd>GitGutterStageHunk<CR>
+noremap \ghu <Cmd>GitGutterUndoHunk<CR>
 
 " An easier way to see git change history for a current line or selection
 nnoremap \gfh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filetype=git buftype=nofile<CR>gg
@@ -288,9 +289,9 @@ nnoremap \sfh :execute 'new <bar> 0r !svn log -v --diff #'<CR>:set readonly file
 nnoremap \sfb :execute 'new <bar> 0r !svn ann -v #'<CR>:set readonly filetype=svn buftype=nofile<CR>gg
 
 " miscellaneous UI toggles
-nnoremap <Space>tn :set number!<CR>
-nnoremap <Space>thh :set cursorline!<CR>
-nnoremap <Space>thc :set cursorcolumn!<CR>
+noremap <Space>tn <Cmd>set number!<CR>
+noremap <Space>thh <Cmd>set cursorline!<CR>
+noremap <Space>thc <Cmd>set cursorcolumn!<CR>
 
 " the stock shortcut to exit terminal mode is cumbersome, let's change it
 " use the same shortcut for convenience
@@ -330,12 +331,12 @@ map \0 <F10>
 " navigation mappings
 
 " Tab navigation (using Meta/Alt key)
-nnoremap <silent> <M-[> :tabprev<CR>
-nnoremap <silent> <M-]> :tabnext<CR>
+noremap <M-[> <Cmd>tabprev<CR>
+noremap <M-]> <Cmd>tabnext<CR>
 
 " a quicker way to move tabs around
-nnoremap <silent> <M-{> :tabmove-<CR>
-nnoremap <silent> <M-}> :tabmove+<CR>
+noremap <M-{> <Cmd>tabmove-<CR>
+noremap <M-}> <Cmd>tabmove+<CR>
 
 " move between windows (without arrows)
 nnoremap <silent> <M-h> <C-w>h
@@ -371,7 +372,7 @@ vnoremap <silent> <S-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:
 onoremap <silent> H :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
 onoremap <silent> L :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
 
-" Make jumping to the next method/function faster (for languages with Java/C++ style curly braces)
+" Make jumping to the next method/function faster (for languages with curly braces denoting methods/functions)
 nnoremap <silent> <C-j> ]m
 nnoremap <silent> <C-k> [m
 
@@ -404,19 +405,19 @@ nnoremap <Space>8 8gt
 nnoremap <Space>9 9gt
 nnoremap <Space>0 10gt
 
-" Tab navigation (for reduced keyboards)
-nnoremap <silent> <Space><CR> :tabnew<CR>
-nnoremap <silent> <Space><M-CR> :tabnew<CR>:tabmove 0<CR>
-nnoremap <silent> <Space><BS> :tabclose<CR>
-nnoremap <silent> <Space><M-BS> :tabonly<CR>
+" Tab navigation (for reduced size keyboards)
+noremap <Space><CR> <Cmd>tabnew<CR>
+noremap <Space><M-CR> <Cmd>tabnew<CR><Cmd>tabmove 0<CR>
+noremap <Space><BS> <Cmd>tabclose<CR>
+noremap <Space><M-BS> <Cmd>tabonly<CR>
 
 " Tab navigation (using spacemacs prefix on bigger keyboards)
-nnoremap <silent> <Space><Insert> :tabnew<CR>
-nnoremap <silent> <Space><Del> :tabclose<CR>
-nnoremap <silent> <Space><Home> :tabfirst<CR>
-nnoremap <silent> <Space><End> :tablast<CR>
-nnoremap <silent> <Space><PageUp> :tabprev<CR>
-nnoremap <silent> <Space><PageDown> :tabnext<CR>
+noremap <Space><Insert> <Cmd>tabnew<CR>
+noremap <Space><Del> <Cmd>tabclose<CR>
+noremap <Space><Home> <Cmd>tabfirst<CR>
+noremap <Space><End> <Cmd>tablast<CR>
+noremap <Space><PageUp> <Cmd>tabprev<CR>
+noremap <Space><PageDown> <Cmd>tabnext<CR>
 
 " allow user to choose where to move the tab (empty input causes it to move to the very end)
 nnoremap <Space>\<BS> :tabmove<Space>
@@ -430,67 +431,67 @@ noremap <silent> <M-(> 4<C-w>-
 " Miscellaneous useful search/navigation stuff
 
 " using FZF
-nnoremap <silent> \fzF :Filetypes<CR>
-nnoremap <silent> \fz\| :GFiles?<CR>
-nnoremap <silent> \fzt :BTags<CR>
-nnoremap <silent> \fzg :BCommits<CR>
-nnoremap <silent> \fzG :Commits<CR>
-nnoremap <silent> \fzw :Windows<CR>
-nnoremap <silent> \fzm :Marks<CR>
-nnoremap <silent> \fzc :Commands<CR>
+noremap \fzF <Cmd>Filetypes<CR>
+noremap \fz\| <Cmd>GFiles?<CR>
+noremap \fzt <Cmd>BTags<CR>
+noremap \fzg <Cmd>BCommits<CR>
+noremap \fzG <Cmd>Commits<CR>
+noremap \fzw <Cmd>Windows<CR>
+noremap \fzm <Cmd>Marks<CR>
+noremap \fzc <Cmd>Commands<CR>
 
 " using CtrlP
-nnoremap <silent> \pr :CtrlPMRUFiles<CR>
-nnoremap <silent> \pf :CtrlP<CR>
-nnoremap <silent> \pb :CtrlPBuffer<CR>
-nnoremap <silent> \pt :CtrlPTag<CR>
-nnoremap <silent> \pm :CtrlPBookmark<CR>
-nnoremap <silent> \pc :CtrlPChange<CR>
-nnoremap <silent> \px :CtrlPMixed<CR>
+noremap \pr <Cmd>CtrlPMRUFiles<CR>
+noremap \pf <Cmd>CtrlP<CR>
+noremap \pb <Cmd>CtrlPBuffer<CR>
+noremap \pt <Cmd>CtrlPTag<CR>
+noremap \pm <Cmd>CtrlPBookmark<CR>
+noremap \pc <Cmd>CtrlPChange<CR>
+noremap \px <Cmd>CtrlPMixed<CR>
 
 " using NERDTree
-nnoremap <silent> \<Tab> :NERDTreeFind<CR>
-" nnoremap <silent> \<M-Tab> :NERDTreeToggle<CR>
+noremap \<Tab> <Cmd>NERDTreeFind<CR>
+" noremap \<M-Tab> <Cmd>NERDTreeToggle<CR>
 
 " using netrw
-nnoremap <silent> \<M-Tab> :Lexplore<CR>
+noremap \<M-Tab> <Cmd>Lexplore<CR>
 
-nnoremap <silent> \fr :browse oldfiles<CR>
+noremap \fr <Cmd>browse oldfiles<CR>
 nnoremap  \lf :LocateFiles<Space>
 nnoremap  \ff :FindFiles<Space>
 
 " local tag navigation
-nnoremap <silent> gO :TagbarOpen fjc<CR>
+noremap gO <Cmd>TagbarOpen fjc<CR>
 
-nnoremap <silent> \<BS> :TagbarOpen fjc<CR>
-" nnoremap <silent> \<M-BS> :TagbarToggle<CR>
-nnoremap <silent> \<M-BS> :MinimapToggle<CR>
+noremap \<BS> <Cmd>TagbarOpen fjc<CR>
+" noremap \<M-BS> <Cmd>TagbarToggle<CR>
+noremap \<M-BS> <Cmd>MinimapToggle<CR>
 
 " quickly close both quickfix and location list windows
-noremap <silent> \_ :lclose<CR>:cclose<CR>
+noremap \_ <Cmd>lclose<CR><Cmd>cclose<CR>
 
 " facilitate quickfix navigation (emulate vim-unimpaired when possible)
-nnoremap <silent> [Q :cfirst<CR>
-nnoremap <silent> ]Q :clast<CR>
-nnoremap <silent> [q :cprev<CR>
-nnoremap <silent> ]q :cnext<CR>
-nnoremap <silent> [<C-Q> :cpfile<CR>
-nnoremap <silent> ]<C-Q> :cnfile<CR>
-nnoremap <silent> [<M-Q> :colder<CR>
-nnoremap <silent> ]<M-Q> :cnewer<CR>
+noremap [Q <Cmd>cfirst<CR>
+noremap ]Q <Cmd>clast<CR>
+noremap [q <Cmd>cprev<CR>
+noremap ]q <Cmd>cnext<CR>
+noremap [<C-Q> <Cmd>cpfile<CR>
+noremap ]<C-Q> <Cmd>cnfile<CR>
+noremap [<M-Q> <Cmd>colder<CR>
+noremap ]<M-Q> <Cmd>cnewer<CR>
 
 " clear quickfix list (useful for incremental results of grepadd or vimgrepadd)
 nnoremap \<Del> :ClearQuickfixList<CR>
 
 " facilitate location list navigation (emulate vim-unimpaired when possible)
-nnoremap <silent> [L :lfirst<CR>
-nnoremap <silent> ]L :llast<CR>
-nnoremap <silent> [l :lprev<CR>
-nnoremap <silent> ]l :lnext<CR>
-nnoremap <silent> [<C-L> :lpfile<CR>
-nnoremap <silent> ]<C-L> :lnfile<CR>
-nnoremap <silent> [<M-L> :lolder<CR>
-nnoremap <silent> ]<M-L> :lnewer<CR>
+noremap [L <Cmd>lfirst<CR>
+noremap ]L <Cmd>llast<CR>
+noremap [l <Cmd>lprev<CR>
+noremap ]l <Cmd>lnext<CR>
+noremap [<C-L> <Cmd>lpfile<CR>
+noremap ]<C-L> <Cmd>lnfile<CR>
+noremap [<M-L> <Cmd>lolder<CR>
+noremap ]<M-L> <Cmd>lnewer<CR>
 
 " clear location list (useful for incremental results of lgrepadd or lvimgrepadd)
 nnoremap \<M-Del> :ClearLocationList<CR>
@@ -580,8 +581,10 @@ vnoremap \r "hy:.,$s/<C-r>h/<C-r>=expand("<cword>")<CR>/gc<left><left><left>
 " search the word under cursor in files under current directory and replace it with another text
 nnoremap \% :FindAndReplaceText grep\ -w <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
 
-" autocompletion like in many IDEs (Ctrl+Space);
-" note that this does not work properly in terminals, only in gvim
+" Allow Ctrl+Space to trigger autocompletion in insert mode, like in some IDEs.
+" This uses user-mode completion (while Tab often triggers omnicompletion).
+" Note that our tmux configuration uses Ctrl+Space as a prefix, so this has to
+" be pressed twice for vim/neovim to get the sequence.
 inoremap <silent> <C-Space> <C-x><C-u>
 
 " whitespace cleanup: replace tabs with spaces, remove redundant lines, strip all redundant/trailing whitespace
@@ -623,52 +626,52 @@ let g:multi_cursor_quit_key            = '<Esc>'
 if has("nvim")
 
     " jump to definition of the symbol under cursor
-    nmap <silent> <CR> <cmd>lua vim.lsp.buf.definition()<CR>
+    nmap <CR> <Cmd>lua vim.lsp.buf.definition()<CR>
 
-    nmap <silent> \<Bar> <cmd>lua vim.lsp.buf.code_action()<CR>
+    nmap \<Bar> <Cmd>lua vim.lsp.buf.code_action()<CR>
 
-    nmap <silent> \K <cmd>lua vim.lsp.buf.hover()<CR>
-    nmap <silent> \gt <cmd>lua vim.lsp.buf.type_definition()<CR>
-    nmap <silent> \gd <cmd>lua vim.lsp.buf.definition()<CR>
-    nmap <silent> \gD <cmd>lua vim.lsp.buf.declaration()<CR>
-    nmap <silent> \gi <cmd>lua vim.lsp.buf.implementation()<CR>
-    nmap <silent> \gO <cmd>lua vim.lsp.buf.document_symbol()<CR>
-    nmap <silent> \go <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-    nmap <silent> \= <cmd>lua vim.lsp.buf.rename()<CR>
-    nmap <silent> \^ <cmd>lua vim.lsp.buf.references()<CR>
-    nmap <silent> \* <cmd>lua vim.lsp.buf.document_highlight()<CR>
-    nmap <silent> \+ <Plug>(lcn-explain-error)
+    nmap \K <Cmd>lua vim.lsp.buf.hover()<CR>
+    nmap \gt <Cmd>lua vim.lsp.buf.type_definition()<CR>
+    nmap \gd <Cmd>lua vim.lsp.buf.definition()<CR>
+    nmap \gD <Cmd>lua vim.lsp.buf.declaration()<CR>
+    nmap \gi <Cmd>lua vim.lsp.buf.implementation()<CR>
+    nmap \gO <Cmd>lua vim.lsp.buf.document_symbol()<CR>
+    nmap \go <Cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+    nmap \= <Cmd>lua vim.lsp.buf.rename()<CR>
+    nmap \^ <Cmd>lua vim.lsp.buf.references()<CR>
+    nmap \* <Cmd>lua vim.lsp.buf.document_highlight()<CR>
+    nmap \+ <Plug>(lcn-explain-error)
 
     " -----------------------
     " Spacemacs-style keymaps
     " -----------------------
 
     " jump to definition of the symbol under cursor
-    nmap <silent> <Space>mgg <cmd>lua vim.lsp.buf.definition()<CR>
+    nmap <Space>mgg <Cmd>lua vim.lsp.buf.definition()<CR>
 
     " rename symbol under cursor
-    nmap <silent> <Space>mrr <cmd>lua vim.lsp.buf.rename()<CR>
+    nmap <Space>mrr <Cmd>lua vim.lsp.buf.rename()<CR>
 
     " display help about symbol under cursor
-    nmap <silent> <Space>mhh <cmd>lua vim.lsp.buf.hover()<CR>
+    nmap <Space>mhh <Cmd>lua vim.lsp.buf.hover()<CR>
 
     " SPC m g &     find references (address)
-    " nmap <silent> <Space>mg& <cmd>lua vim.lsp.buf.()<CR>
+    " nmap <Space>mg& <Cmd>lua vim.lsp.buf.()<CR>
 
     " SPC m g R     find references (read)
-    " nmap <silent> <Space>mgR <cmd>lua vim.lsp.buf.()<CR>
+    " nmap <Space>mgR <Cmd>lua vim.lsp.buf.()<CR>
 
     " SPC m g W     find references (write)
-    " nmap <silent> <Space>mgW <cmd>lua vim.lsp.buf.()<CR>
+    " nmap <Space>mgW <Cmd>lua vim.lsp.buf.()<CR>
 
     " SPC m g c     find callers
-    nmap <silent> <Space>mgc <cmd>lua vim.lsp.buf.incoming_calls()<CR>
+    nmap <Space>mgc <Cmd>lua vim.lsp.buf.incoming_calls()<CR>
 
     " SPC m g C     find callees
-    nmap <silent> <Space>mgC <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
+    nmap <Space>mgC <Cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 
     " SPC m g v     vars
-    " nmap <silent> <Space>mgv <cmd>lua vim.lsp.buf.()<CR>
+    " nmap <Space>mgv <Cmd>lua vim.lsp.buf.()<CR>
 
 else  " use 3rd-party language client(s) otherwise
 
@@ -685,7 +688,7 @@ else  " use 3rd-party language client(s) otherwise
     " nmap <silent> \gD <Plug>(lcn-FIXME)
     nmap <silent> \gi <Plug>(lcn-implementation)
     nmap <silent> \gO <Plug>(lcn-symbols)
-    nmap <silent> \go <cmd>call LanguageClient#workspace_symbol()<CR>
+    nmap \go <Cmd>call LanguageClient#workspace_symbol()<CR>
     nmap <silent> \= <Plug>(lcn-rename)
     nmap <silent> \^ <Plug>(lcn-references)
     nmap <silent> \* <Plug>(lcn-highlight)
@@ -711,7 +714,7 @@ endif
 " -----------------------------------------------------
 
 " switch to another/accompanying source (e.g. source-header) file in the same window
-nmap <silent> <Space>mga :call LanguageClient#textDocument_switchSourceHeader()<CR>
+nmap <Space>mga <Cmd>call LanguageClient#textDocument_switchSourceHeader()<CR>
 
 " switch to another/accompanying source (e.g. source-header) file in a vertical split
 nmap <silent> <Space>mgA :vsplit <bar> call LanguageClient#textDocument_switchSourceHeader()<CR>
