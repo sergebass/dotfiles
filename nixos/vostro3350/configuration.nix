@@ -412,6 +412,7 @@ in {
       xdg-terminal-exec  # Reference implementation of the proposed XDG Default Terminal Execution Specification
       xdg-user-dirs  # A tool to help manage well known user directories like the desktop folder and the music folder
       xdg-utils  # A set of command line tools that assist applications with a variety of desktop integration tasks
+      xfce.xfce4-sensors-plugin  # Panel plug-in for different sensors using acpi, lm_sensors and hddtemp
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
