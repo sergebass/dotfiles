@@ -278,6 +278,7 @@ in {
       dig
       dmenu
       dunst
+      fastfetch  # Like neofetch, but much faster because written in C
       feh
       file
       findutils
@@ -344,6 +345,10 @@ in {
       shellAliases = aliases;
       loginShellInit = ''
         set -U fish_greeting ""
+
+        if test "$(tty)" = "/dev/tty1";
+          ${pkgs.fastfetch}/bin/fastfetch
+        end
       '';
     };
 
