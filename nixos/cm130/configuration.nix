@@ -429,6 +429,7 @@ in {
       htop
       hwinfo  # Hardware detection tool from openSUSE
       hydrogen
+      jack2.dev  # JACK audio connection kit, version 2 with jackdbus
       jackmeter
       jdk  # The open-source Java Development Kit
       kbd
