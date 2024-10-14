@@ -869,4 +869,3 @@ let g:rbpt_colorpairs = [
     \ ['226', '#ffff00'],
     \ ['45', '#00d7ff'],
     \ ]
-

@@ -37,8 +37,8 @@ hi User9 term=NONE cterm=NONE ctermfg=grey ctermbg=blue gui=NONE guifg=#b2b2b2 g
 
 hi Cursor term=NONE cterm=NONE ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
 hi CursorIM term=NONE cterm=NONE ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
-hi CursorLine term=underline cterm=NONE ctermbg=237 gui=NONE guibg=#404030
-hi CursorColumn term=NONE cterm=NONE ctermbg=237 gui=NONE guibg=#404030
+hi CursorLine term=underline cterm=NONE ctermbg=235 gui=NONE guibg=#262626
+hi CursorColumn term=NONE cterm=NONE ctermbg=235 gui=NONE guibg=#262626
 hi CursorLineNr term=bold cterm=bold ctermfg=246 ctermbg=0 gui=bold guifg=#949494 guibg=#000000
 hi LineNr term=NONE cterm=NONE ctermfg=240 ctermbg=0 gui=NONE guifg=#606060 guibg=#000000
 
@@ -873,4 +873,3 @@ let g:rbpt_colorpairs = [
     \ ['226', '#ffff00'],
     \ ['45', '#00d7ff'],
     \ ]
-
