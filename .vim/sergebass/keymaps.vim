@@ -529,12 +529,12 @@ inoremap <M-/> <C-r>=expand("%:p")<CR>
 cnoremap <M-\> <C-r>=expand("%:t")<CR>
 inoremap <M-\> <C-r>=expand("%:t")<CR>
 
-" by default (may be overridden in format-specific scripts),
-" use ctags for jumping, with selection between multiple candidates
-nnoremap <CR> g<C-]>
+" Jump to a symbol definition in a new window, with a vertical or horizontal split
+" Note that the <CR> keymap is defined elsewhere.
 nmap \<CR> <C-W>v<CR>
 nmap -<CR> <C-W>s<CR>
 
+" Make it possible to jump to definitions using mouse
 nmap <C-LeftMouse> <CR>
 nmap <M-LeftMouse> \<CR>
 nmap <M-C-LeftMouse> -<CR>
@@ -619,6 +619,9 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " Neovim 0.5.0+ has built-in LSP client, use it by default
 if has("nvim")
 
+    " jump to definition of the symbol under cursor
+    nmap <silent> <CR> <cmd>lua vim.lsp.buf.definition()<CR>
+
     nmap <silent> \<Bar> <cmd>lua vim.lsp.buf.code_action()<CR>
 
     nmap <silent> \K <cmd>lua vim.lsp.buf.hover()<CR>
@@ -632,6 +635,10 @@ if has("nvim")
     nmap <silent> \^ <cmd>lua vim.lsp.buf.references()<CR>
     nmap <silent> \* <cmd>lua vim.lsp.buf.document_highlight()<CR>
     nmap <silent> \+ <Plug>(lcn-explain-error)
+
+    " -----------------------
+    " Spacemacs-style keymaps
+    " -----------------------
 
     " jump to definition of the symbol under cursor
     nmap <silent> <Space>mgg <cmd>lua vim.lsp.buf.definition()<CR>
@@ -662,6 +669,11 @@ if has("nvim")
 
 else  " use 3rd-party language client(s) otherwise
 
+    " The "lcn-" functions are provided by LanguageClient plugin
+
+    " jump to definition of the symbol under cursor
+    nmap <silent> <CR> <Plug>(lcn-definition)
+
     nmap <silent> \<Bar> <Plug>(lcn-menu)
 
     nmap <silent> \K <Plug>(lcn-hover)
@@ -676,7 +688,9 @@ else  " use 3rd-party language client(s) otherwise
     nmap <silent> \* <Plug>(lcn-highlight)
     nmap <silent> \+ <Plug>(lcn-explain-error)
 
-    " use LanguageClient as default filetype-specific mappings
+    " -----------------------
+    " Spacemacs-style keymaps
+    " -----------------------
 
     " jump to definition of the symbol under cursor
     nmap <silent> <Space>mgg <Plug>(lcn-definition)
@@ -689,7 +703,9 @@ else  " use 3rd-party language client(s) otherwise
 
 endif
 
-" spacemacs-like LSP bindings shared between neovim and vim:
+" -----------------------------------------------------
+" Spacemacs-style keymaps shared between neovim and vim
+" -----------------------------------------------------
 
 " switch to another/accompanying source (e.g. source-header) file in the same window
 nmap <silent> <Space>mga :call LanguageClient#textDocument_switchSourceHeader()<CR>
