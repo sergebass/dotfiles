@@ -266,6 +266,9 @@ in {
     };
   };
 
+  # We are OK with not completely free packages in our system
+  nixpkgs.config.allowUnfree = true;
+
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
