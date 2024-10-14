@@ -37,6 +37,9 @@ bar {
     separator_symbol " ┃ "
 }
 
+# Toggle sticky mode for the current window
+$bindkeys $mod+Mod1+s sticky toggle
+
 # Toggle status bar mode between dock and hide
 $bindkeys $mod+Mod1+Delete bar mode toggle
 
