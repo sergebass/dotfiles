@@ -87,6 +87,25 @@ in {
       package = pkgs.bluez;
     };
 
+    # Uncomment to connect to an explicit printer
+    # printers = let
+    #   printerHost = "192.168.111.3";
+    # in {
+    #   ensurePrinters = [
+    #     {
+    #       name = "Brother-DCP-7060D";
+    #       description = "Laser monochrome printer & scanner";
+    #       location = "Basement";
+    #       deviceUri = "http://${printerHost}:631/printers/DCP-7060D";
+    #       model = "drv:///brlaser.drv/br7060d.ppd";
+    #       ppdOptions = {
+    #         PageSize = "Letter";
+    #       };
+    #     }
+    #   ];
+    #   ensureDefaultPrinter = "Brother-DCP-7060D";
+    # };
+
     # Scanner support
     sane = {
       enable = true;
