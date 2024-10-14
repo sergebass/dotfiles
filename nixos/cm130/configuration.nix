@@ -518,6 +518,7 @@ in {
       sox
       speedtest-rs  # Command line internet speedtest tool written in rust
       sway-launcher-desktop  # Note that this tool is not really tied to sway at all
+      system-config-printer  # Printer configuration/pipeline control UI
       thunderbird
       tig
       tmux
