@@ -101,6 +101,16 @@ in {
     hostName = "vostro3350";
     hostId = "9f7ff30f";
 
+    firewall = {
+      enable = true;
+      # allowedTCPPorts = [
+      #   631  # CUPS
+      # ];
+      # allowedUDPPorts = [
+      #   631  # CUPS
+      # ];
+    };
+
     networkmanager = {
       enable = true;
 
@@ -213,8 +223,12 @@ in {
       webInterface = true;  # Enable CUPS web UI as well
       browsing = true;  # Advertise local printers on our LAN
       browsed.enable = false;  # But do not browse for external printers (https://www.evilsocket.net/2024/09/26/Attacking-UNIX-systems-via-CUPS-Part-I/)
-      listenAddresses = [ "*:631" ];  # The CUPS port
-      allowFrom = [ "all" ];
+      listenAddresses = [
+        "*:631"
+      ];
+      allowFrom = [
+        "all"
+      ];
       openFirewall = true;  # Open ports for listenAddresses
       defaultShared = true;  # Local printers are shared by default.
       cups-pdf.enable = true;  # Enable the virtual PDF printer backend
