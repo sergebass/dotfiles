@@ -140,6 +140,15 @@ Plug 'prabirshrestha/async.vim'
 " async language server protocol plugin for vim and neovim
 Plug 'prabirshrestha/vim-lsp'
 
+" Rust language server
+if executable('rust-analyzer')
+    au User lsp_setup call lsp#register_server({
+        \   'name': 'Rust Language Server',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'whitelist': ['rust'],
+        \ })
+endif
+
 " register clangd C/C++/Objective C LSP server for vim-lsp plugin
 " (the -background-index option is not available in clangd-7)
         " \ 'cmd': {server_info->['clangd', '-background-index']},
