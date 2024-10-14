@@ -324,6 +324,7 @@ in {
       dmenu
       dunst
       exfatprogs
+      fastfetch  # Like neofetch, but much faster because written in C
       feh
       ffmpeg
       file
@@ -447,6 +448,10 @@ in {
       shellAliases = aliases;
       loginShellInit = ''
         set -U fish_greeting ""
+
+        if test "$(tty)" = "/dev/tty1";
+          ${pkgs.fastfetch}/bin/fastfetch
+        end
       '';
     };
 
@@ -490,8 +495,6 @@ in {
         thunar-volman
       ];
     };
-
-    system-config-printer.enable = true;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
