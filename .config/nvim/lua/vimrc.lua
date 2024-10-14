@@ -44,3 +44,21 @@ lspconfig.clangd.setup({
     fallback_flags = { '-std=c++23', '-I/usr/include/c++/12' },
   },
 })
+
+-- typescript-language-server (Typescript & Javascript)
+lspconfig.ts_ls.setup({
+    init_options = {
+        plugins = {
+            {
+                name = "@vue/typescript-plugin",
+                location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+                languages = {"javascript", "typescript", "vue"},
+            },
+        },
+    },
+    filetypes = {
+        "javascript",
+        "typescript",
+        "vue",
+    },
+})

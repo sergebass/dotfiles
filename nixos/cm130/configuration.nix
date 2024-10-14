@@ -506,7 +506,7 @@ in {
       tree
       tuxguitar
       typescript
-      typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (FIXME needed?)
+      typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (https://github.com/typescript-language-server/typescript-language-server)
       universal-ctags
       unzip
       usbutils

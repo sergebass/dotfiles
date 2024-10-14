@@ -178,7 +178,7 @@ if executable('typescript-language-server')
         \ 'name': 'typescript-language-server',
         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript'],
+        \ 'whitelist': ['typescript', 'javascript'],
         \ })
 endif
 
@@ -213,7 +213,6 @@ Plug 'm-pilia/vim-ccls'
 " Plug 'ycm-core/YouCompleteMe'
 
 " ALE (Asynchronous Lint Engine)
-" FIXME note that the user was renamed from w0rp
 Plug 'dense-analysis/ale'
 
 " Vim configuration for Rust.
@@ -238,7 +237,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'PProvost/vim-ps1'
 
 " A Vim plugin for TypeScript
-Plug 'Quramy/tsuquyomi'
+" Plug 'Quramy/tsuquyomi'
 
 " Integration of Scala into Vim
 Plug 'derekwyatt/vim-scala'
