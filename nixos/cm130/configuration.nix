@@ -344,9 +344,11 @@ in {
       android-studio-tools
       android-tools  # Android SDK platform tools
       ardour
+      arduino-language-server  # Arduino Language Server based on Clangd to Arduino code autocompletion
       asciidoctor  # A faster Asciidoc processor written in Ruby
       audacity
       baobab  # Used disk space visualizer
+      bash-language-server  # A language server for Bash
       bc
       brave
       btrfs-heatmap
@@ -393,6 +395,7 @@ in {
       chromium
       clang-tools  # Standalone command line tools for C++ development (clangd, clang-format etc.)
       cmake
+      cmake-language-server  # CMake LSP Implementation
       coltrane
       compsize  # Compression ratio calculator for btrfs
       denemo
@@ -425,6 +428,7 @@ in {
       gqrx
       guitarix
       gxplugins-lv2
+      haskell-language-server  # LSP server for GHC
       hddtemp  # HDD temperature measurement tools
       htop
       hwinfo  # Hardware detection tool from openSUSE
@@ -433,6 +437,7 @@ in {
       jackmeter
       jdk  # The open-source Java Development Kit
       kbd
+      kotlin-language-server  # kotlin language server
       libdrm  # Direct Rendering library and test utilities (e.g. modetest)
       libnotify
       libreoffice
@@ -441,6 +446,7 @@ in {
       lldb  # LLVM debugger
       lm_sensors  # Onboard sensor measurement tools
       lshw
+      lua-language-server  # Language server that offers Lua language support
       luajit
       marble
       mc
@@ -454,6 +460,7 @@ in {
       ncmpcpp
       neovim
       networkmanagerapplet  # Provides nm-connection-editor
+      nodePackages.purescript-language-server  # Language Server Protocol server for PureScript wrapping purs ide server functionality
       nodejs_22  # Node.JS and NPM
       nushell
       open-in-mpv  # Simple web extension to open videos in mpv
@@ -495,10 +502,12 @@ in {
       tree
       tuxguitar
       typescript
+      typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (FIXME needed?)
       universal-ctags
       unzip
       usbutils
       vifm  # Vi-like File Manager
+      vim-language-server  # VImScript language server, LSP for vim script
       vkmark  # Vulkan benchmarking suite
       vlc
       vulkan-tools  # Khronos official Vulkan Tools and Utilities
@@ -513,6 +522,7 @@ in {
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
+      yaml-language-server  # Language Server for YAML Files
       yewtube
       ymuse  # GUI client for MPD
       youtube-music
