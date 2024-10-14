@@ -498,7 +498,7 @@ in {
       signal-desktop
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
-      speedtest-cli
+      speedtest-rs  # Command line internet speedtest tool written in rust
       sway-launcher-desktop  # Note that this tool is not really tied to sway at all
       thunderbird
       tig
