@@ -52,6 +52,12 @@ in {
       powerOnBoot = true;
       package = pkgs.bluez;
     };
+
+    # Scanner support
+    sane = {
+      enable = true;
+      brscan4.enable = true;  # Brother DCP-7060D scanner
+    };
   };
 
   security = {
@@ -179,9 +185,16 @@ in {
 
     blueman.enable = true;
 
-    printing.enable = true;  # Enable CUPS
+    system-config-printer.enable = true;
 
-    # udev.packages = [ pkgs.rtl-sdr ];
+    printing = {
+      enable = true;  # Enable CUPS
+      cups-pdf.enable = true;
+      browsing = true;  # Advertise shared printers on our LAN
+      drivers = with pkgs; [
+        brlaser  # For Brother DCP-7060D (and others)
+      ];
+    };
 
     # Music Player Daemon
     mpd = {
@@ -241,15 +254,15 @@ in {
       uid = userId;
       isNormalUser = true;
       extraGroups = [
+        "adm"
         "audio"
+        "lp"  # Printer access
         "networkmanager"
+        "plugdev"  # For e.g. RTL-SDR
+        "scanner"
         "video"
         "wheel"  # Enable 'sudo' for the user.
       ];
-    #   packages = with pkgs; [
-    #     firefox
-    #     thunderbird
-    #   ];
     };
   };
 
@@ -294,6 +307,7 @@ in {
       rofi-pulse-select
       rofi-systemd
       rofi-top
+      simple-scan  # Simple paper scanning GUI app
       tig
       tmux
       tree
