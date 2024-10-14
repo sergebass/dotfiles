@@ -398,11 +398,13 @@ in {
       cmake-language-server  # CMake LSP Implementation
       coltrane
       compsize  # Compression ratio calculator for btrfs
+      darktable  # Virtual lighttable and darkroom for photographers
       denemo
       dig
       dmenu
       dunst
       exfatprogs
+      exiftool  # A tool to read, write and edit EXIF meta information
       fbmark  # Linux framebuffer benchmarking tool
       feh
       ffmpeg
@@ -462,7 +464,8 @@ in {
       networkmanagerapplet  # Provides nm-connection-editor
       nodePackages.purescript-language-server  # Language Server Protocol server for PureScript wrapping purs ide server functionality
       nodejs_22  # Node.JS and NPM
-      nushell
+      nufraw  # Utility to read and manipulate raw images from digital cameras
+      nushell  # Modern shell written in Rust
       open-in-mpv  # Simple web extension to open videos in mpv
       pamixer  # CLI utilities to control PA & PW audio levels
       pandoc  # Converter between documentation formats
