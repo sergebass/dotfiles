@@ -6,10 +6,31 @@ require'nu'.setup{}
 -- Neovim-specific built-in LSP client configuration
 lspconfig = require'lspconfig'
 
--- rls (Rust)
-lspconfig.rls.setup{}
+-- rust-analyzer (Rust)
+lspconfig.rust_analyzer.setup({
+    on_attach = function(client, bufnr)
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
 
--- FIXME uncomment when working
 -- ccls (C++)
 lspconfig.ccls.setup{}
 
