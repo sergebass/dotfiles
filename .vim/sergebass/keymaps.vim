@@ -20,6 +20,9 @@ nnoremap S :wa<CR>
 " since "Q" is equivalent to "gQ" and is rarely used, reuse it to close all windows and quit
 nnoremap Q :qa<CR>
 
+" Remove all hidden buffers without windows
+nnoremap \Q :DeleteHiddenBuffers<CR>
+
 " since "Y" is normally equivalent to "yy", make Y copy to the end of line:
 " (this will be more consistent with C or D that also act until the end of line)
 nnoremap Y y$
