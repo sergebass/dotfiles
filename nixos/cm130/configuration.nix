@@ -473,6 +473,7 @@ in {
       pavucontrol
       pciutils
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
+      pwvucontrol  # Pipewire Volume Control
       qjackctl
       qpwgraph
       qrencode
