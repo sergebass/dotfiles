@@ -521,7 +521,8 @@ in {
       luajit
       marble
       mc
-      meterbridge
+      meld  # Visual diff and merge tool
+      meterbridge  # Various meters (VU, PPM, DPM, JF, SCO) for Jack Audio Connection Kit
       mi2ly
       mpc_cli
       mpd
