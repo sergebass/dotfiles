@@ -9,8 +9,8 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal autoindent
 
-nnoremap <buffer> <F1> :!sp-open "https://docs.rs"<CR>
-nnoremap <buffer> <M-F1> :!sp-open "https://doc.rust-lang.org/stable/book/"<CR>
+nnoremap <buffer> <F1> :!sp-open "https://doc.rust-lang.org/reference"<CR>
+nnoremap <buffer> <M-F1> :!sp-open "https://docs.rs"<CR>
 
 " Search the word under cursor in docs.rs (using browser)
 nnoremap <buffer> \\? :!sp-open "https://docs.rs/releases/search?query=<C-r>=expand("<cword>")<CR>"<Left>
