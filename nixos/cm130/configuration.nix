@@ -192,6 +192,12 @@ in {
   services = {
     udev = {
       enable = true;
+
+      packages = with pkgs; [
+        openhantek6022  # Make sure we can access our USB oscilloscope properly
+        rtl-sdr  # For Nooelec Software Defined Radio dongle
+      ];
+
       # A rule to allow ACPI backlight control by a non-root user from video group
       extraRules = with pkgs; ''
         ACTION=="add", SUBSYSTEM=="backlight", RUN+="${coreutils}/bin/chgrp video $sys$devpath/brightness", RUN+="${coreutils}/bin/chmod g+w $sys$devpath/brightness"
@@ -295,8 +301,6 @@ in {
         userServices = true;
       };
     };
-
-    udev.packages = [ pkgs.rtl-sdr ];
 
     # Music Player Daemon
     mpd = {
@@ -540,6 +544,7 @@ in {
       nufraw  # Utility to read and manipulate raw images from digital cameras
       nushell  # Modern shell written in Rust
       open-in-mpv  # Simple web extension to open videos in mpv
+      openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
       pamixer  # CLI utilities to control PA & PW audio levels
       pandoc  # Converter between documentation formats
       parted
