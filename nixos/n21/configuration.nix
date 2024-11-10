@@ -37,6 +37,10 @@ in {
 
     kernelParams = lib.mkForce [ "verbose" "nosplash" ];
 
+    blacklistedKernelModules = [
+      "dvb_usb_rtl28xxu"  # for SDR dongle
+    ];
+
     kernel.sysctl = {
       "kernel.sysrq" = 1;  # Enable all SysRq functions
     };
@@ -124,6 +128,7 @@ in {
 
       packages = with pkgs; [
         openhantek6022  # Make sure we can access our USB oscilloscope properly
+        rtl-sdr  # For Nooelec Software Defined Radio dongle
       ];
 
       # A rule to allow ACPI backlight control by a non-root user from video group
@@ -304,6 +309,7 @@ in {
       fzf
       git
       gparted
+      gqrx
       htop
       kbd
       mc
