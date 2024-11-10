@@ -443,7 +443,6 @@ in {
       denemo
       dmenu
       dunst
-      exfatprogs
       exiftool  # A tool to read, write and edit EXIF meta information
       fbmark  # Linux framebuffer benchmarking tool
       feh
@@ -466,7 +465,6 @@ in {
       guitarix
       gxplugins-lv2
       haskell-language-server  # LSP server for GHC
-      hddtemp  # HDD temperature measurement tools
       hydrogen
       jack2.dev  # JACK audio connection kit, version 2 with jackdbus
       jackmeter
@@ -497,10 +495,8 @@ in {
       nushell  # Modern shell written in Rust
       open-in-mpv  # Simple web extension to open videos in mpv
       openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
-      pamixer  # CLI utilities to control PA & PW audio levels
       pandoc  # Converter between documentation formats
       pavucontrol
-      pciutils
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
       pwvucontrol  # Pipewire Volume Control
       qjackctl
@@ -527,14 +523,12 @@ in {
       simple-scan  # Simple paper scanning GUI app
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
-      speedtest-rs  # Command line internet speedtest tool written in rust
       sway-launcher-desktop  # Note that this tool is not really tied to sway at all
       system-config-printer  # Printer configuration/pipeline control UI
       thunderbird
       tuxguitar
       typescript
       typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (https://github.com/typescript-language-server/typescript-language-server)
-      universal-ctags
       vifm  # Vi-like File Manager
       vim-language-server  # VImScript language server, LSP for vim script
       vkmark  # Vulkan benchmarking suite
