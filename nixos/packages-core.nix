@@ -1,6 +1,7 @@
 # The list of core packages that I need on every NixOS system
 
 pkgs: with pkgs; [
+  alsa-utils  # ALSA, the Advanced Linux Sound Architecture utils
   bc  # GNU software calculator
   dig  # Domain name server utility
   exfatprogs  # exFAT filesystem userspace utilities

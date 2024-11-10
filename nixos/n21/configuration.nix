@@ -5,25 +5,12 @@ let
   userName = "sergii";
   userId = 1000;
 
-  aliases = {
-    v = "$VISUAL";
-    g = "git";
-    rg = "rg -L --sort path --no-heading -n --column";
-    x11 = "startx (which i3)";
-  };
-
   useDM = false;
 
 in {
   imports = [
-    # Include the results of the hardware scan.
-    # To redo hardware detection: nixos-generate-config
-    ./hardware-configuration.nix
-  ];
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
+    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
+    ../common-configuration.nix  # Common configuration shared by all of our NixOS systems
   ];
 
   boot = {
@@ -41,49 +28,14 @@ in {
       "dvb_usb_rtl28xxu"  # for SDR dongle
     ];
 
-    kernel.sysctl = {
-      "kernel.sysrq" = 1;  # Enable all SysRq functions
-    };
-
     tmp.useTmpfs = true;  # Save SSD from some wear and tear
   };
 
   hardware = {
-    pulseaudio.enable = false;  # Use PipeWire instead
-
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      package = pkgs.bluez;
-    };
-
     # Scanner support
     sane = {
       enable = true;
       brscan4.enable = true;  # Brother DCP-7060D scanner
-    };
-  };
-
-  security = {
-    rtkit.enable = true;
-
-    sudo = {
-      enable = true;
-
-      # Do not require password for rebooting or powering the device off
-      extraRules = [{
-        commands = [
-          {
-            command = "${pkgs.systemd}/bin/reboot";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "${pkgs.systemd}/bin/poweroff";
-            options = [ "NOPASSWD" ];
-          }
-        ];
-        groups = [ "wheel" ];
-      }];
     };
   };
 
@@ -93,33 +45,6 @@ in {
     firewall = {
       enable = true;
     };
-
-    networkmanager = {
-      enable = true;
-
-      # Prefer our own DNS server list
-      insertNameservers = [
-        "9.9.9.9"  # Quad9 DNS resolver (https://en.wikipedia.org/wiki/Quad9)
-        "8.8.8.8"  # Google Public DNS (https://en.wikipedia.org/wiki/Google_Public_DNS)
-        "8.8.4.4"  # Google Public DNS (https://en.wikipedia.org/wiki/Google_Public_DNS)
-        "1.1.1.1"  # CloudFlare DNS (https://en.wikipedia.org/wiki/1.1.1.1)
-        "1.0.0.1"  # CloudFlare DNS (https://en.wikipedia.org/wiki/1.1.1.1)
-      ];
-
-      wifi.powersave = true;
-    };
-  };
-
-  time.timeZone = "Canada/Eastern";
-
-  i18n.defaultLocale = "en_CA.UTF-8";
-
-  console = {
-    earlySetup = true;
-    font = "ter-i16b";
-    packages = with pkgs; [ terminus_font ];
-    keyMap = "us";
-    # useXkbConfig = true; # use xkbOptions in tty.
   };
 
   services = {
@@ -135,27 +60,6 @@ in {
       extraRules = with pkgs; ''
         ACTION=="add", SUBSYSTEM=="backlight", RUN+="${coreutils}/bin/chgrp video $sys$devpath/brightness", RUN+="${coreutils}/bin/chmod g+w $sys$devpath/brightness"
       '';
-    };
-
-    getty = {
-      greetingLine = ''\e{bold}\e{green}NixOS ${config.system.nixos.label}-\m \e{lightmagenta} \n \e{yellow} \l \e{reset}'';
-    };
-
-    openssh = {
-      enable = true;
-      settings.X11Forwarding = true;
-    };
-
-    timesyncd.enable = true;  # Enable NTP
-
-    gpm.enable = true;
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;  # Emulate PulseAudio
-      jack.enable = true;
     };
 
     gvfs.enable = true;  # Mount, trash, and other functionalities
@@ -258,71 +162,30 @@ in {
     XDG_RUNTIME_DIR = "/run/user/${toString userId}"; # MPD will look inside this directory for the PipeWire socket.
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users = {
-    mutableUsers = true;
-
-    defaultUserShell = pkgs.fish;
-
-    users."${userName}" = {
-      uid = userId;
-      isNormalUser = true;
-      extraGroups = [
-        "adm"
-        "audio"
-        "dialout"  # to access /dev/ttyACM ports (e.g. Arduino)
-        "lp"  # Printer access
-        "networkmanager"
-        "plugdev"  # For e.g. RTL-SDR
-        "scanner"
-        "video"
-        "wheel"  # Enable 'sudo' for the user.
-      ];
-    };
-  };
-
-  # We are OK with not completely free packages in our system
-  nixpkgs.config.allowUnfree = true;
-
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
       alacritty
-      alsa-utils
       arduino-cli  # Arduino from the command line
       arduino-ide  # Open-source electronics prototyping platform
       arduino-language-server  # Arduino Language Server based on Clangd to Arduino code autocompletion
-      bc
       chromium
-      ctags
-      dig
       dmenu
       dunst
-      fastfetch  # Like neofetch, but much faster because written in C
       feh
-      file
-      findutils
       firefox
-      fish
       freetube
-      fzf
-      git
       gparted
       gqrx
-      htop
-      kbd
-      mc
       mpc_cli
       mpd
       mpv
       mupdf
       ncmpcpp
-      neovim
       openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
       pavucontrol
       qrencode
-      ripgrep
       rofi
       rofi-bluetooth
       rofi-calc
@@ -332,50 +195,14 @@ in {
       rofi-systemd
       rofi-top
       simple-scan  # Simple paper scanning GUI app
-      tig
-      tmux
-      tree
-      usbutils  # for lsusb
-      wget
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
       ymuse  # GUI client for MPD
     ];
-
-    variables = rec {
-      EDITOR = "nvim";
-      VISUAL = EDITOR;
-      PAGER = "less";
-      LESS = "-FRX";
-    };
-
-    localBinInPath = true;
-    homeBinInPath = true;
   };
 
   programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
-    # Some programs need SUID wrappers, can be configured further
-    # or are started in user sessions.
-    # mtr.enable = true;
-
-    fish = {
-      enable = true;
-      shellAliases = aliases;
-      loginShellInit = ''
-        set -U fish_greeting ""
-
-        if test "$(tty)" = "/dev/tty1";
-          ${pkgs.fastfetch}/bin/fastfetch
-        end
-      '';
-    };
-
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
