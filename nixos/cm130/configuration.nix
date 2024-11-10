@@ -5,25 +5,12 @@ let
   userName = "sergii";
   userId = 1000;
 
-  aliases = {
-    v = "$VISUAL";
-    g = "git";
-    rg = "rg -L --sort path --no-heading -n --column";
-    x11 = "startx (which i3)";
-  };
-
   useDM = false;
 
 in {
   imports = [
-    # Include the results of the hardware scan.
-    # To redo hardware detection: nixos-generate-config
-    ./hardware-configuration.nix
-  ];
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
+    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
+    ../common-configuration.nix  # Common configuration shared by all of our NixOS systems
   ];
 
   boot = {
@@ -47,7 +34,6 @@ in {
     ];
 
     kernel.sysctl = {
-      "kernel.sysrq" = 1;  # Enable all SysRq functions
       # "net.ipv4.ip_forward" = 1;  # Enable IP packet forwarding for Waydroid containers
     };
 
@@ -77,14 +63,6 @@ in {
       extraPackages32 = with pkgs; [
         driversi686Linux.amdvlk
       ];
-    };
-
-    pulseaudio.enable = false;  # Use PipeWire instead
-
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      package = pkgs.bluez;
     };
 
     # Uncomment to connect to an explicit printer
@@ -122,29 +100,6 @@ in {
     "/swap".options = [ "noatime" ];
   };
 
-  security = {
-    rtkit.enable = true;
-
-    sudo = {
-      enable = true;
-
-      # Do not require password for rebooting or powering the device off
-      extraRules = [{
-        commands = [
-          {
-            command = "${pkgs.systemd}/bin/reboot";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "${pkgs.systemd}/bin/poweroff";
-            options = [ "NOPASSWD" ];
-          }
-        ];
-        groups = [ "wheel" ];
-      }];
-    };
-  };
-
   networking = {
     hostName = "cm130";
 
@@ -160,33 +115,6 @@ in {
       #   631  # CUPS
       # ];
     };
-
-    networkmanager = {
-      enable = true;
-
-      # Prefer our own DNS server list
-      insertNameservers = [
-        "9.9.9.9"  # Quad9 DNS resolver (https://en.wikipedia.org/wiki/Quad9)
-        "8.8.8.8"  # Google Public DNS (https://en.wikipedia.org/wiki/Google_Public_DNS)
-        "8.8.4.4"  # Google Public DNS (https://en.wikipedia.org/wiki/Google_Public_DNS)
-        "1.1.1.1"  # CloudFlare DNS (https://en.wikipedia.org/wiki/1.1.1.1)
-        "1.0.0.1"  # CloudFlare DNS (https://en.wikipedia.org/wiki/1.1.1.1)
-      ];
-
-      wifi.powersave = true;
-    };
-  };
-
-  time.timeZone = "Canada/Eastern";
-
-  i18n.defaultLocale = "en_CA.UTF-8";
-
-  console = {
-    earlySetup = true;
-    font = "ter-i16b";
-    packages = with pkgs; [ terminus_font ];
-    keyMap = "us";
-    # useXkbConfig = true; # use xkbOptions in tty.
   };
 
   services = {
@@ -204,28 +132,7 @@ in {
       '';
     };
 
-    getty = {
-      greetingLine = ''\e{bold}\e{green}NixOS ${config.system.nixos.label}-\m \e{lightmagenta} \n \e{yellow} \l \e{reset}'';
-    };
-
-    openssh = {
-      enable = true;
-      settings.X11Forwarding = true;
-    };
-
-    timesyncd.enable = true;  # Enable NTP
-
-    gpm.enable = true;  # Enable mouse in plain Linux console mode
-
     libinput.enable = true;  # Enable touchpad support
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;  # Emulate PulseAudio
-      jack.enable = true;
-    };
 
     gvfs.enable = true;  # Mount, trash, and other functionalities
 
@@ -381,36 +288,10 @@ in {
   # See also https://wiki.nixos.org/wiki/Waydroid
   virtualisation.waydroid.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users = {
-    mutableUsers = true;
-
-    defaultUserShell = pkgs.fish;
-
-    users."${userName}" = {
-      uid = userId;
-      isNormalUser = true;
-      extraGroups = [
-        "adm"
-        "audio"
-        "dialout"  # to access /dev/ttyACM ports (e.g. Arduino)
-        "lp"  # Printer access
-        "networkmanager"
-        "plugdev"  # For e.g. RTL-SDR
-        "scanner"
-        "video"
-        "wheel"  # Enable 'sudo' for the user.
-      ];
-    };
-  };
-
-  # We are OK with not completely free packages in our system
-  nixpkgs.config.allowUnfree = true;
-
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    systemPackages = import ../packages-core.nix pkgs ++ (with pkgs; [
+    systemPackages = with pkgs; [
       adbfs-rootless  # Mount Android phones on Linux with adb, no root required
       alacritty
       android-studio
@@ -529,7 +410,6 @@ in {
       tuxguitar
       typescript
       typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (https://github.com/typescript-language-server/typescript-language-server)
-      vifm  # Vi-like File Manager
       vim-language-server  # VImScript language server, LSP for vim script
       vkmark  # Vulkan benchmarking suite
       vlc
@@ -551,45 +431,16 @@ in {
       zfs
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
-    ]);
+    ];
 
-    variables = rec {
-      EDITOR = "nvim";
-      VISUAL = EDITOR;
-      PAGER = "less";
-      LESS = "-FRX";
-
+    variables = {
       # We need this to be able to build some 3rd party packages ignoring the NixOS way temporarily
       # (e.g. for building Rust package dependencies before they can be Nixified properly)
       PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
     };
-
-    localBinInPath = true;
-    homeBinInPath = true;
   };
 
   programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
-    # Some programs need SUID wrappers, can be configured further
-    # or are started in user sessions.
-    # mtr.enable = true;
-
-    fish = {
-      enable = true;
-      shellAliases = aliases;
-      loginShellInit = ''
-        set -U fish_greeting ""
-
-        if test "$(tty)" = "/dev/tty1";
-          ${pkgs.fastfetch}/bin/fastfetch
-        end
-      '';
-    };
-
     # Sway is a Wayland compositor
     sway = {
       enable = true;

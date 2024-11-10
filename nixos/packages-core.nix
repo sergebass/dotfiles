@@ -30,6 +30,7 @@ pkgs: with pkgs; [
   universal-ctags  # A maintained ctags implementation
   unzip  # An extraction utility for archives compressed in .zip format
   usbutils  # Tools for working with USB devices, such as lsusb
+  vifm  # Vi-like File Manager
   wget  # Tool for retrieving files using HTTP, HTTPS, and FTP
   zip  # Compressor/archiver for creating and modifying zipfiles
 ]
