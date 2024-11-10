@@ -265,6 +265,7 @@ in {
       extraGroups = [
         "adm"
         "audio"
+        "dialout"  # to access /dev/ttyACM ports (e.g. Arduino)
         "lp"  # Printer access
         "networkmanager"
         "plugdev"  # For e.g. RTL-SDR
@@ -284,6 +285,9 @@ in {
     systemPackages = with pkgs; [
       alacritty
       alsa-utils
+      arduino-cli  # Arduino from the command line
+      arduino-ide  # Open-source electronics prototyping platform
+      arduino-language-server  # Arduino Language Server based on Clangd to Arduino code autocompletion
       bc
       chromium
       ctags
