@@ -85,28 +85,24 @@ in {
 
   networking = {
     hostName = "n21";
-    networkmanager.enable = true;
 
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    firewall = {
+      enable = true;
+    };
 
-    # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    # networking.firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether.
-    # networking.firewall.enable = false;
+    networkmanager = {
+      enable = true;
 
-    nameservers = [
-      "1.1.1.1"
-      "8.8.8.8"
-      "9.9.9.9"
-    ];
+      # Prefer our own DNS server list
+      insertNameservers = [
+        "9.9.9.9"  # Quad9 DNS resolver (https://en.wikipedia.org/wiki/Quad9)
+        "8.8.8.8"  # Google Public DNS (https://en.wikipedia.org/wiki/Google_Public_DNS)
+        "8.8.4.4"  # Google Public DNS (https://en.wikipedia.org/wiki/Google_Public_DNS)
+        "1.1.1.1"  # CloudFlare DNS (https://en.wikipedia.org/wiki/1.1.1.1)
+        "1.0.0.1"  # CloudFlare DNS (https://en.wikipedia.org/wiki/1.1.1.1)
+      ];
 
-    dhcpcd = {
-      # Do not use DNS server returned by a DHCP server
-      extraConfig = ''
-        nohook resolv.conf
-      '';
+      wifi.powersave = true;
     };
   };
 
