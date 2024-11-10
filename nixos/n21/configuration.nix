@@ -123,6 +123,19 @@ in {
   };
 
   services = {
+    udev = {
+      enable = true;
+
+      packages = with pkgs; [
+        openhantek6022  # Make sure we can access our USB oscilloscope properly
+      ];
+
+      # A rule to allow ACPI backlight control by a non-root user from video group
+      extraRules = with pkgs; ''
+        ACTION=="add", SUBSYSTEM=="backlight", RUN+="${coreutils}/bin/chgrp video $sys$devpath/brightness", RUN+="${coreutils}/bin/chmod g+w $sys$devpath/brightness"
+      '';
+    };
+
     getty = {
       greetingLine = ''\e{bold}\e{green}NixOS ${config.system.nixos.label}-\m \e{lightmagenta} \n \e{yellow} \l \e{reset}'';
     };
@@ -300,6 +313,7 @@ in {
       mupdf
       ncmpcpp
       neovim
+      openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
       pavucontrol
       qrencode
       ripgrep
@@ -315,6 +329,7 @@ in {
       tig
       tmux
       tree
+      usbutils  # for lsusb
       wget
       xorg.xkill
       xorg.xrandr
