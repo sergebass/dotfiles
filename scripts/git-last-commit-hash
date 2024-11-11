@@ -1,0 +1,23 @@
+#!/bin/sh
+# A script to determine the commit hash of the git repo at directory path $1
+#
+# Usage:
+#   git-last-commit-hash
+#   git-last-commit-hash <some-git-directory>
+
+if [ ! -z "$1" ]; then
+    cd "$1" || exit 1
+fi
+
+COMMIT_HASH=$(git rev-parse --short HEAD 2>/dev/null || echo "untracked")
+
+if [[ $COMMIT_HASH != "untracked" ]]; then
+    # Verify the status of everything, including submodules and staged changes
+    # and append a special suffix in case our repository is not fully clean.
+    if ! git diff --no-ext-diff --quiet --exit-code --submodule=diff HEAD; then
+        echo "$COMMIT_HASH-dirty"
+        exit 0
+    fi
+fi
+
+echo "$COMMIT_HASH"
