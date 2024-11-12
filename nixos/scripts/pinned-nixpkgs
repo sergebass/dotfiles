@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# A script to download and prepare a particular commit of Nix Package manifest tree (nixpkgs)
+#
+# Usage:
+#   pinned-nixpkgs <nixpkgs-commit> <sha256checkum>
+
+# set -x  # Uncomment to trace command invocations for debugging
+# set -e  # Abort on unchecked error exit codes
+# set -u  # Treat referencing unset variables and parameters as errors
+set -o pipefail  # For pipelines: "return status is the value of the last (rightmost) command to exit with a non-zero status"
+
+log() {
+  echo -e "$@";
+}
+
+logError() {
+  echo -e "$@" 1>&2;
+}
+
+# To pre-compute the SHA256 hash: nix-prefetch-url --unpack https://github.com/NixOS/nixpkgs/archive/$COMMIT.tar.gz
+# (Note that this will use extra disk storage since the fetchTarball call below will create another copy
+# of the extracted nixpkgs configuration in the Nix store).
+COMMIT="$1"
+SHA256="$2"
+
+if [ -z "$COMMIT" ]; then
+    logError "Nixpkgs commit must be specified as an argument"
+    exit 1
+fi
+
+if [ -z "$SHA256" ]; then
+    log "NOTE: You can precompute the sha256 value by running this command (it will consume extra storage space however):"
+    log "nix-prefetch-url --unpack https://github.com/NixOS/nixpkgs/archive/$COMMIT.tar.gz"
+fi
+
+exec nix-instantiate --eval --expr "(builtins.fetchTarball {
+    name = \"pinned-nixpkgs-$COMMIT\";
+    url = https://github.com/NixOS/nixpkgs/archive/$COMMIT.tar.gz;
+    sha256 = \"$SHA256\";
+})" | tr -d '"'  # Remove quote marks from the path

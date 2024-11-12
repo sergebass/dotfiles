@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# A script to perform NixOS system rebuild using nixpkgs copy at a pinned commit.
+#
+# Usage:
+#   nixos-rebuild-pinned-nixpkgs <nixpkgs-commit> <sha256checkum> <standard nixos-rebuild arguments...>
+
+# set -x  # Uncomment to trace command invocations for debugging
+# set -e  # Abort on unchecked error exit codes
+# set -u  # Treat referencing unset variables and parameters as errors
+set -o pipefail  # For pipelines: "return status is the value of the last (rightmost) command to exit with a non-zero status"
+
+log() {
+  echo -e "$@";
+}
+
+logError() {
+  echo -e "$@" 1>&2;
+}
+
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+
+SUDO=''
+if [ "$EUID" -ne 0 ]; then
+    echo "NixOS system rebuild scripts must be run as a superuser -- prepending 'sudo' for you..."
+    unset HOME
+    SUDO="sudo --preserve-env"
+fi
+
+# To pre-compute the SHA256 hash: nix-prefetch-url --unpack https://github.com/NixOS/nixpkgs/archive/$COMMIT.tar.gz
+# (Note that this will use extra disk storage since the fetchTarball call below will create another copy
+# of the extracted nixpkgs configuration in the Nix store).
+NIXPKGS_COMMIT="$1"
+NIXPKGS_SHA256="$2"
+
+# Remove the commit ID and the sha256 parameters, keep only arguments to pass directly to stock nixos-rebuild.
+shift 2
+
+if [ -z "$NIXPKGS_COMMIT" ]; then
+    logError "Nixpkgs commit must be specified as an argument"
+    exit 1
+fi
+
+log "Preparing to rebuild NixOS system using pinned nixpkgs configuration at commit $NIXPKGS_COMMIT..."
+
+TIMESTAMP=$(date "+%Y%m%d-%H%M%S")
+DOTFILES_COMMIT_HASH=$(git-last-commit-hash "$SCRIPT_DIR")
+
+if ! NIXPKGS_PATH=$(pinned-nixpkgs "$NIXPKGS_COMMIT" "$NIXPKGS_SHA256"); then
+    logError "Unable to download a nixpkgs configuration matching the specified commit and/or checksum."
+    exit 2
+fi
+
+# NIXOS_LABEL env var can be predefined to override the value we auto-compute as a fallback here.
+# Note that nixos-version will print this value once the built configuration is booted up.
+if [ -z "$NIXOS_LABEL" ]; then
+    export NIXOS_LABEL="$TIMESTAMP--dotfiles-$DOTFILES_COMMIT_HASH--nixpkgs-$NIXPKGS_COMMIT"
+
+    # NIXOS_LABEL_SUFFIX env var is an optional text to append to the generated NixOS label
+    if [ -n "$NIXOS_LABEL_SUFFIX" ]; then
+        export NIXOS_LABEL="$NIXOS_LABEL--$NIXOS_LABEL_SUFFIX"
+    fi
+fi
+
+logError "Rebuilding system configuration: $NIXOS_LABEL"
+
+exec $SUDO nixos-rebuild -I nixos-config=/etc/nixos/configuration.nix -I "nixpkgs=$NIXPKGS_PATH" "$@"
