@@ -37,6 +37,10 @@ in {
       enable = true;
       brscan4.enable = true;  # Brother DCP-7060D scanner
     };
+
+    firmware = with pkgs; [
+      libreelec-dvb-firmware  # DVB firmware from LibreELEC (for many TV tuner devices)
+    ];
   };
 
   networking = {
@@ -195,6 +199,7 @@ in {
       rofi-systemd
       rofi-top
       simple-scan  # Simple paper scanning GUI app
+      w_scan2  # A small channel scan tool which generates ATSC, DVB-C, DVB-S/S2 and DVB-T/T2 channels.conf files. Use: w_scan2 -fa -c CA > channels.conf
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
