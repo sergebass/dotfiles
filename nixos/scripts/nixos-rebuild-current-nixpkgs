@@ -2,7 +2,7 @@
 # A script to perform NixOS system rebuild using currently cached nixpkgs copy (normal mode of stock nixos-rebuild).
 #
 # Usage:
-#   nixos-rebuild-current-nixpkgs <standard nixos-rebuild arguments...>
+#   [sudo] nixos-rebuild-current-nixpkgs <standard nixos-rebuild arguments...>
 
 # set -x  # Uncomment to trace command invocations for debugging
 # set -e  # Abort on unchecked error exit codes

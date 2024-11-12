@@ -2,7 +2,7 @@
 # A script to perform NixOS system rebuild using nixpkgs copy at a pinned commit.
 #
 # Usage:
-#   nixos-rebuild-pinned-nixpkgs <nixpkgs-commit> <sha256checkum> <standard nixos-rebuild arguments...>
+#   [sudo] nixos-rebuild-pinned-nixpkgs <nixpkgs-commit> <sha256checkum> <standard nixos-rebuild arguments...>
 
 # set -x  # Uncomment to trace command invocations for debugging
 # set -e  # Abort on unchecked error exit codes

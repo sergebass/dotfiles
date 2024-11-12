@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# A script to perform NixOS Nix store cleanup to only keep the current system configuration.
+#
+# Usage:
+#   [sudo] nixos-gc
+
+# set -x  # Uncomment to trace command invocations for debugging
+# set -e  # Abort on unchecked error exit codes
+# set -u  # Treat referencing unset variables and parameters as errors
+set -o pipefail  # For pipelines: "return status is the value of the last (rightmost) command to exit with a non-zero status"
+
+log() {
+  echo -e "$@";
+}
+
+logError() {
+  echo -e "$@" 1>&2;
+}
+
+SUDO=''
+if [ "$EUID" -ne 0 ]; then
+    echo "NixOS system rebuild scripts must be run as a superuser -- prepending 'sudo' for you..."
+    unset HOME
+    SUDO="sudo --preserve-env"
+fi
+
+log "Current system configurations:"
+nixos-rebuild list-generations
+
+log "Removing old configuration except the current one..."
+$SUDO nix-collect-garbage --delete-old
+
+log "Optimizing Nix store..."
+$SUDO nix-store --optimize
