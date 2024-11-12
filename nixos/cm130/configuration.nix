@@ -91,6 +91,10 @@ in {
     };
 
     rtl-sdr.enable = true;  # For external Software Defined Radio dongles
+
+    firmware = with pkgs; [
+      libreelec-dvb-firmware  # DVB firmware from LibreELEC (for many TV tuner devices)
+    ];
   };
 
   fileSystems = {
@@ -414,6 +418,7 @@ in {
       vkmark  # Vulkan benchmarking suite
       vlc
       vulkan-tools  # Khronos official Vulkan Tools and Utilities
+      w_scan2  # A small channel scan tool which generates ATSC, DVB-C, DVB-S/S2 and DVB-T/T2 channels.conf files. Use: w_scan2 -fa -c CA > channels.conf
       wayland-utils  # Wayland utilities (wayland-info)
       wev  # Wayland event tester (similar to xev for X11)
       xdg-dbus-proxy  # DBus proxy for Flatpak and others
