@@ -18,6 +18,9 @@ in {
     "flakes"
   ];
 
+  # We can use `nixos-version` to access the currently running system label.
+  system.nixos.version = config.system.nixos.label;
+
   boot = {
     kernel.sysctl = {
       "kernel.sysrq" = 1;  # Enable all SysRq functions
