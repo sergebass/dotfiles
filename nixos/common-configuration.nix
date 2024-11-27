@@ -19,7 +19,11 @@ in {
   ];
 
   # We can use `nixos-version` to access the currently running system label.
-  system.nixos.version = config.system.nixos.label;
+  # Fall back on standard label/version generation if no env vars are set.
+  system.nixos.version = let
+    customLabel = builtins.getEnv("NIXOS_LABEL");
+    customLabelSuffix = builtins.getEnv("NIXOS_LABEL_SUFFIX");
+  in lib.mkIf (customLabel != "" || customLabelSuffix != "") config.system.nixos.label;
 
   boot = {
     kernel.sysctl = {
