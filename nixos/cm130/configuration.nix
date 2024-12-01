@@ -361,6 +361,7 @@ in {
       light # Control backlight brightness
       lilypond-with-fonts
       lldb  # LLVM debugger
+      llvmPackages.clangUseLLVM  # C language family frontend for LLVM (wrapper script)
       lua-language-server  # Language server that offers Lua language support
       luajit
       marble
