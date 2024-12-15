@@ -22,8 +22,8 @@ in {
   # Fall back on standard label/version generation if no env vars are set.
   system.nixos.version = let
     customLabel = builtins.getEnv("NIXOS_LABEL");
-    customLabelSuffix = builtins.getEnv("NIXOS_LABEL_SUFFIX");
-  in lib.mkIf (customLabel != "" || customLabelSuffix != "") config.system.nixos.label;
+    customLabelPrefix = builtins.getEnv("NIXOS_LABEL_PREFIX");
+  in lib.mkIf (customLabel != "" || customLabelPrefix != "") config.system.nixos.label;
 
   boot = {
     kernel.sysctl = {

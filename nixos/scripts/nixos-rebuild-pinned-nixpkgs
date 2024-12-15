@@ -55,9 +55,9 @@ fi
 if [ -z "$NIXOS_LABEL" ]; then
     export NIXOS_LABEL="$TIMESTAMP--dotfiles-$DOTFILES_COMMIT_HASH--nixpkgs-$NIXPKGS_COMMIT"
 
-    # NIXOS_LABEL_SUFFIX env var is an optional text to append to the generated NixOS label
-    if [ -n "$NIXOS_LABEL_SUFFIX" ]; then
-        export NIXOS_LABEL="$NIXOS_LABEL--$NIXOS_LABEL_SUFFIX"
+    # NIXOS_LABEL_PREFIX env var is an optional text to prepend to the generated NixOS label
+    if [ -n "$NIXOS_LABEL_PREFIX" ]; then
+        export NIXOS_LABEL="$NIXOS_LABEL_PREFIX--$NIXOS_LABEL"
     fi
 fi
 
