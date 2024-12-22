@@ -340,6 +340,7 @@ in {
       gdb  # GNU debugger
       geekbench  # CPU benchmarking tool
       geeqie
+      gimp-with-plugins  # GNU Image Manipulation Program
       glmark2  # OpenGL benchmarking tool (with Wayland support)
       glxinfo  # Display OpenGL information (glxinfo and eglinfo)
       gnome-maps
