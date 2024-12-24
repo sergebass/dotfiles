@@ -307,6 +307,7 @@ in {
       arduino-language-server  # Arduino Language Server based on Clangd to Arduino code autocompletion
       asciidoctor  # A faster Asciidoc processor written in Ruby
       audacity
+      avidemux  # Free video editor designed for simple video editing tasks
       baobab  # Used disk space visualizer
       bash-language-server  # A language server for Bash
       brave
@@ -408,6 +409,7 @@ in {
       signal-cli
       signal-desktop
       simple-scan  # Simple paper scanning GUI app
+      simplescreenrecorder  # Screen recorder for Linux
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
       sway-launcher-desktop  # Note that this tool is not really tied to sway at all
