@@ -392,6 +392,7 @@ in {
       qrencode
       qsynth
       rakarrack
+      rlwrap  # Readline wrapper for console programs
       rofi
       rofi-bluetooth
       rofi-calc
