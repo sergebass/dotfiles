@@ -386,6 +386,7 @@ in {
       pandoc  # Converter between documentation formats
       pavucontrol
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
+      poppler_utils  # PDF rendering library
       pwvucontrol  # Pipewire Volume Control
       qjackctl
       qpwgraph
