@@ -356,6 +356,7 @@ in {
       jack2.dev  # JACK audio connection kit, version 2 with jackdbus
       jackmeter
       jdk  # The open-source Java Development Kit
+      kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
       kotlin-language-server  # kotlin language server
       libdrm  # Direct Rendering library and test utilities (e.g. modetest)
       libnotify
@@ -382,9 +383,11 @@ in {
       nufraw  # Utility to read and manipulate raw images from digital cameras
       nushell  # Modern shell written in Rust
       open-in-mpv  # Simple web extension to open videos in mpv
+      open-pdf-sign  # Digitally sign PDF files from your commandline
       openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
       pandoc  # Converter between documentation formats
       pavucontrol
+      pdf-sign  # Tool to visually sign PDF files
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
       poppler_utils  # PDF rendering library
       pwvucontrol  # Pipewire Volume Control
