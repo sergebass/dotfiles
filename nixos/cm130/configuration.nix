@@ -347,6 +347,7 @@ in {
       gnome-maps
       gnumake
       gnuradio
+      golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
       gparted
       gqrx
       guitarix
