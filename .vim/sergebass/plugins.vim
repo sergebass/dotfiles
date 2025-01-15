@@ -236,6 +236,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 " A Vim plugin for Windows PowerShell support
 Plug 'PProvost/vim-ps1'
 
+" C# LSP support
+" Plug 'OmniSharp/omnisharp-vim'
+
 " A Vim plugin for TypeScript
 " Plug 'Quramy/tsuquyomi'
 
