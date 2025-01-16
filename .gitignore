@@ -38,3 +38,6 @@ tags.temp
 .mpd/mpdstate
 
 .fonts/.uuid
+
+# Do not persist command history in a public-facing repo
+.config/nushell/history.txt
