@@ -897,3 +897,6 @@ $env.config = {
         }
     ]
 }
+
+alias v = nvim
+alias g = git
