@@ -9,6 +9,9 @@
 *.o
 *.a
 
+# ccache cache
+.ccache
+
 # compiled Xmonad binaries and error logs
 .xmonad/xmonad-x86_64-linux
 .xmonad/xmonad.errors
