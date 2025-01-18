@@ -30,16 +30,16 @@ rec {
   home.file = let
     # Provide a way to auto-generate symlinks to our _mutable_ dotfiles directory
     # (as opposed to copying source files to the Nix store and keeping them read-only).
-    dotfilesRoot = ../../../dotfiles;
+    dotfilesDirName = "dotfiles";
+
+    symlinkDotfiles = dotfilesSubtreePath: {
+      source = config.lib.file.mkOutOfStoreSymlink "${home.homeDirectory}/${dotfilesDirName}/${dotfilesSubtreePath}";
+    };
 
     # This function uses a Path type argument, not a string.
     # e.g. ".config/test" = symlink ../../../dotfiles/test;
-    symlink = sourcePath: {
+    symlinkPath = sourcePath: {
       source = config.lib.file.mkOutOfStoreSymlink (toString sourcePath);
-    };
-
-    symlinkDotfiles = sourcePath: {
-      source = config.lib.file.mkOutOfStoreSymlink "${toString dotfilesRoot}/${sourcePath}";
     };
 
   in {
