@@ -25,9 +25,36 @@ rec {
     '')
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
+  # Home Manager is pretty good at managing dotfiles.
+  # The primary way to manage plain files is through 'home.file'.
+  home.file = let
+    # Provide a way to auto-generate symlinks to our _mutable_ dotfiles directory
+    # (as opposed to copying source files to the Nix store and keeping them read-only).
+    dotfilesRoot = ../../../dotfiles;
+
+    # This function uses a Path type argument, not a string.
+    # e.g. ".config/test" = symlink ../../../dotfiles/test;
+    symlink = sourcePath: {
+      source = config.lib.file.mkOutOfStoreSymlink (toString sourcePath);
+    };
+
+    symlinkDotfiles = sourcePath: {
+      source = config.lib.file.mkOutOfStoreSymlink "${toString dotfilesRoot}/${sourcePath}";
+    };
+
+  in {
+
+    # Auto-generate symlinks to _mutable_ dotfiles repo checkout
+    # Note that we deliberately skip the .config/home-manager symlink
+    # since having it in this list produces an error.
+    # This is one symlink we need to create manually with `ln -s` ourselves.
+    ".config/fish" = symlinkDotfiles ".config/fish";
+    ".config/mc" = symlinkDotfiles ".config/mc";
+    ".config/nushell" = symlinkDotfiles ".config/nushell";
+    ".config/nvim" = symlinkDotfiles ".config/nvim";
+    ".config/tmux" = symlinkDotfiles ".config/tmux";
+    ".vim" = symlinkDotfiles ".vim";
+
     # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # symlink to the Nix store copy.
