@@ -140,6 +140,12 @@ in {
 
     gvfs.enable = true;  # Mount, trash, and other functionalities
 
+    # Systemd service for emacs, allowing use of shared editor buffers via emacsclient
+    emacs = {
+      enable = true;
+      package = pkgs.emacs;
+    };
+
     xserver = {
       enable = true;
 
