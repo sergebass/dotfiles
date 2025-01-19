@@ -231,6 +231,35 @@ in {
     # or are started in user sessions.
     # mtr.enable = true;
 
+    tmux = {
+      enable = true;
+      shortcut = "Space";  # Use Ctrl+Space as the tmux prefix
+      keyMode = "vi";  # Vi or Emacs style shortcuts. One of "emacs", "vi".
+      clock24 = true;  # Use 24-hour clocks
+      terminal = "screen-256color-bce";  # BCE = Background Color Erase
+      baseIndex = 1;  # Base index for windows and panes.
+      historyLimit = 100000;  # Maximum number of lines held in window history.
+
+      # Time in milliseconds for which tmux waits after an escape is input.
+      # Allows for faster key repetition.
+      escapeTime = 0;
+
+      # Additional contents of /etc/tmux.conf, to be run before sourcing plugins.
+      extraConfigBeforePlugins = ''
+      '';
+
+      # List of plugins to install.
+      plugins = with pkgs.tmuxPlugins; [
+        battery
+        cpu
+        resurrect  # Restore tmux environment after system restart
+      ];
+
+      # Additional contents of /etc/tmux.conf, to be run after sourcing plugins.
+      extraConfig = ''
+      '';
+    };
+
     fish = {
       enable = true;
       shellAliases = aliases;
