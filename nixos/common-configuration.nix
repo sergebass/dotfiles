@@ -242,5 +242,10 @@ in {
         end
       '';
     };
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
   };
  }
