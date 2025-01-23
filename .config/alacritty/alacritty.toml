@@ -5,7 +5,7 @@
 shell = "nu"
 # args = []
 # To automatically launch WSL (Linux container in Windows) in contained home directory
-# programs = "C:\\Windows\\System32\\wsl.exe"
+# program = "C:\\Windows\\System32\\wsl.exe"
 # args = ["--cd", "~"]
 
 [colors]
