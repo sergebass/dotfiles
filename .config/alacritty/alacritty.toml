@@ -1,6 +1,12 @@
+[general]
+# working_directory = "C:\\Users\\sergii"
+
 [terminal]
 shell = "nu"
 # args = []
+# To automatically launch WSL (Linux container in Windows) in contained home directory
+# programs = "C:\\Windows\\System32\\wsl.exe"
+# args = ["--cd", "~"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
