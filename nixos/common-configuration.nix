@@ -246,6 +246,21 @@ in {
 
       # Additional contents of /etc/tmux.conf, to be run before sourcing plugins.
       extraConfigBeforePlugins = ''
+        # Use both C-Space and M-Space to send tmux prefix (depending on the OS/GUI limitations)
+        set-option -g prefix C-Space
+        set-option -g prefix2 M-Space
+
+        # Press the prefix twice to send it through to the underlying application
+        unbind C-Space
+        bind C-Space send-prefix
+        unbind M-Space
+        bind M-Space send-prefix -2
+
+        # Navigate between current and previous windows or panes
+        unbind Tab
+        bind Tab last-window
+        unbind M-Tab
+        bind M-Tab last-pane
       '';
 
       # List of plugins to install.
