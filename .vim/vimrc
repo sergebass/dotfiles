@@ -33,11 +33,11 @@ set rulerformat=%l:%c%V
 set laststatus=2 " always display status line, even with one file being edited
 set statusline=%1*%m%r%*\ %f\ %3*%{fugitive#statusline()}%9*\ %y%{ObsessionStatus()}\ %=%{tabpagenr()}:#%n\ \"%{v:register}\ u%B/%{&fenc}/%{&ff}\ %l:%c%V\ %p%%/%L
 
+set tabline=%!SPTabLine()
+
 if has("nvim")
     autocmd TermOpen * setlocal statusline=%*%{b:term_title}%9*%=#%n\ %l:%c%V\ %p%%/%L
 endif
-
-set tabline=%!SPTabLine()
 
 set autoread " automatically reload files changed by external programs
 au CursorHold,CursorHoldI * :checktime " check for updates each time cursor stops moving
@@ -344,3 +344,6 @@ if filereadable(expand("~/.workspace.vim"))
     " workspace-specific settings that should not be tracked in this git repo
     source ~/.workspace.vim
 endif
+
+" Display current directory on editor startup
+pwd
