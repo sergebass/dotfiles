@@ -25,7 +25,6 @@ pkgs: with pkgs; [
   rsync  # Fast incremental file transfer utility
   speedtest-rs  # Command line internet speedtest tool written in rust
   tig  # Text-mode interface for git
-  tmux  # Terminal multiplexer
   tree  # Command to produce a depth indented directory listing
   universal-ctags  # A maintained ctags implementation
   unzip  # An extraction utility for archives compressed in .zip format
