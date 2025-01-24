@@ -18,7 +18,6 @@ pkgs: with pkgs; [
   lm_sensors  # Onboard sensor measurement tools
   lshw  # Provide detailed information on the hardware configuration of the machine
   mc  # File Manager and User Shell for the GNU Project, known as Midnight Commander
-  neovim  # Vim text editor fork focused on extensibility and agility
   pamixer  # CLI utilities to control PA & PW audio levels
   parted  # Create, destroy, resize, check, and copy partitions
   pciutils  # A collection of programs for inspecting and manipulating configuration of PCI devices

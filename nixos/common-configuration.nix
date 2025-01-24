@@ -6,7 +6,7 @@ let
   userId = 1000;
 
   aliases = {
-    v = "$VISUAL";
+    v = "nvim";
     g = "git";
     rg = "rg -L --sort path --no-heading -n --column";
     x11 = "startx (which i3)";
@@ -14,6 +14,7 @@ let
 
 in {
   imports = [
+    ./editors.nix
     <home-manager/nixos>  # User-level configuration managed by Home Manager (https://nix-community.github.io/home-manager)
   ];
 
@@ -210,9 +211,7 @@ in {
   environment = {
     systemPackages = import ./packages-core.nix pkgs;
 
-    variables = rec {
-      EDITOR = "nvim";
-      VISUAL = EDITOR;
+    variables = {
       PAGER = "less";
       LESS = "-FRX";
     };
@@ -285,13 +284,6 @@ in {
           ${pkgs.fastfetch}/bin/fastfetch
         end
       '';
-    };
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
     };
   };
  }
