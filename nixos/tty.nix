@@ -91,6 +91,10 @@ in {
       '';
     };
 
+    bash = {
+      shellAliases = aliases;
+    };
+
     fish = {
       enable = true;
       shellAliases = aliases;
