@@ -898,5 +898,7 @@ $env.config = {
     ]
 }
 
+$env.PROMPT_COMMAND = { (date now | format date '%Y-%m-%d %I:%M:%S%.3f') + ' ' + (whoami) + '@' + (hostname) + "\n" + (pwd) }
+
 alias v = nvim
 alias g = git
