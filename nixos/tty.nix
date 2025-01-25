@@ -93,6 +93,16 @@ in {
 
     bash = {
       shellAliases = aliases;
+
+      undistractMe = {
+        enable = true;
+
+        # Number of seconds it would take for a command to be considered long-running.
+        timeout = 30;
+
+        # Whether to enable notification sounds when long-running terminal commands complete.
+        playSound = true;
+      };
     };
 
     fish = {
