@@ -1,8 +1,150 @@
+[user]
+    name = "Sergii Perynskyi"
+
+[credential]
+    helper = cache
+
+[core]
+    pager = less -F -X
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = true
+
+[pager]
+    status = false
+
+[grep]
+    lineNumber = true
+
+[diff]
+    submodule = log
+    ; tool = vimdiff
+    tool = nvim
+    guitool = meld
+
+[difftool]
+    prompt = true
+
+[difftool "nvim"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+
+[merge]
+    ; tool = vimdiff
+    tool = nvim
+    guitool = meld
+    conflictstyle = diff3
+
+[mergetool]
+    prompt = true
+
+[mergetool "nvim"]
+    ; cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+    cmd = nvim -d -c 'wincmd J' "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
+
+[mergetool "ediff"]
+    ; cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+    cmd = emacs --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[tig]
+    git-colors = yes
+    show-changes = true
+    tab-size = 4
+    ignore-space = all
+    wrap-lines = yes
+    editor-line-number = yes
+    mouse = yes
+
+[tig "color"]
+    default = 252 0
+    cursor = 226 238 bold
+    title-focus = 15 20 bold
+    title-blur = 7 17
+    date = 51 default
+    file = 49 default
+    directory = 47 default
+    line-number = 227 default
+    search-result = 24 226 bold
+    diff-stat = 51 default
+    diff-header = 226 25 bold
+    diff-index = 245 default
+    diff-chunk = magenta default
+    status = 49 default
+    stat-staged = 47 default
+    stat-unstaged = 190 default
+    stat-untracked = 197 default
+
+[gitweb]
+    blame = true
+
+[color]
+    ui = auto
+    branch = auto
+    grep = auto
+    diff = auto
+    status = auto
+    interactive = auto
+    pager = true
+
+[color "branch"]
+    current = 226 reverse
+    local = 48
+    remote = 204
+    upstream = cyan
+    plain = 15
+
+[color "grep"]
+    context = 246
+    filename = green
+    function = magenta
+    linenumber = cyan
+    match = 24 226 bold
+    matchcontext = 24 226 bold
+    matchselected = 24 226 bold
+    selected = 15
+    separator = 245
+
+[color "diff"]
+    meta = 226 25 bold
+    frag = 213 bold ul
+    context = 15
+    old = 196 strike
+    new = 82
+    whitespace = 15 18
+    commit = 51 bold
+
+[color "status"]
+    header = 7
+    added = 82 bold
+    updated = 75 bold
+    changed = 129 bold
+    untracked = 226 bold
+    branch = white bold reverse
+    nobranch = red bold
+    localBranch = 48 bold
+    remoteBranch = 204 bold
+    unmerged = 196 bold reverse
+
+[color "interactive"]
+    prompt = 123 bold reverse
+    header = 15
+    help = 214
+    error = 196 bold reverse
+
 [alias]
     list-aliases = config --get-regexp 'alias.*'
 
-    ; invoke text editor on global git configuration file (most likely this one)
-    edit-config = config --global --edit
+    ; invoke text editor on local/global git configuration file
+    edit-config = config --edit
+    edit-global-config = config --global --edit
 
     sb = status -sb
 
@@ -125,136 +267,3 @@
 
     commits-by-author = shortlog -s -n --all --no-merges
 
-[core]
-    pager = less -F -X
-
-[pager]
-    status = false
-
-[credential]
-    helper = cache
-
-[grep]
-    lineNumber = true
-
-[tig]
-    git-colors = yes
-    show-changes = true
-    tab-size = 4
-    ignore-space = all
-    wrap-lines = yes
-    editor-line-number = yes
-    mouse = yes
-
-[tig "color"]
-    default = 252 0
-    cursor = 226 238 bold
-    title-focus = 15 20 bold
-    title-blur = 7 17
-    date = 51 default
-    file = 49 default
-    directory = 47 default
-    line-number = 227 default
-    search-result = 24 226 bold
-    diff-stat = 51 default
-    diff-header = 226 25 bold
-    diff-index = 245 default
-    diff-chunk = magenta default
-    status = 49 default
-    stat-staged = 47 default
-    stat-unstaged = 190 default
-    stat-untracked = 197 default
-
-[diff]
-    submodule = log
-    ; tool = vimdiff
-    tool = nvim
-    guitool = meld
-
-[difftool]
-    prompt = true
-
-[difftool "nvim"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
-
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
-
-[merge]
-    ; tool = vimdiff
-    tool = nvim
-    guitool = meld
-    conflictstyle = diff3
-
-[mergetool]
-    prompt = true
-
-[mergetool "nvim"]
-    ; cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
-    cmd = nvim -d -c 'wincmd J' "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
-
-[mergetool "ediff"]
-    ; cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
-    cmd = emacs --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
-
-[mergetool "meld"]
-    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
-
-[gitweb]
-    blame = true
-
-[color]
-    ui = auto
-    branch = auto
-    grep = auto
-    diff = auto
-    status = auto
-    interactive = auto
-    pager = true
-
-[color "branch"]
-    current = 226 reverse
-    local = 48
-    remote = 204
-    upstream = cyan
-    plain = 15
-
-[color "grep"]
-    context = 246
-    filename = green
-    function = magenta
-    linenumber = cyan
-    match = 24 226 bold
-    matchcontext = 24 226 bold
-    matchselected = 24 226 bold
-    selected = 15
-    separator = 245
-
-[color "diff"]
-    meta = 226 25 bold
-    frag = 213 bold ul
-    context = 15
-    old = 196 strike
-    new = 82
-    whitespace = 15 18 
-    commit = 51 bold
-
-[color "status"]
-    header = 7
-    added = 82 bold
-    updated = 75 bold
-    changed = 129 bold
-    untracked = 226 bold
-    branch = white bold reverse
-    nobranch = red bold
-    localBranch = 48 bold
-    remoteBranch = 204 bold
-    unmerged = 196 bold reverse
-
-[color "interactive"]
-    prompt = 123 bold reverse
-    header = 15
-    help = 214
-    error = 196 bold reverse
-[pull]
-	rebase = true
