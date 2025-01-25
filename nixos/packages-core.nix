@@ -8,7 +8,6 @@ pkgs: with pkgs; [
   fastfetch  # Like neofetch, but much faster because written in C
   file  # A program that shows the type of files
   findutils  # GNU Find Utilities, the basic directory searching utilities of the GNU operating system
-  fish  # Smart and user-friendly command line shell
   fzf  # Command-line fuzzy finder written in Go
   git  # Distributed version control system
   hddtemp  # HDD temperature measurement tools
