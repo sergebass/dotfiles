@@ -5,6 +5,7 @@
     ./tty.nix
     ./editors.nix
     ./users.nix
+    ./version-control.nix
   ];
 
   nix.settings.experimental-features = [
