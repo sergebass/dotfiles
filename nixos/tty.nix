@@ -106,6 +106,11 @@ in {
         end
       '';
     };
+
+    fzf = {
+      fuzzyCompletion = true;
+      keybindings = true;
+    };
   };
 
   environment = {

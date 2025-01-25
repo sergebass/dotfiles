@@ -1,4 +1,6 @@
 # The list of core packages that I need on every NixOS system
+# Note that several core programs are configured in other Nix modules
+# (e.g. tmux, fish, fzf etc. - usually in `programs.abc` blocks)
 
 pkgs: with pkgs; [
   alsa-utils  # ALSA, the Advanced Linux Sound Architecture utils
@@ -8,7 +10,6 @@ pkgs: with pkgs; [
   fastfetch  # Like neofetch, but much faster because written in C
   file  # A program that shows the type of files
   findutils  # GNU Find Utilities, the basic directory searching utilities of the GNU operating system
-  fzf  # Command-line fuzzy finder written in Go
   git  # Distributed version control system
   hddtemp  # HDD temperature measurement tools
   htop  # An interactive process viewer
