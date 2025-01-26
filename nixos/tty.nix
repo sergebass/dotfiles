@@ -91,6 +91,11 @@ in {
       '';
     };
 
+    # Starship is a smart command prompt generator (https://starship.rs)
+    starship = {
+      enable = true;
+    };
+
     bash = {
       shellAliases = aliases;
 
