@@ -99,6 +99,11 @@ in {
     bash = {
       shellAliases = aliases;
 
+      loginShellInit = ''
+        # Prepare for command prompt generation
+        eval "$(${pkgs.starship}/bin/starship init bash)"
+      '';
+
       undistractMe = {
         enable = true;
 
@@ -115,6 +120,9 @@ in {
       shellAliases = aliases;
       loginShellInit = ''
         set -U fish_greeting ""
+
+        # Prepare for command prompt generation
+        ${pkgs.starship}/bin/starship init fish | source
 
         if test "$(tty)" = "/dev/tty1";
           ${pkgs.fastfetch}/bin/fastfetch

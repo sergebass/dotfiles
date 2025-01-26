@@ -23,6 +23,7 @@ pkgs: with pkgs; [
   ripgrep  # A utility that combines the usability of The Silver Searcher with the raw speed of grep
   rsync  # Fast incremental file transfer utility
   speedtest-rs  # Command line internet speedtest tool written in rust
+  starship  # Command prompt generator (we have it in programs.starship but it's not on PATH for some reason)
   tig  # Text-mode interface for git
   tree  # Command to produce a depth indented directory listing
   universal-ctags  # A maintained ctags implementation
