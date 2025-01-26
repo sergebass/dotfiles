@@ -13,6 +13,7 @@ pkgs: with pkgs; [
   hddtemp  # HDD temperature measurement tools
   htop  # An interactive process viewer
   hwinfo  # Hardware detection tool from openSUSE
+  inconsolata-nerdfont  # Terminal font with special Unicode icons for starship etc. (https://www.nerdfonts.com/font-downloads)
   kbd  # Linux keyboard tools and keyboard maps
   lm_sensors  # Onboard sensor measurement tools
   lshw  # Provide detailed information on the hardware configuration of the machine
