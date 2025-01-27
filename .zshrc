@@ -169,3 +169,6 @@ fi
 if [ -f ~/dotfiles/scripts/h.sh ]; then
     source ~/dotfiles/scripts/h.sh
 fi
+
+# Prepare for our fancy custom prompt generation
+eval "$(starship init zsh)"
