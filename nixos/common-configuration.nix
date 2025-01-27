@@ -99,4 +99,12 @@
     localBinInPath = true;
     homeBinInPath = true;
   };
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "Inconsolata"  # Terminal font with special Unicode icons for starship etc. (https://www.nerdfonts.com/font-downloads)
+      ];
+    })
+  ];
 }
