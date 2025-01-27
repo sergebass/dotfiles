@@ -1,1 +1,1 @@
-../nixos/scripts/nixos-rebuild-pinned-nixpkgs
+../../nixos/scripts/nixos-rebuild-pinned-nixpkgs
