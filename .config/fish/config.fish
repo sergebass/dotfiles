@@ -28,3 +28,6 @@ alias rg "rg -L --sort path --no-heading -n --column"
 if test -e ~/.workspace.fish
     source ~/.workspace.fish
 end
+
+# Prepare for our fancy custom prompt generation
+starship init fish | source
