@@ -102,6 +102,12 @@ in {
         shell = {
           disabled = false;  # Since we use multiple shells, to be aware.
         };
+        username = {
+          show_always = true;  # Always display user name
+        };
+        hostname = {
+          ssh_only = false;  # Always display host name
+        };
         time = {
           disabled = false;  # We do want timestamps (which are disabled by default)
           format = "[$time]($style) ";
