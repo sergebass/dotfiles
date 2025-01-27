@@ -99,6 +99,9 @@ in {
       # See https://starship.rs/config/#prompt for documentation.
       settings = {
         add_newline = true;
+        shell = {
+          disabled = false;  # Since we use multiple shells, to be aware.
+        };
         time = {
           disabled = false;  # We do want timestamps (which are disabled by default)
           format = "[$time]($style) ";
