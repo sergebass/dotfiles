@@ -10,6 +10,14 @@ add_newline = true
 # Since we use multiple shells, to be aware.
 disabled = false
 
+[username]
+# Always display user name
+show_always = true
+
+[hostname]
+# Always display host name
+ssh_only = false
+
 [time]
 # We do want timestamps for our commands
 disabled = false
