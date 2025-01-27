@@ -168,3 +168,6 @@ fi
 if [ -f ~/dotfiles/scripts/h.sh ]; then
     . ~/dotfiles/scripts/h.sh
 fi
+
+# Prepare for our fancy custom prompt generation
+eval "$(starship init bash)"
