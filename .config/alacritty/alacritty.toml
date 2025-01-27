@@ -49,21 +49,21 @@ shape = "Block"
 [font]
 size = 10.0
 
+[font.normal]
+family = "Inconsolata Nerd Font Mono"
+style = "Regular"
+
+[font.italic]
+family = "Inconsolata Nerd Font Mono"
+style = "Italic"
+
 [font.bold]
-family = "Inconsolata"
+family = "Inconsolata Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "Inconsolata"
+family = "Inconsolata Nerd Font Mono"
 style = "Bold Italic"
-
-[font.italic]
-family = "Inconsolata"
-style = "Italic"
-
-[font.normal]
-family = "Inconsolata"
-style = "Regular"
 
 [[keyboard.bindings]]
 chars = "\u0000"
