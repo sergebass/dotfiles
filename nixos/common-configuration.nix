@@ -110,11 +110,11 @@
       # powerline-fonts  # Patched fonts for Powerline users
       # ubuntu-classic  # Ubuntu Classic font
     ] ++ [
-    (nerdfonts.override {
-      fonts = [
-        "Inconsolata"  # Terminal font with special Unicode icons for starship etc. (https://www.nerdfonts.com/font-downloads)
-      ];
-    })
-  ];
+      (nerdfonts.override {
+        fonts = [
+          "Inconsolata"  # Terminal font with special Unicode icons for starship etc. (https://www.nerdfonts.com/font-downloads)
+        ];
+      })
+    ];
   };
 }
