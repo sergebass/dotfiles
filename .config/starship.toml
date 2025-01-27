@@ -9,3 +9,4 @@ add_newline = true
 [time]
 # We do want timestamps for our commands
 disabled = false
+format = "[$time]($style) "
