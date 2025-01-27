@@ -100,11 +100,21 @@
     homeBinInPath = true;
   };
 
-  fonts.packages = with pkgs; [
+  fonts = {
+    enableDefaultPackages = true;  # Enable a basic set of fonts providing several styles and families and reasonable coverage of Unicode.
+    packages = with pkgs; [
+      # corefonts  # Microsoft's TrueType core fonts for the Web
+      # glasstty-ttf  # TrueType VT220 font
+      # google-fonts
+      # noto-fonts  # Beautiful and free fonts for many languages
+      # powerline-fonts  # Patched fonts for Powerline users
+      # ubuntu-classic  # Ubuntu Classic font
+    ] ++ [
     (nerdfonts.override {
       fonts = [
         "Inconsolata"  # Terminal font with special Unicode icons for starship etc. (https://www.nerdfonts.com/font-downloads)
       ];
     })
   ];
+  };
 }
