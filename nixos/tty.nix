@@ -94,6 +94,16 @@ in {
     # Starship is a smart command prompt generator (https://starship.rs)
     starship = {
       enable = true;
+
+      # Configuration included in starship.toml.
+      # See https://starship.rs/config/#prompt for documentation.
+      settings = {
+        add_newline = true;
+        time = {
+          disabled = false;  # We do want timestamps (which are disabled by default)
+          format = "[$time]($style) ";
+        };
+      };
     };
 
     bash = {
