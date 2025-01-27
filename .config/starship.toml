@@ -6,6 +6,10 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
+[shell]
+# Since we use multiple shells, to be aware.
+disabled = false
+
 [time]
 # We do want timestamps for our commands
 disabled = false
