@@ -9,6 +9,12 @@ add_newline = true
 [shell]
 # Since we use multiple shells, to be aware.
 disabled = false
+nu_indicator = "N"
+fish_indicator = "F"
+zsh_indicator = "Z"
+bash_indicator = "B"
+powershell_indicator = "P"
+cmd_indicator = "C"
 
 [username]
 # Always display user name
