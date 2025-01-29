@@ -101,12 +101,12 @@ in {
         add_newline = true;
         shell = {
           disabled = false;  # Since we use multiple shells, to be aware.
-          nu_indicator = "N";
-          fish_indicator = "F";
-          zsh_indicator = "Z";
-          bash_indicator = "B";
-          powershell_indicator = "P";
-          cmd_indicator = "C";
+          nu_indicator = "nu";
+          fish_indicator = "fish";
+          zsh_indicator = "zsh";
+          bash_indicator = "bash";
+          powershell_indicator = "powershell";
+          cmd_indicator = "cmd";
         };
         username = {
           show_always = true;  # Always display user name
