@@ -110,9 +110,13 @@ in {
         };
         username = {
           show_always = true;  # Always display user name
+          format = "[$user]($style)";
+          style_user = "bold white";
+          style_root = "bold red";
         };
         hostname = {
           ssh_only = false;  # Always display host name
+          format = "@[$ssh_symbol$hostname]($style): ";
         };
         time = {
           disabled = false;  # We do want timestamps (which are disabled by default)
