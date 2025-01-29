@@ -16,10 +16,16 @@ if status is-interactive
     fish_vi_key_bindings
 end
 
+# Uncomment this invocation to define environment variables with ANSI colors:
+# source ~/.local/bin/sp-ansi-colors.sh
+
 export EDITOR=nvim
 export VISUAL=nvim
+export PAGER=less
+export MANPAGER=less
 
-export LESS="-FRX"
+# See `man less` for the explanation of the color codes defined with `-D`:
+export LESS="-FR --use-color -Dk+M -Ds+R -Dd+226 -Du+85 -DP229.240*~ -DE200*~ -DS11.18*_ -DN238"
 
 alias v nvim
 alias g git
