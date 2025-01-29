@@ -164,7 +164,10 @@ in {
   environment = {
     variables = {
       PAGER = "less";
-      LESS = "-FRX";
+      MANPAGER = "less";
+
+      # See `man less` for the explanation of the color codes defined with `-D`:
+      LESS = "-FR --use-color -Dk+M -Ds+R -Dd+226 -Du+85 -DP229.240*~ -DE200*~ -DS11.18*_ -DN238";
     };
   };
 }
