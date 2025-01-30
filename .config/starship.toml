@@ -28,6 +28,15 @@ style_root = 'bold red'
 ssh_only = false
 format = '@[$ssh_symbol$hostname]($style): '
 
+[directory]
+style = 'bold white'
+repo_root_style = 'bold yellow'
+before_repo_root_style = 'bold cyan'
+truncation_symbol = '.../'
+truncation_length = 0
+truncate_to_repo = false
+# fish_style_pwd_dir_length = 1
+
 [time]
 # We do want timestamps for our commands
 disabled = false
