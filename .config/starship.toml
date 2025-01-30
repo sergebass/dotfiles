@@ -21,13 +21,14 @@ style = "gray"
 # Always display user name
 show_always = true
 format = '[$user]($style)'
-style_user = 'bold purple'
+style_user = 'bold green'
 style_root = 'bold red'
 
 [hostname]
 # Always display host name
 ssh_only = false
 format = '@[$ssh_symbol$hostname]($style): '
+style = 'bold purple'
 
 [directory]
 style = 'bold cyan'
