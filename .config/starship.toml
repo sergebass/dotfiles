@@ -15,12 +15,13 @@ zsh_indicator = "zsh"
 bash_indicator = "bash"
 powershell_indicator = "powershell"
 cmd_indicator = "cmd"
+style = "gray"
 
 [username]
 # Always display user name
 show_always = true
 format = '[$user]($style)'
-style_user = 'bold white'
+style_user = 'bold purple'
 style_root = 'bold red'
 
 [hostname]
@@ -29,7 +30,7 @@ ssh_only = false
 format = '@[$ssh_symbol$hostname]($style): '
 
 [directory]
-style = 'bold white'
+style = 'bold cyan'
 repo_root_style = 'bold yellow'
 before_repo_root_style = 'bold cyan'
 truncation_symbol = '.../'
@@ -37,7 +38,11 @@ truncation_length = 0
 truncate_to_repo = false
 # fish_style_pwd_dir_length = 1
 
+[git_branch]
+style = 'bold yellow'
+
 [time]
 # We do want timestamps for our commands
 disabled = false
 format = "[$time]($style) "
+style = "bold white"
