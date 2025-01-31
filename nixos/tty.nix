@@ -107,20 +107,35 @@ in {
           bash_indicator = "bash";
           powershell_indicator = "powershell";
           cmd_indicator = "cmd";
+          style = "gray";
         };
         username = {
           show_always = true;  # Always display user name
           format = "[$user]($style)";
-          style_user = "bold white";
+          style_user = "bold green";
           style_root = "bold red";
         };
         hostname = {
           ssh_only = false;  # Always display host name
           format = "@[$ssh_symbol$hostname]($style): ";
+          style = "bold purple";
+        };
+        directory = {
+          style = "bold cyan";
+          repo_root_style = "bold yellow";
+          before_repo_root_style = "bold cyan";
+          truncation_symbol = ".../";
+          truncation_length = 0;
+          truncate_to_repo = false;
+          # fish_style_pwd_dir_length = 1;
+        };
+        git_branch = {
+          style = "bold yellow";
         };
         time = {
           disabled = false;  # We do want timestamps (which are disabled by default)
           format = "[$time]($style) ";
+          style = "bold white";
         };
       };
     };
