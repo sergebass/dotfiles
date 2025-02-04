@@ -1,0 +1,20 @@
+# Configuration with default options for ripgrep (rg) searcher.
+# Set up RIPGREP_CONFIG_PATH variable to point to this file
+# since ripgrep does not have a default configuration file location:
+# https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+
+# Follow symbolic links
+--follow
+
+# Sort results by file path
+--sort=path
+
+# Every output line is a search result hit.
+# The number of resulting lines is the number of hits.
+--no-heading
+
+# Show line numbers (1-based)
+--line-number
+
+# Show column numbers (1-based)
+--column
