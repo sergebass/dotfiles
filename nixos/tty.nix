@@ -4,9 +4,33 @@ let
   aliases = {
     v = "nvim";
     g = "git";
-    rg = "rg -L --sort path --no-heading -n --column";
     x11 = "startx (which i3)";
   };
+
+  # Default configuration options for ripgrep (rg).
+  # The RIPGREP_CONFIG_PATH variable will point to this file in the Nix Store.
+  ripgrepRC = ''
+    # Configuration with default options for ripgrep (rg) searcher.
+    # Set up RIPGREP_CONFIG_PATH variable to point to this file
+    # since ripgrep does not have a default configuration file location:
+    # https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+
+    # Follow symbolic links
+    --follow
+
+    # Sort results by file path
+    --sort=path
+
+    # Every output line is a search result hit.
+    # The number of resulting lines is the number of hits.
+    --no-heading
+
+    # Show line numbers (1-based)
+    --line-number
+
+    # Show column numbers (1-based)
+    --column
+  '';
 
 in {
   console = {
@@ -195,6 +219,10 @@ in {
 
       # See `man less` for the explanation of the color codes defined with `-D`:
       LESS = "-FR --use-color -Dk+M -Ds+R -Dd+226 -Du+85 -DP229.240*~ -DE200*~ -DS11.18*_ -DN238";
+
+      # There is no default file location for ripgrep configuration,
+      # we must auto-configure this variable for rg to look it up explicitly.
+      RIPGREP_CONFIG_PATH = pkgs.writeText "rgrc" ripgrepRC;
     };
   };
 }
