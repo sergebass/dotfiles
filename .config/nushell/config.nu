@@ -911,3 +911,5 @@ $env.PROMPT_COMMAND_RIGHT = ""
 
 alias v = nvim
 alias g = git
+
+$env.RIPGREP_CONFIG_PATH = ($env.HOME) + "/dotfiles/.rgrc"
