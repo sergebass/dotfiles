@@ -322,3 +322,6 @@ $bindkeys XF86AudioPrev exec --no-startup-id playerctl previous
 $bindkeys XF86AudioNext exec --no-startup-id playerctl next
 $bindkeys XF86AudioRewind exec --no-startup-id playerctl position $audioAdvanceSeconds-
 $bindkeys XF86AudioForward exec --no-startup-id playerctl position $audioAdvanceSeconds+
+
+# Make mpv always auto-float and sticky, to make it easier to place a small playback window in a corner
+for_window [class="mpv"] fullscreen disable, floating enable, sticky enable, resize set 320 240,
