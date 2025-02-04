@@ -137,6 +137,14 @@ in {
           format = "[$time]($style) ";
           style = "bold white";
         };
+        character = {
+          success_symbol = "[=>](bold green)";
+          error_symbol = "[=>](bold red)";
+          vimcmd_symbol = "[N:](bold cyan)";
+          vimcmd_visual_symbol = "[V:](bold yellow)";
+          vimcmd_replace_symbol = "[R:](bold purple)";
+          vimcmd_replace_one_symbol = "[r:](bold purple)";
+        };
       };
     };
 
