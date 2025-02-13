@@ -6,12 +6,15 @@ if status is-login
 end
 
 if type -q fish_add_path
-    fish_add_path --prepend --move ~/.local/bin
-    fish_add_path --prepend --move ~/bin
+    fish_add_path --prepend --move $HOME/.cargo/bin
+    fish_add_path --prepend --move $HOME/.local/bin
+    fish_add_path --prepend --move $HOME/bin
 
-    fish_add_path --append --move ~/.cargo/bin
 else  # For older fish versions
-    set -gx PATH $HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
+
+    set --global --export --prepend PATH $HOME/.cargo/bin
+    set --global --export --prepend PATH $HOME/.local/bin
+    set --global --export --prepend PATH $HOME/bin
 end
 
 if status is-interactive
