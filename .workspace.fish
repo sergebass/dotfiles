@@ -4,4 +4,6 @@
 
 # if type -q fish_add_path
 #     fish_add_path --prepend --move $HOME/bin
+# else  # For older fish versions
+    # set -gx PATH $HOME/bin:$PATH
 # end

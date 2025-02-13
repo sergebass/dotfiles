@@ -10,6 +10,8 @@ if type -q fish_add_path
     fish_add_path --prepend --move ~/bin
 
     fish_add_path --append --move ~/.cargo/bin
+else  # For older fish versions
+    set -gx PATH $HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 end
 
 if status is-interactive
