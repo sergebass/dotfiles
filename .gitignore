@@ -12,6 +12,8 @@
 # ccache cache
 .ccache
 
+.ccls-cache
+
 # compiled Xmonad binaries and error logs
 .xmonad/xmonad-x86_64-linux
 .xmonad/xmonad.errors
