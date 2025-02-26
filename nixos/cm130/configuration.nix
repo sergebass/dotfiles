@@ -423,6 +423,7 @@ in {
       signal-desktop
       simple-scan  # Simple paper scanning GUI app
       simplescreenrecorder  # Screen recorder for Linux
+      smplayer  # Complete front-end for MPlayer
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
       sway-launcher-desktop  # Note that this tool is not really tied to sway at all
