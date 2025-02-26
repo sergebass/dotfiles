@@ -392,6 +392,7 @@ in {
       open-in-mpv  # Simple web extension to open videos in mpv
       open-pdf-sign  # Digitally sign PDF files from your commandline
       openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
+      openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
       pandoc  # Converter between documentation formats
       pavucontrol
       pdf-sign  # Tool to visually sign PDF files
