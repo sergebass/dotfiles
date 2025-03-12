@@ -5,6 +5,10 @@
 pkgs: with pkgs; [
   alsa-utils  # ALSA, the Advanced Linux Sound Architecture utils
   bc  # GNU software calculator
+  btrfs-heatmap  # Visualize the layout of a mounted btrfs
+  btrfs-progs  # Utilities for the btrfs filesystem
+  btrfs-snap  # Create and maintain the history of snapshots of btrfs filesystems
+  compsize  # Compression ratio calculator for btrfs
   dig  # Domain name server utility
   exfatprogs  # exFAT filesystem userspace utilities
   fastfetch  # Like neofetch, but much faster because written in C
@@ -17,10 +21,16 @@ pkgs: with pkgs; [
   lm_sensors  # Onboard sensor measurement tools
   lshw  # Provide detailed information on the hardware configuration of the machine
   mc  # File Manager and User Shell for the GNU Project, known as Midnight Commander
+  mpc  # Minimalist command line interface to MPD
+  mpd  # Flexible, powerful daemon for playing music
+  ncmpcpp  # Featureful ncurses based MPD client inspired by ncmpc
+  ncpamixer  # Terminal mixer for PulseAudio inspired by pavucontrol
+  openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
   pamixer  # CLI utilities to control PA & PW audio levels
   parted  # Create, destroy, resize, check, and copy partitions
   pciutils  # A collection of programs for inspecting and manipulating configuration of PCI devices
   ripgrep  # A utility that combines the usability of The Silver Searcher with the raw speed of grep
+  rlwrap  # Readline wrapper for console programs
   rsync  # Fast incremental file transfer utility
   speedtest-rs  # Command line internet speedtest tool written in rust
   starship  # Command prompt generator (we have it in programs.starship but it's not on PATH for some reason)
@@ -31,5 +41,6 @@ pkgs: with pkgs; [
   usbutils  # Tools for working with USB devices, such as lsusb
   vifm  # Vi-like File Manager
   wget  # Tool for retrieving files using HTTP, HTTPS, and FTP
+  zfs  # ZFS Filesystem Linux Userspace Tools
   zip  # Compressor/archiver for creating and modifying zipfiles
 ]

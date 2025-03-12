@@ -170,41 +170,19 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
-      alacritty
       arduino-cli  # Arduino from the command line
       arduino-ide  # Open-source electronics prototyping platform
       arduino-language-server  # Arduino Language Server based on Clangd to Arduino code autocompletion
-      chromium
-      dmenu
-      dunst
-      feh
-      firefox
-      freetube
-      gparted
+      rtl-sdr
       gqrx
-      mpc_cli
-      mpd
-      mpv
-      mupdf
-      ncmpcpp
       openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
-      pavucontrol
       qrencode
-      rofi
-      rofi-bluetooth
-      rofi-calc
-      rofi-file-browser
-      rofi-mpd
-      rofi-pulse-select
-      rofi-systemd
-      rofi-top
       simple-scan  # Simple paper scanning GUI app
       w_scan2  # A small channel scan tool which generates ATSC, DVB-C, DVB-S/S2 and DVB-T/T2 channels.conf files. Use: w_scan2 -fa -c CA > channels.conf
-      xorg.xkill
-      xorg.xrandr
-      xorg.xsetroot
       ymuse  # GUI client for MPD
-    ];
+    ] ++ [
+      # Experimental packages (a separate list to make it easier to exclude from commits)
+    ] ++ import ../packages-core-gui.nix pkgs;
   };
 
   programs = {
