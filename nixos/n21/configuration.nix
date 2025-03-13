@@ -13,6 +13,8 @@ in {
     ../common-configuration.nix  # Common configuration shared by all of our NixOS systems
     ../printing.nix
     ../scanning.nix
+    ../tv.nix
+    ../sdr.nix
   ];
 
   boot = {
@@ -25,10 +27,6 @@ in {
     kernelPackages = pkgs.linuxPackages;
 
     kernelParams = lib.mkForce [ "verbose" "nosplash" ];
-
-    blacklistedKernelModules = [
-      "dvb_usb_rtl28xxu"  # for SDR dongle
-    ];
 
     tmp.useTmpfs = true;  # Save SSD from some wear and tear
 
@@ -43,12 +41,6 @@ in {
     zfs = {
       forceImportRoot = false;
     };
-  };
-
-  hardware = {
-    firmware = with pkgs; [
-      libreelec-dvb-firmware  # DVB firmware from LibreELEC (for many TV tuner devices)
-    ];
   };
 
   networking = {
@@ -68,7 +60,6 @@ in {
 
       packages = with pkgs; [
         openhantek6022  # Make sure we can access our USB oscilloscope properly
-        rtl-sdr  # For Nooelec Software Defined Radio dongle
       ];
 
       # A rule to allow ACPI backlight control by a non-root user from video group
@@ -173,11 +164,8 @@ in {
       arduino-cli  # Arduino from the command line
       arduino-ide  # Open-source electronics prototyping platform
       arduino-language-server  # Arduino Language Server based on Clangd to Arduino code autocompletion
-      rtl-sdr
-      gqrx
       openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
       qrencode
-      w_scan2  # A small channel scan tool which generates ATSC, DVB-C, DVB-S/S2 and DVB-T/T2 channels.conf files. Use: w_scan2 -fa -c CA > channels.conf
       ymuse  # GUI client for MPD
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
