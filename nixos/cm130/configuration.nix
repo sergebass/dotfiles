@@ -303,7 +303,6 @@ in {
     # $ nix search wget
     systemPackages = with pkgs; [
       adbfs-rootless  # Mount Android phones on Linux with adb, no root required
-      alacritty
       android-studio
       android-studio-tools
       android-tools  # Android SDK platform tools
@@ -317,30 +316,20 @@ in {
       baobab  # Used disk space visualizer
       bash-language-server  # A language server for Bash
       brave
-      btrfs-heatmap
-      btrfs-progs
-      btrfs-snap
       calibre
       calibre-web
       cargo  # Downloads your Rust project's dependencies and builds your project
       ccache  # C++ compiler cache
       cheese  # Take photos and videos with your webcam, with fun graphical effects
-      chromium
       clang-tools  # Standalone command line tools for C++ development (clangd, clang-format etc.)
       cmake
       cmake-language-server  # CMake LSP Implementation
       coltrane
-      compsize  # Compression ratio calculator for btrfs
       darktable  # Virtual lighttable and darkroom for photographers
       denemo
-      dmenu
-      dunst
       exiftool  # A tool to read, write and edit EXIF meta information
       fbmark  # Linux framebuffer benchmarking tool
-      feh
       ffmpeg
-      firefox
-      freetube
       frescobaldi
       fuzzel
       gcc13
@@ -354,7 +343,6 @@ in {
       gnumake
       gnuradio
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
-      gparted
       gqrx
       guitarix
       gxplugins-lv2
@@ -366,7 +354,6 @@ in {
       kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
       kotlin-language-server  # kotlin language server
       libdrm  # Direct Rendering library and test utilities (e.g. modetest)
-      libnotify
       libreoffice
       light # Control backlight brightness
       lilypond-with-fonts
@@ -378,41 +365,21 @@ in {
       meld  # Visual diff and merge tool
       meterbridge  # Various meters (VU, PPM, DPM, JF, SCO) for Jack Audio Connection Kit
       mi2ly
-      mpc_cli
-      mpd
-      mpv
-      mupdf
       musescore
-      ncmpcpp
-      networkmanagerapplet  # Provides nm-connection-editor
       nodePackages.purescript-language-server  # Language Server Protocol server for PureScript wrapping purs ide server functionality
       nodejs_22  # Node.JS and NPM
       nufraw  # Utility to read and manipulate raw images from digital cameras
-      nushell  # Modern shell written in Rust
-      open-in-mpv  # Simple web extension to open videos in mpv
       open-pdf-sign  # Digitally sign PDF files from your commandline
       openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
-      openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
       pandoc  # Converter between documentation formats
-      pavucontrol
       pdf-sign  # Tool to visually sign PDF files
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
       poppler_utils  # PDF rendering library
-      pwvucontrol  # Pipewire Volume Control
       qjackctl
       qpwgraph
       qrencode
       qsynth
       rakarrack
-      rlwrap  # Readline wrapper for console programs
-      rofi
-      rofi-bluetooth
-      rofi-calc
-      rofi-file-browser
-      rofi-mpd
-      rofi-pulse-select
-      rofi-systemd
-      rofi-top
       rtl-sdr
       rust-analyzer  # A modular compiler frontend for the Rust language
       rust-bindgen  # Automatically generates Rust FFI bindings to C (and some C++) libraries
@@ -423,38 +390,25 @@ in {
       signal-desktop
       simple-scan  # Simple paper scanning GUI app
       simplescreenrecorder  # Screen recorder for Linux
-      smplayer  # Complete front-end for MPlayer
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
-      sway-launcher-desktop  # Note that this tool is not really tied to sway at all
-      system-config-printer  # Printer configuration/pipeline control UI
       thunderbird
       tuxguitar
       typescript
       typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (https://github.com/typescript-language-server/typescript-language-server)
       vim-language-server  # VImScript language server, LSP for vim script
       vkmark  # Vulkan benchmarking suite
-      vlc
       vulkan-tools  # Khronos official Vulkan Tools and Utilities
       w_scan2  # A small channel scan tool which generates ATSC, DVB-C, DVB-S/S2 and DVB-T/T2 channels.conf files. Use: w_scan2 -fa -c CA > channels.conf
       wayland-utils  # Wayland utilities (wayland-info)
       wev  # Wayland event tester (similar to xev for X11)
-      xdg-dbus-proxy  # DBus proxy for Flatpak and others
-      xdg-launch  # A command line XDG compliant launcher and tools
-      xdg-terminal-exec  # Reference implementation of the proposed XDG Default Terminal Execution Specification
-      xdg-user-dirs  # A tool to help manage well known user directories like the desktop folder and the music folder
-      xdg-utils  # A set of command line tools that assist applications with a variety of desktop integration tasks
-      xorg.xkill
-      xorg.xrandr
-      xorg.xsetroot
       yaml-language-server  # Language Server for YAML Files
       yewtube
       ymuse  # GUI client for MPD
       youtube-music
-      zfs
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
-    ];
+    ] ++ import ../packages-core-gui.nix pkgs;
 
     variables = {
       # We need this to be able to build some 3rd party packages ignoring the NixOS way temporarily
