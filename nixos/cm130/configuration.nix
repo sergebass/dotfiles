@@ -15,6 +15,7 @@ in {
     ../scanning.nix
     ../tv.nix
     ../sdr.nix
+    ../oscilloscope.nix
   ];
 
   boot = {
@@ -99,10 +100,6 @@ in {
   services = {
     udev = {
       enable = true;
-
-      packages = with pkgs; [
-        openhantek6022  # Make sure we can access our USB oscilloscope properly
-      ];
 
       # A rule to allow ACPI backlight control by a non-root user from video group
       extraRules = with pkgs; ''
@@ -308,7 +305,6 @@ in {
       nodejs_22  # Node.JS and NPM
       nufraw  # Utility to read and manipulate raw images from digital cameras
       open-pdf-sign  # Digitally sign PDF files from your commandline
-      openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
       pandoc  # Converter between documentation formats
       pdf-sign  # Tool to visually sign PDF files
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
