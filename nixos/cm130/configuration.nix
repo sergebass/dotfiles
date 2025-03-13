@@ -9,14 +9,14 @@ let
 
 in {
   imports = [
-    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
     ../common-configuration.nix  # Common configuration shared by all of our NixOS systems
+    ../development/arduino.nix
+    ../oscilloscope.nix
     ../printing.nix
     ../scanning.nix
-    ../tv.nix
     ../sdr.nix
-    ../oscilloscope.nix
-    ../arduino.nix
+    ../tv.nix
+    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
   ];
 
   boot = {
