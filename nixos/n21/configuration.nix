@@ -15,6 +15,7 @@ in {
     ../scanning.nix
     ../tv.nix
     ../sdr.nix
+    ../oscilloscope.nix
   ];
 
   boot = {
@@ -57,10 +58,6 @@ in {
   services = {
     udev = {
       enable = true;
-
-      packages = with pkgs; [
-        openhantek6022  # Make sure we can access our USB oscilloscope properly
-      ];
 
       # A rule to allow ACPI backlight control by a non-root user from video group
       extraRules = with pkgs; ''
@@ -164,7 +161,6 @@ in {
       arduino-cli  # Arduino from the command line
       arduino-ide  # Open-source electronics prototyping platform
       arduino-language-server  # Arduino Language Server based on Clangd to Arduino code autocompletion
-      openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
       qrencode
       ymuse  # GUI client for MPD
     ] ++ [
