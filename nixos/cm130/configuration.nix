@@ -16,6 +16,7 @@ in {
     ../tv.nix
     ../sdr.nix
     ../oscilloscope.nix
+    ../arduino.nix
   ];
 
   boot = {
@@ -244,9 +245,6 @@ in {
       android-studio-tools
       android-tools  # Android SDK platform tools
       ardour
-      arduino-cli  # Arduino from the command line
-      arduino-ide  # Open-source electronics prototyping platform
-      arduino-language-server  # Arduino Language Server based on Clangd to Arduino code autocompletion
       asciidoctor  # A faster Asciidoc processor written in Ruby
       audacity
       avidemux  # Free video editor designed for simple video editing tasks
