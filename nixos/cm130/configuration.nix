@@ -22,6 +22,8 @@ in {
       };
     };
 
+    kernelPackages = pkgs.linuxPackages_latest;
+
     kernelParams = lib.mkForce [
       "verbose"
       "nosplash"
