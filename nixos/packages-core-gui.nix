@@ -27,7 +27,6 @@ pkgs: with pkgs; [
   rofi-top  # Plugin for rofi that emulates top behaviour
   smplayer  # Complete front-end for MPlayer
   sway-launcher-desktop  # Note that this tool is not really tied to sway at all
-  system-config-printer  # Printer configuration/pipeline control UI
   vlc  # Cross-platform media player and streaming server
   xdg-dbus-proxy  # DBus proxy for Flatpak and others
   xdg-launch  # A command line XDG compliant launcher and tools
