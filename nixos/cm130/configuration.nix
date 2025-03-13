@@ -248,7 +248,6 @@ in {
       asciidoctor  # A faster Asciidoc processor written in Ruby
       audacity
       avidemux  # Free video editor designed for simple video editing tasks
-      baobab  # Used disk space visualizer
       bash-language-server  # A language server for Bash
       brave
       calibre

@@ -2,6 +2,7 @@
 
 pkgs: with pkgs; [
   alacritty  # Cross-platform, GPU-accelerated terminal emulator
+  baobab  # Used disk space visualizer
   chromium  # Open source web browser from Google
   dmenu  # Generic, highly customizable, and efficient menu for the X Window System
   dunst  # Lightweight and customizable notification daemon
