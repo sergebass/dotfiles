@@ -22,7 +22,7 @@ in {
       };
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
 
     kernelParams = lib.mkForce [
       "verbose"
