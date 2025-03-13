@@ -13,6 +13,8 @@ in {
     ../common-configuration.nix  # Common configuration shared by all of our NixOS systems
     ../printing.nix
     ../scanning.nix
+    ../tv.nix
+    ../sdr.nix
   ];
 
   boot = {
@@ -68,12 +70,6 @@ in {
         driversi686Linux.amdvlk
       ];
     };
-
-    rtl-sdr.enable = true;  # For external Software Defined Radio dongles
-
-    firmware = with pkgs; [
-      libreelec-dvb-firmware  # DVB firmware from LibreELEC (for many TV tuner devices)
-    ];
   };
 
   fileSystems = {
@@ -106,7 +102,6 @@ in {
 
       packages = with pkgs; [
         openhantek6022  # Make sure we can access our USB oscilloscope properly
-        rtl-sdr  # For Nooelec Software Defined Radio dongle
       ];
 
       # A rule to allow ACPI backlight control by a non-root user from video group
@@ -286,9 +281,7 @@ in {
       glxinfo  # Display OpenGL information (glxinfo and eglinfo)
       gnome-maps
       gnumake
-      gnuradio
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
-      gqrx
       guitarix
       gxplugins-lv2
       haskell-language-server  # LSP server for GHC
@@ -325,7 +318,6 @@ in {
       qrencode
       qsynth
       rakarrack
-      rtl-sdr
       rust-analyzer  # A modular compiler frontend for the Rust language
       rust-bindgen  # Automatically generates Rust FFI bindings to C (and some C++) libraries
       rustc  # Rust compiler
@@ -343,7 +335,6 @@ in {
       vim-language-server  # VImScript language server, LSP for vim script
       vkmark  # Vulkan benchmarking suite
       vulkan-tools  # Khronos official Vulkan Tools and Utilities
-      w_scan2  # A small channel scan tool which generates ATSC, DVB-C, DVB-S/S2 and DVB-T/T2 channels.conf files. Use: w_scan2 -fa -c CA > channels.conf
       wayland-utils  # Wayland utilities (wayland-info)
       wev  # Wayland event tester (similar to xev for X11)
       yaml-language-server  # Language Server for YAML Files
