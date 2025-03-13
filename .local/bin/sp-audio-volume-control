@@ -3,14 +3,22 @@
 os=$(uname)
 
 if [ "$os" == "Linux" ]; then
-    # FIXME detect if PulseAudio is indeed running, else fall back on ALSA
-
-    # using PulseAudio
-    pavucontrol &
-
-    # using ALSA
+    # When running in terminal, use console-based tools
+    if [ -t 0 ]; then
+        if type ncpamixer; then
+            ncpamixer
+        else
     alsamixer
-
+        fi
+    else
+        if type pwvucontrol; then
+            # Use PipeWire-specific volume control
+            pwvucontrol &
+        else
+            # Use volume control for both PulseAudio and PipeWire
+            pavucontrol &
+        fi
+    fi
 elif [ "$os" == "FreeBSD" ]; then
     aumix
 elif [ "$os" == "NetBSD" ]; then
