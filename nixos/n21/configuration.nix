@@ -20,7 +20,7 @@ in {
       efi.canTouchEfiVariables = true;
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
 
     kernelParams = lib.mkForce [ "verbose" "nosplash" ];
 
@@ -29,6 +29,18 @@ in {
     ];
 
     tmp.useTmpfs = true;  # Save SSD from some wear and tear
+
+    supportedFilesystems = [
+      "btrfs"
+      "zfs"
+      "exfat"
+      "ntfs"
+      "ntfs3"
+    ];
+
+    zfs = {
+      forceImportRoot = false;
+    };
   };
 
   hardware = {
@@ -45,6 +57,9 @@ in {
 
   networking = {
     hostName = "n21";
+
+    # The primary use case is to ensure when using ZFS that a pool isn’t imported accidentally on a wrong machine.
+    hostId = "30a84cb2";  # Result of running: head -c 8 /etc/machine-id
 
     firewall = {
       enable = true;
