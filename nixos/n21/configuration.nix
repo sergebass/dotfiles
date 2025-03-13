@@ -11,6 +11,8 @@ in {
   imports = [
     ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
     ../common-configuration.nix  # Common configuration shared by all of our NixOS systems
+    ../printing.nix
+    ../scanning.nix
   ];
 
   boot = {
@@ -44,12 +46,6 @@ in {
   };
 
   hardware = {
-    # Scanner support
-    sane = {
-      enable = true;
-      brscan4.enable = true;  # Brother DCP-7060D scanner
-    };
-
     firmware = with pkgs; [
       libreelec-dvb-firmware  # DVB firmware from LibreELEC (for many TV tuner devices)
     ];
@@ -122,17 +118,6 @@ in {
 
     blueman.enable = true;
 
-    system-config-printer.enable = true;
-
-    printing = {
-      enable = true;  # Enable CUPS
-      cups-pdf.enable = true;
-      browsing = true;  # Advertise shared printers on our LAN
-      drivers = with pkgs; [
-        brlaser  # For Brother DCP-7060D (and others)
-      ];
-    };
-
     # Music Player Daemon
     mpd = {
       enable = true;
@@ -192,7 +177,6 @@ in {
       gqrx
       openhantek6022  # Free software for Hantek and compatible (Voltcraft/Darkwire/Protek/Acetech) USB digital signal oscilloscopes
       qrencode
-      simple-scan  # Simple paper scanning GUI app
       w_scan2  # A small channel scan tool which generates ATSC, DVB-C, DVB-S/S2 and DVB-T/T2 channels.conf files. Use: w_scan2 -fa -c CA > channels.conf
       ymuse  # GUI client for MPD
     ] ++ [
