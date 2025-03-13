@@ -22,7 +22,6 @@ pkgs: with pkgs; [
   lshw  # Provide detailed information on the hardware configuration of the machine
   mc  # File Manager and User Shell for the GNU Project, known as Midnight Commander
   mpc  # Minimalist command line interface to MPD
-  mpd  # Flexible, powerful daemon for playing music
   ncmpcpp  # Featureful ncurses based MPD client inspired by ncmpc
   ncpamixer  # Terminal mixer for PulseAudio inspired by pavucontrol
   openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
