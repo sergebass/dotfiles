@@ -107,6 +107,7 @@ in {
       plugins = with pkgs.tmuxPlugins; [
         battery
         cpu
+        fuzzback  # Fuzzy search for terminal scrollback
         resurrect  # Restore tmux environment after system restart
         tmux-fzf  # Use fzf to manage your tmux work environment!
       ];
