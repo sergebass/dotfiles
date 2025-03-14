@@ -15,6 +15,10 @@ else
 endif
 
 " we need Vim help for vim-plug itself (e.g. :help plug-options), so register vim-plug as a plugin.
+
+" Use shallow clones to save storage space (we do not really need plugin git history)
+let g:plug_shallow = 1
+
 Plug 'junegunn/vim-plug'
 
 " Plugin outside ~/.vim/plugged with post-update hook
