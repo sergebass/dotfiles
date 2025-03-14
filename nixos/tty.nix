@@ -113,7 +113,7 @@ in {
       plugins = with pkgs.tmuxPlugins; [
         battery
         cpu
-        fuzzback  # Fuzzy search for terminal scrollback
+        fuzzback  # Fuzzy search for terminal scrollback (https://github.com/roosta/tmux-fuzzback)
         fzf-tmux-url  # Quickly open urls on your terminal screen! (https://github.com/wfxr/tmux-fzf-url)
         resurrect  # Restore tmux environment after system restart
         tmux-fzf  # Use fzf to manage your tmux work environment!
