@@ -104,6 +104,9 @@ in {
 
         # Use prefix+/ to start fuzzy search
         set -g @fuzzback-bind /
+
+        # Use prexix+u to open URLs from the scrollback
+        set -g @fzf-url-bind u
       '';
 
       # List of plugins to install.
@@ -111,6 +114,7 @@ in {
         battery
         cpu
         fuzzback  # Fuzzy search for terminal scrollback
+        fzf-tmux-url  # Quickly open urls on your terminal screen! (https://github.com/wfxr/tmux-fzf-url)
         resurrect  # Restore tmux environment after system restart
         tmux-fzf  # Use fzf to manage your tmux work environment!
       ];
