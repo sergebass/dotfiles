@@ -101,6 +101,9 @@ in {
         bind Tab last-window
         unbind M-Tab
         bind M-Tab last-pane
+
+        # Use prefix+/ to start fuzzy search
+        set -g @fuzzback-bind /
       '';
 
       # List of plugins to install.
