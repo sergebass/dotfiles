@@ -9,7 +9,7 @@ let
 
 in {
   imports = [
-    ../common-configuration.nix  # Common configuration shared by all of our NixOS systems
+    ../common.nix  # Common configuration shared by all of our NixOS systems
     ../development/arduino.nix
     ../mpd.nix
     ../oscilloscope.nix
