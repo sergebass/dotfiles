@@ -108,6 +108,7 @@ in {
         battery
         cpu
         resurrect  # Restore tmux environment after system restart
+        tmux-fzf  # Use fzf to manage your tmux work environment!
       ];
 
       # Additional contents of /etc/tmux.conf, to be run after sourcing plugins.
