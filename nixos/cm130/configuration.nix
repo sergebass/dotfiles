@@ -12,6 +12,7 @@ in {
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../development/android.nix
     ../development/arduino.nix
+    ../gui-wayland.nix
     ../mpd.nix
     ../oscilloscope.nix
     ../printing.nix
@@ -163,7 +164,6 @@ in {
   xdg.portal = {
     enable = true;  # Enable xdg desktop integration (https://github.com/flatpak/xdg-desktop-portal).
     xdgOpenUsePortal = false;  # Do not use portal to open programs or web links using xdg-open
-    wlr.enable = true;  # Enable desktop portal for wlroots-based desktops.
     lxqt.enable = true;  # Enable the desktop portal for the LXQt desktop environment.
 
     extraPortals = with pkgs; [
@@ -279,8 +279,6 @@ in {
       vim-language-server  # VImScript language server, LSP for vim script
       vkmark  # Vulkan benchmarking suite
       vulkan-tools  # Khronos official Vulkan Tools and Utilities
-      wayland-utils  # Wayland utilities (wayland-info)
-      wev  # Wayland event tester (similar to xev for X11)
       yaml-language-server  # Language Server for YAML Files
       yewtube
       ymuse  # GUI client for MPD
@@ -297,38 +295,6 @@ in {
   };
 
   programs = {
-    # Sway is a Wayland compositor
-    sway = {
-      enable = true;
-      extraPackages= with pkgs; [
-        grim
-        mako  # Pop-up notifications
-        rofi-wayland
-        slurp
-        swaybg
-        swayfx
-        swayidle
-        swayimg
-        swaylock
-        wl-clipboard
-      ];
-      extraOptions = [
-        "--verbose"
-      ];
-      extraSessionCommands = ''
-        # Some apps need explicit hints to choose Wayland over X11
-        export GDK_BACKEND=wayland
-        export SDL_VIDEODRIVER=wayland
-        export QT_QPA_PLATFORM=wayland
-        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-        export _JAVA_AWT_WM_NONREPARENTING=1
-        export NIXOS_OZONE_WL=1
-        export ELECTRON_OZONE_PLATFORM_HINT=wayland
-        export MOZ_ENABLE_WAYLAND=1
-      '';
-      wrapperFeatures.gtk = true;
-    };
-
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
