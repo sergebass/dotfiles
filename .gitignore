@@ -35,6 +35,9 @@ tags.temp
 
 .vim/.netrwhist
 
+# tmux plugins themselves are 3rd party, do not track them
+.config/tmux/plugins/
+
 # mpd databases are host-specific
 .mpd/mpd.db
 .mpd/mpd.conf
