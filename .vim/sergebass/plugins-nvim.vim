@@ -26,8 +26,10 @@ Plug 'nvim-lua/plenary.nvim'
 " null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 Plug 'nvimtools/none-ls.nvim'
 
-" Basic editor support for the nushell language
-Plug 'LhKipp/nvim-nu', {'do': ':TSInstall nu'}
+if executable('nu')
+    " Basic editor support for the nushell language
+    Plug 'LhKipp/nvim-nu', {'do': ':TSInstall nu'}
+endif
 
 " FIXME keep?
 " Language Server Protocol (LSP) support for vim and neovim.

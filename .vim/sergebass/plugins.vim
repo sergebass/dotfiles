@@ -207,8 +207,10 @@ endif
 " FIXME add Nix LSP support: https://mattn.github.io/vim-lsp-settings/
 " Plug 'mattn/vim-lsp-settings'
 
-" Vim plugin for the ccls language server
-Plug 'm-pilia/vim-ccls'
+if executable('ccls')
+    " Vim plugin for the ccls language server
+    Plug 'm-pilia/vim-ccls'
+endif
 
 " (Repo archived) Vim bindings for rtags, llvm/clang based c++ code indexer.
 " Plug 'lyuts/vim-rtags'
@@ -217,56 +219,82 @@ Plug 'm-pilia/vim-ccls'
 " Plug 'ycm-core/YouCompleteMe'
 
 " ALE (Asynchronous Lint Engine)
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 
-" Vim configuration for Rust.
-Plug 'rust-lang/rust.vim'
+if executable('rustc')
+    " Vim configuration for Rust.
+    Plug 'rust-lang/rust.vim'
+endif
 
 " Do not auto-save buffers after running :RustFmt
 let g:rustfmt_autosave = 0
 
-" Kotlin plugin for Vim. Featuring: syntax highlighting, basic indentation, Syntastic support
-Plug 'udalov/kotlin-vim', { 'for': ['kotlin'] }
+if executable('gradlew')
+    " Android development plugin for vim
+    Plug 'hsanson/vim-android'
+endif
 
-" Android development plugin for vim
-Plug 'hsanson/vim-android'
+if executable('kotlinc')
+    " Kotlin plugin for Vim. Featuring: syntax highlighting, basic indentation, Syntastic support
+    Plug 'udalov/kotlin-vim', { 'for': ['kotlin'] }
+endif
 
-" Elm plugin for Vim
-Plug 'ElmCast/elm-vim'
+if executable('scalac')
+    " Integration of Scala into Vim
+    Plug 'derekwyatt/vim-scala'
+endif
 
-" Yet Another TypeScript Syntax: The most advanced TypeScript Syntax Highlighting in Vim
-Plug 'HerringtonDarkholme/yats.vim'
+if executable('nix')
+    " Vim configuration files for Nix http://nixos.org/nix
+    Plug 'LnL7/vim-nix'
+endif
 
-" A Vim plugin for Windows PowerShell support
-Plug 'PProvost/vim-ps1'
+if executable('ghc') || executable('ghci')
+    " Custom Haskell Vimscripts
+    " Does this plugin work with traditional Vim despite the user name?
+    Plug 'neovimhaskell/haskell-vim'
+endif
 
-" C# LSP support
-" Plug 'OmniSharp/omnisharp-vim'
+if executable('purs')
+    " Syntax highlighting and indentation for PureScript
+    Plug 'purescript-contrib/purescript-vim'
+endif
 
-" A Vim plugin for TypeScript
-" Plug 'Quramy/tsuquyomi'
+if executable('idris') || executable('idris2')
+    " Idris mode for vim
+    Plug 'idris-hackers/idris-vim'
+endif
 
-" Integration of Scala into Vim
-Plug 'derekwyatt/vim-scala'
+if executable('elm')
+    " Elm plugin for Vim
+    Plug 'ElmCast/elm-vim'
+endif
 
-" Vim configuration files for Nix http://nixos.org/nix
-Plug 'LnL7/vim-nix'
+if executable('tsc')
+    " Yet Another TypeScript Syntax: The most advanced TypeScript Syntax Highlighting in Vim
+    Plug 'HerringtonDarkholme/yats.vim'
 
-" Idris mode for vim
-Plug 'idris-hackers/idris-vim'
+    " A Vim plugin for TypeScript
+    Plug 'Quramy/tsuquyomi'
+endif
 
-" Syntax highlighting and indentation for PureScript
-Plug 'purescript-contrib/purescript-vim'
+if executable('powershell.exe')
+    " A Vim plugin for Windows PowerShell support
+    Plug 'PProvost/vim-ps1'
+endif
 
-" Custom Haskell Vimscripts
-" (FIXME) Does this plugin work with traditional Vim despite the user name?
-Plug 'neovimhaskell/haskell-vim'
+if executable('csc') || executable('mcs')
+    " C# LSP support
+    Plug 'OmniSharp/omnisharp-vim'
+endif
 
 " A Vim wrapper for running tests on different granularities.
 Plug 'janko-m/vim-test'
 
-" This is a new feature in vim to better integrate with gdb
-packadd termdebug
+if executable('gdb')
+    " This is a new feature in vim to better integrate with gdb
+    packadd termdebug
+endif
 
 " Use gdb as our debugger
 let g:termdebugger = "gdb"
@@ -331,8 +359,10 @@ Plug 'gcmt/wildfire.vim'
 " Outline asciidoc(tor) or markdown documents.
 Plug 'habamax/vim-do-outline'
 
-" Asciidoctor plugin for Vim
-Plug 'habamax/vim-asciidoctor'
+if executable('asciidoctor')
+    " Asciidoctor plugin for Vim
+    Plug 'habamax/vim-asciidoctor'
+endif
 
 " A vim 7.4+ plugin to generate table of contents for Markdown files.
 Plug 'mzlogin/vim-markdown-toc'
