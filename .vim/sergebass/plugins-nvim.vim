@@ -4,6 +4,7 @@
 Plug 'neovim/nvim-lspconfig'
 
 set omnifunc=v:lua.vim.lsp.omnifunc
+set tagfunc=v:lua.vim.lsp.tagfunc
 
 " Nvim Treesitter configurations and abstraction layer
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
