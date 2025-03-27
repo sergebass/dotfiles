@@ -162,33 +162,47 @@
 
     g = grep --color -I -n
 
-    log-briefly = log --date=iso --decorate=full --color --pretty=format:"%C(green)%h\\ %ai\\ %Creset\\%s\\ %C(cyan\\ bold)(%an)%C(yellow\\ bold)%d"
-    log-verbosely = log --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
-
-    l = !git log-briefly
-    ls = !git l --stat
-    ll = !git log-verbosely
-    lls = !git ll --stat
+    # base aliases for brief and verbose logs
+    l = log --date=iso --decorate=full --color --pretty=format:"%C(green)%h\\ %ai\\ %Creset\\%s\\ %C(cyan\\ bold)(%an)%C(yellow\\ bold)%d"
+    lv = log --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
 
     l1 = !git l -1
-    ls1 = !git ls -1
-    ll1 = !git ll -1
-    lls1 = !git lls -1
+    lv1 = !git lv -1
 
-    log-graph = !git log-briefly --graph
-    log-stat = !git log-briefly --numstat
+    log-graph = !git l --graph
+    log-stat = !git l --numstat
 
     log-files-only = show --pretty="" --name-only
 
-    search-text = !git log-verbosely --stat --all --remotes -S
-    search-text-regexp = !git log-verbosely --stat --all --remotes -G
+    search = !git l --all --remotes
+    search-verbose = !git lv --all --remotes
 
-    s = !git search-text
+    s = !git search
+    sv = !git search-verbose
 
-    search-file = log --stat --all --remotes --follow --
-    search-file-diff = log -p --stat --all --remotes --follow --
+    search-commit = !git search --grep
+    search-commit-verbose = !git search-verbose --grep
+
+    sc = !git search-commit
+    scv = !git search-commit-verbose
+
+    search-text = !git search -S
+    search-text-regexp = !git search -G
+
+    st = !git search-text
+    str = !git search-text-regexp
+
+    search-text-verbose = !git search-verbose -S
+    search-text-regexp-verbose = !git search-verbose -G
+
+    stv = !git search-text-verbose
+    strv = !git search-text-regexp-verbose
+
+    search-file = !git search --stat --follow --
+    search-file-verbose = !git search-verbose --stat --follow --
 
     sf = !git search-file
+    sfv = !git search-file-verbose
 
     ; show only the list of file names in the latest commit
     ln1 = log --pretty="format:" --name-only -1
