@@ -3,7 +3,7 @@ bind "^L" ed-clear-screen
 bind "^R" em-inc-search-prev
 bind "^S" em-inc-search-next
 
-lldb:bind \\t lldb-complete
+lldb:bind -s "^^" "fzf_history\n"
 
 lldb:bind -s "\e;" "next\n"
 lldb:bind -s "\e:" "nexti\n"
