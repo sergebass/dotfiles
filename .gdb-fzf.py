@@ -1,0 +1,1 @@
+/home/sergii/dotfiles/gdb-fzf/gdb-fzf.py

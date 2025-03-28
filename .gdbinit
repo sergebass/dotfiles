@@ -4,7 +4,7 @@ echo Loading gdb-dashboard configuration...\n
 source ~/.gdb-dashboard
 
 echo Loading FZF history and auto-completion integration...\n
-source ~/dotfiles/gdb-fzf/gdb-fzf.py
+source ~/.gdb-fzf.py
 
 echo Loading user configuration...\n
 
