@@ -10,3 +10,6 @@
 [submodule "gdb-dashboard"]
 	path = gdb-dashboard
 	url = https://github.com/cyrus-and/gdb-dashboard
+[submodule "gdb-fzf"]
+	path = gdb-fzf
+	url = https://github.com/sergebass/gdb-fzf
