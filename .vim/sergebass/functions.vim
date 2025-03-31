@@ -10,6 +10,14 @@ function ClearLocationList()
   call setloclist(0, [])
 endfunction
 
+" Delete all empty buffers (based on https://stackoverflow.com/a/10102604)
+function DeleteEmptyBuffers()
+    let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val)<0 && !getbufvar(v:val, "&mod")')
+    if !empty(buffers)
+        exe 'bw ' . join(buffers, ' ')
+    endif
+endfunction
+
 " Find files anywhere (as tracked by locate)
 " and populate the quickfix list (based on https://vim.fandom.com/wiki/Searching_for_files)
 function LocateFiles(file_pattern)

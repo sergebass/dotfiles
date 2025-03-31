@@ -22,6 +22,7 @@ noremap Q <Cmd>qa<CR>
 
 " Remove all hidden buffers without windows
 " Here we do not use <Cmd> to ensure this operation is visible
+nnoremap \q :DeleteEmptyBuffers<CR>
 nnoremap \Q :DeleteHiddenBuffers<CR>
 
 " since "Y" is normally equivalent to "yy", make Y copy to the end of line:
