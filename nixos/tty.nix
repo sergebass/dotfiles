@@ -132,6 +132,8 @@ in {
       # See https://starship.rs/config/#prompt for documentation.
       settings = {
         add_newline = true;
+        # The default timeout of 500ms is sometimes insufficient for git status operations
+        command_timeout = 1500;
         shell = {
           disabled = false;  # Since we use multiple shells, to be aware.
           nu_indicator = "nu";
