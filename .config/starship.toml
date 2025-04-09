@@ -6,6 +6,9 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
+# The default timeout of 500ms is sometimes insufficient for git status operations
+command_timeout = 1500
+
 [shell]
 # Since we use multiple shells, to be aware.
 disabled = false
