@@ -1,1 +1,1 @@
-/home/sergii/dotfiles/gdb-fzf/gdb-fzf.py
+gdb-fzf/gdb-fzf.py
