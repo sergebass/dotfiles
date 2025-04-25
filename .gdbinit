@@ -16,6 +16,8 @@ set history size unlimited
 set history save on
 set history remove-duplicates unlimited
 
+set max-completions 0x10000
+
 set output-radix 0x10
 set input-radix 0x10
 
