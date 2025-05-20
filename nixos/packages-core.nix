@@ -34,6 +34,7 @@ pkgs: with pkgs; [
   speedtest-rs  # Command line internet speedtest tool written in rust
   starship  # Command prompt generator (we have it in programs.starship but it's not on PATH for some reason)
   tig  # Text-mode interface for git
+  tinyxxd  # Drop-in replacement and standalone version of the hex dump utility that comes with ViM
   tree  # Command to produce a depth indented directory listing
   universal-ctags  # A maintained ctags implementation
   unzip  # An extraction utility for archives compressed in .zip format
