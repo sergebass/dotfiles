@@ -227,6 +227,8 @@ in {
       gnome-maps
       gnumake
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
+      gpsbabel  # Convert, upload and download data from GPS and Map programs
+      gpscorrelate  # GPS photo correlation tool, to add EXIF geotags
       guitarix
       gxplugins-lv2
       haskell-language-server  # LSP server for GHC
