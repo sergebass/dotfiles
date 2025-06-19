@@ -7,7 +7,7 @@
 add_newline = true
 
 # The default timeout of 500ms is sometimes insufficient for git status operations
-command_timeout = 1500
+command_timeout = 5000
 
 [shell]
 # Since we use multiple shells, to be aware.
