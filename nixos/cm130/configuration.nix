@@ -206,6 +206,7 @@ in {
       calibre-web
       cargo  # Downloads your Rust project's dependencies and builds your project
       ccache  # C++ compiler cache
+      ccls  # C/C++ language server powered by clang
       cheese  # Take photos and videos with your webcam, with fun graphical effects
       clang-tools  # Standalone command line tools for C++ development (clangd, clang-format etc.)
       cmake
