@@ -27,8 +27,6 @@
   };
 
   hardware = {
-    pulseaudio.enable = false;  # Use PipeWire instead
-
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -68,6 +66,8 @@
     };
 
     timesyncd.enable = true;  # Enable NTP
+
+    pulseaudio.enable = false;  # Use PipeWire instead
 
     pipewire = {
       enable = true;
@@ -109,12 +109,7 @@
       # noto-fonts  # Beautiful and free fonts for many languages
       # powerline-fonts  # Patched fonts for Powerline users
       # ubuntu-classic  # Ubuntu Classic font
-    ] ++ [
-      (nerdfonts.override {
-        fonts = [
-          "Inconsolata"  # Terminal font with special Unicode icons for starship etc. (https://www.nerdfonts.com/font-downloads)
-        ];
-      })
+      nerd-fonts.inconsolata
     ];
   };
 }

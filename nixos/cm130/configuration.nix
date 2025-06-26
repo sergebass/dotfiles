@@ -195,6 +195,7 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
+      # signal-desktop # FIXME broken on 25.05 (temporarily?)
       ardour
       asciidoctor  # A faster Asciidoc processor written in Ruby
       audacity
@@ -236,6 +237,7 @@ in {
       jack2.dev  # JACK audio connection kit, version 2 with jackdbus
       jackmeter
       jdk  # The open-source Java Development Kit
+      kdePackages.marble
       kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
       kotlin-language-server  # kotlin language server
       libdrm  # Direct Rendering library and test utilities (e.g. modetest)
@@ -246,7 +248,6 @@ in {
       llvmPackages.clangUseLLVM  # C language family frontend for LLVM (wrapper script)
       lua-language-server  # Language server that offers Lua language support
       luajit
-      marble
       meld  # Visual diff and merge tool
       meterbridge  # Various meters (VU, PPM, DPM, JF, SCO) for Jack Audio Connection Kit
       mi2ly
@@ -271,7 +272,6 @@ in {
       rustfmt  # Tool for formatting Rust code according to style guidelines
       scrot
       signal-cli
-      signal-desktop
       simplescreenrecorder  # Screen recorder for Linux
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
