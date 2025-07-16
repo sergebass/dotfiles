@@ -1,5 +1,24 @@
 # NixOS configuration for software-defined radio (SDR) support (dongles, playback etc.)
-{ config, lib, pkgs, ... } : {
+{ config, lib, pkgs, ... } :
+let
+  luaRadioSource = builtins.fetchGit {
+    url = "https://github.com/vsergeev/luaradio";
+    rev = "dbcf8cdee0a92bb6a4757725ee5daaa35d8e2261";
+  };
+
+  luaRadioWrapper = pkgs.writeShellScriptBin "luaradio" ''
+    LD_LIBRARY_PATH=${pkgs.rtl-sdr}/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=${pkgs.libpulseaudio}/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=${pkgs.liquid-dsp}/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=${pkgs.volk}/lib:$LD_LIBRARY_PATH
+    ${luaRadioSource}/luaradio "$@"
+  '';
+
+  luaRadioFMWrapper = pkgs.writeShellScriptBin "luaradio-fm" ''
+    ${luaRadioWrapper}/bin/luaradio -a rx_wbfm -i rtlsdr -o pulseaudio "$@"
+  '';
+
+in {
   hardware = {
     rtl-sdr.enable = true;  # For external Software Defined Radio dongles
   };
@@ -26,6 +45,9 @@
     systemPackages = with pkgs; [
       gnuradio  # Software Defined Radio (SDR) software
       gqrx  # Software defined radio (SDR) receiver (GUI)
+      luaRadioFMWrapper  # Our custom luaradio launcher/wrapper for FM radio (defined above)
+      luaRadioWrapper  # Our custom luaradio launcher/wrapper (defined above)
+      luajit  # High-performance JIT compiler for Lua 5.1 (for LuaRadio)
       rtl-sdr  # Software to turn the RTL2832U into a SDR receiver
     ];
   };
