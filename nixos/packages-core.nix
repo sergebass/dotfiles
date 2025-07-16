@@ -29,6 +29,7 @@ pkgs: with pkgs; [
   parted  # Create, destroy, resize, check, and copy partitions
   pciutils  # A collection of programs for inspecting and manipulating configuration of PCI devices
   psmisc  # Set of small useful utilities that use the proc filesystem (such as fuser, killall and pstree)
+  python3Minimal  # High-level dynamically-typed programming language
   ripgrep  # A utility that combines the usability of The Silver Searcher with the raw speed of grep
   rlwrap  # Readline wrapper for console programs
   rsync  # Fast incremental file transfer utility
