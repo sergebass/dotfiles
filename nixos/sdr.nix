@@ -11,6 +11,9 @@ let
     LD_LIBRARY_PATH=${pkgs.libpulseaudio}/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=${pkgs.liquid-dsp}/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=${pkgs.volk}/lib:$LD_LIBRARY_PATH
+
+    # The application expects CWD to be relative to the source tree
+    cd ${luaRadioSource}
     ${luaRadioSource}/luaradio "$@"
   '';
 
