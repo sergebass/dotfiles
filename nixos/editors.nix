@@ -47,7 +47,7 @@ in {
     enable = true;
     defaultEditor = true;
     viAlias = true;
-    vimAlias = true;
+    vimAlias = false;
     configure = {
       customRC = ''
         " Reuse user configuration from home directory, if available
@@ -70,6 +70,11 @@ in {
         ];
       };
     };
+  };
+
+  programs.vim = {
+    enable = true;
+    defaultEditor = false;
   };
 
   environment.variables = rec {
