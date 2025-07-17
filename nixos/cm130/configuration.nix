@@ -239,6 +239,7 @@ in {
       jackmeter
       jdk  # The open-source Java Development Kit
       jq  # Lightweight and flexible command-line JSON processor
+      jqp  # TUI playground to experiment with jq
       kdePackages.marble
       kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
       kotlin-language-server  # kotlin language server
