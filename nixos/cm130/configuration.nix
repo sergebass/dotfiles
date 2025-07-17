@@ -238,6 +238,7 @@ in {
       jack2.dev  # JACK audio connection kit, version 2 with jackdbus
       jackmeter
       jdk  # The open-source Java Development Kit
+      jq  # Lightweight and flexible command-line JSON processor
       kdePackages.marble
       kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
       kotlin-language-server  # kotlin language server
