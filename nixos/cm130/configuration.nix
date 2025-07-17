@@ -195,7 +195,6 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
-      # signal-desktop # FIXME broken on 25.05 (temporarily?)
       ardour
       asciidoctor  # A faster Asciidoc processor written in Ruby
       audacity
@@ -275,7 +274,8 @@ in {
       rustc  # Rust compiler
       rustfmt  # Tool for formatting Rust code according to style guidelines
       scrot
-      signal-cli
+      signal-cli  # Command-line and dbus interface for communicating with the Signal messaging service
+      signal-desktop # Private, simple, and secure messenger (nixpkgs build)
       simplescreenrecorder  # Screen recorder for Linux
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
