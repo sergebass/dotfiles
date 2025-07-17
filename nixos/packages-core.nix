@@ -33,6 +33,7 @@ pkgs: with pkgs; [
   ripgrep  # A utility that combines the usability of The Silver Searcher with the raw speed of grep
   rlwrap  # Readline wrapper for console programs
   rsync  # Fast incremental file transfer utility
+  rtorrent  # Ncurses client for libtorrent, ideal for use with screen, tmux, or dtach
   simple-mtpfs  # Simple MTP fuse filesystem driver (for Android phones, Garmin watches etc.)
   speedtest-rs  # Command line internet speedtest tool written in rust
   starship  # Command prompt generator (we have it in programs.starship but it's not on PATH for some reason)
