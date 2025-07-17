@@ -217,6 +217,7 @@ in {
       exiftool  # A tool to read, write and edit EXIF meta information
       fbmark  # Linux framebuffer benchmarking tool
       ffmpeg
+      fq  # jq for binary formats
       frescobaldi
       fuzzel
       gcc13
