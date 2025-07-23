@@ -130,6 +130,9 @@ Plug 'tpope/vim-unimpaired'
 " vim plugin for tmux.conf
 Plug 'tmux-plugins/vim-tmux'
 
+" A git commit browser
+Plug 'junegunn/gv.vim'
+
 " vim UI plugin for tpope/dadbod
 Plug 'kristijanhusak/vim-dadbod-ui'
 
