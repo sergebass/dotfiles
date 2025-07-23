@@ -14,6 +14,7 @@ pkgs: with pkgs; [
   fastfetch  # Like neofetch, but much faster because written in C
   file  # A program that shows the type of files
   findutils  # GNU Find Utilities, the basic directory searching utilities of the GNU operating system
+  gh  # GitHub CLI tool
   hddtemp  # HDD temperature measurement tools
   htop  # An interactive process viewer
   hwinfo  # Hardware detection tool from openSUSE
