@@ -156,7 +156,7 @@
     stat = diff --stat
 
     sl = stash list
-    ss = stash save
+    ss = stash push
     sp = stash pop
     sa = stash apply
 
