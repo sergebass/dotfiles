@@ -462,7 +462,7 @@ nnoremap  \lf :LocateFiles<Space>
 nnoremap  \ff :FindFiles<Space>
 
 " local tag navigation
-noremap gO <Cmd>TagbarOpen fjc<CR>
+noremap gO <Cmd>BTags!<CR>
 
 noremap \<BS> <Cmd>TagbarOpen fjc<CR>
 " noremap \<M-BS> <Cmd>TagbarToggle<CR>
