@@ -57,7 +57,7 @@ augroup vimrc
 augroup END
 
 set showcmd " display incomplete commands
-set history=100 " keep this many lines of command line history
+set history=1000 " keep this many lines of command line history
 
 set incsearch " do incremental searching
 set hlsearch " highlight search results
