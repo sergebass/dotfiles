@@ -426,6 +426,9 @@ Plug 'yssl/QFEnter'
 " Emoji abbreviations in Vim
 Plug 'https://gitlab.com/gi1242/vim-emoji-ab'
 
+" A plugin to colorize color names and codes
+Plug 'chrisbra/Colorizer'
+
 " one colorscheme pack to rule them all!
 Plug 'flazz/vim-colorschemes'
 
