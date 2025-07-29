@@ -139,6 +139,12 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 " Find-and-Replace (in multiple files)
 " Plug 'brooth/far.vim'
 
+Plug 'github/copilot.vim'
+
+" Use Alt-Tab instead of Tab for Copilot suggestions
+imap <silent><script><expr> <C-X><C-G> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
 " Language Server Protocol support
 
 " normalize async job control api for vim and neovim
