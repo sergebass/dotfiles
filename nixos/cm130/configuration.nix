@@ -280,6 +280,8 @@ in {
       simplescreenrecorder  # Screen recorder for Linux
       sound-theme-freedesktop  # Freedesktop reference sounds
       sox
+      sqlite-interactive  # Self-contained, serverless, zero-configuration, transactional SQL database engine
+      sqlitebrowser  # DB Browser for SQLite
       thunderbird
       tuxguitar
       typescript
