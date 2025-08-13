@@ -216,6 +216,7 @@ in {
       exiftool  # A tool to read, write and edit EXIF meta information
       fbmark  # Linux framebuffer benchmarking tool
       ffmpeg
+      flac  # Library and tools for encoding and decoding the FLAC lossless audio file format
       fq  # jq for binary formats
       frescobaldi
       fuzzel
@@ -285,6 +286,7 @@ in {
       typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (https://github.com/typescript-language-server/typescript-language-server)
       vim-language-server  # VImScript language server, LSP for vim script
       vkmark  # Vulkan benchmarking suite
+      vorbis-tools  # Extra tools for Ogg-Vorbis audio codec
       vulkan-tools  # Khronos official Vulkan Tools and Utilities
       yaml-language-server  # Language Server for YAML Files
       yewtube
