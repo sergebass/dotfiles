@@ -40,6 +40,7 @@ pkgs: with pkgs; [
   rtorrent  # Ncurses client for libtorrent, ideal for use with screen, tmux, or dtach
   simple-mtpfs  # Simple MTP fuse filesystem driver (for Android phones, Garmin watches etc.)
   speedtest-rs  # Command line internet speedtest tool written in rust
+  sqlite-interactive  # Self-contained, serverless, zero-configuration, transactional SQL database engine
   starship  # Command prompt generator (we have it in programs.starship but it's not on PATH for some reason)
   tig  # Text-mode interface for git
   tinyxxd  # Drop-in replacement and standalone version of the hex dump utility that comes with ViM
