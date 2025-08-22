@@ -18,6 +18,7 @@ pkgs: with pkgs; [
   hddtemp  # HDD temperature measurement tools
   htop  # An interactive process viewer
   hwinfo  # Hardware detection tool from openSUSE
+  jq  # Lightweight and flexible command-line JSON processor
   kbd  # Linux keyboard tools and keyboard maps
   lm_sensors  # Onboard sensor measurement tools
   lshw  # Provide detailed information on the hardware configuration of the machine
