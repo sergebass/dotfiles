@@ -157,7 +157,9 @@
 
     sl = stash list
     ss = stash push
+    ssi = stash push -p
     sp = stash pop
+    spi = checkout -p stash@{0}
     sa = stash apply
 
     g = grep --color -I -n
