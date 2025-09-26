@@ -51,6 +51,9 @@ Plug 'junegunn/fzf.vim'
 " Plug '~/my-prototype-plugin'
 " Plug '/usr/share/lilypond/2.18.2/vim'
 
+" A Vim plugin to copy text to the system clipboard using the ANSI OSC52 sequence.
+Plug 'ojroques/vim-oscyank'
+
 " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder.
 Plug 'ctrlpvim/ctrlp.vim'
 

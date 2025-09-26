@@ -38,6 +38,9 @@ noremap <C-Q> <Cmd>bdelete<CR>
 
 " copying/pasting/deleting tweaks
 
+" Explicitly use OSC-52 sequences to copy to system clipboard (via vim-oscyank plugin)
+vmap -y <Plug>OSCYankVisual
+
 " in normal mode:
 nnoremap \y "+y
 nnoremap \Y "+y$
