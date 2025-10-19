@@ -5,8 +5,9 @@ pkill fluidsynth
 sleep 1
 
 echo "Launching fluidsynth MIDI synthesizer..."
-# /usr/bin/fluidsynth --audio-driver alsa -o audio.alsa.device=sysdefault:CARD=Generic --midi-driver alsa_seq --server --no-shell --gain 1 --reverb on --chorus on --sample-rate 48000 /usr/share/sounds/sf2/FluidR3_GM.sf2 &
-/usr/bin/fluidsynth --audio-driver alsa -o audio.alsa.device=default --midi-driver alsa_seq --server --no-shell --gain 1 --reverb on --chorus on --sample-rate 48000 /usr/share/sounds/sf2/FluidR3_GM.sf2 &
+# Note that hardware ALSA devices are preferred for lower latency (choose device name starting with "hw:").
+# To list all available ALSA devices: `aplay -L`
+/usr/bin/fluidsynth --audio-driver alsa -o audio.alsa.device=hw:CARD=Device,DEV=0 -c 2 -z 128 --midi-driver alsa_seq --server --no-shell --gain 1 --reverb on --chorus on --sample-rate 48000 /usr/share/sounds/sf2/FluidR3_GM.sf2 &
 
 echo "Waiting a bit until fluidsynth is up and running..."
 sleep 5
