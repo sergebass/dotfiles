@@ -10,12 +10,14 @@ pkgs: with pkgs; [
   btrfs-snap  # Create and maintain the history of snapshots of btrfs filesystems
   compsize  # Compression ratio calculator for btrfs
   dig  # Domain name server utility
+  dmidecode  # Tool that reads information about your system's hardware from the BIOS according to the SMBIOS/DMI standard
   exfatprogs  # exFAT filesystem userspace utilities
   fastfetch  # Like neofetch, but much faster because written in C
   file  # A program that shows the type of files
   findutils  # GNU Find Utilities, the basic directory searching utilities of the GNU operating system
   gh  # GitHub CLI tool
   hddtemp  # HDD temperature measurement tools
+  hdparm  # Tool to get/set ATA/SATA drive parameters under Linux
   htop  # An interactive process viewer
   hwinfo  # Hardware detection tool from openSUSE
   jq  # Lightweight and flexible command-line JSON processor
