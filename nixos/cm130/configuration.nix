@@ -113,6 +113,14 @@ in {
 
     libinput.enable = true;  # Enable touchpad support
 
+    btrfs = {
+      autoScrub = {
+        enable = true;
+        interval = "weekly";
+        fileSystems = [ "/" ];
+      };
+    };
+
     gvfs.enable = true;  # Mount, trash, and other functionalities
 
     # Systemd service for emacs, allowing use of shared editor buffers via emacsclient
