@@ -9,6 +9,7 @@ pkgs: with pkgs; [
   btrfs-progs  # Utilities for the btrfs filesystem
   btrfs-snap  # Create and maintain the history of snapshots of btrfs filesystems
   compsize  # Compression ratio calculator for btrfs
+  cryptsetup  # LUKS for dm-crypt
   dig  # Domain name server utility
   dmidecode  # Tool that reads information about your system's hardware from the BIOS according to the SMBIOS/DMI standard
   exfatprogs  # exFAT filesystem userspace utilities
