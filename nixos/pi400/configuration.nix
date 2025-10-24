@@ -83,6 +83,14 @@ in {
     gvfs.enable = true;  # Mount, trash, and other functionalities
   };
 
+  btrfs = {
+    autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = [ "/" ];
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${synthUserName}" = {
     isNormalUser = true;
