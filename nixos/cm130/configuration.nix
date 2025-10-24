@@ -121,6 +121,29 @@ in {
       };
     };
 
+    udisks2 = {
+      enable = true;  # For automounting external drives in GUI file managers
+      settings = {
+        "udisks2.conf" = {
+          defaults = {
+            encryption = "luks2";
+          };
+          udisks2 = {
+            modules = [
+              "*"
+            ];
+            modules_load_preference = "ondemand";
+          };
+        };
+        "mount_options.conf" = {
+          defaults = {
+            defaults = "noatime";
+            btrfs_defaults = "compress=zstd,noatime";
+          };
+        };
+      };
+    };
+
     gvfs.enable = true;  # Mount, trash, and other functionalities
 
     # Systemd service for emacs, allowing use of shared editor buffers via emacsclient
