@@ -91,6 +91,30 @@ in {
     };
   };
 
+  # UDisks2 configuration (USB storage automounting)
+  udisks2 = {
+    enable = true;
+    settings = {
+      "udisks2.conf" = {
+        defaults = {
+          encryption = "luks2";
+        };
+        udisks2 = {
+          modules = [
+            "*"
+          ];
+          modules_load_preference = "ondemand";
+        };
+      };
+      "mount_options.conf" = {
+        defaults = {
+          defaults = "noatime";
+          btrfs_defaults = "compress=zstd,noatime";
+        };
+      };
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${synthUserName}" = {
     isNormalUser = true;
