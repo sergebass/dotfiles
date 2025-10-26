@@ -31,8 +31,6 @@ in {
       };
     };
 
-    kernelPackages = pkgs.linuxPackages;
-
     kernelParams = lib.mkForce [
       "verbose"
       "nosplash"
@@ -46,20 +44,6 @@ in {
 
     kernel.sysctl = {
       # "net.ipv4.ip_forward" = 1;  # Enable IP packet forwarding for Waydroid containers
-    };
-
-    tmp.useTmpfs = true;  # Save SSD from some wear and tear
-
-    supportedFilesystems = [
-      "btrfs"
-      "zfs"
-      "exfat"
-      "ntfs"
-      "ntfs3"
-    ];
-
-    zfs = {
-      forceImportRoot = false;
     };
   };
 
