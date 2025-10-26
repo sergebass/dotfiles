@@ -26,24 +26,6 @@ in {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-
-    kernelPackages = pkgs.linuxPackages;
-
-    kernelParams = lib.mkForce [ "verbose" "nosplash" ];
-
-    tmp.useTmpfs = true;  # Save SSD from some wear and tear
-
-    supportedFilesystems = [
-      "btrfs"
-      "zfs"
-      "exfat"
-      "ntfs"
-      "ntfs3"
-    ];
-
-    zfs = {
-      forceImportRoot = false;
-    };
   };
 
   networking = {
@@ -51,10 +33,6 @@ in {
 
     # The primary use case is to ensure when using ZFS that a pool isn’t imported accidentally on a wrong machine.
     hostId = "30a84cb2";  # Result of running: head -c 8 /etc/machine-id
-
-    firewall = {
-      enable = true;
-    };
   };
 
   services = {

@@ -24,6 +24,24 @@
     kernel.sysctl = {
       "kernel.sysrq" = 1;  # Enable all SysRq functions
     };
+
+    kernelPackages = pkgs.linuxPackages;
+
+    kernelParams = lib.mkForce [ "verbose" "nosplash" ];
+
+    tmp.useTmpfs = true;  # Save SSD from some wear and tear
+
+    supportedFilesystems = [
+      "btrfs"
+      "zfs"
+      "exfat"
+      "ntfs"
+      "ntfs3"
+    ];
+
+    zfs = {
+      forceImportRoot = false;
+    };
   };
 
   hardware = {
@@ -39,6 +57,10 @@
   };
 
   networking = {
+    firewall = {
+      enable = true;
+    };
+
     networkmanager = {
       enable = true;
 
