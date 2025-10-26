@@ -32,8 +32,8 @@ pkgs: with pkgs; [
   ncpamixer  # Terminal mixer for PulseAudio inspired by pavucontrol
   nushell  # Modern shell written in Rust
   openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
-  p7zip  # New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)
-  p7zip-rar  # New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)
+  # p7zip  # New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)
+  # p7zip-rar  # New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)
   pamixer  # CLI utilities to control PA & PW audio levels
   parted  # Create, destroy, resize, check, and copy partitions
   pciutils  # A collection of programs for inspecting and manipulating configuration of PCI devices

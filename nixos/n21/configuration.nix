@@ -10,13 +10,15 @@ let
 in {
   imports = [
     ../common.nix  # Common configuration shared by all of our NixOS systems
-    ../development/arduino.nix
-    ../mpd.nix
-    ../oscilloscope.nix
-    ../printing.nix
-    ../scanning.nix
-    ../sdr.nix
-    ../tv.nix
+    ../gui-i3.nix  # i3 X11/GUI environment
+    ../gui-icewm.nix  # IceWM X11/GUI environment
+    # ../development/arduino.nix
+    # ../mpd.nix
+    # ../oscilloscope.nix
+    # ../printing.nix
+    # ../scanning.nix
+    # ../sdr.nix
+    # ../tv.nix
     ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
   ];
 
@@ -45,11 +47,7 @@ in {
       '';
     };
 
-    gvfs.enable = true;  # Mount, trash, and other functionalities
-
     xserver = {
-      enable = true;
-
       displayManager = {
         startx.enable = ! useDM;
 
@@ -67,51 +65,20 @@ in {
           combineScreens = false;
         };
       };
-
-      windowManager = {
-        i3 = {
-          enable = true;
-          extraPackages = with pkgs; [
-            i3status
-            i3lock
-          ];
-        };
-        icewm = {
-          enable = true;
-        };
-      };
-
-      xkb = {
-        layout = "us(altgr-intl),ua";
-        options = "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr,terminate:ctrl_alt_bksp";
-      };
     };
 
     libinput.enable = true;  # Enable touchpad support
-
-    blueman.enable = true;
   };
 
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
-      qrencode
-      ymuse  # GUI client for MPD
+      # qrencode
+      # ymuse  # GUI client for MPD
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
-    ] ++ import ../packages-core-gui.nix pkgs;
-  };
-
-  programs = {
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-media-tags-plugin
-        thunar-volman
-      ];
-    };
+    ];
   };
 
   # Copy the NixOS configuration file and link it from the resulting system

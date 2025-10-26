@@ -46,8 +46,8 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
-      gnuradio  # Software Defined Radio (SDR) software
-      gqrx  # Software defined radio (SDR) receiver (GUI)
+      # gnuradio  # Software Defined Radio (SDR) software
+      # gqrx  # Software defined radio (SDR) receiver (GUI)
       luaRadioFMWrapper  # Our custom luaradio launcher/wrapper for FM radio (defined above)
       luaRadioWrapper  # Our custom luaradio launcher/wrapper (defined above)
       luajit  # High-performance JIT compiler for Lua 5.1 (for LuaRadio)

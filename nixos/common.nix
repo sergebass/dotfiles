@@ -98,7 +98,6 @@
       pulse.enable = true;  # Emulate PulseAudio
       jack.enable = true;
     };
-
   };
 
   programs = {
