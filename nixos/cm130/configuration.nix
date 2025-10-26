@@ -270,7 +270,6 @@ in {
       meterbridge  # Various meters (VU, PPM, DPM, JF, SCO) for Jack Audio Connection Kit
       mi2ly
       musescore
-      ncdu  # Disk usage analyzer with an ncurses interface
       nodePackages.purescript-language-server  # Language Server Protocol server for PureScript wrapping purs ide server functionality
       nodejs_22  # Node.JS and NPM
       nufraw  # Utility to read and manipulate raw images from digital cameras
