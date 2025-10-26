@@ -14,7 +14,6 @@ pkgs: with pkgs; [
   mpv  # General-purpose media player, fork of MPlayer and mplayer2
   mupdf  # Lightweight PDF, XPS, and E-book viewer and toolkit written in portable C
   networkmanagerapplet  # Provides nm-connection-editor
-  nushell  # Modern shell written in Rust
   open-in-mpv  # Simple web extension to open videos in mpv
   pavucontrol  # PulseAudio Volume Control
   pwvucontrol  # Pipewire Volume Control

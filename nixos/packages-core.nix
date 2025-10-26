@@ -29,6 +29,7 @@ pkgs: with pkgs; [
   mpc  # Minimalist command line interface to MPD
   ncmpcpp  # Featureful ncurses based MPD client inspired by ncmpc
   ncpamixer  # Terminal mixer for PulseAudio inspired by pavucontrol
+  nushell  # Modern shell written in Rust
   openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
   p7zip  # New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)
   p7zip-rar  # New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)
