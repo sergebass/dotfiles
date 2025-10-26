@@ -5,7 +5,7 @@ let
   userName = "sergii";
   userId = 1000;
 
-  useDM = false;
+  useDM = true;
 
 in {
   imports = [
