@@ -3,7 +3,7 @@
 pkgs: with pkgs; [
   alacritty  # Cross-platform, GPU-accelerated terminal emulator
   baobab  # Used disk space visualizer
-  chromium  # Open source web browser from Google
+  (chromium.override { enableWideVine = true; })  # FOSS Chromim browser + Widevine DRM
   dmenu  # Generic, highly customizable, and efficient menu for the X Window System
   dunst  # Lightweight and customizable notification daemon
   feh  # Light-weight image viewer
