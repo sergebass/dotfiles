@@ -77,8 +77,8 @@ in {
       };
 
       xkb = {
-        layout = "us,us(intl),ru,ua";
-        options = "grp:shift_caps_toggle";
+        layout = "us(altgr-intl),ua";
+        options = "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr,terminate:ctrl_alt_bksp";
       };
     };
 
