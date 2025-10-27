@@ -266,15 +266,6 @@ in {
     ];
   };
 
-  programs = {
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-media-tags-plugin
-        thunar-volman
-      ];
-    };
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
