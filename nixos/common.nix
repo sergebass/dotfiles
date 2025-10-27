@@ -89,6 +89,29 @@
 
     timesyncd.enable = true;  # Enable NTP
 
+    udisks2 = {
+      enable = true;  # For automounting external drives in GUI file managers
+      settings = {
+        "udisks2.conf" = {
+          defaults = {
+            encryption = "luks2";
+          };
+          udisks2 = {
+            modules = [
+              "*"
+            ];
+            modules_load_preference = "ondemand";
+          };
+        };
+        "mount_options.conf" = {
+          defaults = {
+            defaults = "noatime";
+            btrfs_defaults = "compress=zstd,noatime";
+          };
+        };
+      };
+    };
+
     pulseaudio.enable = false;  # Use PipeWire instead
 
     pipewire = {
