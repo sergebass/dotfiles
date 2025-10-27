@@ -10,6 +10,7 @@ let
 in {
   imports = [
     ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
+    ../boot-efi.nix
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
@@ -21,14 +22,6 @@ in {
     # ../sdr.nix
     # ../tv.nix
   ];
-
-  boot = {
-    loader = {
-      # Use the systemd-boot EFI boot loader.
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-  };
 
   networking = {
     hostName = "n21";
