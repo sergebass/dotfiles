@@ -8,6 +8,7 @@ pkgs: with pkgs; [
   btrfs-heatmap  # Visualize the layout of a mounted btrfs
   btrfs-progs  # Utilities for the btrfs filesystem
   btrfs-snap  # Create and maintain the history of snapshots of btrfs filesystems
+  cmus  # Small, fast and powerful console music player for Linux and *BSD
   compsize  # Compression ratio calculator for btrfs
   cryptsetup  # LUKS for dm-crypt
   dig  # Domain name server utility
@@ -26,6 +27,7 @@ pkgs: with pkgs; [
   lm_sensors  # Onboard sensor measurement tools
   lshw  # Provide detailed information on the hardware configuration of the machine
   mc  # File Manager and User Shell for the GNU Project, known as Midnight Commander
+  moc  # Terminal audio player designed to be powerful and easy to use
   mpc  # Minimalist command line interface to MPD
   ncdu  # Disk usage analyzer with an ncurses interface
   ncmpcpp  # Featureful ncurses based MPD client inspired by ncmpc
