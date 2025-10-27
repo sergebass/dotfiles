@@ -10,6 +10,7 @@ let
 in {
   imports = [
     ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
+    ../boot-grub.nix  # Since we reuse existing partitioning from the old laptop, keep the GRUB/MBR setting for now.
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
@@ -25,13 +26,6 @@ in {
   ];
 
   boot = {
-    loader = {
-      # Since we reuse existing partitioning from the old laptop, keep the GRUB/MBR setting for now.
-      grub = {
-        enable = true;
-        device = "/dev/sda";
-      };
-    };
 
     kernelParams = lib.mkForce [
       "verbose"
