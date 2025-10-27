@@ -9,17 +9,19 @@ let
 
 in {
   imports = [
+    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
     ../common.nix  # Common configuration shared by all of our NixOS systems
+    ../gui-i3.nix  # i3 X11/GUI environment
+    ../gui-icewm.nix  # IceWM X11/GUI environment
+    ../gui-wayland.nix
     ../development/android.nix
     ../development/arduino.nix
-    ../gui-wayland.nix
     ../mpd.nix
     ../oscilloscope.nix
     ../printing.nix
     ../scanning.nix
     ../sdr.nix
     ../tv.nix
-    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
   ];
 
   boot = {
@@ -112,8 +114,6 @@ in {
     };
 
     xserver = {
-      enable = true;
-
       videoDrivers = [ "amdgpu" ];
 
       displayManager = {
@@ -133,22 +133,8 @@ in {
           combineScreens = false;
         };
       };
-
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          i3status
-          i3lock
-        ];
-      };
-
-      xkb = {
-        layout = "us(altgr-intl),ua";
-        options = "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr,terminate:ctrl_alt_bksp";
-      };
     };
 
-    blueman.enable = true;
   };
 
   xdg.portal = {
