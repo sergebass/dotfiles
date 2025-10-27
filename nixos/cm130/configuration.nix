@@ -269,13 +269,7 @@ in {
       youtube-music
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
-    ] ++ import ../packages-core-gui.nix pkgs;
-
-    variables = {
-      # We need this to be able to build some 3rd party packages ignoring the NixOS way temporarily
-      # (e.g. for building Rust package dependencies before they can be Nixified properly)
-      PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
-    };
+    ];
   };
 
   programs = {

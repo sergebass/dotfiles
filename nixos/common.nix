@@ -142,6 +142,12 @@
 
     localBinInPath = true;
     homeBinInPath = true;
+
+    variables = {
+      # We need this to be able to build some 3rd party packages ignoring the NixOS way temporarily
+      # (e.g. for building Rust package dependencies before they can be Nixified properly)
+      PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
+    };
   };
 
   fonts = {
