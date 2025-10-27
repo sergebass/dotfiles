@@ -14,13 +14,13 @@ in {
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
-    # ../development/arduino.nix
-    # ../mpd.nix
-    # ../oscilloscope.nix
+    ../mpd.nix
+    ../sdr.nix
+    ../tv.nix
+    ../scanning.nix
     # ../printing.nix
-    # ../scanning.nix
-    # ../sdr.nix
-    # ../tv.nix
+    # ../development/arduino.nix
+    # ../oscilloscope.nix
   ];
 
   networking = {
