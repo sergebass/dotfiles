@@ -9,6 +9,7 @@ let
 
 in {
   imports = [
+    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
@@ -19,7 +20,6 @@ in {
     # ../scanning.nix
     # ../sdr.nix
     # ../tv.nix
-    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
   ];
 
   boot = {
