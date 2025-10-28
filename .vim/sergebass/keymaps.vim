@@ -11,8 +11,6 @@
 nnoremap \kl :set keymap=accents<CR>
 " Ukrainian (ЙЦУКЕН)
 nnoremap \ku :set keymap=ukrainian-jcuken<CR>
-" Russian (ЙЦУКЕН)
-nnoremap \kr :set keymap=russian-jcuken<CR>
 
 " since "S" is equivalent to "cc", reuse it to save all buffers
 noremap S <Cmd>wa<CR>
