@@ -3,8 +3,8 @@
 # Consult the keyboard(5) manual page.
 
 XKBMODEL="pc105"
-XKBLAYOUT="us,ru,ua,us(intl)"
+XKBLAYOUT="us(altgr-intl),ua"
 XKBVARIANT=""
-XKBOPTIONS="grp:shifts_toggle,grp:shift_caps_toggle,grp_led:scroll,caps:escape"
+XKBOPTIONS="grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr,terminate:ctrl_alt_bksp"
 
 BACKSPACE="guess"
