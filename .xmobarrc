@@ -164,10 +164,8 @@ Config {
         --   (%F = y-m-d date, %u = day of week as a number (1 = Monday), %T = h:m:s time)
         , Run Date "<fc=#ffff00>%u</fc>·<fc=#afffff>%F</fc> <fc=#ffff00>%H:%M</fc>" "date" 100
 
-        , Run Kbd [ ("us", "<fc=#00ffff>en</fc>")
-                  , ("ru", "<fc=#ffff00>ru</fc>")
-                  , ("ua", "<fc=#00ff00>ua</fc>")
-                  , ("us(intl)", "<fc=#ff80ff>en*</fc>")
+        , Run Kbd [ ("us(altgr-intl)", "<fc=#ffffff>en</fc>")
+                  , ("ua", "<fc=#00ffff>ua</fc>")
                   ]
 
         , Run StdinReader
