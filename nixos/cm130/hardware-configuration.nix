@@ -26,9 +26,22 @@
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/00199ae3-b6d1-498c-b8ca-cd78997d5e91";
+    { device = "/dev/disk/by-uuid/65d5161e-8b42-4eef-8f54-613960516abf";
       fsType = "btrfs";
-      options = [ "subvol=home" ];
+      options = [
+        "compress=zstd"
+        "noatime"
+      ];
+    };
+
+  fileSystems."/home/sergii" =
+    { device = "/dev/disk/by-uuid/65d5161e-8b42-4eef-8f54-613960516abf";
+      fsType = "btrfs";
+      options = [
+        "subvol=sergii"
+        "compress=zstd"
+        "noatime"
+      ];
     };
 
   fileSystems."/swap" =
