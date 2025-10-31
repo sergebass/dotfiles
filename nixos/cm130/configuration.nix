@@ -25,29 +25,6 @@ in {
     ../tv.nix
   ];
 
-  boot = {
-    initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "ohci_pci" "ehci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
-      kernelModules = [ "amdgpu" ];
-    };
-    kernelModules = [ "kvm-amd" ];
-    extraModulePackages = [];
-    kernelParams = lib.mkForce [
-      "verbose"
-      "nosplash"
-
-      # To enable APU/GPU acceleration for AMD "Kaveri" processors we need to be explicit:
-      # (https://en.wikipedia.org/wiki/Graphics_Core_Next#Graphics_Core_Next_2)
-      # For Sea Islands (CIK i.e. GCN 2) cards
-      "radeon.cik_support=0"
-      "amdgpu.cik_support=1"
-    ];
-
-    kernel.sysctl = {
-      # "net.ipv4.ip_forward" = 1;  # Enable IP packet forwarding for Waydroid containers
-    };
-  };
-
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     graphics = {
@@ -112,6 +89,29 @@ in {
   };
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
+
+  boot = {
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "ahci" "ohci_pci" "ehci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+      kernelModules = [ "amdgpu" ];
+    };
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [];
+    kernelParams = lib.mkForce [
+      "verbose"
+      "nosplash"
+
+      # To enable APU/GPU acceleration for AMD "Kaveri" processors we need to be explicit:
+      # (https://en.wikipedia.org/wiki/Graphics_Core_Next#Graphics_Core_Next_2)
+      # For Sea Islands (CIK i.e. GCN 2) cards
+      "radeon.cik_support=0"
+      "amdgpu.cik_support=1"
+    ];
+
+    kernel.sysctl = {
+      # "net.ipv4.ip_forward" = 1;  # Enable IP packet forwarding for Waydroid containers
+    };
+  };
 
   networking = {
     hostName = "cm130";
