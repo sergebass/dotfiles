@@ -1,5 +1,9 @@
 # NixOS configuration for GUI/Wayland.
 { config, lib, pkgs, ... } : {
+  imports = [
+    ./gui-common.nix  # common configuration shared across GUI-based environments
+  ];
+
   programs = {
     # Sway is a Wayland compositor
     sway = {
@@ -36,6 +40,7 @@
 
   xdg.portal = {
     enable = true;  # Enable xdg desktop integration (https://github.com/flatpak/xdg-desktop-portal).
+    xdgOpenUsePortal = true;  # Sets environment variable NIXOS_XDG_OPEN_USE_PORTAL to 1. This will make xdg-open use the portal to open programs...
     wlr.enable = true;  # Enable desktop portal for wlroots-based desktops.
   };
 
