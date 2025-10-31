@@ -1,6 +1,6 @@
 # NixOS configuration for my AMD x64 workstation in CoolerMaster-130 case
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 let
   userName = "sergii";
 
@@ -8,6 +8,7 @@ let
 
 in {
   imports = [
+     (modulesPath + "/installer/scan/not-detected.nix")
     ../boot-grub.nix  # Since we reuse existing partitioning from the old laptop, keep the GRUB/MBR setting for now.
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-i3.nix  # i3 X11/GUI environment
