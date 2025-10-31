@@ -1,6 +1,6 @@
 # NixOS configuration for my AMD x64 workstation in CoolerMaster-130 case
 
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, ... }:
 let
   userName = "sergii";
 
@@ -8,7 +8,7 @@ let
 
 in {
   imports = [
-     (modulesPath + "/installer/scan/not-detected.nix")
+    ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-grub.nix  # Since we reuse existing partitioning from the old laptop, keep the GRUB/MBR setting for now.
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-i3.nix  # i3 X11/GUI environment
@@ -215,7 +215,6 @@ in {
       fbmark  # Linux framebuffer benchmarking tool
       ffmpeg
       flac  # Library and tools for encoding and decoding the FLAC lossless audio file format
-      fq  # jq for binary formats
       frescobaldi
       fuzzel
       gcc13
