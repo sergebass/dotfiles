@@ -3,9 +3,8 @@
 { config, lib, pkgs, ... }:
 let
   userName = "sergii";
-  userId = 1000;
 
-  useDM = false;
+  useDisplayManager = false;
 
 in {
   imports = [
@@ -69,16 +68,6 @@ in {
 
     # The primary use case is to ensure when using ZFS that a pool isn’t imported accidentally on a wrong machine.
     hostId = "b5481747";  # Result of running: head -c 8 /etc/machine-id
-
-    firewall = {
-      enable = true;
-      # allowedTCPPorts = [
-      #   631  # CUPS
-      # ];
-      # allowedUDPPorts = [
-      #   631  # CUPS
-      # ];
-    };
   };
 
   services = {
@@ -111,10 +100,10 @@ in {
       videoDrivers = [ "amdgpu" ];
 
       displayManager = {
-        startx.enable = ! useDM;
+        startx.enable = ! useDisplayManager;
 
         lightdm = {
-          enable = useDM;
+          enable = useDisplayManager;
           greeter.enable = true;
           background = /home/${userName}/.background-image;
         };
@@ -242,7 +231,6 @@ in {
       rust-bindgen  # Automatically generates Rust FFI bindings to C (and some C++) libraries
       rustc  # Rust compiler
       rustfmt  # Tool for formatting Rust code according to style guidelines
-      scrot
       signal-cli  # Command-line and dbus interface for communicating with the Signal messaging service
       signal-desktop # Private, simple, and secure messenger (nixpkgs build)
       simplescreenrecorder  # Screen recorder for Linux
