@@ -9,7 +9,7 @@ let
 
 in {
   imports = [
-    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
+    ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-efi.nix
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-i3.nix  # i3 X11/GUI environment
@@ -22,6 +22,31 @@ in {
     # ../development/arduino.nix
     # ../oscilloscope.nix
   ];
+
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  fileSystems = {
+    "/boot" = {
+      device = "/dev/disk/by-uuid/2C27-4351";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+    "/" = {
+      device = "/dev/disk/by-uuid/4bb679ac-b061-4667-84db-107a931b3a89";
+      fsType = "ext4";
+      options = [ "noatime" ];
+    };
+  };
+
+  swapDevices = [];  # The SSD on this Chromebook is tiny, there is no room for swap, unfortunately.
+
+  boot = {
+    initrd.availableKernelModules = [ "xhci_pci" "usb_storage" "sd_mod" "sdhci_acpi" ];
+    initrd.kernelModules = [];
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [];
+  };
 
   networking = {
     hostName = "n21";
@@ -74,10 +99,7 @@ in {
     ];
   };
 
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
