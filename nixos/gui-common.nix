@@ -20,6 +20,18 @@
     };
   };
 
+  xdg.portal = {
+    enable = true;  # Enable xdg desktop integration (https://github.com/flatpak/xdg-desktop-portal).
+    xdgOpenUsePortal = true;  # Sets environment variable NIXOS_XDG_OPEN_USE_PORTAL to 1. This will make xdg-open use the portal to open programs...
+    lxqt.enable = true;  # Enable the desktop portal for the LXQt desktop environment.
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome  # Backend implementation for xdg-desktop-portal for the GNOME desktop environment
+      xdg-desktop-portal-gtk  # Desktop integration portals for sandboxed apps
+      xdg-desktop-portal-xapp  # Backend implementation for xdg-desktop-portal for Cinnamon, MATE, Xfce
+    ];
+  };
+
   environment = {
     # GUI apps shared across all windowing environments (X11, Wayland etc.)
     systemPackages = with pkgs; [
@@ -48,6 +60,7 @@
       rofi-systemd  # Control your systemd units using rofi
       rofi-top  # Plugin for rofi that emulates top behaviour
       smplayer  # Complete front-end for MPlayer
+      sound-theme-freedesktop  # Freedesktop reference sounds
       sway-launcher-desktop  # Note that this tool is not really tied to sway at all
       vlc  # Cross-platform media player and streaming server
       xdg-dbus-proxy  # DBus proxy for Flatpak and others
