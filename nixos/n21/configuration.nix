@@ -5,7 +5,7 @@ let
   userName = "sergii";
   userId = 1000;
 
-  useDM = true;
+  useDisplayManager = true;
 
 in {
   imports = [
@@ -42,10 +42,10 @@ in {
 
     xserver = {
       displayManager = {
-        startx.enable = ! useDM;
+        startx.enable = ! useDisplayManager;
 
         lightdm = {
-          enable = useDM;
+          enable = useDisplayManager;
           greeter.enable = true;
           background = /home/${userName}/.background-image;
         };
