@@ -21,6 +21,18 @@
     # };
   };
 
+  networking = {
+    firewall = {
+      enable = true;
+      # allowedTCPPorts = [
+      #   631  # CUPS
+      # ];
+      # allowedUDPPorts = [
+      #   631  # CUPS
+      # ];
+    };
+  };
+
   services = {
     system-config-printer.enable = true;
 
@@ -41,6 +53,8 @@
       cups-pdf.enable = true;  # Enable the virtual PDF printer backend
       drivers = with pkgs; [
         brlaser  # For Brother DCP-7060D (and others)
+        # FIXME the last cnijfilter source is version 4.10 (https://pdisp01.c-wss.com/gdl/WWUFORedirectTarget.do?id=MDEwMDAwNTg1ODAx&cmp=ABR&lang=EN): blob:https://www.usa.canon.com/a41418e1-7cd4-4000-8bd2-e18dd8eb452b
+        cnijfilter_4_00
       ];
     };
 
