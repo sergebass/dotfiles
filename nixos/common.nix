@@ -170,4 +170,9 @@
       nerd-fonts.inconsolata
     ];
   };
+
+  # Copy the NixOS configuration file and link it from the resulting system
+  # (/run/current-system/configuration.nix). This is useful in case we
+  # accidentally delete configuration.nix.
+  system.copySystemConfiguration = true;
 }
