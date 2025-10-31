@@ -12,7 +12,7 @@ in {
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
-    ../gui-wayland.nix
+    ../gui-sway.nix  # Sway Wayland/GUI environment
     ../development/android.nix
     ../development/arduino.nix
     ../mpd.nix
