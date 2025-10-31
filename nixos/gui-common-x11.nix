@@ -19,6 +19,7 @@
   environment = {
     # X11-specific core apps
     systemPackages = with pkgs; [
+      scrot
       xorg.xev
       xorg.xkill
       xorg.xrandr
