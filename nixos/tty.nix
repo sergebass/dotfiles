@@ -4,7 +4,6 @@ let
   aliases = {
     v = "nvim";
     g = "git";
-    x11 = "startx (which i3)";
   };
 
   # Default configuration options for ripgrep (rg).
