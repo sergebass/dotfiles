@@ -8,7 +8,6 @@ let
 
 in {
   imports = [
-    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
     ../boot-grub.nix  # Since we reuse existing partitioning from the old laptop, keep the GRUB/MBR setting for now.
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-i3.nix  # i3 X11/GUI environment
@@ -25,7 +24,12 @@ in {
   ];
 
   boot = {
-
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "ahci" "ohci_pci" "ehci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+      kernelModules = [ "amdgpu" ];
+    };
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [];
     kernelParams = lib.mkForce [
       "verbose"
       "nosplash"
@@ -43,6 +47,7 @@ in {
   };
 
   hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -56,12 +61,55 @@ in {
     };
   };
 
-  fileSystems = {
-    "/".options = [ "compress=zstd" ];
-    "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
-    "/swap".options = [ "noatime" ];
+  fileSystems = let
+    bootDiskUUID = "CB98-EB24";
+    mainDiskUUID = "00199ae3-b6d1-498c-b8ca-cd78997d5e91";
+    homeDiskUUID = "65d5161e-8b42-4eef-8f54-613960516abf";
+
+    bootDiskDevice = "/dev/disk/by-uuid/${bootDiskUUID}";
+    mainDiskDevice = "/dev/disk/by-uuid/${mainDiskUUID}";
+    homeDiskDevice = "/dev/disk/by-uuid/${homeDiskUUID}";
+
+    compressionMethod = "zstd";
+  in {
+    "/boot" = {
+      device = bootDiskDevice;
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+    "/" = {
+      device = mainDiskDevice;
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=${compressionMethod}" "noatime" ];
+    };
+
+    "/nix" = {
+      device = mainDiskDevice;
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=${compressionMethod}" "noatime" ];
+    };
+
+    "/swap" = {
+      device = mainDiskDevice;
+      fsType = "btrfs";
+      options = [ "subvol=swap" "noatime" ];
+    };
+
+    "/home" = {
+      device = homeDiskDevice;
+      fsType = "btrfs";
+      options = [ "compress=${compressionMethod}" "noatime" ];
+    };
+
+    "/home/sergii" = {
+      device = homeDiskDevice;
+      fsType = "btrfs";
+      options = [ "subvol=sergii" "compress=${compressionMethod}" "noatime" ];
+    };
   };
+
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   networking = {
     hostName = "cm130";
@@ -118,17 +166,6 @@ in {
       };
     };
 
-  };
-
-  xdg.portal = {
-    enable = true;  # Enable xdg desktop integration (https://github.com/flatpak/xdg-desktop-portal).
-    xdgOpenUsePortal = false;  # Do not use portal to open programs or web links using xdg-open
-    lxqt.enable = true;  # Enable the desktop portal for the LXQt desktop environment.
-
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk  # Desktop integration portals for sandboxed apps
-      xdg-desktop-portal-xapp  # Backend implementation for xdg-desktop-portal for Cinnamon, MATE, Xfce
-    ];
   };
 
   # Run LineageOS-based Android VM in a container (https://docs.waydro.id)
@@ -254,9 +291,13 @@ in {
     ];
   };
 
-  nixpkgs.config = {
-    permittedInsecurePackages = [
-    ];
+  nixpkgs = {
+    hostPlatform = lib.mkDefault "x86_64-linux";
+    config = {
+      permittedInsecurePackages = [
+        # "googleearth-pro-7.3.6.9796"  # NOTE: overrides gpsbabel on PATH with an older version. Uses compromised deps.
+      ];
+    };
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
