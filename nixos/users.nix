@@ -11,16 +11,18 @@ in {
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = let
-    powerUserGroups = [
-      "adm"
+    normalUserGroups = [
       "audio"
       "dialout"  # to access /dev/ttyACM ports (e.g. Arduino)
       "lp"  # Printer access
-      "lpadmin"  # Printer administration
       "networkmanager"
       "plugdev"  # For e.g. RTL-SDR
       "scanner"
       "video"
+    ];
+    powerUserGroups = normalUserGroups ++ [
+      "adm"
+      "lpadmin"  # Printer administration
       "wheel"  # Enable 'sudo' for the user.
     ];
   in {
