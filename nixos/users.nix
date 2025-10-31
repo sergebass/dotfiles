@@ -10,7 +10,20 @@ in {
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users = {
+  users = let
+    powerUserGroups = [
+      "adm"
+      "audio"
+      "dialout"  # to access /dev/ttyACM ports (e.g. Arduino)
+      "lp"  # Printer access
+      "lpadmin"  # Printer administration
+      "networkmanager"
+      "plugdev"  # For e.g. RTL-SDR
+      "scanner"
+      "video"
+      "wheel"  # Enable 'sudo' for the user.
+    ];
+  in {
     mutableUsers = true;
 
     defaultUserShell = pkgs.fish;
@@ -18,17 +31,7 @@ in {
     users."${userName}" = {
       uid = userId;
       isNormalUser = true;
-      extraGroups = [
-        "adm"
-        "audio"
-        "dialout"  # to access /dev/ttyACM ports (e.g. Arduino)
-        "lp"  # Printer access
-        "networkmanager"
-        "plugdev"  # For e.g. RTL-SDR
-        "scanner"
-        "video"
-        "wheel"  # Enable 'sudo' for the user.
-      ];
+      extraGroups = powerUserGroups;
     };
   };
 
