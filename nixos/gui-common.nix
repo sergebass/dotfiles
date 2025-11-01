@@ -1,5 +1,9 @@
 # NixOS configuration shared across all GUI environments
-{ config, lib, pkgs, ... } : {
+{ config, lib, pkgs, ... }:
+let
+  wallpaperStore = pkgs.copyPathToStore "${toString ../wallpapers}";
+
+in {
   imports = [
     ./common.nix  # Common configuration shared by all of our NixOS systems
   ];
@@ -70,5 +74,13 @@
       xdg-user-dirs  # A tool to help manage well known user directories like the desktop folder and the music folder
       xdg-utils  # A set of command line tools that assist applications with a variety of desktop integration tasks
     ];
+
+    etc = {
+      # Symlink wallpaper store into /etc to make it easily accessible system-wide.
+      "sergii/wallpapers" = {
+        source = wallpaperStore;
+        mode = "symlink";
+      };
+    };
   };
 }
