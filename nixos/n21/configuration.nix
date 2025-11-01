@@ -38,11 +38,22 @@
   swapDevices = [];  # The SSD on this Chromebook is tiny, there is no room for swap, unfortunately.
 
   boot = {
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+
     initrd = {
+      verbose = false;
       availableKernelModules = [ "xhci_pci" "usb_storage" "sd_mod" "sdhci_acpi" ];
       kernelModules = [];
     };
-    kernelParams = lib.mkForce [ "splash" "quiet" ];
+
+    kernelParams = lib.mkForce [
+      "splash"
+      "quiet"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+    ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [];
   };
