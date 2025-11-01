@@ -1,17 +1,12 @@
 # NixOS configuration for Lenovo N21 Chromebook
 
-{ config, pkgs, lib, ... }:
-let
-  userName = "sergii";
-  userId = 1000;
+{ config, pkgs, lib, ... }: {
 
-  useDisplayManager = true;
-
-in {
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-efi.nix
     ../common.nix  # Common configuration shared by all of our NixOS systems
+    ../gui-lightdm.nix  # LightDM display manager
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
     ../gui-xfce.nix  # XFCE X11/GUI environment
@@ -64,26 +59,6 @@ in {
       extraRules = with pkgs; ''
         ACTION=="add", SUBSYSTEM=="backlight", RUN+="${coreutils}/bin/chgrp video $sys$devpath/brightness", RUN+="${coreutils}/bin/chmod g+w $sys$devpath/brightness"
       '';
-    };
-
-    xserver = {
-      displayManager = {
-        startx.enable = ! useDisplayManager;
-
-        lightdm = {
-          enable = useDisplayManager;
-          greeter.enable = true;
-          background = /home/${userName}/.background-image;
-        };
-      };
-
-      desktopManager = {
-        xterm.enable = false;
-        wallpaper = {
-          mode = "max";
-          combineScreens = false;
-        };
-      };
     };
 
     libinput.enable = true;  # Enable touchpad support
