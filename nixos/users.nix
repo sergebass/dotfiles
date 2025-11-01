@@ -35,6 +35,7 @@ in {
         uid = userId;
         isNormalUser = true;
         extraGroups = powerUserGroups;
+        initialPassword = "123";
       };
 
       # Add other managed user entries here
