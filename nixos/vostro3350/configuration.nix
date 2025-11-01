@@ -6,21 +6,45 @@ let
 
 in {
   imports = [
-    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
+    ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-grub.nix  # This old laptop does not use UEFI, so stick with GRUB2
     ../common.nix  # Common configuration shared by all of our NixOS systems
-    ../gui-xfce.nix  # XFCE X11/GUI environment
+    ../gui-lightdm.nix  # LightDM display manager
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
-    ../gui-wayland.nix
+    ../gui-xfce.nix  # XFCE X11/GUI environment
+    ../gui-sway.nix  # Sway Wayland/GUI environment
     ../mpd.nix
     ../oscilloscope.nix
     ../printing.nix
     ../scanning.nix
     ../sdr.nix
     ../tv.nix
-
   ];
+
+  hardware = {
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  };
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/7adf72fa-bdf4-40df-bc55-3861a27817b5";
+    fsType = "ext4";
+    options = [ "noatime" ];
+  };
+
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/6aad830b-023e-49dd-a717-fe478214e30e"; }
+  ];
+
+  boot = {
+    initrd = {
+      availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "ums_realtek" "usb_storage" "sd_mod" "sr_mod" ];
+      kernelModules = [];
+    };
+
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [];
+  };
 
   networking = {
     hostName = "vostro3350";
@@ -37,10 +61,6 @@ in {
     };
 
     libinput.enable = true;  # Enable touchpad support
-
-    displayManager = {
-      defaultSession = "xfce";
-    };
   };
 
   environment = {
@@ -84,10 +104,7 @@ in {
     ];
   };
 
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
