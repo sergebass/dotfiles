@@ -71,8 +71,8 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
-      # qrencode
-      # ymuse  # GUI client for MPD
+      geeqie  # Lightweight GTK based image viewer
+      gimp-with-plugins  # GNU Image Manipulation Program
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
     ];
