@@ -18,7 +18,7 @@ in {
     ../sdr.nix
     ../tv.nix
     ../scanning.nix
-    # ../printing.nix
+    ../printing.nix
     # ../development/arduino.nix
     # ../oscilloscope.nix
   ];
