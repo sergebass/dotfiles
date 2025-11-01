@@ -11,7 +11,7 @@
       systemd.enable = true;  # Start systemd early on, in the initrd stage
     };
 
-    kernelParams = [
+    kernelParams = lib.mkForce [
       "splash"
       "quiet"
       "boot.shell_on_fail"
