@@ -1,16 +1,12 @@
 # NixOS configuration for my AMD x64 workstation in CoolerMaster-130 case
 
-{ config, lib, pkgs, ... }:
-let
-  userName = "sergii";
+{ config, lib, pkgs, ... }: {
 
-  useDisplayManager = false;
-
-in {
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-grub.nix  # Since we reuse existing partitioning from the old laptop, keep the GRUB/MBR setting for now.
     ../common.nix  # Common configuration shared by all of our NixOS systems
+    ../gui-lightdm.nix  # LightDM display manager
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
     ../gui-xfce.nix  # XFCE X11/GUI environment
@@ -148,24 +144,6 @@ in {
 
     xserver = {
       videoDrivers = [ "amdgpu" ];
-
-      displayManager = {
-        startx.enable = ! useDisplayManager;
-
-        lightdm = {
-          enable = useDisplayManager;
-          greeter.enable = true;
-          background = /home/${userName}/.background-image;
-        };
-      };
-
-      desktopManager = {
-        xterm.enable = false;
-        wallpaper = {
-          mode = "max";
-          combineScreens = false;
-        };
-      };
     };
 
   };
