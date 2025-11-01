@@ -2,7 +2,7 @@
 
 { config, pkgs, lib, ... }:
 let
-  userName = "sergii";
+  wallpaperStore = pkgs.copyPathToStore "${toString ../wallpapers}";
 
 in {
 
@@ -13,9 +13,11 @@ in {
 
         lightdm = {
           enable = true;
-          greeter.enable = true;
-          # background = /home/${userName}/.background-image;
-          background = "#002020";  # Solid dark teal color as a background
+          # background = "#002020";  # Solid dark teal color as a background
+          background = "${wallpaperStore}/Lake-pebbles.jpg";
+          greeter = {
+            enable = true;
+          };
         };
       };
     };
