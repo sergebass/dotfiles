@@ -14,6 +14,11 @@
         options = "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr,terminate:ctrl_alt_bksp";
       };
 
+      displayManager = {
+        # Note that in case a display manager is used, startx.enable should be false (use `lib.mkForce false` to override)
+        startx.enable = true;  # Allow users to start X server with `startx` command from console by default
+      };
+
       desktopManager = {
         xterm.enable = false;
         wallpaper = {
