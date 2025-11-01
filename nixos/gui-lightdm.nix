@@ -17,14 +17,6 @@ in {
           background = /home/${userName}/.background-image;
         };
       };
-
-      desktopManager = {
-        xterm.enable = false;
-        wallpaper = {
-          mode = "max";
-          combineScreens = false;
-        };
-      };
     };
   };
 }

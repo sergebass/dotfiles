@@ -13,6 +13,14 @@
         layout = "us(altgr-intl),ua";
         options = "grp:shift_caps_toggle,grp:shifts_toggle,grp_led:scroll,caps:escape,compose:rctrl-altgr,terminate:ctrl_alt_bksp";
       };
+
+      desktopManager = {
+        xterm.enable = false;
+        wallpaper = {
+          mode = "max";
+          combineScreens = false;
+        };
+      };
     };
   };
 
