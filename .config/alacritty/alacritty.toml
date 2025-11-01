@@ -51,7 +51,7 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 10.0
+size = 11.0
 
 [font.normal]
 family = "Inconsolata Nerd Font Mono"
