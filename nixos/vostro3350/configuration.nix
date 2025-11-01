@@ -37,13 +37,25 @@ in {
   ];
 
   boot = {
+    consoleLogLevel = 4;  # Warnings and errors
+
     initrd = {
+      verbose = true;
+
       availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "ums_realtek" "usb_storage" "sd_mod" "sr_mod" ];
       kernelModules = [];
     };
 
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [];
+
+    kernelParams = lib.mkForce [
+      "nosplash"
+      "verbose"
+      "boot.shell_on_fail"
+      "udev.log_priority=4"
+      "rd.systemd.show_status=auto"
+    ];
   };
 
   networking = {
