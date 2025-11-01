@@ -3,6 +3,12 @@
 let
   wallpaperStore = pkgs.copyPathToStore "${toString ../wallpapers}";
 
+  setUserAvatarScript = with pkgs; writeShellScriptBin "set-user-avatar" ''
+    # $1 - Path to the image file to set as user avatar, e.g. ~/.face
+
+    ${dbus}/bin/dbus-send --system --dest=org.freedesktop.Accounts --type=method_call --print-reply=literal /org/freedesktop/Accounts/User$(id -u) org.freedesktop.Accounts.User.SetIconFile string:"$1"
+  '';
+
 in {
   imports = [
     ./common.nix  # Common configuration shared by all of our NixOS systems
@@ -73,6 +79,9 @@ in {
       xdg-terminal-exec  # Reference implementation of the proposed XDG Default Terminal Execution Specification
       xdg-user-dirs  # A tool to help manage well known user directories like the desktop folder and the music folder
       xdg-utils  # A set of command line tools that assist applications with a variety of desktop integration tasks
+    ] ++ [
+      # Our custom scripts
+      setUserAvatarScript
     ];
 
     etc = {
