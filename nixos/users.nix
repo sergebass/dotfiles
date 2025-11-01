@@ -30,10 +30,14 @@ in {
 
     defaultUserShell = pkgs.fish;
 
-    users."${userName}" = {
-      uid = userId;
-      isNormalUser = true;
-      extraGroups = powerUserGroups;
+    users = {
+      "${userName}" = {
+        uid = userId;
+        isNormalUser = true;
+        extraGroups = powerUserGroups;
+      };
+
+      # Add other managed user entries here
     };
   };
 
