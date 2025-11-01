@@ -38,8 +38,11 @@
   swapDevices = [];  # The SSD on this Chromebook is tiny, there is no room for swap, unfortunately.
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "usb_storage" "sd_mod" "sdhci_acpi" ];
-    initrd.kernelModules = [];
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "usb_storage" "sd_mod" "sdhci_acpi" ];
+      kernelModules = [];
+    };
+    kernelParams = lib.mkForce [ "splash" "quiet" ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [];
   };
