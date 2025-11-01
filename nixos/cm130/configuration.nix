@@ -87,7 +87,11 @@
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   boot = {
+    consoleLogLevel = 4;  # print warnings and errors during boot
+
     initrd = {
+      verbose = true;
+
       availableKernelModules = [ "xhci_pci" "ahci" "ohci_pci" "ehci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
       kernelModules = [ "amdgpu" ];
     };
