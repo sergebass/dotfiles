@@ -13,10 +13,21 @@ in {
 
         lightdm = {
           enable = true;
+
           # background = "#002020";  # Solid dark teal color as a background
           background = "${wallpaperStore}/Lake-pebbles.jpg";
-          greeter = {
-            enable = true;
+
+          greeters = {
+            gtk = {
+              enable = true;
+              theme.name = "Adwaita-dark";
+              iconTheme.name = "Tango";
+              cursorTheme = {
+                name = "Adwaita";
+                size = 24;
+              };
+              clock-format = "%A, %B %d %Y -- %H:%M (%Z)";
+            };
           };
         };
       };
