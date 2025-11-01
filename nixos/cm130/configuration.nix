@@ -91,8 +91,10 @@
       availableKernelModules = [ "xhci_pci" "ahci" "ohci_pci" "ehci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
       kernelModules = [ "amdgpu" ];
     };
+
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [];
+
     kernelParams = lib.mkForce [
       "verbose"
       "nosplash"
