@@ -5,6 +5,7 @@
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-efi.nix
+    ../boot-splash.nix
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-lightdm.nix  # LightDM display manager
     ../gui-xfce.nix  # XFCE X11/GUI environment
@@ -38,37 +39,13 @@
   swapDevices = [];  # The SSD on this Chromebook is tiny, there is no room for swap, unfortunately.
 
   boot = {
-    # Enable "Silent boot"
-    consoleLogLevel = 3;
-
     initrd = {
-      verbose = false;
-      systemd.enable = true;  # Start systemd early on, in the initrd stage
       availableKernelModules = [ "xhci_pci" "usb_storage" "sd_mod" "sdhci_acpi" ];
       kernelModules = [];
     };
 
-    kernelParams = lib.mkForce [
-      "splash"
-      "quiet"
-      "boot.shell_on_fail"
-      "udev.log_priority=3"
-      "rd.systemd.show_status=auto"
-    ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [];
-
-    # Display splash screen during boot, early on.
-    plymouth = {
-      enable = true;
-      theme = "rings";
-      themePackages = with pkgs; [
-        # By default we would install all themes, so be specific instead.
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
-        })
-      ];
-    };
   };
 
   networking = {
