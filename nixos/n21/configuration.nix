@@ -43,6 +43,7 @@
 
     initrd = {
       verbose = false;
+      systemd.enable = true;  # Start systemd early on, in the initrd stage
       availableKernelModules = [ "xhci_pci" "usb_storage" "sd_mod" "sdhci_acpi" ];
       kernelModules = [];
     };
@@ -56,6 +57,18 @@
     ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [];
+
+    # Display splash screen during boot, early on.
+    plymouth = {
+      enable = true;
+      theme = "rings";
+      themePackages = with pkgs; [
+        # By default we would install all themes, so be specific instead.
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
+    };
   };
 
   networking = {
