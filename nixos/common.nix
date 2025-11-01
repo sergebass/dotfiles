@@ -20,38 +20,6 @@
     customLabelPrefix = builtins.getEnv("NIXOS_LABEL_PREFIX");
   in lib.mkIf (customLabel != "" || customLabelPrefix != "") config.system.nixos.label;
 
-  boot = {
-    kernel.sysctl = {
-      "kernel.sysrq" = 1;  # Enable all SysRq functions
-    };
-
-    kernelPackages = pkgs.linuxPackages;
-
-    kernelParams = lib.mkForce [ "verbose" "nosplash" ];
-
-    tmp.useTmpfs = true;  # Save SSD from some wear and tear
-
-    supportedFilesystems = [
-      "btrfs"
-      "zfs"
-      "exfat"
-      "ntfs"
-      "ntfs3"
-    ];
-
-    zfs = {
-      forceImportRoot = false;
-    };
-  };
-
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      package = pkgs.bluez;
-    };
-  };
-
   security = {
     rtkit.enable = true;
   };
@@ -96,39 +64,6 @@
     };
 
     timesyncd.enable = true;  # Enable NTP
-
-    udisks2 = {
-      enable = true;  # For automounting external drives in GUI file managers
-      settings = {
-        "udisks2.conf" = {
-          defaults = {
-            encryption = "luks2";
-          };
-          udisks2 = {
-            modules = [
-              "*"
-            ];
-            modules_load_preference = "ondemand";
-          };
-        };
-        "mount_options.conf" = {
-          defaults = {
-            defaults = "noatime";
-            btrfs_defaults = "compress=zstd,noatime";
-          };
-        };
-      };
-    };
-
-    pulseaudio.enable = false;  # Use PipeWire instead
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;  # Emulate PulseAudio
-      jack.enable = true;
-    };
   };
 
   programs = {
