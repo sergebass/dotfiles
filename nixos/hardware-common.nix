@@ -31,8 +31,6 @@ in {
 
     kernelPackages = pkgs.linuxPackages;
 
-    kernelParams = lib.mkForce [ "verbose" "nosplash" ];
-
     tmp.useTmpfs = true;  # Save SSD from some wear and tear
 
     supportedFilesystems = [
