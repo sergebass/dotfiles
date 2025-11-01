@@ -7,14 +7,14 @@
     ../boot-efi.nix
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-lightdm.nix  # LightDM display manager
-    ../gui-i3.nix  # i3 X11/GUI environment
-    ../gui-icewm.nix  # IceWM X11/GUI environment
     ../gui-xfce.nix  # XFCE X11/GUI environment
+    # ../gui-icewm.nix  # IceWM X11/GUI environment
+    # ../gui-i3.nix  # i3 X11/GUI environment
     ../mpd.nix
     ../sdr.nix
     ../tv.nix
-    ../scanning.nix
     ../printing.nix
+    ../scanning.nix
     # ../development/arduino.nix
     # ../oscilloscope.nix
   ];
