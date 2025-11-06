@@ -134,14 +134,6 @@
 
     libinput.enable = true;  # Enable touchpad support
 
-    btrfs = {
-      autoScrub = {
-        enable = true;
-        interval = "weekly";
-        fileSystems = [ "/" ];
-      };
-    };
-
     # Systemd service for emacs, allowing use of shared editor buffers via emacsclient
     emacs = {
       enable = true;

@@ -47,6 +47,14 @@ in {
   };
 
   services = {
+    btrfs = {
+      autoScrub = {
+        enable = true;  # Make use of btrfs scrub to check data integrity periodically
+        interval = "monthly";  # See `man 7 systemd.time` for possible values
+        fileSystems = [ "/" ];
+      };
+    };
+
     udisks2 = {
       enable = true;  # For automounting external drives in GUI file managers
       settings = {
