@@ -1,10 +1,7 @@
 # NixOS configuration for Dell Vostro 3350 laptop
 
-{ config, lib, pkgs, ... }:
-let
-  useDisplayManager = true;
+{ config, lib, pkgs, ... }: {
 
-in {
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-grub.nix  # This old laptop does not use UEFI, so stick with GRUB2
