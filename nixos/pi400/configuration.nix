@@ -9,7 +9,7 @@ let
 
   synthConnectionScript = with pkgs; writeShellScriptBin "synth.sh" ''
     echo "Killing any running fluidsynth instances..."
-    ${killall}/bin/killall fluidsynth
+    ${psmisc}/bin/killall fluidsynth
     ${coreutils-full}/bin/sleep 2
 
     echo "Launching fluidsynth MIDI synthesizer..."
@@ -28,37 +28,42 @@ let
 
 in {
   imports = [
+    ../hardware-common.nix  # Hardware configuration shared across all systems
+    ../boot-extlinux.nix  # We use extlinux to boot the Pi
     ../common.nix  # Common configuration shared by all of our NixOS systems
+    ../gui-lightdm.nix  # LightDM display manager
+    ../gui-xfce.nix  # XFCE X11/GUI environment
     ../mpd.nix
-    ./hardware-configuration.nix  # Results of the hardware scan. To redo detection: nixos-generate-config
   ];
 
+  hardware = {
+    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
+  };
+
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/NIXOS_SD";
+      fsType = "ext4";
+      options = [ "noatime" ];  # Save microSD card flash (or SSD) storage from extra wear
+    };
+  };
+
+  swapDevices = [];
+
   boot = {
-    loader = {
-      grub.enable = false;
-      generic-extlinux-compatible.enable = true;
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "usbhid" ];
+      kernelModules = [];
     };
 
-    kernelPackages = pkgs.linuxPackages;
+    kernelModules = [];
+    extraModulePackages = [];
 
     kernelParams = lib.mkForce [
       "verbose"
       "nosplash"
     ];
-
-    tmp.useTmpfs = true;  # Save flash storage from some wear and tear
-
-    supportedFilesystems = [
-      "btrfs"
-      "exfat"
-      "ntfs"
-      "ntfs3"
-      "zfs"
-    ];
-
-    zfs = {
-      forceImportRoot = false;
-    };
   };
 
   networking = {
@@ -66,10 +71,6 @@ in {
 
     # The primary use case is to ensure when using ZFS that a pool isn’t imported accidentally on a wrong machine.
     hostId = "c19a013e";  # Result of running: head -c 8 /etc/machine-id
-
-    firewall = {
-      enable = true;
-    };
   };
 
   services = {
@@ -79,43 +80,9 @@ in {
       extraRules = with pkgs; ''
       '';
     };
-
-    gvfs.enable = true;  # Mount, trash, and other functionalities
   };
 
-  btrfs = {
-    autoScrub = {
-      enable = true;
-      interval = "weekly";
-      fileSystems = [ "/" ];
-    };
-  };
-
-  # UDisks2 configuration (USB storage automounting)
-  udisks2 = {
-    enable = true;
-    settings = {
-      "udisks2.conf" = {
-        defaults = {
-          encryption = "luks2";
-        };
-        udisks2 = {
-          modules = [
-            "*"
-          ];
-          modules_load_preference = "ondemand";
-        };
-      };
-      "mount_options.conf" = {
-        defaults = {
-          defaults = "noatime";
-          btrfs_defaults = "compress=zstd,noatime";
-        };
-      };
-    };
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Synth user account. Don't forget to set a password with ‘passwd’.
   users.users."${synthUserName}" = {
     isNormalUser = true;
     extraGroups = [
@@ -128,12 +95,7 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
-      ctags
       fluidsynth
-      killall
-      links2
-      mpv
-      pamix
       raspberrypi-eeprom
       soundfont-fluid
     ] ++ [
@@ -141,30 +103,10 @@ in {
       synthConnectionScript
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
-    ] ++ import ../packages-core-gui.nix pkgs;
+    ];
   };
 
-  # programs = {
-
-  #   # FIXME this only has to work for user synth!
-  #   fish = {
-  #     enable = true;
-  #     shellAliases = aliases;
-  #     loginShellInit = ''
-  #       set -U fish_greeting ""
-
-  #       # Auto-start our MIDI keyboard -> fluidsynth link when logging in on tty1
-  #       if test "$(tty)" = "/dev/tty1";
-  #         ${synthConnectionScript}/bin/synth.sh
-  #       end
-  #     '';
-  #   };
-  # };
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

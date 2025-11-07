@@ -95,6 +95,7 @@
       htop  # An interactive process viewer
       jq  # Lightweight and flexible command-line JSON processor
       kbd  # Linux keyboard tools and keyboard maps
+      links2  # Small browser with some graphics support
       mc  # File Manager and User Shell for the GNU Project, known as Midnight Commander
       moc  # Terminal audio player designed to be powerful and easy to use
       mpc  # Minimalist command line interface to MPD
@@ -103,6 +104,7 @@
       ncpamixer  # Terminal mixer for PulseAudio inspired by pavucontrol
       nushell  # Modern shell written in Rust
       openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
+      pamix  # Pulseaudio terminal mixer
       pamixer  # CLI utilities to control PA & PW audio levels
       psmisc  # Set of small useful utilities that use the proc filesystem (such as fuser, killall and pstree)
       python3Minimal  # High-level dynamically-typed programming language
