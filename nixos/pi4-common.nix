@@ -2,9 +2,9 @@
 
 { config, pkgs, lib, ... }: {
   imports = [
-    ../hardware-common.nix  # Hardware configuration shared across all systems
-    ../boot-extlinux.nix  # We use extlinux to boot the Pi
-    ../common.nix  # Common configuration shared by all of our NixOS systems
+    ./hardware-common.nix  # Hardware configuration shared across all systems
+    ./boot-extlinux.nix  # We use extlinux to boot the Pi
+    ./common.nix  # Common configuration shared by all of our NixOS systems
   ];
 
   hardware = {
