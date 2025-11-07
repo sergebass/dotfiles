@@ -46,9 +46,9 @@ in {
   environment = {
     # GUI apps shared across all windowing environments (X11, Wayland etc.)
     systemPackages = with pkgs; [
+      (chromium.override { enableWideVine = true; })  # FOSS Chromim browser + Widevine DRM
       alacritty  # Cross-platform, GPU-accelerated terminal emulator
       baobab  # Used disk space visualizer
-      (chromium.override { enableWideVine = true; })  # FOSS Chromim browser + Widevine DRM
       dmenu  # Generic, highly customizable, and efficient menu for the X Window System
       dunst  # Lightweight and customizable notification daemon
       feh  # Light-weight image viewer
