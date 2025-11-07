@@ -47,6 +47,8 @@ in {
   };
 
   services = {
+    udev.enable = true;
+
     btrfs = {
       autoScrub = {
         enable = true;  # Make use of btrfs scrub to check data integrity periodically
