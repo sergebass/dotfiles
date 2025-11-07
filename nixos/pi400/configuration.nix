@@ -17,6 +17,11 @@
     hostId = "c19a013e";  # Result of running: head -c 8 /etc/machine-id
   };
 
+  # This device is not to powerful to cope with full 4K rendering, so force it to 1080p (FullHD) for now.
+  services.xserver.resolutions = [
+    { x = 1920; y = 1080; }
+  ];
+
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
