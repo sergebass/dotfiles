@@ -54,7 +54,9 @@ in {
       feh  # Light-weight image viewer
       firefox  # Web browser built from Firefox source tree
       freetube  # Open Source YouTube app for privacy
+      gnome-disk-utility  # Udisks graphical front-end
       gparted  # Graphical disk partitioning tool
+      gsmartcontrol  # Hard disk drive health inspection tool
       libnotify  # Library that sends desktop notifications to a notification daemon
       mpv  # General-purpose media player, fork of MPlayer and mplayer2
       mupdf  # Lightweight PDF, XPS, and E-book viewer and toolkit written in portable C

@@ -110,9 +110,11 @@ in {
       hwinfo  # Hardware detection tool from openSUSE
       lm_sensors  # Onboard sensor measurement tools
       lshw  # Provide detailed information on the hardware configuration of the machine
+      nvme-cli  # NVM-Express user space tooling for Linux
       parted  # Create, destroy, resize, check, and copy partitions
       pciutils  # A collection of programs for inspecting and manipulating configuration of PCI devices
       simple-mtpfs  # Simple MTP fuse filesystem driver (for Android phones, Garmin watches etc.)
+      smartmontools  # Tools for monitoring the health of hard drives
       tinyxxd  # Drop-in replacement and standalone version of the hex dump utility that comes with ViM
       usbutils  # Tools for working with USB devices, such as lsusb
       xcd  # Colorized hexdump tool
