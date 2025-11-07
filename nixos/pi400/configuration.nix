@@ -28,58 +28,17 @@ let
 
 in {
   imports = [
-    ../hardware-common.nix  # Hardware configuration shared across all systems
-    ../boot-extlinux.nix  # We use extlinux to boot the Pi
-    ../common.nix  # Common configuration shared by all of our NixOS systems
+    ../pi4-common.nix  # Configuration shared across all Pi4 systems
     ../gui-lightdm.nix  # LightDM display manager
     ../gui-xfce.nix  # XFCE X11/GUI environment
     ../mpd.nix
   ];
-
-  hardware = {
-    enableAllFirmware = true;
-    enableRedistributableFirmware = true;
-  };
-
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-      options = [ "noatime" ];  # Save microSD card flash (or SSD) storage from extra wear
-    };
-  };
-
-  swapDevices = [];
-
-  boot = {
-    initrd = {
-      availableKernelModules = [ "xhci_pci" "usbhid" ];
-      kernelModules = [];
-    };
-
-    kernelModules = [];
-    extraModulePackages = [];
-
-    kernelParams = lib.mkForce [
-      "verbose"
-      "nosplash"
-    ];
-  };
 
   networking = {
     hostName = "pi400";
 
     # The primary use case is to ensure when using ZFS that a pool isn’t imported accidentally on a wrong machine.
     hostId = "c19a013e";  # Result of running: head -c 8 /etc/machine-id
-  };
-
-  services = {
-    udev = {
-      enable = true;
-
-      extraRules = with pkgs; ''
-      '';
-    };
   };
 
   # Synth user account. Don't forget to set a password with ‘passwd’.
@@ -96,7 +55,6 @@ in {
     # $ nix search wget
     systemPackages = with pkgs; [
       fluidsynth
-      raspberrypi-eeprom
       soundfont-fluid
     ] ++ [
       # Our custom scripts
@@ -105,8 +63,6 @@ in {
       # Experimental packages (a separate list to make it easier to exclude from commits)
     ];
   };
-
-  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
