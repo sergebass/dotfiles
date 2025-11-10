@@ -105,6 +105,7 @@ in {
       exfatprogs  # exFAT filesystem userspace utilities
       fastfetch  # Like neofetch, but much faster because written in C
       fq  # jq for binary formats
+      gptfdisk  # Set of text-mode partitioning tools for Globally Unique Identifier (GUID) Partition Table (GPT) disks
       hddtemp  # HDD temperature measurement tools
       hdparm  # Tool to get/set ATA/SATA drive parameters under Linux
       hwinfo  # Hardware detection tool from openSUSE
