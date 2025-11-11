@@ -134,6 +134,15 @@
       # (e.g. for building Rust package dependencies before they can be Nixified properly)
       PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
     };
+
+    etc = {
+      # Store the NixOS build label (reported also by nixos-version) in /etc for easy access (e.g by i3tatus etc.)
+      "sergii/os-version" = {
+        text = ''
+          ${config.system.nixos.version}
+        '';
+      };
+    };
   };
 
   fonts = {
