@@ -17,6 +17,7 @@ general {
     color_bad = "#FF0000"
 }
 
+order += "read_file os_version"
 order += "read_file hostname"
 # order += "ipv6"
 order += "wireless _first_"
@@ -30,6 +31,10 @@ order += "disk /"
 order += "tztime local"
 order += "volume master"
 order += "battery all"
+
+read_file os_version {
+    path = "/etc/sergii/os-version"
+}
 
 read_file hostname {
     path = "/etc/hostname"
