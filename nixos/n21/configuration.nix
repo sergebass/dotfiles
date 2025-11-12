@@ -4,7 +4,7 @@
 
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
-    ../boot-efi.nix
+    ../boot-systemd.nix
     ../boot-splash.nix
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-lightdm.nix  # LightDM display manager
