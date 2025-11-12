@@ -1,4 +1,4 @@
-# Boot configuration for EFI bootloader
+# Boot configuration for systemd-boot UEFI bootloader
 { config, lib, pkgs, ... } : {
 
   boot = {
