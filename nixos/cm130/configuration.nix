@@ -4,7 +4,7 @@
 
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
-    ../boot-systemd.nix  # For UEFI booting
+    ../boot-grub-uefi.nix  # Use GRUB bootloader with UEFI support (more flexible than systemd-boot)
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-lightdm.nix  # LightDM display manager
     ../gui-i3.nix  # i3 X11/GUI environment
@@ -37,8 +37,8 @@
   };
 
   fileSystems = let
-    bootDiskDevice = "/dev/disk/by-label/NIXOS_BOOT";
-    mainDiskDevice = "/dev/disk/by-label/NIXOS_ROOT";
+    bootDiskDevice = "/dev/disk/by-label/NIXOS-BOOT";
+    mainDiskDevice = "/dev/disk/by-label/NIXOS-ROOT";
 
     compressionMethod = "zstd";
   in {
