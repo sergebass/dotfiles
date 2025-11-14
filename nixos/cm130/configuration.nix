@@ -39,7 +39,6 @@
   fileSystems = let
     bootDiskDevice = "/dev/disk/by-label/NIXOS_BOOT";
     mainDiskDevice = "/dev/disk/by-label/NIXOS_ROOT";
-    archiveDiskDevice = "/dev/disk/by-label/Sergii-Archive";
 
     compressionMethod = "zstd";
   in {
@@ -67,11 +66,11 @@
       options = [ "subvol=home" "compress=${compressionMethod}" "noatime" ];
     };
 
-    "/archive" = {
-      device = archiveDiskDevice;
-      fsType = "btrfs";
-      options = [ "compress=${compressionMethod}" "noatime" ];
-    };
+    # "/archive" = {
+    #   device =  "/dev/disk/by-label/Sergii-Archive";
+    #   fsType = "btrfs";
+    #   options = [ "compress=${compressionMethod}" "noatime" ];
+    # };
   };
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
