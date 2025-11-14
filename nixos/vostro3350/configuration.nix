@@ -4,7 +4,7 @@
 
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
-    ../boot-grub.nix  # This old laptop does not use UEFI, so stick with GRUB2
+    ../boot-grub-mbr.nix  # This old laptop does not use UEFI, so stick with MBR bootloader
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-lightdm.nix  # LightDM display manager
     ../gui-i3.nix  # i3 X11/GUI environment
