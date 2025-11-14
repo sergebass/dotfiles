@@ -1,10 +1,6 @@
 # NixOS configuration for lightdm display manager
 
-{ config, pkgs, lib, ... }:
-let
-  wallpaperStore = pkgs.copyPathToStore "${toString ../wallpapers}";
-
-in {
+{ config, pkgs, lib, ... }: {
 
   services = {
     xserver = {
@@ -15,7 +11,7 @@ in {
           enable = true;
 
           # background = "#002020";  # Solid dark teal color as a background
-          background = "${wallpaperStore}/Lake-pebbles.jpg";
+          background = ../wallpapers/Lake-pebbles.jpg;
 
           greeters = {
             gtk = {
