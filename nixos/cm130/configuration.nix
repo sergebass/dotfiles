@@ -4,7 +4,7 @@
 
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
-    ../boot-grub.nix  # Since we reuse existing partitioning from the old laptop, keep the GRUB/MBR setting for now.
+    ../boot-systemd.nix  # For UEFI booting
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-lightdm.nix  # LightDM display manager
     ../gui-i3.nix  # i3 X11/GUI environment
@@ -37,13 +37,9 @@
   };
 
   fileSystems = let
-    bootDiskUUID = "CB98-EB24";
-    mainDiskUUID = "00199ae3-b6d1-498c-b8ca-cd78997d5e91";
-    homeDiskUUID = "65d5161e-8b42-4eef-8f54-613960516abf";
-
-    bootDiskDevice = "/dev/disk/by-uuid/${bootDiskUUID}";
-    mainDiskDevice = "/dev/disk/by-uuid/${mainDiskUUID}";
-    homeDiskDevice = "/dev/disk/by-uuid/${homeDiskUUID}";
+    bootDiskDevice = "/dev/disk/by-label/NIXOS_BOOT";
+    mainDiskDevice = "/dev/disk/by-label/NIXOS_ROOT";
+    homeDiskDevice = "/dev/disk/by-uuid/65d5161e-8b42-4eef-8f54-613960516abf";
 
     compressionMethod = "zstd";
   in {
@@ -56,13 +52,7 @@
     "/" = {
       device = mainDiskDevice;
       fsType = "btrfs";
-      options = [ "subvol=root" "compress=${compressionMethod}" "noatime" ];
-    };
-
-    "/nix" = {
-      device = mainDiskDevice;
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=${compressionMethod}" "noatime" ];
+      options = [ "compress=${compressionMethod}" "noatime" ];
     };
 
     "/swap" = {
