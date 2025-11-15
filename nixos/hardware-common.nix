@@ -46,6 +46,16 @@ in {
     };
   };
 
+  powerManagement = {
+    enable = true;
+
+    # cpuFreqGovernor = "powersave";  # Use "performance" for maximum performance
+
+    resumeCommands = ''
+      echo "==== The system has resumed from suspend ===="
+    '';
+  };
+
   services = {
     udev.enable = true;
 
