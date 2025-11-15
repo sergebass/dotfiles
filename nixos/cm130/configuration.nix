@@ -66,11 +66,11 @@
       options = [ "subvol=home" "compress=${compressionMethod}" "noatime" ];
     };
 
-    # "/archive" = {
-    #   device =  "/dev/disk/by-label/Sergii-Archive";
-    #   fsType = "btrfs";
-    #   options = [ "compress=${compressionMethod}" "noatime" ];
-    # };
+    "/archive" = {
+      device =  "/dev/disk/by-label/Sergii-Archive";
+      fsType = "btrfs";
+      options = [ "compress=${compressionMethod}" "noatime" "user" "noauto"];
+    };
   };
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
