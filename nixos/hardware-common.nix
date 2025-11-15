@@ -59,6 +59,8 @@ in {
   services = {
     udev.enable = true;
 
+    thermald.enable = true;  # Thermal monitoring and controlling daemon (prevent CPU overheating)
+
     btrfs = {
       autoScrub = {
         enable = true;  # Make use of btrfs scrub to check data integrity periodically
