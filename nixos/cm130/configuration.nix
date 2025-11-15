@@ -114,8 +114,8 @@
   services = {
     udev.extraRules = with pkgs; ''
       # A rule to allow ACPI backlight control by a non-root user from video group
-        ACTION=="add", SUBSYSTEM=="backlight", RUN+="${coreutils}/bin/chgrp video $sys$devpath/brightness", RUN+="${coreutils}/bin/chmod g+w $sys$devpath/brightness"
-      '';
+      ACTION=="add", SUBSYSTEM=="backlight", RUN+="${coreutils}/bin/chgrp video $sys$devpath/brightness", RUN+="${coreutils}/bin/chmod g+w $sys$devpath/brightness"
+    '';
 
     libinput.enable = true;  # Enable touchpad support
 
