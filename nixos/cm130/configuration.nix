@@ -45,31 +45,51 @@
     "/boot" = {
       device = bootDiskDevice;
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
     };
 
     "/" = {
       device = mainDiskDevice;
       fsType = "btrfs";
-      options = [ "compress=${compressionMethod}" "noatime" ];
+      options = [
+        "compress=${compressionMethod}"
+        "noatime"
+      ];
     };
 
     "/swap" = {
       device = mainDiskDevice;
       fsType = "btrfs";
-      options = [ "subvol=swap" "noatime" ];
+      options = [
+        "subvol=swap"
+        "compress=no"
+        "noatime"
+        "nodatacow"
+        "nodatasum"
+      ];
     };
 
     "/home" = {
       device = mainDiskDevice;
       fsType = "btrfs";
-      options = [ "subvol=home" "compress=${compressionMethod}" "noatime" ];
+      options = [
+        "subvol=home"
+        "compress=${compressionMethod}" "noatime"
+      ];
     };
 
     "/archive" = {
       device =  "/dev/disk/by-label/Sergii-Archive";
       fsType = "btrfs";
-      options = [ "compress=${compressionMethod}" "noatime" "user" "noauto"];
+      options = [
+        "compress=${compressionMethod}"
+        "noatime"
+        "user"
+        "noauto"
+      ];
     };
   };
 
