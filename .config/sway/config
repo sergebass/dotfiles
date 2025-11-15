@@ -50,8 +50,9 @@ for_window {
 }
 
 # Provide a simple menu to request a logout/exit, reboot or a poweroff
-mode "E[x]it, [r]eboot, [p]oweroff ?" {
+mode "E[x]it, [s]leep, [r]eboot, [p]oweroff ?" {
     bindsym x exec swaymsg exit
+    bindsym s exec systemctl sleep
     bindsym r exec systemctl reboot
     bindsym p exec systemctl poweroff
 
@@ -60,7 +61,7 @@ mode "E[x]it, [r]eboot, [p]oweroff ?" {
     bindsym $mod+Shift+e mode "default"
 }
 
-bindsym $mod+Shift+e mode "E[x]it, [r]eboot, [p]oweroff ?"
+bindsym $mod+Shift+e mode "E[x]it, [s]leep, [r]eboot, [p]oweroff ?"
 
 # Quickly lock screen
 bindsym $mod+z exec swaylock --color 000000 --show-keyboard-layout --indicator-caps-lock --show-failed-attempts

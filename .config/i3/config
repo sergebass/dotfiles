@@ -18,8 +18,9 @@ set $bindkeysLocked bindsym
 include ../shared-i3-and-sway-config
 
 # Provide a simple menu to request a logout/exit, reboot or a poweroff
-mode "E[x]it, [r]eboot, [p]oweroff ?" {
+mode "E[x]it, [s]leep, [r]eboot, [p]oweroff ?" {
     $bindkeys x exec i3-msg exit
+    $bindkeys s exec systemctl sleep
     $bindkeys r exec systemctl reboot
     $bindkeys p exec systemctl poweroff
 
@@ -28,7 +29,7 @@ mode "E[x]it, [r]eboot, [p]oweroff ?" {
     $bindkeys $mod+Shift+e mode "default"
 }
 
-$bindkeys $mod+Shift+e mode "E[x]it, [r]eboot, [p]oweroff ?"
+$bindkeys $mod+Shift+e mode "E[x]it, [s]leep, [r]eboot, [p]oweroff ?"
 
 # Quickly lock screen
 $bindkeys $mod+z exec i3lock --color=000000 --show-failed-attempts
