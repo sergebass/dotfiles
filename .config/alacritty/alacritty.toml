@@ -12,6 +12,15 @@ shell = "nu"
 # program = "C:\\Windows\\System32\\wsl.exe"
 # args = ["--cd", "~"]
 
+[selection]
+# This string contains all characters that are used as separators for "semantic words".
+# Specifically exclude the colon character `:` to allow simple double-clicking
+# to copy file paths with line and column numbers that Vim/Neovim understand.
+semantic_escape_chars = ",│`|\"' ()[]{}<>\t"
+
+# Automatically copy to clipboard on selection
+save_to_clipboard = true
+
 [colors]
 draw_bold_text_with_bright_colors = true
 
