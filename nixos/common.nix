@@ -94,6 +94,7 @@
       gh  # GitHub CLI tool
       grc  # Generic text colouriser
       htop  # An interactive process viewer
+      inxi  # Full featured CLI system information tool
       jq  # Lightweight and flexible command-line JSON processor
       kbd  # Linux keyboard tools and keyboard maps
       links2  # Small browser with some graphics support
