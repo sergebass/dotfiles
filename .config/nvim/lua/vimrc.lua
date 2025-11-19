@@ -4,61 +4,73 @@ require'scrollbar'.setup()
 require'nu'.setup{}
 
 -- Neovim-specific built-in LSP client configuration
-lspconfig = require'lspconfig'
 
--- rust-analyzer (Rust)
-lspconfig.rust_analyzer.setup({
-    on_attach = function(client, bufnr)
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-    end,
-    settings = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
+-- Set default root markers for all clients
+vim.lsp.config('*', {
+  root_markers = { '.git' },
+})
+
+-- Rust
+
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ['rust-analyzer'] = {
+      cargo = { targetDir = true },
+      check = { command = 'clippy' },
+      inlayHints = {
+        bindingModeHints = { enabled = true },
+        closureCaptureHints = { enabled = true },
+        closureReturnTypeHints = { enable = 'always' },
+        maxLength = 100,
+      },
+      rustc = { source = 'discover' },
+    }
+  },
+})
+
+-- C and C++
+
+vim.lsp.config("ccls", {
+    filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
+    -- root_markers = { '.git' },
+    init_options = {
+        -- compilationDatabaseDirectory = "build";
+        index = {
+            threads = 0;
+        };
+        -- clang = {
+        --   excludeArgs = { "-frounding-math"} ;
+        -- };
     }
 })
 
--- ccls (C++)
-lspconfig.ccls.setup{}
+vim.lsp.enable('ccls')
 
--- FIXME implement project-specific configuration: (different C++ language standards etc.)
-
--- clangd (C++)
---  FIXME reuse the found clangd-N version in the VimL code here, do not hardcode clangd-15
-lspconfig.clangd.setup({
+vim.lsp.config("clangd", {
     cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--enable-config'},
+    filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
+    -- root_markers = { '.git' },
     init_options = {
-        fallback_flags = { '-std=c++23', '-I/usr/include/c++/12' },
-    },
+        -- fallback_flags = { '-std=c++23', '-I/usr/include/c++/12' },
+        fallback_flags = { '-std=c++23' },
+        -- compilationDatabaseDirectory = "build";
+        index = {
+            threads = 0;
+        };
+        -- clang = {
+        --   excludeArgs = { "-frounding-math"} ;
+        -- };
+    }
 })
 
--- typescript-language-server (Typescript & Javascript)
-lspconfig.ts_ls.setup({
-    init_options = {
-        plugins = {
-            {
-                name = "@vue/typescript-plugin",
-                location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-                languages = {"javascript", "typescript", "vue"},
-            },
-        },
-    },
-    filetypes = {
-        "javascript",
-        "typescript",
-        "vue",
-    },
+vim.lsp.enable('clangd')
+
+-- Typescript and Javascript
+
+vim.lsp.config('ts_ls', {
+    cmd = { 'typescript-language-server', '--stdio' },
+    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    -- root_markers = { '.git' },
 })
+
+vim.lsp.enable('ts_ls')
