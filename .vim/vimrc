@@ -344,4 +344,4 @@ if filereadable(expand("~/.workspace.vim"))
 endif
 
 " Display current directory on editor startup
-pwd
+" pwd
