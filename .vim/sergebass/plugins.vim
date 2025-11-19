@@ -315,7 +315,9 @@ let g:termdebugger = "gdb"
 " let g:termdebug_wide = 163
 
 " Multi-language debugger support
+if has('python3')
 Plug 'puremourning/vimspector'
+endif
 
 " Handles bracketed-paste-mode in vim (aka. automatic `:set paste`)
 Plug 'ConradIrwin/vim-bracketed-paste'
