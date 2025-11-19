@@ -303,7 +303,7 @@ endif
 " A Vim wrapper for running tests on different granularities.
 Plug 'janko-m/vim-test'
 
-if executable('gdb')
+if executable('gdb') && !has('nvim')
     " This is a new feature in vim to better integrate with gdb
     packadd termdebug
 endif
