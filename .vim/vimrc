@@ -122,6 +122,10 @@ set cursorcolumn
 
 set tags=./tags;/
 
+" Make it possible to run any shell commands for building,
+" and to capture their output in the quickfix window.
+set makeprg=env\ -v
+
 " use rg (ripgrep) instead of grep, for faster searches
 set grepprg=rg\ -L\ --sort\ path\ --ignore\ --hidden\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
