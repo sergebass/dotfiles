@@ -124,6 +124,7 @@ set tags=./tags;/
 
 " Make it possible to run any shell commands for building,
 " and to capture their output in the quickfix window.
+" Note that additional environment variables can be set here as needed.
 set makeprg=env\ -v
 
 " use rg (ripgrep) instead of grep, for faster searches
