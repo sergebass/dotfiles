@@ -24,9 +24,23 @@ save_to_clipboard = true
 [colors]
 draw_bold_text_with_bright_colors = true
 
+[colors.primary]
+background = "0x001010"
+foreground = "0xd0d0d0"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x0000ff"
+cyan = "0x00d0d0"
+green = "0x00d000"
+magenta = "0xd000d0"
+red = "0xd00000"
+white = "0xd0d0d0"
+yellow = "0xaf8700"
+
 [colors.bright]
 black = "0x404040"
-blue = "0x0000ff"
+blue = "0x3030ff"
 cyan = "0x00ffff"
 green = "0x00ff00"
 magenta = "0xff00ff"
@@ -37,20 +51,6 @@ yellow = "0xffff00"
 [colors.cursor]
 cursor = "0xff8000"
 text = "0x000000"
-
-[colors.normal]
-black = "0x000000"
-blue = "0x0000d0"
-cyan = "0x00d0d0"
-green = "0x00d000"
-magenta = "0xd000d0"
-red = "0xd00000"
-white = "0xd0d0d0"
-yellow = "0xaf8700"
-
-[colors.primary]
-background = "0x001010"
-foreground = "0xd0d0d0"
 
 [cursor]
 blink_interval = 400
@@ -606,4 +606,4 @@ key = "Space"
 mods = "Alt"
 
 [window]
-opacity = 0.92
+opacity = 0.95

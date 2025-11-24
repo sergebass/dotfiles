@@ -53,7 +53,7 @@ window:
 
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.92
+  opacity: 0.95
 
   # Startup Mode (changes require restart)
   #
@@ -94,19 +94,19 @@ window:
 font:
   normal:
     style: Regular
-    family: Inconsolata
+    family: Inconsolata Nerd Font Mono
 
   bold:
     style: Bold
-    family: Inconsolata
+    family: Inconsolata Nerd Font Mono
 
   italic:
     style: Italic
-    family: Inconsolata
+    family: Inconsolata Nerd Font Mono
 
   bold_italic:
     style: Bold Italic
-    family: Inconsolata
+    family: Inconsolata Nerd Font Mono
 
   # Point size
   size: 11.0
@@ -158,24 +158,24 @@ colors:
   # Normal colors
   normal:
     black:   '0x000000'
-    red:     '0xd00000'
-    green:   '0x00d000'
-    yellow:  '0xaf8700'
-    blue:    '0x0000d0'
-    magenta: '0xd000d0'
+    blue:    '0x0000ff'
     cyan:    '0x00d0d0'
+    green:   '0x00d000'
+    magenta: '0xd000d0'
+    red:     '0xd00000'
     white:   '0xd0d0d0'
+    yellow:  '0xaf8700'
 
   # Bright colors
   bright:
     black:   '0x404040'
-    red:     '0xff0000'
-    green:   '0x00ff00'
-    yellow:  '0xffff00'
-    blue:    '0x0000ff'
-    magenta: '0xff00ff'
+    blue:    '0x3030ff'
     cyan:    '0x00ffff'
+    green:   '0x00ff00'
+    magenta: '0xff00ff'
+    red:     '0xff0000'
     white:   '0xffffff'
+    yellow:  '0xffff00'
 
   # Dim colors
   #
