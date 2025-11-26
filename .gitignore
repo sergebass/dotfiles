@@ -28,8 +28,9 @@ tags
 tags.lock
 tags.temp
 
-# plug.vim manages its plugins separately
-.vim/plugged
+# Plugin cache managed by plug.vim (independently for vim and nvim)
+.vim-plugins
+.nvim-plugins
 
 .vim/undo
 

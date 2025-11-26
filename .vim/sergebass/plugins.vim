@@ -5,13 +5,11 @@ execute pathogen#helptags()
 
 " NOTE: Make sure you use single quotes!
 
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-if has("win32")
-    call plug#begin('~/vimfiles/plugged')
+" Specify a directory for plugins (Avoid using standard Vim directory names like 'plugin')
+if has("nvim")
+    call plug#begin('~/.nvim-plugins')
 else
-    call plug#begin('~/.vim/plugged')
+    call plug#begin('~/.vim-plugins')
 endif
 
 " we need Vim help for vim-plug itself (e.g. :help plug-options), so register vim-plug as a plugin.
