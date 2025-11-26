@@ -348,5 +348,8 @@ if filereadable(expand("~/.workspace.vim"))
     source ~/.workspace.vim
 endif
 
-" Display current directory on editor startup
-" pwd
+" Look for ~/.workspace.lua for Neovim-specific Lua configuration as well
+if has("nvim") && filereadable(expand("~/.workspace.lua"))
+    " workspace-specific settings that should not be tracked in this git repo
+    source ~/.workspace.lua
+endif
