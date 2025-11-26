@@ -3,7 +3,7 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
-" Make sure you use single quotes
+" NOTE: Make sure you use single quotes!
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -148,85 +148,6 @@ Plug 'github/copilot.vim', { 'branch': 'release' }
 imap <silent><script><expr> <C-X><Tab> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
-" Language Server Protocol support
-
-" normalize async job control api for vim and neovim
-Plug 'prabirshrestha/async.vim'
-
-" async language server protocol plugin for vim and neovim
-Plug 'prabirshrestha/vim-lsp'
-
-" Rust language server
-if executable('rust-analyzer')
-    au User lsp_setup call lsp#register_server({
-        \   'name': 'Rust Language Server',
-        \   'cmd': {server_info->['rust-analyzer']},
-        \   'whitelist': ['rust'],
-        \ })
-endif
-
-" register clangd C/C++/Objective C LSP server for vim-lsp plugin
-" (the -background-index option is not available in clangd-7)
-        " \ 'cmd': {server_info->['clangd', '-background-index']},
-" FIXME clangd-15? FIXME go through multiple versions of clangd downwards?
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd', '-background-index']},
-        \ 'whitelist': ['c', 'cpp', 'cc', 'objc', 'objcpp'],
-        \ })
-endif
-
-" Register ccls C++ lanuage server.
-if executable('ccls')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'ccls',
-      \ 'cmd': {server_info->['ccls']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': {'cache': {'directory': expand('~/.cache/ccls') }},
-      \ 'allowlist': ['c', 'cpp', 'cc', 'objc', 'objcpp'],
-      \ })
-endif
-
-" register TypeScript LSP server for vim-lsp plugin
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'typescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript', 'javascript'],
-        \ })
-endif
-
-" register Purescript LSP server for vim-lsp plugin
-if executable('purescript-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'purescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'purescript-language-server --stdio']},
-        \ 'whitelist': ['purescript'],
-        \ })
-endif
-
-" register Elm LSP server for vim-lsp plugin
-if executable('elm-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'elm-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'elm-language-server --stdio']},
-        \ 'whitelist': ['elm'],
-        \ })
-endif
-
-" FIXME add Nix LSP support: https://mattn.github.io/vim-lsp-settings/
-" Plug 'mattn/vim-lsp-settings'
-
-if executable('ccls')
-    " Vim plugin for the ccls language server
-    Plug 'm-pilia/vim-ccls'
-endif
-
-" (Repo archived) Vim bindings for rtags, llvm/clang based c++ code indexer.
-" Plug 'lyuts/vim-rtags'
-
 " Autocompletion plus many other things (needs vim with Python)
 " Plug 'ycm-core/YouCompleteMe'
 
@@ -302,17 +223,6 @@ endif
 
 " A Vim wrapper for running tests on different granularities.
 Plug 'janko-m/vim-test'
-
-if executable('gdb') && !has('nvim')
-    " This is a new feature in vim to better integrate with gdb
-    packadd termdebug
-endif
-
-" Use gdb as our debugger
-let g:termdebugger = "gdb"
-
-" FIXME configure this:
-" let g:termdebug_wide = 163
 
 " Multi-language debugger support
 if has('python3')
@@ -448,12 +358,9 @@ Plug 'flazz/vim-colorschemes'
 Plug 'guns/xterm-color-table.vim'
 
 if has("nvim")
-    runtime sergebass/plugins-nvim.vim
-endif
-
-" Install user-specific plugins, if configured
-if filereadable(expand("~/.workspace-plugins.vim"))
-    source ~/.workspace-plugins.vim
+    runtime sergebass/plugins-nvim-only.vim
+else
+    runtime sergebass/plugins-vim-only.vim
 endif
 
 " Initialize plugin system
