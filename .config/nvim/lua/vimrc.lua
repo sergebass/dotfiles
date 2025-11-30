@@ -27,6 +27,11 @@ vim.opt.scrolloff = 1  -- Keep at least one line visible above/below cursor
 vim.opt.ruler  = true  -- Show the cursor position all the time
 vim.opt.rulerformat = "%l:%c%V"
 
+vim.opt.laststatus = 2  -- Always display status line, even with one file being edited
+vim.opt.statusline = [[%1*%m%r%* %f %3*%{fugitive#statusline()}%9* %y%{ObsessionStatus()} %=%{tabpagenr()}:#%n "%{v:register} u%B/%{&fenc}/%{&ff} %l:%c%V %p%%/%L]]
+
+vim.opt.tabline = "%!SPTabLine()"
+
 vim.cmd([[source ~/.config/nvim/legacy.vim]])
 
 require'scrollbar'.setup()

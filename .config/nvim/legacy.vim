@@ -1,10 +1,5 @@
 " legacy.vim - temporary configuration in VimScript
 
-set laststatus=2 " always display status line, even with one file being edited
-set statusline=%1*%m%r%*\ %f\ %3*%{fugitive#statusline()}%9*\ %y%{ObsessionStatus()}\ %=%{tabpagenr()}:#%n\ \"%{v:register}\ u%B/%{&fenc}/%{&ff}\ %l:%c%V\ %p%%/%L
-
-set tabline=%!SPTabLine()
-
 if has("nvim")
     autocmd TermOpen * setlocal statusline=%*%{b:term_title}%9*%=#%n\ %l:%c%V\ %p%%/%L
 endif
