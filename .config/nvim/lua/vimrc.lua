@@ -40,6 +40,22 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 vim.opt.tabline = "%!SPTabLine()"
 
+-- Enable automatic file reloading when changed externally
+
+vim.opt.autoread  = true  -- Automatically reload files changed by external programs
+vim.opt.updatetime = 5000  -- Set update time to 5 seconds
+
+local checktime_callback = function()
+  vim.cmd("checktime")
+end
+
+vim.api.nvim_create_autocmd("FocusGained", { pattern = "*", callback = checktime_callback, })
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", callback = checktime_callback, })
+
+-- Check for updates each time cursor stops moving
+vim.api.nvim_create_autocmd("CursorHold", { pattern = "*", callback = checktime_callback, })
+vim.api.nvim_create_autocmd("CursorHoldI", { pattern = "*", callback = checktime_callback, })
+
 vim.cmd([[source ~/.config/nvim/legacy.vim]])
 
 vim.cmd([[runtime sergebass/plugins.vim]])

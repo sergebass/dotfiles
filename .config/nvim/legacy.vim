@@ -1,9 +1,5 @@
 " legacy.vim - temporary configuration in VimScript
 
-set autoread " automatically reload files changed by external programs
-au CursorHold,CursorHoldI * :checktime " check for updates each time cursor stops moving
-au FocusGained,BufEnter * :checktime
-
 set undofile " persist undo history between invocations
 if has("win32")
     set undodir=~/vimfiles/undo " location for persistent undo history files
