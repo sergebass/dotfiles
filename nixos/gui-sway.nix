@@ -50,6 +50,8 @@
     systemPackages = with pkgs; [
       wayland-utils  # Wayland utilities (wayland-info)
       wev  # Wayland event tester (similar to xev for X11)
+      wl-clipboard  # Command-line copy/paste utilities for Wayland
+      wl-clipboard-x11  # Wrapper to use wl-clipboard as a drop-in replacement for X11 clipboard tools
     ];
   };
 }

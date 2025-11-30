@@ -37,6 +37,7 @@
       xorg.xkill
       xorg.xrandr
       xorg.xsetroot
+      xclip  # Tool to access the X clipboard from a console application
     ];
   };
 }
