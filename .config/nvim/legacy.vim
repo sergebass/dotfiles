@@ -13,21 +13,7 @@ augroup vimrc
     autocmd BufWritePre /tmp/* setlocal noundofile
 augroup END
 
-set showcmd " display incomplete commands
-set history=1000 " keep this many lines of command line history
-
-set incsearch " do incremental searching
-set hlsearch " highlight search results
-set nowrapscan " do not wrap after search results are exhausted
-
-if has("nvim")
-    set inccommand=nosplit " highlight text affected by a substitute command
-endif
-
 set mouse=a " enable mouse use in all modes
-
-" use a Unicode U2551 character (double vertical bar) for vertical split separator
-set fillchars+=vert:║
 
 " netrw browser uses tabs to display file lists and this looks really bad
 " with tab highlighting
@@ -35,6 +21,9 @@ autocmd FileType netrw set nolist
 "
 " use detailed listing style for netrw
 let g:netrw_liststyle = 1
+
+" use a Unicode U2551 character (double vertical bar) for vertical split separator
+set fillchars+=vert:║
 
 " fold based on syntax, do not fold by default
 set foldmethod=syntax

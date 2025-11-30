@@ -6,6 +6,11 @@
 vim.g.mapleader = "-"
 vim.g.maplocalleader = "--"
 
+-- Neovim command-line
+vim.opt.showcmd = true  -- Display incomplete commands
+vim.opt.history = 1000  -- Keep this many lines of command line history
+
+-- Character encoding
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
@@ -125,7 +130,20 @@ vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", callback = checktime_ca
 vim.api.nvim_create_autocmd("CursorHold", { pattern = "*", callback = checktime_callback, })
 vim.api.nvim_create_autocmd("CursorHoldI", { pattern = "*", callback = checktime_callback, })
 
+-----------------
+-- Search options
+-----------------
+
+vim.opt.incsearch = true  -- Do incremental searching
+vim.opt.hlsearch  = true  -- Highlight search results
+vim.opt.wrapscan = false  -- Do not wrap after search results are exhausted
+vim.opt.inccommand = "nosplit"  -- Highlight text affected by a substitute command in-place
+
 vim.cmd([[source ~/.config/nvim/legacy.vim]])
+
+---------------------------------
+-- Additional configuration files
+---------------------------------
 
 vim.cmd([[runtime sergebass/plugins.vim]])
 vim.cmd([[runtime sergebass/functions.vim]])
