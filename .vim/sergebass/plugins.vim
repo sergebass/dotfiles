@@ -224,7 +224,7 @@ Plug 'janko-m/vim-test'
 
 " Multi-language debugger support
 if has('python3')
-Plug 'puremourning/vimspector'
+    Plug 'puremourning/vimspector'
 else
     echo "Warning: vimspector requires python3 support in Vim, skipping plugin"
 endif
