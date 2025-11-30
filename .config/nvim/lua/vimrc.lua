@@ -1,4 +1,6 @@
--- vimrc.lua: NeoVim configuration in Lua
+-- vimrc.lua: the starting point of NeoVim configuration in Lua
+
+vim.cmd([[source ~/.vim/vimrc]])
 
 require'scrollbar'.setup()
 require'nu'.setup{}

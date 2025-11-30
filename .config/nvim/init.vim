@@ -7,11 +7,9 @@
 if has("win32")
     set runtimepath^=~/vimfiles runtimepath+=~/vimfiles/after
     let &packpath = &runtimepath
-    source ~/vimfiles/vimrc
 else " Linux/Unix/OSX configuration
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath = &runtimepath
-    source ~/.vim/vimrc
 endif
 
 " load our Neovim-specific Lua configuration to finalize our setup
