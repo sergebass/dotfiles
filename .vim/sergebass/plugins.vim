@@ -222,13 +222,6 @@ endif
 " A Vim wrapper for running tests on different granularities.
 Plug 'janko-m/vim-test'
 
-" Multi-language debugger support
-if has('python3')
-    Plug 'puremourning/vimspector'
-else
-    echo "Warning: vimspector requires python3 support in Vim, skipping plugin"
-endif
-
 " Handles bracketed-paste-mode in vim (aka. automatic `:set paste`)
 Plug 'ConradIrwin/vim-bracketed-paste'
 
@@ -362,6 +355,8 @@ if has("nvim")
 else
     runtime sergebass/plugins-vim-only.vim
 endif
+
+runtime sergebass/debugging.vim
 
 " Initialize plugin system
 call plug#end()
