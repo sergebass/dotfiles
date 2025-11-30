@@ -350,13 +350,14 @@ Plug 'flazz/vim-colorschemes'
 " Provides :XtermColorTable command.
 Plug 'guns/xterm-color-table.vim'
 
+runtime sergebass/coding.vim
+runtime sergebass/debugging.vim
+
 if has("nvim")
     runtime sergebass/plugins-nvim-only.vim
 else
     runtime sergebass/plugins-vim-only.vim
 endif
-
-runtime sergebass/debugging.vim
 
 " Initialize plugin system
 call plug#end()
