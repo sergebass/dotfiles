@@ -32,12 +32,13 @@
   environment = {
     # X11-specific core apps
     systemPackages = with pkgs; [
-      scrot
-      xorg.xev
-      xorg.xkill
-      xorg.xrandr
-      xorg.xsetroot
+      scrot  # Command-line screen capture utility
       xclip  # Tool to access the X clipboard from a console application
+      xorg.xev  # X event monitor
+      xorg.xkill  # Utility to forcibly terminate X11 clients
+      xorg.xrandr  # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
+      xorg.xsetroot  # Root window parameter setting utility for X
+      xsel  # Command-line program for getting and setting the contents of the X selection
     ];
   };
 }
