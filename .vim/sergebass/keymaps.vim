@@ -727,34 +727,69 @@ nmap <silent> <Space>mgf gf
 " SPC m g F     ffap other window
 nmap <silent> <Space>mgF gF
 
-" Universal language debugger support (via DAP) using vimspector
-"
-" Don't forget to make sure python plugin for neovim is installed:
-" pip3 install pynvim
+if has('nvim')
+    " Universal language debugger support (via DAP) using nvim-dap
 
-nmap <Space>ddd <Plug>VimspectorLaunch
-" nmap <Space>ddd <Plug>VimspectorPause
-" nmap <Space>da <Plug>VimspectorStop
-nmap <Space>da <Plug>VimspectorReset
-nmap <Space>dA :VimspectorReset<CR>
+    nmap <Space>ddd :DapNew<CR>
+    " nmap <Space>ddd :DapPause<CR>
+    nmap <Space>da :DapTerminate<CR>
+    nmap <Space>dA :DapTerminate<CR>
 
-nmap <Space>dc <Plug>VimspectorContinue
-nmap <M-.> <Plug>VimspectorContinue
+    nmap <Space>dc :DapContinue<CR>
+    nmap <M-.> :DapContinue<CR>
 
-nmap <Space>ds <Plug>VimspectorStepOver
-nmap <M-;> <Plug>VimspectorStepOver
+    nmap <Space>ds :DapStepOver<CR>
+    nmap <M-;> :DapStepOver<CR>
 
-nmap <Space>di <Plug>VimspectorStepInto
-nmap <M-'> <Plug>VimspectorStepInto
+    nmap <Space>di :DapStepInto<CR>
+    nmap <M-'> :DapStepInto<CR>
 
-nmap <Space>do <Plug>VimspectorStepOut
-nmap <M-,> <Plug>VimspectorStepOut
+    nmap <Space>do :DapStepOut<CR>
+    nmap <M-,> :DapStepOut<CR>
 
-nmap <Space>dIt <Plug>VimspectorBalloonEval
-nmap <Space>dv <Plug>VimspectorBalloonEval
-nmap <M-=> <Plug>VimspectorBalloonEval
-nmap <RightMouse> <Plug>VimspectorBalloonEval
+    nmap <Space>dr :DapRestartFrame<CR>
 
-nmap <Space>dbb <Plug>VimspectorToggleBreakpoint
-nmap <Space>dba <Plug>VimspectorAddFunctionBreakpoint
-nmap <Space>dwb <Plug>VimspectorBreakpoints
+    nmap <Space>dIt :DapEval<CR>
+    nmap <Space>dv :DapEval<CR>
+    nmap <M-=> :DapEval<CR>
+    nmap <RightMouse> :DapEval<CR>
+
+    nmap <Space>dbb :DapToggleBreakpoint<CR>
+    " nmap <Space>dba :VimspectorAddFunctionBreakpoint<CR>
+    " nmap <Space>dwb :VimspectorBreakpoints<CR>
+    nmap <Space>dbD :DapClearBreakpoints<CR>
+
+    nmap <Space>d'_ :DapToggleRepl<CR>
+else
+    " Universal language debugger support (via DAP) using vimspector
+    "
+    " Don't forget to make sure python plugin for neovim is installed:
+    " pip3 install pynvim
+
+    nmap <Space>ddd <Plug>VimspectorLaunch
+    " nmap <Space>ddd <Plug>VimspectorPause
+    " nmap <Space>da <Plug>VimspectorStop
+    nmap <Space>da <Plug>VimspectorReset
+    nmap <Space>dA :VimspectorReset<CR>
+
+    nmap <Space>dc <Plug>VimspectorContinue
+    nmap <M-.> <Plug>VimspectorContinue
+
+    nmap <Space>ds <Plug>VimspectorStepOver
+    nmap <M-;> <Plug>VimspectorStepOver
+
+    nmap <Space>di <Plug>VimspectorStepInto
+    nmap <M-'> <Plug>VimspectorStepInto
+
+    nmap <Space>do <Plug>VimspectorStepOut
+    nmap <M-,> <Plug>VimspectorStepOut
+
+    nmap <Space>dIt <Plug>VimspectorBalloonEval
+    nmap <Space>dv <Plug>VimspectorBalloonEval
+    nmap <M-=> <Plug>VimspectorBalloonEval
+    nmap <RightMouse> <Plug>VimspectorBalloonEval
+
+    nmap <Space>dbb <Plug>VimspectorToggleBreakpoint
+    nmap <Space>dba <Plug>VimspectorAddFunctionBreakpoint
+    nmap <Space>dwb <Plug>VimspectorBreakpoints
+endif
