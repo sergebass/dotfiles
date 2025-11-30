@@ -1,34 +1,4 @@
-" vimrc: entry point for Vim and NeoVim editor configuration
-
-""" ---------------
-""" GENERAL OPTIONS
-""" ---------------
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
-set encoding=utf-8
-set fileencoding=utf-8
-
-" configure alternative keyboard layout for Latin characters with diacritics
-" (using dead characters as configured in keymap/accents.vim)
-set keymap=accents
-" but do not enable alternative layout right away (Use ^^/Ctrl+6 to switch)
-" 0 == :lmap is off and IM is off
-set iminsert=0
-" -1 == re-use the value of iminsert
-set imsearch=-1
-
-" even though we define our mappings in other files, we need to make sure
-" that leader and local leader keys are established well before then
-let mapleader = "-"
-let maplocalleader = "--"
-
-set number " enable line numbers
-set scrolloff=1 " keep at least one line visible above/below cursor
-set ruler " show the cursor position all the time
-set rulerformat=%l:%c%V
+" legacy.vim - temporary configuration in VimScript
 
 set laststatus=2 " always display status line, even with one file being edited
 set statusline=%1*%m%r%*\ %f\ %3*%{fugitive#statusline()}%9*\ %y%{ObsessionStatus()}\ %=%{tabpagenr()}:#%n\ \"%{v:register}\ u%B/%{&fenc}/%{&ff}\ %l:%c%V\ %p%%/%L
