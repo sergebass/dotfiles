@@ -72,11 +72,6 @@ in {
     };
   };
 
-  programs.vim = {
-    enable = true;
-    defaultEditor = false;
-  };
-
   environment.variables = rec {
     EDITOR = "nvim";
     VISUAL = EDITOR;

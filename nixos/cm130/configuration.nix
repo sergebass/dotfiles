@@ -149,6 +149,11 @@
       videoDrivers = [ "amdgpu" ];
     };
 
+  # We still want to have Vim available even though we use Neovim as our main editor
+  # (to make sure that the Vim configuration remains valid and up-to-date).
+  programs.vim = {
+    enable = true;
+    defaultEditor = false;
   };
 
   # Run LineageOS-based Android VM in a container (https://docs.waydro.id)
