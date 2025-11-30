@@ -183,6 +183,11 @@ au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 filetype plugin indent on
 syntax on
 
+" Disable syntax highlighting for large files (over 1 MB)
+autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
+
+set redrawtime=5000  " time in milliseconds for syntax redraw
+
 " this is useful for nested terminals, to make them use the existing nvim instance, if available
 if has("nvim") && executable("nvr")
     let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
