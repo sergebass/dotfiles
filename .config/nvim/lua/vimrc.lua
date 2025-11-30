@@ -42,6 +42,12 @@ vim.opt.tabline = "%!SPTabLine()"
 
 vim.cmd([[source ~/.config/nvim/legacy.vim]])
 
+vim.cmd([[runtime sergebass/plugins.vim]])
+vim.cmd([[runtime sergebass/functions.vim]])
+vim.cmd([[runtime sergebass/commands.vim]])
+vim.cmd([[runtime sergebass/keymaps.vim]])
+vim.cmd([[runtime sergebass/syntax.vim]])
+
 require'scrollbar'.setup()
 require'nu'.setup{}
 
@@ -50,3 +56,21 @@ require('coding')
 
 -- DAP (Debug Adapter Protocol) support and debugging features
 require('debugging')
+
+--------------------------------------------------------------------------------
+-- apply workspace-specific settings, if available;
+-- this is placed at the end to make sure workspace configuration takes priority
+-- and possibly overrides our stock mappings (including the above)
+--------------------------------------------------------------------------------
+
+vim.cmd([[
+    if filereadable(expand("~/.workspace.vim"))
+        " workspace-specific settings that should not be tracked in this git repo
+        source ~/.workspace.vim
+    endif
+
+    if filereadable(expand("~/.workspace.lua"))
+        " workspace-specific settings that should not be tracked in this git repo
+        source ~/.workspace.lua
+    endif
+]])

@@ -296,26 +296,3 @@ if has("win32")
 else
     set path=.,/usr/local/include,/usr/include,,**
 endif
-
-runtime sergebass/plugins.vim
-runtime sergebass/functions.vim
-runtime sergebass/commands.vim
-runtime sergebass/keymaps.vim
-runtime sergebass/syntax.vim
-
-" -----------------------------------------------------------------------------
-" apply workspace-specific settings, if available;
-" this is placed at the end to make sure workspace configuration takes priority
-" and possibly overrides our stock mappings (including the above)
-" -----------------------------------------------------------------------------
-
-if filereadable(expand("~/.workspace.vim"))
-    " workspace-specific settings that should not be tracked in this git repo
-    source ~/.workspace.vim
-endif
-
-" Look for ~/.workspace.lua for Neovim-specific Lua configuration as well
-if has("nvim") && filereadable(expand("~/.workspace.lua"))
-    " workspace-specific settings that should not be tracked in this git repo
-    source ~/.workspace.lua
-endif
