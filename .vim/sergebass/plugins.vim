@@ -350,6 +350,9 @@ Plug 'flazz/vim-colorschemes'
 " Provides :XtermColorTable command.
 Plug 'guns/xterm-color-table.vim'
 
+" A plugin for viewing vim and nvim startup event timing information
+Plug 'dstein64/vim-startuptime'
+
 runtime sergebass/coding.vim
 runtime sergebass/debugging.vim
 
