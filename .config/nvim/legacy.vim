@@ -1,9 +1,5 @@
 " legacy.vim - temporary configuration in VimScript
 
-if has("nvim")
-    autocmd TermOpen * setlocal statusline=%*%{b:term_title}%9*%=#%n\ %l:%c%V\ %p%%/%L
-endif
-
 set autoread " automatically reload files changed by external programs
 au CursorHold,CursorHoldI * :checktime " check for updates each time cursor stops moving
 au FocusGained,BufEnter * :checktime
