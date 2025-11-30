@@ -265,31 +265,6 @@ au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl set filetype=glsl
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
-" Emoji abbreviations
-ab :smile: 😄
-ab :wink: 😉
-ab :grin: 😁
-ab :astonished: 😲
-ab :cry: 😢
-
-" Emoji abbreviations from https://stackoverflow.com/a/59757067
-ab :white_check_mark: ✅
-ab :warning: ⚠
-ab :bulb: 💡
-ab :pushpin: 📌
-ab :bomb: 💣
-ab :pill: 💊
-ab :construction: 🚧
-ab :pencil: 📝
-ab :point_right: 👉
-ab :book: 📖
-ab :link: 🔗
-ab :wrench: 🔧
-ab :info: 🛈
-ab :telephone: 📞
-ab :email: 📧
-ab :computer: 💻
-
 " double star makes :find look for files recursively
 if has("win32")
     set path=.,,**

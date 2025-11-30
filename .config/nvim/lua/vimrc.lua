@@ -46,6 +46,7 @@ vim.cmd([[runtime sergebass/plugins.vim]])
 vim.cmd([[runtime sergebass/functions.vim]])
 vim.cmd([[runtime sergebass/commands.vim]])
 vim.cmd([[runtime sergebass/keymaps.vim]])
+vim.cmd([[runtime sergebass/abbreviations.vim]])
 vim.cmd([[runtime sergebass/syntax.vim]])
 
 require'scrollbar'.setup()
