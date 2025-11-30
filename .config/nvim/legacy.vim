@@ -26,35 +26,6 @@ endif
 
 set mouse=a " enable mouse use in all modes
 
-" copy to clipboard by default
-set clipboard^=unnamedplus
-set clipboard^=unnamed
-
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set autoindent
-
-"allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-if has("nvim")
-    " increase default terminal scrollback size
-    set scrollback=100000
-endif
-
-set completeopt=longest,menuone
-" set completefunc=FIXME
-set omnifunc=syntaxcomplete#Complete
-
-" command mode autocompletion
-set wildmode=list:longest,full
-set wildmenu
-
-" highlight tabs and trailing spaces
-set listchars=tab:>.,trail:.
-set list
-
 " use a Unicode U2551 character (double vertical bar) for vertical split separator
 set fillchars+=vert:║
 
