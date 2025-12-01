@@ -49,11 +49,11 @@ vim.opt.wildmenu = true
 -- Use system clipboard for all yank, delete, change and put operations
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 
--- Use OSC 52 escape sequences to access system clipboard when using tmux.
+-- Use OSC 52 escape sequences to access system clipboard when using tmux or SSH.
 -- This requires terminal support; e.g., Alacritty, Kitty, iTerm2, etc.
 -- but this makes it possible to use system clipboard even over SSH.
 -- See <https://github.com/tmux/tmux/wiki/Clipboard#the-clipboard>
-if os.getenv("TMUX") then
+if os.getenv("SSH_CONNECTION") or os.getenv("TMUX") then
     vim.g.clipboard = 'osc52'
 end
 
