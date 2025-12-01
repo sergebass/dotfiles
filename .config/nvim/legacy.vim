@@ -1,5 +1,13 @@
 " legacy.vim - temporary configuration in VimScript
 
+" Automatically pick correct templates based on the specified file name extension
+augroup templates
+  au!
+  autocmd BufNewFile *.* silent! execute '0r ~/templates/vim-template.'.expand("<afile>:e")
+augroup END
+
+au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
+
 " remember edit position and jump to it next time the same file is edited
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -12,14 +20,6 @@ if exists("g:did_load_filetypes")
     filetype off
     filetype plugin indent off
 endif
-
-" automatically pick correct templates based on the specified file name extension
-augroup templates
-  au!
-  autocmd BufNewFile *.* silent! execute '0r ~/templates/vim-template.'.expand("<afile>:e")
-augroup END
-
-au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 
 filetype plugin indent on
 syntax on
@@ -111,24 +111,3 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 au VimEnter * RainbowParenthesesToggle
-
-" Force .h and .inl files to be treated as C++ headers
-au BufReadPost *.h set filetype=cpp
-au BufReadPost *.inl set filetype=cpp
-
-au BufReadPost *.nasm set filetype=asm
-
-au BufReadPost *.gdb set filetype=gdb
-
-" Frege sources are very much Haskell-like
-au BufReadPost *.fr set filetype=frege syntax=haskell
-
-" Special configuration files
-au BufReadPost */.xmobarrc set filetype=haskell
-au BufReadPost */gitconfig set filetype=gitconfig
-au BufReadPost */_gitconfig set filetype=gitconfig
-au BufReadPost */.vrapperrc set filetype=vim
-
-au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl set filetype=glsl
-
-autocmd FileType json syntax match Comment +\/\/.\+$+

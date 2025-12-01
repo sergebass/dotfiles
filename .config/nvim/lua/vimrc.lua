@@ -32,6 +32,9 @@ vim.opt.keymap = 'accents'
 vim.opt.iminsert = 0  -- 0 == :lmap is off and IM is off
 vim.opt.imsearch = -1  -- -1 == re-use the value of iminsert
 
+-- Input abbreviations
+vim.cmd([[runtime sergebass/abbreviations.vim]])
+
 -- Autocompletion options
 vim.opt.completeopt = "longest,menuone"
 -- vim.opt.completefunc = FIXME
@@ -200,6 +203,29 @@ vim.g.netrw_liststyle = 1
 -- netrw browser uses tabs to display file lists and this looks really bad with tab highlighting
 vim.cmd([[autocmd FileType netrw set nolist]])
 
+---------------------------------------------------
+-- File creation and reading (filetype tweaks etc.)
+---------------------------------------------------
+
+-- Make sure configuration files have the right filetypes
+vim.cmd([[au BufNewFile,BufReadPost */gitconfig set filetype=gitconfig]])
+vim.cmd([[au BufNewFile,BufReadPost */_gitconfig set filetype=gitconfig]])
+vim.cmd([[au BufNewFile,BufReadPost */.vrapperrc set filetype=vim]])
+vim.cmd([[au BufNewFile,BufReadPost */.xmobarrc set filetype=haskell]])
+
+-- Force .h and .inl files to be treated as C++ headers
+vim.cmd([[au BufNewFile,BufReadPost *.h set filetype=cpp]])
+vim.cmd([[au BufNewFile,BufReadPost *.inl set filetype=cpp]])
+
+vim.cmd([[au BufNewFile,BufReadPost *.nasm set filetype=asm]])
+
+vim.cmd([[au BufNewFile,BufReadPost *.gdb set filetype=gdb]])
+
+-- Frege sources are very much Haskell-like
+vim.cmd([[au BufNewFile,BufReadPost *.fr set filetype=frege syntax=haskell]])
+
+vim.cmd([[au BufNewFile,BufReadPost *.frag,*.vert,*.fp,*.vp,*.glsl set filetype=glsl]])
+
 -----------------
 -- Coding options
 -----------------
@@ -209,16 +235,21 @@ vim.cmd([[autocmd FileType netrw set nolist]])
 -- Note that additional environment variables can be set here as needed.
 vim.opt.makeprg = "env -v"
 
-vim.cmd([[source ~/.config/nvim/legacy.vim]])
+-- Treat '//' comments as comments in JSON files
+vim.cmd([[autocmd FileType json syntax match Comment +\/\/.\+$+]])
 
 ---------------------------------
--- Additional configuration files
+-- Custom functions and commands
 ---------------------------------
 
 vim.cmd([[runtime sergebass/functions.vim]])
 vim.cmd([[runtime sergebass/commands.vim]])
+
+--------------------------
+-- Custom kyboard mappings
+--------------------------
+
 vim.cmd([[runtime sergebass/keymaps.vim]])
-vim.cmd([[runtime sergebass/abbreviations.vim]])
 
 ----------------------
 -- Syntax highlighting
@@ -230,6 +261,12 @@ vim.cmd([[runtime sergebass/syntax.vim]])
 
 -- Disable syntax highlighting for large files (over 1 MB)
 vim.cmd([[autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif]])
+
+-------------------------
+-- Misc. TUI/GUI settings
+-------------------------
+
+vim.cmd([[source ~/.config/nvim/legacy.vim]])
 
 ----------------------
 -- Misc. plugins setup
