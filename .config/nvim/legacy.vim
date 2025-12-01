@@ -1,36 +1,11 @@
 " legacy.vim - temporary configuration in VimScript
 
-" netrw browser uses tabs to display file lists and this looks really bad
-" with tab highlighting
-autocmd FileType netrw set nolist
-"
-" use detailed listing style for netrw
-let g:netrw_liststyle = 1
-
-set tags=./tags;/
-
-" Make it possible to run any shell commands for building,
-" and to capture their output in the quickfix window.
-" Note that additional environment variables can be set here as needed.
-set makeprg=env\ -v
-
-" consider dashes as parts of a word (for CSS, lisps, package names etc.)
-set iskeyword+=-
-
-" pressing K in normal/visual mode will look up the word/selection using this command
-set keywordprg=:grep\ -ws
-
-autocmd FileType vim setlocal keywordprg=:help
-autocmd FileType sh setlocal keywordprg=:Man
-
 """ -------------------------------
 """ MISCELLANEOUS STUFF AND PLUGINS
 """ -------------------------------
 
 " remember edit position and jump to it next time the same file is edited
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 if exists("syntax_on")
   syntax reset
@@ -59,20 +34,13 @@ autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | end
 set redrawtime=5000  " time in milliseconds for syntax redraw
 
 " this is useful for nested terminals, to make them use the existing nvim instance, if available
-if has("nvim") && executable("nvr")
+if executable("nvr")
     let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
 
 " -------------------
 " GENERAL UI SETTINGS
 " -------------------
-
-set guioptions-=L " Don't add left-hand scrollbar on split
-set guioptions-=R " Dont' add right-hand scrollbar on split
-set guioptions-=l " Disable Left-hand scrollbar always
-set guioptions-=r " Disable right-hand scrollbar always
-set guioptions-=m " Remove menu bar
-set guioptions-=T " Remove toolbarset guioptions-=T " remove toolbar
 
 set guifont=Inconsolata:h11
 
@@ -93,7 +61,7 @@ endif
 
 " if we're in non-tty tmux session running neovim,
 " we may try using 24-bit GUI color scheme settings directly
-if has("nvim") && $TMUX != "" && $TERM != "linux"
+if $TMUX != "" && $TERM != "linux"
     " nvim is compiled with this feature, vim is most likely not
     " this setting may seem to conflict with the above
     " but since 24-bit colors are automatically mapped to their closest

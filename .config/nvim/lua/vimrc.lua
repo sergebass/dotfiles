@@ -162,6 +162,21 @@ vim.opt.hlsearch  = true  -- Highlight search results
 vim.opt.wrapscan = false  -- Do not wrap after search results are exhausted
 vim.opt.inccommand = "nosplit"  -- Highlight text affected by a substitute command in-place
 
+-- Search tags files relative to the current file, then in the current directory,
+-- then going up to the root directory
+vim.opt.tags = "./tags,tags;/"
+
+-- Consider dashes as parts of a word (for CSS, lisps, package names etc.)
+vim.opt.iskeyword = vim.opt.iskeyword + "-"
+
+-- Pressing K in normal/visual mode will look up the word/selection using this command
+vim.opt.keywordprg = ":grep -ws"
+
+vim.cmd([[
+    autocmd FileType vim setlocal keywordprg=:help
+    autocmd FileType sh setlocal keywordprg=:Man
+]])
+
 --------------
 -- File search
 --------------
@@ -177,6 +192,23 @@ end
 vim.opt.grepprg = "rg -L --sort path --ignore --hidden --vimgrep $*"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
+-- NetRW settings
+
+-- Use detailed listing style for netrw
+vim.g.netrw_liststyle = 1
+
+-- netrw browser uses tabs to display file lists and this looks really bad with tab highlighting
+vim.cmd([[autocmd FileType netrw set nolist]])
+
+-----------------
+-- Coding options
+-----------------
+
+-- Make it possible to run any shell commands for building,
+-- and to capture their output in the quickfix window.
+-- Note that additional environment variables can be set here as needed.
+vim.opt.makeprg = "env -v"
+
 vim.cmd([[source ~/.config/nvim/legacy.vim]])
 
 ---------------------------------
@@ -190,8 +222,8 @@ vim.cmd([[runtime sergebass/keymaps.vim]])
 vim.cmd([[runtime sergebass/abbreviations.vim]])
 vim.cmd([[runtime sergebass/syntax.vim]])
 
-require'scrollbar'.setup()
-require'nu'.setup{}
+require('scrollbar').setup()
+require('nu').setup{}
 
 -- LSP (Language Server Protocol) support and other coding features
 require('coding')
