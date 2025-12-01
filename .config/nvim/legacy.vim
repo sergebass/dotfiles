@@ -1,9 +1,5 @@
 " legacy.vim - temporary configuration in VimScript
 
-""" -------------------------------
-""" MISCELLANEOUS STUFF AND PLUGINS
-""" -------------------------------
-
 " remember edit position and jump to it next time the same file is edited
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -27,11 +23,6 @@ au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 
 filetype plugin indent on
 syntax on
-
-" Disable syntax highlighting for large files (over 1 MB)
-autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
-
-set redrawtime=5000  " time in milliseconds for syntax redraw
 
 " this is useful for nested terminals, to make them use the existing nvim instance, if available
 if executable("nvr")

@@ -215,12 +215,27 @@ vim.cmd([[source ~/.config/nvim/legacy.vim]])
 -- Additional configuration files
 ---------------------------------
 
-vim.cmd([[runtime sergebass/plugins.vim]])
 vim.cmd([[runtime sergebass/functions.vim]])
 vim.cmd([[runtime sergebass/commands.vim]])
 vim.cmd([[runtime sergebass/keymaps.vim]])
 vim.cmd([[runtime sergebass/abbreviations.vim]])
+
+----------------------
+-- Syntax highlighting
+----------------------
+
+vim.opt.redrawtime = 5000  -- Time in milliseconds for syntax redraw
+
 vim.cmd([[runtime sergebass/syntax.vim]])
+
+-- Disable syntax highlighting for large files (over 1 MB)
+vim.cmd([[autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif]])
+
+----------------------
+-- Misc. plugins setup
+----------------------
+
+vim.cmd([[runtime sergebass/plugins.vim]])
 
 require('scrollbar').setup()
 require('nu').setup{}
@@ -232,9 +247,9 @@ require('coding')
 require('debugging')
 
 --------------------------------------------------------------------------------
--- apply workspace-specific settings, if available;
--- this is placed at the end to make sure workspace configuration takes priority
--- and possibly overrides our stock mappings (including the above)
+-- Apply workspace-specific settings, if available.
+-- This is placed at the end to make sure workspace configuration takes priority,
+-- and possibly overrides our stock settings (including the above)
 --------------------------------------------------------------------------------
 
 vim.cmd([[
