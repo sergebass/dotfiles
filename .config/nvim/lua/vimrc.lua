@@ -173,6 +173,10 @@ else
     vim.opt.path = ".,/usr/local/include,/usr/include,,**"
 end
 
+-- Use rg (ripgrep) instead of grep, for faster searches
+vim.opt.grepprg = "rg -L --sort path --ignore --hidden --vimgrep $*"
+vim.opt.grepformat = "%f:%l:%c:%m"
+
 vim.cmd([[source ~/.config/nvim/legacy.vim]])
 
 ---------------------------------

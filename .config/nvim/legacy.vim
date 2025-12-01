@@ -14,10 +14,6 @@ set tags=./tags;/
 " Note that additional environment variables can be set here as needed.
 set makeprg=env\ -v
 
-" use rg (ripgrep) instead of grep, for faster searches
-set grepprg=rg\ -L\ --sort\ path\ --ignore\ --hidden\ --vimgrep\ $*
-set grepformat=%f:%l:%c:%m
-
 " consider dashes as parts of a word (for CSS, lisps, package names etc.)
 set iskeyword+=-
 
