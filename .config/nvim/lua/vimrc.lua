@@ -15,6 +15,8 @@ vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
 -- Input options
+vim.opt.mouse = "ar"  -- Enable mouse use in all modes
+
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -50,30 +52,6 @@ vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 -- See <https://github.com/tmux/tmux/wiki/Clipboard#the-clipboard>
 if os.getenv("TMUX") then
     vim.g.clipboard = 'osc52'
-
-    -- vim.g.clipboard = {
-    --     name = 'tmux-osc52',
-    --     copy = {
-    --       ['+'] = function(lines, _)
-    --         local joined = table.concat(lines, "\n")
-    --         local osc52 = "\27]52;c;" .. vim.fn.systemlist("base64", joined)[1] .. "\a"
-    --         vim.fn.system("tmux load-buffer -", osc52)
-    --       end,
-    --       ['*'] = function(lines, _)
-    --         local joined = table.concat(lines, "\n")
-    --         local osc52 = "\27]52;c;" .. vim.fn.systemlist("base64", joined)[1] .. "\a"
-    --         vim.fn.system("tmux load-buffer -", osc52)
-    --       end,
-    --     },
-    --     paste = {
-    --       ['+'] = function()
-    --         return vim.fn.systemlist("tmux save-buffer | base64 --decode")
-    --       end,
-    --       ['*'] = function()
-    --         return vim.fn.systemlist("tmux save-buffer | base64 --decode")
-    --       end,
-    --     },
-    -- }
 end
 
 -------------------------------
@@ -85,15 +63,15 @@ vim.opt.scrolloff = 1  -- Keep at least one line visible above/below cursor
 
 -- Highlight tabs, trailing spaces, and non-breaking spaces
 vim.opt.list = true  -- Enable rendering of whitespace characters
-vim.opt.listchars.tab = ">."
-vim.opt.listchars.trail = "."
-vim.opt.listchars.nbsp = "_"
+vim.opt.listchars:append({ tab = ">." })  -- Show tabs as ">."
+vim.opt.listchars:append({ trail = "." })  -- Show trailing spaces as "."
+vim.opt.listchars:append({nbsp = "_" })  -- Show non-breaking spaces as "_"
 
 -- Long line handling
 vim.opt.wrap = false
 vim.opt.sidescroll = 5  -- Number of columns to scroll horizontally
-vim.opt.listchars.precedes = "<"
-vim.opt.listchars.extends = ">"
+vim.opt.listchars:append({ precedes = "<" })  -- Show when line continues to the left
+vim.opt.listchars:append({ extends = ">" })   -- Show when line continues to the right
 
 vim.opt.number = true  -- Enable line numbers
 
@@ -114,6 +92,51 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 vim.opt.tabline = "%!SPTabLine()"
 
+-- Use a Unicode U2551 character (double vertical bar) for vertical split separator
+vim.opt.fillchars:append({ vert = "║" })
+
+-- Text folding
+vim.opt.foldmethod = "syntax"  -- Fold based on syntax, do not fold by default
+vim.opt.foldlevel = 100
+
+-- Diff mode
+vim.opt.diffopt:append "iwhite"  -- git diff -b mode (ignore whitespace changes)
+vim.opt.diffexpr=""
+
+-- Highlight current cursor position
+vim.opt.colorcolumn = "80,120"  -- Mark columns at 80 and 120 characters
+vim.opt.cursorline = true  -- Highlight the screen line of the cursor
+vim.opt.cursorcolumn = true -- Highlight the screen column of the cursor
+
+vim.cmd([[
+    augroup BgHighlight
+        autocmd!
+
+        autocmd WinEnter * set colorcolumn=80,120
+        autocmd WinEnter * set cursorline
+        autocmd WinEnter * set cursorcolumn
+
+        autocmd WinLeave * set colorcolumn=0
+        autocmd WinLeave * set nocursorline
+        autocmd WinLeave * set nocursorcolumn
+
+    augroup END
+]])
+
+-- Undo and backup
+
+vim.opt.backup = false
+
+vim.opt.undofile = true  -- Persist undo history between invocations
+
+-- Do not save undo history for temporary files
+vim.cmd([[
+    augroup vimrc
+        autocmd!
+        autocmd BufWritePre /tmp/* setlocal noundofile
+    augroup END
+]])
+
 -- Enable automatic file reloading when changed externally
 
 vim.opt.autoread  = true  -- Automatically reload files changed by external programs
@@ -130,14 +153,25 @@ vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", callback = checktime_ca
 vim.api.nvim_create_autocmd("CursorHold", { pattern = "*", callback = checktime_callback, })
 vim.api.nvim_create_autocmd("CursorHoldI", { pattern = "*", callback = checktime_callback, })
 
------------------
--- Search options
------------------
+--------------
+-- Text search
+--------------
 
 vim.opt.incsearch = true  -- Do incremental searching
 vim.opt.hlsearch  = true  -- Highlight search results
 vim.opt.wrapscan = false  -- Do not wrap after search results are exhausted
 vim.opt.inccommand = "nosplit"  -- Highlight text affected by a substitute command in-place
+
+--------------
+-- File search
+--------------
+
+-- Double star makes :find look for files recursively
+if vim.fn.has("win32") == 1 then
+    vim.opt.path = ".,,**"
+else
+    vim.opt.path = ".,/usr/local/include,/usr/include,,**"
+end
 
 vim.cmd([[source ~/.config/nvim/legacy.vim]])
 

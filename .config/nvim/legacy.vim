@@ -1,41 +1,11 @@
 " legacy.vim - temporary configuration in VimScript
 
-set undofile " persist undo history between invocations
-if has("win32")
-    set undodir=~/vimfiles/undo " location for persistent undo history files
-else
-    set undodir=~/.vim/undo " location for persistent undo history files
-endif
-
-" do not save undo history for temporary files
-augroup vimrc
-    autocmd!
-    autocmd BufWritePre /tmp/* setlocal noundofile
-augroup END
-
-set mouse=a " enable mouse use in all modes
-
 " netrw browser uses tabs to display file lists and this looks really bad
 " with tab highlighting
 autocmd FileType netrw set nolist
 "
 " use detailed listing style for netrw
 let g:netrw_liststyle = 1
-
-" use a Unicode U2551 character (double vertical bar) for vertical split separator
-set fillchars+=vert:║
-
-" fold based on syntax, do not fold by default
-set foldmethod=syntax
-set foldlevel=100
-
-" git diff -b mode (ignore whitespace changes)
-set diffopt+=iwhite
-set diffexpr=""
-
-set colorcolumn=80,120
-set cursorline
-set cursorcolumn
 
 set tags=./tags;/
 
@@ -56,19 +26,6 @@ set keywordprg=:grep\ -ws
 
 autocmd FileType vim setlocal keywordprg=:help
 autocmd FileType sh setlocal keywordprg=:Man
-
-augroup BgHighlight
-    autocmd!
-
-    autocmd WinEnter * set colorcolumn=80,120
-    autocmd WinEnter * set cursorline
-    autocmd WinEnter * set cursorcolumn
-
-    autocmd WinLeave * set colorcolumn=0
-    autocmd WinLeave * set nocursorline
-    autocmd WinLeave * set nocursorcolumn
-
-augroup END
 
 """ -------------------------------
 """ MISCELLANEOUS STUFF AND PLUGINS
@@ -220,10 +177,3 @@ au BufReadPost */.vrapperrc set filetype=vim
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl set filetype=glsl
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
-
-" double star makes :find look for files recursively
-if has("win32")
-    set path=.,,**
-else
-    set path=.,/usr/local/include,/usr/include,,**
-endif
