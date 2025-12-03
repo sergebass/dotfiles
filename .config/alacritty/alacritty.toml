@@ -79,6 +79,11 @@ family = "Inconsolata Nerd Font Mono"
 style = "Bold Italic"
 
 [[keyboard.bindings]]
+key = "N"
+mods = "Control|Shift"
+action = "CreateNewWindow"
+
+[[keyboard.bindings]]
 chars = "\u0000"
 key = "Space"
 mods = "Control"
