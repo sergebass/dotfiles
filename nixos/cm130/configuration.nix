@@ -199,7 +199,8 @@
       fbmark  # Linux framebuffer benchmarking tool
       ffmpeg
       flac  # Library and tools for encoding and decoding the FLAC lossless audio file format
-      frescobaldi
+      # FIXME uncomment `frescobaldi` when the broken build is fixed
+      # frescobaldi  # FIXME depends on Qt5 which is marked as insecure in Nixpkgs
       fuzzel
       gcc13
       gdb  # GNU debugger
@@ -260,7 +261,8 @@
       sox
       sqlitebrowser  # DB Browser for SQLite
       thunderbird
-      tuxguitar
+      # FIXME uncomment `tuxguitar` when the broken build is fixed
+      # tuxguitar
       typescript
       typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (https://github.com/typescript-language-server/typescript-language-server)
       vim-language-server  # VImScript language server, LSP for vim script
@@ -280,6 +282,7 @@
     hostPlatform = lib.mkDefault "x86_64-linux";
     config = {
       permittedInsecurePackages = [
+        # "qtwebengine-5.15.19"  # FIXME temporary; needed for qt5-based apps like frescobaldi
         # "googleearth-pro-7.3.6.9796"  # NOTE: overrides gpsbabel on PATH with an older version. Uses compromised deps.
       ];
     };
