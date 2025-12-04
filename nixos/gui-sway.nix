@@ -11,7 +11,6 @@
       extraPackages= with pkgs; [
         grim
         mako  # Pop-up notifications
-        rofi-wayland
         slurp
         swaybg
         swayfx

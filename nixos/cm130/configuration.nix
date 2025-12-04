@@ -27,11 +27,9 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        amdvlk  # AMD/Vulkan support
         rocmPackages.clr.icd  # AMD Common Language Runtime for hipamd, opencl, and rocclr
       ];
       extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
       ];
     };
   };
@@ -209,7 +207,6 @@
       geeqie
       gimp-with-plugins  # GNU Image Manipulation Program
       glmark2  # OpenGL benchmarking tool (with Wayland support)
-      glxinfo  # Display OpenGL information (glxinfo and eglinfo)
       gnome-maps
       gnumake
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
@@ -235,6 +232,7 @@
       lua-language-server  # Language server that offers Lua language support
       luajit
       meld  # Visual diff and merge tool
+      mesa-demos  # Collection of demos and test programs for OpenGL and Mesa
       meterbridge  # Various meters (VU, PPM, DPM, JF, SCO) for Jack Audio Connection Kit
       mi2ly
       musescore
@@ -245,7 +243,7 @@
       pandoc  # Converter between documentation formats
       pdf-sign  # Tool to visually sign PDF files
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
-      poppler_utils  # PDF rendering library
+      poppler-utils  # PDF rendering library
       qjackctl
       qpwgraph
       qrencode
