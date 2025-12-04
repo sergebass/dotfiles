@@ -37,8 +37,6 @@ let
 
     set laststatus=2 " always display status line, even with one file being edited
     set statusline=%1*%m%r%*\ %f\ %3*%{fugitive#statusline()}%9*\ %y%{ObsessionStatus()}\ %=%{tabpagenr()}:#%n\ \"%{v:register}\ u%B/%{&fenc}/%{&ff}\ %l:%c%V\ %p%%/%L
-
-    pwd
   '';
 
 in {
