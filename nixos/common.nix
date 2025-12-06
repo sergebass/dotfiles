@@ -99,8 +99,7 @@
       kbd  # Linux keyboard tools and keyboard maps
       links2  # Small browser with some graphics support
       mc  # File Manager and User Shell for the GNU Project, known as Midnight Commander
-      # FIXME uncomment `moc` when the broken build is fixed
-      # moc  # Terminal audio player designed to be powerful and easy to use
+      moc  # Terminal audio player designed to be powerful and easy to use
       mpc  # Minimalist command line interface to MPD
       ncdu  # Disk usage analyzer with an ncurses interface
       ncmpcpp  # Featureful ncurses based MPD client inspired by ncmpc
