@@ -1,4 +1,4 @@
-" Temporary configuration for NeoVim plugins, to be moved to proper places later
+" Temporary configuration for NeoVim plugins, to be replaced with Lua-based setup using lazy.nvim
 
 " Plugin registry for both Vim and NeoVim
 
@@ -8,7 +8,7 @@ execute pathogen#helptags()
 " NOTE: Make sure you use single quotes!
 
 " Specify a directory for plugins
-    call plug#begin('~/.nvim-plugins')
+call plug#begin('~/.nvim/plugins')
 
 " we need Vim help for vim-plug itself (e.g. :help plug-options), so register vim-plug as a plugin.
 
