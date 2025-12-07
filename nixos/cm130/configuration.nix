@@ -266,6 +266,8 @@
       typescript
       typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (https://github.com/typescript-language-server/typescript-language-server)
       vim-language-server  # VImScript language server, LSP for vim script
+      vivaldi  # Browser for our Friends, powerful and personal
+      vivaldi-ffmpeg-codecs  # Additional support for proprietary codecs for Vivaldi and other chromium based tools
       vkmark  # Vulkan benchmarking suite
       vorbis-tools  # Extra tools for Ogg-Vorbis audio codec
       vulkan-tools  # Khronos official Vulkan Tools and Utilities
