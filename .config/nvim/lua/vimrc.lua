@@ -385,7 +385,8 @@ vim.cmd([[
 -- Misc. plugins setup
 ----------------------
 
-vim.cmd([[runtime sergebass/plugins.vim]])
+-- FIXME refactor to Lua (lazy.nvim)
+vim.cmd([[runtime sergebass/plugins-nvim.vim]])
 
 require('scrollbar').setup()
 require('nu').setup{}
