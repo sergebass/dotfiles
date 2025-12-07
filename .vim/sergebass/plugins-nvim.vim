@@ -1,3 +1,5 @@
+" Temporary configuration for NeoVim plugins, to be moved to proper places later
+
 " Plugin registry for both Vim and NeoVim
 
 execute pathogen#infect()
@@ -308,6 +310,13 @@ Plug 'romainl/vim-qf'
 
 " vim-qf: do not shorten paths in quickfix/local lists
 let g:qf_shorten_path = 0
+let g:qf_statusline = {}
+" let g:qf_statusline.before = %!len(filter(getqflist(), 'v:val.valid'))
+" let g:qf_statusline.after = %!len(filter(getqflist(), 'v:val.valid'))
+" let g:qf_statusline.before = '%{42} '
+" let g:qf_statusline.after = ' %{777}'
+" let g:qf_statusline.before = '%<\ %{42}'
+" let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \  %{tabpagenr()}'
 
 " A tree explorer plugin for vim.
 Plug 'scrooloose/nerdtree'
@@ -356,209 +365,106 @@ Plug 'dstein64/vim-startuptime'
 runtime sergebass/coding.vim
 runtime sergebass/debugging.vim
 
-if has("nvim")
-    " NeoVim-specific plugins
+"  Quickstart configs for Nvim LSP
+Plug 'neovim/nvim-lspconfig'
 
-    "  Quickstart configs for Nvim LSP
-    Plug 'neovim/nvim-lspconfig'
+set omnifunc=v:lua.vim.lsp.omnifunc
+set tagfunc=v:lua.vim.lsp.tagfunc
 
-    set omnifunc=v:lua.vim.lsp.omnifunc
-    set tagfunc=v:lua.vim.lsp.tagfunc
+" Nvim Treesitter configurations and abstraction layer
+Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 
-    " Nvim Treesitter configurations and abstraction layer
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+" Highlight, list and search todo comments in your projects
+Plug 'folke/todo-comments.nvim'
 
-    " Highlight, list and search todo comments in your projects
-    Plug 'folke/todo-comments.nvim'
+" Emacs org-mode support
+Plug 'nvim-orgmode/orgmode'
 
-    " Emacs org-mode support
-    Plug 'nvim-orgmode/orgmode'
+" Extensible Neovim Scrollbar
+Plug 'petertriho/nvim-scrollbar'
 
-    " Extensible Neovim Scrollbar
-    Plug 'petertriho/nvim-scrollbar'
+" Asynchronous linter
+Plug 'mfussenegger/nvim-lint'
 
-    " Asynchronous linter
-    Plug 'mfussenegger/nvim-lint'
+" Support Debug Adapter Protocol plugins
+Plug 'mfussenegger/nvim-dap'
 
-    " Support Debug Adapter Protocol plugins
-    Plug 'mfussenegger/nvim-dap'
+" support of native debuggers (gdb, lldb, pdb etc.)
+" Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
-    " support of native debuggers (gdb, lldb, pdb etc.)
-    " Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+" NuShell support: "All the lua functions I don't want to write twice."
+Plug 'nvim-lua/plenary.nvim'
 
-    " NuShell support: "All the lua functions I don't want to write twice."
-    Plug 'nvim-lua/plenary.nvim'
+" null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+Plug 'nvimtools/none-ls.nvim'
 
-    " null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
-    Plug 'nvimtools/none-ls.nvim'
-
-    if executable('nu')
-        " Basic editor support for the nushell language
-        Plug 'LhKipp/nvim-nu', {'do': ':TSInstall nu'}
-    endif
-
-    " FIXME keep?
-    " Language Server Protocol (LSP) support for vim and neovim.
-    " if has("win32")
-    "     Plug 'autozimu/LanguageClient-neovim', {
-    "         \ 'branch': 'next',
-    "         \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
-    "         \ }
-    " else
-    "     " Linux, FreeBSD and Mac OSX all use similar Unix path conventions and utilities
-    "     Plug 'autozimu/LanguageClient-neovim', {
-    "         \ 'branch': 'next',
-    "         \ 'do': 'bash install.sh',
-    "         \ }
-    " endif
-    " set completefunc=LanguageClient#complete
-    "
-    " to be able to use vim's formatting commands like gq with LanguageClient
-    "set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
-
-    "" LanguageClient global settings
-
-    "" Automatically start language servers.
-    "" FIXME was 1
-    "let g:LanguageClient_autoStart = 0
-
-    "" let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
-    "" let g:LanguageClient_loadSettings = 1
-
-    "" Use an absolute configuration path if you want system-wide settings
-    "" (.vim/settings.json is used by default)
-    "" let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
-
-    "" https://github.com/autozimu/LanguageClient-neovim/issues/379 LSP snippet is not supported
-    ""let g:LanguageClient_hasSnippetSupport = 0
-
-    "let g:LanguageClient_diagnosticsList = "Location"
-
-    "" Install Rust language server using a command like:
-    "" $ rustup component add rls --toolchain stable-x86_64-unknown-linux-gnu
-    "" (adjust toolchain accordingly)
-
-    "" Use these lines to use ccls as a language server for the C family of languages:
-    "    " \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
-    "    " \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
-    "    " \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
-    "    " \ 'objcpp': ['ccls', '--log-file=/tmp/cc.log'],
-
-    "let g:LanguageClient_serverCommands = {
-    "    \ 'haskell': ['hie', '--lsp'],
-    "    \ 'purescript': ['purescript-language-server', '--stdio'],
-    "    \ 'elm': ['elm-language-server', '--stdio'],
-    "    \ 'typescript': ['typescript-language-server', '--stdio'],
-    "    \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
-    "    \ 'javascript': ['typescript-language-server', '--stdio'],
-    "    \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
-    "    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    "    \ 'c': ['clangd'],
-    "    \ 'cpp': ['clangd'],
-    "    \ 'objc': ['clangd'],
-    "    \ 'objcpp': ['clangd'],
-    "    \ 'java': ['tcp://127.0.0.1:55555'],
-    "    \ }
-else
-    " Vim-specific plugins (only for Vim, not NeoVim)
-
-    " Language Server Protocol support
-
-    " normalize async job control api for vim and neovim
-    Plug 'prabirshrestha/async.vim'
-
-    " async language server protocol plugin for vim and neovim
-    Plug 'prabirshrestha/vim-lsp'
-
-    " Rust language server
-    if executable('rust-analyzer')
-        au User lsp_setup call lsp#register_server({
-            \   'name': 'Rust Language Server',
-            \   'cmd': {server_info->['rust-analyzer']},
-            \   'whitelist': ['rust'],
-            \ })
-    endif
-
-    " if exists('$SP_VIM_CPP')
-
-        if executable('ccls')
-            " Vim plugin for the ccls language server
-            Plug 'm-pilia/vim-ccls'
-        else
-            echo "ccls executable not found, skipping vim-ccls plugin"
-        endif
-
-    " endif  " if exists('$SP_VIM_CPP')
-
-    " register clangd C/C++/Objective C LSP server for vim-lsp plugin
-    " (the -background-index option is not available in clangd-7)
-            " \ 'cmd': {server_info->['clangd', '-background-index']},
-    " FIXME clangd-15? FIXME go through multiple versions of clangd downwards?
-    if executable('clangd')
-        au User lsp_setup call lsp#register_server({
-            \ 'name': 'clangd',
-            \ 'cmd': {server_info->['clangd', '-background-index']},
-            \ 'whitelist': ['c', 'cpp', 'cc', 'objc', 'objcpp'],
-            \ })
-    endif
-
-    " Register ccls C++ lanuage server.
-    if executable('ccls')
-       au User lsp_setup call lsp#register_server({
-          \ 'name': 'ccls',
-          \ 'cmd': {server_info->['ccls']},
-          \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-          \ 'initialization_options': {'cache': {'directory': expand('~/.cache/ccls') }},
-          \ 'allowlist': ['c', 'cpp', 'cc', 'objc', 'objcpp'],
-          \ })
-    endif
-
-    " register TypeScript LSP server for vim-lsp plugin
-    if executable('typescript-language-server')
-        au User lsp_setup call lsp#register_server({
-            \ 'name': 'typescript-language-server',
-            \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-            \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-            \ 'whitelist': ['typescript', 'javascript'],
-            \ })
-    endif
-
-    " register Purescript LSP server for vim-lsp plugin
-    if executable('purescript-language-server')
-        au User lsp_setup call lsp#register_server({
-            \ 'name': 'purescript-language-server',
-            \ 'cmd': {server_info->[&shell, &shellcmdflag, 'purescript-language-server --stdio']},
-            \ 'whitelist': ['purescript'],
-            \ })
-    endif
-
-    " register Elm LSP server for vim-lsp plugin
-    if executable('elm-language-server')
-        au User lsp_setup call lsp#register_server({
-            \ 'name': 'elm-language-server',
-            \ 'cmd': {server_info->[&shell, &shellcmdflag, 'elm-language-server --stdio']},
-            \ 'whitelist': ['elm'],
-            \ })
-    endif
-
-    " FIXME add Nix LSP support: https://mattn.github.io/vim-lsp-settings/
-    " Plug 'mattn/vim-lsp-settings'
-
-    " (Repo archived) Vim bindings for rtags, llvm/clang based c++ code indexer.
-    " Plug 'lyuts/vim-rtags'
-
-    if executable('gdb')
-        " This is a new feature in vim to better integrate with gdb
-        packadd termdebug
-
-        " Use gdb as our debugger
-        let g:termdebugger = "gdb"
-
-        " FIXME configure this:
-        " let g:termdebug_wide = 163
-
-    endif
+if executable('nu')
+    " Basic editor support for the nushell language
+    Plug 'LhKipp/nvim-nu', {'do': ':TSInstall nu'}
 endif
+
+" FIXME keep?
+" Language Server Protocol (LSP) support for vim and neovim.
+" if has("win32")
+"     Plug 'autozimu/LanguageClient-neovim', {
+"         \ 'branch': 'next',
+"         \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
+"         \ }
+" else
+"     " Linux, FreeBSD and Mac OSX all use similar Unix path conventions and utilities
+"     Plug 'autozimu/LanguageClient-neovim', {
+"         \ 'branch': 'next',
+"         \ 'do': 'bash install.sh',
+"         \ }
+" endif
+" set completefunc=LanguageClient#complete
+"
+" to be able to use vim's formatting commands like gq with LanguageClient
+"set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+
+"" LanguageClient global settings
+
+"" Automatically start language servers.
+"" FIXME was 1
+"let g:LanguageClient_autoStart = 0
+
+"" let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
+"" let g:LanguageClient_loadSettings = 1
+
+"" Use an absolute configuration path if you want system-wide settings
+"" (.vim/settings.json is used by default)
+"" let g:LanguageClient_settingsPath = expand('~/.config/nvim/settings.json')
+
+"" https://github.com/autozimu/LanguageClient-neovim/issues/379 LSP snippet is not supported
+""let g:LanguageClient_hasSnippetSupport = 0
+
+"let g:LanguageClient_diagnosticsList = "Location"
+
+"" Install Rust language server using a command like:
+"" $ rustup component add rls --toolchain stable-x86_64-unknown-linux-gnu
+"" (adjust toolchain accordingly)
+
+"" Use these lines to use ccls as a language server for the C family of languages:
+"    " \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+"    " \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+"    " \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+"    " \ 'objcpp': ['ccls', '--log-file=/tmp/cc.log'],
+
+"let g:LanguageClient_serverCommands = {
+"    \ 'haskell': ['hie', '--lsp'],
+"    \ 'purescript': ['purescript-language-server', '--stdio'],
+"    \ 'elm': ['elm-language-server', '--stdio'],
+"    \ 'typescript': ['typescript-language-server', '--stdio'],
+"    \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
+"    \ 'javascript': ['typescript-language-server', '--stdio'],
+"    \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
+"    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"    \ 'c': ['clangd'],
+"    \ 'cpp': ['clangd'],
+"    \ 'objc': ['clangd'],
+"    \ 'objcpp': ['clangd'],
+"    \ 'java': ['tcp://127.0.0.1:55555'],
+"    \ }
 
 " Initialize plugin system
 call plug#end()
