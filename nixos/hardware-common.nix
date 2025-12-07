@@ -57,7 +57,13 @@ in {
   };
 
   services = {
-    udev.enable = true;
+    udev = {
+      enable = true;
+      extraRules = with pkgs; ''
+        # Allow communication with Peterson StroboStomp HD via hidraw interface
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="8005"
+      '';
+    };
 
     thermald.enable = true;  # Thermal monitoring and controlling daemon (prevent CPU overheating)
 
