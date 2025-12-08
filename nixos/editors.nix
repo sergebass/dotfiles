@@ -70,8 +70,16 @@ in {
     };
   };
 
-  environment.variables = rec {
+  environment = {
+    systemPackages = with pkgs; [
+      lua51Packages.lua  # Powerful, fast, lightweight, embeddable scripting language
+      luajit  # High-performance JIT compiler for Lua 5.1
+      luajitPackages.luarocks  # A package manager for Lua modules (can be used by Neovim plugins)
+    ];
+
+    variables = rec {
     EDITOR = "nvim";
     VISUAL = EDITOR;
+  };
   };
 }
