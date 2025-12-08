@@ -43,12 +43,27 @@ set autoread " automatically reload files changed by external programs
 au CursorHold,CursorHoldI * :checktime " check for updates each time cursor stops moving
 au FocusGained,BufEnter * :checktime
 
+set nobackup " do not create backup files
+set nowritebackup " do not create backup files
+" if has("win32")
+"     set backupdir=~/vimfiles/backup " location for backup files
+" else
+"     set backupdir=~/.vim/backup " location for backup files
+" endif
+
+set swapfile  " enable swap files
+" if has("win32")
+"     set directory=~/vimfiles/swap// " location for swap files
+" else
+"     set directory=~/.vim/swap// " location for swap files
+" endif
+
 set undofile " persist undo history between invocations
-if has("win32")
-    set undodir=~/vimfiles/undo " location for persistent undo history files
-else
-    set undodir=~/.vim/undo " location for persistent undo history files
-endif
+" if has("win32")
+"     set undodir=~/vimfiles/undo " location for persistent undo history files
+" else
+"     set undodir=~/.vim/undo " location for persistent undo history files
+" endif
 
 " do not save undo history for temporary files
 augroup vimrc
