@@ -62,6 +62,11 @@ in {
       extraRules = with pkgs; ''
         # Allow communication with Peterson StroboStomp HD via hidraw interface
         KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="8005"
+
+        # Allow communication with Peterson StroboPlus HDC via hidraw interface
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="0006"
+        # Allow communication with Peterson StroboPlus HDC via hidraw interface (firmware mode)
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="8006"
       '';
     };
 
