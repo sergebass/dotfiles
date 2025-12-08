@@ -128,10 +128,9 @@ vim.cmd([[
 
 -- Undo and backup
 
-vim.opt.backup = false
-
-vim.opt.undofile = true  -- Persist undo history between invocations
-vim.opt.undodir = "~/.nvim/undo"  -- Location for persistent undo history files
+vim.opt.backup = false  -- Do not create backup files
+vim.opt.swapfile = true  -- Create swap files
+vim.opt.undofile = true  -- Do persist undo history between invocations
 
 -- Do not save undo history for temporary files
 vim.cmd([[
