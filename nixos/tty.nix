@@ -233,6 +233,11 @@ in {
       # There is no default file location for ripgrep configuration,
       # we must auto-configure this variable for rg to look it up explicitly.
       RIPGREP_CONFIG_PATH = pkgs.writeText "rgrc" ripgrepRC;
+
+      # Make FZF browse through all files, including hidden ones, but exclude .git directory
+      FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git/*'";
+
+      # FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --ansi --preview="bat --style=numbers --color=always --line-range :500 {}" --preview-window=right:60%:wrap";
     };
   };
 }
