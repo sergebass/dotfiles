@@ -246,8 +246,39 @@ return {
     -- (Repo archived) Yet another EditorConfig (http://editorconfig.org) plugin for vim written in vimscript only
     { 'sgur/vim-editorconfig' },
 
-    -- " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-    -- " Plug 'junegunn/vim-easy-align'
+    -- A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
+    {
+        'airblade/vim-gitgutter',
+        config = function()
+            vim.cmd([[
+                " Enable gitgutter
+                let g:gitgutter_enabled = 1
+
+                " git gutter: pass this option to git diff
+                let g:gitgutter_diff_args = '-w'
+
+                " Update gitgutter every 1000ms
+                let g:gitgutter_update_interval = 1000
+
+                " Show line numbers in gitgutter signs
+                let g:gitgutter_sign_column_always = 1
+
+                " Use a minimal set of signs
+                let g:gitgutter_sign_added = '│'
+                let g:gitgutter_sign_modified = '│'
+                let g:gitgutter_sign_removed = '‾'
+
+                " Key mappings for gitgutter
+                nmap <leader>gh :GitGutterPreviewHunk<CR>
+                nmap <leader>gs :GitGutterStageHunk<CR>
+                nmap <leader>gu :GitGutterUndoHunk<CR>
+                nmap <leader>gp :GitGutterPreviewHunk<CR>
+            ]])
+        end
+        },
+
+    -- Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+    { 'junegunn/vim-easy-align' },
 
     -- " " Any valid git URL is allowed
     -- " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -369,12 +400,6 @@ return {
 
     -- " (Repo archived) A plugin of NERDTree showing git status
     -- Plug 'Xuyuanp/nerdtree-git-plugin'
-
-    -- " A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
-    -- Plug 'airblade/vim-gitgutter'
-
-    -- " git gutter: pass this option to git diff
-    -- let g:gitgutter_diff_args = '-w'
 
     -- " Supplies :DeleteHiddenBuffers command
     -- Plug 'arithran/vim-delete-hidden-buffers'
@@ -577,4 +602,13 @@ return {
     -- "    \ 'objcpp': ['clangd'],
     -- "    \ 'java': ['tcp://127.0.0.1:55555'],
     -- "    \ }
+
+    -- FIXME: TODO
+    -- LSP (Language Server Protocol) support and other coding features
+    -- require('coding')
+
+    -- FIXME: TODO
+    -- DAP (Debug Adapter Protocol) support and debugging features
+    -- require('debugging')
+
 }

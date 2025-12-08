@@ -18,28 +18,17 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- FIXME: remove once all of the plugins are migrated to Lua configuration
--- vim.cmd([[runtime sergebass/plugins-nvim.vim]])
-
--- FIXME: TODO
--- LSP (Language Server Protocol) support and other coding features
--- require('coding')
-
--- FIXME: TODO
--- DAP (Debug Adapter Protocol) support and debugging features
--- require('debugging')
-
--- Setup lazy.nvim
+-- Set up lazy.nvim
 require("lazy").setup({
   spec = {
-    -- import your plugins
+    -- We keep our plugins in the plugins/ directory
     { import = "plugins" },
   },
 
   -- Configure any other settings here. See the documentation for more details.
 
   -- colorscheme that will be used when installing plugins.
-  -- install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "habamax" } },
 
   -- automatically check for plugin updates
   checker = { enabled = true },
