@@ -368,34 +368,13 @@ vim.cmd([[
     if !(exists("g:GuiLoaded") || has("gui_running")) " GUI vim/neovim versions don't support transparent backgrounds
         hi Normal ctermbg=NONE guibg=NONE
     endif
-
-    " FIXME replace rainbow parenthese plugin with the one from
-    " https://github.com/luochen1990/rainbow (hopefully this works properly)
-    "
-    " chevron matching mode conflicts with XHTML highlighting so disable it for now
-    "au Syntax * RainbowParenthesesLoadChevrons
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
-
-    au VimEnter * RainbowParenthesesToggle
 ]])
 
-----------------------
--- Misc. plugins setup
-----------------------
+-------------------------------
+-- Configure additional plugins
+-------------------------------
 
--- FIXME refactor to Lua (lazy.nvim)
-vim.cmd([[runtime sergebass/plugins-nvim.vim]])
-
-require('scrollbar').setup()
-require('nu').setup{}
-
--- LSP (Language Server Protocol) support and other coding features
-require('coding')
-
--- DAP (Debug Adapter Protocol) support and debugging features
-require('debugging')
+require('plugins-lazy')
 
 --------------------------------------------------------------------------------
 -- Apply workspace-specific settings, if available.
