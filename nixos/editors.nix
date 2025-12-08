@@ -46,6 +46,11 @@ in {
     defaultEditor = true;
     viAlias = true;
     vimAlias = false;
+
+    # Additional runtime support for plugins written in other languages.
+    withPython3 = true;
+    withNodeJs = true;
+
     configure = {
       customRC = ''
         " Reuse user configuration from home directory, if available
@@ -78,8 +83,8 @@ in {
     ];
 
     variables = rec {
-    EDITOR = "nvim";
-    VISUAL = EDITOR;
-  };
+      EDITOR = "nvim";
+      VISUAL = EDITOR;
+    };
   };
 }
