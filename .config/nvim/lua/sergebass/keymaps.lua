@@ -618,60 +618,6 @@ vim.cmd([[
   let g:multi_cursor_skip_key            = '<C-x>'
   let g:multi_cursor_quit_key            = '<Esc>'
 
-  " NOTE that if you are using Plug mapping you should not use `noremap` mappings
-
-  " default shortcuts for language server/client use
-
-  " Neovim 0.5.0+ has built-in LSP client, use it by default
-
-  " jump to definition of the symbol under cursor
-  nmap <CR> <Cmd>lua vim.lsp.buf.definition()<CR>
-
-  nmap \<Bar> <Cmd>lua vim.lsp.buf.code_action()<CR>
-
-  nmap \K <Cmd>lua vim.lsp.buf.hover()<CR>
-  nmap \gt <Cmd>lua vim.lsp.buf.type_definition()<CR>
-  nmap \gd <Cmd>lua vim.lsp.buf.definition()<CR>
-  nmap \gD <Cmd>lua vim.lsp.buf.declaration()<CR>
-  nmap \gi <Cmd>lua vim.lsp.buf.implementation()<CR>
-  nmap \gO <Cmd>lua vim.lsp.buf.document_symbol()<CR>
-  nmap \go <Cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-  nmap \= <Cmd>lua vim.lsp.buf.rename()<CR>
-  nmap \^ <Cmd>lua vim.lsp.buf.references()<CR>
-  nmap \* <Cmd>lua vim.lsp.buf.document_highlight()<CR>
-  nmap \+ <Plug>(lcn-explain-error)
-
-  " -----------------------
-  " Spacemacs-style keymaps
-  " -----------------------
-
-  " jump to definition of the symbol under cursor
-  nmap <Space>mgg <Cmd>lua vim.lsp.buf.definition()<CR>
-
-  " rename symbol under cursor
-  nmap <Space>mrr <Cmd>lua vim.lsp.buf.rename()<CR>
-
-  " display help about symbol under cursor
-  nmap <Space>mhh <Cmd>lua vim.lsp.buf.hover()<CR>
-
-  " SPC m g &     find references (address)
-  " nmap <Space>mg& <Cmd>lua vim.lsp.buf.()<CR>
-
-  " SPC m g R     find references (read)
-  " nmap <Space>mgR <Cmd>lua vim.lsp.buf.()<CR>
-
-  " SPC m g W     find references (write)
-  " nmap <Space>mgW <Cmd>lua vim.lsp.buf.()<CR>
-
-  " SPC m g c     find callers
-  nmap <Space>mgc <Cmd>lua vim.lsp.buf.incoming_calls()<CR>
-
-  " SPC m g C     find callees
-  nmap <Space>mgC <Cmd>lua vim.lsp.buf.outgoing_calls()<CR>
-
-  " SPC m g v     vars
-  " nmap <Space>mgv <Cmd>lua vim.lsp.buf.()<CR>
-
   " -----------------------------------------------------
   " Spacemacs-style keymaps shared between neovim and vim
   " -----------------------------------------------------
