@@ -78,7 +78,7 @@ vim.lsp.enable('ts_ls')
 -- Keyboard mappings for LSP functions
 vim.cmd([[
   " jump to definition of the symbol under cursor
-  nmap <CR> <Cmd>lua vim.lsp.buf.definition()<CR>
+  " nmap <CR> <Cmd>lua vim.lsp.buf.definition()<CR>
 
   nmap \<Bar> <Cmd>lua vim.lsp.buf.code_action()<CR>
 
