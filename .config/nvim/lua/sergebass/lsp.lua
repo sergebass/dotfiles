@@ -1,5 +1,10 @@
 -- Neovim-specific built-in LSP client configuration
 
+vim.cmd([[
+  set omnifunc=v:lua.vim.lsp.omnifunc
+  set tagfunc=v:lua.vim.lsp.tagfunc
+]])
+
 -- Set default root markers for all clients
 vim.lsp.config('*', {
   root_markers = { '.git' },

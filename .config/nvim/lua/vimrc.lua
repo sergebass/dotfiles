@@ -370,9 +370,6 @@ vim.cmd([[
 
 require('plugins-lazy')
 
--- LSP (Language Server Protocol) support and other coding features
-require('sergebass.lsp')
-
 --------------------------
 -- Custom kyboard mappings
 --------------------------

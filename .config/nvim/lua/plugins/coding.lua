@@ -1,11 +1,14 @@
 -- Coding-related plugins and configurations for Neovim
 
 return {
-    -- "  Quickstart configs for Nvim LSP
-    -- Plug 'neovim/nvim-lspconfig'
-
-    -- set omnifunc=v:lua.vim.lsp.omnifunc
-    -- set tagfunc=v:lua.vim.lsp.tagfunc
+    -- Quickstart configs for Nvim LSP
+    {
+      'neovim/nvim-lspconfig',
+      config = function()
+        -- LSP (Language Server Protocol) support and other coding features
+        require('sergebass.lsp')
+      end
+    },
 
     -- Nvim Treesitter configurations and abstraction layer
     -- FIXME: reconfigure:
