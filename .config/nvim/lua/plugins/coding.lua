@@ -1,4 +1,5 @@
 -- Coding-related plugins and configurations for Neovim
+
 return {
     -- "  Quickstart configs for Nvim LSP
     -- Plug 'neovim/nvim-lspconfig'
@@ -26,7 +27,7 @@ return {
     {
         'mfussenegger/nvim-dap',
         config = function()
-            require('sergebass-dap')
+            require('sergebass.dap')
         end
     },
 

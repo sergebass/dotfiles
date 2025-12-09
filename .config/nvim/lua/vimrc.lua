@@ -245,12 +245,6 @@ vim.cmd([[autocmd FileType json syntax match Comment +\/\/.\+$+]])
 vim.cmd([[runtime sergebass/functions.vim]])
 vim.cmd([[runtime sergebass/commands.vim]])
 
---------------------------
--- Custom kyboard mappings
---------------------------
-
-vim.cmd([[runtime sergebass/keymaps.vim]])
-
 ----------------------
 -- Syntax highlighting
 ----------------------
@@ -377,7 +371,7 @@ vim.cmd([[
 require('plugins-lazy')
 
 -- LSP (Language Server Protocol) support and other coding features
-require('sergebass-lsp')
+require('sergebass.lsp')
 
 --------------------------
 -- Custom kyboard mappings

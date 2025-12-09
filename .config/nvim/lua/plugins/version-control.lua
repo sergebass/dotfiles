@@ -1,4 +1,5 @@
 -- Version control related plugins for Neovim
+
 return {
     -- fugitive.vim: A Git wrapper so awesome, it should be illegal
     { 'tpope/vim-fugitive' },

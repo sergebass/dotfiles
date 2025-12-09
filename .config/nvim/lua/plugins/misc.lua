@@ -1,4 +1,5 @@
 -- Miscellaneous Neovim plugins that don't fit into other categories
+
 return {
   {
     "junegunn/fzf",
