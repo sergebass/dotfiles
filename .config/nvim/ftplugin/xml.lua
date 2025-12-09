@@ -14,7 +14,7 @@ vim.cmd([[
 
   " setlocal omnifunc=xmlcomplete#CompleteTags
 
-  call SuperTabSetDefaultCompletionType("<C-N>")
+  " call SuperTabSetDefaultCompletionType("<C-N>")
 
   nnoremap <buffer> <F1> :!sp-open "https://www.w3schools.com/xml/dom_nodetype.asp"<CR>
 
