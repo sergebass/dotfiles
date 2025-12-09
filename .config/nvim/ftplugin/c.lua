@@ -3,8 +3,6 @@
 ----------------------------------
 
 vim.cmd([[
-  runtime! sergebass/gdb.vim
-
   setlocal expandtab
   setlocal tabstop=4
   setlocal shiftwidth=4
@@ -19,13 +17,13 @@ vim.cmd([[
   " NOTE that if you are using Plug mapping you should not use `noremap` mappings
 
   " we need that comment mark at the end since this on-hover function does not accept arguments but uses the word under cursor
-  setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
+  " setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
 
   " setlocal omnifunc=ccomplete#Complete
 
-  nmap <buffer> <silent> K <Plug>(lcn-hover)
+  nmap <buffer> <silent> K \K
 
-  nmap <buffer> <silent> <CR> <Plug>(lcn-definition)
+  nmap <buffer> <silent> <CR> \gd
 
   " do our formatting using clang-format and the '=' command
   setlocal equalprg=clang-format
@@ -53,8 +51,6 @@ vim.cmd([[
   nnoremap <buffer> \\?2 :!sp-open "http://www.cplusplus.com/search.do?q=<C-r>=expand("<cword>")<CR>"<Left>
   vnoremap <buffer> \\?2 "*y<Esc>:!sp-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
 
-  " SPC m D   disaster: disassemble c/c++ code
-
   " -----------------------------------------------------------------------------
   " Apply workspace-specific C settings, if available;
   " this is placed at the end to make sure workspace configuration takes priority
@@ -63,5 +59,9 @@ vim.cmd([[
 
   if filereadable(expand("~/.workspace-c.vim"))
       source ~/.workspace-c.vim
+  endif
+
+  if filereadable(expand("~/.workspace-c.lua"))
+      source ~/.workspace-c.lua
   endif
 ]])
