@@ -10,7 +10,7 @@ dap.adapters.cppdbg = {
 
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/run/current-system/sw/bin/lldb-vscode', -- must be absolute path; /usr/bin/lldb-vscode in FHS Linux
+  command = '/run/current-system/sw/bin/lldb-dap', -- must be absolute path; /usr/bin/lldb-vscode in FHS Linux
   name = 'lldb'
 }
 
@@ -110,27 +110,81 @@ dap.configurations.rust = dap.configurations.cpp
 -- Stepping through code via :lua require'dap'.step_over() and :lua require'dap'.step_into().
 -- Inspecting the state via the built-in REPL: :lua require'dap'.repl.open() or using the widget UI (:help dap-widgets)
 
--- FIXME move shortcuts elsewhere?
-vim.keymap.set('n', '<Space><Space>dc', function() require('dap').continue() end)
-vim.keymap.set('n', '<Space><Space>ds', function() require('dap').step_over() end)
-vim.keymap.set('n', '<Space><Space>di', function() require('dap').step_into() end)
-vim.keymap.set('n', '<Space><Space>do', function() require('dap').step_out() end)
-vim.keymap.set('n', '<Space><Space>dbb', function() require('dap').toggle_breakpoint() end)
-vim.keymap.set('n', '<Space><Space>dba', function() require('dap').set_breakpoint() end)
+vim.keymap.set('n', '<Space>dc', function() require('dap').continue() end)
+vim.keymap.set('n', '<M-.>', function() require('dap').continue() end)
+
+vim.keymap.set('n', '<Space>ds', function() require('dap').step_over() end)
+vim.keymap.set('n', '<M-;>', function() require('dap').step_over() end)
+
+vim.keymap.set('n', '<Space>di', function() require('dap').step_into() end)
+vim.keymap.set('n', '<M-\'>', function() require('dap').step_into() end)
+
+vim.keymap.set('n', '<Space>do', function() require('dap').step_out() end)
+vim.keymap.set('n', '<M-,>', function() require('dap').step_out() end)
+
+vim.keymap.set('n', '<Space>dbb', function() require('dap').toggle_breakpoint() end)
+
+vim.keymap.set('n', '<Space>dba', function() require('dap').set_breakpoint() end)
+
 vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+
 vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+
 vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
+
 vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
   require('dap.ui.widgets').hover()
 end)
-vim.keymap.set({'n', 'v'}, '<Space><Space>dv', function()
+
+vim.keymap.set({'n', 'v'}, '<Space>dv', function()
   require('dap.ui.widgets').preview()
 end)
+
+vim.keymap.set({'n', 'v'}, '<M-=>', function()
+  require('dap.ui.widgets').preview()
+end)
+
 vim.keymap.set('n', '<Leader>df', function()
   local widgets = require('dap.ui.widgets')
   widgets.centered_float(widgets.frames)
 end)
+
 vim.keymap.set('n', '<Leader>ds', function()
   local widgets = require('dap.ui.widgets')
   widgets.centered_float(widgets.scopes)
 end)
+
+vim.cmd([[
+  " Universal language debugger support (via DAP) using nvim-dap
+
+  nmap <Space>ddd :DapNew<CR>
+  " nmap <Space>ddd :DapPause<CR>
+  nmap <Space>da :DapTerminate<CR>
+  nmap <Space>dA :DapTerminate<CR>
+
+  " nmap <Space>dc :DapContinue<CR>
+  " nmap <M-.> :DapContinue<CR>
+
+  " nmap <Space>ds :DapStepOver<CR>
+  " nmap <M-;> :DapStepOver<CR>
+
+  "nmap <Space>di :DapStepInto<CR>
+  "nmap <M-'> :DapStepInto<CR>
+
+  " nmap <Space>do :DapStepOut<CR>
+  " nmap <M-,> :DapStepOut<CR>
+
+  nmap <Space>dr :DapRestartFrame<CR>
+
+  nmap <Space>dIt :DapEval<CR>
+  " nmap <Space>dv :DapEval<CR>
+  " nmap <M-=> :DapEval<CR>
+  nmap <RightMouse> :DapEval<CR>
+
+  " nmap <Space>dbb :DapToggleBreakpoint<CR>
+  " nmap <Space>dba :VimspectorAddFunctionBreakpoint<CR>
+  " nmap <Space>dwb :VimspectorBreakpoints<CR>
+  nmap <Space>dbD :DapClearBreakpoints<CR>
+
+  nmap <Space>d'_ :DapToggleRepl<CR>
+]])

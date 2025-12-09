@@ -298,25 +298,22 @@ vim.cmd([[
 
   " the stock shortcut to exit terminal mode is cumbersome, let's change it
   " use the same shortcut for convenience
-  if has('nvim') || (v:version >= 800)
-      if has("win32")
-          nnoremap <silent> <Space>' :vsplit term://cmd.exe<CR>
-      else
-          nnoremap <silent> <Space>' :vsplit term://$SHELL<CR>
-      endif
-
-      " the shortcut to yield control from terminal to (n)vim
-      tnoremap <C-\> <C-\><C-n>
-
-      "shortcuts for quick navigation between debugger, program output and source during debugging
-      " :Gdb " jump to the gdb window
-      noremap <F2> :Gdb<CR>
-      " :Program "jump to the window with the running program
-      noremap <F3> :Program<CR>
-      " :Source "jump to the window with the source code, create it if there isn't one
-      noremap <F4> :Source<CR>
-
+  if has("win32")
+      nnoremap <silent> <Space>' :vsplit term://cmd.exe<CR>
+  else
+      nnoremap <silent> <Space>' :vsplit term://$SHELL<CR>
   endif
+
+  " the shortcut to yield control from terminal to (n)vim
+  tnoremap <C-\> <C-\><C-n>
+
+  "shortcuts for quick navigation between debugger, program output and source during debugging
+  " :Gdb " jump to the gdb window
+  noremap <F2> :Gdb<CR>
+  " :Program "jump to the window with the running program
+  noremap <F3> :Program<CR>
+  " :Source "jump to the window with the source code, create it if there isn't one
+  noremap <F4> :Source<CR>
 
   " use \ with numeric keys to simulate finctional keys,
   " for use on terminals/machines where Fn keys are missing (e.g. Chromebook)
@@ -626,91 +623,54 @@ vim.cmd([[
   " default shortcuts for language server/client use
 
   " Neovim 0.5.0+ has built-in LSP client, use it by default
-  if has("nvim")
 
-      " jump to definition of the symbol under cursor
-      nmap <CR> <Cmd>lua vim.lsp.buf.definition()<CR>
+  " jump to definition of the symbol under cursor
+  nmap <CR> <Cmd>lua vim.lsp.buf.definition()<CR>
 
-      nmap \<Bar> <Cmd>lua vim.lsp.buf.code_action()<CR>
+  nmap \<Bar> <Cmd>lua vim.lsp.buf.code_action()<CR>
 
-      nmap \K <Cmd>lua vim.lsp.buf.hover()<CR>
-      nmap \gt <Cmd>lua vim.lsp.buf.type_definition()<CR>
-      nmap \gd <Cmd>lua vim.lsp.buf.definition()<CR>
-      nmap \gD <Cmd>lua vim.lsp.buf.declaration()<CR>
-      nmap \gi <Cmd>lua vim.lsp.buf.implementation()<CR>
-      nmap \gO <Cmd>lua vim.lsp.buf.document_symbol()<CR>
-      nmap \go <Cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-      nmap \= <Cmd>lua vim.lsp.buf.rename()<CR>
-      nmap \^ <Cmd>lua vim.lsp.buf.references()<CR>
-      nmap \* <Cmd>lua vim.lsp.buf.document_highlight()<CR>
-      nmap \+ <Plug>(lcn-explain-error)
+  nmap \K <Cmd>lua vim.lsp.buf.hover()<CR>
+  nmap \gt <Cmd>lua vim.lsp.buf.type_definition()<CR>
+  nmap \gd <Cmd>lua vim.lsp.buf.definition()<CR>
+  nmap \gD <Cmd>lua vim.lsp.buf.declaration()<CR>
+  nmap \gi <Cmd>lua vim.lsp.buf.implementation()<CR>
+  nmap \gO <Cmd>lua vim.lsp.buf.document_symbol()<CR>
+  nmap \go <Cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+  nmap \= <Cmd>lua vim.lsp.buf.rename()<CR>
+  nmap \^ <Cmd>lua vim.lsp.buf.references()<CR>
+  nmap \* <Cmd>lua vim.lsp.buf.document_highlight()<CR>
+  nmap \+ <Plug>(lcn-explain-error)
 
-      " -----------------------
-      " Spacemacs-style keymaps
-      " -----------------------
+  " -----------------------
+  " Spacemacs-style keymaps
+  " -----------------------
 
-      " jump to definition of the symbol under cursor
-      nmap <Space>mgg <Cmd>lua vim.lsp.buf.definition()<CR>
+  " jump to definition of the symbol under cursor
+  nmap <Space>mgg <Cmd>lua vim.lsp.buf.definition()<CR>
 
-      " rename symbol under cursor
-      nmap <Space>mrr <Cmd>lua vim.lsp.buf.rename()<CR>
+  " rename symbol under cursor
+  nmap <Space>mrr <Cmd>lua vim.lsp.buf.rename()<CR>
 
-      " display help about symbol under cursor
-      nmap <Space>mhh <Cmd>lua vim.lsp.buf.hover()<CR>
+  " display help about symbol under cursor
+  nmap <Space>mhh <Cmd>lua vim.lsp.buf.hover()<CR>
 
-      " SPC m g &     find references (address)
-      " nmap <Space>mg& <Cmd>lua vim.lsp.buf.()<CR>
+  " SPC m g &     find references (address)
+  " nmap <Space>mg& <Cmd>lua vim.lsp.buf.()<CR>
 
-      " SPC m g R     find references (read)
-      " nmap <Space>mgR <Cmd>lua vim.lsp.buf.()<CR>
+  " SPC m g R     find references (read)
+  " nmap <Space>mgR <Cmd>lua vim.lsp.buf.()<CR>
 
-      " SPC m g W     find references (write)
-      " nmap <Space>mgW <Cmd>lua vim.lsp.buf.()<CR>
+  " SPC m g W     find references (write)
+  " nmap <Space>mgW <Cmd>lua vim.lsp.buf.()<CR>
 
-      " SPC m g c     find callers
-      nmap <Space>mgc <Cmd>lua vim.lsp.buf.incoming_calls()<CR>
+  " SPC m g c     find callers
+  nmap <Space>mgc <Cmd>lua vim.lsp.buf.incoming_calls()<CR>
 
-      " SPC m g C     find callees
-      nmap <Space>mgC <Cmd>lua vim.lsp.buf.outgoing_calls()<CR>
+  " SPC m g C     find callees
+  nmap <Space>mgC <Cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 
-      " SPC m g v     vars
-      " nmap <Space>mgv <Cmd>lua vim.lsp.buf.()<CR>
-
-  else  " use 3rd-party language client(s) otherwise
-
-      " The "lcn-" functions are provided by LanguageClient plugin
-
-      " jump to definition of the symbol under cursor
-      nmap <silent> <CR> <Plug>(lcn-definition)
-
-      nmap <silent> \<Bar> <Plug>(lcn-menu)
-
-      nmap <silent> \K <Plug>(lcn-hover)
-      nmap <silent> \gt <Plug>(lcn-type-definition)
-      nmap <silent> \gd <Plug>(lcn-definition)
-      " nmap <silent> \gD <Plug>(lcn-FIXME)
-      nmap <silent> \gi <Plug>(lcn-implementation)
-      nmap <silent> \gO <Plug>(lcn-symbols)
-      nmap \go <Cmd>call LanguageClient#workspace_symbol()<CR>
-      nmap <silent> \= <Plug>(lcn-rename)
-      nmap <silent> \^ <Plug>(lcn-references)
-      nmap <silent> \* <Plug>(lcn-highlight)
-      nmap <silent> \+ <Plug>(lcn-explain-error)
-
-      " -----------------------
-      " Spacemacs-style keymaps
-      " -----------------------
-
-      " jump to definition of the symbol under cursor
-      nmap <silent> <Space>mgg <Plug>(lcn-definition)
-
-      " rename symbol under cursor
-      nmap <silent> <Space>mrr <Plug>(lcn-rename)
-
-      " display help about symbol under cursor
-      nmap <silent> <Space>mhh <Plug>(lcn-hover)
-
-  endif
+  " SPC m g v     vars
+  " nmap <Space>mgv <Cmd>lua vim.lsp.buf.()<CR>
 
   " -----------------------------------------------------
   " Spacemacs-style keymaps shared between neovim and vim
@@ -729,71 +689,4 @@ vim.cmd([[
 
   " SPC m g F     ffap other window
   nmap <silent> <Space>mgF gF
-
-  if has('nvim')
-      " Universal language debugger support (via DAP) using nvim-dap
-
-      nmap <Space>ddd :DapNew<CR>
-      " nmap <Space>ddd :DapPause<CR>
-      nmap <Space>da :DapTerminate<CR>
-      nmap <Space>dA :DapTerminate<CR>
-
-      nmap <Space>dc :DapContinue<CR>
-      nmap <M-.> :DapContinue<CR>
-
-      nmap <Space>ds :DapStepOver<CR>
-      nmap <M-;> :DapStepOver<CR>
-
-      nmap <Space>di :DapStepInto<CR>
-      nmap <M-'> :DapStepInto<CR>
-
-      nmap <Space>do :DapStepOut<CR>
-      nmap <M-,> :DapStepOut<CR>
-
-      nmap <Space>dr :DapRestartFrame<CR>
-
-      nmap <Space>dIt :DapEval<CR>
-      nmap <Space>dv :DapEval<CR>
-      nmap <M-=> :DapEval<CR>
-      nmap <RightMouse> :DapEval<CR>
-
-      nmap <Space>dbb :DapToggleBreakpoint<CR>
-      " nmap <Space>dba :VimspectorAddFunctionBreakpoint<CR>
-      " nmap <Space>dwb :VimspectorBreakpoints<CR>
-      nmap <Space>dbD :DapClearBreakpoints<CR>
-
-      nmap <Space>d'_ :DapToggleRepl<CR>
-  else
-      " Universal language debugger support (via DAP) using vimspector
-      "
-      " Don't forget to make sure python plugin for neovim is installed:
-      " pip3 install pynvim
-
-      nmap <Space>ddd <Plug>VimspectorLaunch
-      " nmap <Space>ddd <Plug>VimspectorPause
-      " nmap <Space>da <Plug>VimspectorStop
-      nmap <Space>da <Plug>VimspectorReset
-      nmap <Space>dA :VimspectorReset<CR>
-
-      nmap <Space>dc <Plug>VimspectorContinue
-      nmap <M-.> <Plug>VimspectorContinue
-
-      nmap <Space>ds <Plug>VimspectorStepOver
-      nmap <M-;> <Plug>VimspectorStepOver
-
-      nmap <Space>di <Plug>VimspectorStepInto
-      nmap <M-'> <Plug>VimspectorStepInto
-
-      nmap <Space>do <Plug>VimspectorStepOut
-      nmap <M-,> <Plug>VimspectorStepOut
-
-      nmap <Space>dIt <Plug>VimspectorBalloonEval
-      nmap <Space>dv <Plug>VimspectorBalloonEval
-      nmap <M-=> <Plug>VimspectorBalloonEval
-      nmap <RightMouse> <Plug>VimspectorBalloonEval
-
-      nmap <Space>dbb <Plug>VimspectorToggleBreakpoint
-      nmap <Space>dba <Plug>VimspectorAddFunctionBreakpoint
-      nmap <Space>dwb <Plug>VimspectorBreakpoints
-  endif
 ]])
