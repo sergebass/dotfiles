@@ -5,11 +5,9 @@
 
 " Reuse our classic Vim configuration for NeoVim as well
 if has("win32")
-    set runtimepath^=~/vimfiles runtimepath+=~/vimfiles/after
-    let &packpath = &runtimepath
+    set runtimepath^=~/vimfiles
 else " Linux/Unix/OSX configuration
-    set runtimepath^=~/.vim runtimepath+=~/.vim/after
-    let &packpath = &runtimepath
+    set runtimepath^=~/.vim
 endif
 
 " load our Neovim-specific Lua configuration to finalize our setup
