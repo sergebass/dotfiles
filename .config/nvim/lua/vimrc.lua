@@ -279,15 +279,15 @@ vim.cmd([[
     " remember edit position and jump to it next time the same file is edited
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-    if exists("syntax_on")
-      syntax reset
-    endif
+    " if exists("syntax_on")
+    "   syntax reset
+    " endif
 
-    " Clear filetype flags before changing runtimepath to force Vim to reload them.
-    if exists("g:did_load_filetypes")
-        filetype off
-        filetype plugin indent off
-    endif
+    " " Clear filetype flags before changing runtimepath to force Vim to reload them.
+    " if exists("g:did_load_filetypes")
+    "     filetype off
+    "     filetype plugin indent off
+    " endif
 
     filetype plugin indent on
     syntax on
@@ -375,6 +375,9 @@ vim.cmd([[
 -------------------------------
 
 require('plugins-lazy')
+
+-- LSP (Language Server Protocol) support and other coding features
+require('sergebass-lsp')
 
 --------------------------------------------------------------------------------
 -- Apply workspace-specific settings, if available.
