@@ -2,44 +2,22 @@
 -- C-specific neovim configuration
 ----------------------------------
 
+-- Default ftplugin for C++ sources this C-specific script as well.
+-- We do not reuse C settings for C++ as a base, so abort right away.
+if vim.bo.filetype ~= 'c' then
+    return
+end
+
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.autoindent = true
+
+-- Do our formatting using clang-format and the '=' command
+vim.opt_local.equalprg = "clang-format"
+
+-- TODO: refactor legacy keymaps to use Lua API instead of vim.cmd:
 vim.cmd([[
-  setlocal expandtab
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal autoindent
-
-  " use // for commenting with vim-commentary (C99+ supports them)
-  setlocal commentstring=//\ %s
-
-  " Only use valid C identifier characters
-  setlocal iskeyword=@,48-57,_
-
-  " NOTE that if you are using Plug mapping you should not use `noremap` mappings
-
-  " we need that comment mark at the end since this on-hover function does not accept arguments but uses the word under cursor
-  " setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
-
-  " setlocal omnifunc=ccomplete#Complete
-
-  nmap <buffer> <silent> K \K
-
-  nmap <buffer> <silent> <CR> \gd
-
-  " do our formatting using clang-format and the '=' command
-  setlocal equalprg=clang-format
-
-  function! SwitchCSourceHeader()
-    if (expand ("%:e") == "c")
-      return expand("%:t:r") . ".h"
-    else
-      return expand("%:t:r") . ".c"
-    endif
-  endfunction
-
-  " alternative method for switching between sources and headers
-  nmap <buffer> \\` :find <C-r>=SwitchCSourceHeader()<CR><CR>
-  nmap <buffer> \\~ :vert sfind <C-r>=SwitchCSourceHeader()<CR><CR>
-
   nnoremap <buffer> <F1> :!sp-open "https://en.cppreference.com/w/c"<CR>
   nnoremap <buffer> <M-F1> :!sp-open "http://www.cplusplus.com/reference/clibrary/"<CR>
 

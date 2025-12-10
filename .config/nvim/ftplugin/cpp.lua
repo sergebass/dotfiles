@@ -2,125 +2,32 @@
 -- C++-specific neovim configuration
 ------------------------------------
 
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.autoindent = true
+
+-- Do our formatting using clang-format and the '=' command
+vim.opt_local.equalprg = "clang-format"
+
+-- TODO: refactor legacy keymaps to use Lua API instead of vim.cmd:
 vim.cmd([[
-  " FIXME ALE configuration for C++
-  " let b:ale_linters = ['cc', 'clangd']
-
-  " let g:ale_cpp_cc_executable = 'g++-12'
-  " let g:ale_cpp_cc_header_exts = ['h', 'hpp']
-  " let g:ale_cpp_cc_options = '-std=c++23 -Wall'
-  " let g:ale_cpp_cc_use_header_lang_flag = -1
-
-  " let g:ale_cpp_ccls_executable = 'ccls'
-  " let g:ale_cpp_ccls_init_options = {}
-
-  " let g:ale_cpp_clangcheck_executable = 'clang-check'
-  " let g:ale_cpp_clangcheck_options = ''
-
-  " let g:ale_cpp_clangd_executable = 'clangd'
-  " let g:ale_cpp_clangd_options = ''
-
-  " let g:ale_cpp_clangtidy_checks = []
-  " let g:ale_cpp_clangtidy_executable = 'clang-tidy'
-  " let g:ale_cpp_clangtidy_extra_options = ''
-  " let g:ale_cpp_clangtidy_options = ''
-
-  " let g:ale_cpp_clazy_checks = ['level1']
-  " let g:ale_cpp_clazy_executable = 'clazy-standalone'
-  " let g:ale_cpp_clazy_options = ''
-
-  " let g:ale_cpp_cppcheck_executable = 'cppcheck'
-  " let g:ale_cpp_cppcheck_options = '--enable=style'
-
-  " let g:ale_cpp_cpplint_executable = 'cpplint'
-  " let g:ale_cpp_cpplint_options = ''
-
-  " let g:ale_cpp_cquery_cache_directory = '/home/sergii/.cache/cquery'
-  " let g:ale_cpp_cquery_executable = 'cquery'
-
-  " let g:ale_cpp_flawfinder_executable = 'flawfinder'
-  " let g:ale_cpp_flawfinder_minlevel = 1
-  " let g:ale_cpp_flawfinder_options = ''
-
-  setlocal expandtab
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal autoindent
-
-  " for some reason vim-commentary uses /* */ C-style commenting, but let's use // instead
-  setlocal commentstring=//\ %s
-
-  " Only use valid C++ identifier characters
-  setlocal iskeyword=@,48-57,_
-
-  " NOTE that if you are using Plug mapping you should not use `noremap` mappings
-
-  " we need that comment mark at the end since this on-hover function does not accept arguments but uses the word under cursor
-  " FIXME use LSPHover instead
-  " setlocal keywordprg=:call\ LanguageClient#textDocument_hover()\ \"
-
-  " setlocal omnifunc=ccomplete#Complete
-
-  nmap <buffer> <silent> K \K
-
-  nmap <buffer> <silent> <CR> \gd
-
-  " do our formatting using clang-format and the '=' command
-  setlocal equalprg=clang-format
-
-  function! SwitchCppSourceHeader()
-    if (expand ("%:e") == "cpp")
-      return expand("%:t:r") . ".h"
-    else
-      return expand("%:t:r") . ".cpp"
-    endif
-  endfunction
-
-  " alternative method for switching between sources and headers
-  nmap <buffer> \\` :find <C-r>=SwitchCppSourceHeader()<CR><CR>
-  nmap <buffer> \\~ :vert sfind <C-r>=SwitchCppSourceHeader()<CR><CR>
-
-  " Add highlighting for function definition in C++ (adapted from vim.fandom.com)
-  highlight CppMethodDefinition term=inverse cterm=inverse gui=inverse
-  function! EnhanceCppSyntax()
-    syntax match cppMethodDefinition "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
-    highlight default link cppMethodDefinition CppMethodDefinition
-  endfunction
-
-  autocmd Syntax cpp call EnhanceCppSyntax()
-
-  " jump to next/previous method definition (adapted from vim.fandom.com)
+  " Jump to next/previous method definition (adapted from vim.fandom.com)
   nnoremap <buffer> <silent> <C-j> /\v^(\w+\s+)?\w+::\w+\(.*\)<CR>
   nnoremap <buffer> <silent> <C-k> ?\v^(\w+\s+)?\w+::\w+\(.*\)<CR>
 
-  nnoremap <buffer> \\<F1> :!sp-open "https://en.cppreference.com/w/cpp"<CR>
+  nnoremap <buffer> <F1> :!sp-open "https://en.cppreference.com/w/cpp"<CR>
+  nnoremap <buffer> <M-F1> :!sp-open "http://www.cplusplus.com/reference/"<CR>
 
-  " search the word under cursor in cppreference.com reference (using browser)
+  " Search the word under cursor in cppreference.com reference (using browser)
   nnoremap <buffer> \\?1 :!sp-open "https://en.cppreference.com/mwiki/index.php?search=<C-r>=expand("<cword>")<CR>"<Left>
   vnoremap <buffer> \\?1 "*y<Esc>:!sp-open "https://en.cppreference.com/mwiki/index.php?search=<C-r>*"<Left>
 
-  " search the word under cursor in cplusplus.com reference (using browser)
+  " Search the word under cursor in cplusplus.com reference (using browser)
   nnoremap <buffer> \\?2 :!sp-open "http://www.cplusplus.com/search.do?q=<C-r>=expand("<cword>")<CR>"<Left>
   vnoremap <buffer> \\?2 "*y<Esc>:!sp-open "http://www.cplusplus.com/search.do?q=<C-r>*"<Left>
 
-  " SPC m D   disaster: disassemble c/c++ code
-
-  " LanguageClient#textDocument_typeDefinition()
-  " LanguageClient#textDocument_implementation()
-  " LanguageClient#textDocument_documentSymbol()
-  " LanguageClient#textDocument_references()
-  " LanguageClient#textDocument_codeAction()
-  " LanguageClient#textDocument_completion()
-  " LanguageClient#textDocument_formatting()
-  " LanguageClient#textDocument_rangeFormatting()
-  " LanguageClient#textDocument_documentHighlight()
-  " LanguageClient#clearDocumentHighlight()
-  " LanguageClient#workspace_symbol()
-  " LanguageClient#workspace_applyEdit()
-  " LanguageClient#workspace_()
-  " LanguageClient#workspace_()
-
-  " Key bindings from develop.spacemacs.org
+  " Key bindings from develop.spacemacs.org (FIXME: migrate to Lua API whatever is available/makes sense)
   " ---------------------------------------
   " 3 Key bindings
   " Key binding   Description
