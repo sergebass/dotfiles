@@ -644,7 +644,8 @@ vim.keymap.set('n', '\\gK', function()
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
 -- Custom keymaps for Telescope searcher
--- FIXME: add many more mappings here, especially for LSP etc.
+-- FIXME: add many more mappings here, especially for LSP etc. Choose from this list:
+-- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#pickers
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<Space>ff', telescope.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<Space>pf', telescope.git_files, { desc = 'Telescope find git files' })
