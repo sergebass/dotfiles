@@ -60,10 +60,22 @@ return {
           vim.cmd.ClangdSwitchSourceHeader()
         end, { desc = 'Clangd: header-source file toggle' })
 
+        -- Use \~ to switch between header and source files in C and C++ in a vsplit
+        vim.keymap.set('n', '\\~', function()
+          vim.cmd.vsplit()
+          vim.cmd.ClangdSwitchSourceHeader()
+        end, { desc = 'Clangd: header-source file toggle (in a vsplit window)' })
+
         -- Use Space+mga to switch between header and source files in C and C++ (spacemacs style)
         vim.keymap.set('n', '<Space>mga', function()
           vim.cmd.ClangdSwitchSourceHeader()
         end, { desc = 'Clangd: header-source file toggle' })
+
+        -- Use Space+mgA to switch between header and source files in C and C++ in a vsplit (spacemacs style)
+        vim.keymap.set('n', '<Space>mgA', function()
+          vim.cmd.vsplit()
+          vim.cmd.ClangdSwitchSourceHeader()
+        end, { desc = 'Clangd: header-source file toggle (in a vsplit window)' })
       end
     },
 
