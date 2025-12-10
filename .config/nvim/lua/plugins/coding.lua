@@ -48,6 +48,25 @@ return {
         end
     },
 
+    -- Clangd's off-spec features for neovim's LSP client.
+    -- Use https://sr.ht/~p00f/clangd_extensions.nvim instead.
+    {
+      'p00f/clangd_extensions.nvim',
+      config = function()
+        require('clangd_extensions').setup()
+
+        -- Use \` to switch between header and source files in C and C++
+        vim.keymap.set('n', '\\`', function()
+          vim.cmd.ClangdSwitchSourceHeader()
+        end, { desc = 'Clangd: header-source file toggle' })
+
+        -- Use Space+mga to switch between header and source files in C and C++ (spacemacs style)
+        vim.keymap.set('n', '<Space>mga', function()
+          vim.cmd.ClangdSwitchSourceHeader()
+        end, { desc = 'Clangd: header-source file toggle' })
+      end
+    },
+
     -- dadbod.vim: Modern database interface for Vim
     { 'tpope/vim-dadbod' },
 
