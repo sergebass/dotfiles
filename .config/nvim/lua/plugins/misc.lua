@@ -278,7 +278,6 @@ return {
       end,
     },
 
-
     -- Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
     { 'junegunn/vim-easy-align' },
 

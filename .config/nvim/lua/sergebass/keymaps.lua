@@ -97,7 +97,7 @@ vim.cmd([[
   noremap <Space>qq <Cmd>qa<CR>
   noremap <Space>qQ <Cmd>qa!<CR>
 
-  noremap <Space>ff <Cmd>Files!<CR>
+  " noremap <Space>ff <Cmd>Files!<CR>
   noremap <Space>fr <Cmd>call fzf#vim#history(1)<CR>
   noremap <Space>fs <Cmd>w<CR>
   noremap <Space>fS <Cmd>wa<CR>
@@ -111,7 +111,7 @@ vim.cmd([[
       noremap <Space>fei <Cmd>new<CR>:e ~/.vim/vimrc<CR>
   endif
 
-  noremap <Space>bb <Cmd>call fzf#vim#buffers(1)<CR>
+  " noremap <Space>bb <Cmd>call fzf#vim#buffers(1)<CR>
   noremap <Space>bd <Cmd>bdelete<CR>
   noremap <Space>bn <Cmd>bnext<CR>
   noremap <Space>bp <Cmd>bprev<CR>
@@ -194,7 +194,7 @@ vim.cmd([[
   " search the web using Wikipedia (English)
   nnoremap <Space>sww :!sp-open "https://en.wikipedia.org/w/index.php?search=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
 
-  nnoremap <Space>pf :GFiles!<CR>
+  " nnoremap <Space>pf :GFiles!<CR>
   nnoremap <Space>pr :GFiles?<CR>
   nnoremap <Space>pt :NERDTreeFind<CR>
   nnoremap <Space>pg :Tags!<CR>
@@ -642,3 +642,12 @@ vim.keymap.set('n', '\\gK', function()
   local new_config = not vim.diagnostic.config().virtual_lines
   vim.diagnostic.config({ virtual_lines = new_config })
 end, { desc = 'Toggle diagnostic virtual_lines' })
+
+-- Custom keymaps for Telescope searcher
+-- FIXME: add many more mappings here, especially for LSP etc.
+local telescope = require('telescope.builtin')
+vim.keymap.set('n', '<Space>ff', telescope.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<Space>pf', telescope.git_files, { desc = 'Telescope find git files' })
+vim.keymap.set('n', '<Space>bb', telescope.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
