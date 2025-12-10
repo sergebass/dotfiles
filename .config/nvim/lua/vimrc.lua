@@ -32,6 +32,8 @@ vim.opt.keymap = 'accents'
 vim.opt.iminsert = 0  -- 0 == :lmap is off and IM is off
 vim.opt.imsearch = -1  -- -1 == re-use the value of iminsert
 
+-- FIXME: Extract and refactor all vim.cmd calls into Lua
+
 -- Input abbreviations
 vim.cmd([[runtime sergebass/abbreviations.vim]])
 
@@ -169,8 +171,8 @@ vim.opt.inccommand = "nosplit"  -- Highlight text affected by a substitute comma
 -- then going up to the root directory
 vim.opt.tags = "./tags,tags;/"
 
--- Consider dashes as parts of a word (for CSS, lisps, package names etc.)
-vim.opt.iskeyword = vim.opt.iskeyword + "-"
+-- Consider dashes as parts of a word by default
+vim.opt.iskeyword:append("-")
 
 -- Pressing K in normal/visual mode will look up the word/selection using this command
 vim.opt.keywordprg = ":grep -ws"
@@ -260,7 +262,6 @@ vim.cmd([[autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax c
 -- Misc. TUI/GUI settings
 -------------------------
 
--- FIXME extract and refactor all vim.cmd calls
 vim.cmd([[
     " Automatically pick correct templates based on the specified file name extension
     augroup templates
@@ -332,7 +333,9 @@ vim.cmd([[
       let &t_EI = "\e[2 q"
     endif
 
-    " FIXME Uncomment when it's clear how to make this work with urxvt...
+    " FIXME: Does this still apply to Neovim?
+    " FIXME: Uncomment when it's clear how to make this work with urxvt...
+
     " if &term =~ '^xterm\\|rxvt'
     "   " use an orange cursor in insert mode
     "   let &t_SI = "\<Esc>]12;orange\x7"

@@ -533,15 +533,18 @@ vim.cmd([[
   cnoremap <M-\> <C-r>=expand("%:t")<CR>
   inoremap <M-\> <C-r>=expand("%:t")<CR>
 
+  " FIXME: change keymaps:
   " Jump to a symbol definition in a new window, with a vertical or horizontal split
   " Note that the <CR> keymap is defined elsewhere.
-  nmap \<CR> <C-W>v<CR>
-  nmap -<CR> <C-W>s<CR>
+  " nmap \<CR> <C-W>v<CR>
+  " nmap -<CR> <C-W>s<CR>
 
+  " FIXME: change keymaps:
   " Make it possible to jump to definitions using mouse
-  nmap <C-LeftMouse> <CR>
-  nmap <M-LeftMouse> \<CR>
-  nmap <M-C-LeftMouse> -<CR>
+  " Note that the <CR> keymap is defined elsewhere.
+  " nmap <C-LeftMouse> <CR>
+  " nmap <M-LeftMouse> \<CR>
+  " nmap <M-C-LeftMouse> -<CR>
 
   " search the word under cursor in external files (reference search)
   nnoremap \/ :let w=expand("<cword>")<CR><CR>:grep! -s -w <C-r>=w<CR>
@@ -618,17 +621,9 @@ vim.cmd([[
   let g:multi_cursor_skip_key            = '<C-x>'
   let g:multi_cursor_quit_key            = '<Esc>'
 
-  " -----------------------------------------------------
-  " Spacemacs-style keymaps shared between neovim and vim
-  " -----------------------------------------------------
-
-  " FIXME only apply to C and C++?
-
-  " switch to another/accompanying source (e.g. source-header) file in the same window
-  nmap <Space>mga <Cmd>call LanguageClient#textDocument_switchSourceHeader()<CR>
-
-  " switch to another/accompanying source (e.g. source-header) file in a vertical split
-  nmap <silent> <Space>mgA :vsplit <bar> call LanguageClient#textDocument_switchSourceHeader()<CR>
+  " -----------------------
+  " Spacemacs-style keymaps
+  " -----------------------
 
   " SPC m g f     find file at point (ffap)
   nmap <silent> <Space>mgf gf
@@ -644,11 +639,12 @@ vim.keymap.set('n', '\\gK', function()
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
 -- Custom keymaps for Telescope searcher
--- FIXME: add many more mappings here, especially for LSP etc. Choose from this list:
+
+-- FIXME: add many more mappings here. Choose from this list:
 -- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#pickers
-local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<Space>ff', telescope.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<Space>pf', telescope.git_files, { desc = 'Telescope find git files' })
-vim.keymap.set('n', '<Space>bb', telescope.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
+local pickers = require('telescope.builtin')
+vim.keymap.set('n', '<Space>ff', pickers.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<Space>pf', pickers.git_files, { desc = 'Telescope find git files' })
+vim.keymap.set('n', '<Space>bb', pickers.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fg', pickers.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fh', pickers.help_tags, { desc = 'Telescope help tags' })
