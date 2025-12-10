@@ -128,6 +128,12 @@ return {
     },
   },
 
+  -- Fuzzy Finder and more ("Find, Filter, Preview, Pick. All lua, all the time. ")
+  {
+    'nvim-telescope/telescope.nvim', tag = 'v0.2.0',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+
   -- More useful word motions for Vim
   { 'chaoren/vim-wordmotion' },
 
