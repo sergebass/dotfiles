@@ -189,6 +189,7 @@
       ccache  # C++ compiler cache
       ccls  # C/C++ language server powered by clang
       cheese  # Take photos and videos with your webcam, with fun graphical effects
+      clang  # C language family frontend for LLVM (wrapper script)
       clang-tools  # Standalone command line tools for C++ development (clangd, clang-format etc.)
       cmake
       cmake-language-server  # CMake LSP Implementation
