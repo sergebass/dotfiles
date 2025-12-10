@@ -12,9 +12,9 @@ vim.diagnostic.handlers.loclist = {
 }
 
 -- Open the location list on every diagnostic change (warnings/errors only).
-vim.diagnostic.config({
-  loclist = {
-    open = true,
-    severity = { min = vim.diagnostic.severity.WARN },
-  }
-})
+-- vim.diagnostic.config({
+--   loclist = {
+--     open = true,
+--     severity = { min = vim.diagnostic.severity.WARN },
+--   }
+-- })
