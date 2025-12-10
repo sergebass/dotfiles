@@ -636,3 +636,9 @@ vim.cmd([[
   " SPC m g F     ffap other window
   nmap <silent> <Space>mgF gF
 ]])
+
+-- Toggle virtual_lines for diagnostics (as suggested by the neovim docs)
+vim.keymap.set('n', '\\gK', function()
+  local new_config = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = new_config })
+end, { desc = 'Toggle diagnostic virtual_lines' })
