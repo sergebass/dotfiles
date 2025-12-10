@@ -370,6 +370,12 @@ vim.cmd([[
 
 require('plugins-lazy')
 
+----------------------------------
+-- Custom diagnostic configuration
+----------------------------------
+
+require('sergebass.diagnostic')
+
 --------------------------
 -- Custom kyboard mappings
 --------------------------
