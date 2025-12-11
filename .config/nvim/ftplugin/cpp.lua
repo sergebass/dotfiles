@@ -10,6 +10,9 @@ vim.opt_local.autoindent = true
 -- Do our formatting using clang-format and the '=' command
 vim.opt_local.equalprg = "clang-format"
 
+-- Jump to definition of the symbol under cursor
+vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
+
 -- TODO: refactor legacy keymaps to use Lua API instead of vim.cmd:
 vim.cmd([[
   " Jump to next/previous method definition (adapted from vim.fandom.com)
