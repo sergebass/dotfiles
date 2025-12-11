@@ -102,7 +102,7 @@ vim.cmd([[
   noremap <Space>fs <Cmd>w<CR>
   noremap <Space>fS <Cmd>wa<CR>
   nnoremap <Space>fy <C-G>
-  noremap <Space>ft <Cmd>NERDTreeToggle<CR>
+  noremap <Space>ft <Cmd>NvimTreeToggle<CR>
   noremap <Space>fed <Cmd>new<CR>:e $MYVIMRC<CR>
 
   if has("win32")
@@ -196,7 +196,7 @@ vim.cmd([[
 
   " nnoremap <Space>pf :GFiles!<CR>
   nnoremap <Space>pr :GFiles?<CR>
-  nnoremap <Space>pt :NERDTreeFind<CR>
+  nnoremap <Space>pt <Cmd>NvimTreeFindFile<CR>
   nnoremap <Space>pg :Tags!<CR>
   nnoremap <Space>pc :make<CR>
   nnoremap <Space>pr :make clean<CR>
@@ -440,18 +440,9 @@ vim.cmd([[
   noremap \fzm <Cmd>Marks<CR>
   noremap \fzc <Cmd>Commands<CR>
 
-  " using CtrlP
-  noremap \pr <Cmd>CtrlPMRUFiles<CR>
-  noremap \pf <Cmd>CtrlP<CR>
-  noremap \pb <Cmd>CtrlPBuffer<CR>
-  noremap \pt <Cmd>CtrlPTag<CR>
-  noremap \pm <Cmd>CtrlPBookmark<CR>
-  noremap \pc <Cmd>CtrlPChange<CR>
-  noremap \px <Cmd>CtrlPMixed<CR>
-
-  " using NERDTree
-  noremap \<Tab> <Cmd>NERDTreeFind<CR>
-  " noremap \<M-Tab> <Cmd>NERDTreeToggle<CR>
+  " using NvimTree
+  noremap \<Tab> <Cmd>NvimTreeFindFile<CR>
+  noremap \<M-Tab> <Cmd>NvimTreeToggle<CR>
 
   " using netrw
   noremap \<M-Tab> <Cmd>Lexplore<CR>
@@ -459,9 +450,6 @@ vim.cmd([[
   noremap \fr <Cmd>browse oldfiles<CR>
   nnoremap  \lf :LocateFiles<Space>
   nnoremap  \ff :FindFiles<Space>
-
-  " local tag navigation
-  noremap gO <Cmd>BTags!<CR>
 
   noremap \<BS> <Cmd>TagbarOpen fjc<CR>
   " noremap \<M-BS> <Cmd>TagbarToggle<CR>

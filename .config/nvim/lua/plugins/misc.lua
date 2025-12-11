@@ -134,6 +134,50 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
+  -- A file explorer tree for Neovim written in Lua
+  {
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      require("nvim-tree").setup({
+        sort = {
+          sorter = "case_sensitive",
+        },
+        view = {
+          width = 30,
+        },
+        renderer = {
+          group_empty = true,
+        },
+        filters = {
+          dotfiles = true,
+        },
+        on_attach = function(bufnr)
+          local api = require('nvim-tree.api')
+
+          local function opts(desc)
+            return { desc = 'NvimTree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+          end
+
+          -- Default key mappings
+          api.config.mappings.default_on_attach(bufnr)
+
+          -- Custom key mappings
+          vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+          vim.keymap.set('n', '<F1>', api.tree.toggle_help, opts('Help'))
+          vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up to Parent Directory'))
+        end,
+      })
+
+      -- Configure NvimTree highlight groups
+      -- vim.cmd([[
+      --     :hi      NvimTreeExecFile    guifg=#ffa0a0
+      --     :hi      NvimTreeSpecialFile guifg=#ff80ff gui=underline
+      --     :hi      NvimTreeSymlink     guifg=Yellow  gui=italic
+      --     :hi link NvimTreeImageFile   Title
+      -- ]])
+    end,
+  },
+
   -- More useful word motions for Vim
   { 'chaoren/vim-wordmotion' },
 
@@ -238,20 +282,6 @@ return {
   -- Find-and-Replace (in multiple files)
   -- { 'brooth/far.vim' },
 
-  -- A tree explorer plugin for vim.
-  {
-    'scrooloose/nerdtree',
-    setup = function()
-      vim.cmd([[
-      let g:NERDTreeMapHelp='<F1>' " do not use ? for help, we need it for reverse search in the window
-      let g:NERDTreeShowLineNumbers=1
-      let g:NERDTreeShowHidden=1
-      let g:NERDTreeWinSize=64
-      let g:NERDTreeQuitOnOpen=1 " close NERDtree window after opening a file
-      ]])
-    end,
-  },
-
   -- A Sublime-like minimap for VIM, based on the Drawille console-based drawing library
   { 'severin-lemaignan/vim-minimap' },
 
@@ -288,7 +318,6 @@ return {
     -- " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
     -- " " On-demand loading
-    -- " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     -- " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
     -- " " Using a non-master branch
@@ -322,9 +351,6 @@ return {
 
     -- " Vim bookmark plugin
     -- Plug 'MattesGroeger/vim-bookmarks'
-
-    -- " (Repo archived) A plugin of NERDTree showing git status
-    -- Plug 'Xuyuanp/nerdtree-git-plugin'
 
     -- " Search local vimrc files (".lvimrc") in the tree (root dir up to current dir) and load them.
     -- Plug 'embear/vim-localvimrc'

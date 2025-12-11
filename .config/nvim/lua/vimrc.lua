@@ -197,13 +197,21 @@ end
 vim.opt.grepprg = "rg -L --sort path --ignore --hidden --vimgrep $*"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
+----------------
+-- File browsing
+----------------
+
 -- NetRW settings
 
 -- Use detailed listing style for netrw
 vim.g.netrw_liststyle = 1
 
--- netrw browser uses tabs to display file lists and this looks really bad with tab highlighting
+-- NetRW browser uses tabs to display file lists and this looks really bad with tab highlighting
 vim.cmd([[autocmd FileType netrw set nolist]])
+
+-- Disable NetRW to avoid clashing with nvim-tree and/or other file explorer plugins
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 ---------------------------------------------------
 -- File creation and reading (filetype tweaks etc.)
