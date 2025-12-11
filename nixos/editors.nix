@@ -65,8 +65,24 @@ in {
         start = [
           fugitive  # fugitive.vim: A Git wrapper so awesome, it should be illegal (https://github.com/tpope/vim-fugitive)
           fzf-vim  #  fzf + vim (https://github.com/junegunn/fzf.vim)
+          nvim-scrollbar
+          nvim-tree-lua
+          nvim-treesitter
+          orgmode  # Orgmode clone written in Lua for Neovim 0.11.0+.
+          rainbow_parentheses-vim
+          tagbar
+          telescope-fzf-native-nvim  # FZF sorter for telescope.nvim
+          telescope-nvim  # Find, Filter, Preview, Pick. All lua, all the time.
+          todo-comments-nvim
+          trouble-nvim
+          vim-commentary
+          vim-gutentags
           vim-obsession  # obsession.vim: continuously updated session files (https://github.com/tpope/vim-obsession)
-          vim-plug  # Minimalist Vim Plugin Manager (https://github.com/junegunn/vim-plug)
+          vim-oscyank
+          vim-surround
+          vim-tmux
+          vim-unimpaired
+          which-key-nvim
         ];
         # Manually loadable by calling `:packadd $plugin-name`
         opt = [
