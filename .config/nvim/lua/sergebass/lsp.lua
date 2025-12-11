@@ -115,6 +115,11 @@ vim.keymap.set('n', '<Space>mgC', pickers.lsp_outgoing_calls, { desc = 'LSP: Fin
 
 vim.keymap.set('n', '\\*', vim.lsp.buf.document_highlight, { desc = 'LSP: Highlight all occurrences of symbol' })
 
+-- Diagnostics
+vim.keymap.set('n', '\\!', function()
+  pickers.diagnostics({ bufnr = 0 })  -- Only for current buffer
+end, { desc = 'LSP: Diagnostics for buffer' })
+vim.keymap.set('n', '\\$', pickers.diagnostics, { desc = 'LSP: Diagnostics for project/workspace' })
 
 -- vim.keymap.set('n', '\\KK', vim.lsp.buf.signature_help, { desc = 'LSP: Signature help' })
 
