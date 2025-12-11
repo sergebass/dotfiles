@@ -50,9 +50,8 @@ vim.lsp.enable('ccls')
 vim.lsp.config("clangd", {
     cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--enable-config'},
     filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
-    -- root_markers = { '.git' },
+    root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
     init_options = {
-        -- fallback_flags = { '-std=c++23', '-I/usr/include/c++/12' },
         fallback_flags = { '-std=c++23' },
         -- compilationDatabaseDirectory = "build";
         index = {
