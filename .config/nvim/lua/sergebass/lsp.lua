@@ -79,6 +79,8 @@ vim.lsp.enable('ts_ls')
 -- Keyboard mappings for LSP functions
 --------------------------------------
 
+local pickers = require('telescope.builtin')
+
 -- Jump to definition of the symbol under cursor
 vim.keymap.set('n', '\\<CR>', vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })
 
@@ -90,12 +92,12 @@ vim.keymap.set('n', '\\K', vim.lsp.buf.hover, { desc = 'LSP: Hover over symbol' 
 vim.keymap.set('n', '<Space>mhh', vim.lsp.buf.hover, { desc = 'LSP: Hover over symbol' })
 
 -- Jump to definition of the symbol under cursor
-vim.keymap.set('n', '\\gd', vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })
-vim.keymap.set('n', '<Space>mgg', vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '\\gd', pickers.lsp_definitions, { desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '<Space>mgg', pickers.lsp_definitions, { desc = 'LSP: Go to definition' })
 
 vim.keymap.set('n', '\\gD', vim.lsp.buf.declaration, { desc = 'LSP: Go to declaration' })
-vim.keymap.set('n', '\\gt', vim.lsp.buf.type_definition, { desc = 'LSP: Go to type definition' })
-vim.keymap.set('n', '\\gi', vim.lsp.buf.implementation, { desc = 'LSP: Go to implementation' })
+vim.keymap.set('n', '\\gt', pickers.lsp_type_definitions, { desc = 'LSP: Go to type definition' })
+vim.keymap.set('n', '\\gi', pickers.lsp_implementations, { desc = 'LSP: Go to implementation' })
 vim.keymap.set('n', '\\gO', pickers.lsp_document_symbols, { desc = 'LSP: Pick symbol in current document' })
 vim.keymap.set('n', '\\go', pickers.lsp_workspace_symbols, { desc = 'LSP: Pick symbol in current project/workspace' })
 
@@ -103,13 +105,13 @@ vim.keymap.set('n', '\\go', pickers.lsp_workspace_symbols, { desc = 'LSP: Pick s
 vim.keymap.set('n', '\\=', vim.lsp.buf.rename, { desc = 'LSP: Rename symbol' })
 vim.keymap.set('n', '<Space>mrr', vim.lsp.buf.rename, { desc = 'LSP: Rename symbol' })
 
-vim.keymap.set('n', '\\^', vim.lsp.buf.references, { desc = 'LSP: Find references to symbol' })
+vim.keymap.set('n', '\\^', pickers.lsp_references, { desc = 'LSP: Find references to symbol' })
 
 -- Find callers
-vim.keymap.set('n', '<Space>mgc', vim.lsp.buf.incoming_calls, { desc = 'LSP: Find callers' })
+vim.keymap.set('n', '<Space>mgc', pickers.lsp_incoming_calls, { desc = 'LSP: Find callers' })
 
 -- Find callees
-vim.keymap.set('n', '<Space>mgC', vim.lsp.buf.outgoing_calls, { desc = 'LSP: Find callees' })
+vim.keymap.set('n', '<Space>mgC', pickers.lsp_outgoing_calls, { desc = 'LSP: Find callees' })
 
 vim.keymap.set('n', '\\*', vim.lsp.buf.document_highlight, { desc = 'LSP: Highlight all occurrences of symbol' })
 
