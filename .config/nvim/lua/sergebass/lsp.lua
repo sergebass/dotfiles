@@ -75,49 +75,43 @@ vim.lsp.config('ts_ls', {
 
 vim.lsp.enable('ts_ls')
 
+--------------------------------------
 -- Keyboard mappings for LSP functions
-vim.cmd([[
-  " jump to definition of the symbol under cursor
-  nmap \<CR> <Cmd>lua vim.lsp.buf.definition()<CR>
+--------------------------------------
 
-  nmap \<Bar> <Cmd>lua vim.lsp.buf.code_action()<CR>
+-- Jump to definition of the symbol under cursor
+vim.keymap.set('n', '\\<CR>', vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })
 
-  nmap \K <Cmd>lua vim.lsp.buf.hover()<CR>
-  nmap \gt <Cmd>lua vim.lsp.buf.type_definition()<CR>
-  nmap \gd <Cmd>lua vim.lsp.buf.definition()<CR>
-  nmap \gD <Cmd>lua vim.lsp.buf.declaration()<CR>
-  nmap \gi <Cmd>lua vim.lsp.buf.implementation()<CR>
-  nmap \gO <Cmd>lua vim.lsp.buf.document_symbol()<CR>
-  nmap \go <Cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-  nmap \= <Cmd>lua vim.lsp.buf.rename()<CR>
-  nmap \^ <Cmd>lua vim.lsp.buf.references()<CR>
-  nmap \* <Cmd>lua vim.lsp.buf.document_highlight()<CR>
-  nmap \+ <Plug>(lcn-explain-error)
+-- Note that <Bar> is the `|` character
+vim.keymap.set('n', '\\<Bar>', vim.lsp.buf.code_action, { desc = 'LSP: Perform code action' })
 
-  " -----------------------
-  " Spacemacs-style keymaps
-  " -----------------------
+-- Display information about symbol under cursor
+vim.keymap.set('n', '\\K', vim.lsp.buf.hover, { desc = 'LSP: Hover over symbol' })
+vim.keymap.set('n', '<Space>mhh', vim.lsp.buf.hover, { desc = 'LSP: Hover over symbol' })
 
-  " jump to definition of the symbol under cursor
-  nmap <Space>mgg <Cmd>lua vim.lsp.buf.definition()<CR>
+-- Jump to definition of the symbol under cursor
+vim.keymap.set('n', '\\gd', vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '<Space>mgg', vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })
 
-  " rename symbol under cursor
-  nmap <Space>mrr <Cmd>lua vim.lsp.buf.rename()<CR>
+vim.keymap.set('n', '\\gD', vim.lsp.buf.declaration, { desc = 'LSP: Go to declaration' })
+vim.keymap.set('n', '\\gt', vim.lsp.buf.type_definition, { desc = 'LSP: Go to type definition' })
+vim.keymap.set('n', '\\gi', vim.lsp.buf.implementation, { desc = 'LSP: Go to implementation' })
+vim.keymap.set('n', '\\gO', vim.lsp.buf.document_symbol, { desc = 'LSP: Pick symbol in current document' })
+vim.keymap.set('n', '\\go', vim.lsp.buf.workspace_symbol, { desc = 'LSP: Pick symbol in current project/workspace' })
 
-  " display help about symbol under cursor
-  nmap <Space>mhh <Cmd>lua vim.lsp.buf.hover()<CR>
+-- Rename symbol under cursor
+vim.keymap.set('n', '\\=', vim.lsp.buf.rename, { desc = 'LSP: Rename symbol' })
+vim.keymap.set('n', '<Space>mrr', vim.lsp.buf.rename, { desc = 'LSP: Rename symbol' })
 
-  " SPC m g &     find references (address)
-  " nmap <Space>mg& <Cmd>lua vim.lsp.buf.()<CR>
+vim.keymap.set('n', '\\^', vim.lsp.buf.references, { desc = 'LSP: Find references to symbol' })
 
-  " SPC m g R     find references (read)
-  " nmap <Space>mgR <Cmd>lua vim.lsp.buf.()<CR>
+-- Find callers
+vim.keymap.set('n', '<Space>mgc', vim.lsp.buf.incoming_calls, { desc = 'LSP: Find callers' })
 
-  " SPC m g W     find references (write)
-  " nmap <Space>mgW <Cmd>lua vim.lsp.buf.()<CR>
+-- Find callees
+vim.keymap.set('n', '<Space>mgC', vim.lsp.buf.outgoing_calls, { desc = 'LSP: Find callees' })
 
-  " SPC m g c     find callers
-  nmap <Space>mgc <Cmd>lua vim.lsp.buf.incoming_calls()<CR>
+vim.keymap.set('n', '\\*', vim.lsp.buf.document_highlight, { desc = 'LSP: Highlight all occurrences of symbol' })
 
   " SPC m g C     find callees
   nmap <Space>mgC <Cmd>lua vim.lsp.buf.outgoing_calls()<CR>
