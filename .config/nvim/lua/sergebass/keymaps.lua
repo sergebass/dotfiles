@@ -73,9 +73,6 @@ vim.cmd([[
   " nnoremap \# :mksession! Session
   " nnoremap \@ :source Session
 
-  noremap <C-N> <Cmd>Tags!<CR>
-  noremap <C-P> <Cmd>GFiles!<CR>
-
   nnoremap <BS> <C-O>
 
   " for quicker navigation between location with changes
@@ -86,9 +83,6 @@ vim.cmd([[
 
   nnoremap <Space><Tab> <C-^>
 
-  nnoremap <Space>h<Space> :h<CR>
-  noremap <Space>? <Cmd>Maps!<CR>
-  noremap <Space>hk <Cmd>Maps!<CR>
   nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
   noremap <Space>\? <Cmd>Commands!<CR>
@@ -96,8 +90,6 @@ vim.cmd([[
   noremap <Space>qq <Cmd>qa<CR>
   noremap <Space>qQ <Cmd>qa!<CR>
 
-  " noremap <Space>ff <Cmd>Files!<CR>
-  noremap <Space>fr <Cmd>call fzf#vim#history(1)<CR>
   noremap <Space>fs <Cmd>w<CR>
   noremap <Space>fS <Cmd>wa<CR>
   nnoremap <Space>fy <C-G>
@@ -107,7 +99,7 @@ vim.cmd([[
   if has("win32")
       noremap <Space>fei <Cmd>new<CR>:e ~/vimfiles/vimrc<CR>
   else
-      noremap <Space>fei <Cmd>new<CR>:e ~/.vim/vimrc<CR>
+      noremap <Space>fei <Cmd>new<CR>:e ~/.config/nvim/init.vim<CR>
   endif
 
   " noremap <Space>bb <Cmd>call fzf#vim#buffers(1)<CR>
@@ -193,10 +185,8 @@ vim.cmd([[
   " search the web using Wikipedia (English)
   nnoremap <Space>sww :!sp-open "https://en.wikipedia.org/w/index.php?search=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
 
-  " nnoremap <Space>pf :GFiles!<CR>
   nnoremap <Space>pr :GFiles?<CR>
   nnoremap <Space>pt <Cmd>NvimTreeFindFile<CR>
-  nnoremap <Space>pg :Tags!<CR>
   nnoremap <Space>pc :make<CR>
   nnoremap <Space>pr :make clean<CR>
   nnoremap <Space>pT :make test<CR>
@@ -625,16 +615,30 @@ vim.keymap.set('n', '\\gK', function()
   vim.diagnostic.config({ virtual_lines = new_config })
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
--- Custom keymaps for Telescope searcher
+-- Custom keymaps using Telescope searcher
 
 local pickers = require('telescope.builtin')
 
 vim.keymap.set('n', '<Space><Space>', pickers.command_history, { desc = 'Command history' })
 
+-- Looking for help and documentation
+vim.keymap.set('n', '<Space>h<Space>', pickers.help_tags, { desc = 'Help tags' })
+vim.keymap.set('n', '<Space>?', pickers.keymaps, { desc = 'Keymaps' })
+vim.keymap.set('n', '<Space>hk', pickers.keymaps, { desc = 'Keymaps' })
+vim.keymap.set('n', '<Space>hm', pickers.man_pages, { desc = 'Man pages' })
+
 -- FIXME: add many more mappings here. Choose from this list:
 -- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#pickers
-vim.keymap.set('n', '<Space>ff', pickers.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<Space>pf', pickers.git_files, { desc = 'Telescope find git files' })
-vim.keymap.set('n', '<Space>bb', pickers.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fg', pickers.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fh', pickers.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<Space>fr', pickers.oldfiles, { desc = 'Find recent files' })
+vim.keymap.set('n', '<Space>ff', pickers.find_files, { desc = 'Find files' })
+
+vim.keymap.set('n', '<C-P>', pickers.git_files, { desc = 'Find git files' })
+vim.keymap.set('n', '<Space>pf', pickers.git_files, { desc = 'Find git files' })
+
+vim.keymap.set('n', '<Space>bb', pickers.buffers, { desc = 'Open buffers' })
+
+vim.keymap.set('n', '<C-N>', pickers.current_buffer_tags, { desc = 'Current buffer tags' })
+
+vim.keymap.set('n', '<Space>pg', pickers.tags, { desc = 'Tags' })
+
+-- vim.keymap.set('n', '<leader>fg', pickers.live_grep, { desc = 'Live grep' })
