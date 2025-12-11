@@ -2,10 +2,12 @@
 
 local dap = require('dap')
 
-dap.adapters.cppdbg = {
-  id = 'cppdbg',
-  type = 'executable',
-  command = '/absolute/path/to/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+-- NOTE: this requires gdb with DAP support (version 14+)
+dap.adapters.gdb = {
+  type = "executable",
+  command = "gdb",
+  -- FIXME: suppress gdb-dashboard when used from Neovim (but keep custom prettifiers)
+  args = { "-i", "dap" }
 }
 
 dap.adapters.lldb = {
@@ -14,22 +16,40 @@ dap.adapters.lldb = {
   name = 'lldb'
 }
 
--- NOTE this requires gdb 14+
-dap.adapters.gdb = {
-  type = "executable",
-  command = "gdb",
-  args = { "-i", "dap" }
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = '/absolute/path/to/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
 }
 
 dap.configurations.cpp = {
   {
     -- If you get an "Operation not permitted" error using this, try disabling YAMA:
     --  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    name = "Attach to process",
-    type = 'cpp',  -- FIXME ? Adjust this to match your adapter name (`dap.adapters.<name>`)
+    name = "Attach to process (gdb)",
+    type = 'gdb',  -- Make sure to match your adapter name (`dap.adapters.<name>`)
     request = 'attach',
     pid = require('dap.utils').pick_process,
     args = {},
+  },
+  {
+    -- If you get an "Operation not permitted" error using this, try disabling YAMA:
+    --  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    name = "Attach to process (lldb)",
+    type = 'lldb',  -- Make sure to match your adapter name (`dap.adapters.<name>`)
+    request = 'attach',
+    pid = require('dap.utils').pick_process,
+    args = {},
+  },
+  {
+    name = "Launch gdb",
+    type = "gdb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = "${workspaceFolder}",
+    stopAtBeginningOfMainSubprogram = true,
   },
   {
     name = 'Launch lldb-vscode',
@@ -39,7 +59,7 @@ dap.configurations.cpp = {
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
     cwd = '${workspaceFolder}',
-    stopOnEntry = false,
+    stopOnEntry = true,
     args = {},
     -- lldb-vscode by default doesn't inherit the environment variables from the parent.
     env = function()
@@ -61,16 +81,6 @@ dap.configurations.cpp = {
     -- But you should be aware of the implications:
     -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
     -- runInTerminal = false,
-  },
-  {
-    name = "Launch gdb",
-    type = "gdb",
-    request = "launch",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = "${workspaceFolder}",
-    stopAtBeginningOfMainSubprogram = false,
   },
 }
 
@@ -111,9 +121,6 @@ dap.configurations.rust = dap.configurations.cpp
   --   command = os.getenv('HOME') .. '/.virtualenvs/tools/bin/python';
   --   args = { '-m', 'debugpy.adapter' };
   -- }
-
--- FIXME move to shortcuts
--- Inspecting the state via the built-in REPL: :lua require'dap'.repl.open() or using the widget UI (:help dap-widgets)
 
 vim.keymap.set('n', '<Space>dc', function() require('dap').continue() end)
 vim.keymap.set('n', '<M-.>', function() require('dap').continue() end)
@@ -170,12 +177,12 @@ vim.cmd([[
   nmap <Space>dr :DapRestartFrame<CR>
 
   nmap <Space>dIt :DapEval<CR>
-  " nmap <Space>dv :DapEval<CR>
-  " nmap <M-=> :DapEval<CR>
   nmap <RightMouse> :DapEval<CR>
 
-  " nmap <Space>dbb :DapToggleBreakpoint<CR>
-  " nmap <Space>dba :VimspectorAddFunctionBreakpoint<CR>
   " nmap <Space>dwb :VimspectorBreakpoints<CR>
   nmap <Space>dbD :DapClearBreakpoints<CR>
+
+  " Evaluate the word under the cursor, or if in visual mode, the currently highlighted text.
+  nnoremap <M-v> <Cmd>lua require("dapui").eval()<CR>
+  vnoremap <M-v> <Cmd>lua require("dapui").eval()<CR>
 ]])
