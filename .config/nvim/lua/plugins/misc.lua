@@ -218,12 +218,12 @@ return {
 
   -- Vim plugin that displays tags in a window, ordered by scope
   {
-    'majutsushi/tagbar',
+    'preservim/tagbar',
     config = function()
       vim.cmd([[
-      let g:tagbar_width=60
-      let g:tagbar_show_linenumbers=1 " show absolute line numbers
-      let g:tagbar_map_help='<F1>' " do not use ? for help, we need it for reverse search in the window
+        let g:tagbar_width=60
+        let g:tagbar_show_linenumbers=1 " show absolute line numbers
+        let g:tagbar_map_help='<F1>' " do not use ? for help, we need it for reverse search in the window
       ]])
     end,
   },
@@ -285,9 +285,6 @@ return {
   -- A Sublime-like minimap for VIM, based on the Drawille console-based drawing library
   { 'severin-lemaignan/vim-minimap' },
 
-  -- (Repo archived) Yet another EditorConfig (http://editorconfig.org) plugin for vim written in vimscript only
-  { 'sgur/vim-editorconfig' },
-
   {
     'nvim-orgmode/orgmode',
     event = 'VeryLazy',
@@ -332,15 +329,6 @@ return {
     -- " " Unmanaged plugin (manually installed and updated)
     -- " Plug '~/my-prototype-plugin'
     -- " Plug '/usr/share/lilypond/2.18.2/vim'
-
-    -- " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder.
-    -- "Plug 'ctrlpvim/ctrlp.vim'
-
-    -- "let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:100'
-    -- "let g:ctrlp_extensions = [
-    -- "\ 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
-    -- "\ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
-    -- "\ ]
 
     -- " Handles bracketed-paste-mode in vim (aka. automatic `:set paste`)
     -- Plug 'ConradIrwin/vim-bracketed-paste'
