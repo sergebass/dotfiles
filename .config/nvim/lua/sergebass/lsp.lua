@@ -113,10 +113,6 @@ vim.keymap.set('n', '<Space>mgC', vim.lsp.buf.outgoing_calls, { desc = 'LSP: Fin
 
 vim.keymap.set('n', '\\*', vim.lsp.buf.document_highlight, { desc = 'LSP: Highlight all occurrences of symbol' })
 
-  " SPC m g C     find callees
-  nmap <Space>mgC <Cmd>lua vim.lsp.buf.outgoing_calls()<CR>
 
-  " SPC m g v     vars
-  " nmap <Space>mgv <Cmd>lua vim.lsp.buf.()<CR>
+-- vim.keymap.set('n', '\\KK', vim.lsp.buf.signature_help, { desc = 'LSP: Signature help' })
 
-]])
