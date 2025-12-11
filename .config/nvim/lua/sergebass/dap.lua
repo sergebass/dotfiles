@@ -6,8 +6,8 @@ local dap = require('dap')
 dap.adapters.gdb = {
   type = "executable",
   command = "gdb",
-  -- FIXME: suppress gdb-dashboard when used from Neovim (but keep custom prettifiers)
-  args = { "-i", "dap" }
+  -- Suppress gdb-dashboard when used from Neovim (but keep custom prettifiers)
+  args = { "-i", "dap", "-ex", "dashboard -enabled off", }
 }
 
 dap.adapters.lldb = {
