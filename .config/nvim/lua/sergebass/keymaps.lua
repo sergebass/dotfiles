@@ -84,7 +84,6 @@ vim.cmd([[
 
   " emulate Spacemacs/SpaceVim
 
-  nnoremap <Space><Space> :
   nnoremap <Space><Tab> <C-^>
 
   nnoremap <Space>h<Space> :h<CR>
@@ -628,9 +627,12 @@ end, { desc = 'Toggle diagnostic virtual_lines' })
 
 -- Custom keymaps for Telescope searcher
 
+local pickers = require('telescope.builtin')
+
+vim.keymap.set('n', '<Space><Space>', pickers.command_history, { desc = 'Command history' })
+
 -- FIXME: add many more mappings here. Choose from this list:
 -- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#pickers
-local pickers = require('telescope.builtin')
 vim.keymap.set('n', '<Space>ff', pickers.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<Space>pf', pickers.git_files, { desc = 'Telescope find git files' })
 vim.keymap.set('n', '<Space>bb', pickers.buffers, { desc = 'Telescope buffers' })

@@ -96,8 +96,8 @@ vim.keymap.set('n', '<Space>mgg', vim.lsp.buf.definition, { desc = 'LSP: Go to d
 vim.keymap.set('n', '\\gD', vim.lsp.buf.declaration, { desc = 'LSP: Go to declaration' })
 vim.keymap.set('n', '\\gt', vim.lsp.buf.type_definition, { desc = 'LSP: Go to type definition' })
 vim.keymap.set('n', '\\gi', vim.lsp.buf.implementation, { desc = 'LSP: Go to implementation' })
-vim.keymap.set('n', '\\gO', vim.lsp.buf.document_symbol, { desc = 'LSP: Pick symbol in current document' })
-vim.keymap.set('n', '\\go', vim.lsp.buf.workspace_symbol, { desc = 'LSP: Pick symbol in current project/workspace' })
+vim.keymap.set('n', '\\gO', pickers.lsp_document_symbols, { desc = 'LSP: Pick symbol in current document' })
+vim.keymap.set('n', '\\go', pickers.lsp_workspace_symbols, { desc = 'LSP: Pick symbol in current project/workspace' })
 
 -- Rename symbol under cursor
 vim.keymap.set('n', '\\=', vim.lsp.buf.rename, { desc = 'LSP: Rename symbol' })
