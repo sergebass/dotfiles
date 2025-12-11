@@ -12,6 +12,7 @@ return {
   -- Highlight, list and search todo comments in your projects
   {
     "folke/todo-comments.nvim",
+    -- FIXME: configure
     opts = {},
   },
 
@@ -26,6 +27,7 @@ return {
       defaults = {},
       spec = {
         {
+          -- FIXME: revisit, this was auto-generated or pasted from somewhere:
           mode = { "n", "x" },
           { "<leader><tab>", group = "tabs" },
           { "<leader>c", group = "code" },

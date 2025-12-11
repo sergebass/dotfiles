@@ -104,10 +104,15 @@ dap.configurations.rust = dap.configurations.cpp
 --   }
 -- }
 
+-- FIXME: example taken from dap.txt; adapt to our Python setup
+  -- local dap = require('dap')
+  -- dap.adapters.debugpy = {
+  --   type = 'executable';
+  --   command = os.getenv('HOME') .. '/.virtualenvs/tools/bin/python';
+  --   args = { '-m', 'debugpy.adapter' };
+  -- }
+
 -- FIXME move to shortcuts
--- Setting breakpoints via :lua require'dap'.toggle_breakpoint().
--- Launching debug sessions and resuming execution via :lua require'dap'.continue().
--- Stepping through code via :lua require'dap'.step_over() and :lua require'dap'.step_into().
 -- Inspecting the state via the built-in REPL: :lua require'dap'.repl.open() or using the widget UI (:help dap-widgets)
 
 vim.keymap.set('n', '<Space>dc', function() require('dap').continue() end)
@@ -128,7 +133,7 @@ vim.keymap.set('n', '<Space>dba', function() require('dap').set_breakpoint() end
 
 vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
 
-vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+vim.keymap.set('n', '<Space>d\'_', function() require('dap').repl.open() end)
 
 vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
 
@@ -162,18 +167,6 @@ vim.cmd([[
   nmap <Space>da :DapTerminate<CR>
   nmap <Space>dA :DapTerminate<CR>
 
-  " nmap <Space>dc :DapContinue<CR>
-  " nmap <M-.> :DapContinue<CR>
-
-  " nmap <Space>ds :DapStepOver<CR>
-  " nmap <M-;> :DapStepOver<CR>
-
-  "nmap <Space>di :DapStepInto<CR>
-  "nmap <M-'> :DapStepInto<CR>
-
-  " nmap <Space>do :DapStepOut<CR>
-  " nmap <M-,> :DapStepOut<CR>
-
   nmap <Space>dr :DapRestartFrame<CR>
 
   nmap <Space>dIt :DapEval<CR>
@@ -185,6 +178,4 @@ vim.cmd([[
   " nmap <Space>dba :VimspectorAddFunctionBreakpoint<CR>
   " nmap <Space>dwb :VimspectorBreakpoints<CR>
   nmap <Space>dbD :DapClearBreakpoints<CR>
-
-  nmap <Space>d'_ :DapToggleRepl<CR>
 ]])
