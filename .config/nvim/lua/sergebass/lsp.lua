@@ -3,6 +3,7 @@
 vim.cmd([[
   set omnifunc=v:lua.vim.lsp.omnifunc
   set tagfunc=v:lua.vim.lsp.tagfunc
+  set formatexpr=v:lua.vim.lsp.formatexpr
 ]])
 
 -- Set default root markers for all clients
