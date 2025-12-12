@@ -263,6 +263,16 @@ return {
       end
     },
 
+    -- Gdb, LLDB, pdb/pdb++ and BASHDB integration with NeoVim (a very thin wrapper)
+    {
+      'sakhnik/nvim-gdb',
+      build = function()
+        vim.cmd([[
+          :!./install.sh \| UpdateRemotePlugins
+        ]])
+      end,
+    },
+
     -- dadbod.vim: Modern database interface for Vim
     { 'tpope/vim-dadbod' },
 
