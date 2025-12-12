@@ -223,7 +223,7 @@ return {
   {
     'github/copilot.vim',
     -- { branch = 'release' },
-    enabled = false, -- FIXME: toggle when the licensing is decided
+    -- enabled = false, -- FIXME: toggle when the licensing is decided
     config = function()
       vim.cmd([[
       " Use ^X+Tab instead of just Tab for Copilot suggestions
