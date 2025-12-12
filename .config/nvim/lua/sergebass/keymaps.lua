@@ -642,3 +642,18 @@ vim.keymap.set('n', '<C-N>', pickers.current_buffer_tags, { desc = 'Current buff
 vim.keymap.set('n', '<Space>pg', pickers.tags, { desc = 'Tags' })
 
 -- vim.keymap.set('n', '<leader>fg', pickers.live_grep, { desc = 'Live grep' })
+
+-- Shortcuts for folke/todo-comments:
+-- FIXME: change mappings:
+vim.keymap.set("n", "]`", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[`", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+-- You can also specify a list of valid jump keywords
+-- vim.keymap.set("n", "]t", function()
+  --   require("todo-comments").jump_next({keywords = { "ERROR", "WARNING" }})
+  -- end, { desc = "Next error/warning todo comment" })
