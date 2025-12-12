@@ -375,9 +375,6 @@ return {
     -- " one colorscheme pack to rule them all!
     -- Plug 'flazz/vim-colorschemes'
 
-    -- " support of native debuggers (gdb, lldb, pdb etc.)
-    -- " Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
-
     -- Supplies :DeleteHiddenBuffers command
     { 'arithran/vim-delete-hidden-buffers' },
 
