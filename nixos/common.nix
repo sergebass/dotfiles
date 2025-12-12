@@ -67,6 +67,8 @@
   };
 
   programs = {
+    nix-ld.enable = true;  # Run unpatched dynamic binaries on NixOS
+
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
