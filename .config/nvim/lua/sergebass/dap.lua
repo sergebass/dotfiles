@@ -5,22 +5,41 @@ local dap = require('dap')
 -- NOTE: this requires gdb with DAP support (version 14+)
 dap.adapters.gdb = {
   type = "executable",
-  command = "gdb",
+  command = "gdb",  -- Make sure it's on PATH
   -- Suppress gdb-dashboard when used from Neovim (but keep custom prettifiers)
   args = { "-i", "dap", "-ex", "dashboard -enabled off", }
 }
 
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/run/current-system/sw/bin/lldb-dap', -- must be absolute path; /usr/bin/lldb-vscode in FHS Linux
+  command = 'lldb-dap',  -- Make sure it's on PATH
   name = 'lldb'
+}
+
+dap.adapters.codelldb = {
+    type = "executable",
+    command = "codelldb",  -- Make sure it's on PATH
+
+    -- On windows you may have to uncomment this:
+    -- detached = false,
 }
 
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
-  command = '/absolute/path/to/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+  command = 'OpenDebugAD7',  -- Make sure it's on PATH
 }
+
+-- FIXME: example taken from dap.txt; adapt to our Python setup
+-- dap.adapters.debugpy = {
+--   type = 'executable';
+--   command = os.getenv('HOME') .. '/.virtualenvs/tools/bin/python';
+--   args = { '-m', 'debugpy.adapter' };
+-- }
+
+---------------------------
+-- Basic DAP configurations
+---------------------------
 
 dap.configurations.cpp = {
   {
@@ -48,18 +67,20 @@ dap.configurations.cpp = {
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
+    -- TODO: ask for arguments?
+    args = {},
     cwd = "${workspaceFolder}",
-    stopAtBeginningOfMainSubprogram = true,
+    -- stopAtBeginningOfMainSubprogram = true,
+    -- stopOnEntry = true,
   },
   {
-    name = 'Launch lldb-vscode',
-    type = 'lldb',
+    name = 'Launch lldb-dap',
+    type = 'lldb',  -- Make sure to match your adapter name (`dap.adapters.<name>`)
     request = 'launch',
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = true,
+    -- TODO: ask for arguments?
     args = {},
     -- lldb-vscode by default doesn't inherit the environment variables from the parent.
     env = function()
@@ -69,6 +90,10 @@ dap.configurations.cpp = {
         end
         return variables
     end,
+    cwd = '${workspaceFolder}',
+    -- stopAtBeginningOfMainSubprogram = true,
+    -- stopOnEntry = true,
+
     -- 💀
     -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
     --
@@ -81,6 +106,19 @@ dap.configurations.cpp = {
     -- But you should be aware of the implications:
     -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
     -- runInTerminal = false,
+  },
+  {
+    name = "Launch codelldb",
+    type = "codelldb",  -- Make sure to match your adapter name (`dap.adapters.<name>`)
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    -- TODO: ask for arguments?
+    args = {},
+    cwd = "${workspaceFolder}",
+    -- stopAtBeginningOfMainSubprogram = true,
+    -- stopOnEntry = true,
   },
 }
 
@@ -114,13 +152,9 @@ dap.configurations.rust = dap.configurations.cpp
 --   }
 -- }
 
--- FIXME: example taken from dap.txt; adapt to our Python setup
-  -- local dap = require('dap')
-  -- dap.adapters.debugpy = {
-  --   type = 'executable';
-  --   command = os.getenv('HOME') .. '/.virtualenvs/tools/bin/python';
-  --   args = { '-m', 'debugpy.adapter' };
-  -- }
+----------
+-- Keymaps
+----------
 
 vim.keymap.set('n', '<Space>dc', function() require('dap').continue() end)
 vim.keymap.set('n', '<M-.>', function() require('dap').continue() end)
