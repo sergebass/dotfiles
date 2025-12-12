@@ -1,6 +1,26 @@
 -- Miscellaneous Neovim plugins that don't fit into other categories
 
 return {
+  -- Fuzzy Finder and more ("Find, Filter, Preview, Pick. All lua, all the time. ")
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = 'v0.2.0',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          },
+        },
+      })
+    end,
+  },
+
+  -- Another fuzzy finder, FZF (also compatible with classic Vim)
   {
     "junegunn/fzf",
     dir = "~/.fzf",
@@ -82,12 +102,6 @@ return {
         wk.register(opts.defaults)
       end
     end,
-  },
-
-  -- Fuzzy Finder and more ("Find, Filter, Preview, Pick. All lua, all the time. ")
-  {
-    'nvim-telescope/telescope.nvim', tag = 'v0.2.0',
-    dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
   -- A file explorer tree for Neovim written in Lua
