@@ -181,7 +181,15 @@ return {
   },
 
   -- A Vim plugin to copy text to the system clipboard using the ANSI OSC52 sequence.
-  {'ojroques/vim-oscyank' },
+  {
+    'ojroques/vim-oscyank',
+    config = function()
+      -- Explicitly use OSC-52 sequences to copy to system clipboard (via vim-oscyank plugin)
+      vim.cmd([[
+        vmap \y <Plug>OSCYankVisual
+      ]])
+    end,
+  },
 
   -- A Vim plugin that manages your tag files
   { 'ludovicchabant/vim-gutentags' },
