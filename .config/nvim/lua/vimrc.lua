@@ -367,6 +367,7 @@ vim.cmd([[
 
     " use a dark theme by default (there's a shortcut to quickly switch it, if needed)
     " (one other option may be to have the "if &termguicolors" check for auto detection)
+    " colorscheme sergebass-light
     colorscheme sergebass-dark
 
     " try to use transparent background, if supported (see background erasure (BCE) mode in terminals)
