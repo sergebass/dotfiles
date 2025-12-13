@@ -261,7 +261,7 @@ require('sergebass.commands')
 
 vim.opt.redrawtime = 5000  -- Time in milliseconds for syntax redraw
 
-vim.cmd([[runtime sergebass/syntax.vim]])
+require('sergebass.syntax')
 
 -- Disable syntax highlighting for large files (over 1 MB)
 vim.cmd([[autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif]])
