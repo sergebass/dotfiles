@@ -76,9 +76,9 @@ vim.cmd([[
   noremap <Space>fed <Cmd>new<CR>:e $MYVIMRC<CR>
 
   if has("win32")
-      noremap <Space>fei <Cmd>new<CR>:e ~/vimfiles/vimrc<CR>
+      noremap <Space>fei <Cmd>new<CR>:e ~/AppData/Local/nvim/init.lua<CR>
   else
-      noremap <Space>fei <Cmd>new<CR>:e ~/.config/nvim/init.vim<CR>
+      noremap <Space>fei <Cmd>new<CR>:e ~/.config/nvim/init.lua<CR>
   endif
 
   " noremap <Space>bb <Cmd>call fzf#vim#buffers(1)<CR>

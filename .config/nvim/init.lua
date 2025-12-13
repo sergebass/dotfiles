@@ -1,4 +1,6 @@
--- vimrc.lua: the starting point of NeoVim configuration in Lua
+--------------------------------------------------------------
+-- init.lua: the starting point of NeoVim configuration in Lua
+--------------------------------------------------------------
 
 -- Even though we define our mappings in other files, we need to make sure
 -- that leader and local leader keys are established well before then
@@ -31,8 +33,6 @@ vim.opt.keymap = 'accents'
 -- Do not enable alternative layout by default (Use ^^/Ctrl+6 to switch)
 vim.opt.iminsert = 0  -- 0 == :lmap is off and IM is off
 vim.opt.imsearch = -1  -- -1 == re-use the value of iminsert
-
--- FIXME: Extract and refactor all vim.cmd calls into Lua
 
 -- Input abbreviations
 require('sergebass.abbreviations')
@@ -112,6 +112,8 @@ vim.opt.diffexpr=""
 vim.opt.colorcolumn = "80,120"  -- Mark columns at 80 and 120 characters
 vim.opt.cursorline = true  -- Highlight the screen line of the cursor
 vim.opt.cursorcolumn = true -- Highlight the screen column of the cursor
+
+-- FIXME: Extract and refactor all vim.cmd calls into Lua
 
 vim.cmd([[
     augroup BgHighlight
