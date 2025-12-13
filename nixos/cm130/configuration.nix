@@ -231,6 +231,7 @@
       lilypond-with-fonts
       lldb  # LLVM debugger
       llvmPackages.clangUseLLVM  # C language family frontend for LLVM (wrapper script)
+      lpd8editor  # Linux editor for the Akai LPD8
       lua-language-server  # Language server that offers Lua language support
       luajit
       meld  # Visual diff and merge tool
@@ -259,6 +260,10 @@
       signal-desktop # Private, simple, and secure messenger (nixpkgs build)
       simplescreenrecorder  # Screen recorder for Linux
       sound-theme-freedesktop  # Freedesktop reference sounds
+      soundfont-arachno  # General MIDI-compliant bank, aimed at enhancing the realism of your MIDI files and arrangements
+      soundfont-fluid  # Frank Wen's pro-quality GM/GS soundfont
+      soundfont-generaluser  # General MIDI SoundFont with a low memory footprint
+      soundfont-ydp-grand  # Acoustic grand piano soundfont
       sox
       sqlitebrowser  # DB Browser for SQLite
       thunderbird
@@ -270,6 +275,7 @@
       vivaldi  # Browser for our Friends, powerful and personal
       vivaldi-ffmpeg-codecs  # Additional support for proprietary codecs for Vivaldi and other chromium based tools
       vkmark  # Vulkan benchmarking suite
+      vmpk  # Virtual MIDI Piano Keyboard
       vorbis-tools  # Extra tools for Ogg-Vorbis audio codec
       vulkan-tools  # Khronos official Vulkan Tools and Utilities
       yaml-language-server  # Language Server for YAML Files
