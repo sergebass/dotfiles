@@ -37,29 +37,8 @@ vim.cmd([[
 
   " copying/pasting/deleting tweaks
 
-  " Explicitly use OSC-52 sequences to copy to system clipboard (via vim-oscyank plugin)
-  vmap -y <Plug>OSCYankVisual
-
-  " in normal mode:
-  nnoremap \y "+y
-  nnoremap \Y "+y$
-
-  nnoremap \p "+p
-  nnoremap \P "+P
-
-  nnoremap \d "_d
-  nnoremap \D "_d$
-
   nnoremap \< vi{<
   nnoremap \> vi{>
-
-  " in visual mode:
-  vnoremap \y "+y
-
-  vnoremap \p "_d"+p
-  vnoremap \P "_d"+P
-
-  vnoremap \d "_d
 
   " we can still use the "x" command for the traditional operation,
   " so let's tweak Del to act like in non-modal editors (just delete, not save):
