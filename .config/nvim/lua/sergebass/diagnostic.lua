@@ -18,3 +18,11 @@ vim.diagnostic.handlers.loclist = {
 --     severity = { min = vim.diagnostic.severity.WARN },
 --   }
 -- })
+
+vim.keymap.set('n', '\\dt', function()
+  local new_config = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = new_config })
+end, { desc = 'Toggle diagnostic virtual_lines' })
+
+vim.keymap.set('n', '\\de', vim.diagnostic.open_float, { desc = 'Explain diagnostic (in a pop-up)' })
+vim.keymap.set('n', '\\dq', vim.diagnostic.setqflist, { desc = 'Copy diagnostics to quickfix window' })
