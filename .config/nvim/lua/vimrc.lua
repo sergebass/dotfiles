@@ -35,7 +35,7 @@ vim.opt.imsearch = -1  -- -1 == re-use the value of iminsert
 -- FIXME: Extract and refactor all vim.cmd calls into Lua
 
 -- Input abbreviations
-vim.cmd([[runtime sergebass/abbreviations.vim]])
+require('sergebass.abbreviations')
 
 -- Autocompletion options
 vim.opt.completeopt = "longest,menuone"
@@ -252,8 +252,8 @@ vim.cmd([[autocmd FileType json syntax match Comment +\/\/.\+$+]])
 -- Custom functions and commands
 ---------------------------------
 
-vim.cmd([[runtime sergebass/functions.vim]])
-vim.cmd([[runtime sergebass/commands.vim]])
+require('sergebass.functions')
+require('sergebass.commands')
 
 ----------------------
 -- Syntax highlighting
