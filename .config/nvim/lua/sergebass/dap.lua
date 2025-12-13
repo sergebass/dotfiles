@@ -152,6 +152,19 @@ dap.configurations.rust = dap.configurations.cpp
 --   }
 -- }
 
+-- Configure DAP signs
+-- Alternative Unicode characters: 🛑 ● →
+vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#000000', bg = '#bc7b25' })
+vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#000040', bg = '#b0bc25' })
+vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#000000', bg = '#bc25a1' })
+vim.api.nvim_set_hl(0, 'DapLine', { ctermbg = 0, bg = '#202020' })
+
+vim.fn.sign_define('DapBreakpoint', {text='B', texthl='DapBreakpoint', linehl='DapLine', numhl='DapBreakpoint'})
+vim.fn.sign_define('DapBreakpointCondition', {text='C', texthl='DapBreakpoint', linehl='DapLine', numhl='DapBreakpoint'})
+vim.fn.sign_define('DapBreakpointRejected', {text='R', texthl='DapBreakpoint', linehl='DapLine', numhl='DapBreakpoint'})
+vim.fn.sign_define('DapLogPoint', {text='L', texthl='DapLogPoint', linehl='DapLine', numhl='DapLogPoint'})
+vim.fn.sign_define('DapStopped', {text='→', texthl='DapStopped', linehl='DapLine', numhl='DapStopped'})
+
 ----------
 -- Keymaps
 ----------
