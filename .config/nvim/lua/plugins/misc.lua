@@ -186,7 +186,7 @@ return {
     config = function()
       -- Explicitly use OSC-52 sequences to copy to system clipboard (via vim-oscyank plugin)
       vim.cmd([[
-        vmap \y <Plug>OSCYankVisual
+        vmap Y <Plug>OSCYankVisual
       ]])
     end,
   },
