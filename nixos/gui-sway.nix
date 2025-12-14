@@ -47,6 +47,7 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
+      fuzzel  # Wayland-native application launcher, similar to rofi’s drun mode
       wayland-utils  # Wayland utilities (wayland-info)
       wev  # Wayland event tester (similar to xev for X11)
       wl-clipboard  # Command-line copy/paste utilities for Wayland

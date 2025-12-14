@@ -186,7 +186,6 @@
       calibre  # Comprehensive e-book software
       calibre-web  # Web app for browsing, reading and downloading eBooks stored in a Calibre database
       cheese  # Take photos and videos with your webcam, with fun graphical effects
-      fuzzel  # Wayland-native application launcher, similar to rofi’s drun mode
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
       light # Control backlight brightness
       qpwgraph  # Qt graph manager for PipeWire, similar to QjackCtl
