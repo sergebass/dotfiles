@@ -49,6 +49,7 @@ in {
       (chromium.override { enableWideVine = true; })  # FOSS Chromim browser + Widevine DRM
       alacritty  # Cross-platform, GPU-accelerated terminal emulator
       baobab  # Used disk space visualizer
+      cheese  # Take photos and videos with your webcam, with fun graphical effects
       dmenu  # Generic, highly customizable, and efficient menu for the X Window System
       dunst  # Lightweight and customizable notification daemon
       feh  # Light-weight image viewer
