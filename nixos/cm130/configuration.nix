@@ -188,10 +188,7 @@
       cheese  # Take photos and videos with your webcam, with fun graphical effects
       fuzzel  # Wayland-native application launcher, similar to rofi’s drun mode
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
-      kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
       light # Control backlight brightness
-      pdf-sign  # Tool to visually sign PDF files
-      poppler-utils  # PDF rendering library
       qpwgraph  # Qt graph manager for PipeWire, similar to QjackCtl
       qrencode  # C library and command line tool for encoding data in a QR Code symbol
       signal-cli  # Command-line and dbus interface for communicating with the Signal messaging service
