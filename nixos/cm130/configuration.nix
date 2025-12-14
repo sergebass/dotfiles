@@ -16,6 +16,8 @@
     ../mpd.nix
     ../sdr.nix
     ../tv.nix
+    ../geo.nix
+    ../benchmarks.nix
     ../making-software.nix
     ../making-hardware.nix
     ../making-docs.nix
@@ -184,18 +186,10 @@
       calibre  # Comprehensive e-book software
       calibre-web  # Web app for browsing, reading and downloading eBooks stored in a Calibre database
       cheese  # Take photos and videos with your webcam, with fun graphical effects
-      fbmark  # Linux framebuffer benchmarking tool
       fuzzel  # Wayland-native application launcher, similar to rofi’s drun mode
-      geekbench  # CPU benchmarking tool
-      glmark2  # OpenGL benchmarking tool (with Wayland support)
-      gnome-maps  # Map application for GNOME 3
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
-      gpsbabel  # Convert, upload and download data from GPS and Map programs
-      kdePackages.marble  # Virtual Globe and World Atlas that you can use to learn more about the Earth
       kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
-      libdrm  # Direct Rendering library and test utilities (e.g. modetest)
       light # Control backlight brightness
-      mesa-demos  # Collection of demos and test programs for OpenGL and Mesa
       pdf-sign  # Tool to visually sign PDF files
       poppler-utils  # PDF rendering library
       qpwgraph  # Qt graph manager for PipeWire, similar to QjackCtl
@@ -206,8 +200,6 @@
       thunderbird  # Full-featured e-mail client
       vivaldi  # Browser for our Friends, powerful and personal
       vivaldi-ffmpeg-codecs  # Additional support for proprietary codecs for Vivaldi and other chromium based tools
-      vkmark  # Vulkan benchmarking suite
-      vulkan-tools  # Khronos official Vulkan Tools and Utilities
       yewtube  # Terminal based YouTube player and downloader, forked from mps-youtube
       ymuse  # GUI client for MPD
       youtube-music  # Electron wrapper around YouTube Music
@@ -217,11 +209,11 @@
   };
 
   nixpkgs = {
-    hostPlatform = lib.mkDefault "x86_64-linux";
     config = {
       permittedInsecurePackages = [
+        # NOTE: GoogleEarthPro also overrides gpsbabel on PATH with an older version.
+        # "googleearth-pro-7.3.6.10201"  # Bundles vulnerable versions of openssl, ffmpeg, gdal, and proj
         # "qtwebengine-5.15.19"  # FIXME temporary; needed for qt5-based apps like frescobaldi
-        # "googleearth-pro-7.3.6.9796"  # NOTE: overrides gpsbabel on PATH with an older version. Uses compromised deps.
       ];
     };
   };
