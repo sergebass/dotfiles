@@ -8,12 +8,6 @@
     ./oscilloscope.nix
   ];
 
-  services = {
-  };
-
-  programs = {
-  };
-
   environment = {
     systemPackages = with pkgs; [
     ] ++ [
