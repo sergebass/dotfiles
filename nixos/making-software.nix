@@ -1,6 +1,14 @@
 # NixOS configuration for making software (programming and related stuff)
 
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+
+let systemPythonPackages = packageRoot: with packageRoot; [
+  mido  # MIDI Objects for Python
+  packaging  # Core utilities for Python packages
+  python-rtmidi  # Python wrapper for RtMidi
+];
+
+in {
 
   imports = [
     ./common.nix  # Common configuration shared by all of our NixOS systems
@@ -9,6 +17,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      (python3.withPackages systemPythonPackages)
       bash-language-server  # A language server for Bash
       cargo  # Downloads your Rust project's dependencies and builds your project
       ccache  # C++ compiler cache
@@ -52,5 +61,8 @@
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
     ];
+
+    variables = {
+    };
   };
 }
