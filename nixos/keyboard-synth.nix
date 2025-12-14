@@ -4,7 +4,11 @@
 let
   synthUserName = "synth";
 
-  synthConnectionScript = with pkgs; writeShellScriptBin "synth.sh" ''
+  synthServiceName = "keyboard-synth";
+
+  synthScriptName = "synth";
+
+  synthConnectionScript = with pkgs; writeShellScriptBin synthScriptName ''
     echo "Killing any running fluidsynth instances..."
     ${psmisc}/bin/killall fluidsynth
     ${coreutils-full}/bin/sleep 2
@@ -26,6 +30,8 @@ let
     ${alsa-utils}/bin/aconnect "LPD8 mk2:0" "FLUID Synth:0"
 
     echo "Should be connected now. Try playing something..."
+
+    exit 0
   '';
 
 in {
@@ -37,6 +43,23 @@ in {
       "audio"
       "networkmanager"
     ];
+    linger = true;  # systemd user units will start at boot, rather than starting at login and stopping at logout. This is the declarative equivalent of running loginctl enable-linger for this user.
+  };
+
+  # Note that we create a user-level systemd service here (use --user with systemctl)
+  systemd.user.services.${synthUserName} = {
+    name = synthServiceName;
+    description = "Auto-connect MIDI keyboard to software synthesizer";
+
+    # unitConfig.Documentation = [
+    #   "https://FIXME"
+    # ];
+
+    requiredBy = [ "default.target"];
+
+    serviceConfig = {
+      ExecStart = "${synthConnectionScript}/bin/${synthScriptName}";
+    };
   };
 
   environment = {
