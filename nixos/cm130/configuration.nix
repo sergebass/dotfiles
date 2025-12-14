@@ -11,14 +11,17 @@
     ../gui-icewm.nix  # IceWM X11/GUI environment
     ../gui-xfce.nix  # XFCE X11/GUI environment
     ../gui-sway.nix  # Sway Wayland/GUI environment
-    ../development/android.nix
-    ../development/arduino.nix
-    ../mpd.nix
-    ../oscilloscope.nix
     ../printing.nix
     ../scanning.nix
+    ../mpd.nix
     ../sdr.nix
     ../tv.nix
+    ../making-software.nix
+    ../making-hardware.nix
+    ../making-docs.nix
+    ../making-music.nix
+    ../making-photos.nix
+    ../making-videos.nix
   ];
 
   hardware = {
@@ -177,111 +180,37 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
-      ardour
-      asciidoctor  # A faster Asciidoc processor written in Ruby
-      audacity
-      avidemux  # Free video editor designed for simple video editing tasks
-      bash-language-server  # A language server for Bash
-      brave
-      calibre
-      calibre-web
-      cargo  # Downloads your Rust project's dependencies and builds your project
-      ccache  # C++ compiler cache
-      ccls  # C/C++ language server powered by clang
+      brave  # Privacy-oriented browser for Desktop and Laptop computers
+      calibre  # Comprehensive e-book software
+      calibre-web  # Web app for browsing, reading and downloading eBooks stored in a Calibre database
       cheese  # Take photos and videos with your webcam, with fun graphical effects
-      clang  # C language family frontend for LLVM (wrapper script)
-      clang-tools  # Standalone command line tools for C++ development (clangd, clang-format etc.)
-      cmake
-      cmake-language-server  # CMake LSP Implementation
-      coltrane
-      darktable  # Virtual lighttable and darkroom for photographers
-      denemo
-      exiftool  # A tool to read, write and edit EXIF meta information
       fbmark  # Linux framebuffer benchmarking tool
-      ffmpeg
-      flac  # Library and tools for encoding and decoding the FLAC lossless audio file format
-      # FIXME uncomment `frescobaldi` when the broken build is fixed
-      # frescobaldi  # FIXME depends on Qt5 which is marked as insecure in Nixpkgs
-      fuzzel
-      gcc13
-      gdb  # GNU debugger
+      fuzzel  # Wayland-native application launcher, similar to rofi’s drun mode
       geekbench  # CPU benchmarking tool
-      geeqie
-      gimp-with-plugins  # GNU Image Manipulation Program
       glmark2  # OpenGL benchmarking tool (with Wayland support)
-      gnome-maps
-      gnumake
+      gnome-maps  # Map application for GNOME 3
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
       gpsbabel  # Convert, upload and download data from GPS and Map programs
-      gpscorrelate  # GPS photo correlation tool, to add EXIF geotags
-      guitarix
-      gxplugins-lv2
-      haskell-language-server  # LSP server for GHC
-      hydrogen
-      jack2.dev  # JACK audio connection kit, version 2 with jackdbus
-      jackmeter
-      jdk  # The open-source Java Development Kit
-      jqp  # TUI playground to experiment with jq
-      kdePackages.marble
+      kdePackages.marble  # Virtual Globe and World Atlas that you can use to learn more about the Earth
       kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
-      kotlin-language-server  # kotlin language server
       libdrm  # Direct Rendering library and test utilities (e.g. modetest)
-      libreoffice
       light # Control backlight brightness
-      lilypond-with-fonts
-      lldb  # LLVM debugger
-      llvmPackages.clangUseLLVM  # C language family frontend for LLVM (wrapper script)
-      lpd8editor  # Linux editor for the Akai LPD8
-      lua-language-server  # Language server that offers Lua language support
-      luajit
-      meld  # Visual diff and merge tool
       mesa-demos  # Collection of demos and test programs for OpenGL and Mesa
-      meterbridge  # Various meters (VU, PPM, DPM, JF, SCO) for Jack Audio Connection Kit
-      mi2ly
-      musescore
-      nodePackages.purescript-language-server  # Language Server Protocol server for PureScript wrapping purs ide server functionality
-      nodejs_22  # Node.JS and NPM
-      nufraw  # Utility to read and manipulate raw images from digital cameras
-      open-pdf-sign  # Digitally sign PDF files from your commandline
-      pandoc  # Converter between documentation formats
       pdf-sign  # Tool to visually sign PDF files
-      pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
       poppler-utils  # PDF rendering library
-      qjackctl
-      qpwgraph
-      qrencode
-      qsynth
-      rakarrack
-      rust-analyzer  # A modular compiler frontend for the Rust language
-      rust-bindgen  # Automatically generates Rust FFI bindings to C (and some C++) libraries
-      rustc  # Rust compiler
-      rustfmt  # Tool for formatting Rust code according to style guidelines
+      qpwgraph  # Qt graph manager for PipeWire, similar to QjackCtl
+      qrencode  # C library and command line tool for encoding data in a QR Code symbol
       signal-cli  # Command-line and dbus interface for communicating with the Signal messaging service
       signal-desktop # Private, simple, and secure messenger (nixpkgs build)
-      simplescreenrecorder  # Screen recorder for Linux
       sound-theme-freedesktop  # Freedesktop reference sounds
-      soundfont-arachno  # General MIDI-compliant bank, aimed at enhancing the realism of your MIDI files and arrangements
-      soundfont-fluid  # Frank Wen's pro-quality GM/GS soundfont
-      soundfont-generaluser  # General MIDI SoundFont with a low memory footprint
-      soundfont-ydp-grand  # Acoustic grand piano soundfont
-      sox
-      sqlitebrowser  # DB Browser for SQLite
-      thunderbird
-      # FIXME uncomment `tuxguitar` when the broken build is fixed
-      # tuxguitar
-      typescript
-      typescript-language-server  # Language Server Protocol implementation for TypeScript using tsserver (https://github.com/typescript-language-server/typescript-language-server)
-      vim-language-server  # VImScript language server, LSP for vim script
+      thunderbird  # Full-featured e-mail client
       vivaldi  # Browser for our Friends, powerful and personal
       vivaldi-ffmpeg-codecs  # Additional support for proprietary codecs for Vivaldi and other chromium based tools
       vkmark  # Vulkan benchmarking suite
-      vmpk  # Virtual MIDI Piano Keyboard
-      vorbis-tools  # Extra tools for Ogg-Vorbis audio codec
       vulkan-tools  # Khronos official Vulkan Tools and Utilities
-      yaml-language-server  # Language Server for YAML Files
-      yewtube
+      yewtube  # Terminal based YouTube player and downloader, forked from mps-youtube
       ymuse  # GUI client for MPD
-      youtube-music
+      youtube-music  # Electron wrapper around YouTube Music
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
     ];
