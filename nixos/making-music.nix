@@ -25,6 +25,7 @@
       mi2ly  # MIDI to Lilypond converter
       musescore  # Music notation and composition software
       qjackctl  # Qt application to control the JACK sound server daemon
+      qpwgraph  # Qt graph manager for PipeWire, similar to QjackCtl
       qsynth  # Fluidsynth GUI
       rakarrack  # Multi-effects processor emulating a guitar effects pedalboard
       soundfont-arachno  # General MIDI-compliant bank, aimed at enhancing the realism of your MIDI files and arrangements

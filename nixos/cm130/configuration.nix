@@ -187,7 +187,6 @@
       calibre-web  # Web app for browsing, reading and downloading eBooks stored in a Calibre database
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
       light # Control backlight brightness
-      qpwgraph  # Qt graph manager for PipeWire, similar to QjackCtl
       qrencode  # C library and command line tool for encoding data in a QR Code symbol
       signal-cli  # Command-line and dbus interface for communicating with the Signal messaging service
       signal-desktop # Private, simple, and secure messenger (nixpkgs build)
