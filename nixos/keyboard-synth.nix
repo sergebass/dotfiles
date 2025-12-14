@@ -18,7 +18,12 @@ let
 
     echo "Connecting Keystation MIDI keyboard to fluidsynth MIDI synthesizer..."
     ${alsa-utils}/bin/aconnect -l
+
+    # Connect MIDI keyboard (M-Audio Keystation 88es)
     ${alsa-utils}/bin/aconnect "USB Keystation:0" "FLUID Synth:0"
+
+    # Connect MIDI controller/drum pad (AKAI LPD8 Mark2)
+    ${alsa-utils}/bin/aconnect "LPD8 mk2:0" "FLUID Synth:0"
 
     echo "Should be connected now. Try playing something..."
   '';
