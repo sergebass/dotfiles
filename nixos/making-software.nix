@@ -33,9 +33,8 @@
       nodejs_24  # Event-driven I/O framework for the V8 JavaScript engine (Node.JS and NPM)
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
       postgres-language-server  # Tools and language server for Postgres
-      python313Packages.debugpy  # Implementation of the Debug Adapter Protocol for Python
-      python313Packages.pip  # PyPA recommended tool for installing Python packages
-      python313Packages.python-lsp-server  # Python implementation of the Language Server Protocol (pylsp)
+      python3Packages.debugpy  # Implementation of the Debug Adapter Protocol for Python
+      python3Packages.python-lsp-server  # Python implementation of the Language Server Protocol (pylsp)
       rust-analyzer  # Language server for the Rust language
       rust-bindgen  # Automatically generates Rust FFI bindings to C (and some C++) libraries
       rustc  # Rust compiler
