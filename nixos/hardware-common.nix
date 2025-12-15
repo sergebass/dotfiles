@@ -70,7 +70,8 @@ in {
       '';
     };
 
-    thermald.enable = true;  # Thermal monitoring and controlling daemon (prevent CPU overheating)
+    # Thermal monitoring and controlling daemon (prevent CPU overheating)
+    thermald.enable = (builtins.currentSystem == "x86_64-linux");  # Only available for x64 and i686; do not break ARM builds.
 
     btrfs = {
       autoScrub = {
