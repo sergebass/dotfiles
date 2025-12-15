@@ -24,6 +24,7 @@
     ../making-music.nix
     ../making-photos.nix
     ../making-videos.nix
+    ../keyboard-synth.nix  # MIDI keyboard talking to a software synthesizer
   ];
 
   hardware = {
