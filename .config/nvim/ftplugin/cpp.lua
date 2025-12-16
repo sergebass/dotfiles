@@ -11,7 +11,8 @@ vim.opt_local.autoindent = true
 vim.opt_local.equalprg = "clang-format"
 
 -- Jump to definition of the symbol under cursor
-vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
+-- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '<CR>', require('telescope.builtin').lsp_definitions, { buffer = true, desc = 'Telescope: LSP: Go to definition (telescope)' })
 
 -- TODO: refactor legacy keymaps to use Lua API instead of vim.cmd:
 vim.cmd([[
