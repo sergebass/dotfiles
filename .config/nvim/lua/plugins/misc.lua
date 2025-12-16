@@ -119,7 +119,7 @@ return {
           group_empty = true,
         },
         filters = {
-          dotfiles = true,
+          dotfiles = false,  -- Do not filter out hidden files by default
         },
         on_attach = function(bufnr)
           local api = require('nvim-tree.api')
