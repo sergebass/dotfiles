@@ -31,22 +31,6 @@ vim.lsp.config('rust_analyzer', {
 
 -- C and C++
 
-vim.lsp.config("ccls", {
-    filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
-    -- root_markers = { '.git' },
-    init_options = {
-        -- compilationDatabaseDirectory = "build";
-        index = {
-            threads = 0;
-        };
-        -- clang = {
-        --   excludeArgs = { "-frounding-math"} ;
-        -- };
-    }
-})
-
-vim.lsp.enable('ccls')
-
 vim.lsp.config("clangd", {
     cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--enable-config'},
     filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
@@ -64,6 +48,23 @@ vim.lsp.config("clangd", {
 })
 
 vim.lsp.enable('clangd')
+
+vim.lsp.config("ccls", {
+    filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
+    -- root_markers = { '.git' },
+    init_options = {
+        -- compilationDatabaseDirectory = "build";
+        index = {
+            threads = 0;
+        };
+        -- clang = {
+        --   excludeArgs = { "-frounding-math"} ;
+        -- };
+    }
+})
+
+-- Do not enable ccls right away to avoid clashes with clangd (this results in symbol duplication etc.)
+-- vim.lsp.enable('ccls')
 
 -- Typescript and Javascript
 
