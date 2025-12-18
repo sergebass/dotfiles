@@ -64,7 +64,7 @@ end
 -------------------------------
 
 vim.opt.scrollback = 100000  -- Increase default terminal scrollback size
-vim.opt.scrolloff = 1  -- Keep at least one line visible above/below cursor
+vim.opt.scrolloff = 0  -- Do not display any lines above top or below bottom cursor position
 
 -- Highlight tabs, trailing spaces, and non-breaking spaces
 vim.opt.list = true  -- Enable rendering of whitespace characters
