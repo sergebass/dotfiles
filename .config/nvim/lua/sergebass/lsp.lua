@@ -93,14 +93,14 @@ vim.keymap.set('n', '\\K', vim.lsp.buf.hover, { desc = 'LSP: Hover over symbol' 
 vim.keymap.set('n', '<Space>mhh', vim.lsp.buf.hover, { desc = 'LSP: Hover over symbol' })
 
 -- Jump to definition of the symbol under cursor
-vim.keymap.set('n', '\\gd', pickers.lsp_definitions, { desc = 'LSP: Go to definition' })
-vim.keymap.set('n', '<Space>mgg', pickers.lsp_definitions, { desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '\\gd', pickers.lsp_definitions, { desc = 'LSP: Go to definition (telescope)' })
+vim.keymap.set('n', '<Space>mgg', pickers.lsp_definitions, { desc = 'LSP: Go to definition (telescope)' })
 
 vim.keymap.set('n', '\\gD', vim.lsp.buf.declaration, { desc = 'LSP: Go to declaration' })
-vim.keymap.set('n', '\\gt', pickers.lsp_type_definitions, { desc = 'LSP: Go to type definition' })
-vim.keymap.set('n', '\\gi', pickers.lsp_implementations, { desc = 'LSP: Go to implementation' })
-vim.keymap.set('n', '\\gO', pickers.lsp_document_symbols, { desc = 'LSP: Pick symbol in current document' })
-vim.keymap.set('n', '\\go', pickers.lsp_workspace_symbols, { desc = 'LSP: Pick symbol in current project/workspace' })
+vim.keymap.set('n', '\\gt', pickers.lsp_type_definitions, { desc = 'LSP: Go to type definition (telescope)' })
+vim.keymap.set('n', '\\gi', pickers.lsp_implementations, { desc = 'LSP: Go to implementation (telescope)' })
+vim.keymap.set('n', '\\gO', pickers.lsp_document_symbols, { desc = 'LSP: Pick symbol in current document (telescope)' })
+vim.keymap.set('n', '\\go', pickers.lsp_workspace_symbols, { desc = 'LSP: Pick symbol in current project/workspace (telescope)' })
 
 -- Rename symbol under cursor
 vim.keymap.set('n', '\\=', vim.lsp.buf.rename, { desc = 'LSP: Rename symbol' })
