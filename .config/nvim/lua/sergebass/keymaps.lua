@@ -72,7 +72,7 @@ vim.cmd([[
   noremap <Space>fs <Cmd>w<CR>
   noremap <Space>fS <Cmd>wa<CR>
   nnoremap <Space>fy <C-G>
-  noremap <Space>ft <Cmd>NvimTreeToggle<CR>
+  noremap <Space>ft <Cmd>NvimTreeFindFileToggle<CR>
   noremap <Space>fed <Cmd>new<CR>:e $MYVIMRC<CR>
 
   if has("win32")
@@ -165,7 +165,7 @@ vim.cmd([[
   nnoremap <Space>sww :!sp-open "https://en.wikipedia.org/w/index.php?search=<C-r>=expand("<cword>")<CR> <C-r>=&filetype<CR>"<Left>
 
   nnoremap <Space>pr :GFiles?<CR>
-  nnoremap <Space>pt <Cmd>NvimTreeFindFile<CR>
+  nnoremap <Space>pt <Cmd>NvimTreeFindFileToggle<CR>
   nnoremap <Space>pc :make<CR>
   nnoremap <Space>pr :make clean<CR>
   nnoremap <Space>pT :make test<CR>
@@ -409,8 +409,7 @@ vim.cmd([[
   noremap \fzc <Cmd>Commands<CR>
 
   " using NvimTree
-  noremap \<Tab> <Cmd>NvimTreeFindFile<CR>
-  noremap \<M-Tab> <Cmd>NvimTreeToggle<CR>
+  noremap \<Tab> <Cmd>NvimTreeFindFileToggle<CR>
 
   " using netrw
   noremap \<M-Tab> <Cmd>Lexplore<CR>
