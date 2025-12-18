@@ -73,7 +73,7 @@ vim.opt.listchars:append({ trail = "." })  -- Show trailing spaces as "."
 vim.opt.listchars:append({nbsp = "_" })  -- Show non-breaking spaces as "_"
 
 -- Long line handling
-vim.opt.wrap = false
+vim.opt.wrap = true  -- Wrap long lines by default
 vim.opt.sidescroll = 5  -- Number of columns to scroll horizontally
 vim.opt.listchars:append({ precedes = "<" })  -- Show when line continues to the left
 vim.opt.listchars:append({ extends = ">" })   -- Show when line continues to the right
