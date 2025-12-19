@@ -55,9 +55,9 @@ vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 -- This requires terminal support; e.g., Alacritty, Kitty, iTerm2, etc.
 -- but this makes it possible to use system clipboard even over SSH.
 -- See <https://github.com/tmux/tmux/wiki/Clipboard#the-clipboard>
-if os.getenv("SSH_CONNECTION") or os.getenv("TMUX") then
-    vim.g.clipboard = 'osc52'
-end
+-- if os.getenv("SSH_CONNECTION") or os.getenv("TMUX") then
+--     vim.g.clipboard = 'osc52'
+-- end
 
 -------------------------------
 -- Display/rendering options
