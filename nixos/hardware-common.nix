@@ -81,6 +81,13 @@ in {
       };
     };
 
+    zfs = {
+      autoScrub = {
+        enable = true;  # Make use of zpool scrub to check data integrity periodically
+        interval = "monthly";  # See `man 7 systemd.time` for possible values
+      };
+    };
+
     udisks2 = {
       enable = true;  # For automounting external drives in GUI file managers
       settings = {
