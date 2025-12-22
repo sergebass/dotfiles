@@ -85,7 +85,7 @@
       ];
     };
 
-    "/archive" = {
+    "/nvme" = {
       device =  "/dev/disk/by-label/Sergii-Archive";
       fsType = "btrfs";
       options = [
