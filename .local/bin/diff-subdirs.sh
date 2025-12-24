@@ -5,14 +5,12 @@
 dir1="$1"
 dir2="$2"
 
+files1="/tmp/a"
+files2="/tmp/b"
+
 # Use `tee` to provide visual indication of progress
-find $dir1 -type f -exec sha256sum {} \; | tee /tmp/a
-find $dir2 -type f -exec sha256sum {} \; | tee /tmp/b
+time find "$dir1" -type f -printf '%p\n' | sort | xargs -l1 -d '\n' sha256sum | tee "$files1"
+time find "$dir2" -type f -printf '%p\n' | sort | xargs -l1 -d '\n' sha256sum | tee "$files2"
 
-echo "Sorting results for $1..."
-sort /tmp/a > /tmp/a-sorted
-
-echo "Sorting results for $2..."
-sort /tmp/b > /tmp/b-sorted
-
-nvim -d /tmp/a-sorted /tmp/b-sorted
+# Open neovim in diff mode to see the differences
+nvim -d "$files1" "$files2"
