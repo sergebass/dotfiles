@@ -5,8 +5,8 @@
 dir1="$1"
 dir2="$2"
 
-files1=/tmp/$(mktemp diff-subdirs-A-XXXX)
-files2=/tmp/$(mktemp diff-subdirs-B-XXXX)
+files1=$(mktemp /tmp/diff-subdirs-A-XXXX)
+files2=$(mktemp /tmp/diff-subdirs-B-XXXX)
 
 # Use `tee` to provide visual indication of progress
 time find "$dir1" -type f -printf '%p\n' | sort | xargs -l1 -d '\n' sha256sum | tee "$files1"
