@@ -1,0 +1,41 @@
+# ncdu configuration file
+
+# Do not cross filesystem boundaries, i.e. only count files and directories
+# on the same filesystem as the directory being scanned.
+# --one-file-system
+
+# Exclude files that match pattern.
+# The files are still displayed by default, but are not counted towards the disk usage statistics.
+# This argument can be added multiple times to add more patterns.
+# --exclude pattern
+
+# Follow (or not) symlinks and count the size of the file they point to.
+# This option does not follow symlinks to directories and will cause each symlinked file to count as a unique file.
+# This is different from how hard links are handled.
+# The exact counting behavior of this flag is subject to change in the future.
+# --follow-symlinks
+--no-follow-symlinks
+
+# (Linux only) Include (default) or exclude Linux pseudo filesystems such as /proc (procfs) and /sys (sysfs).
+# The complete list of currently known pseudo filesystems is:
+# binfmt, bpf, cgroup, cgroup2, debug, devpts, proc, pstore, security, selinux, sys, trace.
+# --include-kernfs
+--exclude-kernfs
+
+# Include (default) or exclude directories containing CACHEDIR.TAG.
+# Excluded cache directories are still displayed, but their contents will not be scanned
+# or counted towards the disk usage statistics.  https://bford.info/cachedir/
+--include-caches
+
+# Enable/disable extended information mode.
+# This will, in addition to the usual file information, also read the ownership,
+# permissions and last modification time for each file.
+# This will result in higher memory usage (by roughly ~30%) and in a larger output file when exporting.
+--extended
+
+--show-hidden
+--show-percent
+--show-graph
+
+# Do use colours for better visibility.
+--color dark
