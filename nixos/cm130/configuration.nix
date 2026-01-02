@@ -77,22 +77,11 @@
     };
 
     "/home" = {
-      device = mainDiskDevice;
-      fsType = "btrfs";
-      options = [
-        "subvol=home"
-        "compress=${compressionMethod}" "noatime"
-      ];
-    };
-
-    "/archive-nvme" = {
-      device =  "/dev/disk/by-label/Sergii-Archive";
+      device =  "/dev/disk/by-label/Sergii-Home";
       fsType = "btrfs";
       options = [
         "compress=${compressionMethod}"
         "noatime"
-        "user"
-        "noauto"
       ];
     };
   };
