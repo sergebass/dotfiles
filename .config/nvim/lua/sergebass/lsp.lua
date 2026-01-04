@@ -68,7 +68,14 @@ vim.lsp.config("ccls", {
 -- Do not enable ccls right away to avoid clashes with clangd (this results in symbol duplication etc.)
 -- vim.lsp.enable('ccls')
 
--- TODO: CMake
+-- CMake
+vim.lsp.config('cmake', {
+    cmd = { 'cmake-language-server' },
+    filetypes = { 'cmake' },
+    -- root_markers = { '.git' },
+})
+
+vim.lsp.enable('cmake')
 
 -- TODO: Python
 
