@@ -83,7 +83,7 @@ vim.lsp.enable('ts_ls')
 vim.lsp.config('vale', {
     cmd = { 'vale-ls' },
     filetypes = { 'markdown', 'mdx', 'asciidoc', 'rst', 'html', 'gitcommit' },
-    root_markers = { '.vale.ini' },
+    root_markers = { '.git', '.vale.ini' },
 })
 
 vim.lsp.enable('vale')
