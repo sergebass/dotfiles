@@ -68,6 +68,17 @@ vim.lsp.config("ccls", {
 -- Do not enable ccls right away to avoid clashes with clangd (this results in symbol duplication etc.)
 -- vim.lsp.enable('ccls')
 
+-- Assembly language
+vim.lsp.config('asm_lsp', {
+    cmd = { 'asm-lsp' },
+    filetypes = { 'asm', 's', 'S' },
+    -- root_markers = { '.git' },
+})
+
+vim.lsp.enable('asm_lsp')
+
+-- TODO: LLVM IR
+
 -- CMake
 vim.lsp.config('cmake', {
     cmd = { 'cmake-language-server' },
