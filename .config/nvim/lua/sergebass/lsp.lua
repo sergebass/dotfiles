@@ -78,6 +78,16 @@ vim.lsp.config('ts_ls', {
 
 vim.lsp.enable('ts_ls')
 
+-- bash shell
+
+vim.lsp.config('bashls', {
+    cmd = { 'bash-language-server', 'start' },
+    filetypes = { 'sh', 'bash' },
+    -- root_markers = { '.git' },
+})
+
+vim.lsp.enable('bashls')
+
 -- Markdown, MDX (Markdown with JSX), AsciiDoc, RST, HTML text/prose linting
 
 vim.lsp.config('vale', {
