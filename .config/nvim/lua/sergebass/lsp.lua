@@ -109,6 +109,15 @@ vim.lsp.config('nixd', {
 
 vim.lsp.enable('nixd')
 
+-- Vimscript language server
+vim.lsp.config('vimls', {
+    cmd = { 'vim-language-server', '--stdio' },
+    filetypes = { 'vim', 'vimdoc' },
+    -- root_markers = { '.git' },
+})
+
+vim.lsp.enable('vimls')
+
 --------------------------------------
 -- Keyboard mappings for LSP functions
 --------------------------------------
