@@ -110,7 +110,14 @@ vim.lsp.enable('pylsp')
 
 -- TODO: TOML
 
--- TODO: XML
+-- XML
+vim.lsp.config('lemminx', {
+    cmd = { 'lemminx' },
+    filetypes = { 'xml', 'xsd', 'wsdl', 'svg' },
+    -- root_markers = { '.git' },
+})
+
+vim.lsp.enable('lemminx')
 
 -- Typescript and Javascript
 

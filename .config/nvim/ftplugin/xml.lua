@@ -2,26 +2,19 @@
 -- XML-specific neovim configuration
 ------------------------------------
 
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.autoindent = true
+
+-- Use xmllint to reformat XML files
+vim.opt_local.equalprg = "xmllint --format --recover -"
+
 vim.cmd([[
-  setlocal expandtab
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal autoindent
-
-  " TODO find relevant utilities to do formatting and quick lookup:
-  "setlocal equalprg=css-beautify
-  "setlocal keywordprg=hoogle
-
-  " setlocal omnifunc=xmlcomplete#CompleteTags
-
-  " call SuperTabSetDefaultCompletionType("<C-N>")
-
   nnoremap <buffer> <F1> :!sp-open "https://www.w3schools.com/xml/dom_nodetype.asp"<CR>
 
-  nnoremap <buffer> \\v :Validate<CR>
-
-  " TODO add a mapping for xmllint
-  nnoremap <buffer> \\~ :XmlFormat<CR>
+  " Validate the current XML file with xmllint (do not fetch external DTDs)
+  nnoremap <buffer> \\v :!xmllint --nonet %<CR>
 
   " -----------------------------------------------------------------------------
   " Apply workspace-specific XML settings, if available;
@@ -31,5 +24,9 @@ vim.cmd([[
 
   if filereadable(expand("~/.workspace-xml.vim"))
       source ~/.workspace-xml.vim
+  endif
+
+  if filereadable(expand("~/.workspace-xml.lua"))
+      source ~/.workspace-xml.lua
   endif
 ]])
