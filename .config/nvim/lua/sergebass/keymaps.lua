@@ -540,10 +540,10 @@ vim.cmd([[
   nnoremap \% :FindAndReplaceText grep\ -w <C-r>=expand("<cword>")<CR> <C-r>=expand("<cword>")<CR> **<left><left><left>
 
   " Allow Ctrl+Space to trigger autocompletion in insert mode, like in some IDEs.
-  " This uses user-mode completion (while Tab often triggers omnicompletion).
+  " This uses omni completion (and typically LSP-based completion engines support it).
   " Note that our tmux configuration uses Ctrl+Space as a prefix, so this has to
   " be pressed twice for vim/neovim to get the sequence.
-  inoremap <silent> <C-Space> <C-x><C-u>
+  inoremap <silent> <C-Space> <C-x><C-o>
 
   " whitespace cleanup: replace tabs with spaces, remove redundant lines, strip all redundant/trailing whitespace
   noremap \wt :retab<CR>
