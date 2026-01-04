@@ -77,7 +77,15 @@ vim.lsp.config('cmake', {
 
 vim.lsp.enable('cmake')
 
--- TODO: Python
+-- Python
+
+vim.lsp.config('pylsp', {
+    cmd = { 'pylsp' },
+    filetypes = { 'python' },
+    -- root_markers = { '.git' },
+})
+
+vim.lsp.enable('pylsp')
 
 -- TODO: Kotlin
 

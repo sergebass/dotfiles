@@ -2,21 +2,18 @@
 -- Python-specific neovim configuration
 ---------------------------------------
 
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.autoindent = true
+
+-- Jump to definition of the symbol under cursor
+-- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '<CR>', require('telescope.builtin').lsp_definitions, { buffer = true, desc = 'Telescope: LSP: Go to definition (telescope)' })
+
 vim.cmd([[
-  setlocal expandtab
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal autoindent
-
-  " setlocal keywordprg=ri
-
-  " setlocal omnifunc=python3complete#Complete
-
-  " nnoremap <buffer> <F1> :!sp-open "https://rubyapi.org/"<CR>
-
-  " search the word under cursor in the Ruby API database (using browser)
-  " nnoremap <buffer> \\? :!sp-open "https://rubyapi.org/2.7/o/s?q=<C-r>=expand("<cword>")<CR>"<Left>
-  " vnoremap <buffer> \\? "*y<Esc>:!sp-open "https://rubyapi.org/2.7/o/s?q=<C-r>*"<Left>
+  nnoremap <buffer> <F1> :!sp-open "https://docs.python.org/3/reference/index.html"<CR>
+  nnoremap <buffer> <M-F1> :!sp-open "https://docs.python.org/3/"<CR>
 
   " -----------------------------------------------------------------------------
   " Apply workspace-specific Python settings, if available;
@@ -26,5 +23,9 @@ vim.cmd([[
 
   if filereadable(expand("~/.workspace-python.vim"))
       source ~/.workspace-python.vim
+  endif
+
+  if filereadable(expand("~/.workspace-python.lua"))
+      source ~/.workspace-python.lua
   endif
 ]])
