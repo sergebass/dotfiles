@@ -2,11 +2,18 @@
 -- Lua-specific neovim configuration
 ------------------------------------
 
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 2
+vim.opt_local.shiftwidth = 2
+vim.opt_local.autoindent = true
+
+-- Jump to definition of the symbol under cursor
+-- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '<CR>', require('telescope.builtin').lsp_definitions, { buffer = true, desc = 'Telescope: LSP: Go to definition (telescope)' })
+
 vim.cmd([[
-  setlocal expandtab
-  setlocal tabstop=2
-  setlocal shiftwidth=2
-  setlocal autoindent
+  nnoremap <buffer> <F1> :!sp-open "https://neovim.io/doc/user/lua.html"<CR>
+  nnoremap <buffer> <M-F1> :!sp-open "https://neovim.io/doc/user/lua-guide.html"<CR>
 
   " -----------------------------------------------------------------------------
   " Apply workspace-specific Lua settings, if available;
@@ -16,5 +23,9 @@ vim.cmd([[
 
   if filereadable(expand("~/.workspace-lua.vim"))
       source ~/.workspace-lua.vim
+  endif
+
+  if filereadable(expand("~/.workspace-lua.lua"))
+      source ~/.workspace-lua.lua
   endif
 ]])
