@@ -63,4 +63,8 @@ vim.cmd([[
   if filereadable(expand("~/.workspace-rust.vim"))
       source ~/.workspace-rust.vim
   endif
+
+  if filereadable(expand("~/.workspace-rust.lua"))
+      source ~/.workspace-rust.lua
+  endif
 ]])
