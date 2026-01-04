@@ -9,6 +9,7 @@
   environment = {
     systemPackages = with pkgs; [
       asciidoctor  # A faster Asciidoc processor written in Ruby
+      docutils  # Python Documentation Utilities (rst2html, rst2pdf, etc.)
       kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
       libreoffice  # Comprehensive, professional-quality productivity suite, a variant of openoffice.org
       open-pdf-sign  # Digitally sign PDF files from your commandline
