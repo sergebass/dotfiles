@@ -78,6 +78,16 @@ vim.lsp.config('ts_ls', {
 
 vim.lsp.enable('ts_ls')
 
+-- Markdown, MDX (Markdown with JSX), AsciiDoc, RST, HTML text/prose linting
+
+vim.lsp.config('vale', {
+    cmd = { 'vale-ls' },
+    filetypes = { 'markdown', 'mdx', 'asciidoc', 'rst', 'html' },
+    root_markers = { '.vale.ini' },
+})
+
+vim.lsp.enable('vale')
+
 --------------------------------------
 -- Keyboard mappings for LSP functions
 --------------------------------------
