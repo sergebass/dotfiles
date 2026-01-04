@@ -15,6 +15,8 @@
       pandoc  # Converter between documentation formats
       pdf-sign  # Tool to visually sign PDF files
       poppler-utils  # PDF rendering library
+      vale  # Syntax-aware linter for prose built with speed and extensibility in mind
+      vale-ls  # LSP implementation for the Vale command-line tool
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
     ];
