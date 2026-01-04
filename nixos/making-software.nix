@@ -18,6 +18,7 @@ in {
   environment = {
     systemPackages = with pkgs; [
       (python3.withPackages systemPythonPackages)
+      asm-lsp  # Language server for NASM/GAS/GO Assembly
       bash-language-server  # A language server for Bash
       cargo  # Downloads your Rust project's dependencies and builds your project
       ccache  # C++ compiler cache
@@ -35,6 +36,7 @@ in {
       kotlin-language-server  # Kotlin language server
       lldb  # LLVM debugger
       llvmPackages.clangUseLLVM  # C language family frontend for LLVM (wrapper script)
+      llvmPackages.mlir  # Multi-Level IR Compiler Framework
       lua-language-server  # Language server that offers Lua language support
       meld  # Visual diff and merge tool
       nixd  # Feature-rich Nix language server interoperating with C++ nix
