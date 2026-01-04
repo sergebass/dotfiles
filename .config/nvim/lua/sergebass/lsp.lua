@@ -68,6 +68,24 @@ vim.lsp.config("ccls", {
 -- Do not enable ccls right away to avoid clashes with clangd (this results in symbol duplication etc.)
 -- vim.lsp.enable('ccls')
 
+-- TODO: CMake
+
+-- TODO: Python
+
+-- TODO: Kotlin
+
+-- TODO: Java
+
+-- TODO: SQL/PostgreSQL/SQLite
+
+-- TODO: Dockerfile
+
+-- TODO: YAML
+
+-- TODO: TOML
+
+-- TODO: XML
+
 -- Typescript and Javascript
 
 vim.lsp.config('ts_ls', {
@@ -87,6 +105,12 @@ vim.lsp.config('bashls', {
 })
 
 vim.lsp.enable('bashls')
+
+-- TODO: fish shell
+
+-- TODO: nushell
+
+-- TODO: Windows powershell/bat
 
 -- Markdown, MDX (Markdown with JSX), AsciiDoc, RST, HTML text/prose linting
 
@@ -108,6 +132,10 @@ vim.lsp.config('nixd', {
 })
 
 vim.lsp.enable('nixd')
+
+-- TODO: Haskell
+
+-- TODO: PureScript
 
 -- Vimscript language server
 vim.lsp.config('vimls', {
