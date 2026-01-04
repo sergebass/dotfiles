@@ -89,6 +89,16 @@ vim.lsp.config('vale', {
 
 vim.lsp.enable('vale')
 
+-- Nix language (NixOS configuration and Nixpkgs package definitions)
+
+vim.lsp.config('nixd', {
+    cmd = { 'nixd' },
+    filetypes = { 'nix' },
+    -- root_markers = { '.git' },
+})
+
+vim.lsp.enable('nixd')
+
 --------------------------------------
 -- Keyboard mappings for LSP functions
 --------------------------------------
