@@ -2,14 +2,19 @@
 -- Rust-specific neovim configuration
 -------------------------------------
 
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.autoindent = true
+
+-- Do our formatting using rustfmt and the '=' command
+vim.opt_local.equalprg = "rustfmt"
+
+-- Jump to definition of the symbol under cursor
+-- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '<CR>', require('telescope.builtin').lsp_definitions, { buffer = true, desc = 'Telescope: LSP: Go to definition (telescope)' })
+
 vim.cmd([[
-  runtime sergebass/gdb.vim
-
-  setlocal expandtab
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal autoindent
-
   nnoremap <buffer> <F1> :!sp-open "https://doc.rust-lang.org/reference"<CR>
   nnoremap <buffer> <M-F1> :!sp-open "https://docs.rs"<CR>
 
