@@ -2,14 +2,14 @@
 -- Markdown-specific neovim configuration
 -----------------------------------------
 
-vim.cmd([[
-  setlocal expandtab
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal autoindent
-  setlocal wrap
-  setlocal linebreak
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.autoindent = true
+vim.opt_local.wrap = true
+vim.opt_local.linebreak = true
 
+vim.cmd([[
   " Using gq for formatting will call this function:
   set formatexpr=SPVentilatedFormatExpr()
 
@@ -102,5 +102,9 @@ vim.cmd([[
 
   if filereadable(expand("~/.workspace-markdown.vim"))
       source ~/.workspace-markdown.vim
+  endif
+
+  if filereadable(expand("~/.workspace-markdown.lua"))
+      source ~/.workspace-markdown.lua
   endif
 ]])
