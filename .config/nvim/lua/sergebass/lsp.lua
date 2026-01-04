@@ -81,7 +81,8 @@ vim.lsp.enable('ts_ls')
 -- Markdown, MDX (Markdown with JSX), AsciiDoc, RST, HTML text/prose linting
 
 vim.lsp.config('vale', {
-    cmd = { 'vale-ls' },
+    -- TODO: scan for executable to use
+    cmd = { 'vale-ls' }, -- Note: this can also be vale.vale-ls depending on installation method (e.g. Ubuntu snap)
     filetypes = { 'text', 'markdown', 'mdx', 'asciidoc', 'rst', 'html', 'gitcommit' },
     root_markers = { '.git', '.vale.ini' },
 })
