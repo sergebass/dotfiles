@@ -42,6 +42,12 @@ in {
     };
   };
 
+  # OpenWebRX web-based SDR receiver service can be installed via docker like so:
+  # (it will use the current user's username and request password for the admin account to use)
+  # After the container is started, open http://localhost:8073 in a web browser.
+  #
+  # docker run -e OPENWEBRX_ADMIN_USER=$USER -e OPENWEBRX_ADMIN_PASSWORD=(read -s) --tmpfs=/tmp/openwebrx --device /dev/bus/usb -p 8073:8073 -v openwebrx-settings:/var/lib/openwebrx jketterl/openwebrx:stable
+
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
