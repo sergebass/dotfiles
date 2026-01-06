@@ -150,6 +150,28 @@
     defaultEditor = false;
   };
 
+  virtualisation = {
+
+    # Open source project to pack, ship and run any application as a lightweight container
+    docker = {
+      enable = true;
+
+      # Do not run the Docker daemon as root (both daemon and containers are run as a regular user)
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+
+      autoPrune.enable = true;  # Enable automatic cleanup of unused Docker objects
+
+      storageDriver = "btrfs";
+
+      extraOptions = ''
+        # Enable user namespaces for better security isolation (in rooted mode)
+        # --userns-remap=default
+      '';
+    };
+
   # Run LineageOS-based Android VM in a container (https://docs.waydro.id)
   #
   # To download an actual current Android image for the current platform:
@@ -167,7 +189,8 @@
   # to enable Google Play services.
   #
   # See also https://wiki.nixos.org/wiki/Waydroid
-  virtualisation.waydroid.enable = true;
+    waydroid.enable = true;
+  };
 
   environment = {
     # List packages installed in system profile. To search, run:
