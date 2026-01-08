@@ -343,6 +343,12 @@ return {
     end,
   },
 
+  -- LLVM IR support
+  {
+    'rhysd/vim-llvm',
+    ft = { 'llvm' },
+  },
+
   -- FIXME: if executable('nix')
   -- Nix language support (http://nixos.org/nix)
   { 'LnL7/vim-nix' },
