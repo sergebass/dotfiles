@@ -1,6 +1,11 @@
 -- Miscellaneous Neovim plugins that don't fit into other categories
 
 return {
+  -- Make Vim handle line and column numbers in file names with a minimum of fuss
+  {
+    'wsdjeg/vim-fetch',
+  },
+
   -- Fuzzy Finder and more ("Find, Filter, Preview, Pick. All lua, all the time. ")
   {
     'nvim-telescope/telescope.nvim',
