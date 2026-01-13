@@ -31,6 +31,13 @@ in {
 
     kernelPackages = pkgs.linuxPackages;
 
+    kernelParams = [
+      "zswap.enabled=1"  # Use zswap to squeeze a bit more memory out of systems with low RAM
+      "zswap.compressor=zstd"  # compression algorithm to use for zswap {lzo, lz4, lz4hc, zstd; default: lzo}
+      "zswap.max_pool_percent=25"  # maximum percentage of RAM that zswap is allowed to use
+      "zswap.shrinker_enabled=1"  # whether to shrink the pool proactively on high memory pressure
+    ];
+
     tmp.useTmpfs = true;  # Save SSD from some wear and tear
 
     supportedFilesystems = [
