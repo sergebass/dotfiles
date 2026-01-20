@@ -21,7 +21,7 @@
 
 # various user-specific vim files
 *.swp
-Session.vim
+Session*.vim
 
 # ctags tag files
 tags
