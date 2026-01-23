@@ -12,14 +12,24 @@ return {
   {
     'romgrk/barbar.nvim',
     dependencies = {
+      'nvim-tree/nvim-web-devicons',  -- OPTIONAL: for file icons
       'lewis6991/gitsigns.nvim',  -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons',  -- OPTIONAL: for file icons },
       init = function()
         vim.g.barbar_auto_setup = false
       end,
       opts = {
-        -- lazy.nvim will automatically call setup for you. put your options here,
-        -- anything missing will use the default: animation = true, insert_at_start = true etc.
+          highlight_alternate = true,
+          highlight_visible = true,
+
+          icons = {
+            -- buffer_index = true,
+            buffer_numer = true,
+          },
+
+          -- If set, the letters for each buffer in buffer-pick mode will be
+          -- assigned based on their name. Otherwise or in case all letters are
+          -- already assigned, the behavior is to assign letters in order of usability
+          semantic_letters = true,
       },
       version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },
