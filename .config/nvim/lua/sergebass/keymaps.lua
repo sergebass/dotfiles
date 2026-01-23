@@ -361,34 +361,34 @@ vim.cmd([[
   nnoremap <silent> <Space><Up> <C-w>k
   nnoremap <silent> <Space><Down> <C-w>j
 
-  " a quick way to navigate between tabs (spacemacs prefix, serial)
-  nnoremap <Space>1 1gt
-  nnoremap <Space>2 2gt
-  nnoremap <Space>3 3gt
-  nnoremap <Space>4 4gt
-  nnoremap <Space>5 5gt
-  nnoremap <Space>6 6gt
-  nnoremap <Space>7 7gt
-  nnoremap <Space>8 8gt
-  nnoremap <Space>9 9gt
-  nnoremap <Space>0 10gt
+  " a quick way to navigate between buffers (spacemacs prefix, serial)
+  nnoremap <Space>1 <Cmd>BufferGoto 1<CR>
+  nnoremap <Space>2 <Cmd>BufferGoto 2<CR>
+  nnoremap <Space>3 <Cmd>BufferGoto 3<CR>
+  nnoremap <Space>4 <Cmd>BufferGoto 4<CR>
+  nnoremap <Space>5 <Cmd>BufferGoto 5<CR>
+  nnoremap <Space>6 <Cmd>BufferGoto 6<CR>
+  nnoremap <Space>7 <Cmd>BufferGoto 7<CR>
+  nnoremap <Space>8 <Cmd>BufferGoto 8<CR>
+  nnoremap <Space>9 <Cmd>BufferGoto 9<CR>
+  nnoremap <Space>0 <Cmd>BufferLast<CR>
 
-  " Tab navigation (for reduced size keyboards)
-  noremap <Space><CR> <Cmd>tabnew<CR>
-  noremap <Space><M-CR> <Cmd>tabnew<CR><Cmd>tabmove 0<CR>
-  noremap <Space><BS> <Cmd>tabclose<CR>
-  noremap <Space><M-BS> <Cmd>tabonly<CR>
+  " Buffer manipulation (for reduced size keyboards)
+  noremap <Space><CR> <Cmd>BufferPick<CR>
+  noremap <Space><M-CR> <Cmd>BufferPin<CR>
+  noremap <Space><BS> <Cmd>BufferPickDelete<CR>
+  noremap <Space><M-BS> <Cmd>BufferCloseAllButCurrentOrPinned<CR>
 
-  " Tab navigation (using spacemacs prefix on bigger keyboards)
-  noremap <Space><Insert> <Cmd>tabnew<CR>
-  noremap <Space><Del> <Cmd>tabclose<CR>
-  noremap <Space><Home> <Cmd>tabfirst<CR>
-  noremap <Space><End> <Cmd>tablast<CR>
-  noremap <Space><PageUp> <Cmd>tabprev<CR>
-  noremap <Space><PageDown> <Cmd>tabnext<CR>
+  " Buffer navigation and manipulation (using spacemacs prefix on bigger keyboards)
+  noremap <Space><Insert> <Cmd>BufferMove<CR>
+  noremap <Space><Del> <Cmd>BufferClose<CR>
+  noremap <Space><Home> <Cmd>BufferFirst<CR>
+  noremap <Space><End> <Cmd>BufferLast<CR>
+  noremap <Space><PageUp> <Cmd>BufferPrevious<CR>
+  noremap <Space><PageDown> <Cmd>BufferNext<CR>
 
   " allow user to choose where to move the tab (empty input causes it to move to the very end)
-  nnoremap <Space>\<BS> :tabmove<Space>
+  " nnoremap <Space>\<BS> :tabmove<Space>
 
   " resize current window in increments of 4 rows/columns
   noremap <silent> <M-<> 4<C-w><
@@ -399,8 +399,9 @@ vim.cmd([[
   " Miscellaneous useful search/navigation stuff
 
   " using FZF
-  noremap \fzF <Cmd>Filetypes<CR>
-  noremap \fz\| <Cmd>GFiles?<CR>
+  noremap \fzb <Cmd>Buffers<CR>
+  noremap \fzf <Cmd>Filetypes<CR>
+  noremap \fzs <Cmd>GFiles?<CR>
   noremap \fzt <Cmd>BTags<CR>
   noremap \fzg <Cmd>BCommits<CR>
   noremap \fzG <Cmd>Commits<CR>
