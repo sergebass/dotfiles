@@ -6,6 +6,25 @@ return {
     'wsdjeg/vim-fetch',
   },
 
+  -- Tabline plugin with re-orderable, auto-sizing, clickable tabs, icons,
+  -- nice highlighting, sort-by commands and a magic jump-to-buffer mode.
+  -- Plus the tab names are made unique when two filenames match.
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim',  -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons',  -- OPTIONAL: for file icons },
+      init = function()
+        vim.g.barbar_auto_setup = false
+      end,
+      opts = {
+        -- lazy.nvim will automatically call setup for you. put your options here,
+        -- anything missing will use the default: animation = true, insert_at_start = true etc.
+      },
+      version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    },
+  },
+
   -- Fuzzy Finder and more ("Find, Filter, Preview, Pick. All lua, all the time. ")
   {
     'nvim-telescope/telescope.nvim',
@@ -279,142 +298,139 @@ return {
         org_default_notes_file = '~/orgfiles/refile.org',
       })
 
-      -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
-      -- add ~org~ to ignore_install
-      -- require('nvim-treesitter.configs').setup({
-        --   ensure_installed = 'all',
-        --   ignore_install = { 'org' },
-        -- })
-      end,
-    },
+    -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
+    -- add ~org~ to ignore_install
+    -- require('nvim-treesitter.configs').setup({
+      --   ensure_installed = 'all',
+      --   ignore_install = { 'org' },
+      -- })
+    end,
+  },
 
-    -- Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-    { 'junegunn/vim-easy-align' },
+  -- Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+  { 'junegunn/vim-easy-align' },
 
-    -- " " Any valid git URL is allowed
-    -- " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+  -- " " Any valid git URL is allowed
+  -- " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-    -- " " Multiple Plug commands can be written in a single line using | separators
-    -- " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+  -- " " Multiple Plug commands can be written in a single line using | separators
+  -- " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-    -- " " On-demand loading
-    -- " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+  -- " " On-demand loading
+  -- " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-    -- " " Using a non-master branch
-    -- " Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+  -- " " Using a non-master branch
+  -- " Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-    -- " " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-    -- " Plug 'fatih/vim-go', { 'tag': '*' }
+  -- " " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+  -- " Plug 'fatih/vim-go', { 'tag': '*' }
 
-    -- " " Plugin options
-    -- " Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+  -- " " Plugin options
+  -- " Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-    -- " " Unmanaged plugin (manually installed and updated)
-    -- " Plug '~/my-prototype-plugin'
-    -- " Plug '/usr/share/lilypond/2.18.2/vim'
+  -- " " Unmanaged plugin (manually installed and updated)
+  -- " Plug '~/my-prototype-plugin'
+  -- " Plug '/usr/share/lilypond/2.18.2/vim'
 
-    -- " Handles bracketed-paste-mode in vim (aka. automatic `:set paste`)
-    -- Plug 'ConradIrwin/vim-bracketed-paste'
+  -- " Handles bracketed-paste-mode in vim (aka. automatic `:set paste`)
+  -- Plug 'ConradIrwin/vim-bracketed-paste'
 
-    -- " You need to be using a modern xterm-compatible terminal emulator that supports bracketed paste mode. xterm, urxvt, iTerm2, gnome-terminal (and other terminals using libvte), Putty (for Windows) are known to work.
+  -- " You need to be using a modern xterm-compatible terminal emulator that supports bracketed paste mode. xterm, urxvt, iTerm2, gnome-terminal (and other terminals using libvte), Putty (for Windows) are known to work.
 
-    -- " Then whenever you are in the insert mode and paste into your terminal emulator using command+v, shift+insert, ctrl+shift+v or middle-click, vim will automatically :set paste for you.
+  -- " Then whenever you are in the insert mode and paste into your terminal emulator using command+v, shift+insert, ctrl+shift+v or middle-click, vim will automatically :set paste for you.
 
-    -- " Vim bookmark plugin
-    -- Plug 'MattesGroeger/vim-bookmarks'
+  -- " Vim bookmark plugin
+  -- Plug 'MattesGroeger/vim-bookmarks'
 
-    -- " Search local vimrc files (".lvimrc") in the tree (root dir up to current dir) and load them.
-    -- Plug 'embear/vim-localvimrc'
+  -- " Search local vimrc files (".lvimrc") in the tree (root dir up to current dir) and load them.
+  -- Plug 'embear/vim-localvimrc'
 
-    -- " do not use sandboxing for local vim scripts (a bit less secure but much less bothersome either)
-    -- let g:localvimrc_sandbox=0
+  -- " do not use sandboxing for local vim scripts (a bit less secure but much less bothersome either)
+  -- let g:localvimrc_sandbox=0
 
-    -- " trust all .lvimrc scripts under our home directory
-    -- let g:localvimrc_whitelist=[expand("~")]
+  -- " trust all .lvimrc scripts under our home directory
+  -- let g:localvimrc_whitelist=[expand("~")]
 
-    -- " (Repo archived) vim plugin to search using the silver searcher (ag)
-    -- Plug 'ervandew/ag'
+  -- " (Repo archived) vim plugin to search using the silver searcher (ag)
+  -- Plug 'ervandew/ag'
 
-    -- " Perform all your vim insert mode completions with Tab
-    -- Plug 'ervandew/supertab'
+  -- " Perform all your vim insert mode completions with Tab
+  -- Plug 'ervandew/supertab'
 
-    -- " apply omni autocompletion when pressing <Tab> (used by supertab plugin)
-    -- let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-    -- " do not autocomplete at the start of the line, after a comma or after a space:
-    -- let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
+  -- " apply omni autocompletion when pressing <Tab> (used by supertab plugin)
+  -- let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+  -- " do not autocomplete at the start of the line, after a comma or after a space:
+  -- let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
 
-    -- " (Repo archived) Smart selection of the closest text object
-    -- Plug 'gcmt/wildfire.vim'
+  -- " (Repo archived) Smart selection of the closest text object
+  -- Plug 'gcmt/wildfire.vim'
 
-    -- " Outline asciidoc(tor) or markdown documents.
-    -- Plug 'habamax/vim-do-outline'
+  -- " Outline asciidoc(tor) or markdown documents.
+  -- Plug 'habamax/vim-do-outline'
 
-    -- if executable('asciidoctor')
-    --     " Asciidoctor plugin for Vim
-    --     Plug 'habamax/vim-asciidoctor'
-    -- endif
+  -- if executable('asciidoctor')
+  --     " Asciidoctor plugin for Vim
+  --     Plug 'habamax/vim-asciidoctor'
+  -- endif
 
-    -- " A vim 7.4+ plugin to generate table of contents for Markdown files.
-    -- Plug 'mzlogin/vim-markdown-toc'
+  -- " A vim 7.4+ plugin to generate table of contents for Markdown files.
+  -- Plug 'mzlogin/vim-markdown-toc'
 
-    -- " Configure markdown TOC generator (vim-markdown-toc plugin)
-    -- let g:vmt_auto_update_on_save = 0  " Do not auto-update the TOC on saving
-    -- let g:vmt_cycle_list_item_markers = 1  " Do not just use '*' for all nesting levels, cycle through the {*+-} set
-    -- let g:vmt_list_item_char = '*'  " The default bullet item character
-    -- let g:vmt_fence_text = 'TOC'
-    -- let g:vmt_fence_closing_text = '/TOC'
+  -- " Configure markdown TOC generator (vim-markdown-toc plugin)
+  -- let g:vmt_auto_update_on_save = 0  " Do not auto-update the TOC on saving
+  -- let g:vmt_cycle_list_item_markers = 1  " Do not just use '*' for all nesting levels, cycle through the {*+-} set
+  -- let g:vmt_list_item_char = '*'  " The default bullet item character
+  -- let g:vmt_fence_text = 'TOC'
+  -- let g:vmt_fence_closing_text = '/TOC'
 
-    -- " Make Vim handle line and column numbers in file names with a minimum of fuss
-    -- Plug 'kopischke/vim-fetch'
+  -- " The interactive scratchpad for hackers.
+  -- Plug 'metakirby5/codi.vim'
 
-    -- " The interactive scratchpad for hackers.
-    -- Plug 'metakirby5/codi.vim'
+  -- " Helps you win at grep
+  -- Plug 'mhinz/vim-grepper'
 
-    -- " Helps you win at grep
-    -- Plug 'mhinz/vim-grepper'
+  -- " Tame the quickfix window.
+  -- Plug 'romainl/vim-qf'
 
-    -- " Tame the quickfix window.
-    -- Plug 'romainl/vim-qf'
+  -- " vim-qf: do not shorten paths in quickfix/local lists
+  -- let g:qf_shorten_path = 0
+  -- let g:qf_statusline = {}
+  -- " let g:qf_statusline.before = %!len(filter(getqflist(), 'v:val.valid'))
+  -- " let g:qf_statusline.after = %!len(filter(getqflist(), 'v:val.valid'))
+  -- " let g:qf_statusline.before = '%{42} '
+  -- " let g:qf_statusline.after = ' %{777}'
+  -- " let g:qf_statusline.before = '%<\ %{42}'
+  -- " let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \  %{tabpagenr()}'
 
-    -- " vim-qf: do not shorten paths in quickfix/local lists
-    -- let g:qf_shorten_path = 0
-    -- let g:qf_statusline = {}
-    -- " let g:qf_statusline.before = %!len(filter(getqflist(), 'v:val.valid'))
-    -- " let g:qf_statusline.after = %!len(filter(getqflist(), 'v:val.valid'))
-    -- " let g:qf_statusline.before = '%{42} '
-    -- " let g:qf_statusline.after = ' %{777}'
-    -- " let g:qf_statusline.before = '%<\ %{42}'
-    -- " let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \  %{tabpagenr()}'
+  -- " A vim plugin to filter entries in Quickfix
+  -- Plug 'sk1418/QFGrep'
 
-    -- " A vim plugin to filter entries in Quickfix
-    -- Plug 'sk1418/QFGrep'
+  -- " True Sublime Text style multiple selections for Vim
+  -- Plug 'terryma/vim-multiple-cursors'
 
-    -- " True Sublime Text style multiple selections for Vim
-    -- Plug 'terryma/vim-multiple-cursors'
+  -- " (Repo archived) Syntax checking hacks for vim
+  -- " ALE is suggested as the "spiritual successor"
+  -- " Plug 'vim-syntastic/syntastic'
 
-    -- " (Repo archived) Syntax checking hacks for vim
-    -- " ALE is suggested as the "spiritual successor"
-    -- " Plug 'vim-syntastic/syntastic'
+  -- " Open a Quickfix item in a window you choose. (Vim plugin)
+  -- Plug 'yssl/QFEnter'
 
-    -- " Open a Quickfix item in a window you choose. (Vim plugin)
-    -- Plug 'yssl/QFEnter'
+  -- " one colorscheme pack to rule them all!
+  -- Plug 'flazz/vim-colorschemes'
 
-    -- " one colorscheme pack to rule them all!
-    -- Plug 'flazz/vim-colorschemes'
+  -- Supplies :DeleteHiddenBuffers command
+  { 'arithran/vim-delete-hidden-buffers' },
 
-    -- Supplies :DeleteHiddenBuffers command
-    { 'arithran/vim-delete-hidden-buffers' },
+  -- A plugin to colorize color names and codes
+  { 'chrisbra/Colorizer' },
 
-    -- A plugin to colorize color names and codes
-    { 'chrisbra/Colorizer' },
+  -- Emoji abbreviations in Vim
+  { 'https://gitlab.com/gi1242/vim-emoji-ab' },
 
-    -- Emoji abbreviations in Vim
-    { 'https://gitlab.com/gi1242/vim-emoji-ab' },
+  -- All 256 xterm colors with their RGB equivalents, right in Vim!
+  -- Provides :XtermColorTable command.
+  { 'guns/xterm-color-table.vim' },
 
-    -- All 256 xterm colors with their RGB equivalents, right in Vim!
-    -- Provides :XtermColorTable command.
-    { 'guns/xterm-color-table.vim' },
-
-    -- A plugin for viewing vim and nvim startup event timing information
-    { 'dstein64/vim-startuptime' },
-  }
+  -- A plugin for viewing vim and nvim startup event timing information
+  { 'dstein64/vim-startuptime' },
+}
