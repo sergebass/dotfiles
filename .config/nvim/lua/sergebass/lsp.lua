@@ -77,7 +77,23 @@ vim.lsp.config('asm_lsp', {
 
 vim.lsp.enable('asm_lsp')
 
--- TODO: LLVM IR
+-- LLVM MLIR
+vim.lsp.config('mlir-lsp-server', {
+    cmd = { 'mlir-lsp-server' },
+    filetypes = { 'mlir' },
+    -- root_markers = { '.git' },
+})
+
+vim.lsp.enable('mlir-lsp-server')
+
+-- LLVM IR
+vim.lsp.config('llvm_language_server', {
+    cmd = { 'llvm-language-server' },
+    filetypes = { 'll', 'mir' },
+    -- root_markers = { '.git' },
+})
+
+vim.lsp.enable('llvm_language_server')
 
 -- CMake
 vim.lsp.config('cmake', {
