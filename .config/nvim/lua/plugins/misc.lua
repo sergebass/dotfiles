@@ -12,25 +12,27 @@ return {
   {
     'romgrk/barbar.nvim',
     dependencies = {
-      'nvim-tree/nvim-web-devicons',  -- OPTIONAL: for file icons
       'lewis6991/gitsigns.nvim',  -- OPTIONAL: for git status
+      -- 'nvim-tree/nvim-web-devicons',  -- OPTIONAL: for file icons
       init = function()
         vim.g.barbar_auto_setup = false
       end,
-      opts = {
+      config = function()
+        require('barbar').setup({
           highlight_alternate = true,
           highlight_visible = true,
 
           icons = {
-            -- buffer_index = true,
-            buffer_numer = true,
+            filetype = {enabled = false},
+            buffer_index = true,
           },
 
           -- If set, the letters for each buffer in buffer-pick mode will be
           -- assigned based on their name. Otherwise or in case all letters are
           -- already assigned, the behavior is to assign letters in order of usability
           semantic_letters = true,
-      },
+        })
+      end,
       version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },
   },
