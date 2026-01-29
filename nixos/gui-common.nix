@@ -61,6 +61,7 @@ in {
       libnotify  # Library that sends desktop notifications to a notification daemon
       librewolf  # Fork of Firefox, focused on privacy, security and freedom
       mpv  # General-purpose media player, fork of MPlayer and mplayer2
+      mpvc  # Mpc-like control interface for mpv
       mupdf  # Lightweight PDF, XPS, and E-book viewer and toolkit written in portable C
       neovide  # Simple, no-nonsense, cross-platform graphical user interface for Neovim
       networkmanagerapplet  # Provides nm-connection-editor

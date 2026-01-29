@@ -11,6 +11,7 @@
     # $ nix search wget
     systemPackages = with pkgs; [
       mpv  # General-purpose media player, fork of MPlayer and mplayer2
+      mpvc  # Mpc-like control interface for mpv
       smplayer  # Complete front-end for MPlayer
       vlc  # Cross-platform media player and streaming server
       w_scan2  # A small channel scan tool which generates ATSC, DVB-C, DVB-S/S2 and DVB-T/T2 channels.conf files. Use: w_scan2 -fa -c CA > channels.conf
