@@ -285,3 +285,5 @@
     commits-by-author = shortlog -s -n --all --no-merges
 
     force-shallow-history = !git fetch --depth=1 && git gc --aggressive --prune=now
+
+    smu = submodule update --recursive
