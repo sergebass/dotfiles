@@ -11,6 +11,7 @@ return {
   -- Plus the tab names are made unique when two filenames match.
   {
     'romgrk/barbar.nvim',
+    enabled = false,  -- Disabled for now; may revisit later
     dependencies = {
       'lewis6991/gitsigns.nvim',  -- OPTIONAL: for git status
       -- 'nvim-tree/nvim-web-devicons',  -- OPTIONAL: for file icons
