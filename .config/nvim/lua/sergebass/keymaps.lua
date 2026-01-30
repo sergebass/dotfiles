@@ -374,18 +374,18 @@ vim.cmd([[
   nnoremap <Space>0 <Cmd>tablast<CR>
 
   " Tab manipulation (for reduced size keyboards)
-  noremap <Space><CR> <Cmd>tabnew<CR>
-  noremap <Space><M-CR> <Cmd>tabnew<CR><Cmd>tabmove 0<CR>
-  noremap <Space><BS> <Cmd>tabclose<CR>
-  noremap <Space><M-BS> <Cmd>tabonly<CR>
+  nnoremap <silent> <Space><CR> <Cmd>tabnew<CR>
+  nnoremap <silent> <Space><M-CR> <Cmd>tabnew<CR><Cmd>tabmove -1<CR>
+  nnoremap <Space><BS> :Tabby rename_tab<Space>
+  nnoremap <silent> <Space><M-BS> <Cmd>Tabby pick_window<CR>
 
   " Tab navigation and manipulation (using spacemacs prefix on bigger keyboards)
-  noremap <Space><Insert> <Cmd>tabnew<CR>
-  noremap <Space><Del> <Cmd>tabclose<CR>
-  noremap <Space><Home> <Cmd>tabfirst<CR>
-  noremap <Space><End> <Cmd>tablast<CR>
-  noremap <Space><PageUp> <Cmd>tabprev<CR>
-  noremap <Space><PageDown> <Cmd>tabnext<CR>
+  nnoremap <silent> <Space><Insert> <Cmd>tabnew<CR>
+  nnoremap <silent> <Space><Del> <Cmd>tabclose<CR>
+  nnoremap <silent> <Space><Home> <Cmd>tabfirst<CR>
+  nnoremap <silent> <Space><End> <Cmd>tablast<CR>
+  nnoremap <silent> <Space><PageUp> <Cmd>tabprev<CR>
+  nnoremap <silent> <Space><PageDown> <Cmd>tabnext<CR>
 
   " allow user to choose where to move the tab (empty input causes it to move to the very end)
   nnoremap <Space>\<BS> :tabmove<Space>

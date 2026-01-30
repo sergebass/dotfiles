@@ -6,36 +6,63 @@ return {
     'wsdjeg/vim-fetch',
   },
 
-  -- Tabline plugin with re-orderable, auto-sizing, clickable tabs, icons,
-  -- nice highlighting, sort-by commands and a magic jump-to-buffer mode.
-  -- Plus the tab names are made unique when two filenames match.
+  -- A declarative, highly configurable, and neovim style tabline plugin.
+  -- Use your nvim tabs as a workspace multiplexer!
+  -- Note: tabline, not bufferline! (hence, not barbar)
   {
-    'romgrk/barbar.nvim',
-    enabled = false,  -- Disabled for now; may revisit later
-    dependencies = {
-      'lewis6991/gitsigns.nvim',  -- OPTIONAL: for git status
-      -- 'nvim-tree/nvim-web-devicons',  -- OPTIONAL: for file icons
-      init = function()
-        vim.g.barbar_auto_setup = false
-      end,
-      config = function()
-        require('barbar').setup({
-          highlight_alternate = true,
-          highlight_visible = true,
+    'nanozuki/tabby.nvim',
+    config = function()
+      local theme = {
+        fill = 'TabLineFill',
+        -- Also you can do this: fill = { fg='#f2e9de', bg='#907aa9', style='italic' }
+        head = 'TabLine',
+        current_tab = 'TabLineSel',
+        tab = 'TabLine',
+        win = 'TabLine',
+        tail = 'TabLine',
+      }
 
-          icons = {
-            filetype = {enabled = false},
-            buffer_index = true,
-          },
-
-          -- If set, the letters for each buffer in buffer-pick mode will be
-          -- assigned based on their name. Otherwise or in case all letters are
-          -- already assigned, the behavior is to assign letters in order of usability
-          semantic_letters = true,
-        })
-      end,
-      version = '^1.0.0', -- optional: only update when a new 1.x version is released
-    },
+      require('tabby').setup({
+        line = function(line)
+          return {
+            {
+              { '  ', hl = theme.head },
+              line.sep('', theme.head, theme.fill),
+            },
+            line.tabs().foreach(function(tab)
+              local hl = tab.is_current() and theme.current_tab or theme.tab
+              return {
+                line.sep('', hl, theme.fill),
+                tab.is_current() and '' or '󰆣',
+                tab.number(),
+                tab.name(),
+                tab.close_btn(''),
+                line.sep('', hl, theme.fill),
+                hl = hl,
+                margin = ' ',
+              }
+            end),
+            line.spacer(),
+            line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+              return {
+                line.sep('', theme.win, theme.fill),
+                win.is_current() and '' or '',
+                win.buf_name(),
+                line.sep('', theme.win, theme.fill),
+                hl = theme.win,
+                margin = ' ',
+              }
+            end),
+            {
+              line.sep('', theme.tail, theme.fill),
+              { '  ', hl = theme.tail },
+            },
+            hl = theme.fill,
+          }
+        end,
+        -- option = {}, -- setup modules' option,
+      })
+    end,
   },
 
   -- Fuzzy Finder and more ("Find, Filter, Preview, Pick. All lua, all the time. ")
