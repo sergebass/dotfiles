@@ -13,16 +13,7 @@ vim.cmd([[
 
   hi clear
 
-  hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=0 gui=NONE guifg=#c0c0c0 guibg=#000000
-
-  " user-defined highlights for statusline
-  hi User1 term=bold,inverse cterm=bold,inverse ctermfg=red ctermbg=blue gui=bold,inverse guifg=#ff0000 guibg=#000040
-  hi User2 term=bold,underline cterm=bold,underline ctermfg=red ctermbg=blue gui=bold,underline guifg=#ff0000 guibg=#000040
-  hi User3 term=bold,underline cterm=bold ctermfg=magenta ctermbg=blue gui=bold guifg=#a000a0 guibg=#000040
-  hi User4 term=bold,underline cterm=bold ctermfg=yellow ctermbg=blue gui=bold guifg=#ffff20 guibg=#000040
-  hi User5 term=underline cterm=underline ctermfg=green ctermbg=blue gui=underline guifg=#00ff00 guibg=#000040
-  hi User6 term=underline cterm=underline ctermfg=cyan ctermbg=blue gui=underline guifg=#8080ff guibg=#000040
-  hi User9 term=NONE cterm=NONE ctermfg=grey ctermbg=blue gui=NONE guifg=#b2b2b2 guibg=#000040
+  hi Normal cterm=NONE ctermfg=250 ctermbg=0 gui=NONE guifg=#c0c0c0 guibg=#000000
 
   " FIXME temporary highlighting placeholders, taken from vim documentation;
   " uncomment and fix.
@@ -36,91 +27,107 @@ vim.cmd([[
   " VisualNOS   Visual mode selection when vim is "Not Owning the Selection".
   "         Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
 
-  hi Cursor term=NONE cterm=NONE ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
-  hi CursorIM term=NONE cterm=NONE ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
-  hi CursorLine term=underline cterm=NONE ctermbg=235 gui=NONE guibg=#262626
-  hi CursorColumn term=NONE cterm=NONE ctermbg=235 gui=NONE guibg=#262626
-  hi CursorLineNr term=bold cterm=bold ctermfg=246 ctermbg=0 gui=bold guifg=#949494 guibg=#000000
-  hi LineNr term=NONE cterm=NONE ctermfg=240 ctermbg=0 gui=NONE guifg=#606060 guibg=#000000
+  hi Cursor cterm=NONE ctermfg=0 ctermbg=214 gui=bold guifg=black guibg=#ffaf00
+  hi CursorIM cterm=NONE ctermfg=0 ctermbg=201 gui=bold guifg=black guibg=#ff00ff
+  hi CursorLine cterm=NONE ctermbg=235 gui=NONE guibg=#262626
+  hi CursorColumn cterm=NONE ctermbg=235 gui=NONE guibg=#262626
+  hi CursorLineNr cterm=bold ctermfg=246 ctermbg=0 gui=bold guifg=#949494 guibg=#000000
+  hi LineNr cterm=NONE ctermfg=240 ctermbg=0 gui=NONE guifg=#606060 guibg=#000000
 
   if has("nvim")
-      hi TermCursor term=NONE cterm=NONE ctermfg=0 ctermbg=119 gui=bold guifg=black guibg=#87ff5f
-      hi TermCursorNC term=NONE cterm=NONE ctermfg=0 ctermbg=197 gui=bold guifg=black guibg=#ff005f
+      hi TermCursor cterm=NONE ctermfg=0 ctermbg=119 gui=bold guifg=black guibg=#87ff5f
+      hi TermCursorNC cterm=NONE ctermfg=0 ctermbg=197 gui=bold guifg=black guibg=#ff005f
   endif
 
   " line length limit highlighting
-  hi ColorColumn term=NONE cterm=NONE ctermbg=17 guibg=#00005f
+  hi ColorColumn cterm=NONE ctermbg=17 guibg=#00005f
 
-  hi StatusLine term=inverse cterm=bold ctermfg=17 ctermbg=226 gui=bold guifg=#000040 guibg=#ffd700
-  hi StatusLineNC term=NONE cterm=NONE ctermfg=226 ctermbg=17 gui=NONE guifg=#b2b2b2 guibg=#00005f
+  hi TabLine cterm=NONE ctermfg=254 ctermbg=18 gui=NONE guifg=#e4e4e4 guibg=#000087
+  hi TabLineFill cterm=NONE ctermfg=254 ctermbg=18 gui=NONE guifg=#e4e4e4 guibg=#000087
+  hi TabLineSel cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
 
-  hi TabLine term=inverse cterm=NONE ctermfg=254 ctermbg=18 gui=NONE guifg=#e4e4e4 guibg=#000087
-  hi TabLineFill term=inverse cterm=NONE ctermfg=254 ctermbg=18 gui=NONE guifg=#e4e4e4 guibg=#000087
-  hi TabLineSel term=inverse,bold cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
+  hi StatusLine cterm=bold ctermfg=17 ctermbg=226 gui=bold guifg=#000040 guibg=#ffd700
+  hi StatusLineNC cterm=bold ctermfg=226 ctermbg=17 gui=bold guifg=#b2b2b2 guibg=#00005f
 
-  hi MoreMsg term=reverse cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
-  hi ModeMsg term=reverse cterm=reverse,bold ctermfg=22 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005f00
-  hi ErrorMsg term=reverse cterm=reverse,bold ctermfg=88 ctermbg=226 gui=bold guifg=#ffff00 guibg=#870000
-  hi WarningMsg term=reverse cterm=reverse,bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
-  hi Question term=reverse cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
+  " User-defined highlights for statusline
+  hi User1 cterm=NONE ctermfg=red ctermbg=blue gui=NONE guifg=#ff0000 guibg=#000040
+  hi User2 cterm=NONE ctermfg=red ctermbg=blue gui=NONE guifg=#ff0000 guibg=#000040
+  hi User3 cterm=NONE ctermfg=magenta ctermbg=blue gui=NONE guifg=#a000a0 guibg=#000040
+  hi User4 cterm=NONE ctermfg=yellow ctermbg=blue gui=NONE guifg=#ffff20 guibg=#000040
+  hi User5 cterm=NONE ctermfg=green ctermbg=blue gui=NONE guifg=#00ff00 guibg=#000040
+  hi User6 cterm=NONE ctermfg=cyan ctermbg=blue gui=NONE guifg=#8080ff guibg=#000040
+  hi User9 cterm=NONE ctermfg=grey ctermbg=blue gui=NONE guifg=#b2b2b2 guibg=#000040
+
+  hi MoreMsg cterm=reverse,bold ctermfg=19 ctermbg=15 gui=bold guifg=#ffffff guibg=#0000af
+  hi ModeMsg cterm=reverse,bold ctermfg=22 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005f00
+  hi ErrorMsg cterm=reverse,bold ctermfg=88 ctermbg=226 gui=bold guifg=#ffff00 guibg=#870000
+  hi WarningMsg cterm=reverse,bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
+  hi Question cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
+
+  echo "FIXME"
+  hi link DiagnosticError ErrorMsg
+  hi link DiagnosticWarn WarningMsg
+  hi link DiagnosticInfo Question
+  hi link DiagnosticHint Question
+  hi link DiagnosticOk Question
 
   hi link LspDiagnosticsDefaultError ErrorMsg
   hi link LspDiagnosticsDefaultWarning WarningMsg
   hi link LspDiagnosticsDefaultInformation Question
   hi link LspDiagnosticsDefaultHint Question
 
-  hi Search term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
-  hi IncSearch term=reverse cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
+  hi Search cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
+  hi IncSearch cterm=reverse,bold ctermfg=24 ctermbg=226 gui=bold guifg=#ffff00 guibg=#005050
 
-  hi Directory term=NONE cterm=NONE ctermfg=123 gui=NONE guifg=#87ffff
+  hi Directory cterm=NONE ctermfg=123 gui=NONE guifg=#87ffff
 
-  hi Visual term=reverse cterm=reverse,bold ctermfg=90 ctermbg=226 gui=bold guibg=#5f0087
+  hi Visual cterm=reverse,bold ctermfg=90 ctermbg=226 gui=bold guibg=#5f0087
 
-  hi EndOfBuffer term=NONE cterm=NONE ctermfg=240 gui=NONE guifg=#585858
+  hi EndOfBuffer cterm=NONE ctermfg=240 gui=NONE guifg=#585858
   hi Ignore ctermfg=black guifg=bg
-  hi VertSplit term=reverse cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff guibg=#000000
-  hi Folded term=reverse ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
-  hi MatchParen term=reverse cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
+  hi VertSplit cterm=bold ctermfg=21 ctermbg=0 gui=bold guifg=#0000ff guibg=#000000
+  hi Folded ctermfg=yellow ctermbg=238 guifg=Yellow guibg=#303030
+  hi MatchParen cterm=bold ctermfg=226 ctermbg=24 gui=bold guifg=#ffff00 guibg=#005050
 
   " Spellchecking
 
   " Word that is not recognized by the spellchecker.
-  hi SpellBad term=inverse cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#800000
+  hi SpellBad cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#800000
   " Word that should start with a capital.
-  hi SpellCap term=inverse cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#000080
+  hi SpellCap cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#000080
   " Word that is recognized by the spellchecker as one that is used in another region.
-  hi SpellLocal term=inverse cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#008080
+  hi SpellLocal cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#008080
   " Word that is recognized by the spellchecker as one that is hardly ever used.
-  hi SpellRare term=inverse cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#800080
+  hi SpellRare cterm=inverse,bold,undercurl gui=inverse,bold,undercurl guisp=#800080
 
   " popup menus (autocompletion etc.)
-  hi Pmenu term=reverse cterm=NONE ctermfg=228 ctermbg=17 gui=NONE guifg=#ffff87 guibg=#00005f  " normal item
-  hi PmenuSel term=bold cterm=bold ctermfg=226 ctermbg=28 gui=bold guifg=#ffff00 guibg=#008700 " selected item
-  hi PmenuSbar term=NONE cterm=NONE ctermbg=21 gui=NONE guibg=#0000ff " scrollbar
-  hi PmenuThumb term=reverse cterm=NONE ctermbg=165 gui=NONE guibg=#d700ff " scrollbar thumb
+  hi Pmenu cterm=NONE ctermfg=228 ctermbg=17 gui=NONE guifg=#ffff87 guibg=#00005f  " normal item
+  hi PmenuSel cterm=bold ctermfg=226 ctermbg=28 gui=bold guifg=#ffff00 guibg=#008700 " selected item
+  hi PmenuSbar cterm=NONE ctermbg=21 gui=NONE guibg=#0000ff " scrollbar
+  hi PmenuThumb cterm=NONE ctermbg=165 gui=NONE guibg=#d700ff " scrollbar thumb
 
-  hi WildMenu term=bold cterm=bold ctermfg=226 ctermbg=28 gui=bold guifg=#ffff00 guibg=#008700 " selected item
+  hi WildMenu cterm=bold ctermfg=226 ctermbg=28 gui=bold guifg=#ffff00 guibg=#008700 " selected item
 
   " show non-space whitespace using this coloring:
-  hi NonText term=NONE cterm=NONE ctermfg=237 ctermbg=NONE gui=NONE guifg=#3a3a3a guibg=NONE
-  hi Whitespace term=NONE cterm=NONE ctermfg=237 ctermbg=NONE gui=NONE guifg=#3a3a3a guibg=NONE
-  hi SpecialKey term=NONE cterm=NONE ctermfg=237 ctermbg=NONE gui=NONE guifg=#3a3a3a guibg=NONE
+  hi NonText cterm=NONE ctermfg=237 ctermbg=NONE gui=NONE guifg=#3a3a3a guibg=NONE
+  hi Whitespace cterm=NONE ctermfg=237 ctermbg=NONE gui=NONE guifg=#3a3a3a guibg=NONE
+  hi SpecialKey cterm=NONE ctermfg=237 ctermbg=NONE gui=NONE guifg=#3a3a3a guibg=NONE
 
-  hi Special term=bold ctermfg=DarkMagenta guifg=Red
-  hi Comment term=NONE cterm=NONE ctermfg=105 gui=NONE guifg=#8787ff
-  hi SpecialComment term=bold cterm=bold ctermfg=105 gui=bold guifg=#8787ff
-  hi Constant term=underline cterm=NONE ctermfg=48 guifg=#00ff87
-  hi Identifier term=underline cterm=NONE ctermfg=Cyan guifg=#40ffff
-  hi Statement term=NONE ctermfg=50 gui=NONE guifg=#00ffd7
-  hi PreProc term=bold cterm=NONE ctermfg=159 gui=NONE guifg=#afffff
-  hi Type term=NONE cterm=NONE ctermfg=255 gui=NONE guifg=#eeeeee
-  hi Function term=bold cterm=bold gui=bold
-  hi StorageClass term=NONE cterm=NONE ctermfg=39 gui=NONE guifg=#00afff
-  hi Scope term=NONE cterm=NONE ctermfg=42 gui=NONE guifg=#00d787
-  hi Repeat term=underline ctermfg=White guifg=white
-  hi Operator term=NONE cterm=NONE ctermfg=195 gui=NONE guifg=#d7ffff
-  hi Error term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
-  hi Todo term=reverse cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
+  hi Special ctermfg=DarkMagenta guifg=Red
+  hi Comment cterm=NONE ctermfg=105 gui=NONE guifg=#8787ff
+  hi SpecialComment cterm=bold ctermfg=105 gui=bold guifg=#8787ff
+  hi Constant cterm=NONE ctermfg=48 guifg=#00ff87
+  hi Identifier cterm=NONE ctermfg=Cyan guifg=#40ffff
+  hi Statement ctermfg=50 gui=NONE guifg=#00ffd7
+  hi PreProc cterm=NONE ctermfg=159 gui=NONE guifg=#afffff
+  hi Type cterm=NONE ctermfg=255 gui=NONE guifg=#eeeeee
+  hi Function cterm=bold gui=bold
+  hi StorageClass cterm=NONE ctermfg=39 gui=NONE guifg=#00afff
+  hi Scope cterm=NONE ctermfg=42 gui=NONE guifg=#00d787
+  hi Repeat ctermfg=White guifg=white
+  hi Operator cterm=NONE ctermfg=195 gui=NONE guifg=#d7ffff
+  hi Error cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
+  hi Todo cterm=bold ctermfg=226 ctermbg=88 gui=bold guifg=#ffff00 guibg=#870000
 
   hi link String Constant
   hi link Character Constant
@@ -864,7 +871,7 @@ vim.cmd([[
   "vimWarn        xxx links to WarningMsg
 
   " for highlighting of any selected words, defined at runtime (see mappings.vim)
-  hi SPCustomHighlight term=reverse cterm=reverse gui=reverse
+  hi SPCustomHighlight cterm=reverse gui=reverse
 
   " color settings for the rainbow parentheses plugin
   let g:rbpt_colorpairs = [
