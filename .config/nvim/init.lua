@@ -85,7 +85,7 @@ vim.opt.rulerformat = "%l:%c%V"
 
 -- Status line configuration
 vim.opt.laststatus = 2  -- Always display status line, even with one file being edited
-vim.opt.statusline = [[%1*%m%r%* %t %3*%{fugitive#statusline()}%9* %y%{ObsessionStatus()} %=%{tabpagenr()}:#%n "%{v:register} u%B/%{&fenc}/%{&ff} %l:%c%V %p%%/%L]]
+vim.opt.statusline = [[%5*%{fnamemodify(bufname(0), ':h')}%*/%t %1*%m%r%3*%{fugitive#statusline()}%9* %y%{ObsessionStatus()} %=%{tabpagenr()}:#%n "%{v:register} u%B/%{&fenc}/%{&ff}%* %l:%c%V %p%%/%L]]
 
 -- Customized status line for terminal buffers
 vim.api.nvim_create_autocmd("TermOpen", {
