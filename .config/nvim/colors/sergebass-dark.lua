@@ -64,7 +64,6 @@ vim.cmd([[
   hi WarningMsg cterm=reverse,bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
   hi Question cterm=bold ctermfg=88 ctermbg=226 gui=bold guifg=#870000 guibg=#ffff00
 
-  echo "FIXME"
   hi link DiagnosticError ErrorMsg
   hi link DiagnosticWarn WarningMsg
   hi link DiagnosticInfo Question
