@@ -36,12 +36,13 @@ return {
                 line.sep(' ', hl, theme.fill),
                 -- tab.is_current() and '' or '󰆣',
                 tab.number(),
+                ':',
                 tab.name(),
                 -- tab.close_btn(''),
                 -- line.sep('', hl, theme.fill),
                 line.sep(' ', hl, theme.fill),
                 hl = hl,
-                margin = ' ',
+                -- margin = ' ',
               }
             end),
             -- line.spacer(),
@@ -59,7 +60,7 @@ return {
             --   line.sep('', theme.tail, theme.fill),
             --   { '  ', hl = theme.tail },
             -- },
-            hl = theme.fill,
+            -- hl = theme.fill,
           }
         end,
         -- option = {}, -- setup modules' option,
