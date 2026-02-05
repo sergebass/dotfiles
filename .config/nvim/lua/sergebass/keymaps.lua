@@ -45,6 +45,9 @@ vim.cmd([[
   vnoremap <Del> "_d
   nnoremap <Del> "_x
 
+  " Prepare to sort lines in visual mode (do not auto-press CR, so user can add/edit options)
+  vnoremap \S :sort u
+
   " Quickly toggle line wrapping
   noremap \W <Cmd>set wrap!<CR>
 
