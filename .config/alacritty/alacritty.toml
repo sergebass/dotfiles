@@ -4,7 +4,7 @@
 
 [terminal]
 shell = "nu"
-# On Windows with Chocolatey, use the absolute path of the actual nu.exe
+# WARNING: On Windows with Chocolatey, use the absolute path of the actual nu.exe
 # to avoid issues with Ctrl+C closing terminal window:
 # shell = "C:\\Program Files\\nu\\bin\\nu.exe"
 # args = []
