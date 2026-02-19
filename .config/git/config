@@ -20,10 +20,9 @@
     lineNumber = true
 
 [diff]
-    submodule = log
-    ; tool = vimdiff
     tool = nvim
     guitool = meld
+    submodule = log
 
 [difftool]
     prompt = true
@@ -31,11 +30,13 @@
 [difftool "nvim"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 
+[difftool "vimdiff"]
+    cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
+
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
 
 [merge]
-    ; tool = vimdiff
     tool = nvim
     guitool = meld
     conflictstyle = diff3
@@ -45,9 +46,13 @@
     keepBackup = false
 
 [mergetool "nvim"]
-    ; cmd = nvim -d -c 'wincmd J' "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
-    ; cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
     cmd = nvim -f -c \"Gvdiffsplit!\" -c \"norm gg]c\" \"$MERGED\"
+
+[mergetool "nvimdiff"]
+    cmd = nvim -d -c 'wincmd J' "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
+
+[mergetool "vimdiff"]
+    cmd = vim -d -c 'wincmd J' "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
 
 [mergetool "ediff"]
     ; cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
