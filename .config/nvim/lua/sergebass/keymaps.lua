@@ -241,9 +241,16 @@ vim.cmd([[
   " jump to any of the next conflict markers
   nnoremap \g\| /^<<<<<<<<Space>\<bar>^<bar><bar><bar><bar><bar><bar><bar><Space>\<bar>^=======\<bar>^>>>>>>><Space><CR>
 
+  " Mappings for pulling changes from the local/remote/base version into the merged version (useful for resolving merge conflicts)
+
+  " When using stock neovim mergetool mode
   nnoremap \gL :diffget _LOCAL_<CR>
   nnoremap \gR :diffget _REMOTE_<CR>
   nnoremap \gB :diffget _BASE_<CR>
+
+  " When using vim-fugitive's :Gdiffsplit mode
+  nnoremap \g2 :diffget //2<CR>
+  nnoremap \g3 :diffget //3<CR>
 
   nnoremap \gm :GMove<Space>
   nnoremap \gr :GRename<Space>
