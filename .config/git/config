@@ -47,7 +47,7 @@
 [mergetool "nvim"]
     ; cmd = nvim -d -c 'wincmd J' "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
     ; cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
-    cmd = nvim -f -c \"Gvdiffsplit!\" -c \"norm ]c\" \"$MERGED\"
+    cmd = nvim -f -c \"Gvdiffsplit!\" -c \"norm gg]c\" \"$MERGED\"
 
 [mergetool "ediff"]
     ; cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
