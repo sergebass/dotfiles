@@ -42,10 +42,12 @@
 
 [mergetool]
     prompt = true
+    keepBackup = false
 
 [mergetool "nvim"]
-    ; cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
-    cmd = nvim -d -c 'wincmd J' "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
+    ; cmd = nvim -d -c 'wincmd J' "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
+    ; cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
+    cmd = nvim -f -c \"Gvdiffsplit!\" -c \"norm ]c\" \"$MERGED\"
 
 [mergetool "ediff"]
     ; cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
@@ -233,6 +235,8 @@
     conflicts-show = diff --name-only --diff-filter=U
     conflicts-check = diff --check
     conflicts-merge = mergetool -t nvim
+
+    mt = mergetool
 
     co = checkout
     cob = checkout -b
