@@ -30,6 +30,12 @@ set listsize 5
 set prompt gdb =>\040
 set extended-prompt \[\e[0;1;32m\]gdb \[\e[0;7;33m\]\f\[\e[0;1;36m\] => \[\e[0m\]
 
+# Enable pretty-printing
+set print pretty on
+set print object on
+set print static-members on
+set print vtbl on
+
 # Enable demangling of C++ names
 set print demangle on
 set print asm-demangle on
