@@ -25,7 +25,7 @@ set input-radix 0x10
 set height 0
 set width 0
 
-set listsize 5
+set listsize 9
 
 set prompt gdb =>\040
 set extended-prompt \[\e[0;1;32m\]gdb \[\e[0;7;33m\]\f\[\e[0;1;36m\] => \[\e[0m\]
@@ -41,6 +41,13 @@ set print demangle on
 set print asm-demangle on
 
 set disassembly-flavor intel
+
+set breakpoint pending auto
+
+# Configure gdb-dashboard
+dashboard -layout !breakpoints threads stack source !assembly !registers variables !expressions !memory !history
+dashboard source -style height 19
+dashboard registers -style column-major True
 
 # define hook-stop
 #     info args
