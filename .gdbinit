@@ -45,7 +45,7 @@ set disassembly-flavor intel
 set breakpoint pending auto
 
 # Configure gdb-dashboard
-dashboard -layout !breakpoints threads stack source !assembly !registers variables !expressions !memory !history
+dashboard -layout !breakpoints threads stack source !assembly !registers variables !history expressions !memory
 dashboard source -style height 19
 dashboard variables -style compact False
 dashboard variables -style sort True
