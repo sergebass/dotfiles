@@ -46,7 +46,7 @@ set breakpoint pending auto
 
 # Configure gdb-dashboard
 dashboard -style compact_values False
-dashboard -style max_value_length 256
+dashboard -style max_value_length 200
 dashboard -layout !breakpoints threads stack source !assembly !registers variables !history expressions !memory
 dashboard threads -style all-inferiors True
 dashboard source -style path True
