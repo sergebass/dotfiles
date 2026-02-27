@@ -7,6 +7,9 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal autoindent
 
+" Do our formatting using autopep8 and the '=' command
+setlocal equalprg=autopep8
+
 " setlocal keywordprg=ri
 
 " setlocal omnifunc=python3complete#Complete

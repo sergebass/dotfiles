@@ -7,6 +7,9 @@ vim.opt_local.tabstop = 4
 vim.opt_local.shiftwidth = 4
 vim.opt_local.autoindent = true
 
+-- Do our formatting using autopep8 and the '=' command
+vim.opt_local.equalprg = "autopep8 -"
+
 -- Jump to definition of the symbol under cursor
 -- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
 vim.keymap.set('n', '<CR>', require('telescope.builtin').lsp_definitions, { buffer = true, desc = 'Telescope: LSP: Go to definition (telescope)' })
