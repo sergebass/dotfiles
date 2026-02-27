@@ -45,10 +45,15 @@ set disassembly-flavor intel
 set breakpoint pending auto
 
 # Configure gdb-dashboard
+dashboard -style compact_values False
+dashboard -style max_value_length 256
 dashboard -layout !breakpoints threads stack source !assembly !registers variables !history expressions !memory
+dashboard threads -style all-inferiors True
+dashboard source -style path True
+dashboard source -style highlight-line True
 dashboard source -style height 19
 dashboard variables -style compact False
-dashboard variables -style sort True
+dashboard variables -style sort False
 dashboard registers -style column-major True
 
 # define hook-stop
