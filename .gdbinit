@@ -56,6 +56,11 @@ dashboard variables -style compact False
 dashboard variables -style sort False
 dashboard registers -style column-major True
 
+# Aliases for gdb-dashboard watched expression management
+alias XC = dashboard expressions clear
+alias XW = dashboard expressions watch
+alias XU = dashboard expressions unwatch
+
 # define hook-stop
 #     info args
 #     info locals
