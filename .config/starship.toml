@@ -23,7 +23,7 @@ style = "gray"
 [status]
 # Display the exit code of the last command, if it was non-zero.
 disabled = false
-format = '[$status]($style) '
+format = '[$symbol $status]($style) '
 style = 'bold red'
 
 [username]
