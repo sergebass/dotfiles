@@ -20,6 +20,12 @@ powershell_indicator = "powershell"
 cmd_indicator = "cmd"
 style = "gray"
 
+[status]
+# Display the exit code of the last command, if it was non-zero.
+disabled = false
+format = '[$status]($style) '
+style = 'bold red'
+
 [username]
 # Always display user name
 show_always = true
