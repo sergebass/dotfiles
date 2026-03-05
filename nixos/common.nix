@@ -87,6 +87,7 @@
     # Note that several core programs are configured in other Nix modules
     # (e.g. tmux, fish, fzf, git etc. - usually in `programs.abc` blocks)
     systemPackages = with pkgs; [
+      bat  # Cat(1) clone with syntax highlighting and Git integration
       bc  # GNU software calculator
       cmus  # Small, fast and powerful console music player for Linux and *BSD
       dialog  # Display dialog boxes from shell (using ncurses TUI)
