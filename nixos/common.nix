@@ -90,6 +90,7 @@
       bat  # Cat(1) clone with syntax highlighting and Git integration
       bc  # GNU software calculator
       cmus  # Small, fast and powerful console music player for Linux and *BSD
+      delta  # Syntax-highlighting pager for git
       dialog  # Display dialog boxes from shell (using ncurses TUI)
       dig  # Domain name server utility
       file  # A program that shows the type of files
