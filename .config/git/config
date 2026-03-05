@@ -5,13 +5,22 @@
     helper = cache
 
 [core]
-    pager = less -F -X
+    ; pager = less -F -X
+    pager = delta 
 
 [init]
     defaultBranch = main
 
 [pull]
     rebase = true
+
+[interactive]
+    diffFilter = "delta --color-only"
+
+[delta]
+    features = side-by-side line-numbers decorations
+    navigate = true
+    dark = true
 
 [pager]
     status = false
@@ -39,7 +48,7 @@
 [merge]
     tool = nvim
     guitool = meld
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [mergetool]
     prompt = true
