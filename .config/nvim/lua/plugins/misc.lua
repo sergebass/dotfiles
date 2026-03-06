@@ -94,7 +94,21 @@ return {
     build = "./install --all",
   },
 
-  { "junegunn/fzf.vim", },
+  -- FZF integration for Vim and Neovim
+  {
+    "junegunn/fzf.vim",
+    init = function()
+      vim.cmd([[
+        " Initialize configuration dictionary
+        let g:fzf_vim = {}
+
+        " Prefix all FZF-related commands with "Fzf" to avoid conflicts with other plugins
+        let g:fzf_vim.command_prefix = 'Fzf'
+
+        let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
+      ]])
+    end,
+  },
 
   -- which-key helps you remember key bindings by showing a popup
   -- with the active keybindings of the command you started typing.

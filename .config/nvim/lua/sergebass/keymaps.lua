@@ -117,16 +117,16 @@ vim.cmd([[
   nmap <Space>* <Space>srP
 
   " search some text in the current project (use fzf.vim + ripgrep)
-  nnoremap <Space>srp :Rg!<Space>
+  nnoremap <Space>srp :FzfRg<Space>
 
   " search the word under cursor in the current project (use fzf.vim + ripgrep)
-  nnoremap <Space>srP :let w=expand("<cword>")<CR><CR>:Rg! <C-r>=w<CR><CR>
+  nnoremap <Space>srP :let w=expand("<cword>")<CR><CR>:FzfRg <C-r>=w<CR><CR>
 
   " search some text in the current project (use fzf.vim + silver searcher)
-  nnoremap <Space>sap :Ag!<Space>
+  nnoremap <Space>sap :FzfAg<Space>
 
   " search the word under cursor in the current project (use fzf.vim + silver searcher)
-  nnoremap <Space>saP :let w=expand("<cword>")<CR><CR>:Ag! <C-r>=w<CR><CR>
+  nnoremap <Space>saP :let w=expand("<cword>")<CR><CR>:FzfAg <C-r>=w<CR><CR>
 
   " search some text in files in an arbitrary directory (current by default) using default tool
   nmap <Space>sf <Space>sGf
@@ -135,16 +135,16 @@ vim.cmd([[
   nmap <Space>sF <Space>sGF
 
   " search some text in files in an arbitrary directory (current by default) using rg
-  nnoremap <Space>srf :Rg!<CR>
+  nnoremap <Space>srf :FzfRg<CR>
 
   " search word under cursor in files in an arbitrary directory (current by default) using rg
-  nnoremap <Space>srF :Rg! <C-r>=expand("<cword>")<CR><CR>
+  nnoremap <Space>srF :FzfRg <C-r>=expand("<cword>")<CR><CR>
 
   " search some text in files in an arbitrary directory (current by default) using ag
-  nnoremap <Space>saf :Ag!<CR>
+  nnoremap <Space>saf :FzfAg<CR>
 
   " search word under cursor in files in an arbitrary directory (current by default) using ag
-  nnoremap <Space>saF :Ag! <C-r>=expand("<cword>")<CR><CR>
+  nnoremap <Space>saF :FzfAg <C-r>=expand("<cword>")<CR><CR>
 
   " search some text in files in an arbitrary directory (current by default) using grepprg
   nnoremap <Space>sgf :FindText grep "" **<left><left><left><left>
@@ -409,15 +409,55 @@ vim.cmd([[
   " Miscellaneous useful search/navigation stuff
 
   " using FZF
-  noremap \fzb <Cmd>Buffers<CR>
-  noremap \fzf <Cmd>Filetypes<CR>
-  noremap \fzs <Cmd>GFiles?<CR>
-  noremap \fzt <Cmd>BTags<CR>
-  noremap \fzg <Cmd>BCommits<CR>
-  noremap \fzG <Cmd>Commits<CR>
-  noremap \fzw <Cmd>Windows<CR>
-  noremap \fzm <Cmd>Marks<CR>
-  noremap \fzc <Cmd>Commands<CR>
+
+  " :History:   Command history
+  noremap \F<Space> <Cmd>FzfHistory:<CR>
+  " :History/   Search history
+  noremap \F/ <Cmd>FzfHistory/<CR>
+  " :History  v:oldfiles and open buffers
+  noremap \Ffr <Cmd>FzfHistory<CR>
+  " :Files [PATH]   Files (runs $FZF_DEFAULT_COMMAND if defined)
+  noremap \Fff <Cmd>FzfFiles<CR>
+  " :GFiles [OPTS]  Git files (git ls-files)
+  noremap \Fpf <Cmd>FzfGFiles<CR>
+  " :GFiles?  Git files (git status)
+  noremap \FGF <Cmd>FzfGFiles?<CR>
+  " :Buffers  Open buffers
+  noremap \Fbb <Cmd>FzfBuffers<CR>
+  " :Filetypes  File types
+  noremap \FFT <Cmd>FzfFiletypes<CR>
+  " :Tags [PREFIX]  Tags in the project (ctags -R)
+  noremap \Fpg <Cmd>FzfTags<CR>
+  " :BTags [QUERY]  Tags in the current buffer
+  noremap \Fsj <Cmd>FzfBTags<CR>
+  " :BCommits [LOG_OPTS]  Git commits for the current buffer; visual-select lines to track changes in the range
+  noremap \FBC <Cmd>FzfBCommits<CR>
+  " :Commits [LOG_OPTS]   Git commits (requires fugitive.vim)
+  noremap \FC <Cmd>FzfCommits<CR>
+  " :Windows  Windows
+  noremap \FwW <Cmd>FzfWindows<CR>
+  " :Marks  Marks
+  noremap \Ffb <Cmd>FzfMarks<CR>
+  " :Commands   Commands
+  noremap \Fc <Cmd>FzfCommands<CR>
+  " :Ag [PATTERN]   ag search result (ALT-A to select all, ALT-D to deselect all)
+  noremap \Fsaa <Cmd>FzfAg<CR>
+  " :Rg [PATTERN]   rg search result (ALT-A to select all, ALT-D to deselect all)
+  noremap \Fsrr <Cmd>FzfRg<CR>
+  " :Lines [QUERY]  Lines in loaded buffers
+  noremap \Fsb <Cmd>FzfLines<CR>
+  " :Maps   Normal mode mappings
+  noremap \F? <Cmd>FzfMaps<CR>
+  " :Jumps  Jumps
+  noremap \F^ <Cmd>FzfJumps<CR>
+  " :Colors   Color schemes
+  " :RG [PATTERN]   rg search result; relaunch ripgrep on every keystroke
+  " :BLines [QUERY]   Lines in the current buffer
+  " :Changes  Changelist across all open buffers
+  " :BMarks   Marks in the current buffer
+  " :Locate PATTERN   locate command output
+  " :Snippets   Snippets (UltiSnips)
+  " :Helptags   Help tags 1
 
   " using NvimTree
   noremap \<Tab> <Cmd>NvimTreeFindFileToggle<CR>
