@@ -93,6 +93,8 @@
       delta  # Syntax-highlighting pager for git
       dialog  # Display dialog boxes from shell (using ncurses TUI)
       dig  # Domain name server utility
+      dust  # du, but more intuitive
+      fd  # Simple, fast and user-friendly alternative to find
       file  # A program that shows the type of files
       findutils  # GNU Find Utilities, the basic directory searching utilities of the GNU operating system
       fq  # jq for binary formats
@@ -103,6 +105,7 @@
       jq  # Lightweight and flexible command-line JSON processor
       kbd  # Linux keyboard tools and keyboard maps
       links2  # Small browser with some graphics support
+      lsd  # Next gen ls command
       mc  # File Manager and User Shell for the GNU Project, known as Midnight Commander
       moc  # Terminal audio player designed to be powerful and easy to use
       mpc  # Minimalist command line interface to MPD
@@ -113,6 +116,7 @@
       openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
       pamix  # Pulseaudio terminal mixer
       pamixer  # CLI utilities to control PA & PW audio levels
+      procs  # Modern replacement for ps written in Rust
       psmisc  # Set of small useful utilities that use the proc filesystem (such as fuser, killall and pstree)
       python3Minimal  # High-level dynamically-typed programming language
       ripgrep  # A utility that combines the usability of The Silver Searcher with the raw speed of grep
