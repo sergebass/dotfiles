@@ -355,7 +355,7 @@ vim.cmd([[
   nnoremap <silent> <C-k> [m
 
   " Jump to the file:line[:column] location taken from the clipboard
-  nnoremap \F :SPFindFile <C-r>+<CR>
+  nnoremap \FF :SPFindFile <C-r>+<CR>
 
   " Window manipulation/navigation
 
