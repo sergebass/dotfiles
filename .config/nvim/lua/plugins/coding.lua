@@ -125,6 +125,17 @@ return {
     'nvim-treesitter/nvim-treesitter',
   },
 
+  -- Show code context
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    opts = {
+      enable = true,
+      max_lines = 1,  -- How many lines the window should span. Values <= 0 mean no limit.
+      trim_scope = 'outer',  -- which context lines to discard
+      separator = '-',  -- Single character to use as a separator between context and content
+    },
+  },
+
   -- Asynchronous linter
   {
     'mfussenegger/nvim-lint',
