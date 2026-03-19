@@ -180,6 +180,13 @@ vim.cmd([[
   hi link GitGutterChange DiffChange
   hi link GitGutterChangeDelete DiffChange
 
+  " TreesitterContext
+
+  hi TreesitterContext cterm=NONE ctermbg=235 gui=NONE guibg=#262626 guisp=Grey
+  hi TreesitterContextLineNumber cterm=NONE ctermfg=240 ctermbg=235 gui=NONE guifg=#606060 guibg=#262626 guisp=Grey
+  " hi TreesitterContextBottom cterm=underline ctermbg=235 gui=underline guibg=#262626 guisp=Grey
+  " hi TreesitterContextLineNumberBottom cterm=underline ctermfg=240 ctermbg=235 gui=underline guifg=#606060 guibg=#262626 guisp=Grey
+
   " FIXME this is a full dump of current highlight groups taken with a loaded
   " Java file; refactor and assign proper color values:
 

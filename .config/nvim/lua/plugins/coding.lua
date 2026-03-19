@@ -130,9 +130,9 @@ return {
     'nvim-treesitter/nvim-treesitter-context',
     opts = {
       enable = true,
-      max_lines = 1,  -- How many lines the window should span. Values <= 0 mean no limit.
+      max_lines = 4,  -- How many lines the window should span. Values <= 0 mean no limit.
       trim_scope = 'outer',  -- which context lines to discard
-      separator = '-',  -- Single character to use as a separator between context and content
+      separator = '_',  -- Single character to use as a separator between context and content
     },
   },
 
