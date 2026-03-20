@@ -38,7 +38,7 @@ vim.lsp.enable('rust_analyzer')
 
 vim.lsp.config("clangd", {
   cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--enable-config'},
-  filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
+  filetypes = { 'c', 'cpp' },
   root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
   init_options = {
       fallback_flags = { '-std=c++23' },
@@ -58,7 +58,7 @@ vim.lsp.config("clangd", {
 vim.lsp.enable('clangd')
 
 vim.lsp.config("ccls", {
-  filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
+  filetypes = { 'c', 'cpp' },
   -- root_markers = { '.git' },
   init_options = {
       -- compilationDatabaseDirectory = "build";
@@ -80,7 +80,7 @@ vim.lsp.config("ccls", {
 -- Assembly language
 vim.lsp.config('asm_lsp', {
     cmd = { 'asm-lsp' },
-    filetypes = { 'asm', 's', 'S' },
+    filetypes = { 'asm' },
     -- root_markers = { '.git' },
 })
 
@@ -98,7 +98,7 @@ vim.lsp.enable('mlir-lsp-server')
 -- LLVM IR
 vim.lsp.config('llvm_language_server', {
     cmd = { 'llvm-language-server' },
-    filetypes = { 'll', 'mir' },
+    filetypes = { 'llvm' },
     -- root_markers = { '.git' },
 })
 
@@ -141,7 +141,7 @@ vim.lsp.enable('pylsp')
 -- XML
 vim.lsp.config('lemminx', {
     cmd = { 'lemminx' },
-    filetypes = { 'xml', 'xsd', 'wsdl', 'svg' },
+    filetypes = { 'xml', 'xsd', 'svg' },
     -- root_markers = { '.git' },
 })
 
@@ -178,7 +178,7 @@ vim.lsp.enable('bashls')
 vim.lsp.config('vale', {
     -- TODO: scan for executable to use
     cmd = { 'vale-ls' }, -- Note: this can also be vale.vale-ls depending on installation method (e.g. Ubuntu snap)
-    filetypes = { 'text', 'markdown', 'mdx', 'asciidoc', 'rst', 'html', 'gitcommit' },
+    filetypes = { 'text', 'markdown', 'asciidoc', 'rst', 'html', 'gitcommit' },
     root_markers = { '.git', '.vale.ini' },
 })
 
@@ -204,7 +204,7 @@ vim.lsp.enable('nixd')
 -- Vimscript language server
 vim.lsp.config('vimls', {
   cmd = { 'vim-language-server', '--stdio' },
-  filetypes = { 'vim', 'vimdoc' },
+  filetypes = { 'vim' },
   -- root_markers = { '.git' },
   on_attach = function(client, bufnr)
     require('nvim-navic').attach(client, bufnr)
