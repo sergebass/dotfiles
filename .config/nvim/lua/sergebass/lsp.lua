@@ -203,9 +203,9 @@ vim.lsp.enable('nixd')
 
 -- Vimscript language server
 vim.lsp.config('vimls', {
-    cmd = { 'vim-language-server', '--stdio' },
-    filetypes = { 'vim', 'vimdoc' },
-    -- root_markers = { '.git' },
+  cmd = { 'vim-language-server', '--stdio' },
+  filetypes = { 'vim', 'vimdoc' },
+  -- root_markers = { '.git' },
   on_attach = function(client, bufnr)
     require('nvim-navic').attach(client, bufnr)
   end,
@@ -215,26 +215,26 @@ vim.lsp.enable('vimls')
 
 -- Lua language server (for Neovim configuration files)
 vim.lsp.config('lua_ls', {
-    cmd = { 'lua-language-server' },
-    filetypes = { 'lua' },
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT',
-                path = vim.split(package.path, ';'),
-            },
-            diagnostics = {
-                globals = { 'vim' },
-            },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file('', true),
-                checkThirdParty = false,
-            },
-            telemetry = {
-                enable = false,
-            },
-        },
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+        path = vim.split(package.path, ';'),
+      },
+      diagnostics = {
+        globals = { 'vim' },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file('', true),
+        checkThirdParty = false,
+      },
+      telemetry = {
+        enable = false,
+      },
     },
+  },
   on_attach = function(client, bufnr)
     require('nvim-navic').attach(client, bufnr)
   end,
