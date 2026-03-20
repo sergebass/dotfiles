@@ -118,6 +118,30 @@ return {
     end
   },
 
+  -- Show code context in the winbar
+  {
+    'SmiteshP/nvim-navic',
+    dependencies = { 'neovim/nvim-lspconfig' },
+    config = function()
+      require('nvim-navic').setup {
+        icons = {
+          File = " ",
+          Module = " ",
+          Namespace = " ",
+          Package = " ",
+          Class = " ",
+          Method = " ",
+          Property = " ",
+          Field = " ",
+        },
+        highlight = true,
+        separator = " > ",
+        depth_limit = 0,
+        depth_limit_indicator = "..",
+      }
+    end
+  },
+
   -- Nvim Treesitter configurations and abstraction layer
   -- FIXME: reconfigure:
   -- { 'nvim-treesitter/nvim-treesitter', { build = 'TSUpdate'}},

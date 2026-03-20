@@ -49,6 +49,9 @@ vim.cmd([[
   hi StatusLine cterm=bold ctermfg=17 ctermbg=226 gui=bold guifg=#000040 guibg=#ffd700
   hi StatusLineNC cterm=bold ctermfg=226 ctermbg=17 gui=bold guifg=#b2b2b2 guibg=#00005f
 
+  hi WinBar cterm=bold,underline ctermfg=154 ctermbg=23 gui=bold,underline guifg=#afff00 guibg=#005f5f
+  hi WinBarNC cterm=underline ctermfg=226 ctermbg=17 gui=underline guifg=#b2b2b2 guibg=#00005f
+
   " User-defined highlights for statusline
   hi User1 cterm=NONE ctermfg=red ctermbg=blue gui=NONE guifg=#ff0000 guibg=#000040
   hi User2 cterm=NONE ctermfg=red ctermbg=blue gui=NONE guifg=#ff0000 guibg=#000040

@@ -27,6 +27,9 @@ vim.lsp.config('rust_analyzer', {
       rustc = { source = 'discover' },
     }
   },
+  on_attach = function(client, bufnr)
+    require('nvim-navic').attach(client, bufnr)
+  end,
 })
 
 vim.lsp.enable('rust_analyzer')
@@ -34,35 +37,41 @@ vim.lsp.enable('rust_analyzer')
 -- C and C++
 
 vim.lsp.config("clangd", {
-    cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--enable-config'},
-    filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
-    root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
-    init_options = {
-        fallback_flags = { '-std=c++23' },
-        -- compilationDatabaseDirectory = "build";
-        index = {
-            threads = 0;
-        };
-        -- clang = {
-        --   excludeArgs = { "-frounding-math"} ;
-        -- };
-    }
+  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--enable-config'},
+  filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
+  root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
+  init_options = {
+      fallback_flags = { '-std=c++23' },
+      -- compilationDatabaseDirectory = "build";
+      index = {
+          threads = 0;
+      };
+      -- clang = {
+      --   excludeArgs = { "-frounding-math"} ;
+      -- };
+  },
+  on_attach = function(client, bufnr)
+    require('nvim-navic').attach(client, bufnr)
+  end,
 })
 
 vim.lsp.enable('clangd')
 
 vim.lsp.config("ccls", {
-    filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
-    -- root_markers = { '.git' },
-    init_options = {
-        -- compilationDatabaseDirectory = "build";
-        index = {
-            threads = 0;
-        };
-        -- clang = {
-        --   excludeArgs = { "-frounding-math"} ;
-        -- };
-    }
+  filetypes = { 'c', 'h', 'i', 'cc', 'hh', 'ii', 'cpp', 'hpp', 'inl', 'cxx', 'hxx' },
+  -- root_markers = { '.git' },
+  init_options = {
+      -- compilationDatabaseDirectory = "build";
+      index = {
+          threads = 0;
+      };
+      -- clang = {
+      --   excludeArgs = { "-frounding-math"} ;
+      -- };
+  },
+  on_attach = function(client, bufnr)
+    require('nvim-navic').attach(client, bufnr)
+  end,
 })
 
 -- Do not enable ccls right away to avoid clashes with clangd (this results in symbol duplication etc.)
@@ -107,9 +116,12 @@ vim.lsp.enable('cmake')
 -- Python
 
 vim.lsp.config('pylsp', {
-    cmd = { 'pylsp' },
-    filetypes = { 'python' },
-    -- root_markers = { '.git' },
+  cmd = { 'pylsp' },
+  filetypes = { 'python' },
+  -- root_markers = { '.git' },
+  on_attach = function(client, bufnr)
+    require('nvim-navic').attach(client, bufnr)
+  end,
 })
 
 vim.lsp.enable('pylsp')

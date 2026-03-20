@@ -2,6 +2,13 @@
 -- CUSTOM FUNCTIONS
 -------------------
 
+_G.SPNavicContext = function()
+    local ok, navic = pcall(require, 'nvim-navic')
+    if not ok then return "" end
+    if not navic.is_available() then return "" end
+    return navic.get_location()
+end
+
 vim.cmd([[
   function ClearQuickfixList()
     call setqflist([])
