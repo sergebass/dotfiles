@@ -206,6 +206,9 @@ vim.lsp.config('vimls', {
     cmd = { 'vim-language-server', '--stdio' },
     filetypes = { 'vim', 'vimdoc' },
     -- root_markers = { '.git' },
+  on_attach = function(client, bufnr)
+    require('nvim-navic').attach(client, bufnr)
+  end,
 })
 
 vim.lsp.enable('vimls')
@@ -232,6 +235,9 @@ vim.lsp.config('lua_ls', {
             },
         },
     },
+  on_attach = function(client, bufnr)
+    require('nvim-navic').attach(client, bufnr)
+  end,
 })
 
 vim.lsp.enable('lua_ls')
