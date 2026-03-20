@@ -187,9 +187,12 @@ vim.lsp.enable('vale')
 -- Nix language (NixOS configuration and Nixpkgs package definitions)
 
 vim.lsp.config('nixd', {
-    cmd = { 'nixd' },
-    filetypes = { 'nix' },
-    -- root_markers = { '.git' },
+  cmd = { 'nixd' },
+  filetypes = { 'nix' },
+  -- root_markers = { '.git' },
+  on_attach = function(client, bufnr)
+    require('nvim-navic').attach(client, bufnr)
+  end,
 })
 
 vim.lsp.enable('nixd')
