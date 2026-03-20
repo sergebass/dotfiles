@@ -85,6 +85,10 @@ vim.cmd([[
 
       let s .= (buffer_name != '' ? fnamemodify(buffer_name, ':t') : '--')
 
+      if window_count > 1
+        let s .= '/' . window_count
+      endif
+
       if is_buffer_modified
         let s .= '!'
       endif
