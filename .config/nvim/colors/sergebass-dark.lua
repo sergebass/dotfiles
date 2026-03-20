@@ -42,9 +42,12 @@ vim.cmd([[
   " line length limit highlighting
   hi ColorColumn cterm=NONE ctermbg=17 guibg=#00005f
 
-  hi TabLine cterm=NONE ctermfg=254 ctermbg=18 gui=NONE guifg=#e4e4e4 guibg=#000087
-  hi TabLineFill cterm=NONE ctermfg=254 ctermbg=18 gui=NONE guifg=#e4e4e4 guibg=#000087
-  hi TabLineSel cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
+  hi TabLine cterm=bold ctermfg=87 ctermbg=17 gui=bold guifg=#5fffff guibg=#00005f
+  hi TabLineFill cterm=NONE ctermfg=254 ctermbg=17 gui=NONE guifg=#e4e4e4 guibg=#00005f
+  hi TabLineSel cterm=bold,underline ctermfg=220 ctermbg=22 gui=bold,underline guifg=#ffd700 guibg=#005f00
+  hi TabLineTabIndex cterm=bold ctermfg=11 ctermbg=17 gui=bold guifg=#ffff00 guibg=#00005f
+  hi TabLineWinCount cterm=NONE ctermfg=93 ctermbg=17 gui=NONE guifg=#8700ff guibg=#00005f
+  hi TabLineChangeFlag cterm=bold ctermfg=220 ctermbg=1 gui=bold guifg=#ffdf00 guibg=#800000
 
   hi StatusLine cterm=bold ctermfg=17 ctermbg=226 gui=bold guifg=#000040 guibg=#ffd700
   hi StatusLineNC cterm=bold ctermfg=226 ctermbg=17 gui=bold guifg=#b2b2b2 guibg=#00005f

@@ -76,30 +76,27 @@ vim.cmd([[
       let buffer_number = buffers[window_number - 1]
       let buffer_name = bufname(buffer_number)
 
-      let is_buffer_modified = getbufvar(buffer_number, "&mod")
-
       let s .= '%' . tab_number . 'T'
+
+      let s .=  ' %#TabLineTabIndex#' . tab_number . ':%*'
       let s .= (tab_number == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
 
-      let s .=  ' ' . tab_number . ':'
-
-      let s .= (buffer_name != '' ? fnamemodify(buffer_name, ':t') : '--')
+      let s .= (buffer_name != '' ? fnamemodify(buffer_name, ':t') : '--') . '%*'
 
       if window_count > 1
         let s .= '/' . window_count
       endif
 
+      let is_buffer_modified = getbufvar(buffer_number, "&mod")
       if is_buffer_modified
-        let s .= '!'
+        let s .= '%#TabLineChangeFlag#[+]%*'
       endif
 
       let s .= ' '
     endfor
 
     let s .= '%#TabLineFill#'
-    if (exists("g:tablineclosebutton"))
-      let s .= '%=%999XX'
-    endif
+
     return s
   endfunction
 
