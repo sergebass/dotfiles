@@ -78,6 +78,8 @@ vim.opt.sidescroll = 5  -- Number of columns to scroll horizontally
 vim.opt.listchars:append({ precedes = "<" })  -- Show when line continues to the left
 vim.opt.listchars:append({ extends = ">" })   -- Show when line continues to the right
 
+vim.opt.splitkeep = 'cursor'  -- When splitting, keep the same relative cursor position
+
 vim.opt.number = true  -- Enable line numbers
 
 vim.opt.ruler  = true  -- Show the cursor position all the time
