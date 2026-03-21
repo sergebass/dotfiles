@@ -17,7 +17,7 @@ vim.cmd([[
 
       let s .= '%' . tab_number . 'T'
 
-      let s .=  ' %#TabLineTabIndex#' . tab_number . ':%*'
+      let s .=  '%#TabLineTabIndex#' . tab_number . ':%*'
       let s .= (tab_number == tabpagenr() ? '%#TabLineSelected#' : '%#TabLine#')
 
       let s .= (buffer_name != '' ? fnamemodify(buffer_name, ':t') : '--') . '%*'
@@ -31,7 +31,7 @@ vim.cmd([[
         let s .= '%#TabLineChangeFlag#[+]%*'
       endif
 
-      let s .= ' '
+      let s .= '  '
     endfor
 
     let current_working_directory = getcwd()
