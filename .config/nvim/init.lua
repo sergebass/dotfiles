@@ -90,7 +90,7 @@ vim.opt.showtabline = 2  -- Always show the tab line, even if there's only one t
 vim.opt.tabline = [[%!SPTabLine()]]
 
 -- Winbar configuration
-vim.o.winbar = [[%#WinBarContext#%{%v:lua.SPWinBar()%}%* %<%=%#WinBarFileDirectory# %{fnamemodify(bufname(bufnr()), ':h')} ]]
+vim.o.winbar = [[%#WinBarContext#%{%v:lua.SPWinBar()%}%* %<%=%#WinBarFileDirectory# %{fnamemodify(bufname(bufnr()), ':~:.:h')} ]]
 
 -- Status line configuration
 vim.opt.laststatus = 2  -- Always display status line, even with one file being edited
