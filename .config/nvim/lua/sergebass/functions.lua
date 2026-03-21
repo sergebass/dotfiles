@@ -2,7 +2,47 @@
 -- CUSTOM FUNCTIONS
 -------------------
 
-_G.SPNavicContext = function()
+vim.cmd([[
+  function! SPTabLine()
+    let s = ''
+    for i in range(tabpagenr('$'))
+      let tab_number = i + 1
+
+      let window_number = tabpagewinnr(tab_number)
+      let window_count = tabpagewinnr(tab_number, '$')
+
+      let buffers = tabpagebuflist(tab_number)
+      let buffer_number = buffers[window_number - 1]
+      let buffer_name = bufname(buffer_number)
+
+      let s .= '%' . tab_number . 'T'
+
+      let s .=  ' %#TabLineTabIndex#' . tab_number . ':%*'
+      let s .= (tab_number == tabpagenr() ? '%#TabLineSelected#' : '%#TabLine#')
+
+      let s .= (buffer_name != '' ? fnamemodify(buffer_name, ':t') : '--') . '%*'
+
+      if window_count > 1
+        let s .= '%#TabLineWinCount#/' . window_count
+      endif
+
+      let is_buffer_modified = getbufvar(buffer_number, "&mod")
+      if is_buffer_modified
+        let s .= '%#TabLineChangeFlag#[+]%*'
+      endif
+
+      let s .= ' '
+    endfor
+
+    let current_working_directory = getcwd()
+    let displayed_cwd = fnamemodify(current_working_directory, ':~')
+    let s .= '%#TabLineCWD#%<%=' . displayed_cwd . '%*'
+
+    return s
+  endfunction
+]])
+
+_G.SPWinBar = function()
     local ok, navic = pcall(require, 'nvim-navic')
     if not ok then return "" end
     if not navic.is_available() then return "" end
@@ -62,42 +102,6 @@ vim.cmd([[
       " FIXME handle errors
       let replace_command = 'cfdo %s/' . a:old_text . '/' . a:new_text . '/gc | cclose'
       execute l:replace_command
-  endfunction
-
-  function SPTabLine()
-    let s = ''
-    for i in range(tabpagenr('$'))
-      let tab_number = i + 1
-
-      let window_number = tabpagewinnr(tab_number)
-      let window_count = tabpagewinnr(tab_number, '$')
-
-      let buffers = tabpagebuflist(tab_number)
-      let buffer_number = buffers[window_number - 1]
-      let buffer_name = bufname(buffer_number)
-
-      let s .= '%' . tab_number . 'T'
-
-      let s .=  ' %#TabLineTabIndex#' . tab_number . ':%*'
-      let s .= (tab_number == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
-
-      let s .= (buffer_name != '' ? fnamemodify(buffer_name, ':t') : '--') . '%*'
-
-      if window_count > 1
-        let s .= '/' . window_count
-      endif
-
-      let is_buffer_modified = getbufvar(buffer_number, "&mod")
-      if is_buffer_modified
-        let s .= '%#TabLineChangeFlag#[+]%*'
-      endif
-
-      let s .= ' '
-    endfor
-
-    let s .= '%#TabLineFill#'
-
-    return s
   endfunction
 
   function SPFindFileWithLine(file_with_line)

@@ -85,12 +85,16 @@ vim.opt.number = true  -- Enable line numbers
 vim.opt.ruler  = true  -- Show the cursor position all the time
 vim.opt.rulerformat = "%l:%c%V"
 
+-- Tab line configuration
+vim.opt.showtabline = 2  -- Always show the tab line, even if there's only one tab
+vim.opt.tabline = [[%!SPTabLine()]]
+
+-- Winbar configuration
+vim.o.winbar = [[%#WinBarContext#%{%v:lua.SPWinBar()%}%* %<%=%#WinBarFileDirectory# %{fnamemodify(bufname(bufnr()), ':h')} ]]
+
 -- Status line configuration
 vim.opt.laststatus = 2  -- Always display status line, even with one file being edited
 vim.opt.statusline = [[%3*%{fugitive#statusline()}%* %t %1*%m%r%9* %y%{ObsessionStatus()} %=%{tabpagenr()}:#%n "%{v:register} u%B/%{&fenc}/%{&ff}%* %l:%c%V %p%%/%L]]
-
--- Winbar configuration
-vim.o.winbar = [[%3*%{%v:lua.SPNavicContext()%}%* %=%5* %{fnamemodify(bufname(bufnr()), ':h')} ]]
 
 -- Customized status line for terminal buffers
 vim.api.nvim_create_autocmd("TermOpen", {
@@ -99,8 +103,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt_local.statusline = [[%*%{b:term_title}%9*%=#%n\ %l:%c%V\ %p%%/%L]]
   end,
 })
-
-vim.opt.tabline = "%!SPTabLine()"
 
 -- Use a Unicode U2551 character (double vertical bar) for vertical split separator
 vim.opt.fillchars:append({ vert = "║" })

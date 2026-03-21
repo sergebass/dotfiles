@@ -43,19 +43,21 @@ vim.cmd([[
   hi ColorColumn cterm=NONE ctermbg=17 guibg=#00005f
 
   hi TabLine cterm=bold ctermfg=87 ctermbg=17 gui=bold guifg=#5fffff guibg=#00005f
-  hi TabLineFill cterm=NONE ctermfg=254 ctermbg=17 gui=NONE guifg=#e4e4e4 guibg=#00005f
-  hi TabLineSel cterm=bold,underline ctermfg=220 ctermbg=22 gui=bold,underline guifg=#ffd700 guibg=#005f00
-  hi TabLineTabIndex cterm=bold ctermfg=11 ctermbg=17 gui=bold guifg=#ffff00 guibg=#00005f
-  hi TabLineWinCount cterm=NONE ctermfg=93 ctermbg=17 gui=NONE guifg=#8700ff guibg=#00005f
+  hi TabLineSelected cterm=bold ctermfg=220 ctermbg=22 gui=bold guifg=#ffd700 guibg=#005f00
+  hi TabLineTabIndex cterm=bold ctermfg=214 gui=bold guifg=#ffaf00
+  hi TabLineWinCount cterm=NONE ctermfg=93 gui=NONE guifg=#8700ff
   hi TabLineChangeFlag cterm=bold ctermfg=220 ctermbg=1 gui=bold guifg=#ffdf00 guibg=#800000
+  hi TabLineCWD cterm=NONE ctermfg=254 ctermbg=17 gui=NONE guifg=#e4e4e4 guibg=#00005f
+
+  hi WinBar cterm=bold ctermfg=154 ctermbg=23 gui=bold guifg=#afff00 guibg=#005f5f
+  hi WinBarNC cterm=NONE ctermfg=226 ctermbg=17 gui=NONE guifg=#b2b2b2 guibg=#00005f
+  hi WinBarContext cterm=NONE ctermfg=184 gui=NONE guifg=#dfdf00
+  hi WinBarFileDirectory cterm=NONE ctermfg=141 gui=NONE guifg=#af87ff
 
   hi StatusLine cterm=bold ctermfg=17 ctermbg=226 gui=bold guifg=#000040 guibg=#ffd700
   hi StatusLineNC cterm=bold ctermfg=226 ctermbg=17 gui=bold guifg=#b2b2b2 guibg=#00005f
 
-  hi WinBar cterm=bold,underline ctermfg=154 ctermbg=23 gui=bold,underline guifg=#afff00 guibg=#005f5f
-  hi WinBarNC cterm=underline ctermfg=226 ctermbg=17 gui=underline guifg=#b2b2b2 guibg=#00005f
-
-  " User-defined highlights for statusline
+  " User-defined highlights that can be used for statusline, winbar and tabline.
   hi User1 cterm=NONE ctermfg=red ctermbg=blue gui=NONE guifg=#ff0000 guibg=#000040
   hi User2 cterm=NONE ctermfg=red ctermbg=blue gui=NONE guifg=#ff0000 guibg=#000040
   hi User3 cterm=NONE ctermfg=magenta ctermbg=blue gui=NONE guifg=#a000a0 guibg=#000040
