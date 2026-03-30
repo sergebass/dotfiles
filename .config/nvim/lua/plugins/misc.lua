@@ -32,6 +32,7 @@ return {
     build = "./install --all",
   },
 
+  -- FIXME remove once fzf-lua is working properly
   -- FZF integration for Vim and Neovim
   {
     "junegunn/fzf.vim",
@@ -45,6 +46,106 @@ return {
 
         let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
       ]])
+    end,
+  },
+
+  -- Improved fzf.vim written in lua 
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    -- or if using mini.icons/mini.nvim
+    -- dependencies = { "nvim-mini/mini.icons" },
+    config = function()
+      local fzfLua = require("fzf-lua")
+      fzfLua.setup({
+        -- MISC GLOBAL SETUP OPTIONS, SEE BELOW
+        -- fzf_bin = ...,
+        -- each of these options can also be passed as function that return options table
+        -- e.g. winopts = function() return { ... } end
+        -- UI Options
+        winopts = {
+          -- split = "belowright new",  -- open in a split instead of a floating window
+          -- height = 0.40,              -- window height
+          -- width = 0.80,               -- window width
+          -- row = 0.30,                 -- window row position (0=top, 1=bottom)
+          -- col = 0.50,                 -- window col position (0=left, 1=right)
+          -- border = 'rounded',         -- border kind: 'none', 'single', 'double', 'rounded', 'solid', 'shadow'
+          -- fullscreen = false,         -- open fullscreen?
+        },
+        -- Neovim keymaps / fzf binds
+        keymap = {
+          -- These are default FzfLua keymaps that are always set unless overridden here
+          -- ["ctrl-a"] = "select-all+accept",
+          -- ["ctrl-d"] = "half-page-down",
+          -- ["ctrl-u"] = "half-page-up",
+        },
+        -- Fzf "accept" binds
+        actions = {
+          -- These are default FzfLua actions that are always set unless overridden here
+          -- ["default"] = function(selected) print(selected[1]) end,
+        },
+        -- Fzf CLI flags
+        fzf_opts = {
+          -- ["--ansi"] = "",
+          -- ["--prompt"] = "> ",
+          -- ["--pointer"] = "➤ ",
+          -- ["--marker"] = "✓ ",
+        },
+        -- Fzf `--color` specification
+        fzf_colors = {
+          -- ["fg"] = { "fg", "Normal" },
+          -- ["bg"] = { "bg", "Normal" },
+          -- ["hl"] = { "fg", "Comment" },
+        },
+        -- Highlights
+        hls = {
+          -- ["fzfLuaBorder"] = { fg = "FloatBorder", bg = "Normal" },
+          -- ["fzfLuaNormal"] = { fg = "Normal", bg = "Normal" },
+          -- ["fzfLuaTitle"] = { fg = "Title", bg = "Normal" },
+        },
+        -- Previewers options
+        previewers = {
+          -- builtin = {
+          --   syntax = true,  -- preview syntax highlight?
+          --   syntax_limit = 10_000,  -- syntax highlight limit (in bytes), set to 0 for no limit
+          --   timeout = 700,  -- timeout for previewer startup (in milliseconds)
+          -- },
+        },
+        -- SPECIFIC COMMAND/PICKER OPTIONS, SEE BELOW
+        -- files = {
+        --   cmd = "find . -type f -printf '%P\n' 2> /dev/null | head -10000",
+        -- },
+      })
+
+      -- Configure keymaps for fzf-lua commands
+      -- All supported fzf-lua commands are listed here:
+      -- https://github.com/ibhagwan/fzf-lua?tab=readme-ov-file#commands
+
+      vim.keymap.set('n', "<Space><Space>", fzfLua.command_history, { desc = "Command history (fzf-lua)" })
+
+      -- Global search (loosely similar to Quick Open in VSCode)
+      vim.keymap.set('n', "<C-P>", fzfLua.global, { desc = "Global lookup (fzf-lua)" })
+
+      -- Help and documentation
+      vim.keymap.set('n', "<Space>h<Space>", fzfLua.helptags, { desc = "Help tags (fzf-lua)" })
+      vim.keymap.set('n', "<Space>?", fzfLua.keymaps, { desc = "Keymaps (fzf-lua)" })
+      vim.keymap.set('n', "<Space>hk", fzfLua.keymaps, { desc = "Keymaps (fzf-lua)" })
+      vim.keymap.set('n', "<Space>hm", fzfLua.man_pages, { desc = "Man pages (fzf-lua)" })
+
+      -- Buffers
+      vim.keymap.set("n", "<Space>bb", fzfLua.buffers, { desc = "Find buffers (fzf-lua)" })
+      vim.keymap.set('n', "<Space>sj", fzfLua.btags, { desc = "Tags in current buffer (fzf-lua)" })
+      vim.keymap.set('n', "<C-N>", fzfLua.btags, { desc = "Tags in current buffer (fzf-lua)" })
+
+      -- Files
+      vim.keymap.set('n', "<Space>fr", fzfLua.oldfiles, { desc = "Find recently opened files (fzf-lua)" })
+      vim.keymap.set("n", "<Space>ff", fzfLua.files, { desc = "Find files (fzf-lua)" })
+
+      -- Projects
+      -- Spacemacs shortcuts: https://www.spacemacs.org/doc/DOCUMENTATION.html#managing-projects
+      vim.keymap.set("n", "<Space>pf", fzfLua.git_files, { desc = "Find git files (fzf-lua)" })
+      vim.keymap.set('n', "<Space>pg", fzfLua.tags, { desc = "Tags in directory (fzf-lua)" })
     end,
   },
 

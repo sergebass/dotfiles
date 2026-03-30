@@ -246,7 +246,7 @@ vim.lsp.enable('lua_ls')
 -- Keyboard mappings for LSP functions
 --------------------------------------
 
-local pickers = require('telescope.builtin')
+local telescope = require('telescope.builtin')
 
 -- Jump to definition of the symbol under cursor
 vim.keymap.set('n', '\\<CR>', vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })
@@ -259,34 +259,34 @@ vim.keymap.set('n', '\\K', vim.lsp.buf.hover, { desc = 'LSP: Hover over symbol' 
 vim.keymap.set('n', '<Space>mhh', vim.lsp.buf.hover, { desc = 'LSP: Hover over symbol' })
 
 -- Jump to definition of the symbol under cursor
-vim.keymap.set('n', '\\gd', pickers.lsp_definitions, { desc = 'LSP: Go to definition (telescope)' })
-vim.keymap.set('n', '<Space>mgg', pickers.lsp_definitions, { desc = 'LSP: Go to definition (telescope)' })
+vim.keymap.set('n', '\\gd', telescope.lsp_definitions, { desc = 'LSP: Go to definition (telescope)' })
+vim.keymap.set('n', '<Space>mgg', telescope.lsp_definitions, { desc = 'LSP: Go to definition (telescope)' })
 
 vim.keymap.set('n', '\\gD', vim.lsp.buf.declaration, { desc = 'LSP: Go to declaration' })
-vim.keymap.set('n', '\\gt', pickers.lsp_type_definitions, { desc = 'LSP: Go to type definition (telescope)' })
-vim.keymap.set('n', '\\gi', pickers.lsp_implementations, { desc = 'LSP: Go to implementation (telescope)' })
-vim.keymap.set('n', '\\gO', pickers.lsp_document_symbols, { desc = 'LSP: Pick symbol in current document (telescope)' })
-vim.keymap.set('n', '\\go', pickers.lsp_workspace_symbols, { desc = 'LSP: Pick symbol in current project/workspace (telescope)' })
+vim.keymap.set('n', '\\gt', telescope.lsp_type_definitions, { desc = 'LSP: Go to type definition (telescope)' })
+vim.keymap.set('n', '\\gi', telescope.lsp_implementations, { desc = 'LSP: Go to implementation (telescope)' })
+vim.keymap.set('n', '\\gO', telescope.lsp_document_symbols, { desc = 'LSP: Pick symbol in current document (telescope)' })
+vim.keymap.set('n', '\\go', telescope.lsp_workspace_symbols, { desc = 'LSP: Pick symbol in current project/workspace (telescope)' })
 
 -- Rename symbol under cursor
 vim.keymap.set('n', '\\=', vim.lsp.buf.rename, { desc = 'LSP: Rename symbol' })
 vim.keymap.set('n', '<Space>mrr', vim.lsp.buf.rename, { desc = 'LSP: Rename symbol' })
 
-vim.keymap.set('n', '\\^', pickers.lsp_references, { desc = 'LSP: Find references to symbol' })
+vim.keymap.set('n', '\\^', telescope.lsp_references, { desc = 'LSP: Find references to symbol (telescope)' })
 
 -- Find callers
-vim.keymap.set('n', '<Space>mgc', pickers.lsp_incoming_calls, { desc = 'LSP: Find callers' })
+vim.keymap.set('n', '<Space>mgc', telescope.lsp_incoming_calls, { desc = 'LSP: Find callers (telescope)' })
 
 -- Find callees
-vim.keymap.set('n', '<Space>mgC', pickers.lsp_outgoing_calls, { desc = 'LSP: Find callees' })
+vim.keymap.set('n', '<Space>mgC', telescope.lsp_outgoing_calls, { desc = 'LSP: Find callees (telescope)' })
 
 vim.keymap.set('n', '\\*', vim.lsp.buf.document_highlight, { desc = 'LSP: Highlight all occurrences of symbol' })
 
 -- Diagnostics
 vim.keymap.set('n', '\\!', function()
-  pickers.diagnostics({ bufnr = 0 })  -- Only for current buffer
-end, { desc = 'LSP: Diagnostics for buffer' })
-vim.keymap.set('n', '\\$', pickers.diagnostics, { desc = 'LSP: Diagnostics for project/workspace' })
+  telescope.diagnostics({ bufnr = 0 })  -- Only for current buffer
+end, { desc = 'LSP: Diagnostics for buffer (telescope)' })
+vim.keymap.set('n', '\\$', telescope.diagnostics, { desc = 'LSP: Diagnostics for project/workspace (telescope)' })
 
 -- vim.keymap.set('n', '\\KK', vim.lsp.buf.signature_help, { desc = 'LSP: Signature help' })
 

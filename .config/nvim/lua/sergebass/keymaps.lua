@@ -627,6 +627,7 @@ vim.cmd([[
 
   " -----------------------
   " Spacemacs-style keymaps
+  " (https://www.spacemacs.org/doc/DOCUMENTATION.html#buffers-and-files)
   " -----------------------
 
   " SPC m g f     find file at point (ffap)
@@ -638,31 +639,33 @@ vim.cmd([[
 
 -- Custom keymaps using Telescope searcher
 
-local pickers = require('telescope.builtin')
-
-vim.keymap.set('n', '<Space><Space>', pickers.command_history, { desc = 'Command history' })
-
--- Looking for help and documentation
-vim.keymap.set('n', '<Space>h<Space>', pickers.help_tags, { desc = 'Help tags' })
-vim.keymap.set('n', '<Space>?', pickers.keymaps, { desc = 'Keymaps' })
-vim.keymap.set('n', '<Space>hk', pickers.keymaps, { desc = 'Keymaps' })
-vim.keymap.set('n', '<Space>hm', pickers.man_pages, { desc = 'Man pages' })
+local telescope = require('telescope.builtin')
 
 -- FIXME: add many more mappings here. Choose from this list:
 -- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#pickers
-vim.keymap.set('n', '<Space>fr', pickers.oldfiles, { desc = 'Find recent files' })
-vim.keymap.set('n', '<Space>ff', pickers.find_files, { desc = 'Find files' })
 
-vim.keymap.set('n', '<C-P>', pickers.git_files, { desc = 'Find git files' })
-vim.keymap.set('n', '<Space>pf', pickers.git_files, { desc = 'Find git files' })
+vim.keymap.set('n', "\\<Space><Space>", telescope.command_history, { desc = "Command history (telescope)" })
 
-vim.keymap.set('n', '<Space>bb', pickers.buffers, { desc = 'Open buffers' })
+-- Help and documentation
+vim.keymap.set('n', "\\<Space>h<Space>", telescope.help_tags, { desc = "Help tags (telescope)" })
+vim.keymap.set('n', "\\<Space>?", telescope.keymaps, { desc = "Keymaps (telescope)" })
+vim.keymap.set('n', "\\<Space>hk", telescope.keymaps, { desc = "Keymaps (telescope)" })
+vim.keymap.set('n', "\\<Space>hm", telescope.man_pages, { desc = "Man pages (telescope)" })
 
-vim.keymap.set('n', '<C-N>', pickers.current_buffer_tags, { desc = 'Current buffer tags' })
+-- Buffers
+vim.keymap.set('n', "\\<Space>bb", telescope.buffers, { desc = "Open buffers (telescope)" })
+vim.keymap.set('n', "\\<Space>sj", telescope.current_buffer_tags, { desc = "Tags in current buffer (telescope)" })
 
-vim.keymap.set('n', '<Space>pg', pickers.tags, { desc = 'Tags' })
+-- Files
+vim.keymap.set('n', "\\<Space>fr", telescope.oldfiles, { desc = "Find recent files (telescope)" })
+vim.keymap.set('n', "\\<Space>ff", telescope.find_files, { desc = "Find files (telescope)" })
 
--- vim.keymap.set('n', '<leader>fg', pickers.live_grep, { desc = 'Live grep' })
+-- Projects
+-- Spacemacs shortcuts: https://www.spacemacs.org/doc/DOCUMENTATION.html#managing-projects
+vim.keymap.set('n', "\\<Space>pf", telescope.git_files, { desc = "Find git files (telescope)" })
+vim.keymap.set('n', "\\<Space>pg", telescope.tags, { desc = "Tags in directory (telescope)" })
+
+-- vim.keymap.set('n', "<leader>fg", telescope.live_grep, { desc = "Live grep (telescope)" })
 
 -- Shortcuts for folke/todo-comments:
 vim.keymap.set("n", "\\]", function()
