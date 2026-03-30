@@ -269,6 +269,24 @@ return {
     end
   },
 
+  -- GitHub Copilot Chat
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    build = "make tiktoken",
+    opts = {  -- See https://github.com/CopilotC-Nvim/CopilotChat.nvim?tab=readme-ov-file#configuration
+      model = 'claude-sonnet-4.6',  -- AI model to use
+      temperature = 0.1,  -- Lower = focused, higher = creative
+      window = {
+        layout = 'vertical',  -- 'vertical', 'horizontal', 'float'
+        width = 0.5,          -- 50% of screen width
+      },
+      auto_insert_mode = true,     -- Enter insert mode when opening
+    },
+  },
+
   -- Clangd's off-spec features for neovim's LSP client.
   -- Use https://sr.ht/~p00f/clangd_extensions.nvim instead.
   {
