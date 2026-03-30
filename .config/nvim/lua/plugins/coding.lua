@@ -287,6 +287,19 @@ return {
     },
   },
 
+  -- MCP Hub
+  -- https://ravitemer.github.io/mcphub.nvim
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    build = "npm install -g mcp-hub@latest",  -- Installs `mcp-hub` node binary globally
+    config = function()
+      require("mcphub").setup()
+    end
+  },
+
   -- Clangd's off-spec features for neovim's LSP client.
   -- Use https://sr.ht/~p00f/clangd_extensions.nvim instead.
   {
