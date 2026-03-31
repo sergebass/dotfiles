@@ -189,11 +189,11 @@ vim.cmd([[
   nmap <Space>cl gcc
 
   " spacemacs-compatible quick shortcuts for vim-fugitive (and more)
-  nnoremap \\<Space>gs :Git<CR>
-  nnoremap \\<Space>gl :Gclog<CR>
-  nnoremap \\<Space>gd :Gdiffsplit<CR>
-  nnoremap \\<Space>gb :Git blame<CR>
-  nnoremap \\<Space>gg :Ggrep<Space>
+  nnoremap \<Space>gs :Git<CR>
+  nnoremap \<Space>gl :Gclog<CR>
+  nnoremap \<Space>gd :Gdiffsplit<CR>
+  nnoremap \<Space>gb :Git blame<CR>
+  nnoremap \<Space>gg :Ggrep<Space>
   nnoremap <Space>gfh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filetype=git buftype=nofile<CR>gg
   nnoremap <Space>gS :!git add %<CR>
   nnoremap <Space>gU :!git reset %<CR>
