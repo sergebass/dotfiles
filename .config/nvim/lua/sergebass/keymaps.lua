@@ -28,6 +28,21 @@ vim.cmd([[
   " (this will be more consistent with C or D that also act until the end of line)
   nnoremap Y y$
 
+  " yank current file name only (without path) into the clipboard
+  nnoremap \yf :let @+=expand("%:t")<CR>
+
+  " yank current file name with path into the clipboard
+  nnoremap \yF :let @+=expand("%")<CR>
+
+  " yank current directory path into the clipboard
+  nnoremap \yD :let @+=expand("%:p:h")<CR>
+
+  " yank current date in YYYY-MM-DD format into the clipboard
+  nnoremap \yd :let @+=strftime("%Y-%m-%d")<CR>
+
+  " yank current time in HH:MM:SS format into the clipboard
+  nnoremap \yt :let @+=strftime("%H:%M:%S")<CR>
+
   " an alternative way to quickly save the file being edited
   " (make sure to turn off terminal flow control via Ctrl+S/Q)
   noremap <C-S> <Cmd>update<CR>
