@@ -158,6 +158,14 @@ return {
       vim.keymap.set('n', "<Space>gfd", fzfLua.git_diff, { desc = "Git diff (fzf-lua)" })
       vim.keymap.set('n', "<Space>gb", fzfLua.git_blame, { desc = "Git blame (fzf-lua)" })
 
+      -- Search
+      vim.keymap.set('n', "<Space>s?", fzfLua.search_history, { desc = "Search history (fzf-lua)" })
+      vim.keymap.set('n', "<Space>srp", fzfLua.live_grep, { desc = "Live grep (fzf-lua)" })
+      vim.keymap.set('n', "<Space>ss", fzfLua.grep_curbuf, { desc = "Grep current buffer (fzf-lua)" })
+      vim.keymap.set('n', "<Space>/", fzfLua.grep_project, { desc = "Grep current project (fzf-lua)" })
+      vim.keymap.set('n', "<Space>sp", fzfLua.grep_project, { desc = "Grep current project (fzf-lua)" })
+      vim.keymap.set('n', "<Space>*", fzfLua.grep_cword, { desc = "Grep selected word in current project (fzf-lua)" })
+      vim.keymap.set('n', "<Space>sP", fzfLua.grep_cword, { desc = "Grep selected word in current project (fzf-lua)" })
     end,
   },
 

@@ -67,8 +67,6 @@ vim.cmd([[
 
   nnoremap <Space>hi :h <C-r>=expand("<cword>")<CR><CR>
 
-  noremap <Space>\? <Cmd>Commands!<CR>
-
   noremap <Space>qq <Cmd>qa<CR>
   noremap <Space>qQ <Cmd>qa!<CR>
 
@@ -97,30 +95,30 @@ vim.cmd([[
   " --------------
 
   " search some text in the current buffer/file (use fzf.vim)
-  nnoremap <Space>ss :BLines!<Space>
+  nnoremap \<Space>ss :BLines!<Space>
 
   " search the word under cursor in current buffer/file (use fzf.vim)
-  nnoremap <Space>sS :let w=expand("<cword>")<CR><CR>:BLines! <C-r>=w<CR><CR>
+  nnoremap \<Space>sS :let w=expand("<cword>")<CR><CR>:BLines! <C-r>=w<CR><CR>
 
   " search some text in all currently open buffers (use fzf.vim)
-  nnoremap <Space>sb :Lines!<Space>
+  nnoremap \<Space>sb :Lines!<Space>
 
   " search the word under cursor in all currently open buffers (use fzf.vim)
-  nnoremap <Space>sB :let w=expand("<cword>")<CR><CR>:Lines! <C-r>=w<CR><CR>
+  nnoremap \<Space>sB :let w=expand("<cword>")<CR><CR>:Lines! <C-r>=w<CR><CR>
 
   " search some text in the current project (use default tool)
-  nmap <Space>sp <Space>srp
-  nmap <Space>/ <Space>srp
+  nmap \<Space>sp <Space>srp
+  nmap \<Space>/ \<Space>srp
 
   " search the word under cursor in the current project (use default tool)
-  nmap <Space>sP <Space>srP
-  nmap <Space>* <Space>srP
+  nmap \<Space>sP <Space>srP
+  nmap \<Space>* \<Space>srP
 
   " search some text in the current project (use fzf.vim + ripgrep)
-  nnoremap <Space>srp :FzfRg<Space>
+  nnoremap \<Space>srp :FzfRg<Space>
 
   " search the word under cursor in the current project (use fzf.vim + ripgrep)
-  nnoremap <Space>srP :let w=expand("<cword>")<CR><CR>:FzfRg <C-r>=w<CR><CR>
+  nnoremap \<Space>srP :let w=expand("<cword>")<CR><CR>:FzfRg <C-r>=w<CR><CR>
 
   " search some text in the current project (use fzf.vim + silver searcher)
   nnoremap <Space>sap :FzfAg<Space>
@@ -666,7 +664,9 @@ vim.keymap.set('n', "\\<Space>ff", telescope.find_files, { desc = "Find files (t
 vim.keymap.set('n', "\\<Space>pf", telescope.git_files, { desc = "Find git files (telescope)" })
 vim.keymap.set('n', "\\<Space>pg", telescope.tags, { desc = "Tags in directory (telescope)" })
 
--- vim.keymap.set('n', "<leader>fg", telescope.live_grep, { desc = "Live grep (telescope)" })
+-- Search
+vim.keymap.set('n', "\\<Space>s?", telescope.search_history, { desc = "Search history (telescope)" })
+vim.keymap.set('n', "\\<Space>srp", telescope.live_grep, { desc = "Live grep (telescope)" })
 
 -- Shortcuts for folke/todo-comments:
 vim.keymap.set("n", "\\]", function()
