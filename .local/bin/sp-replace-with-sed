@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Usage: sp-replace-with-sed 's/boost::mutex/std::mutex/g' <arguments for ripgrep to search for files to replace in>
+# Example: sp-replace-with-sed 's/boost::mutex/std::mutex/g' -t cpp "boost::mutex" sources/
+
+pattern="$1"
+shift
+
+rg -l0 "$@" | xargs --verbose -n1 -0 sed -i "$pattern"
