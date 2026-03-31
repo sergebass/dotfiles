@@ -122,7 +122,8 @@ return {
       -- All supported fzf-lua commands are listed here:
       -- https://github.com/ibhagwan/fzf-lua?tab=readme-ov-file#commands
 
-      vim.keymap.set('n', "<Space><Space>", fzfLua.command_history, { desc = "Command history (fzf-lua)" })
+      vim.keymap.set('n', "<Space><Space>", fzfLua.commands, { desc = "Commands (fzf-lua)" })
+      vim.keymap.set('n', "<Space><Space>?", fzfLua.command_history, { desc = "Command history (fzf-lua)" })
 
       -- Global search (loosely similar to Quick Open in VSCode)
       vim.keymap.set('n', "<C-P>", fzfLua.global, { desc = "Global lookup (fzf-lua)" })

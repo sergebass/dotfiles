@@ -644,7 +644,8 @@ local telescope = require('telescope.builtin')
 -- FIXME: add many more mappings here. Choose from this list:
 -- https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#pickers
 
-vim.keymap.set('n', "\\<Space><Space>", telescope.command_history, { desc = "Command history (telescope)" })
+vim.keymap.set('n', "\\<Space><Space>", telescope.commands, { desc = "Commands (telescope)" })
+vim.keymap.set('n', "\\<Space><Space>?", telescope.command_history, { desc = "Command history (telescope)" })
 
 -- Help and documentation
 vim.keymap.set('n', "\\<Space>h<Space>", telescope.help_tags, { desc = "Help tags (telescope)" })
