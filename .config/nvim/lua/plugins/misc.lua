@@ -118,6 +118,9 @@ return {
         -- },
       })
 
+      -- Register fzf-lua as the default UI for vim.ui.select
+      fzfLua.register_ui_select()
+
       -- Configure keymaps for fzf-lua commands
       -- All supported fzf-lua commands are listed here:
       -- https://github.com/ibhagwan/fzf-lua?tab=readme-ov-file#commands
