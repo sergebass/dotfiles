@@ -146,6 +146,14 @@ return {
       -- Spacemacs shortcuts: https://www.spacemacs.org/doc/DOCUMENTATION.html#managing-projects
       vim.keymap.set("n", "<Space>pf", fzfLua.git_files, { desc = "Find git files (fzf-lua)" })
       vim.keymap.set('n', "<Space>pg", fzfLua.tags, { desc = "Tags in directory (fzf-lua)" })
+
+      -- Git
+      vim.keymap.set('n', "<Space>gs", fzfLua.git_status, { desc = "Git status (fzf-lua)" })
+      vim.keymap.set('n', "<Space>gl", fzfLua.git_commits, { desc = "Git project commits (fzf-lua)" })
+      vim.keymap.set('n', "<Space>gfl", fzfLua.git_bcommits, { desc = "Git buffer commits (fzf-lua)" })
+      vim.keymap.set('n', "<Space>gfd", fzfLua.git_diff, { desc = "Git diff (fzf-lua)" })
+      vim.keymap.set('n', "<Space>gb", fzfLua.git_blame, { desc = "Git blame (fzf-lua)" })
+
     end,
   },
 
