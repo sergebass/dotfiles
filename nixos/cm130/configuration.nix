@@ -200,6 +200,9 @@
       calibre  # Comprehensive e-book software
       calibre-web  # Web app for browsing, reading and downloading eBooks stored in a Calibre database
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
+      kitty  # Fast, feature-rich, GPU based terminal emulator
+      kitty-img  # Print images inline in kitty
+      kitty-themes  # Themes for the kitty terminal emulator
       light # Control backlight brightness
       qrencode  # C library and command line tool for encoding data in a QR Code symbol
       signal-cli  # Command-line and dbus interface for communicating with the Signal messaging service
@@ -208,6 +211,7 @@
       thunderbird  # Full-featured e-mail client
       vivaldi  # Browser for our Friends, powerful and personal
       vivaldi-ffmpeg-codecs  # Additional support for proprietary codecs for Vivaldi and other chromium based tools
+      wezterm  # GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
       yewtube  # Terminal based YouTube player and downloader, forked from mps-youtube
       ymuse  # GUI client for MPD
       youtube-music  # Electron wrapper around YouTube Music
