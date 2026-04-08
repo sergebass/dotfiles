@@ -305,3 +305,5 @@
     force-shallow-history = !git fetch --depth=1 && git gc --aggressive --prune=now
 
     smu = submodule update --recursive
+
+    ls-commit-files = show --pretty="" --name-only
