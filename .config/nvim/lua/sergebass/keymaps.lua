@@ -203,12 +203,16 @@ vim.cmd([[
   vmap <Space>; gc
   nmap <Space>cl gcc
 
-  " spacemacs-compatible quick shortcuts for vim-fugitive (and more)
-  nnoremap \<Space>gs :Git<CR>
-  nnoremap \<Space>gl :Gclog<CR>
-  nnoremap \<Space>gd :Gdiffsplit<CR>
-  nnoremap \<Space>gb :Git blame<CR>
-  nnoremap \<Space>gg :Ggrep<Space>
+  " Quick shortcuts for vim-fugitive (and more)
+  nnoremap \Gs :Git<CR>
+  nnoremap \Gl :Gclog<CR>
+  nnoremap \Gd :Gdiffsplit<CR>
+  nnoremap \Gb :Git blame<CR>
+  nnoremap \Gg :Ggrep<Space>
+  nnoremap \Gm :GMove<Space>
+  nnoremap \Gr :GRename<Space>
+  nnoremap \Gx :GBrowse<CR>
+
   nnoremap <Space>gfh :execute 'new <bar> 0r !git log -p #'<CR>:set readonly filetype=git buftype=nofile<CR>gg
   nnoremap <Space>gS :!git add %<CR>
   nnoremap <Space>gU :!git reset %<CR>
@@ -250,24 +254,18 @@ vim.cmd([[
   " (stay in the merged file buffer and apply for each of the conflict chunk)
 
   " jump to the next conflict start marker
-  nnoremap \g\  /^<<<<<<<<Space><CR>
-  " jump to any of the next conflict markers
-  nnoremap \g\| /^<<<<<<<<Space>\<bar>^<bar><bar><bar><bar><bar><bar><bar><Space>\<bar>^=======\<bar>^>>>>>>><Space><CR>
+  nnoremap \G<  /^<<<<<<<<Space><CR>
 
   " Mappings for pulling changes from the local/remote/base version into the merged version (useful for resolving merge conflicts)
 
   " When using stock neovim mergetool mode
-  nnoremap \gL :diffget _LOCAL_<CR>
-  nnoremap \gR :diffget _REMOTE_<CR>
-  nnoremap \gB :diffget _BASE_<CR>
+  nnoremap \GL :diffget _LOCAL_<CR>
+  nnoremap \GR :diffget _REMOTE_<CR>
+  nnoremap \GB :diffget _BASE_<CR>
 
   " When using vim-fugitive's :Gdiffsplit mode
-  nnoremap \g2 :diffget //2<CR>
-  nnoremap \g3 :diffget //3<CR>
-
-  nnoremap \gm :GMove<Space>
-  nnoremap \gr :GRename<Space>
-  nnoremap \gx :GBrowse<CR>
+  nnoremap \G2 :diffget //2<CR>
+  nnoremap \G3 :diffget //3<CR>
 
   noremap \gza <Cmd>GitGutterFold<CR>
   noremap \ghp <Cmd>GitGutterPreviewHunk<CR>
