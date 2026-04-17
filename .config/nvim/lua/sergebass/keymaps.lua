@@ -28,6 +28,9 @@ vim.cmd([[
   " (this will be more consistent with C or D that also act until the end of line)
   nnoremap Y y$
 
+  " yank current location (full file path name and line/column numbers) into the clipboard
+  nnoremap \y. :let @+=expand("%:p") . ":" . line('.') . ":" . col('.')<CR>
+
   " yank current file name only (without path) into the clipboard
   nnoremap \yf :let @+=expand("%:t")<CR>
 
