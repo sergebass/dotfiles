@@ -31,8 +31,14 @@ vim.cmd([[
   " yank current file name only (without path) into the clipboard
   nnoremap \yf :let @+=expand("%:t")<CR>
 
+  " yank current file name only (without path) and line/column numbers into the clipboard
+  nnoremap \yff :let @+=expand("%:t") . ":" . line('.') . ":" . col('.')<CR>
+
   " yank current file name with path into the clipboard
   nnoremap \yF :let @+=expand("%")<CR>
+
+  " yank current file name with path and line/column numbers into the clipboard
+  nnoremap \yFF :let @+=expand("%") . ":" . line('.') . ":" . col('.')<CR>
 
   " yank current directory path into the clipboard
   nnoremap \yD :let @+=expand("%:p:h")<CR>
