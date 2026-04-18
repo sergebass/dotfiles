@@ -30,6 +30,10 @@ disabled = false
 format = '[$symbol $status]($style) '
 style = 'bold red'
 
+[memory_usage]
+disabled = false
+threshold = 75
+
 [username]
 # Always display user name
 show_always = true
