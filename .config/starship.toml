@@ -3,15 +3,22 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# `format` defines the overall prompt. Use components like $all, $username, $hostname, $directory, etc.
-# TODO: how do we insert an OSC 133 marker here without breaking the parser?
-format = "=== $all"
-
 # Inserts a blank line between shell prompts
 add_newline = true
 
 # The default timeout of 500ms is sometimes insufficient for git status operations
 command_timeout = 5000
+
+# `format` defines the overall prompt. Use components like $all, $username, $hostname, $directory, etc.
+# TODO: how do we insert an OSC 133 marker here without breaking the parser?
+format = '''
+$fill
+=== $all
+'''
+
+[fill]
+symbol = '_'
+style = 'bold black'
 
 [shell]
 # Since we use multiple shells, to be aware.
