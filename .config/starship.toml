@@ -4,7 +4,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Inserts a blank line between shell prompts
-add_newline = true
+add_newline = false
 
 # The default timeout of 500ms is sometimes insufficient for git status operations
 command_timeout = 5000
@@ -13,8 +13,7 @@ command_timeout = 5000
 # TODO: how do we insert an OSC 133 marker here without breaking the parser?
 format = '''
 $fill
-=== $all
-'''
+=== $all'''
 
 [fill]
 symbol = '_'
