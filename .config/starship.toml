@@ -43,6 +43,15 @@ ssh_only = false
 format = '@[$ssh_symbol$hostname]($style): '
 style = 'bold purple'
 
+[localip]
+disabled = false
+ssh_only = true
+format = '[$localipv4]($style) '
+style = 'bold blue'
+
+[os]
+disabled = false
+
 [directory]
 style = 'bold cyan'
 repo_root_style = 'bold yellow'
