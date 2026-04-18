@@ -3,6 +3,10 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# `format` defines the overall prompt. Use components like $all, $username, $hostname, $directory, etc.
+# TODO: how do we insert an OSC 133 marker here without breaking the parser?
+format = "=== $all"
+
 # Inserts a blank line between shell prompts
 add_newline = true
 
