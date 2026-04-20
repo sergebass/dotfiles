@@ -4,7 +4,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Inserts a blank line between shell prompts
-add_newline = false
+add_newline = true
 
 # The default timeout of 500ms is sometimes insufficient for git status operations
 command_timeout = 5000
