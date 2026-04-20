@@ -13,7 +13,7 @@ command_timeout = 5000
 # TODO: how do we insert an OSC 133 marker here without breaking the parser?
 format = '''
 $fill
-=== $all'''
+$all'''
 
 [fill]
 symbol = '_'
