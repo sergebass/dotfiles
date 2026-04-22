@@ -28,29 +28,23 @@ vim.cmd([[
   " (this will be more consistent with C or D that also act until the end of line)
   nnoremap Y y$
 
-  " yank current location (full file path name and line/column numbers) into the clipboard
-  nnoremap \y. :let @+=expand("%:p") . ":" . line('.') . ":" . col('.')<CR>
+  " yank current location (full file path and line/column numbers) into the system clipboard
+  nnoremap \yy <Cmd>let @+ = expand("%:p") . ":" . line('.') . ":" . col('.')<CR>
+  " yank current visual selection's location (full file path " and line/column numbers
+  " of the start and end of the selection) into the system clipboard
+  vnoremap \yy <Cmd>let @+ = expand("%:p") . " from line " . line("v") . " column " . col("v") . " to line " . line(".") . " column " . col(".")<CR>
 
-  " yank current file name only (without path) into the clipboard
-  nnoremap \yf :let @+=expand("%:t")<CR>
+  " yank current file name only (without path) into the system clipboard
+  nnoremap \yf <Cmd>let @+ = expand("%:t")<CR>
 
-  " yank current file name only (without path) and line/column numbers into the clipboard
-  nnoremap \yff :let @+=expand("%:t") . ":" . line('.') . ":" . col('.')<CR>
+  " yank current file path into the system clipboard
+  nnoremap \yp <Cmd>let @+ = expand("%:p:h")<CR>
 
-  " yank current file name with path into the clipboard
-  nnoremap \yF :let @+=expand("%")<CR>
+  " yank current date in YYYY-MM-DD format into the system clipboard
+  nnoremap \yd <Cmd>let @+ = strftime("%Y-%m-%d")<CR>
 
-  " yank current file name with path and line/column numbers into the clipboard
-  nnoremap \yFF :let @+=expand("%") . ":" . line('.') . ":" . col('.')<CR>
-
-  " yank current directory path into the clipboard
-  nnoremap \yD :let @+=expand("%:p:h")<CR>
-
-  " yank current date in YYYY-MM-DD format into the clipboard
-  nnoremap \yd :let @+=strftime("%Y-%m-%d")<CR>
-
-  " yank current time in HH:MM:SS format into the clipboard
-  nnoremap \yt :let @+=strftime("%H:%M:%S")<CR>
+  " yank current time in HH:MM:SS format into the system clipboard
+  nnoremap \yt <Cmd>let @+ = strftime("%H:%M:%S")<CR>
 
   " an alternative way to quickly save the file being edited
   " (make sure to turn off terminal flow control via Ctrl+S/Q)
