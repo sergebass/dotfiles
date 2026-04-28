@@ -14,7 +14,7 @@ vim.opt_local.shiftwidth = 4
 vim.opt_local.autoindent = true
 
 -- Do our formatting using clang-format and the '=' command
-vim.opt_local.equalprg = "clang-format"
+vim.opt_local.equalprg = "clang-format --assume-filename=" .. vim.fn.expand('%:t')
 
 -- Jump to definition of the symbol under cursor
 -- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
