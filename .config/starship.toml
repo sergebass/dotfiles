@@ -12,8 +12,7 @@ command_timeout = 5000
 # `format` defines the overall prompt. Use components like $all, $username, $hostname, $directory, etc.
 # TODO: how do we insert an OSC 133 marker here without breaking the parser?
 format = '''
-$fill
-$all'''
+<\$> $all'''
 
 [fill]
 symbol = '_'
