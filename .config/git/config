@@ -307,3 +307,6 @@
     smu = submodule update --recursive
 
     ls-commit-files = show --pretty="" --name-only
+
+    ls-FIXME-files = diff-index --name-only -G 'FIXME|TODO' HEAD
+    show-FIXME = diff-index -U -G 'FIXME|TODO' HEAD
