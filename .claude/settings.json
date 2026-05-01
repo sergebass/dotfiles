@@ -1,0 +1,28 @@
+{
+  "editorMode": "vim",
+  "externalEditorContext": true,
+  "autoCompactEnabled": false,
+  "defaultMode": "default",
+  "permissions": {
+    "deny": [
+      "Bash(git push *)",
+      "Read(*.env)",
+      "Read(*.env.*)"
+    ],
+    "ask": [
+      "WebFetch(domain:example.com)",
+      "Bash(clang-format *)"
+    ],
+    "allow": [
+      "Bash(* --version)",
+      "Bash(* --help *)"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true
+  }
+}
