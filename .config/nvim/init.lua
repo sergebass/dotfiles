@@ -116,7 +116,7 @@ vim.opt.diffopt:append "iwhite"  -- git diff -b mode (ignore whitespace changes)
 vim.opt.diffexpr=""
 
 -- Highlight current cursor position
-vim.opt.colorcolumn = "80,120"  -- Mark columns at 80 and 120 characters
+vim.opt.colorcolumn = "80,100,120"  -- Mark columns at 80, 100, and 120 characters
 vim.opt.cursorline = true  -- Highlight the screen line of the cursor
 vim.opt.cursorcolumn = true -- Highlight the screen column of the cursor
 
@@ -126,7 +126,7 @@ vim.cmd([[
     augroup BgHighlight
         autocmd!
 
-        autocmd WinEnter * set colorcolumn=80,120
+        autocmd WinEnter * set colorcolumn=80,100,120
         autocmd WinEnter * set cursorline
         autocmd WinEnter * set cursorcolumn
 
