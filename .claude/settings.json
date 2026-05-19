@@ -1,5 +1,6 @@
 {
   "editorMode": "vim",
+  "preferredNotifChannel": "terminal_bell",
   "externalEditorContext": true,
   "autoCompactEnabled": false,
   "defaultMode": "default",
