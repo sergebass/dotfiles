@@ -2,7 +2,8 @@
 { config, lib, pkgs, ... }:
 let
   aliases = {
-    v = "nvim";
+    e = "nvim";
+    v = "nvim -R";
     g = "git";
   };
 
