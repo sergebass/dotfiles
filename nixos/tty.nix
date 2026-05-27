@@ -5,6 +5,7 @@ let
     e = "nvim";
     v = "nvim -R";
     g = "git";
+    p = "mpv --term-title='♪ \${metadata/icy-title\$}'";
   };
 
   # Default configuration options for ripgrep (rg).
