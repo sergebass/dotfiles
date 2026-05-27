@@ -4,6 +4,14 @@ let
   aliases = {
     e = "nvim";
     v = "nvim -R";
+
+    l = "lsd";
+    la = "lsd -a";
+    ll = "lsd -l";
+    lla = "lsd -la";
+    lt = "lsd --tree";
+    llt = "lsd -l --tree";
+
     g = "git";
     p = "mpv --term-title='♪ \${metadata/icy-title\$}'";
   };
