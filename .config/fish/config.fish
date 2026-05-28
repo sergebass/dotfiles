@@ -39,8 +39,19 @@ export LESS="-FR"
 
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
-alias v nvim
-alias g git
+# Some useful aliases
+alias e "nvim"
+alias v "nvim -R"
+
+alias l "lsd"
+alias la "lsd -a"
+alias ll "lsd -l"
+alias lla "lsd -la"
+alias lt "lsd --tree"
+alias llt "lsd -l --tree"
+
+alias g "git"
+alias p "mpv --term-title='♪ \${metadata/icy-title:---}'"
 
 if test -e ~/.workspace.fish
     source ~/.workspace.fish
