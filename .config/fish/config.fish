@@ -30,7 +30,7 @@ end
 export EDITOR=nvim
 export VISUAL=nvim
 
-export PAGER=less
+export PAGER=bat
 export MANPAGER=less
 
 # See `man less` for the explanation of the color codes defined with `-D`:
