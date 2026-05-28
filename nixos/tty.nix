@@ -13,7 +13,7 @@ let
     llt = "lsd -l --tree";
 
     g = "git";
-    p = "mpv --term-title='♪ \${metadata/icy-title\$}'";
+    p = "mpv --term-title='♪ \${metadata/icy-title:---}'";
   };
 
   # Default configuration options for ripgrep (rg).
