@@ -2,8 +2,8 @@
 { config, lib, pkgs, ... }:
 let
   aliases = {
-    e = "nvim";
-    v = "nvim -R";
+    v = "nvim";
+    V = "nvim -R";
 
     l = "lsd";
     la = "lsd -a";
