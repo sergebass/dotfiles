@@ -40,8 +40,8 @@ export LESS="-FR"
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
 # Some useful aliases
-alias e "nvim"
-alias v "nvim -R"
+alias v "nvim"
+alias V "nvim -R"
 
 alias l "lsd"
 alias la "lsd -a"
