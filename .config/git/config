@@ -182,7 +182,7 @@
 
     # base aliases for brief and verbose logs
     l = log --date=iso --decorate=full --color --pretty=format:"%C(green)%h\\ %ai\\ %Creset\\%s\\ %C(cyan\\ bold)(%an)%C(yellow\\ bold)%d"
-    lv = log --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
+    lv = log -p --stat --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
 
     l1 = !git l -1
     lv1 = !git lv -1
