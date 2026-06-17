@@ -310,3 +310,8 @@
 
     ls-FIXME-files = diff-index --name-only -G 'FIXME|TODO' HEAD
     show-FIXME = diff-index -U -G 'FIXME|TODO' HEAD
+
+    wt = worktree
+    wtl = worktree list
+    wta = worktree add
+    wtr = worktree remove
