@@ -39,6 +39,11 @@ export LESS="-FR"
 
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
+# SSH operation prevents neovim from using some local terminal features, so disable them when running in SSH sessions.
+if test -n "$SSH_CLIENT" -o -n "$SSH_TTY"
+    export NVIM_NOTTYFAST=1
+end
+
 # Some useful aliases
 alias v "nvim"
 alias V "nvim -R"
