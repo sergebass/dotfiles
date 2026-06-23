@@ -312,6 +312,7 @@
     show-FIXME = diff-index -U -G 'FIXME|TODO' HEAD
 
     wt = worktree
-    wtl = worktree list
     wta = worktree add
+    wtl = worktree list
+    wtm = worktree move
     wtr = worktree remove
