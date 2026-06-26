@@ -142,18 +142,62 @@ return {
     end
   },
 
-  -- Nvim Treesitter configurations and abstraction layer
+  -- Nvim Treesitter (main branch): parser management + queries only.
+  -- The `main` branch dropped the module system (no `configs.setup`,
+  -- `highlight = { enable = true }`, `ensure_installed`, `ts_utils`, ...);
+  -- highlighting is started per-buffer via the FileType autocmd below.
+  -- Required for Neovim 0.12+, which the legacy `master` branch does not support.
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,        -- main does not self-manage load timing
     build = ':TSUpdate',
     config = function()
-      require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'markdown', 'markdown_inline', 'bash', 'powershell' },
-        highlight = { enable = true },
+      -- ensure_installed is gone; install the parsers we use explicitly (async).
+      -- Keep this list one-per-line and alphabetically sorted.
+      require('nvim-treesitter').install({
+        'bash',
+        'c',
+        'c_sharp',
+        'cmake',
+        'cpp',
+        'diff',
+        'fish',
+        'haskell',
+        'ini',
+        'java',
+        'json',
+        'kotlin',
+        'lua',
+        'make',
+        'markdown',
+        'markdown_inline',
+        'nix',
+        'nu',
+        'powershell',
+        'purescript',
+        'python',
+        'rust',
+        'toml',
+        'typescript',
+        'vim',
+        'xml',
+        'yaml',
       })
+
       -- Make the `shell` code-fence info string resolve to the bash parser
       -- (nvim-treesitter only aliases `sh` -> bash, not `shell`).
       vim.treesitter.language.register('bash', 'shell')
+
+      -- `highlight = { enable = true }` is gone on main; start the highlighter
+      -- ourselves for every buffer that has a parser available.
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(args)
+          local lang = vim.treesitter.language.get_lang(args.match) or args.match
+          -- pcall: silently skip filetypes with no installed parser.
+          pcall(vim.treesitter.start, args.buf, lang)
+        end,
+      })
     end,
   },
 
