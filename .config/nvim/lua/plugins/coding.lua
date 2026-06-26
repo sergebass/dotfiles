@@ -148,9 +148,12 @@ return {
     build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'markdown', 'markdown_inline' },
+        ensure_installed = { 'markdown', 'markdown_inline', 'bash', 'powershell' },
         highlight = { enable = true },
       })
+      -- Make the `shell` code-fence info string resolve to the bash parser
+      -- (nvim-treesitter only aliases `sh` -> bash, not `shell`).
+      vim.treesitter.language.register('bash', 'shell')
     end,
   },
 
