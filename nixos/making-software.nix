@@ -29,6 +29,8 @@ in {
       cmakeCurses  # Cross-platform, open-source build system generator
       gcc  # GNU Compiler Collection
       gdb  # GNU debugger
+      gh  # GitHub CLI tool
+      github-copilot-cli  # GitHub Copilot CLI brings the power of Copilot coding agent directly to your terminal
       gnumake  # Tool to control the generation of non-source files from sources
       haskell-language-server  # LSP server for GHC
       jdk  # The open-source Java Development Kit
@@ -40,10 +42,11 @@ in {
       lua-language-server  # Language server that offers Lua language support
       meld  # Visual diff and merge tool
       nixd  # Feature-rich Nix language server interoperating with C++ nix
-      nodePackages.purescript-language-server  # Language Server Protocol server for PureScript wrapping purs ide server functionality
-      nodejs_24  # Event-driven I/O framework for the V8 JavaScript engine (Node.JS and NPM)
+      nodejs  # Event-driven I/O framework for the V8 JavaScript engine (Node.JS and NPM)
+      opencode  # AI coding agent built for the terminal
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
       postgres-language-server  # Tools and language server for Postgres
+      purescript  # Strongly-typed functional programming language that compiles to JavaScript
       python3Packages.debugpy  # Implementation of the Debug Adapter Protocol for Python
       python3Packages.python-lsp-server  # Python implementation of the Language Server Protocol (pylsp)
       rust-analyzer  # Language server for the Rust language
