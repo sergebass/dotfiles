@@ -281,6 +281,8 @@
     commit-fix = commit --amend --verbose
     commit-fix-author = commit --amend --verbose --reset-author
 
+    cp = cherry-pick
+
     ; undo the latest commit
     u1 = reset --hard HEAD~1
 
