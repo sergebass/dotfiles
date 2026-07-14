@@ -204,12 +204,21 @@ return {
   -- Show code context
   {
     'nvim-treesitter/nvim-treesitter-context',
-    opts = {
-      enable = true,
-      max_lines = 4,  -- How many lines the window should span. Values <= 0 mean no limit.
-      trim_scope = 'outer',  -- which context lines to discard
-      separator = '_',  -- Single character to use as a separator between context and content
-    },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require("treesitter-context").setup({
+        enable = false,
+        mode = 'cursor',
+        multiwindow = true,
+        max_lines = 4,  -- How many lines the window should span. Values <= 0 mean no limit.
+        multiline_threshold = 5,
+        trim_scope = 'outer',  -- which context lines to discard
+        -- separator = '~',  -- Single character to use as a separator between context and content
+      })
+    end,
+    vim.keymap.set("n", "[^", function()
+      require("treesitter-context").go_to_context(vim.v.count1)
+    end, { silent = true })
   },
 
   -- Asynchronous linter
