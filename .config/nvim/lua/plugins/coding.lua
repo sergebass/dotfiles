@@ -221,6 +221,12 @@ return {
     end, { silent = true })
   },
 
+  -- VSCode-style diff rendering with two-tier highlighting (line + character level) in side-by-side and inline layouts, using VSCode's algorithm implemented in C.
+  {
+    "esmuellert/codediff.nvim",
+    cmd = "CodeDiff",
+  },
+
   -- Asynchronous linter
   {
     'mfussenegger/nvim-lint',
