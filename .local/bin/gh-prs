@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+"""List open PRs where I am personally requested as reviewer, with review status.
+
+`user-review-requested:@me` = direct individual requests only (excludes team).
+`gh search prs` cannot return reviewDecision, so fetch it per-PR via `gh pr view`.
+Extra args are forwarded to `gh search prs` (e.g. --owner, --limit).
+"""
+
+import json
+import subprocess
+import sys
+
+# ANSI styles, applied only when stdout is a TTY (autocolor behaviour).
+TTY = sys.stdout.isatty()
+RESET = "\033[0m"
+STYLES = {
+    # 8 standard colors (SGR 30-37)
+    "black": "\033[30m",
+    "red": "\033[31m",
+    "green": "\033[32m",
+    "yellow": "\033[33m",
+    "blue": "\033[34m",
+    "magenta": "\033[35m",
+    "cyan": "\033[36m",
+    "white": "\033[37m",
+    # 8 bright colors (SGR 90-97); "gray" is an alias for bright black
+    "bright_black": "\033[90m",
+    "gray": "\033[90m",
+    "bright_red": "\033[91m",
+    "bright_green": "\033[92m",
+    "bright_yellow": "\033[93m",
+    "bright_blue": "\033[94m",
+    "bright_magenta": "\033[95m",
+    "bright_cyan": "\033[96m",
+    "bright_white": "\033[97m",
+    # bold variants used by this script
+    "green+b": "\033[1;32m",
+    "red+b": "\033[1;31m",
+}
+DECISION_STYLE = {
+    "APPROVED": "green+b",
+    "CHANGES_REQUESTED": "red+b",
+}
+
+
+def color(style, text):
+    if not TTY or style not in STYLES:
+        return text
+    return f"{STYLES[style]}{text}{RESET}"
+
+
+def run(cmd):
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        sys.stderr.write(result.stderr)
+        sys.exit(result.returncode)
+    return result.stdout
+
+
+def format_pr(url):
+    pr = json.loads(run([
+        "gh", "pr", "view", url,
+        "--json", "number,title,url,reviewDecision,author,isDraft,labels,updatedAt",
+    ]))
+
+    # number = color("cyan", f'#{pr["number"]}')
+    link = color("cyan", pr["url"])
+
+    title = pr["title"] if pr["title"] else "untitled"
+
+    decision = pr["reviewDecision"] or ""
+    style = DECISION_STYLE.get(decision, "yellow")
+    status = color(style, f"{decision:<18}")
+
+    draft_status = " (draft)" if pr["isDraft"] else ""
+
+    author = color("bright_magenta", pr["author"]["name"] + " (" + pr["author"]["login"] + ")" if pr["author"] else "unknown")
+
+    updated_at = color("bright_blue", pr["updatedAt"] if pr["updatedAt"] else "when?")
+    labels = ", ".join(label["name"] for label in pr["labels"]) if pr["labels"] else ""
+
+    return f'{link} \t{status}{draft_status} \t{title} {author} {updated_at} {labels}'
+
+
+def print_prs(prefix, cmd):
+    out = run([*cmd, "--json", "url", "--jq", ".[].url"])
+    urls = out.split()
+    if urls:
+        print(f"\n{prefix} [{len(urls)}]:")
+        for url in urls:
+            print(format_pr(url))
+
+
+def main():
+    extra = sys.argv[1:]
+    print_prs("PRs to review", ["gh", "search", "prs", "user-review-requested:@me", "--state=open", *extra])
+    print_prs("Your own PRs", ["gh", "search", "prs", "author:@me", "--state=open", *extra])
+
+
+if __name__ == "__main__":
+    main()
