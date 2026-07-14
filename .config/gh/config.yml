@@ -15,6 +15,8 @@ aliases:
     co: pr checkout
     prs: pr status -c
     prv: pr view
+    prs-to-review: search prs "user-review-requested:@me" --state=open --sort updated
+    my-prs: search prs "author:@me" --state=open --sort updated
 # The path to a unix socket through which to send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
