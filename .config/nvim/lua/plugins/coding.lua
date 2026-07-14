@@ -221,6 +221,19 @@ return {
     end, { silent = true })
   },
 
+  -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+    config = function()
+      require("diffview").setup({
+        enhanced_diff_hl = true, -- See ':h diffview-config-enhanced_diff_hl'
+        use_icons = true,        -- Requires nvim-web-devicons
+      })
+    end
+  },
+
   -- VSCode-style diff rendering with two-tier highlighting (line + character level) in side-by-side and inline layouts, using VSCode's algorithm implemented in C.
   {
     "esmuellert/codediff.nvim",
