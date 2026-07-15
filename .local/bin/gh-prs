@@ -43,10 +43,11 @@ DECISION_STYLE = {
 }
 
 
-def color(style, text):
+def color(style, text, invert=False):
     if not TTY or style not in STYLES:
         return text
-    return f"{STYLES[style]}{text}{RESET}"
+    prefix = STYLES[style] + ("\033[7m" if invert else "")
+    return f"{prefix}{text}{RESET}"
 
 
 def run(cmd):
@@ -66,20 +67,20 @@ def format_pr(url):
     # number = color("cyan", f'#{pr["number"]}')
     link = color("cyan", pr["url"])
 
-    title = pr["title"] if pr["title"] else "untitled"
+    title = color("bright_white", pr["title"]) if pr["title"] else "(untitled PR)"
 
     decision = pr["reviewDecision"] or ""
     style = DECISION_STYLE.get(decision, "yellow")
     status = color(style, f"{decision:<18}")
 
-    draft_status = " (draft)" if pr["isDraft"] else ""
+    draft_status = " " + color("red", "DRAFT", invert=True) if pr["isDraft"] else ""
 
-    author = color("bright_magenta", pr["author"]["name"] + " (" + pr["author"]["login"] + ")" if pr["author"] else "unknown")
+    author = color("bright_yellow", pr["author"]["login"] if pr["author"] else "unknown")
 
-    updated_at = color("bright_blue", pr["updatedAt"] if pr["updatedAt"] else "when?")
-    labels = ", ".join(label["name"] for label in pr["labels"]) if pr["labels"] else ""
+    updated_at = color("bright_magenta", pr["updatedAt"] if pr["updatedAt"] else "when?")
+    labels = " ".join([" " + color("green", label["name"], invert=False) for label in pr["labels"]]) if pr["labels"] else ""
 
-    return f'{link} \t{status}{draft_status} \t{title} {author} {updated_at} {labels}'
+    return f'{link}\t{status}\t{title}   [{author} {updated_at}{draft_status}{labels}]'
 
 
 def print_prs(prefix, cmd):
@@ -92,9 +93,14 @@ def print_prs(prefix, cmd):
 
 
 def main():
-    extra = sys.argv[1:]
-    print_prs("PRs to review", ["gh", "search", "prs", "user-review-requested:@me", "--state=open", *extra])
-    print_prs("Your own PRs", ["gh", "search", "prs", "author:@me", "--state=open", *extra])
+    # Example usage:  gh-prs author:@me --limit 10 --state closed
+    custom_args = sys.argv[1:]
+    if custom_args:
+        print()
+        print_prs(f"PR search ({custom_args})", ["gh", "search", "prs", *custom_args])
+    else:
+        print_prs("PRs to review", ["gh", "search", "prs", "user-review-requested:@me", "--state=open", "--sort=updated", "--limit=100"])
+        print_prs("Your own PRs", ["gh", "search", "prs", "author:@me", "--state=open", "--sort=updated", "--limit=100"])
 
 
 if __name__ == "__main__":
