@@ -135,6 +135,7 @@
       unzip  # An extraction utility for archives compressed in .zip format
       vifm  # Vi-like File Manager
       wget  # Tool for retrieving files using HTTP, HTTPS, and FTP
+      woeusb  # Create bootable USB disks from Windows ISO images
       xcd  # Colorized hexdump tool
       zip  # Compressor/archiver for creating and modifying zipfiles
     ];
