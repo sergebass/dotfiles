@@ -34,11 +34,11 @@
     systemPackages = with pkgs; [
       scrot  # Command-line screen capture utility
       xclip  # Tool to access the X clipboard from a console application
-      xorg.xev  # X event monitor
-      xorg.xkill  # Utility to forcibly terminate X11 clients
-      xorg.xrandr  # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
-      xorg.xsetroot  # Root window parameter setting utility for X
+      xev  # X event monitor
+      xkill  # Utility to forcibly terminate X11 clients
+      xrandr  # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
       xsel  # Command-line program for getting and setting the contents of the X selection
+      xsetroot  # Root window parameter setting utility for X
     ];
   };
 }
