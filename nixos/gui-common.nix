@@ -22,7 +22,7 @@ in {
   programs = {
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [
+      plugins = with pkgs; [
         thunar-archive-plugin  # Thunar plugin providing file context menus for archives
         thunar-media-tags-plugin  # Thunar plugin providing tagging and renaming features for media files
         thunar-vcs-plugin  # Thunar plugin providing support for Subversion and Git
