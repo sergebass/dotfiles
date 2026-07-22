@@ -3,7 +3,7 @@
 
   boot = {
     loader = {
-      timeout = 3;  # Timeout in seconds before default entry is booted
+      timeout = lib.mkForce 3;  # Timeout in seconds before default entry is booted
 
       systemd-boot.enable = false;  # Make sure there is no bootloader clash
 
