@@ -63,6 +63,9 @@ in {
       vscodium-fhs  # Wrapped variant of vscodium which launches in a FHS compatible environment, should allow for easy usage of extensions without nix-specific modifications
       yaml-language-server  # Language Server for YAML Files
       zuban  # Mypy-compatible Python Language Server built in Rust
+    ] ++ [  # Native libraries
+      alsa-lib.dev  # ALSA, the Advanced Linux Sound Architecture libraries
+      rtmidi  # Set of C++ classes that provide a cross platform API for realtime MIDI input/output
     ] ++ [
       # Experimental packages (a separate list to make it easier to exclude from commits)
     ];
