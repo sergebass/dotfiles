@@ -100,7 +100,6 @@
       file  # A program that shows the type of files
       findutils  # GNU Find Utilities, the basic directory searching utilities of the GNU operating system
       fq  # jq for binary formats
-      gh  # GitHub CLI tool
       grc  # Generic text colouriser
       htop  # An interactive process viewer
       inxi  # Full featured CLI system information tool
