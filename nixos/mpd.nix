@@ -22,31 +22,30 @@ in {
       musicDirectory = "/home/${userName}/music";
       playlistDirectory = "/home/${userName}/music/playlists";
 
-      extraConfig = ''
-        audio_output {
-          type "pipewire"
-          name "PipeWire"
-        }
-
-        audio_output {
-          type "pulse"
-          name "PulseAudio"
-          # server "remote_server" # optional
-          # sink "remote_server_sink" # optional
-        }
-
-        # Audio output for use on Linux
-        audio_output {
-          type "alsa"
-          name "ALSA (default)"
-          # device "hw:0,0" # optional
-          # format "44100:16:2" # optional
-          # mixer_type "hardware" # optional
-          # mixer_device "default" # optional
-          # mixer_control "PCM" # optional
-          # mixer_index "0" # optional
-        }
-      '';
+      settings = {
+        audio_output = [
+          {
+            type = "pipewire";
+            name = "PipeWire";
+          }
+          {
+            type = "pulse";
+            name = "PulseAudio";
+            # server = "remote_server"; # optional
+            # sink = "remote_server_sink"; # optional
+          }
+          {
+            type = "alsa";
+            name = "ALSA (default)";
+            # device = "hw:0,0"; # optional
+            # format = "44100:16:2"; # optional
+            # mixer_type = "hardware"; # optional
+            # mixer_device = "default"; # optional
+            # mixer_control = "PCM"; # optional
+            # mixer_index = "0"; # optional
+          }
+        ];
+      };
     };
   };
 
