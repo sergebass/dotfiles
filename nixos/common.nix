@@ -94,6 +94,7 @@
       delta  # Syntax-highlighting pager for git
       dialog  # Display dialog boxes from shell (using ncurses TUI)
       dig  # Domain name server utility
+      dislocker  # Read BitLocker encrypted partitions in Linux
       dust  # du, but more intuitive
       fd  # Simple, fast and user-friendly alternative to find
       file  # A program that shows the type of files
