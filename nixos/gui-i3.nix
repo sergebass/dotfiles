@@ -1,7 +1,7 @@
 # NixOS configuration for i3 GUI.
 { config, lib, pkgs, ... }: let
   sessionStartScript = with pkgs; writeShellScriptBin "startx-i3" ''
-    ${xorg.xinit}/bin/startx ${i3}/bin/i3
+    ${xinit}/bin/startx ${i3}/bin/i3
   '';
 in {
   imports = [

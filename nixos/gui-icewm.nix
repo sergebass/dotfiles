@@ -1,7 +1,7 @@
 # NixOS configuration for IceWM GUI.
 { config, lib, pkgs, ... }: let
   sessionStartScript = with pkgs; writeShellScriptBin "startx-icewm" ''
-    ${xorg.xinit}/bin/startx ${icewm}/bin/icewm
+    ${xinit}/bin/startx ${icewm}/bin/icewm
   '';
 in {
   imports = [

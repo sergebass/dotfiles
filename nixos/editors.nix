@@ -61,7 +61,6 @@ in {
       packages.myVimPackage = with pkgs.vimPlugins; {
         # Loaded on launch
         start = [
-          fugitive  # fugitive.vim: A Git wrapper so awesome, it should be illegal (https://github.com/tpope/vim-fugitive)
           fzf-vim  #  fzf + vim (https://github.com/junegunn/fzf.vim)
           nvim-scrollbar
           nvim-tree-lua
@@ -74,6 +73,7 @@ in {
           todo-comments-nvim
           trouble-nvim
           vim-commentary
+          vim-fugitive  # fugitive.vim: A Git wrapper so awesome, it should be illegal (https://github.com/tpope/vim-fugitive)
           vim-gutentags
           vim-obsession  # obsession.vim: continuously updated session files (https://github.com/tpope/vim-obsession)
           vim-oscyank

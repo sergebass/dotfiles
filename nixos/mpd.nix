@@ -14,15 +14,15 @@ in {
 
       user = userName;  # Do not run as root
 
-      network = {
-        listenAddress = "any";  # Allow non-localhost connections
-        port = 6600;  # port 6600 is the default
-      };
-
-      musicDirectory = "/home/${userName}/music";
-      playlistDirectory = "/home/${userName}/music/playlists";
+      openFirewall = true;  # Open firewall for MPD service, to let other devices on the network connect to it
 
       settings = {
+        music_directory = "/home/${userName}/music";
+        playlist_directory = "/home/${userName}/music/playlists";
+
+        port = 6600;  # port 6600 is the default
+        bind_to_address = "any";  # Allow non-localhost connections
+
         audio_output = [
           {
             type = "pipewire";
