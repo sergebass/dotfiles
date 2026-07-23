@@ -1,0 +1,5 @@
+#!/usr/bin/env -S bash -l
+# This script is used to launch our preferred shell but reuse bash configuration/environment before launching it.
+# (so that $HOME/.profile, $HOME/.bashrc, etc. are sourced before launching the preferred shell)
+
+exec -l fish "$@"
