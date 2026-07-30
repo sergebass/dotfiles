@@ -120,6 +120,7 @@
       procs  # Modern replacement for ps written in Rust
       psmisc  # Set of small useful utilities that use the proc filesystem (such as fuser, killall and pstree)
       python3Minimal  # High-level dynamically-typed programming language
+      renameutils  # Set of programs to make renaming of files faster
       ripgrep  # A utility that combines the usability of The Silver Searcher with the raw speed of grep
       rlwrap  # Readline wrapper for console programs
       rsync  # Fast incremental file transfer utility
