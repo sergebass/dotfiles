@@ -44,6 +44,7 @@ in {
       nixd  # Feature-rich Nix language server interoperating with C++ nix
       nodejs  # Event-driven I/O framework for the V8 JavaScript engine (Node.JS and NPM)
       opencode  # AI coding agent built for the terminal
+      perf  # Linux tools to profile with performance counters
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
       postgres-language-server  # Tools and language server for Postgres
       purescript  # Strongly-typed functional programming language that compiles to JavaScript
