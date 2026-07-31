@@ -4,6 +4,21 @@
     ./gui-common.nix  # common configuration shared across GUI-based environments
   ];
 
+  # Enabling realtime may improve latency and reduce stuttering, specially in high load scenarios.
+  # (from https://wiki.nixos.org/wiki/Sway)
+  security.pam.loginLimits = [
+    {
+      domain = "@users";
+      item = "rtprio";
+      type = "-";
+      value = 1;
+    }
+  ];
+
+  # Enables Gnome Keyring to store secrets for applications.
+  # (from https://wiki.nixos.org/wiki/Sway)
+  services.gnome.gnome-keyring.enable = true;
+
   programs = {
     # Sway is a Wayland compositor
     sway = {
