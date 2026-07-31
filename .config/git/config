@@ -157,6 +157,7 @@
 
 [alias]
     list-aliases = config --get-regexp 'alias.*'
+    list-config = config --list --show-origin --show-scope
 
     ; invoke text editor on local/global git configuration file
     edit-config = config --edit
