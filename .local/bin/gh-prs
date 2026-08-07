@@ -99,8 +99,9 @@ def main():
         print()
         print_prs(f"PR search ({custom_args})", ["gh", "search", "prs", *custom_args])
     else:
-        print_prs("PRs to review", ["gh", "search", "prs", "user-review-requested:@me", "--state=open", "--sort=updated", "--limit=100"])
-        print_prs("Your own PRs", ["gh", "search", "prs", "author:@me", "--state=open", "--sort=updated", "--limit=100"])
+        print_prs("PRs to review", ["gh", "search", "prs", "user-review-requested:@me", "--state=open", "--sort=updated", "--limit=30"])
+        print_prs("Your open PRs", ["gh", "search", "prs", "author:@me", "--state=open", "--sort=updated", "--limit=30"])
+        print_prs("Your closed PRs", ["gh", "search", "prs", "author:@me", "--state=closed", "--sort=updated", "--limit=30"])
 
 
 if __name__ == "__main__":
