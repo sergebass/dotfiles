@@ -2,6 +2,8 @@
 -- init.lua: the starting point of NeoVim configuration in Lua
 --------------------------------------------------------------
 
+vim.opt.shell = "/bin/sh"  -- Use a POSIX-compliant shell for executing shell commands (works on NixOS as well)
+
 -- Even though we define our mappings in other files, we need to make sure
 -- that leader and local leader keys are established well before then
 -- (so that plugins and other code can make use of them).
