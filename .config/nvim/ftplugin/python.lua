@@ -9,6 +9,8 @@ vim.opt_local.autoindent = true
 
 -- Do our formatting using autopep8 and the '=' command
 vim.opt_local.equalprg = "autopep8 -"
+-- Using gq for formatting will call the LSP formatting function
+vim.opt_local.formatexpr = "v:lua.vim.lsp.formatexpr"
 
 -- Jump to definition of the symbol under cursor
 -- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
