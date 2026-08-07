@@ -9,10 +9,11 @@ vim.opt_local.autoindent = true
 vim.opt_local.wrap = true
 vim.opt_local.linebreak = true
 
-vim.cmd([[
-  " Using gq for formatting will call this function:
-  set formatexpr=SPVentilatedFormatExpr()
+-- Using gq for formatting will call this function:
+vim.opt_local.formatexpr = "SPVentilatedFormatExpr()"
+-- vim.opt_local.formatoptions:append("t")  -- Enable automatic formatting of text
 
+vim.cmd([[
   nnoremap <buffer> <F1> :!sp-open "https://markdown-guide.readthedocs.io/en/latest/basics.html"<CR>
   nnoremap <buffer> <M-F1> :!sp-open "https://daringfireball.net/projects/markdown/syntax"<CR>
 

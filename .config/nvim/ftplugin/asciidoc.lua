@@ -2,17 +2,18 @@
 -- AsciiDoc-specific neovim configuration
 -----------------------------------------
 
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.autoindent = true
+vim.opt_local.wrap = true
+vim.opt_local.linebreak = true
+
+-- Using gq for formatting will call this function:
+vim.opt_local.formatexpr = "SPVentilatedFormatExpr()"
+-- vim.opt_local.formatoptions:append("t")  -- Enable automatic formatting of text
+
 vim.cmd([[
-  setlocal expandtab
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal autoindent
-  setlocal wrap
-  setlocal linebreak
-
-  " Using gq for formatting will call this function:
-  set formatexpr=SPVentilatedFormatExpr()
-
   nnoremap <buffer> <F1> :!sp-open "https://docs.asciidoctor.org/asciidoc/latest/"<CR>
   nnoremap <buffer> <M-F1> :!sp-open "https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/"<CR>
 
