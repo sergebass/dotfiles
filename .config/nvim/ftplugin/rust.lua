@@ -9,6 +9,11 @@ vim.opt_local.autoindent = true
 
 -- Do our formatting using rustfmt and the '=' command
 vim.opt_local.equalprg = "rustfmt"
+-- Make `gq` use the equalprg for formatting instead of the LSP formatting function
+vim.opt_local.formatprg = vim.opt_local.equalprg:get()
+-- This variable takes precedence over formatprg, so we need to disable it to use formatprg
+-- (note that we cannot use nil here, since that would make it fall back to the global value, which is set to use LSP formatting)
+vim.opt_local.formatexpr = ''
 
 -- Jump to definition of the symbol under cursor
 -- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
