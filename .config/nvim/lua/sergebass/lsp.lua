@@ -6,6 +6,9 @@ vim.cmd([[
   set formatexpr=v:lua.vim.lsp.formatexpr
 ]])
 
+-- Comment this out or change the log level for debugging
+vim.lsp.set_log_level("error")
+
 -- Set default root markers for all clients
 vim.lsp.config('*', {
   root_markers = { '.git' },
@@ -37,7 +40,8 @@ vim.lsp.enable('rust_analyzer')
 -- C and C++
 
 vim.lsp.config("clangd", {
-  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--enable-config'},
+  -- Add --log=verbose for debugging
+  cmd = {'clangd', '--background-index', '--clang-tidy', '--enable-config'},
   filetypes = { 'c', 'cpp' },
   root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
   init_options = {
