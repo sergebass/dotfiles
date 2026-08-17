@@ -7,7 +7,7 @@ vim.cmd([[
 ]])
 
 -- Comment this out or change the log level for debugging
-vim.lsp.set_log_level("error")
+vim.lsp.log.set_level("error")
 
 -- Set default root markers for all clients
 vim.lsp.config('*', {
