@@ -2,4 +2,10 @@
 # This script is used to launch our preferred shell but reuse bash configuration/environment before launching it.
 # (so that $HOME/.profile, $HOME/.bashrc, etc. are sourced before launching the preferred shell)
 
-exec -l fish "$@"
+# fish hangs when invoked non-interactively without a controlling tty (e.g. ssh
+# exec/subsystem requests like scp/sftp), so only use it for real interactive logins.
+if [ -t 0 ]; then
+    exec -l fish "$@"
+else
+    exec -l /bin/sh "$@"
+fi
