@@ -198,7 +198,6 @@
     systemPackages = with pkgs; [
       # calibre-web  # Web app for browsing, reading and downloading eBooks stored in a Calibre database
       # light # Control backlight brightness
-      brave  # Privacy-oriented browser for Desktop and Laptop computers
       calibre  # Comprehensive e-book software
       gnome-terminal  # GNOME Terminal Emulator
       golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
