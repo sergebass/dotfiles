@@ -25,4 +25,4 @@
 #--map-syntax ".ignore:Git Ignore"
 
 # Do not display line numbers by default. You can still enable them on a per-file basis with the `-n` or `--line-numbers` flag.
---style=default,-numbers
+--style=default,-numbers,-grid,-header-filename
