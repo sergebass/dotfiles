@@ -102,7 +102,7 @@ def main():
         print_prs("PRs to review", ["gh", "search", "prs", "user-review-requested:@me", "--state=open", "--draft=false", "--sort=updated"])
         print_prs("Your open PRs", ["gh", "search", "prs", "author:@me", "--state=open", "--draft=false", "--sort=updated"])
         print_prs("Your open draft PRs", ["gh", "search", "prs", "author:@me", "--state=open", "--draft", "--sort=updated"])
-        print_prs("Your closed PRs", ["gh", "search", "prs", "author:@me", "--state=closed", "--sort=updated", "--limit=20"])
+        print_prs("Your closed PRs", ["gh", "search", "prs", "author:@me", "--state=closed", "--sort=updated", "--limit=10"])
 
 
 if __name__ == "__main__":
