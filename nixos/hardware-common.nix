@@ -67,6 +67,12 @@ in {
     udev = {
       enable = true;
       extraRules = with pkgs; ''
+        # Allow communication with Peterson StroboClip HD via hidraw interface
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="8004"
+
+        # Allow communication with Peterson StroboClip HDC via hidraw interface
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="0009"
+
         # Allow communication with Peterson StroboStomp HD via hidraw interface
         KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="8005"
 
