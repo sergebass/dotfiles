@@ -71,8 +71,9 @@ vim.cmd([[
   function LocateFiles(file_pattern)
     let error_file = tempname()
     silent exe '!locate "' . a:file_pattern . '" | xargs file > ' . error_file
-    set errorformat=%f:%m
+    setlocal errorformat=%f:%m
     exe "cfile " . error_file
+    setlocal errorformat<
     copen
     call delete(error_file)
   endfunction
@@ -82,10 +83,11 @@ vim.cmd([[
   function FindFiles(file_pattern)
     let error_file = tempname()
     " silent exe '!find . -name "' . a:file_pattern . '" | xargs file | sed "s/:/:1:/" > ' . error_file
-    " set errorformat=%f:%l:%m
+    " setlocal errorformat=%f:%l:%m
     silent exe '!find . -name "' . a:file_pattern . '" | xargs file > ' . error_file
-    set errorformat=%f:%m
+    setlocal errorformat=%f:%m
     exe "cfile " . error_file
+    setlocal errorformat<
     copen
     call delete(error_file)
   endfunction
