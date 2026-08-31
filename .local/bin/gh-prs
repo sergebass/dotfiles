@@ -96,13 +96,14 @@ def main():
     # Example usage:  gh-prs author:@me --limit 10 --state closed
     custom_args = sys.argv[1:]
     if custom_args:
-        print()
-        print_prs(f"PR search ({custom_args})", ["gh", "search", "prs", *custom_args])
+        if "--closed" in custom_args:
+            print_prs("Closed PRs", ["gh", "search", "prs", "author:@me", "--state=closed", "--sort=updated", "--limit=20"])
+        else:
+            print_prs(f"PR search ({custom_args})", ["gh", "search", "prs", *custom_args])
     else:
         print_prs("PRs to review", ["gh", "search", "prs", "user-review-requested:@me", "--state=open", "--draft=false", "--sort=updated"])
-        print_prs("Your open PRs", ["gh", "search", "prs", "author:@me", "--state=open", "--draft=false", "--sort=updated"])
-        print_prs("Your open draft PRs", ["gh", "search", "prs", "author:@me", "--state=open", "--draft", "--sort=updated"])
-        print_prs("Your closed PRs", ["gh", "search", "prs", "author:@me", "--state=closed", "--sort=updated", "--limit=10"])
+        print_prs("Open PRs", ["gh", "search", "prs", "author:@me", "--state=open", "--draft=false", "--sort=updated"])
+        print_prs("Draft PRs", ["gh", "search", "prs", "author:@me", "--state=open", "--draft", "--sort=updated"])
 
 
 if __name__ == "__main__":
