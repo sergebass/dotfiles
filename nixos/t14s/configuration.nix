@@ -5,6 +5,7 @@
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-grub-uefi.nix  # Use GRUB bootloader with UEFI support (more flexible than systemd-boot)
+    ../boot-splash.nix  # Display graphical boot splash using Plymouth
     ../common.nix  # Common configuration shared by all of our NixOS systems
     ../gui-lightdm.nix  # LightDM display manager
     # ../gui-sddm.nix  # SDDM display manager (For Plasma/KDE)
@@ -102,10 +103,10 @@
   swapDevices = [ ];
 
   boot = {
-    consoleLogLevel = 4;  # print warnings and errors during boot
+    # consoleLogLevel = lib.mkForce 4;  # print warnings and errors during boot
 
     initrd = {
-      verbose = true;
+      # verbose = true;
 
       availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
       kernelModules = [];
@@ -117,10 +118,10 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [];
 
-    kernelParams = lib.mkForce [
-      "quiet"  # or "verbose"
-      "splash"  # or "nosplash"
-    ];
+    # kernelParams = lib.mkForce [
+    #   "quiet"  # or "verbose"
+    #   "splash"  # or "nosplash"
+    # ];
 
     kernel.sysctl = {
       # "net.ipv4.ip_forward" = 1;  # Enable IP packet forwarding for Waydroid containers
