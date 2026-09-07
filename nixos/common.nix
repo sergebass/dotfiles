@@ -100,6 +100,8 @@
       file  # A program that shows the type of files
       findutils  # GNU Find Utilities, the basic directory searching utilities of the GNU operating system
       fq  # jq for binary formats
+      gcc  # GNU Compiler Collection (to build common C projects from source)
+      gnumake  # Tool to control the generation of non-source files from sources
       grc  # Generic text colouriser
       htop  # An interactive process viewer
       inxi  # Full featured CLI system information tool
