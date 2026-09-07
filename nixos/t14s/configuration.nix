@@ -1,0 +1,249 @@
+# NixOS configuration for my ThinkPad T14s laptop
+
+{ config, lib, pkgs, ... }: {
+
+  imports = [
+    ../hardware-common.nix  # Hardware configuration shared across all systems
+    ../boot-grub-uefi.nix  # Use GRUB bootloader with UEFI support (more flexible than systemd-boot)
+    ../common.nix  # Common configuration shared by all of our NixOS systems
+    ../gui-lightdm.nix  # LightDM display manager
+    ../gui-i3.nix  # i3 X11/GUI environment
+    ../gui-icewm.nix  # IceWM X11/GUI environment
+    ../gui-xfce.nix  # XFCE X11/GUI environment
+    ../gui-sway.nix  # Sway Wayland/GUI environment
+    ../printing.nix
+    ../scanning.nix
+    ../mpd.nix
+    ../sdr.nix
+    ../tv.nix
+    ../geo.nix
+    ../benchmarks.nix
+    ../making-software.nix
+    ../making-hardware.nix
+    ../making-docs.nix
+    ../making-music.nix
+    ../making-photos.nix
+    ../making-videos.nix
+    ../keyboard-synth.nix  # MIDI keyboard talking to a software synthesizer
+  ];
+
+  hardware = {
+    cpu.intel.npu.enable = true;
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    # graphics = {
+    #   enable = true;
+    #   enable32Bit = true;
+    #   extraPackages = with pkgs; [
+    #   ];
+    #   extraPackages32 = with pkgs; [
+    #   ];
+    # };
+  };
+
+  fileSystems = let
+    bootDiskDevice = "/dev/disk/by-label/NIXOS-BOOT";
+    mainDiskDevice = "/dev/disk/by-label/NIXOS-ROOT";
+
+    compressionMethod = "zstd";
+  in {
+    "/boot" = {
+      device = bootDiskDevice;
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
+    };
+
+    # "/swap" = {
+    #   device = mainDiskDevice;
+    #   fsType = "btrfs";
+    #   options = [
+    #     "subvol=swap"
+    #     "compress=no"
+    #     "noatime"
+    #     "nodatacow"
+    #     "nodatasum"
+    #   ];
+    # };
+
+    # "/" = {
+    #   device = mainDiskDevice;
+    #   fsType = "btrfs";
+    #   options = [
+    #     "compress=${compressionMethod}"
+    #     "noatime"
+    #   ];
+    # };
+
+    "/" = {
+      device = mainDiskDevice;
+      fsType = "ext4";
+      options = [
+        "noatime"
+      ];
+    };
+
+    # "/home" = {
+    #   device =  "/dev/disk/by-label/Sergii-Home";
+    #   fsType = "btrfs";
+    #   options = [
+    #     "compress=${compressionMethod}"
+    #     "noatime"
+    #   ];
+    # };
+  };
+
+  # swapDevices = [ { device = "/swap/swapfile"; } ];
+  swapDevices = [ ];
+
+  boot = {
+    consoleLogLevel = 4;  # print warnings and errors during boot
+
+    initrd = {
+      verbose = true;
+
+      availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
+      kernelModules = [];
+
+      # Our root partition is encrypted with LUKS
+      luks.devices."luks-801dcbd3-365b-49ca-95bd-0bd618ba9113".device = "/dev/disk/by-uuid/801dcbd3-365b-49ca-95bd-0bd618ba9113";
+    };
+
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [];
+
+    kernelParams = lib.mkForce [
+      "verbose"
+      "nosplash"
+    ];
+
+    kernel.sysctl = {
+      # "net.ipv4.ip_forward" = 1;  # Enable IP packet forwarding for Waydroid containers
+    };
+  };
+
+  networking = {
+    hostName = "t14s";
+
+    # The primary use case is to ensure when using ZFS that a pool isn’t imported accidentally on a wrong machine.
+    hostId = "a065dbad";  # Result of running: head -c 8 /etc/machine-id
+  };
+
+  services = {
+    udev.extraRules = with pkgs; ''
+      # A rule to allow ACPI backlight control by a non-root user from video group
+      ACTION=="add", SUBSYSTEM=="backlight", RUN+="${coreutils}/bin/chgrp video $sys$devpath/brightness", RUN+="${coreutils}/bin/chmod g+w $sys$devpath/brightness"
+    '';
+
+    libinput.enable = true;  # Enable touchpad support
+
+    # Systemd service for emacs, allowing use of shared editor buffers via emacsclient
+    emacs = {
+      enable = true;
+      package = pkgs.emacs;
+    };
+
+    xserver = {
+      # videoDrivers = [ "amdgpu" ];
+    };
+  };
+
+  # We still want to have Vim available even though we use Neovim as our main editor
+  # (to make sure that the Vim configuration remains valid and up-to-date).
+  programs.vim = {
+    enable = true;
+    defaultEditor = false;
+  };
+
+  virtualisation = {
+
+    # Open source project to pack, ship and run any application as a lightweight container
+    docker = {
+      enable = true;
+
+      # Do not run the Docker daemon as root (both daemon and containers are run as a regular user)
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+
+      autoPrune.enable = true;  # Enable automatic cleanup of unused Docker objects
+
+      storageDriver = "btrfs";
+
+      extraOptions = ''
+        # Enable user namespaces for better security isolation (in rooted mode)
+        # --userns-remap=default
+      '';
+    };
+
+    # Run LineageOS-based Android VM in a container (https://docs.waydro.id)
+    #
+    # To download an actual current Android image for the current platform:
+    # (remove "-s GAPPS" if you do not need Google apps)
+    #   sudo waydroid init -s GAPPS -f
+    #
+    # To start a session (headless), run:
+    #   waydroid session start
+    #
+    # Once the session is started, invoke full Android UI with:
+    #   waydroid show-full-ui
+    #
+    # If Google apps (GAPPS) are installed, follow the steps at
+    # https://docs.waydro.id/faq/google-play-certification
+    # to enable Google Play services.
+    #
+    # See also https://wiki.nixos.org/wiki/Waydroid
+    waydroid.enable = true;
+  };
+
+  environment = {
+    # List packages installed in system profile. To search, run:
+    # $ nix search wget
+    systemPackages = with pkgs; [
+      # calibre-web  # Web app for browsing, reading and downloading eBooks stored in a Calibre database
+      # light # Control backlight brightness
+      calibre  # Comprehensive e-book software
+      gnome-terminal  # GNOME Terminal Emulator
+      golden-cheetah  # Performance software for cyclists, runners and triathletes. Built from source and without API tokens
+      kitty  # Fast, feature-rich, GPU based terminal emulator
+      kitty-img  # Print images inline in kitty
+      kitty-themes  # Themes for the kitty terminal emulator
+      pear-desktop  # Electron wrapper around YouTube Music
+      qrencode  # C library and command line tool for encoding data in a QR Code symbol
+      signal-cli  # Command-line and dbus interface for communicating with the Signal messaging service
+      signal-desktop # Private, simple, and secure messenger (nixpkgs build)
+      sound-theme-freedesktop  # Freedesktop reference sounds
+      thunderbird  # Full-featured e-mail client
+      vivaldi  # Browser for our Friends, powerful and personal
+      vivaldi-ffmpeg-codecs  # Additional support for proprietary codecs for Vivaldi and other chromium based tools
+      wezterm  # GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
+      yewtube  # Terminal based YouTube player and downloader, forked from mps-youtube
+      ymuse  # GUI client for MPD
+    ] ++ [
+      # Experimental packages (a separate list to make it easier to exclude from commits)
+    ];
+  };
+
+  nixpkgs = {
+    hostPlatform = lib.mkDefault "x86_64-linux";
+
+    config = {
+      permittedInsecurePackages = [
+        # NOTE: GoogleEarthPro also overrides gpsbabel on PATH with an older version.
+        # "googleearth-pro-7.3.6.10201"  # Bundles vulnerable versions of openssl, ffmpeg, gdal, and proj
+        # "qtwebengine-5.15.19"  # FIXME temporary; needed for qt5-based apps like frescobaldi
+      ];
+    };
+  };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It's perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "26.05"; # Did you read the comment?
+}
