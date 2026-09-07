@@ -85,7 +85,7 @@
   environment = {
     # Core tools and packages common to all systems
     # Note that several core programs are configured in other Nix modules
-    # (e.g. tmux, fish, fzf, git etc. - usually in `programs.abc` blocks)
+    # (e.g. tmux, fish, git, etc. - usually in `programs.abc` blocks)
     systemPackages = with pkgs; [
       bat  # Cat(1) clone with syntax highlighting and Git integration
       bc  # GNU software calculator
@@ -100,6 +100,7 @@
       file  # A program that shows the type of files
       findutils  # GNU Find Utilities, the basic directory searching utilities of the GNU operating system
       fq  # jq for binary formats
+      fzf  # Command-line fuzzy finder written in Go
       gcc  # GNU Compiler Collection (to build common C projects from source)
       gnumake  # Tool to control the generation of non-source files from sources
       grc  # Generic text colouriser
