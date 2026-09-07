@@ -116,8 +116,8 @@
     extraModulePackages = [];
 
     kernelParams = lib.mkForce [
-      "verbose"
-      "nosplash"
+      "quiet"  # or "verbose"
+      "splash"  # or "nosplash"
     ];
 
     kernel.sysctl = {
