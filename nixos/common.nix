@@ -160,19 +160,6 @@
     };
   };
 
-  fonts = {
-    enableDefaultPackages = true;  # Enable a basic set of fonts providing several styles and families and reasonable coverage of Unicode.
-    packages = with pkgs; [
-      # corefonts  # Microsoft's TrueType core fonts for the Web
-      # glasstty-ttf  # TrueType VT220 font
-      # google-fonts
-      # noto-fonts  # Beautiful and free fonts for many languages
-      # powerline-fonts  # Patched fonts for Powerline users
-      # ubuntu-classic  # Ubuntu Classic font
-      nerd-fonts.inconsolata
-    ];
-  };
-
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case we
   # accidentally delete configuration.nix.

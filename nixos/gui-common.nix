@@ -31,6 +31,19 @@ in {
     };
   };
 
+  fonts = {
+    enableDefaultPackages = true;  # Enable a basic set of fonts providing several styles and families and reasonable coverage of Unicode.
+    packages = with pkgs; [
+      # corefonts  # Microsoft's TrueType core fonts for the Web
+      # glasstty-ttf  # TrueType VT220 font
+      # google-fonts
+      # noto-fonts  # Beautiful and free fonts for many languages
+      # powerline-fonts  # Patched fonts for Powerline users
+      # ubuntu-classic  # Ubuntu Classic font
+      nerd-fonts.inconsolata
+    ];
+  };
+
   xdg.portal = {
     enable = true;  # Enable xdg desktop integration (https://github.com/flatpak/xdg-desktop-portal).
     xdgOpenUsePortal = true;  # Sets environment variable NIXOS_XDG_OPEN_USE_PORTAL to 1. This will make xdg-open use the portal to open programs...
