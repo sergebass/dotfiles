@@ -26,11 +26,13 @@ return {
   },
 
   -- Another fuzzy finder, FZF (also compatible with classic Vim)
-  {
-    "junegunn/fzf",
-    dir = "~/.fzf",
-    build = "./install --all",
-  },
+  -- FIXME is this plugin entry even needed? On NixOS it is redundant
+  -- FIXME remove once fzf-lua is working properly
+  -- {
+  --   "junegunn/fzf",
+  --   dir = "~/.fzf",
+  --   build = "./install --all",
+  -- },
 
   -- FIXME remove once fzf-lua is working properly
   -- FZF integration for Vim and Neovim
