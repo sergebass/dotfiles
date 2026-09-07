@@ -10,6 +10,7 @@
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
     ../gui-xfce.nix  # XFCE X11/GUI environment
+    ../gui-xmonad.nix  # XMonad X11/GUI environment
     ../gui-sway.nix  # Sway Wayland/GUI environment
     ../printing.nix
     ../scanning.nix

@@ -32,13 +32,18 @@
   environment = {
     # X11-specific core apps
     systemPackages = with pkgs; [
+      rxvt-unicode  # Clone of the well-known terminal emulator rxvt
       scrot  # Command-line screen capture utility
+      xbacklight  # Utility to adjust X backlight brightness using RandR extension
       xclip  # Tool to access the X clipboard from a console application
+      xdg-utils  # Set of command line tools that assist applications with a variety of desktop integration tasks
       xev  # X event monitor
+      xinit  # X server & client startup utilities (includes startx)
       xkill  # Utility to forcibly terminate X11 clients
       xrandr  # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
       xsel  # Command-line program for getting and setting the contents of the X selection
       xsetroot  # Root window parameter setting utility for X
+      xterm  # Terminal emulator for the X Window System
     ];
   };
 }
