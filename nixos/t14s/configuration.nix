@@ -7,8 +7,8 @@
     ../boot-grub-uefi.nix  # Use GRUB bootloader with UEFI support (more flexible than systemd-boot)
     ../boot-splash.nix  # Display graphical boot splash using Plymouth
     ../common.nix  # Common configuration shared by all of our NixOS systems
-    ../gui-lightdm.nix  # LightDM display manager
-    # ../gui-sddm.nix  # SDDM display manager (For Plasma/KDE)
+    # ../gui-lightdm.nix  # LightDM display manager
+    ../gui-sddm.nix  # SDDM display manager (For Plasma/KDE)
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
     ../gui-plasma.nix  # Plasma X11/GUI environment
