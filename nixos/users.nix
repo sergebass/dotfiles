@@ -42,6 +42,16 @@ in {
     };
   };
 
+  # Copy the user icon avatar to /var/lib/AccountsService/icons/$user
+  # (unfortunately, this is how display manager locate user icons)
+  system.activationScripts.userIconInstallationScript = {
+    text = ''
+      echo "Installing user avatar icons for discovery by display managers..."
+      mkdir -p /var/lib/AccountsService/icons/
+      install -v -m 644 ${config.users.users.${userName}.home}/.face.icon /var/lib/AccountsService/icons/${userName}
+    '';
+  };
+
   home-manager = {
     # Use the global pkgs that is configured via the system level nixpkgs options.
     # This saves an extra Nixpkgs evaluation, adds consistency, and removes the dependency on NIX_PATH,
