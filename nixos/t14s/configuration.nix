@@ -60,18 +60,6 @@
       ];
     };
 
-    # "/swap" = {
-    #   device = mainDiskDevice;
-    #   fsType = "btrfs";
-    #   options = [
-    #     "subvol=swap"
-    #     "compress=no"
-    #     "noatime"
-    #     "nodatacow"
-    #     "nodatasum"
-    #   ];
-    # };
-
     "/" = {
       device = mainDiskDevice;
       fsType = "btrfs";
@@ -91,8 +79,7 @@
     # };
   };
 
-  # swapDevices = [ { device = "/swap/swapfile"; } ];
-  swapDevices = [ ];
+  swapDevices = [ { device = "/swapfile"; } ];
 
   boot = {
     # consoleLogLevel = lib.mkForce 4;  # print warnings and errors during boot
