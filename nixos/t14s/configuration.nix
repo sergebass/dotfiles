@@ -72,19 +72,11 @@
     #   ];
     # };
 
-    # "/" = {
-    #   device = mainDiskDevice;
-    #   fsType = "btrfs";
-    #   options = [
-    #     "compress=${compressionMethod}"
-    #     "noatime"
-    #   ];
-    # };
-
     "/" = {
       device = mainDiskDevice;
-      fsType = "ext4";
+      fsType = "btrfs";
       options = [
+        "compress=${compressionMethod}"
         "noatime"
       ];
     };
