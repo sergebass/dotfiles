@@ -109,6 +109,7 @@
       jq  # Lightweight and flexible command-line JSON processor
       kbd  # Linux keyboard tools and keyboard maps
       links2  # Small browser with some graphics support
+      lon  # Lock & update Nix dependencies
       lsd  # Next gen ls command
       mc  # File Manager and User Shell for the GNU Project, known as Midnight Commander
       moc  # Terminal audio player designed to be powerful and easy to use
