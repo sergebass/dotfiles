@@ -117,6 +117,7 @@
       ncdu  # Disk usage analyzer with an ncurses interface
       ncmpcpp  # Featureful ncurses based MPD client inspired by ncmpc
       ncpamixer  # Terminal mixer for PulseAudio inspired by pavucontrol
+      npins  # Simple and convenient dependency pinning for Nix
       nushell  # Modern shell written in Rust
       openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
       pamix  # Pulseaudio terminal mixer
