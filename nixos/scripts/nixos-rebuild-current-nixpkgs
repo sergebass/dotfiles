@@ -43,6 +43,11 @@ if [ -z "$NIXOS_LABEL" ]; then
     if [ -n "$NIXOS_LABEL_PREFIX" ]; then
         export NIXOS_LABEL="$NIXOS_LABEL_PREFIX--$NIXOS_LABEL"
     fi
+
+    # NIXOS_LABEL_SUFFIX env var is an optional text to append to the generated NixOS label
+    if [ -n "$NIXOS_LABEL_SUFFIX" ]; then
+        export NIXOS_LABEL="$NIXOS_LABEL--$NIXOS_LABEL_SUFFIX"
+    fi
 fi
 
 logError "Rebuilding system configuration: $NIXOS_LABEL"
