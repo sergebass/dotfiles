@@ -2,7 +2,11 @@
 # A script to perform NixOS system rebuild using currently cached nixpkgs copy (normal mode of stock nixos-rebuild).
 #
 # Usage:
-#   [sudo] nixos-rebuild-current-nixpkgs <standard nixos-rebuild arguments...>
+#   [sudo] nixos-rebuild-current-nixpkgs <host-specific-configuration-path-root> <standard nixos-rebuild arguments...>
+# For example:
+#   sudo env NIXOS_LABEL_PREFIX=test nixos-rebuild-current-nixpkgs ~/dotfiles/nixos/cm130 switch
+# Or:
+#   sudo env NIXOS_LABEL_SUFFIX=test nixos-rebuild-current-nixpkgs /etc/nixos boot
 
 # set -x  # Uncomment to trace command invocations for debugging
 # set -e  # Abort on unchecked error exit codes
@@ -18,6 +22,16 @@ logError() {
 }
 
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+
+NIXOS_CONFIGURATION_ROOT=$(readlink -f "$1")
+shift
+
+if ! [[ -d "$NIXOS_CONFIGURATION_ROOT" ]]; then
+    logError "$NIXOS_CONFIGURATION_ROOT is not a directory"
+    exit 1
+fi
+
+NIXOS_CONFIGURATION="$NIXOS_CONFIGURATION_ROOT/configuration.nix"
 
 SUDO=''
 if [ "$EUID" -ne 0 ]; then
@@ -50,6 +64,6 @@ if [ -z "$NIXOS_LABEL" ]; then
     fi
 fi
 
-logError "Rebuilding system configuration: $NIXOS_LABEL"
+log "Rebuilding system configuration: $NIXOS_LABEL"
 
-exec $SUDO nixos-rebuild -I nixos-config=/etc/nixos/configuration.nix "$@"
+exec $SUDO nixos-rebuild --no-reexec -I "nixos-config=$NIXOS_CONFIGURATION" "$@"
