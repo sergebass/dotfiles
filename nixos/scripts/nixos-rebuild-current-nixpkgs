@@ -66,4 +66,4 @@ fi
 
 log "Rebuilding system configuration: $NIXOS_LABEL"
 
-exec $SUDO nixos-rebuild --no-reexec -I "nixos-config=$NIXOS_CONFIGURATION" "$@"
+exec $SUDO env -v nixos-rebuild --no-reexec -I "nixos-config=$NIXOS_CONFIGURATION" "$@"

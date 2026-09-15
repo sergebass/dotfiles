@@ -48,7 +48,7 @@ TIMESTAMP=$(date "+%Y%m%d-%H%M%S")
 DOTFILES_COMMIT_HASH=$(git-last-commit-hash "$SCRIPT_DIR")
 
 # Get current version/hash commit of the Nixpkgs to embed
-CURRENT_NIXPKGS_VERSION=$(nix-instantiate --eval --attr 'lib.version' '<nixpkgs>' | tr -d '"')  # Remove surrounding quote marks from the returned string value
+CURRENT_NIXPKGS_VERSION=$(env "NIX_PATH=$NIXPKGS_PATH" nix-instantiate --eval --attr 'lib.version' '<nixpkgs>' | tr -d '"')  # Remove surrounding quote marks from the returned string value
 
 # NIXOS_LABEL env var can be predefined to override the value we auto-compute as a fallback here.
 # Note that nixos-version will print this value once the built configuration is booted up.
@@ -68,4 +68,4 @@ fi
 
 log "Building system configuration: $NIXOS_LABEL"
 
-exec $SUDO nixos-rebuild --no-reexec -I "nixos-config=$NIXOS_CONFIGURATION" -I "nixpkgs=$NIXPKGS_PATH" "$@"
+exec $SUDO env -v nixos-rebuild --no-reexec -I "nixos-config=$NIXOS_CONFIGURATION" -I "nixpkgs=$NIXPKGS_PATH" "$@"
