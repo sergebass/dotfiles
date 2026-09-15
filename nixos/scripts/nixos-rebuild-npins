@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# A script to perform NixOS system rebuild using current pins in the npins configuration
+#
+# Usage:
+#   [sudo] nixos-rebuild-npins <host-specific-configuration-path-root> <standard nixos-rebuild arguments...>
+# For example:
+#   sudo env NIXOS_LABEL_PREFIX=test nixos-rebuild-npins ~/dotfiles/nixos/t14s switch
+
+# set -x  # Uncomment to trace command invocations for debugging
+# set -e  # Abort on unchecked error exit codes
+# set -u  # Treat referencing unset variables and parameters as errors
+set -o pipefail  # For pipelines: "return status is the value of the last (rightmost) command to exit with a non-zero status"
+
+log() {
+  echo -e "$@";
+}
+
+logError() {
+  echo -e "$@" 1>&2;
+}
+
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+
+NIXOS_CONFIGURATION_ROOT=$(readlink -f "$1")
+shift
+
+if ! [[ -d "$NIXOS_CONFIGURATION_ROOT" ]]; then
+    logError "$NIXOS_CONFIGURATION_ROOT is not a directory"
+    exit 1
+fi
+
+SUDO=''
+if [ "$EUID" -ne 0 ]; then
+    echo "NixOS system rebuild scripts must be run as a superuser -- prepending 'sudo' for you..."
+    unset HOME
+    SUDO="sudo --preserve-env"
+fi
+
+log "Preparing to rebuild NixOS system using current npins configuration..."
+
+NIXOS_CONFIGURATION="$NIXOS_CONFIGURATION_ROOT/configuration.nix"
+NPINS_PATH="$NIXOS_CONFIGURATION_ROOT/npins"
+NIXPKGS_PIN=$(nix eval --raw -f $NPINS_PATH nixpkgs)
+NIX_PATH="nixpkgs=$NIXPKGS_PIN:nixos-config=$NIXOS_CONFIGURATION"
+
+log "Using NIX_PATH: $NIX_PATH"
+
+TIMESTAMP=$(date "+%Y%m%d-%H%M%S")
+DOTFILES_COMMIT_HASH=$(git-last-commit-hash "$SCRIPT_DIR")
+
+# Get current version/hash commit of the Nixpkgs to embed
+CURRENT_NIXPKGS_VERSION=$(nix-instantiate --eval --attr 'lib.version' '<nixpkgs>' | tr -d '"')  # Remove surrounding quote marks from the returned string value
+
+# NIXOS_LABEL env var can be predefined to override the value we auto-compute as a fallback here.
+# Note that nixos-version will print this value once the built configuration is booted up.
+if [ -z "$NIXOS_LABEL" ]; then
+    export NIXOS_LABEL="$TIMESTAMP--dotfiles-$DOTFILES_COMMIT_HASH--nixpkgs-$CURRENT_NIXPKGS_VERSION"
+
+    # NIXOS_LABEL_PREFIX env var is an optional text to prepend to the generated NixOS label
+    if [ -n "$NIXOS_LABEL_PREFIX" ]; then
+        export NIXOS_LABEL="$NIXOS_LABEL_PREFIX--$NIXOS_LABEL"
+    fi
+
+    # NIXOS_LABEL_SUFFIX env var is an optional text to append to the generated NixOS label
+    if [ -n "$NIXOS_LABEL_SUFFIX" ]; then
+        export NIXOS_LABEL="$NIXOS_LABEL--$NIXOS_LABEL_SUFFIX"
+    fi
+fi
+
+log "Building system configuration: $NIXOS_LABEL"
+
+exec $SUDO nixos-rebuild --no-reexec "$@"
