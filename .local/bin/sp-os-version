@@ -4,5 +4,5 @@ if [ -f /etc/sergii/os-version ]; then
     cat /etc/sergii/os-version
 elif [ -f /etc/os-release ]; then
     source /etc/os-release
-    echo "$NAME $VERSION"
+    echo "$PRETTY_NAME"
 fi
