@@ -10,3 +10,6 @@
 [submodule "gdb-fzf"]
 	path = gdb-fzf
 	url = https://github.com/sergebass/gdb-fzf
+[submodule "nixos/musnix"]
+	path = nixos/musnix
+	url = https://github.com/musnix/musnix.git
