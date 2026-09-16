@@ -97,7 +97,8 @@ def main():
     custom_args = sys.argv[1:]
     if custom_args:
         if "--closed" in custom_args:
-            print_prs("Closed PRs", ["gh", "search", "prs", "author:@me", "--state=closed", "--sort=updated", "--limit=20"])
+            extra_args = [arg for arg in custom_args if arg != "--closed"]
+            print_prs("Closed PRs", ["gh", "search", "prs", "author:@me", "--state=closed", "--sort=updated", *extra_args])
         else:
             print_prs(f"PR search ({custom_args})", ["gh", "search", "prs", *custom_args])
     else:
