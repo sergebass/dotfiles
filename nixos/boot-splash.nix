@@ -21,13 +21,22 @@
     ];
 
     # Display splash screen during boot, early on.
-    plymouth = {
+    plymouth = rec {
       enable = true;
-      theme = "rings";
+      # theme = "circle_alt";
+      # theme = "flame";
+      # theme = "glow";
+      # theme = "lone";
+      # theme = "pixels";
+      # theme = "rings";
+      # theme = "rings_2";
+      # theme = "spin";
+      theme = "liquid";
       themePackages = with pkgs; [
+        # adi1090x-plymouth-themes
         # By default we would install all themes, so be specific instead.
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
+          selected_themes = [ theme ];
         })
       ];
     };
