@@ -2,12 +2,16 @@
 -- Javascript-specific neovim configuration
 -------------------------------------------
 
-vim.cmd([[
-  setlocal expandtab
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal autoindent
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.autoindent = true
 
+-- Jump to definition of the symbol under cursor
+-- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '<CR>', require('telescope.builtin').lsp_definitions, { buffer = true, desc = 'Telescope: LSP: Go to definition (telescope)' })
+
+vim.cmd([[
   " setlocal keywordprg=stack\ hoogle\ --\ --count=100
 
   " Install eslint like this:
@@ -142,5 +146,9 @@ vim.cmd([[
 
   if filereadable(expand("~/.workspace-javascript.vim"))
       source ~/.workspace-javascript.vim
+  endif
+
+  if filereadable(expand("~/.workspace-javascript.lua"))
+      source ~/.workspace-javascript.lua
   endif
 ]])

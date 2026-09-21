@@ -2,12 +2,18 @@
 -- Typescript-specific neovim configuration
 -------------------------------------------
 
-vim.cmd([[
-  setlocal expandtab
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal autoindent
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.autoindent = true
 
+vim.opt_local.makeprg = "tsc"
+
+-- Jump to definition of the symbol under cursor
+-- vim.keymap.set('n', '<CR>', vim.lsp.buf.definition, { buffer = true, desc = 'LSP: Go to definition' })
+vim.keymap.set('n', '<CR>', require('telescope.builtin').lsp_definitions, { buffer = true, desc = 'Telescope: LSP: Go to definition (telescope)' })
+
+vim.cmd([[
   nnoremap <buffer> <F1> :!sp-open "https://html.spec.whatwg.org/dev"<CR>
   nnoremap <buffer> <M-F1> :!sp-open "https://www.typescriptlang.org/docs"<CR>
 
@@ -42,5 +48,9 @@ vim.cmd([[
 
   if filereadable(expand("~/.workspace-typescript.vim"))
       source ~/.workspace-typescript.vim
+  endif
+
+  if filereadable(expand("~/.workspace-typescript.lua"))
+      source ~/.workspace-typescript.lua
   endif
 ]])
