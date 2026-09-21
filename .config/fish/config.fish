@@ -63,4 +63,7 @@ if test -e ~/.workspace.fish
 end
 
 # Prepare for our fancy custom prompt generation
+# Do not use starship on dumb ttys (e.g. for ssh/scp or rsync)
+if test "$TERM" != "dumb"
 starship init fish | source
+end

@@ -170,4 +170,7 @@ if [ -f ~/dotfiles/scripts/h.sh ]; then
 fi
 
 # Prepare for our fancy custom prompt generation
+# Do not use starship on dumb ttys (e.g. for ssh/scp or rsync)
+if [[ $TERM != "dumb" ]]; then
 eval "$(starship init bash)"
+fi
