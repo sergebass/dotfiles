@@ -32,3 +32,5 @@ $SUDO nix-collect-garbage --delete-old
 
 log "Optimizing Nix store..."
 $SUDO nix-store --optimize
+
+log "(!) If using BTRFS, consider rebalancing the Nix store, to avoid running out of metadata space (especially if GC has removed a lot of files)."
