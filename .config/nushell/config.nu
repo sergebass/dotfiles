@@ -908,3 +908,5 @@ alias v = nvim
 alias g = git
 
 $env.RIPGREP_CONFIG_PATH = ($env.HOME) + "/.rgrc"
+
+source "~/.cargo/env.nu"
