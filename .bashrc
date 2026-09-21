@@ -154,8 +154,6 @@ stty start ''
 stty -ixon
 stty -ixoff
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -174,3 +172,7 @@ fi
 if [[ $TERM != "dumb" ]]; then
 eval "$(starship init bash)"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"

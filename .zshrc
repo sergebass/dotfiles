@@ -175,3 +175,7 @@ fi
 if [[ $TERM != "dumb" ]]; then
 eval "$(starship init zsh)"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
