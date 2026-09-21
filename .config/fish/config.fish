@@ -67,3 +67,7 @@ end
 if test "$TERM" != "dumb"
 starship init fish | source
 end
+
+if test -e ~/.cargo/env.fish
+    source ~/.cargo/env.fish
+end
