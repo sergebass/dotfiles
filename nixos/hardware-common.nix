@@ -29,7 +29,7 @@ in {
       "kernel.sysrq" = 1;  # Enable all SysRq functions
     };
 
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages;  # Use default/LTS kernel with proper OpenZFS support
 
     kernelParams = [
       "zswap.enabled=1"  # Use zswap to squeeze a bit more memory out of systems with low RAM
@@ -49,7 +49,7 @@ in {
     ];
 
     zfs = {
-      forceImportRoot = false;
+      forceImportRoot = false;  # Explicitly disable this as it bypasses ZFS safeguard that protect your pools.
     };
   };
 
