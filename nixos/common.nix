@@ -102,6 +102,7 @@
       fq  # jq for binary formats
       fzf  # Command-line fuzzy finder written in Go
       gcc  # GNU Compiler Collection (to build common C projects from source)
+      gitMinimal  # Distributed version control system
       gnumake  # Tool to control the generation of non-source files from sources
       grc  # Generic text colouriser
       htop  # An interactive process viewer
@@ -111,6 +112,7 @@
       links2  # Small browser with some graphics support
       lon  # Lock & update Nix dependencies
       lsd  # Next gen ls command
+      lsof  # Tool to list open files
       mc  # File Manager and User Shell for the GNU Project, known as Midnight Commander
       moc  # Terminal audio player designed to be powerful and easy to use
       mpc  # Minimalist command line interface to MPD
