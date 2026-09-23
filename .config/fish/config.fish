@@ -65,7 +65,7 @@ end
 # Prepare for our fancy custom prompt generation
 # Do not use starship on dumb ttys (e.g. for ssh/scp or rsync)
 if test "$TERM" != "dumb"
-starship init fish | source
+    starship init fish | source
 end
 
 if test -e ~/.cargo/env.fish
