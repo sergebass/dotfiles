@@ -6,11 +6,12 @@
     ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-grub-uefi.nix  # Use GRUB bootloader with UEFI support (more flexible than systemd-boot)
     ../common.nix  # Common configuration shared by all of our NixOS systems
-    ../gui-lightdm.nix  # LightDM display manager
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
-    ../gui-xfce.nix  # XFCE X11/GUI environment
+    ../gui-lightdm.nix  # LightDM display manager
+    ../gui-plasma.nix  # KDE Plasma GUI environment
     ../gui-sway.nix  # Sway Wayland/GUI environment
+    ../gui-xfce.nix  # XFCE X11/GUI environment
     ../printing.nix
     ../scanning.nix
     ../mpd.nix
