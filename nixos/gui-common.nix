@@ -29,6 +29,9 @@ in {
         thunar-volman
       ];
     };
+
+    # Resolve conflicts between Plasma/Qt and XFCE/GNOME/GTK
+    gnupg.agent.pinentryPackage = pkgs.pinentry-all;
   };
 
   fonts = {

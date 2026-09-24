@@ -16,7 +16,7 @@ in {
     ../gui-icewm.nix  # IceWM X11/GUI environment
     ../gui-plasma.nix  # Plasma X11/GUI environment
     ../gui-sway.nix  # Sway Wayland/GUI environment
-    # ../gui-xfce.nix  # XFCE X11/GUI environment
+    ../gui-xfce.nix  # XFCE X11/GUI environment
     ../gui-xmonad.nix  # XMonad X11/GUI environment
     ../printing.nix
     ../scanning.nix
@@ -150,9 +150,11 @@ in {
 
   # We still want to have Vim available even though we use Neovim as our main editor
   # (to make sure that the Vim configuration remains valid and up-to-date).
-  programs.vim = {
-    enable = true;
-    defaultEditor = false;
+  programs = {
+    vim = {
+      enable = true;
+      defaultEditor = false;
+    };
   };
 
   virtualisation = {
