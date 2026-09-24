@@ -9,8 +9,6 @@ in {
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-systemd.nix  # Use systemd-boot for booting (Works best with ZFS root pool. UEFI only)
-    # ../boot-grub-uefi.nix  # Use GRUB bootloader with UEFI support (more flexible than systemd-boot)
-    # ../boot-splash.nix  # Display graphical boot splash using Plymouth
     ../common.nix  # Common configuration shared by all of our NixOS systems
     # ../gui-lightdm.nix  # LightDM display manager
     ../gui-sddm.nix  # SDDM display manager (For Plasma/KDE)
