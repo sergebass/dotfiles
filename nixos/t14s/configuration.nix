@@ -1,11 +1,16 @@
 # NixOS configuration for my ThinkPad T14s laptop
 
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+let
+  rootZfsPool = "rpool";
+
+in {
 
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
-    ../boot-grub-uefi.nix  # Use GRUB bootloader with UEFI support (more flexible than systemd-boot)
-    ../boot-splash.nix  # Display graphical boot splash using Plymouth
+    ../boot-systemd.nix  # Use systemd-boot for booting (Works best with ZFS root pool. UEFI only)
+    # ../boot-grub-uefi.nix  # Use GRUB bootloader with UEFI support (more flexible than systemd-boot)
+    # ../boot-splash.nix  # Display graphical boot splash using Plymouth
     ../common.nix  # Common configuration shared by all of our NixOS systems
     # ../gui-lightdm.nix  # LightDM display manager
     ../gui-sddm.nix  # SDDM display manager (For Plasma/KDE)
@@ -45,41 +50,50 @@
     # };
   };
 
-  fileSystems = let
-    bootDiskDevice = "/dev/disk/by-label/NIXOS-BOOT";
-    mainDiskDevice = "/dev/disk/by-label/NIXOS-ROOT";
-
-    compressionMethod = "zstd";
-  in {
+  fileSystems = {
     "/boot" = {
-      device = bootDiskDevice;
+      device = "/dev/disk/by-partlabel/ESP";
       fsType = "vfat";
-      options = [
-        "fmask=0077"
-        "dmask=0077"
-      ];
+      # options = [ "fmask=0022" "dmask=0022" ];
     };
 
     "/" = {
-      device = mainDiskDevice;
-      fsType = "btrfs";
-      options = [
-        "compress=${compressionMethod}"
-        "noatime"
-      ];
+      device = "${rootZfsPool}/root";
+      fsType = "zfs";
+      # options = [ "zfsutil" ];
     };
 
-    # "/home" = {
-    #   device =  "/dev/disk/by-label/Sergii-Home";
-    #   fsType = "btrfs";
-    #   options = [
-    #     "compress=${compressionMethod}"
-    #     "noatime"
-    #   ];
-    # };
+    "/nix" = {
+      device = "${rootZfsPool}/nix";
+      fsType = "zfs";
+      # options = [ "zfsutil" ];
+    };
+
+    "/var/log" = {
+      device = "${rootZfsPool}/var-log";
+      fsType = "zfs";
+      # options = [ "zfsutil" ];
+    };
+
+    "/home" = {
+      device = "${rootZfsPool}/home";
+      fsType = "zfs";
+      # options = [ "zfsutil" ];
+    };
+
+    "/home/sergii" = {
+      device = "${rootZfsPool}/home/sergii";
+      fsType = "zfs";
+      # options = [ "zfsutil" ];
+    };
   };
 
-  swapDevices = [ { device = "/swapfile"; } ];
+  swapDevices = [
+    {
+      device = "/dev/disk/by-partlabel/t14s-nixos-swap";
+      randomEncryption = true;
+    }
+  ];
 
   boot = {
     # consoleLogLevel = lib.mkForce 4;  # print warnings and errors during boot
@@ -105,13 +119,19 @@
     kernel.sysctl = {
       # "net.ipv4.ip_forward" = 1;  # Enable IP packet forwarding for Waydroid containers
     };
+
+    zfs = {
+      devNodes = "/dev/disk/by-partlabel";
+      requestEncryptionCredentials = [ "${rootZfsPool}/home" ];
+      # extraPools = [ "zpool_name" ];
+    };
   };
 
   networking = {
     hostName = "t14s";
 
     # The primary use case is to ensure when using ZFS that a pool isn’t imported accidentally on a wrong machine.
-    hostId = "a065dbad";  # Result of running: head -c 8 /etc/machine-id
+    hostId = "8bca8fba";  # Result of running: head -c 8 /etc/machine-id
   };
 
   services = {
@@ -154,7 +174,7 @@
 
       autoPrune.enable = true;  # Enable automatic cleanup of unused Docker objects
 
-      storageDriver = "btrfs";
+      storageDriver = "zfs";
 
       extraOptions = ''
         # Enable user namespaces for better security isolation (in rooted mode)
