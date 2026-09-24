@@ -11,6 +11,7 @@
         enable = true;
 
         useOSProber = true;
+        copyKernels = true;  # Copy the kernel and initrd to the boot partition
         fsIdentifier = "label";  # Refer to filesystems by their labels in GRUB config (e.g. root=LABEL=NIXOS-ROOT)
         zfsSupport = true;  # Enable ZFS support in GRUB
         memtest86.enable = true;  # Enable memtest86+ in GRUB menu

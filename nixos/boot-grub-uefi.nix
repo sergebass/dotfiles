@@ -10,8 +10,6 @@
       grub = {
         device = "nodev";  # GRUB boot menu will be generated, but GRUB itself will not actually be installed.
         efiSupport = true;
-        zfsSupport = true;
-        copyKernels = true;  # Copy the kernel and initrd to the boot partition
       };
 
       efi = {
