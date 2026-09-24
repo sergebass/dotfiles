@@ -173,23 +173,23 @@
       '';
     };
 
-  # Run LineageOS-based Android VM in a container (https://docs.waydro.id)
-  #
-  # To download an actual current Android image for the current platform:
-  # (remove "-s GAPPS" if you do not need Google apps)
-  #   sudo waydroid init -s GAPPS -f
-  #
-  # To start a session (headless), run:
-  #   waydroid session start
-  #
-  # Once the session is started, invoke full Android UI with:
-  #   waydroid show-full-ui
-  #
-  # If Google apps (GAPPS) are installed, follow the steps at
-  # https://docs.waydro.id/faq/google-play-certification
-  # to enable Google Play services.
-  #
-  # See also https://wiki.nixos.org/wiki/Waydroid
+    # Run LineageOS-based Android VM in a container (https://docs.waydro.id)
+    #
+    # To download an actual current Android image for the current platform:
+    # (remove "-s GAPPS" if you do not need Google apps)
+    #   sudo waydroid init -s GAPPS -f
+    #
+    # To start a session (headless), run:
+    #   waydroid session start
+    #
+    # Once the session is started, invoke full Android UI with:
+    #   waydroid show-full-ui
+    #
+    # If Google apps (GAPPS) are installed, follow the steps at
+    # https://docs.waydro.id/faq/google-play-certification
+    # to enable Google Play services.
+    #
+    # See also https://wiki.nixos.org/wiki/Waydroid
     waydroid.enable = true;
   };
 
