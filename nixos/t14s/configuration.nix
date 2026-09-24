@@ -103,9 +103,6 @@ in {
 
       availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
       kernelModules = [];
-
-      # Our root partition is encrypted with LUKS
-      luks.devices."luks-801dcbd3-365b-49ca-95bd-0bd618ba9113".device = "/dev/disk/by-uuid/801dcbd3-365b-49ca-95bd-0bd618ba9113";
     };
 
     kernelModules = [ "kvm-intel" ];
