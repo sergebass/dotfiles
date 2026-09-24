@@ -139,6 +139,7 @@
       tig  # Text-mode interface for git
       tinyxxd  # Drop-in replacement and standalone version of the hex dump utility that comes with ViM
       tree  # Command to produce a depth indented directory listing
+      udiskie  # Removable disk automounter for udisks
       universal-ctags  # A maintained ctags implementation
       unzip  # An extraction utility for archives compressed in .zip format
       vifm  # Vi-like File Manager
