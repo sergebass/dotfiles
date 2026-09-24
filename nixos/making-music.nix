@@ -32,7 +32,6 @@
       qpwgraph  # Qt graph manager for PipeWire, similar to QjackCtl
       qsynth  # Fluidsynth GUI
       rakarrack  # Multi-effects processor emulating a guitar effects pedalboard
-      soundfont-arachno  # General MIDI-compliant bank, aimed at enhancing the realism of your MIDI files and arrangements
       soundfont-fluid  # Frank Wen's pro-quality GM/GS soundfont
       soundfont-generaluser-gs  # General MIDI SoundFont with a low memory footprint
       soundfont-ydp-grand  # Acoustic grand piano soundfont
