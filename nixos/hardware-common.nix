@@ -95,6 +95,11 @@ in {
     };
 
     zfs = {
+      trim  ={
+        enable = true;  # Enable periodic TRIM on all ZFS pools
+        interval = "weekly";  # See `man 7 systemd.time` for possible values
+      };
+
       autoScrub = {
         enable = true;  # Make use of zpool scrub to check data integrity periodically
         interval = "monthly";  # See `man 7 systemd.time` for possible values
