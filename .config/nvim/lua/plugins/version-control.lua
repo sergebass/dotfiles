@@ -33,6 +33,7 @@ return {
                 let g:gitgutter_sign_removed = '‾'
 
                 " Key mappings for gitgutter
+                nmap <leader>gd :GitGutterDiffOrig<CR>
                 nmap <leader>gh :GitGutterPreviewHunk<CR>
                 nmap <leader>gs :GitGutterStageHunk<CR>
                 nmap <leader>gu :GitGutterUndoHunk<CR>
