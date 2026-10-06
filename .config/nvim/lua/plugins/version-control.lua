@@ -24,7 +24,7 @@ return {
           vim.g.gitgutter_sign_column_always = 1
 
           -- Pass this option to git diff (e.g. ignore whitespace)
-          vim.g.gitgutter_diff_args = '-w'
+          -- vim.g.gitgutter_diff_args = '-w'
 
           -- By default diffs are relative to index
           -- vim.g.gitgutter_diff_relative_to = 'working_tree'
