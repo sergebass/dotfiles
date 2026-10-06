@@ -44,7 +44,8 @@ return {
                 nmap <leader>gs :GitGutterStageHunk<CR>
                 nmap <leader>gu :GitGutterUndoHunk<CR>
                 nmap <leader>gp :GitGutterPreviewHunk<CR>
-                nmap <leader>gq :GitGutterQuickFix <Bar> copen <CR>
+                nmap <leader>gq :GitGutterQuickFixCurrentFile <Bar> copen <CR>
+                nmap <leader>gQ :GitGutterQuickFix <Bar> copen <CR>
                 nmap <leader>gz :GitGutterFold<CR>
             ]])
         end
