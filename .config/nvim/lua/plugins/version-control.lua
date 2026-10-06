@@ -18,8 +18,14 @@ return {
                 " Enable gitgutter
                 let g:gitgutter_enabled = 1
 
-                " git gutter: pass this option to git diff
-                let g:gitgutter_diff_args = '-w'
+                " git gutter: pass this option to git diff (e.g. ignore whitespace)
+                " let g:gitgutter_diff_args = '-w'
+
+                " by default diffs are relative to index
+                " let g:gitgutter_diff_relative_to = 'working_tree'
+
+                " by default, diffs are against the index
+                " let g:gitgutter_diff_base = '<commit-SHA>'
 
                 " Update gitgutter every 1000ms
                 let g:gitgutter_update_interval = 1000
