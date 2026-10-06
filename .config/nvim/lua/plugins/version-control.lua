@@ -13,41 +13,39 @@ return {
     -- A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
     {
         'airblade/vim-gitgutter',
-        config = function()
-            vim.cmd([[
-                " Enable gitgutter
-                let g:gitgutter_enabled = 1
+        init = function()
+          vim.g.gitgutter_enabled = 1
 
-                " git gutter: pass this option to git diff (e.g. ignore whitespace)
-                " let g:gitgutter_diff_args = '-w'
+          -- Highlight line numbers but not the lines themselves
+          vim.g.gitgutter_highlight_linenrs = 1
+          vim.g.gitgutter_highlight_lines = 0
 
-                " by default diffs are relative to index
-                " let g:gitgutter_diff_relative_to = 'working_tree'
+           -- Show line numbers in gitgutter signs
+          vim.g.gitgutter_sign_column_always = 1
 
-                " by default, diffs are against the index
-                " let g:gitgutter_diff_base = '<commit-SHA>'
+          -- Pass this option to git diff (e.g. ignore whitespace)
+          vim.g.gitgutter_diff_args = '-w'
 
-                " Update gitgutter every 1000ms
-                let g:gitgutter_update_interval = 1000
+          -- By default diffs are relative to index
+          -- vim.g.gitgutter_diff_relative_to = 'working_tree'
 
-                " Show line numbers in gitgutter signs
-                let g:gitgutter_sign_column_always = 1
+          -- By default, diffs are against the index
+          -- vim.g.gitgutter_diff_base = '<commit-SHA>'
 
-                " Use a minimal set of signs
-                let g:gitgutter_sign_added = '│'
-                let g:gitgutter_sign_modified = '│'
-                let g:gitgutter_sign_removed = '‾'
+           -- Update gitgutter every 1000ms
+           vim.g.gitgutter_update_interval = 1000
 
-                " Key mappings for gitgutter
-                nmap <leader>gd :GitGutterDiffOrig<CR>
-                nmap <leader>gh :GitGutterPreviewHunk<CR>
-                nmap <leader>gs :GitGutterStageHunk<CR>
-                nmap <leader>gu :GitGutterUndoHunk<CR>
-                nmap <leader>gp :GitGutterPreviewHunk<CR>
-                nmap <leader>gq :GitGutterQuickFixCurrentFile <Bar> copen <CR>
-                nmap <leader>gQ :GitGutterQuickFix <Bar> copen <CR>
-                nmap <leader>gz :GitGutterFold<CR>
-            ]])
-        end
-        },
+           vim.cmd([[
+             " Key mappings for gitgutter
+             nmap <leader>gd :GitGutterDiffOrig<CR>
+             nmap <leader>gh :GitGutterPreviewHunk<CR>
+             nmap <leader>gs :GitGutterStageHunk<CR>
+             nmap <leader>gu :GitGutterUndoHunk<CR>
+             nmap <leader>gp :GitGutterPreviewHunk<CR>
+             nmap <leader>gq :GitGutterQuickFixCurrentFile <Bar> copen <CR>
+             nmap <leader>gQ :GitGutterQuickFix <Bar> copen <CR>
+             nmap <leader>gz :GitGutterFold<CR>
+           ]])
+         end
+     },
 }
