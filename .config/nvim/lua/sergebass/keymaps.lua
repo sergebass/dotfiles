@@ -268,7 +268,10 @@ vim.cmd([[
 
   " When using vim-fugitive's :Gdiffsplit mode
   nnoremap \G2 :diffget //2<CR>
+  nnoremap \G<Left> :diffget //2<CR>
+
   nnoremap \G3 :diffget //3<CR>
+  nnoremap \G<Right> :diffget //3<CR>
 
   noremap \gza <Cmd>GitGutterFold<CR>
   noremap \ghp <Cmd>GitGutterPreviewHunk<CR>
