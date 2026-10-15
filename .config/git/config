@@ -20,7 +20,7 @@
 [delta]
     dark = true
     features = side-by-side line-numbers decorations
-    file-style = orangered bold
+    file-style = orangered reverse
     hyperlinks = true
     navigate = true
 
