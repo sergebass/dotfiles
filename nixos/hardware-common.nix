@@ -76,6 +76,9 @@ in {
         # Allow communication with Peterson StroboStomp HD via hidraw interface
         KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="8005"
 
+        # Allow communication with Peterson StroboStomp HD Mini via hidraw interface
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="8008"
+
         # Allow communication with Peterson StroboPlus HDC via hidraw interface
         KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev", ATTRS{idVendor}=="2368", ATTRS{idProduct}=="0006"
         # Allow communication with Peterson StroboPlus HDC via hidraw interface (firmware mode)
