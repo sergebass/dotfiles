@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+function mpris() {
+    playerctl metadata --format '{{ artist }} ⏵ {{ title }}' ;
+}
+
+function mpc() {
+    mpc | head -2 | sed -e 'N;s/\\n/ /' -e 's/  */ /g' -e 's/\\[playing\\]/#[push-default]#[fg=colour34]▶#[fg=default]#[pop-default]/' -e 's/\\[paused\\]/#[push-default]#[fg=colour220]❚❚#[fg=default]#[pop-default]/' ;
+}
+
+os=$(uname)
+
+if [ "$os" == "Linux" ]; then
+    mpris
+elif [ "$os" == "FreeBSD" ]; then
+    echo "--"
+elif [ "$os" == "Darwin" ]; then
+    echo "--"
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    echo "--"
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+    echo "--"
+else
+    echo "--"
+fi
