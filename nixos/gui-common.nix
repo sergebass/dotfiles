@@ -77,6 +77,7 @@ in {
       gsmartcontrol  # Hard disk drive health inspection tool
       libnotify  # Library that sends desktop notifications to a notification daemon
       librewolf  # Fork of Firefox, focused on privacy, security and freedom
+      mpris-notifier  # Dependency-light, highly-customizable, XDG desktop notification generator for MPRIS status changes
       mpvc  # Mpc-like control interface for mpv
       mupdf  # Lightweight PDF, XPS, and E-book viewer and toolkit written in portable C
       neovide  # Simple, no-nonsense, cross-platform graphical user interface for Neovim
