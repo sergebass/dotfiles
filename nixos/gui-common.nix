@@ -77,7 +77,6 @@ in {
       gsmartcontrol  # Hard disk drive health inspection tool
       libnotify  # Library that sends desktop notifications to a notification daemon
       librewolf  # Fork of Firefox, focused on privacy, security and freedom
-      mpv  # General-purpose media player, fork of MPlayer and mplayer2
       mpvc  # Mpc-like control interface for mpv
       mupdf  # Lightweight PDF, XPS, and E-book viewer and toolkit written in portable C
       neovide  # Simple, no-nonsense, cross-platform graphical user interface for Neovim
@@ -101,6 +100,15 @@ in {
       xdg-terminal-exec  # Reference implementation of the proposed XDG Default Terminal Execution Specification
       xdg-user-dirs  # A tool to help manage well known user directories like the desktop folder and the music folder
       xdg-utils  # A set of command line tools that assist applications with a variety of desktop integration tasks
+    ] ++ [
+      (pkgs.mpv.override {
+        scripts = with pkgs.mpvScripts; [
+          mpris  # MPRIS plugin for mpv
+        ];
+        mpv-unwrapped = pkgs.mpv-unwrapped.override {
+          ffmpeg = ffmpeg-full;
+        };
+      })
     ] ++ [
       # Our custom scripts
       setUserAvatarScript
