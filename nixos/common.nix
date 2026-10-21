@@ -124,6 +124,7 @@
       openpomodoro-cli  # Command-line Pomodoro tracker which uses the Open Pomodoro Format
       pamix  # Pulseaudio terminal mixer
       pamixer  # CLI utilities to control PA & PW audio levels
+      playerctl  # Command-line utility and library for controlling media players that implement MPRIS
       procs  # Modern replacement for ps written in Rust
       psmisc  # Set of small useful utilities that use the proc filesystem (such as fuser, killall and pstree)
       python3Minimal  # High-level dynamically-typed programming language
