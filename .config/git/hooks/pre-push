@@ -1,0 +1,29 @@
+#!/bin/sh
+# Refuse to push commits whose subject starts with an autosquash prefix
+# (fixup!, squash!, amend!) or a FIXME / NOPUSH / WIP marker.
+# Bypass: git push --no-verify
+
+remote="$1"
+zero=$(git hash-object --stdin </dev/null | tr '0-9a-f' '0')
+pattern='((fixup|squash|amend)! |(FIXME|NOPUSH|WIP)([^[:alnum:]]|$))'
+bad=
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [ "$local_sha" = "$zero" ] && continue   # branch deletion
+
+    if [ "$remote_sha" = "$zero" ]; then
+        range="$local_sha --not --remotes=$remote"
+    else
+        range="$remote_sha..$local_sha"
+    fi
+
+    # shellcheck disable=SC2086
+    found=$(git log --format='%h %s' $range 2>/dev/null | grep -E "^[0-9a-f]+ $pattern")
+    [ -n "$found" ] && bad="$bad$found
+"
+done
+
+if [ -n "$bad" ]; then
+    printf 'pre-push: refusing to push WIP commits (fixup!/squash!/amend!/FIXME/NOPUSH/WIP; try git rebase -i --autosquash):\n%s' "$bad" >&2
+    exit 1
+fi

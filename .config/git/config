@@ -5,6 +5,7 @@
     helper = cache
 
 [core]
+    hooksPath = ~/.config/git/hooks
     ; pager = less -F -X
     pager = "delta"
 
