@@ -1,6 +1,8 @@
 #!/bin/sh
-# Refuse to push commits whose subject starts with an autosquash prefix
-# (fixup!, squash!, amend!) or a FIXME / NOPUSH / WIP marker.
+# 1. Refuse to push commits whose subject starts with an autosquash prefix
+#    (fixup!, squash!, amend!) or a FIXME / NOPUSH / WIP marker.
+#    This check never depends on Git LFS.
+# 2. Upload Git LFS objects for the pushed commits, if the repository uses LFS.
 # Bypass: git push --no-verify
 
 remote="$1"
@@ -8,7 +10,11 @@ zero=$(git hash-object --stdin </dev/null | tr '0-9a-f' '0')
 pattern='((fixup|squash|amend)! |(FIXME|NOPUSH|WIP)([^[:alnum:]]|$))'
 bad=
 
+# stdin carries the ref updates and can only be read once; both steps need it.
+input=$(cat)
+
 while read -r local_ref local_sha remote_ref remote_sha; do
+    [ -n "$local_sha" ] || continue
     [ "$local_sha" = "$zero" ] && continue   # branch deletion
 
     if [ "$remote_sha" = "$zero" ]; then
@@ -21,9 +27,25 @@ while read -r local_ref local_sha remote_ref remote_sha; do
     found=$(git log --format='%h %s' $range 2>/dev/null | grep -E "^[0-9a-f]+ $pattern")
     [ -n "$found" ] && bad="$bad$found
 "
-done
+done <<EOF
+$input
+EOF
 
 if [ -n "$bad" ]; then
     printf 'pre-push: refusing to push WIP commits (fixup!/squash!/amend!/FIXME/NOPUSH/WIP; try git rebase -i --autosquash):\n%s' "$bad" >&2
     exit 1
+fi
+
+# Git LFS. Run after the check above so rejected pushes don't upload objects.
+# Only for repositories that use LFS: `git lfs pre-push` contacts the LFS server
+# (locks/verify) even when there is nothing to upload, which costs an extra
+# authentication round on every push of a repository that doesn't use LFS.
+if git grep -q 'filter=lfs' -- ':(glob)**/.gitattributes' 2>/dev/null; then
+    if command -v git-lfs >/dev/null 2>&1; then
+        printf '%s\n' "$input" | git lfs pre-push "$@" || exit $?
+    else
+        # Without git-lfs only the pointer files would be pushed, not their content.
+        printf >&2 'pre-push: this repository uses Git LFS but git-lfs was not found on PATH; refusing to push pointer files without their objects.\n'
+        exit 2
+    fi
 fi
