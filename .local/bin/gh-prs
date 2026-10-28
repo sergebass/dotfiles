@@ -9,6 +9,8 @@ Extra args are forwarded to `gh search prs` (e.g. --owner, --limit).
 import json
 import subprocess
 import sys
+from datetime import date, timedelta
+
 
 # ANSI styles, applied only when stdout is a TTY (autocolor behaviour).
 TTY = sys.stdout.isatty()
@@ -50,7 +52,12 @@ def color(style, text, invert=False):
     return f"{prefix}{text}{RESET}"
 
 
+def date_days_ago(days_ago: int) -> str:
+    return (date.today() - timedelta(days=days_ago)).isoformat()
+
+
 def run(cmd):
+    # print(f"Running: {cmd}")
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         sys.stderr.write(result.stderr)
@@ -96,7 +103,9 @@ def main():
     # Example usage:  gh-prs author:@me --limit 10 --state closed
     custom_args = sys.argv[1:]
     if custom_args:
-        if "--closed" in custom_args:
+        if "--closed-recently" in custom_args:
+            print_prs("Recently closed PRs", ["gh", "search", "prs", "author:@me", "--state=closed", "--sort=updated", "--closed", f">={date_days_ago(7)}"])
+        elif "--closed" in custom_args:
             extra_args = [arg for arg in custom_args if arg != "--closed"]
             print_prs("Closed PRs", ["gh", "search", "prs", "author:@me", "--state=closed", "--sort=updated", *extra_args])
         else:
