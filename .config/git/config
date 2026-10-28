@@ -275,6 +275,8 @@
     ri = rebase --interactive
     ra = rebase --abort
     rc = rebase --continue
+    rb = rebase --autostash
+    rbf = rebase --autostash --autosquash --interactive
 
     ap = add --patch
     au = add --update
