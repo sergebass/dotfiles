@@ -2,7 +2,10 @@
 -- init.lua: the starting point of NeoVim configuration in Lua
 --------------------------------------------------------------
 
-vim.opt.shell = "/bin/sh"  -- Use a POSIX-compliant shell for executing shell commands (works on NixOS as well)
+-- Windows uses cmd.exe as the default shell, so it's OK to use it there
+if vim.fn.has("win32") == 0 then
+  vim.opt.shell = "/bin/sh"  -- Use a POSIX-compliant shell for executing shell commands (works on NixOS as well)
+end
 
 -- Even though we define our mappings in other files, we need to make sure
 -- that leader and local leader keys are established well before then
