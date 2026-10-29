@@ -247,6 +247,8 @@
     ds = diff --submodule=diff --staged
     ; diff all changes (staged and not yet) (including submodules)
     da = diff --submodule=diff HEAD
+    ; diff all changes (staged and not yet) (including submodules) against the upstream branch
+    du = diff --submodule=diff @{u}
 
     ; diff unstaged files (including submodules) using difftool
     dt = difftool -t nvim --submodule=diff
