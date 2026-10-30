@@ -169,7 +169,7 @@
     edit-config = config --edit
     edit-global-config = config --global --edit
 
-    sb = status -sb
+    sb = "!f() { git submodule foreach git status -sb && git status -sb --ignore-submodules=none; }; f"
 
     ; list untracked files only (without any markers, for scripting)
     lsu = ls-files --others --exclude-standard
