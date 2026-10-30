@@ -267,7 +267,9 @@
     cob = checkout -b
 
     f = fetch --recurse-submodules
-    fetch-pr = "!f() { git fetch $1 pull/$2/head && git checkout FETCH_HEAD; }; f"
+
+    pr-fetch = "!f() { git fetch $1 pull/$2/head && git checkout FETCH_HEAD; }; f"
+    pr-review = "!f() { git fetch origin pull/$1/head && git checkout FETCH_HEAD && git switch -C pull-request-$1 && git branch -u origin/master; }; f"
 
     current-branch = rev-parse --abbrev-ref HEAD
 
