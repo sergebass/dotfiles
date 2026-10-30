@@ -266,6 +266,7 @@
     co = checkout
     cob = checkout -b
 
+    f = fetch --recurse-submodules
     fetch-pr = "!f() { git fetch $1 pull/$2/head && git checkout FETCH_HEAD; }; f"
 
     current-branch = rev-parse --abbrev-ref HEAD
