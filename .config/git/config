@@ -313,7 +313,8 @@
     ; revert a file
     rv = checkout --
 
-    pf = push --force-with-lease
+    p = push origin HEAD
+    pf = push --force-with-lease origin HEAD
     pu = push --set-upstream
 
     last-tag = describe --tags --abbrev=0
