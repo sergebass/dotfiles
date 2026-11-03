@@ -341,3 +341,5 @@
     wtl = worktree list
     wtm = worktree move
     wtr = worktree remove
+
+    xx = clean -fdx
