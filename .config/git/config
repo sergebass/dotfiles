@@ -323,7 +323,7 @@
     last-branches = for-each-ref --sort=committerdate refs/heads --format='%(committerdate:short) %(refname:short)'
     last-remote-branches = for-each-ref --sort=-committerdate refs/remotes --format='%(committerdate:short) %(refname:short)'
 
-    backup = !git diff @{upstream} > ~/git-backup-$(git rev-parse --abbrev-ref HEAD)-$(date "+%Y%m%d-%H%M%S").patch
+    backup = !git diff @{upstream} > ~/git-backup-$(basename $(pwd))-$(git rev-parse --abbrev-ref HEAD)-$(date "+%Y%m%d-%H%M%S").patch
 
     commits-by-author = shortlog -s -n --all --no-merges
 
