@@ -207,7 +207,7 @@
 
     log-files-only = show --pretty="" --name-only
 
-    g = grep --color=auto -I --line-number --full-name
+    g = grep --color=always -I --line-number --full-name
     gsm = g --recurse-submodules
 
     find = "!f() { git lm -U3 -S\"$1\" --patch | grep --color=always -C2 -E -e '=== ' -e \"$1\" | sed 's/===/\\n=====================================\\n===/' ; }; f"
