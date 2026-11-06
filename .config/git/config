@@ -177,7 +177,8 @@
     ; list untracked files only (without any markers, for scripting), NUL-delimited
     lsu0 = ls-files --others --exclude-standard -z
 
-    stat = diff --stat
+    st = diff --stat
+    stsm = "!f() { git submodule foreach git st && git st; }; f"
 
     sl = stash list
     ss = stash push
