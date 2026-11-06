@@ -187,11 +187,12 @@
     spi = checkout -p stash@{0}
     sa = stash apply
 
-    g = grep --color -I -n
-
     # base aliases for brief and verbose logs
-    l = log --date=iso --decorate=full --color --pretty=format:"%C(green)%h\\ %ai\\ %Creset\\%s\\ %C(cyan\\ bold)(%an)%C(yellow\\ bold)%d"
-    lv = log -p --stat --date=iso --decorate=full --color --pretty=format:"%C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
+    l = log --date=iso --decorate=full --color --format="%C(green)%h\\ %ai\\ %Creset\\%s\\ %C(cyan\\ bold)(%an)%C(yellow\\ bold)%d"
+    lv = log -p --stat --date=iso --decorate=full --color --format="%C(yellow\\ bold)===\\ %C(green\\ bold\\ reverse)%H\\ %C(yellow)%d\\ %n%C(cyan\\ bold)[%ai]\\ \\ %an\\ <%ae>%n%C(magenta\\ bold)[%ci]\\ \\ %cn\\ <%ce>%n%n%C(yellow\\ bold)%B%Creset"
+
+    # Logs with markers (for easier grepping)
+    lm = log --date=iso --decorate=full --color --format="%C(yellow\\ bold)===\\ %C(green)%h\\ %ai\\ %Creset\\%s\\ %C(cyan\\ bold)(%an)%C(yellow\\ bold)%d"
 
     # List commits in reverse order
     lr = l --reverse
@@ -201,40 +202,31 @@
     l1 = l -1
     lv1 = lv -1
 
-    log-graph = !git l --graph
-    log-stat = !git l --numstat
+    log-graph = l --graph
+    log-stat = l --numstat
 
     log-files-only = show --pretty="" --name-only
 
-    search = !git l --all --remotes
-    search-verbose = !git lv --all --remotes
+    g = grep --color=auto -I --line-number --full-name
+    gsm = g --recurse-submodules
 
-    s = !git search
-    sv = !git search-verbose
+    find = "!f() { git lm -U3 -S\"$1\" --patch | grep --color=always -C2 -E -e '=== ' -e \"$1\" | sed 's/===/\\n=====================================\\n===/' ; }; f"
+    find-regexp = "!f() { git lm -U3 -G\"$1\" --patch | grep --color=always -C2 -E -e '=== ' -e \"$1\" | sed 's/===/\\n=====================================\\n===/' ; }; f"
 
-    search-commit = !git search --grep
-    search-commit-verbose = !git search-verbose --grep
+    fd = find
+    fdr = find-regexp
 
-    sc = !git search-commit
-    scv = !git search-commit-verbose
+    find-commit = l --grep
+    find-commit-verbose = lv --grep
 
-    search-text = !git search -S
-    search-text-regexp = !git search -G
+    fc = find-commit
+    fcv = find-commit-verbose
 
-    st = !git search-text
-    str = !git search-text-regexp
+    find-file = l --stat --follow --
+    find-file-verbose = lv --stat --follow --
 
-    search-text-verbose = !git search-verbose -S
-    search-text-regexp-verbose = !git search-verbose -G
-
-    stv = !git search-text-verbose
-    strv = !git search-text-regexp-verbose
-
-    search-file = !git search --stat --follow --
-    search-file-verbose = !git search-verbose --stat --follow --
-
-    sf = !git search-file
-    sfv = !git search-file-verbose
+    ff = find-file
+    ffv = find-file-verbose
 
     ; show only the list of file names in the latest commit
     ln1 = log --pretty="format:" --name-only -1
