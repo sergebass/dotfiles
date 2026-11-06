@@ -272,7 +272,7 @@
     cob = checkout -b
 
     f = fetch
-    fm = fetch --recurse-submodules
+    fsm = f --recurse-submodules
 
     pr-fetch = "!f() { git fetch $1 pull/$2/head && git checkout FETCH_HEAD; }; f"
     pr-review = "!f() { git fetch origin pull/$1/head && git checkout FETCH_HEAD && git switch -C pull-request-$1 && git branch -u origin/master; }; f"
