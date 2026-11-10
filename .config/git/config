@@ -210,11 +210,11 @@
     g = grep --color=always -I --line-number --full-name
     gsm = g --recurse-submodules
 
-    find = "!f() { git lm -U3 -S\"$1\" --patch | grep --color=always -C2 -E -e '=== ' -e \"$1\" | sed 's/===/\\n=====================================\\n===/' ; }; f"
-    find-regexp = "!f() { git lm -U3 -G\"$1\" --patch | grep --color=always -C2 -E -e '=== ' -e \"$1\" | sed 's/===/\\n=====================================\\n===/' ; }; f"
+    find-text = "!f() { git lm -U3 -S\"$1\" --patch | grep --color=always -C2 -E -e '=== ' -e \"$1\" | sed 's/===/\\n=====================================\\n===/' ; }; f"
+    find-text-regexp = "!f() { git lm -U3 -G\"$1\" --patch | grep --color=always -C2 -E -e '=== ' -e \"$1\" | sed 's/===/\\n=====================================\\n===/' ; }; f"
 
-    fd = find
-    fdr = find-regexp
+    ft = find-text
+    ftr = find-text-regexp
 
     find-commit = l --grep
     find-commit-verbose = lv --grep
