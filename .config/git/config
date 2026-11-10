@@ -276,10 +276,10 @@
     bd = branch --delete
 
     rb = rebase --autostash
-    rbi = rebase --interactive
+    rbi = rebase --autostash --interactive
+    rbs = rebase --autostash --autosquash --interactive
     rba = rebase --abort
     rbc = rebase --continue
-    rbs = rebase --autostash --autosquash --interactive
 
     ap = add --patch
     au = add --update
