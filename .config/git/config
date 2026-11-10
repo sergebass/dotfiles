@@ -288,11 +288,20 @@
     ; add and commit in a single step
     ac = !git add -u && git commit -ev
 
-    c = commit -ev
-    cm = commit -evm
+    c = commit --edit --verbose --status
+    cm = c -m
 
-    commit-to-squash = commit -evm 'squash! '
-    csq = commit-to-squash
+    # Creates a commit to squash into the previous one.
+    commit-squash = "!f() { hash=$(git rev-parse HEAD) && git commit --squash=$hash --edit --verbose --status; }; f"
+    csq = commit-squash
+
+    # Creates a commit to fix up the previous one.
+    commit-fixup = "!f() { hash=$(git rev-parse HEAD) && git commit --fixup=$hash --edit --verbose --status; }; f"
+    cfx = commit-fixup
+
+    # Invokes the editor to create a stub commit to reword the last commit message (for git rebase)
+    commit-reword = "!f() { hash=$(git rev-parse HEAD) && git commit --fixup=reword:$hash --edit --verbose --status; }; f"
+    crw = commit-reword
 
     commit-fix = commit --amend --verbose
     commit-fix-author = commit --amend --verbose --reset-author
