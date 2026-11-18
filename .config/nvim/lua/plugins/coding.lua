@@ -341,6 +341,13 @@ return {
     config = true, -- or: opts = { layout = { default = "side" } }
   },
 
+  -- Oh-my-Pi plugin (for https://omp.sh/ AI agent harness)
+  {
+    "rauls-kjarners/omp.nvim",
+    event = "VeryLazy",
+    config = function() require("omp").setup() end,
+  },
+
   -- Opencode: open source AI client
   {
     "nickjvandyke/opencode.nvim",
