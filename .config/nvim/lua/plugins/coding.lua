@@ -334,6 +334,13 @@ return {
 
   -- FIXME: configure https://github.com/Jorenar/nvim-dap-disasm
 
+  -- pi.dev AI agent harness
+  {
+    "alex35mil/pi.nvim",
+    -- dependencies = { "HakonHarnes/img-clip.nvim" }, -- for :PiPasteImage
+    config = true, -- or: opts = { layout = { default = "side" } }
+  },
+
   -- Opencode: open source AI client
   {
     "nickjvandyke/opencode.nvim",
