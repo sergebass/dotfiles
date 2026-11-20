@@ -27,6 +27,7 @@ in {
       clang-tools  # Standalone command line tools for C++ development (clangd, clang-format etc.)
       cmake-language-server  # CMake LSP Implementation
       cmakeCurses  # Cross-platform, open-source build system generator
+      codex  # Lightweight coding agent that runs in your terminal
       gcc  # GNU Compiler Collection
       gdb  # GNU debugger
       gh  # GitHub CLI tool
@@ -45,6 +46,7 @@ in {
       nodejs  # Event-driven I/O framework for the V8 JavaScript engine (Node.JS and NPM)
       opencode  # AI coding agent built for the terminal
       perf  # Linux tools to profile with performance counters
+      pi-coding-agent  # Coding agent CLI with read, bash, edit, write tools and session management
       pkg-config  # A tool that allows packages to find out information about other packages (wrapper script)
       postgres-language-server  # Tools and language server for Postgres
       purescript  # Strongly-typed functional programming language that compiles to JavaScript
