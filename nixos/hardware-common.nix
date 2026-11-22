@@ -1,6 +1,13 @@
 # NixOS hardware configuration shared across multiple systems.
 
-{ config, lib, pkgs, modulesPath, ... }: let
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  system ? builtins.currentSystem,
+  ... }:
+let
   btrfsListFailedInodesScript = with pkgs; writeShellScriptBin "btrfs-list-failed-inodes" ''
     dmesg | grep -Po 'csum failed root \d+ ino\S* \d+' | awk '{print $6}' | sort -nu
   '';
@@ -87,7 +94,7 @@ in {
     };
 
     # Thermal monitoring and controlling daemon (prevent CPU overheating)
-    thermald.enable = (builtins.currentSystem == "x86_64-linux");  # Only available for x64 and i686; do not break ARM builds.
+    thermald.enable = (system == "x86_64-linux");  # Only available for x64 and i686; do not break ARM builds.
 
     btrfs = {
       autoScrub = {

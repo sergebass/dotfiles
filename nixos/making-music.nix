@@ -4,11 +4,7 @@
 
   imports = [
     ./common.nix  # Common configuration shared by all of our NixOS systems
-    ./musnix  # Real-time audio in NixOS (musnix repo as a submodule)
   ];
-
-  # See https://github.com/musnix/musnix
-  musnix.enable = true;
 
   environment = {
     systemPackages = with pkgs; [
