@@ -12,6 +12,9 @@
         enableQt5Integration = true;
       };
     };
+
+    # Plasma 6 Wayland is broken on this machine currently, so fall back to X11 for now
+    displayManager.defaultSession = "plasmax11";
   };
 
   qt.platformTheme = "qt5ct";  # Use qt5ct to configure Qt5 settings (e.g. theme, fonts, icons, etc.)
