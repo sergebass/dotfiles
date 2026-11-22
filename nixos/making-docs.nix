@@ -8,6 +8,9 @@
 
   environment = {
     systemPackages = with pkgs; [
+      (python3.withPackages (python-pkgs: with python-pkgs; [
+        weasyprint  # Converts web documents to PDF
+      ]))
       asciidoctor  # A faster Asciidoc processor written in Ruby
       docutils  # Python Documentation Utilities (rst2html, rst2pdf, etc.)
       kdePackages.okular # KDE document viewer (can sign PDFs: https://askubuntu.com/a/1514769)
@@ -16,7 +19,6 @@
       pandoc  # Converter between documentation formats
       pdf-sign  # Tool to visually sign PDF files
       poppler-utils  # PDF rendering library
-      python3Packages.weasyprint  # Converts web documents to PDF
       vale  # Syntax-aware linter for prose built with speed and extensibility in mind
       vale-ls  # LSP implementation for the Vale command-line tool
     ] ++ [
