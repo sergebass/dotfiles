@@ -13,12 +13,10 @@
     "flakes"
   ];
 
-  # We can use `nixos-version` to access the currently running system label.
-  # Fall back on standard label/version generation if no env vars are set.
+  # Determine the label/system version (a bit of impure logic here, requires --impure when evaluating)
   system.nixos.version = let
     customLabel = builtins.getEnv("NIXOS_LABEL");
-    customLabelPrefix = builtins.getEnv("NIXOS_LABEL_PREFIX");
-  in lib.mkIf (customLabel != "" || customLabelPrefix != "") config.system.nixos.label;
+  in lib.mkIf (customLabel != "") "${customLabel} (NixOS ${config.system.nixos.release})";
 
   security = {
     rtkit.enable = true;
