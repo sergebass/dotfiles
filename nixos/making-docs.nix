@@ -16,6 +16,7 @@
       pandoc  # Converter between documentation formats
       pdf-sign  # Tool to visually sign PDF files
       poppler-utils  # PDF rendering library
+      python3Packages.weasyprint  # Converts web documents to PDF
       vale  # Syntax-aware linter for prose built with speed and extensibility in mind
       vale-ls  # LSP implementation for the Vale command-line tool
     ] ++ [
