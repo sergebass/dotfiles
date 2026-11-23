@@ -214,6 +214,7 @@
       vivaldi  # Browser for our Friends, powerful and personal
       vivaldi-ffmpeg-codecs  # Additional support for proprietary codecs for Vivaldi and other chromium based tools
       wezterm  # GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
+      woeusb  # Create bootable USB disks from Windows ISO images
       yewtube  # Terminal based YouTube player and downloader, forked from mps-youtube
       ymuse  # GUI client for MPD
     ] ++ [
