@@ -5,7 +5,6 @@ let
   rootZfsPool = "rpool";
 
 in {
-
   imports = [
     ../hardware-common.nix  # Hardware configuration shared across all systems
     ../boot-systemd.nix  # Use systemd-boot for booting (Works best with ZFS root pool. UEFI only)
@@ -14,6 +13,7 @@ in {
     ../gui-sddm.nix  # SDDM display manager (For Plasma/KDE)
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
+    ../gui-lxqt.nix  # LXQt X11/GUI environment
     ../gui-plasma.nix  # Plasma X11/GUI environment
     ../gui-sway.nix  # Sway Wayland/GUI environment
     ../gui-xfce.nix  # XFCE X11/GUI environment
