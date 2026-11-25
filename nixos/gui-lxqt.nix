@@ -16,9 +16,14 @@
         };
       };
     };
+
+    xscreensaver.enable = true;
   };
 
   xdg.portal.lxqt.enable = true;
+
+  # We need this to avoid "password initialization error" dialogs when XScreensaver is running
+  security.pam.services.xscreensaver.enable = true;
 
   environment = {
     systemPackages = with pkgs; [
