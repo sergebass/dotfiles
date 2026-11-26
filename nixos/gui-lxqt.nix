@@ -17,6 +17,10 @@
       };
     };
 
+    displayManager.sessionPackages = [
+      pkgs.lxqt.lxqt-wayland-session  # Allow Wayland sessions explicitly
+    ];
+
     xscreensaver.enable = true;
   };
 
