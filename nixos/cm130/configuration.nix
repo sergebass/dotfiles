@@ -9,6 +9,7 @@
     ../gui-i3.nix  # i3 X11/GUI environment
     ../gui-icewm.nix  # IceWM X11/GUI environment
     ../gui-lightdm.nix  # LightDM display manager
+    ../gui-lxqt.nix  # LXQt GUI environment
     ../gui-plasma.nix  # KDE Plasma GUI environment
     ../gui-sway.nix  # Sway Wayland/GUI environment
     ../gui-xfce.nix  # XFCE X11/GUI environment
