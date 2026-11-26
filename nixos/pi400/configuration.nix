@@ -5,6 +5,7 @@
   imports = [
     ../pi4-common.nix  # Configuration shared across all Pi4 systems
     ../gui-lightdm.nix  # LightDM display manager
+    ../gui-lxqt.nix  # LXQt X11/GUI environment
     ../gui-xfce.nix  # XFCE X11/GUI environment
     ../keyboard-synth.nix  # MIDI keyboard talking to a software synthesizer
     ../mpd.nix
